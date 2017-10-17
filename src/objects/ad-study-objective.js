@@ -1,0 +1,56 @@
+/**
+ * Copyright (c) 2017-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
+ * @flow
+ */
+import {AbstractCrudObject} from './../abstract-crud-object';
+
+/**
+ * AdStudyObjective
+ * @extends AbstractCrudObject
+ * @see {@link https://developers.facebook.com/docs/marketing-api/}
+ */
+export default class AdStudyObjective extends AbstractCrudObject {
+  static get Fields() {
+    return Object.freeze({
+     custom_attributes: 'custom_attributes',
+     id: 'id',
+     is_primary: 'is_primary',
+     name: 'name',
+     results: 'results',
+     type: 'type',
+    });
+  }
+
+  static get Breakdowns(): Object {
+    return Object.freeze({
+      age: 'AGE',
+      cell_id: 'CELL_ID',
+      gender: 'GENDER',
+      country: 'COUNTRY',
+    });
+  }
+  static get Type(): Object {
+    return Object.freeze({
+      sales: 'SALES',
+      nonsales: 'NONSALES',
+      mae: 'MAE',
+      telco: 'TELCO',
+      ftl: 'FTL',
+      mai: 'MAI',
+      partner: 'PARTNER',
+      brandlift: 'BRANDLIFT',
+      brand: 'BRAND',
+    });
+  }
+
+  get (fields, params): AdStudyObjective {
+    return this.read(
+      fields,
+      params
+    );
+  }
+}

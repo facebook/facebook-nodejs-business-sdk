@@ -1,0 +1,5 @@
+test/**/suite.js*
+test/**/*.json
+node_modules
+bower_components
+*.log
