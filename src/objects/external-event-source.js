@@ -14,14 +14,13 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class ExternalEventSource extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     id: 'id',
-     name: 'name',
-     source_type: 'source_type',
+      id: 'id',
+      name: 'name',
+      source_type: 'source_type'
     });
   }
-
 
   get (fields, params): ExternalEventSource {
     return this.read(

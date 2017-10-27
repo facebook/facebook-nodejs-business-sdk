@@ -14,11 +14,10 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class ProductCatalogImageSettings extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     carousel_ad: 'carousel_ad',
-     single_ad: 'single_ad',
+      carousel_ad: 'carousel_ad',
+      single_ad: 'single_ad'
     });
   }
-
 }

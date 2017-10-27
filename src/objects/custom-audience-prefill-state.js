@@ -14,12 +14,11 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class CustomAudiencePrefillState extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     description: 'description',
-     num_added: 'num_added',
-     status: 'status',
+      description: 'description',
+      num_added: 'num_added',
+      status: 'status'
     });
   }
-
 }

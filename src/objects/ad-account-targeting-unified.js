@@ -14,19 +14,19 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdAccountTargetingUnified extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     audience_size: 'audience_size',
-     description: 'description',
-     id: 'id',
-     name: 'name',
-     path: 'path',
-     type: 'type',
-     valid: 'valid',
+      audience_size: 'audience_size',
+      description: 'description',
+      id: 'id',
+      name: 'name',
+      path: 'path',
+      type: 'type',
+      valid: 'valid'
     });
   }
 
-  static get LimitType(): Object {
+  static get LimitType (): Object {
     return Object.freeze({
       adgroup_id: 'ADGROUP_ID',
       genders: 'GENDERS',
@@ -118,7 +118,7 @@ export default class AdAccountTargetingUnified extends AbstractCrudObject {
       app_install_state: 'APP_INSTALL_STATE',
       fb_deal_id: 'FB_DEAL_ID',
       interest_defaults_source: 'INTEREST_DEFAULTS_SOURCE',
-      alternate_auto_targeting_option: 'ALTERNATE_AUTO_TARGETING_OPTION',
+      alternate_auto_targeting_option: 'ALTERNATE_AUTO_TARGETING_OPTION'
     });
   }
 }

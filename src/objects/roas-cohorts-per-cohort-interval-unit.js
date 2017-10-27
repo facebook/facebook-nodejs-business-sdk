@@ -14,11 +14,10 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class RoasCohortsPerCohortIntervalUnit extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     interval_start: 'interval_start',
-     revenue: 'revenue',
+      interval_start: 'interval_start',
+      revenue: 'revenue'
     });
   }
-
 }

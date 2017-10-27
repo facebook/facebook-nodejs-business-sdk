@@ -14,15 +14,14 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdCreativePhotoData extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     branded_content_sponsor_page_id: 'branded_content_sponsor_page_id',
-     branded_content_sponsor_relationship: 'branded_content_sponsor_relationship',
-     caption: 'caption',
-     image_hash: 'image_hash',
-     page_welcome_message: 'page_welcome_message',
-     url: 'url',
+      branded_content_sponsor_page_id: 'branded_content_sponsor_page_id',
+      branded_content_sponsor_relationship: 'branded_content_sponsor_relationship',
+      caption: 'caption',
+      image_hash: 'image_hash',
+      page_welcome_message: 'page_welcome_message',
+      url: 'url'
     });
   }
-
 }

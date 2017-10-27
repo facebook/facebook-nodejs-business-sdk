@@ -14,17 +14,16 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class EventSourceGroup extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     business: 'business',
-     event_sources: 'event_sources',
-     id: 'id',
-     name: 'name',
+      business: 'business',
+      event_sources: 'event_sources',
+      id: 'id',
+      name: 'name'
     });
   }
 
-
-  createSharedAccount(fields, params): EventSourceGroup {
+  createSharedAccount (fields, params): EventSourceGroup {
     return this.createEdge(
       '/shared_accounts',
       fields,

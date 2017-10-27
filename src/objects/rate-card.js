@@ -14,12 +14,11 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class RateCard extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     country: 'country',
-     currency: 'currency',
-     rate: 'rate',
+      country: 'country',
+      currency: 'currency',
+      rate: 'rate'
     });
   }
-
 }

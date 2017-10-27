@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
 import ProductGroup from './product-group';
 import ProductItem from './product-item';
 
@@ -16,19 +17,18 @@ import ProductItem from './product-item';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class ProductSet extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     auto_creation_url: 'auto_creation_url',
-     filter: 'filter',
-     id: 'id',
-     name: 'name',
-     product_catalog: 'product_catalog',
-     product_count: 'product_count',
+      auto_creation_url: 'auto_creation_url',
+      filter: 'filter',
+      id: 'id',
+      name: 'name',
+      product_catalog: 'product_catalog',
+      product_count: 'product_count'
     });
   }
 
-
-  getProductGroups(fields, params, fetchFirstPage = true): ProductGroup {
+  getProductGroups (fields, params, fetchFirstPage = true): ProductGroup {
     return this.getEdge(
       ProductGroup,
       fields,
@@ -38,7 +38,7 @@ export default class ProductSet extends AbstractCrudObject {
     );
   }
 
-  getProducts(fields, params, fetchFirstPage = true): ProductItem {
+  getProducts (fields, params, fetchFirstPage = true): ProductItem {
     return this.getEdge(
       ProductItem,
       fields,
@@ -48,7 +48,7 @@ export default class ProductSet extends AbstractCrudObject {
     );
   }
 
-  delete (fields, params): Object {
+  delete (fields, params): AbstractObject {
     return super.delete(
       params
     );

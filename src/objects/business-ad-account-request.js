@@ -14,11 +14,10 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class BusinessAdAccountRequest extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     ad_account: 'ad_account',
-     id: 'id',
+      ad_account: 'ad_account',
+      id: 'id'
     });
   }
-
 }

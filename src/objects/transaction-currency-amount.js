@@ -14,12 +14,11 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class TransactionCurrencyAmount extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     amount: 'amount',
-     currency: 'currency',
-     total_amount: 'total_amount',
+      amount: 'amount',
+      currency: 'currency',
+      total_amount: 'total_amount'
     });
   }
-
 }

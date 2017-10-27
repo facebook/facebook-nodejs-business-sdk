@@ -14,20 +14,20 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class ProductFeedSchedule extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     day_of_month: 'day_of_month',
-     day_of_week: 'day_of_week',
-     hour: 'hour',
-     interval: 'interval',
-     minute: 'minute',
-     timezone: 'timezone',
-     url: 'url',
-     username: 'username',
+      day_of_month: 'day_of_month',
+      day_of_week: 'day_of_week',
+      hour: 'hour',
+      interval: 'interval',
+      minute: 'minute',
+      timezone: 'timezone',
+      url: 'url',
+      username: 'username'
     });
   }
 
-  static get DayOfWeek(): Object {
+  static get DayOfWeek (): Object {
     return Object.freeze({
       sunday: 'SUNDAY',
       monday: 'MONDAY',
@@ -35,15 +35,15 @@ export default class ProductFeedSchedule extends AbstractCrudObject {
       wednesday: 'WEDNESDAY',
       thursday: 'THURSDAY',
       friday: 'FRIDAY',
-      saturday: 'SATURDAY',
+      saturday: 'SATURDAY'
     });
   }
-  static get Interval(): Object {
+  static get Interval (): Object {
     return Object.freeze({
       hourly: 'HOURLY',
       daily: 'DAILY',
       weekly: 'WEEKLY',
-      monthly: 'MONTHLY',
+      monthly: 'MONTHLY'
     });
   }
 }

@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
 import HotelRoom from './hotel-room';
 
 /**
@@ -15,26 +16,25 @@ import HotelRoom from './hotel-room';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class Hotel extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     address: 'address',
-     applinks: 'applinks',
-     brand: 'brand',
-     description: 'description',
-     guest_ratings: 'guest_ratings',
-     hotel_id: 'hotel_id',
-     id: 'id',
-     images: 'images',
-     lowest_base_price: 'lowest_base_price',
-     name: 'name',
-     phone: 'phone',
-     star_rating: 'star_rating',
-     url: 'url',
+      address: 'address',
+      applinks: 'applinks',
+      brand: 'brand',
+      description: 'description',
+      guest_ratings: 'guest_ratings',
+      hotel_id: 'hotel_id',
+      id: 'id',
+      images: 'images',
+      lowest_base_price: 'lowest_base_price',
+      name: 'name',
+      phone: 'phone',
+      star_rating: 'star_rating',
+      url: 'url'
     });
   }
 
-
-  createHotelRoom(fields, params): HotelRoom {
+  createHotelRoom (fields, params): HotelRoom {
     return this.createEdge(
       '/hotel_rooms',
       fields,
@@ -42,7 +42,7 @@ export default class Hotel extends AbstractCrudObject {
     );
   }
 
-  delete (fields, params): Object {
+  delete (fields, params): AbstractObject {
     return super.delete(
       params
     );

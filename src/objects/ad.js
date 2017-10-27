@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
 import AdCreative from './ad-creative';
 import AdLabel from './ad-label';
 import AdsInsights from './ads-insights';
@@ -22,51 +23,51 @@ import TargetingSentenceLine from './targeting-sentence-line';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class Ad extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     account_id: 'account_id',
-     ad_review_feedback: 'ad_review_feedback',
-     adlabels: 'adlabels',
-     adset: 'adset',
-     adset_id: 'adset_id',
-     bid_amount: 'bid_amount',
-     bid_info: 'bid_info',
-     bid_type: 'bid_type',
-     campaign: 'campaign',
-     campaign_id: 'campaign_id',
-     configured_status: 'configured_status',
-     conversion_specs: 'conversion_specs',
-     created_time: 'created_time',
-     creative: 'creative',
-     effective_status: 'effective_status',
-     id: 'id',
-     last_updated_by_app_id: 'last_updated_by_app_id',
-     name: 'name',
-     recommendations: 'recommendations',
-     status: 'status',
-     tracking_specs: 'tracking_specs',
-     updated_time: 'updated_time',
+      account_id: 'account_id',
+      ad_review_feedback: 'ad_review_feedback',
+      adlabels: 'adlabels',
+      adset: 'adset',
+      adset_id: 'adset_id',
+      bid_amount: 'bid_amount',
+      bid_info: 'bid_info',
+      bid_type: 'bid_type',
+      campaign: 'campaign',
+      campaign_id: 'campaign_id',
+      configured_status: 'configured_status',
+      conversion_specs: 'conversion_specs',
+      created_time: 'created_time',
+      creative: 'creative',
+      effective_status: 'effective_status',
+      id: 'id',
+      last_updated_by_app_id: 'last_updated_by_app_id',
+      name: 'name',
+      recommendations: 'recommendations',
+      status: 'status',
+      tracking_specs: 'tracking_specs',
+      updated_time: 'updated_time'
     });
   }
 
-  static get BidType(): Object {
+  static get BidType (): Object {
     return Object.freeze({
       cpc: 'CPC',
       cpm: 'CPM',
       multi_premium: 'MULTI_PREMIUM',
       absolute_ocpm: 'ABSOLUTE_OCPM',
-      cpa: 'CPA',
+      cpa: 'CPA'
     });
   }
-  static get ConfiguredStatus(): Object {
+  static get ConfiguredStatus (): Object {
     return Object.freeze({
       active: 'ACTIVE',
       paused: 'PAUSED',
       deleted: 'DELETED',
-      archived: 'ARCHIVED',
+      archived: 'ARCHIVED'
     });
   }
-  static get EffectiveStatus(): Object {
+  static get EffectiveStatus (): Object {
     return Object.freeze({
       active: 'ACTIVE',
       paused: 'PAUSED',
@@ -77,18 +78,18 @@ export default class Ad extends AbstractCrudObject {
       pending_billing_info: 'PENDING_BILLING_INFO',
       campaign_paused: 'CAMPAIGN_PAUSED',
       archived: 'ARCHIVED',
-      adset_paused: 'ADSET_PAUSED',
+      adset_paused: 'ADSET_PAUSED'
     });
   }
-  static get Status(): Object {
+  static get Status (): Object {
     return Object.freeze({
       active: 'ACTIVE',
       paused: 'PAUSED',
       deleted: 'DELETED',
-      archived: 'ARCHIVED',
+      archived: 'ARCHIVED'
     });
   }
-  static get DatePreset(): Object {
+  static get DatePreset (): Object {
     return Object.freeze({
       today: 'TODAY',
       yesterday: 'YESTERDAY',
@@ -108,24 +109,24 @@ export default class Ad extends AbstractCrudObject {
       last_year: 'LAST_YEAR',
       this_week_mon_today: 'THIS_WEEK_MON_TODAY',
       this_week_sun_today: 'THIS_WEEK_SUN_TODAY',
-      this_year: 'THIS_YEAR',
+      this_year: 'THIS_YEAR'
     });
   }
-  static get ExecutionOptions(): Object {
+  static get ExecutionOptions (): Object {
     return Object.freeze({
       validate_only: 'VALIDATE_ONLY',
       synchronous_ad_review: 'SYNCHRONOUS_AD_REVIEW',
-      include_recommendations: 'INCLUDE_RECOMMENDATIONS',
+      include_recommendations: 'INCLUDE_RECOMMENDATIONS'
     });
   }
-  static get Operator(): Object {
+  static get Operator (): Object {
     return Object.freeze({
       all: 'ALL',
-      any: 'ANY',
+      any: 'ANY'
     });
   }
 
-  getAdCreatives(fields, params, fetchFirstPage = true): AdCreative {
+  getAdCreatives (fields, params, fetchFirstPage = true): AdCreative {
     return this.getEdge(
       AdCreative,
       fields,
@@ -135,14 +136,14 @@ export default class Ad extends AbstractCrudObject {
     );
   }
 
-  deleteAdLabels(params): Object {
+  deleteAdLabels (params): AbstractObject {
     return super.deleteEdge(
       '/adlabels',
       params
     );
   }
 
-  createAdLabel(fields, params): AdLabel {
+  createAdLabel (fields, params): AdLabel {
     return this.createEdge(
       '/adlabels',
       fields,
@@ -150,7 +151,7 @@ export default class Ad extends AbstractCrudObject {
     );
   }
 
-  getInsights(fields, params, fetchFirstPage = true): AdsInsights {
+  getInsights (fields, params, fetchFirstPage = true): AdsInsights {
     return this.getEdge(
       AdsInsights,
       fields,
@@ -160,7 +161,7 @@ export default class Ad extends AbstractCrudObject {
     );
   }
 
-  getInsightsAsync(fields, params): AdReportRun {
+  getInsightsAsync (fields, params): AdReportRun {
     return this.createEdge(
       '/insights',
       fields,
@@ -168,7 +169,7 @@ export default class Ad extends AbstractCrudObject {
     );
   }
 
-  getKeywordStats(fields, params, fetchFirstPage = true): AdKeywordStats {
+  getKeywordStats (fields, params, fetchFirstPage = true): AdKeywordStats {
     return this.getEdge(
       AdKeywordStats,
       fields,
@@ -178,7 +179,7 @@ export default class Ad extends AbstractCrudObject {
     );
   }
 
-  getLeads(fields, params, fetchFirstPage = true): Lead {
+  getLeads (fields, params, fetchFirstPage = true): Lead {
     return this.getEdge(
       Lead,
       fields,
@@ -188,7 +189,7 @@ export default class Ad extends AbstractCrudObject {
     );
   }
 
-  getPreviews(fields, params, fetchFirstPage = true): AdPreview {
+  getPreviews (fields, params, fetchFirstPage = true): AdPreview {
     return this.getEdge(
       AdPreview,
       fields,
@@ -198,7 +199,7 @@ export default class Ad extends AbstractCrudObject {
     );
   }
 
-  getTargetingSentenceLines(fields, params, fetchFirstPage = true): TargetingSentenceLine {
+  getTargetingSentenceLines (fields, params, fetchFirstPage = true): TargetingSentenceLine {
     return this.getEdge(
       TargetingSentenceLine,
       fields,
@@ -208,7 +209,7 @@ export default class Ad extends AbstractCrudObject {
     );
   }
 
-  delete (fields, params): Object {
+  delete (fields, params): AbstractObject {
     return super.delete(
       params
     );

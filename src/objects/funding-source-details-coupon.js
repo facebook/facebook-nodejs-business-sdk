@@ -14,13 +14,12 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class FundingSourceDetailsCoupon extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     amount: 'amount',
-     currency: 'currency',
-     display_amount: 'display_amount',
-     expiration: 'expiration',
+      amount: 'amount',
+      currency: 'currency',
+      display_amount: 'display_amount',
+      expiration: 'expiration'
     });
   }
-
 }

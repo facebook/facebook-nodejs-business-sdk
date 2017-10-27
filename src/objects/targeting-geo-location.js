@@ -14,20 +14,19 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class TargetingGeoLocation extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     cities: 'cities',
-     countries: 'countries',
-     country_groups: 'country_groups',
-     custom_locations: 'custom_locations',
-     electoral_districts: 'electoral_districts',
-     geo_markets: 'geo_markets',
-     location_types: 'location_types',
-     places: 'places',
-     political_districts: 'political_districts',
-     regions: 'regions',
-     zips: 'zips',
+      cities: 'cities',
+      countries: 'countries',
+      country_groups: 'country_groups',
+      custom_locations: 'custom_locations',
+      electoral_districts: 'electoral_districts',
+      geo_markets: 'geo_markets',
+      location_types: 'location_types',
+      places: 'places',
+      political_districts: 'political_districts',
+      regions: 'regions',
+      zips: 'zips'
     });
   }
-
 }

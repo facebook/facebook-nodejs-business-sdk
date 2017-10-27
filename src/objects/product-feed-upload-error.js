@@ -15,25 +15,25 @@ import ProductFeedUploadErrorSample from './product-feed-upload-error-sample';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class ProductFeedUploadError extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     description: 'description',
-     error_type: 'error_type',
-     id: 'id',
-     severity: 'severity',
-     summary: 'summary',
-     total_count: 'total_count',
+      description: 'description',
+      error_type: 'error_type',
+      id: 'id',
+      severity: 'severity',
+      summary: 'summary',
+      total_count: 'total_count'
     });
   }
 
-  static get Severity(): Object {
+  static get Severity (): Object {
     return Object.freeze({
       fatal: 'FATAL',
-      warning: 'WARNING',
+      warning: 'WARNING'
     });
   }
 
-  getSamples(fields, params, fetchFirstPage = true): ProductFeedUploadErrorSample {
+  getSamples (fields, params, fetchFirstPage = true): ProductFeedUploadErrorSample {
     return this.getEdge(
       ProductFeedUploadErrorSample,
       fields,

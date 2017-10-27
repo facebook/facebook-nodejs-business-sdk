@@ -14,30 +14,30 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdRecommendation extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     blame_field: 'blame_field',
-     code: 'code',
-     confidence: 'confidence',
-     importance: 'importance',
-     message: 'message',
-     recommendation_data: 'recommendation_data',
-     title: 'title',
+      blame_field: 'blame_field',
+      code: 'code',
+      confidence: 'confidence',
+      importance: 'importance',
+      message: 'message',
+      recommendation_data: 'recommendation_data',
+      title: 'title'
     });
   }
 
-  static get Confidence(): Object {
+  static get Confidence (): Object {
     return Object.freeze({
       high: 'HIGH',
       medium: 'MEDIUM',
-      low: 'LOW',
+      low: 'LOW'
     });
   }
-  static get Importance(): Object {
+  static get Importance (): Object {
     return Object.freeze({
       high: 'HIGH',
       medium: 'MEDIUM',
-      low: 'LOW',
+      low: 'LOW'
     });
   }
 }

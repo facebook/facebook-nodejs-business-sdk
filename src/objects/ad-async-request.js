@@ -14,20 +14,20 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdAsyncRequest extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     async_request_set: 'async_request_set',
-     created_time: 'created_time',
-     id: 'id',
-     input: 'input',
-     result: 'result',
-     scope_object_id: 'scope_object_id',
-     status: 'status',
-     updated_time: 'updated_time',
+      async_request_set: 'async_request_set',
+      created_time: 'created_time',
+      id: 'id',
+      input: 'input',
+      result: 'result',
+      scope_object_id: 'scope_object_id',
+      status: 'status',
+      updated_time: 'updated_time'
     });
   }
 
-  static get Status(): Object {
+  static get Status (): Object {
     return Object.freeze({
       initial: 'INITIAL',
       in_progress: 'IN_PROGRESS',
@@ -37,10 +37,10 @@ export default class AdAsyncRequest extends AbstractCrudObject {
       pending_dependency: 'PENDING_DEPENDENCY',
       canceled_dependency: 'CANCELED_DEPENDENCY',
       error_dependency: 'ERROR_DEPENDENCY',
-      error_conflicts: 'ERROR_CONFLICTS',
+      error_conflicts: 'ERROR_CONFLICTS'
     });
   }
-  static get Statuses(): Object {
+  static get Statuses (): Object {
     return Object.freeze({
       initial: 'INITIAL',
       in_progress: 'IN_PROGRESS',
@@ -50,7 +50,7 @@ export default class AdAsyncRequest extends AbstractCrudObject {
       pending_dependency: 'PENDING_DEPENDENCY',
       canceled_dependency: 'CANCELED_DEPENDENCY',
       error_dependency: 'ERROR_DEPENDENCY',
-      error_conflicts: 'ERROR_CONFLICTS',
+      error_conflicts: 'ERROR_CONFLICTS'
     });
   }
 

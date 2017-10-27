@@ -14,20 +14,19 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class BroadTargetingCategories extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     category_description: 'category_description',
-     id: 'id',
-     name: 'name',
-     parent_category: 'parent_category',
-     path: 'path',
-     size: 'size',
-     source: 'source',
-     type: 'type',
-     type_name: 'type_name',
-     untranslated_name: 'untranslated_name',
-     untranslated_parent_name: 'untranslated_parent_name',
+      category_description: 'category_description',
+      id: 'id',
+      name: 'name',
+      parent_category: 'parent_category',
+      path: 'path',
+      size: 'size',
+      source: 'source',
+      type: 'type',
+      type_name: 'type_name',
+      untranslated_name: 'untranslated_name',
+      untranslated_parent_name: 'untranslated_parent_name'
     });
   }
-
 }

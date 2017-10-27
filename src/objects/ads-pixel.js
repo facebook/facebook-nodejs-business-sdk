@@ -18,21 +18,20 @@ import AdsPixelStatsResult from './ads-pixel-stats-result';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdsPixel extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     code: 'code',
-     creation_time: 'creation_time',
-     id: 'id',
-     is_created_by_business: 'is_created_by_business',
-     last_fired_time: 'last_fired_time',
-     name: 'name',
-     owner_ad_account: 'owner_ad_account',
-     owner_business: 'owner_business',
+      code: 'code',
+      creation_time: 'creation_time',
+      id: 'id',
+      is_created_by_business: 'is_created_by_business',
+      last_fired_time: 'last_fired_time',
+      name: 'name',
+      owner_ad_account: 'owner_ad_account',
+      owner_business: 'owner_business'
     });
   }
 
-
-  getAudiences(fields, params, fetchFirstPage = true): CustomAudience {
+  getAudiences (fields, params, fetchFirstPage = true): CustomAudience {
     return this.getEdge(
       CustomAudience,
       fields,
@@ -42,7 +41,7 @@ export default class AdsPixel extends AbstractCrudObject {
     );
   }
 
-  getSharedAccounts(fields, params, fetchFirstPage = true): AdAccount {
+  getSharedAccounts (fields, params, fetchFirstPage = true): AdAccount {
     return this.getEdge(
       AdAccount,
       fields,
@@ -52,7 +51,7 @@ export default class AdsPixel extends AbstractCrudObject {
     );
   }
 
-  getSharedAgencies(fields, params, fetchFirstPage = true): Business {
+  getSharedAgencies (fields, params, fetchFirstPage = true): Business {
     return this.getEdge(
       Business,
       fields,
@@ -62,7 +61,7 @@ export default class AdsPixel extends AbstractCrudObject {
     );
   }
 
-  getStats(fields, params, fetchFirstPage = true): AdsPixelStatsResult {
+  getStats (fields, params, fetchFirstPage = true): AdsPixelStatsResult {
     return this.getEdge(
       AdsPixelStatsResult,
       fields,

@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
 import AdAccount from './ad-account';
 
 /**
@@ -15,36 +16,36 @@ import AdAccount from './ad-account';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class OffsitePixel extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     creator: 'creator',
-     id: 'id',
-     js_pixel: 'js_pixel',
-     last_firing_time: 'last_firing_time',
-     name: 'name',
-     tag: 'tag',
+      creator: 'creator',
+      id: 'id',
+      js_pixel: 'js_pixel',
+      last_firing_time: 'last_firing_time',
+      name: 'name',
+      tag: 'tag'
     });
   }
 
-  static get Tag(): Object {
+  static get Tag (): Object {
     return Object.freeze({
       checkout: 'CHECKOUT',
       registration: 'REGISTRATION',
       lead: 'LEAD',
       key_page_view: 'KEY_PAGE_VIEW',
       add_to_cart: 'ADD_TO_CART',
-      other: 'OTHER',
+      other: 'OTHER'
     });
   }
 
-  deleteAdAccounts(params): Object {
+  deleteAdAccounts (params): AbstractObject {
     return super.deleteEdge(
       '/adaccounts',
       params
     );
   }
 
-  getAdAccounts(fields, params, fetchFirstPage = true): AdAccount {
+  getAdAccounts (fields, params, fetchFirstPage = true): AdAccount {
     return this.getEdge(
       AdAccount,
       fields,
@@ -54,7 +55,7 @@ export default class OffsitePixel extends AbstractCrudObject {
     );
   }
 
-  createAdAccount(fields, params): AdAccount {
+  createAdAccount (fields, params): AdAccount {
     return this.createEdge(
       '/adaccounts',
       fields,
@@ -62,7 +63,7 @@ export default class OffsitePixel extends AbstractCrudObject {
     );
   }
 
-  delete (fields, params): Object {
+  delete (fields, params): AbstractObject {
     return super.delete(
       params
     );

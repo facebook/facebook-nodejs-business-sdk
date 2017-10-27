@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
 import AdCreative from './ad-creative';
 import Ad from './ad';
 import AdSet from './ad-set';
@@ -18,23 +19,23 @@ import Campaign from './campaign';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdLabel extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     account: 'account',
-     created_time: 'created_time',
-     id: 'id',
-     name: 'name',
-     updated_time: 'updated_time',
+      account: 'account',
+      created_time: 'created_time',
+      id: 'id',
+      name: 'name',
+      updated_time: 'updated_time'
     });
   }
 
-  static get ExecutionOptions(): Object {
+  static get ExecutionOptions (): Object {
     return Object.freeze({
-      validate_only: 'VALIDATE_ONLY',
+      validate_only: 'VALIDATE_ONLY'
     });
   }
 
-  getAdCreatives(fields, params, fetchFirstPage = true): AdCreative {
+  getAdCreatives (fields, params, fetchFirstPage = true): AdCreative {
     return this.getEdge(
       AdCreative,
       fields,
@@ -44,7 +45,7 @@ export default class AdLabel extends AbstractCrudObject {
     );
   }
 
-  getAds(fields, params, fetchFirstPage = true): Ad {
+  getAds (fields, params, fetchFirstPage = true): Ad {
     return this.getEdge(
       Ad,
       fields,
@@ -54,7 +55,7 @@ export default class AdLabel extends AbstractCrudObject {
     );
   }
 
-  getAdSets(fields, params, fetchFirstPage = true): AdSet {
+  getAdSets (fields, params, fetchFirstPage = true): AdSet {
     return this.getEdge(
       AdSet,
       fields,
@@ -64,7 +65,7 @@ export default class AdLabel extends AbstractCrudObject {
     );
   }
 
-  getCampaigns(fields, params, fetchFirstPage = true): Campaign {
+  getCampaigns (fields, params, fetchFirstPage = true): Campaign {
     return this.getEdge(
       Campaign,
       fields,
@@ -74,7 +75,7 @@ export default class AdLabel extends AbstractCrudObject {
     );
   }
 
-  delete (fields, params): Object {
+  delete (fields, params): AbstractObject {
     return super.delete(
       params
     );

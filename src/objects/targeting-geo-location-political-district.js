@@ -14,13 +14,12 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class TargetingGeoLocationPoliticalDistrict extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     country: 'country',
-     key: 'key',
-     name: 'name',
-     political_district: 'political_district',
+      country: 'country',
+      key: 'key',
+      name: 'name',
+      political_district: 'political_district'
     });
   }
-
 }

@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
 import AdActivity from './ad-activity';
 import AdPlacePageSet from './ad-place-page-set';
 import AdCreative from './ad-creative';
@@ -45,80 +46,80 @@ import AdAccountUser from './ad-account-user';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdAccount extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     account_id: 'account_id',
-     account_status: 'account_status',
-     age: 'age',
-     agency_client_declaration: 'agency_client_declaration',
-     amount_spent: 'amount_spent',
-     balance: 'balance',
-     business: 'business',
-     business_city: 'business_city',
-     business_country_code: 'business_country_code',
-     business_name: 'business_name',
-     business_state: 'business_state',
-     business_street: 'business_street',
-     business_street2: 'business_street2',
-     business_zip: 'business_zip',
-     can_create_brand_lift_study: 'can_create_brand_lift_study',
-     capabilities: 'capabilities',
-     created_time: 'created_time',
-     currency: 'currency',
-     disable_reason: 'disable_reason',
-     end_advertiser: 'end_advertiser',
-     end_advertiser_name: 'end_advertiser_name',
-     failed_delivery_checks: 'failed_delivery_checks',
-     funding_source: 'funding_source',
-     funding_source_details: 'funding_source_details',
-     has_migrated_permissions: 'has_migrated_permissions',
-     id: 'id',
-     io_number: 'io_number',
-     is_notifications_enabled: 'is_notifications_enabled',
-     is_personal: 'is_personal',
-     is_prepay_account: 'is_prepay_account',
-     is_tax_id_required: 'is_tax_id_required',
-     line_numbers: 'line_numbers',
-     media_agency: 'media_agency',
-     min_campaign_group_spend_cap: 'min_campaign_group_spend_cap',
-     min_daily_budget: 'min_daily_budget',
-     name: 'name',
-     offsite_pixels_tos_accepted: 'offsite_pixels_tos_accepted',
-     owner: 'owner',
-     partner: 'partner',
-     rf_spec: 'rf_spec',
-     salesforce_invoice_group_id: 'salesforce_invoice_group_id',
-     show_checkout_experience: 'show_checkout_experience',
-     spend_cap: 'spend_cap',
-     tax_id: 'tax_id',
-     tax_id_status: 'tax_id_status',
-     tax_id_type: 'tax_id_type',
-     timezone_id: 'timezone_id',
-     timezone_name: 'timezone_name',
-     timezone_offset_hours_utc: 'timezone_offset_hours_utc',
-     tos_accepted: 'tos_accepted',
-     user_role: 'user_role',
+      account_id: 'account_id',
+      account_status: 'account_status',
+      age: 'age',
+      agency_client_declaration: 'agency_client_declaration',
+      amount_spent: 'amount_spent',
+      balance: 'balance',
+      business: 'business',
+      business_city: 'business_city',
+      business_country_code: 'business_country_code',
+      business_name: 'business_name',
+      business_state: 'business_state',
+      business_street: 'business_street',
+      business_street2: 'business_street2',
+      business_zip: 'business_zip',
+      can_create_brand_lift_study: 'can_create_brand_lift_study',
+      capabilities: 'capabilities',
+      created_time: 'created_time',
+      currency: 'currency',
+      disable_reason: 'disable_reason',
+      end_advertiser: 'end_advertiser',
+      end_advertiser_name: 'end_advertiser_name',
+      failed_delivery_checks: 'failed_delivery_checks',
+      funding_source: 'funding_source',
+      funding_source_details: 'funding_source_details',
+      has_migrated_permissions: 'has_migrated_permissions',
+      id: 'id',
+      io_number: 'io_number',
+      is_notifications_enabled: 'is_notifications_enabled',
+      is_personal: 'is_personal',
+      is_prepay_account: 'is_prepay_account',
+      is_tax_id_required: 'is_tax_id_required',
+      line_numbers: 'line_numbers',
+      media_agency: 'media_agency',
+      min_campaign_group_spend_cap: 'min_campaign_group_spend_cap',
+      min_daily_budget: 'min_daily_budget',
+      name: 'name',
+      offsite_pixels_tos_accepted: 'offsite_pixels_tos_accepted',
+      owner: 'owner',
+      partner: 'partner',
+      rf_spec: 'rf_spec',
+      salesforce_invoice_group_id: 'salesforce_invoice_group_id',
+      show_checkout_experience: 'show_checkout_experience',
+      spend_cap: 'spend_cap',
+      tax_id: 'tax_id',
+      tax_id_status: 'tax_id_status',
+      tax_id_type: 'tax_id_type',
+      timezone_id: 'timezone_id',
+      timezone_name: 'timezone_name',
+      timezone_offset_hours_utc: 'timezone_offset_hours_utc',
+      tos_accepted: 'tos_accepted',
+      user_role: 'user_role'
     });
   }
 
-  static get AccessType(): Object {
+  static get AccessType (): Object {
     return Object.freeze({
       owner: 'OWNER',
-      agency: 'AGENCY',
+      agency: 'AGENCY'
     });
   }
-  static get PermittedRoles(): Object {
+  static get PermittedRoles (): Object {
     return Object.freeze({
       admin: 'ADMIN',
       general_user: 'GENERAL_USER',
       reports_only: 'REPORTS_ONLY',
       instagram_advertiser: 'INSTAGRAM_ADVERTISER',
       instagram_manager: 'INSTAGRAM_MANAGER',
-      fb_employee_dso_advertiser: 'FB_EMPLOYEE_DSO_ADVERTISER',
+      fb_employee_dso_advertiser: 'FB_EMPLOYEE_DSO_ADVERTISER'
     });
   }
 
-  getActivities(fields, params, fetchFirstPage = true): AdActivity {
+  getActivities (fields, params, fetchFirstPage = true): AdActivity {
     return this.getEdge(
       AdActivity,
       fields,
@@ -128,7 +129,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getAdPlacePageSets(fields, params, fetchFirstPage = true): AdPlacePageSet {
+  getAdPlacePageSets (fields, params, fetchFirstPage = true): AdPlacePageSet {
     return this.getEdge(
       AdPlacePageSet,
       fields,
@@ -138,7 +139,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createAdPlacePageSet(fields, params): AdPlacePageSet {
+  createAdPlacePageSet (fields, params): AdPlacePageSet {
     return this.createEdge(
       '/ad_place_page_sets',
       fields,
@@ -146,7 +147,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getAdCreatives(fields, params, fetchFirstPage = true): AdCreative {
+  getAdCreatives (fields, params, fetchFirstPage = true): AdCreative {
     return this.getEdge(
       AdCreative,
       fields,
@@ -156,7 +157,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createAdCreative(fields, params): AdCreative {
+  createAdCreative (fields, params): AdCreative {
     return this.createEdge(
       '/adcreatives',
       fields,
@@ -164,7 +165,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getAdCreativesByLabels(fields, params, fetchFirstPage = true): AdCreative {
+  getAdCreativesByLabels (fields, params, fetchFirstPage = true): AdCreative {
     return this.getEdge(
       AdCreative,
       fields,
@@ -174,14 +175,14 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  deleteAdImages(params): Object {
+  deleteAdImages (params): AbstractObject {
     return super.deleteEdge(
       '/adimages',
       params
     );
   }
 
-  getAdImages(fields, params, fetchFirstPage = true): AdImage {
+  getAdImages (fields, params, fetchFirstPage = true): AdImage {
     return this.getEdge(
       AdImage,
       fields,
@@ -191,7 +192,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createAdImage(fields, params): AdImage {
+  createAdImage (fields, params): AdImage {
     return this.createEdge(
       '/adimages',
       fields,
@@ -199,7 +200,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getAdLabels(fields, params, fetchFirstPage = true): AdLabel {
+  getAdLabels (fields, params, fetchFirstPage = true): AdLabel {
     return this.getEdge(
       AdLabel,
       fields,
@@ -209,7 +210,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createAdLabel(fields, params): AdLabel {
+  createAdLabel (fields, params): AdLabel {
     return this.createEdge(
       '/adlabels',
       fields,
@@ -217,7 +218,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getAdReportRuns(fields, params, fetchFirstPage = true): AdReportRun {
+  getAdReportRuns (fields, params, fetchFirstPage = true): AdReportRun {
     return this.getEdge(
       AdReportRun,
       fields,
@@ -227,9 +228,9 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getAdReportSchedules(fields, params, fetchFirstPage = true): Object {
+  getAdReportSchedules (fields, params, fetchFirstPage = true): AbstractObject {
     return this.getEdge(
-      Object,
+      AbstractObject,
       fields,
       params,
       fetchFirstPage,
@@ -237,7 +238,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getAds(fields, params, fetchFirstPage = true): Ad {
+  getAds (fields, params, fetchFirstPage = true): Ad {
     return this.getEdge(
       Ad,
       fields,
@@ -247,7 +248,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createAd(fields, params): Ad {
+  createAd (fields, params): Ad {
     return this.createEdge(
       '/ads',
       fields,
@@ -255,7 +256,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getAdsByLabels(fields, params, fetchFirstPage = true): Ad {
+  getAdsByLabels (fields, params, fetchFirstPage = true): Ad {
     return this.getEdge(
       Ad,
       fields,
@@ -265,7 +266,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getAdSets(fields, params, fetchFirstPage = true): AdSet {
+  getAdSets (fields, params, fetchFirstPage = true): AdSet {
     return this.getEdge(
       AdSet,
       fields,
@@ -275,7 +276,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createAdSet(fields, params): AdSet {
+  createAdSet (fields, params): AdSet {
     return this.createEdge(
       '/adsets',
       fields,
@@ -283,7 +284,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getAdSetsByLabels(fields, params, fetchFirstPage = true): AdSet {
+  getAdSetsByLabels (fields, params, fetchFirstPage = true): AdSet {
     return this.getEdge(
       AdSet,
       fields,
@@ -293,7 +294,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getAdsPixels(fields, params, fetchFirstPage = true): AdsPixel {
+  getAdsPixels (fields, params, fetchFirstPage = true): AdsPixel {
     return this.getEdge(
       AdsPixel,
       fields,
@@ -303,7 +304,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createAdsPixel(fields, params): AdsPixel {
+  createAdsPixel (fields, params): AdsPixel {
     return this.createEdge(
       '/adspixels',
       fields,
@@ -311,9 +312,9 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getAdvertisableApplications(fields, params, fetchFirstPage = true): Object {
+  getAdvertisableApplications (fields, params, fetchFirstPage = true): AbstractObject {
     return this.getEdge(
-      Object,
+      AbstractObject,
       fields,
       params,
       fetchFirstPage,
@@ -321,9 +322,9 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getAdVideos(fields, params, fetchFirstPage = true): Object {
+  getAdVideos (fields, params, fetchFirstPage = true): AbstractObject {
     return this.getEdge(
-      Object,
+      AbstractObject,
       fields,
       params,
       fetchFirstPage,
@@ -331,7 +332,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createAdVideo(fields, params): Object {
+  createAdVideo (fields, params): AbstractObject {
     return this.createEdge(
       '/advideos',
       fields,
@@ -339,9 +340,9 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getApplications(fields, params, fetchFirstPage = true): Object {
+  getApplications (fields, params, fetchFirstPage = true): AbstractObject {
     return this.getEdge(
-      Object,
+      AbstractObject,
       fields,
       params,
       fetchFirstPage,
@@ -349,7 +350,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getAsyncAdRequestSets(fields, params, fetchFirstPage = true): AdAsyncRequestSet {
+  getAsyncAdRequestSets (fields, params, fetchFirstPage = true): AdAsyncRequestSet {
     return this.getEdge(
       AdAsyncRequestSet,
       fields,
@@ -359,7 +360,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createAsyncAdRequestSet(fields, params): AdAsyncRequestSet {
+  createAsyncAdRequestSet (fields, params): AdAsyncRequestSet {
     return this.createEdge(
       '/asyncadrequestsets',
       fields,
@@ -367,7 +368,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getBroadTargetingCategories(fields, params, fetchFirstPage = true): BroadTargetingCategories {
+  getBroadTargetingCategories (fields, params, fetchFirstPage = true): BroadTargetingCategories {
     return this.getEdge(
       BroadTargetingCategories,
       fields,
@@ -377,14 +378,14 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  deleteCampaigns(params): Object {
+  deleteCampaigns (params): AbstractObject {
     return super.deleteEdge(
       '/campaigns',
       params
     );
   }
 
-  getCampaigns(fields, params, fetchFirstPage = true): Campaign {
+  getCampaigns (fields, params, fetchFirstPage = true): Campaign {
     return this.getEdge(
       Campaign,
       fields,
@@ -394,7 +395,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createCampaign(fields, params): Campaign {
+  createCampaign (fields, params): Campaign {
     return this.createEdge(
       '/campaigns',
       fields,
@@ -402,7 +403,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getCampaignsByLabels(fields, params, fetchFirstPage = true): Campaign {
+  getCampaignsByLabels (fields, params, fetchFirstPage = true): Campaign {
     return this.getEdge(
       Campaign,
       fields,
@@ -412,7 +413,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getCustomAudiences(fields, params, fetchFirstPage = true): CustomAudience {
+  getCustomAudiences (fields, params, fetchFirstPage = true): CustomAudience {
     return this.getEdge(
       CustomAudience,
       fields,
@@ -422,7 +423,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createCustomAudience(fields, params): CustomAudience {
+  createCustomAudience (fields, params): CustomAudience {
     return this.createEdge(
       '/customaudiences',
       fields,
@@ -430,7 +431,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getCustomAudiencesTos(fields, params, fetchFirstPage = true): CustomAudiencesTOS {
+  getCustomAudiencesTos (fields, params, fetchFirstPage = true): CustomAudiencesTOS {
     return this.getEdge(
       CustomAudiencesTOS,
       fields,
@@ -440,7 +441,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createCustomConversion(fields, params): CustomConversion {
+  createCustomConversion (fields, params): CustomConversion {
     return this.createEdge(
       '/customconversions',
       fields,
@@ -448,7 +449,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getDeliveryEstimate(fields, params, fetchFirstPage = true): DeliveryEstimate {
+  getDeliveryEstimate (fields, params, fetchFirstPage = true): DeliveryEstimate {
     return this.getEdge(
       DeliveryEstimate,
       fields,
@@ -458,7 +459,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getGeneratePreviews(fields, params, fetchFirstPage = true): AdPreview {
+  getGeneratePreviews (fields, params, fetchFirstPage = true): AdPreview {
     return this.getEdge(
       AdPreview,
       fields,
@@ -468,7 +469,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getInsights(fields, params, fetchFirstPage = true): AdsInsights {
+  getInsights (fields, params, fetchFirstPage = true): AdsInsights {
     return this.getEdge(
       AdsInsights,
       fields,
@@ -478,7 +479,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getInsightsAsync(fields, params): AdReportRun {
+  getInsightsAsync (fields, params): AdReportRun {
     return this.createEdge(
       '/insights',
       fields,
@@ -486,9 +487,9 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getInstagramAccounts(fields, params, fetchFirstPage = true): Object {
+  getInstagramAccounts (fields, params, fetchFirstPage = true): AbstractObject {
     return this.getEdge(
-      Object,
+      AbstractObject,
       fields,
       params,
       fetchFirstPage,
@@ -496,7 +497,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getLeadGenForms(fields, params, fetchFirstPage = true): LeadgenForm {
+  getLeadGenForms (fields, params, fetchFirstPage = true): LeadgenForm {
     return this.getEdge(
       LeadgenForm,
       fields,
@@ -506,7 +507,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getMinimumBudgets(fields, params, fetchFirstPage = true): MinimumBudget {
+  getMinimumBudgets (fields, params, fetchFirstPage = true): MinimumBudget {
     return this.getEdge(
       MinimumBudget,
       fields,
@@ -516,9 +517,9 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getOfflineConversionDataSets(fields, params, fetchFirstPage = true): Object {
+  getOfflineConversionDataSets (fields, params, fetchFirstPage = true): AbstractObject {
     return this.getEdge(
-      Object,
+      AbstractObject,
       fields,
       params,
       fetchFirstPage,
@@ -526,7 +527,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createOfflineConversion(fields, params): Object {
+  createOfflineConversion (fields, params): AbstractObject {
     return this.createEdge(
       '/offlineconversions',
       fields,
@@ -534,7 +535,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getOffsitePixels(fields, params, fetchFirstPage = true): OffsitePixel {
+  getOffsitePixels (fields, params, fetchFirstPage = true): OffsitePixel {
     return this.getEdge(
       OffsitePixel,
       fields,
@@ -544,7 +545,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createOffsitePixel(fields, params): OffsitePixel {
+  createOffsitePixel (fields, params): OffsitePixel {
     return this.createEdge(
       '/offsitepixels',
       fields,
@@ -552,7 +553,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getPartnerCategories(fields, params, fetchFirstPage = true): PartnerCategory {
+  getPartnerCategories (fields, params, fetchFirstPage = true): PartnerCategory {
     return this.getEdge(
       PartnerCategory,
       fields,
@@ -562,7 +563,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getPartners(fields, params, fetchFirstPage = true): AdsDataPartner {
+  getPartners (fields, params, fetchFirstPage = true): AdsDataPartner {
     return this.getEdge(
       AdsDataPartner,
       fields,
@@ -572,7 +573,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createProductAudience(fields, params): CustomAudience {
+  createProductAudience (fields, params): CustomAudience {
     return this.createEdge(
       '/product_audiences',
       fields,
@@ -580,9 +581,9 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getPublisherBlockLists(fields, params, fetchFirstPage = true): Object {
+  getPublisherBlockLists (fields, params, fetchFirstPage = true): AbstractObject {
     return this.getEdge(
-      Object,
+      AbstractObject,
       fields,
       params,
       fetchFirstPage,
@@ -590,7 +591,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createPublisherBlockList(fields, params): Object {
+  createPublisherBlockList (fields, params): AbstractObject {
     return this.createEdge(
       '/publisher_block_lists',
       fields,
@@ -598,7 +599,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getRateCard(fields, params, fetchFirstPage = true): RateCard {
+  getRateCard (fields, params, fetchFirstPage = true): RateCard {
     return this.getEdge(
       RateCard,
       fields,
@@ -608,7 +609,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getReachEstimate(fields, params, fetchFirstPage = true): ReachEstimate {
+  getReachEstimate (fields, params, fetchFirstPage = true): ReachEstimate {
     return this.getEdge(
       ReachEstimate,
       fields,
@@ -618,7 +619,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getReachFrequencyPredictions(fields, params, fetchFirstPage = true): ReachFrequencyPrediction {
+  getReachFrequencyPredictions (fields, params, fetchFirstPage = true): ReachFrequencyPrediction {
     return this.getEdge(
       ReachFrequencyPrediction,
       fields,
@@ -628,7 +629,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createReachFrequencyPrediction(fields, params): ReachFrequencyPrediction {
+  createReachFrequencyPrediction (fields, params): ReachFrequencyPrediction {
     return this.createEdge(
       '/reachfrequencypredictions',
       fields,
@@ -636,7 +637,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getRoas(fields, params, fetchFirstPage = true): AdAccountRoas {
+  getRoas (fields, params, fetchFirstPage = true): AdAccountRoas {
     return this.getEdge(
       AdAccountRoas,
       fields,
@@ -646,7 +647,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getTargetingBrowse(fields, params, fetchFirstPage = true): AdAccountTargetingUnified {
+  getTargetingBrowse (fields, params, fetchFirstPage = true): AdAccountTargetingUnified {
     return this.getEdge(
       AdAccountTargetingUnified,
       fields,
@@ -656,7 +657,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getTargetingSearch(fields, params, fetchFirstPage = true): AdAccountTargetingUnified {
+  getTargetingSearch (fields, params, fetchFirstPage = true): AdAccountTargetingUnified {
     return this.getEdge(
       AdAccountTargetingUnified,
       fields,
@@ -666,7 +667,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getTargetingSentenceLines(fields, params, fetchFirstPage = true): TargetingSentenceLine {
+  getTargetingSentenceLines (fields, params, fetchFirstPage = true): TargetingSentenceLine {
     return this.getEdge(
       TargetingSentenceLine,
       fields,
@@ -676,7 +677,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getTargetingSuggestions(fields, params, fetchFirstPage = true): AdAccountTargetingUnified {
+  getTargetingSuggestions (fields, params, fetchFirstPage = true): AdAccountTargetingUnified {
     return this.getEdge(
       AdAccountTargetingUnified,
       fields,
@@ -686,7 +687,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getTargetingValidation(fields, params, fetchFirstPage = true): AdAccountTargetingUnified {
+  getTargetingValidation (fields, params, fetchFirstPage = true): AdAccountTargetingUnified {
     return this.getEdge(
       AdAccountTargetingUnified,
       fields,
@@ -696,14 +697,14 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  deleteTracking(params): Object {
+  deleteTracking (params): AbstractObject {
     return super.deleteEdge(
       '/tracking',
       params
     );
   }
 
-  createTracking(fields, params): Object {
+  createTracking (fields, params): AbstractObject {
     return this.createEdge(
       '/tracking',
       fields,
@@ -711,7 +712,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getTransactions(fields, params, fetchFirstPage = true): Transaction {
+  getTransactions (fields, params, fetchFirstPage = true): Transaction {
     return this.getEdge(
       Transaction,
       fields,
@@ -721,7 +722,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getUsers(fields, params, fetchFirstPage = true): AdAccountUser {
+  getUsers (fields, params, fetchFirstPage = true): AdAccountUser {
     return this.getEdge(
       AdAccountUser,
       fields,

@@ -14,15 +14,15 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class ReachEstimate extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     estimate_ready: 'estimate_ready',
-     unsupported: 'unsupported',
-     users: 'users',
+      estimate_ready: 'estimate_ready',
+      unsupported: 'unsupported',
+      users: 'users'
     });
   }
 
-  static get OptimizeFor(): Object {
+  static get OptimizeFor (): Object {
     return Object.freeze({
       none: 'NONE',
       app_installs: 'APP_INSTALLS',
@@ -41,7 +41,7 @@ export default class ReachEstimate extends AbstractCrudObject {
       reach: 'REACH',
       social_impressions: 'SOCIAL_IMPRESSIONS',
       video_views: 'VIDEO_VIEWS',
-      app_downloads: 'APP_DOWNLOADS',
+      app_downloads: 'APP_DOWNLOADS'
     });
   }
 }

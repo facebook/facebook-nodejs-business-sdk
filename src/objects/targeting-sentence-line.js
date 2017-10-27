@@ -14,12 +14,11 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class TargetingSentenceLine extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     id: 'id',
-     params: 'params',
-     targetingsentencelines: 'targetingsentencelines',
+      id: 'id',
+      params: 'params',
+      targetingsentencelines: 'targetingsentencelines'
     });
   }
-
 }

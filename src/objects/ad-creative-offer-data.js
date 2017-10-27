@@ -14,17 +14,16 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdCreativeOfferData extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     claim_limit: 'claim_limit',
-     coupon_type: 'coupon_type',
-     expiration_time: 'expiration_time',
-     image_url: 'image_url',
-     message: 'message',
-     redemption_link: 'redemption_link',
-     reminder_time: 'reminder_time',
-     title: 'title',
+      claim_limit: 'claim_limit',
+      coupon_type: 'coupon_type',
+      expiration_time: 'expiration_time',
+      image_url: 'image_url',
+      message: 'message',
+      redemption_link: 'redemption_link',
+      reminder_time: 'reminder_time',
+      title: 'title'
     });
   }
-
 }

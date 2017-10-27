@@ -14,14 +14,14 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdCreativeLinkDataCallToAction extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     type: 'type',
-     value: 'value',
+      type: 'type',
+      value: 'value'
     });
   }
 
-  static get Type(): Object {
+  static get Type (): Object {
     return Object.freeze({
       open_link: 'OPEN_LINK',
       like_page: 'LIKE_PAGE',
@@ -56,7 +56,7 @@ export default class AdCreativeLinkDataCallToAction extends AbstractCrudObject {
       register_now: 'REGISTER_NOW',
       request_time: 'REQUEST_TIME',
       see_menu: 'SEE_MENU',
-      open_movies: 'OPEN_MOVIES',
+      open_movies: 'OPEN_MOVIES'
     });
   }
 }

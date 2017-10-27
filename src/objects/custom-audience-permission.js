@@ -14,14 +14,13 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class CustomAudiencePermission extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     can_edit: 'can_edit',
-     can_see_insight: 'can_see_insight',
-     can_share: 'can_share',
-     subtype_supports_lookalike: 'subtype_supports_lookalike',
-     supports_recipient_lookalike: 'supports_recipient_lookalike',
+      can_edit: 'can_edit',
+      can_see_insight: 'can_see_insight',
+      can_share: 'can_share',
+      subtype_supports_lookalike: 'subtype_supports_lookalike',
+      supports_recipient_lookalike: 'supports_recipient_lookalike'
     });
   }
-
 }

@@ -14,15 +14,15 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class CustomAudienceDataSource extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     creation_params: 'creation_params',
-     sub_type: 'sub_type',
-     type: 'type',
+      creation_params: 'creation_params',
+      sub_type: 'sub_type',
+      type: 'type'
     });
   }
 
-  static get SubType(): Object {
+  static get SubType (): Object {
     return Object.freeze({
       anything: 'ANYTHING',
       nothing: 'NOTHING',
@@ -65,10 +65,10 @@ export default class CustomAudienceDataSource extends AbstractCrudObject {
       mail_chimp_email_hashes: 'MAIL_CHIMP_EMAIL_HASHES',
       constant_contacts_email_hashes: 'CONSTANT_CONTACTS_EMAIL_HASHES',
       copy_paste_email_hashes: 'COPY_PASTE_EMAIL_HASHES',
-      contact_importer: 'CONTACT_IMPORTER',
+      contact_importer: 'CONTACT_IMPORTER'
     });
   }
-  static get Type(): Object {
+  static get Type (): Object {
     return Object.freeze({
       unknown: 'UNKNOWN',
       file_imported: 'FILE_IMPORTED',
@@ -76,7 +76,7 @@ export default class CustomAudienceDataSource extends AbstractCrudObject {
       seed_based: 'SEED_BASED',
       third_party_imported: 'THIRD_PARTY_IMPORTED',
       copy_paste: 'COPY_PASTE',
-      contact_importer: 'CONTACT_IMPORTER',
+      contact_importer: 'CONTACT_IMPORTER'
     });
   }
 }

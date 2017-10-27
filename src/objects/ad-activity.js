@@ -14,23 +14,23 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdActivity extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     actor_id: 'actor_id',
-     actor_name: 'actor_name',
-     application_id: 'application_id',
-     application_name: 'application_name',
-     date_time_in_timezone: 'date_time_in_timezone',
-     event_time: 'event_time',
-     event_type: 'event_type',
-     extra_data: 'extra_data',
-     object_id: 'object_id',
-     object_name: 'object_name',
-     translated_event_type: 'translated_event_type',
+      actor_id: 'actor_id',
+      actor_name: 'actor_name',
+      application_id: 'application_id',
+      application_name: 'application_name',
+      date_time_in_timezone: 'date_time_in_timezone',
+      event_time: 'event_time',
+      event_type: 'event_type',
+      extra_data: 'extra_data',
+      object_id: 'object_id',
+      object_name: 'object_name',
+      translated_event_type: 'translated_event_type'
     });
   }
 
-  static get EventType(): Object {
+  static get EventType (): Object {
     return Object.freeze({
       ad_account_update_spend_limit: 'AD_ACCOUNT_UPDATE_SPEND_LIMIT',
       ad_account_reset_spend_limit: 'AD_ACCOUNT_RESET_SPEND_LIMIT',
@@ -91,10 +91,10 @@ export default class AdActivity extends AbstractCrudObject {
       lifetime_budget_spent: 'LIFETIME_BUDGET_SPENT',
       funding_event_initiated: 'FUNDING_EVENT_INITIATED',
       funding_event_successful: 'FUNDING_EVENT_SUCCESSFUL',
-      update_ad_labels: 'UPDATE_AD_LABELS',
+      update_ad_labels: 'UPDATE_AD_LABELS'
     });
   }
-  static get Category(): Object {
+  static get Category (): Object {
     return Object.freeze({
       account: 'ACCOUNT',
       ad: 'AD',
@@ -105,7 +105,7 @@ export default class AdActivity extends AbstractCrudObject {
       campaign: 'CAMPAIGN',
       date: 'DATE',
       status: 'STATUS',
-      targeting: 'TARGETING',
+      targeting: 'TARGETING'
     });
   }
 }

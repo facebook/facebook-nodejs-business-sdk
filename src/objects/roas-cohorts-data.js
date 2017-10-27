@@ -14,14 +14,13 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class RoasCohortsData extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     cohorts_end: 'cohorts_end',
-     cohorts_start: 'cohorts_start',
-     installs: 'installs',
-     revenue_cohorts: 'revenue_cohorts',
-     spend: 'spend',
+      cohorts_end: 'cohorts_end',
+      cohorts_start: 'cohorts_start',
+      installs: 'installs',
+      revenue_cohorts: 'revenue_cohorts',
+      spend: 'spend'
     });
   }
-
 }

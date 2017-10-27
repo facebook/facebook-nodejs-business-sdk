@@ -14,20 +14,19 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AppLinks extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     android: 'android',
-     id: 'id',
-     ios: 'ios',
-     ipad: 'ipad',
-     iphone: 'iphone',
-     web: 'web',
-     windows: 'windows',
-     windows_phone: 'windows_phone',
-     windows_universal: 'windows_universal',
+      android: 'android',
+      id: 'id',
+      ios: 'ios',
+      ipad: 'ipad',
+      iphone: 'iphone',
+      web: 'web',
+      windows: 'windows',
+      windows_phone: 'windows_phone',
+      windows_universal: 'windows_universal'
     });
   }
-
 
   get (fields, params): AppLinks {
     return this.read(

@@ -32,18 +32,16 @@ export default class Cursor extends Array {
    * @param  {Object} [params]
    * @param  {String} [endpoint]
    */
-  constructor(
+  constructor (
     sourceObject: Object,
     targetClass: Object,
     params: Object,
-    endpoint: ?string,
+    endpoint: ?string
   ) {
     super();
     const next = [sourceObject.getId()];
     if (endpoint) {
       next.push(Utils.normalizeEndpoint(endpoint));
-    } else if (targetClass.getEndpoint()) {
-      next.push(Utils.normalizeEndpoint(targetClass.getEndpoint()));
     } else {
       throw new Error('No endpoint specified for the target edge.');
     }
@@ -102,11 +100,16 @@ export default class Cursor extends Array {
     this._buildObjectsFromResponse = response => {
       return response.data.map(item => {
         let That: any = this._targetClass;
+        if (That.name === 'AbstractObject') {
+          var result = new That();
+          result.setData(item);
+          return result;
+        }
         return new That(
           item && item.id ? item.id : null,
           item,
           undefined,
-          this._api,
+          this._api
         );
       });
     };

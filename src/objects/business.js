@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
 import AdStudy from './ad-study';
 import AdAccount from './ad-account';
 import AdsPixel from './ads-pixel';
@@ -24,24 +25,23 @@ import ProfilePictureSource from './profile-picture-source';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class Business extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     created_by: 'created_by',
-     created_time: 'created_time',
-     id: 'id',
-     link: 'link',
-     name: 'name',
-     payment_account_id: 'payment_account_id',
-     primary_page: 'primary_page',
-     timezone_id: 'timezone_id',
-     two_factor_type: 'two_factor_type',
-     updated_by: 'updated_by',
-     updated_time: 'updated_time',
+      created_by: 'created_by',
+      created_time: 'created_time',
+      id: 'id',
+      link: 'link',
+      name: 'name',
+      payment_account_id: 'payment_account_id',
+      primary_page: 'primary_page',
+      timezone_id: 'timezone_id',
+      two_factor_type: 'two_factor_type',
+      updated_by: 'updated_by',
+      updated_time: 'updated_time'
     });
   }
 
-
-  createAdStudy(fields, params): AdStudy {
+  createAdStudy (fields, params): AdStudy {
     return this.createEdge(
       '/ad_studies',
       fields,
@@ -49,7 +49,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createAdAccount(fields, params): AdAccount {
+  createAdAccount (fields, params): AdAccount {
     return this.createEdge(
       '/adaccount',
       fields,
@@ -57,7 +57,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createAdAccounts(fields, params): AdAccount {
+  createAdAccounts (fields, params): AdAccount {
     return this.createEdge(
       '/adaccounts',
       fields,
@@ -65,7 +65,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  getAdsPixels(fields, params, fetchFirstPage = true): AdsPixel {
+  getAdsPixels (fields, params, fetchFirstPage = true): AdsPixel {
     return this.getEdge(
       AdsPixel,
       fields,
@@ -75,7 +75,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createAdsPixel(fields, params): AdsPixel {
+  createAdsPixel (fields, params): AdsPixel {
     return this.createEdge(
       '/adspixels',
       fields,
@@ -83,14 +83,14 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  deleteApps(params): Object {
+  deleteApps (params): AbstractObject {
     return super.deleteEdge(
       '/apps',
       params
     );
   }
 
-  getAssignedAdAccounts(fields, params, fetchFirstPage = true): AdAccount {
+  getAssignedAdAccounts (fields, params, fetchFirstPage = true): AdAccount {
     return this.getEdge(
       AdAccount,
       fields,
@@ -100,9 +100,9 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  getAssignedPages(fields, params, fetchFirstPage = true): Object {
+  getAssignedPages (fields, params, fetchFirstPage = true): AbstractObject {
     return this.getEdge(
-      Object,
+      AbstractObject,
       fields,
       params,
       fetchFirstPage,
@@ -110,7 +110,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  getAssignedProductCatalogs(fields, params, fetchFirstPage = true): ProductCatalog {
+  getAssignedProductCatalogs (fields, params, fetchFirstPage = true): ProductCatalog {
     return this.getEdge(
       ProductCatalog,
       fields,
@@ -120,7 +120,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  getClientAdAccountRequests(fields, params, fetchFirstPage = true): BusinessAdAccountRequest {
+  getClientAdAccountRequests (fields, params, fetchFirstPage = true): BusinessAdAccountRequest {
     return this.getEdge(
       BusinessAdAccountRequest,
       fields,
@@ -130,7 +130,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  getClientAdAccounts(fields, params, fetchFirstPage = true): AdAccount {
+  getClientAdAccounts (fields, params, fetchFirstPage = true): AdAccount {
     return this.getEdge(
       AdAccount,
       fields,
@@ -140,7 +140,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  getClientPageRequests(fields, params, fetchFirstPage = true): BusinessPageRequest {
+  getClientPageRequests (fields, params, fetchFirstPage = true): BusinessPageRequest {
     return this.getEdge(
       BusinessPageRequest,
       fields,
@@ -150,9 +150,9 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  getClientPages(fields, params, fetchFirstPage = true): Object {
+  getClientPages (fields, params, fetchFirstPage = true): AbstractObject {
     return this.getEdge(
-      Object,
+      AbstractObject,
       fields,
       params,
       fetchFirstPage,
@@ -160,7 +160,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  getEventSourceGroups(fields, params, fetchFirstPage = true): EventSourceGroup {
+  getEventSourceGroups (fields, params, fetchFirstPage = true): EventSourceGroup {
     return this.getEdge(
       EventSourceGroup,
       fields,
@@ -170,7 +170,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createEventSourceGroup(fields, params): EventSourceGroup {
+  createEventSourceGroup (fields, params): EventSourceGroup {
     return this.createEdge(
       '/event_source_groups',
       fields,
@@ -178,7 +178,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  getGrpPlans(fields, params, fetchFirstPage = true): ReachFrequencyPrediction {
+  getGrpPlans (fields, params, fetchFirstPage = true): ReachFrequencyPrediction {
     return this.getEdge(
       ReachFrequencyPrediction,
       fields,
@@ -188,9 +188,9 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  getInstagramAccounts(fields, params, fetchFirstPage = true): Object {
+  getInstagramAccounts (fields, params, fetchFirstPage = true): AbstractObject {
     return this.getEdge(
-      Object,
+      AbstractObject,
       fields,
       params,
       fetchFirstPage,
@@ -198,9 +198,9 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  getMeasurementReports(fields, params, fetchFirstPage = true): Object {
+  getMeasurementReports (fields, params, fetchFirstPage = true): AbstractObject {
     return this.getEdge(
-      Object,
+      AbstractObject,
       fields,
       params,
       fetchFirstPage,
@@ -208,7 +208,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createMeasurementReport(fields, params): Object {
+  createMeasurementReport (fields, params): AbstractObject {
     return this.createEdge(
       '/measurement_reports',
       fields,
@@ -216,9 +216,9 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  getOfflineConversionDataSets(fields, params, fetchFirstPage = true): Object {
+  getOfflineConversionDataSets (fields, params, fetchFirstPage = true): AbstractObject {
     return this.getEdge(
-      Object,
+      AbstractObject,
       fields,
       params,
       fetchFirstPage,
@@ -226,7 +226,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createOfflineConversionDataSet(fields, params): Object {
+  createOfflineConversionDataSet (fields, params): AbstractObject {
     return this.createEdge(
       '/offline_conversion_data_sets',
       fields,
@@ -234,7 +234,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  getOwnedAdAccountRequests(fields, params, fetchFirstPage = true): LegacyBusinessAdAccountRequest {
+  getOwnedAdAccountRequests (fields, params, fetchFirstPage = true): LegacyBusinessAdAccountRequest {
     return this.getEdge(
       LegacyBusinessAdAccountRequest,
       fields,
@@ -244,7 +244,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  getOwnedAdAccounts(fields, params, fetchFirstPage = true): AdAccount {
+  getOwnedAdAccounts (fields, params, fetchFirstPage = true): AdAccount {
     return this.getEdge(
       AdAccount,
       fields,
@@ -254,9 +254,9 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  getOwnedInstagramAccounts(fields, params, fetchFirstPage = true): Object {
+  getOwnedInstagramAccounts (fields, params, fetchFirstPage = true): AbstractObject {
     return this.getEdge(
-      Object,
+      AbstractObject,
       fields,
       params,
       fetchFirstPage,
@@ -264,7 +264,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  getOwnedPageRequests(fields, params, fetchFirstPage = true): BusinessPageRequest {
+  getOwnedPageRequests (fields, params, fetchFirstPage = true): BusinessPageRequest {
     return this.getEdge(
       BusinessPageRequest,
       fields,
@@ -274,9 +274,9 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  getOwnedPages(fields, params, fetchFirstPage = true): Object {
+  getOwnedPages (fields, params, fetchFirstPage = true): AbstractObject {
     return this.getEdge(
-      Object,
+      AbstractObject,
       fields,
       params,
       fetchFirstPage,
@@ -284,7 +284,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  getOwnedPixels(fields, params, fetchFirstPage = true): AdsPixel {
+  getOwnedPixels (fields, params, fetchFirstPage = true): AdsPixel {
     return this.getEdge(
       AdsPixel,
       fields,
@@ -294,7 +294,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  getPicture(fields, params, fetchFirstPage = true): ProfilePictureSource {
+  getPicture (fields, params, fetchFirstPage = true): ProfilePictureSource {
     return this.getEdge(
       ProfilePictureSource,
       fields,
@@ -304,7 +304,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  getProductCatalogs(fields, params, fetchFirstPage = true): ProductCatalog {
+  getProductCatalogs (fields, params, fetchFirstPage = true): ProductCatalog {
     return this.getEdge(
       ProductCatalog,
       fields,
@@ -314,7 +314,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createProductCatalog(fields, params): ProductCatalog {
+  createProductCatalog (fields, params): ProductCatalog {
     return this.createEdge(
       '/product_catalogs',
       fields,
@@ -322,9 +322,9 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  getReceivedAudiencePermissions(fields, params, fetchFirstPage = true): Object {
+  getReceivedAudiencePermissions (fields, params, fetchFirstPage = true): AbstractObject {
     return this.getEdge(
-      Object,
+      AbstractObject,
       fields,
       params,
       fetchFirstPage,
@@ -332,9 +332,9 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  getSharedAudiencePermissions(fields, params, fetchFirstPage = true): Object {
+  getSharedAudiencePermissions (fields, params, fetchFirstPage = true): AbstractObject {
     return this.getEdge(
-      Object,
+      AbstractObject,
       fields,
       params,
       fetchFirstPage,
@@ -342,9 +342,9 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  getSystemUsers(fields, params, fetchFirstPage = true): Object {
+  getSystemUsers (fields, params, fetchFirstPage = true): AbstractObject {
     return this.getEdge(
-      Object,
+      AbstractObject,
       fields,
       params,
       fetchFirstPage,
@@ -352,7 +352,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createUserPermission(fields, params): Object {
+  createUserPermission (fields, params): AbstractObject {
     return this.createEdge(
       '/userpermissions',
       fields,

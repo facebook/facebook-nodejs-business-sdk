@@ -14,13 +14,12 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class DayPart extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     days: 'days',
-     end_minute: 'end_minute',
-     start_minute: 'start_minute',
-     timezone_type: 'timezone_type',
+      days: 'days',
+      end_minute: 'end_minute',
+      start_minute: 'start_minute',
+      timezone_type: 'timezone_type'
     });
   }
-
 }

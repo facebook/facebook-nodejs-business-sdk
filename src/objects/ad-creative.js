@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
 import AdLabel from './ad-label';
 import AdPreview from './ad-preview';
 
@@ -16,52 +17,52 @@ import AdPreview from './ad-preview';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdCreative extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     account_id: 'account_id',
-     actor_id: 'actor_id',
-     adlabels: 'adlabels',
-     applink_treatment: 'applink_treatment',
-     body: 'body',
-     call_to_action_type: 'call_to_action_type',
-     effective_instagram_story_id: 'effective_instagram_story_id',
-     effective_object_story_id: 'effective_object_story_id',
-     id: 'id',
-     image_crops: 'image_crops',
-     image_hash: 'image_hash',
-     image_url: 'image_url',
-     instagram_actor_id: 'instagram_actor_id',
-     instagram_permalink_url: 'instagram_permalink_url',
-     instagram_story_id: 'instagram_story_id',
-     link_og_id: 'link_og_id',
-     link_url: 'link_url',
-     name: 'name',
-     object_id: 'object_id',
-     object_story_id: 'object_story_id',
-     object_story_spec: 'object_story_spec',
-     object_type: 'object_type',
-     object_url: 'object_url',
-     platform_customizations: 'platform_customizations',
-     product_set_id: 'product_set_id',
-     status: 'status',
-     template_url: 'template_url',
-     template_url_spec: 'template_url_spec',
-     thumbnail_url: 'thumbnail_url',
-     title: 'title',
-     url_tags: 'url_tags',
-     use_page_actor_override: 'use_page_actor_override',
-     video_id: 'video_id',
+      account_id: 'account_id',
+      actor_id: 'actor_id',
+      adlabels: 'adlabels',
+      applink_treatment: 'applink_treatment',
+      body: 'body',
+      call_to_action_type: 'call_to_action_type',
+      effective_instagram_story_id: 'effective_instagram_story_id',
+      effective_object_story_id: 'effective_object_story_id',
+      id: 'id',
+      image_crops: 'image_crops',
+      image_hash: 'image_hash',
+      image_url: 'image_url',
+      instagram_actor_id: 'instagram_actor_id',
+      instagram_permalink_url: 'instagram_permalink_url',
+      instagram_story_id: 'instagram_story_id',
+      link_og_id: 'link_og_id',
+      link_url: 'link_url',
+      name: 'name',
+      object_id: 'object_id',
+      object_story_id: 'object_story_id',
+      object_story_spec: 'object_story_spec',
+      object_type: 'object_type',
+      object_url: 'object_url',
+      platform_customizations: 'platform_customizations',
+      product_set_id: 'product_set_id',
+      status: 'status',
+      template_url: 'template_url',
+      template_url_spec: 'template_url_spec',
+      thumbnail_url: 'thumbnail_url',
+      title: 'title',
+      url_tags: 'url_tags',
+      use_page_actor_override: 'use_page_actor_override',
+      video_id: 'video_id'
     });
   }
 
-  static get ApplinkTreatment(): Object {
+  static get ApplinkTreatment (): Object {
     return Object.freeze({
       deeplink_with_web_fallback: 'DEEPLINK_WITH_WEB_FALLBACK',
       deeplink_with_appstore_fallback: 'DEEPLINK_WITH_APPSTORE_FALLBACK',
-      web_only: 'WEB_ONLY',
+      web_only: 'WEB_ONLY'
     });
   }
-  static get CallToActionType(): Object {
+  static get CallToActionType (): Object {
     return Object.freeze({
       open_link: 'OPEN_LINK',
       like_page: 'LIKE_PAGE',
@@ -96,10 +97,10 @@ export default class AdCreative extends AbstractCrudObject {
       register_now: 'REGISTER_NOW',
       request_time: 'REQUEST_TIME',
       see_menu: 'SEE_MENU',
-      open_movies: 'OPEN_MOVIES',
+      open_movies: 'OPEN_MOVIES'
     });
   }
-  static get ObjectType(): Object {
+  static get ObjectType (): Object {
     return Object.freeze({
       application: 'APPLICATION',
       domain: 'DOMAIN',
@@ -111,36 +112,36 @@ export default class AdCreative extends AbstractCrudObject {
       status: 'STATUS',
       store_item: 'STORE_ITEM',
       video: 'VIDEO',
-      invalid: 'INVALID',
+      invalid: 'INVALID'
     });
   }
-  static get Status(): Object {
+  static get Status (): Object {
     return Object.freeze({
       active: 'ACTIVE',
-      deleted: 'DELETED',
+      deleted: 'DELETED'
     });
   }
-  static get DynamicAdVoice(): Object {
+  static get DynamicAdVoice (): Object {
     return Object.freeze({
       dynamic: 'DYNAMIC',
-      story_owner: 'STORY_OWNER',
+      story_owner: 'STORY_OWNER'
     });
   }
-  static get Operator(): Object {
+  static get Operator (): Object {
     return Object.freeze({
       all: 'ALL',
-      any: 'ANY',
+      any: 'ANY'
     });
   }
 
-  deleteAdLabels(params): Object {
+  deleteAdLabels (params): AbstractObject {
     return super.deleteEdge(
       '/adlabels',
       params
     );
   }
 
-  createAdLabel(fields, params): AdLabel {
+  createAdLabel (fields, params): AdLabel {
     return this.createEdge(
       '/adlabels',
       fields,
@@ -148,7 +149,7 @@ export default class AdCreative extends AbstractCrudObject {
     );
   }
 
-  getPreviews(fields, params, fetchFirstPage = true): AdPreview {
+  getPreviews (fields, params, fetchFirstPage = true): AdPreview {
     return this.getEdge(
       AdPreview,
       fields,
@@ -158,7 +159,7 @@ export default class AdCreative extends AbstractCrudObject {
     );
   }
 
-  delete (fields, params): Object {
+  delete (fields, params): AbstractObject {
     return super.delete(
       params
     );

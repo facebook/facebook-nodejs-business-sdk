@@ -14,6 +14,9 @@
 export default class AbstractObject {
   _data: any;
   _fields: Array<string>;
+  static get Fields () {
+    return Object.freeze({});
+  }
   constructor () {
     this._data = {};
     if (this.constructor.Fields === undefined) {

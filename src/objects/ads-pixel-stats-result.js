@@ -14,15 +14,15 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdsPixelStatsResult extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     aggregation: 'aggregation',
-     data: 'data',
-     timestamp: 'timestamp',
+      aggregation: 'aggregation',
+      data: 'data',
+      timestamp: 'timestamp'
     });
   }
 
-  static get Aggregation(): Object {
+  static get Aggregation (): Object {
     return Object.freeze({
       browser_type: 'BROWSER_TYPE',
       custom_data_field: 'CUSTOM_DATA_FIELD',
@@ -31,7 +31,7 @@ export default class AdsPixelStatsResult extends AbstractCrudObject {
       event: 'EVENT',
       host: 'HOST',
       pixel_fire: 'PIXEL_FIRE',
-      url: 'URL',
+      url: 'URL'
     });
   }
 }

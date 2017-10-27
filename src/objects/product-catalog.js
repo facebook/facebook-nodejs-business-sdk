@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
 import Business from './business';
 import ExternalEventSource from './external-event-source';
 import ProductCatalogHotelRoomsBatch from './product-catalog-hotel-rooms-batch';
@@ -23,32 +24,32 @@ import ProductItem from './product-item';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class ProductCatalog extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     business: 'business',
-     da_display_settings: 'da_display_settings',
-     default_image_url: 'default_image_url',
-     fallback_image_url: 'fallback_image_url',
-     feed_count: 'feed_count',
-     id: 'id',
-     image_padding_landscape: 'image_padding_landscape',
-     image_padding_square: 'image_padding_square',
-     name: 'name',
-     product_count: 'product_count',
-     vertical: 'vertical',
+      business: 'business',
+      da_display_settings: 'da_display_settings',
+      default_image_url: 'default_image_url',
+      fallback_image_url: 'fallback_image_url',
+      feed_count: 'feed_count',
+      id: 'id',
+      image_padding_landscape: 'image_padding_landscape',
+      image_padding_square: 'image_padding_square',
+      name: 'name',
+      product_count: 'product_count',
+      vertical: 'vertical'
     });
   }
 
-  static get Vertical(): Object {
+  static get Vertical (): Object {
     return Object.freeze({
       commerce: 'COMMERCE',
       destinations: 'DESTINATIONS',
       flights: 'FLIGHTS',
-      hotels: 'HOTELS',
+      hotels: 'HOTELS'
     });
   }
 
-  getAgencies(fields, params, fetchFirstPage = true): Business {
+  getAgencies (fields, params, fetchFirstPage = true): Business {
     return this.getEdge(
       Business,
       fields,
@@ -58,9 +59,9 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  getDestinations(fields, params, fetchFirstPage = true): Object {
+  getDestinations (fields, params, fetchFirstPage = true): AbstractObject {
     return this.getEdge(
-      Object,
+      AbstractObject,
       fields,
       params,
       fetchFirstPage,
@@ -68,14 +69,14 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  deleteExternalEventSources(params): Object {
+  deleteExternalEventSources (params): AbstractObject {
     return super.deleteEdge(
       '/external_event_sources',
       params
     );
   }
 
-  getExternalEventSources(fields, params, fetchFirstPage = true): ExternalEventSource {
+  getExternalEventSources (fields, params, fetchFirstPage = true): ExternalEventSource {
     return this.getEdge(
       ExternalEventSource,
       fields,
@@ -85,7 +86,7 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  createExternalEventSource(fields, params): ExternalEventSource {
+  createExternalEventSource (fields, params): ExternalEventSource {
     return this.createEdge(
       '/external_event_sources',
       fields,
@@ -93,9 +94,9 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  getFlights(fields, params, fetchFirstPage = true): Object {
+  getFlights (fields, params, fetchFirstPage = true): AbstractObject {
     return this.getEdge(
-      Object,
+      AbstractObject,
       fields,
       params,
       fetchFirstPage,
@@ -103,7 +104,7 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  getHotelRoomsBatch(fields, params, fetchFirstPage = true): ProductCatalogHotelRoomsBatch {
+  getHotelRoomsBatch (fields, params, fetchFirstPage = true): ProductCatalogHotelRoomsBatch {
     return this.getEdge(
       ProductCatalogHotelRoomsBatch,
       fields,
@@ -113,7 +114,7 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  createHotelRoomsBatch(fields, params): ProductCatalogHotelRoomsBatch {
+  createHotelRoomsBatch (fields, params): ProductCatalogHotelRoomsBatch {
     return this.createEdge(
       '/hotel_rooms_batch',
       fields,
@@ -121,7 +122,7 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  getHotels(fields, params, fetchFirstPage = true): Hotel {
+  getHotels (fields, params, fetchFirstPage = true): Hotel {
     return this.getEdge(
       Hotel,
       fields,
@@ -131,7 +132,7 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  createHotel(fields, params): Hotel {
+  createHotel (fields, params): Hotel {
     return this.createEdge(
       '/hotels',
       fields,
@@ -139,7 +140,7 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  getPricingVariablesBatch(fields, params, fetchFirstPage = true): ProductCatalogPricingVariablesBatch {
+  getPricingVariablesBatch (fields, params, fetchFirstPage = true): ProductCatalogPricingVariablesBatch {
     return this.getEdge(
       ProductCatalogPricingVariablesBatch,
       fields,
@@ -149,7 +150,7 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  createPricingVariablesBatch(fields, params): ProductCatalogPricingVariablesBatch {
+  createPricingVariablesBatch (fields, params): ProductCatalogPricingVariablesBatch {
     return this.createEdge(
       '/pricing_variables_batch',
       fields,
@@ -157,7 +158,7 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  getProductFeeds(fields, params, fetchFirstPage = true): ProductFeed {
+  getProductFeeds (fields, params, fetchFirstPage = true): ProductFeed {
     return this.getEdge(
       ProductFeed,
       fields,
@@ -167,7 +168,7 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  createProductFeed(fields, params): ProductFeed {
+  createProductFeed (fields, params): ProductFeed {
     return this.createEdge(
       '/product_feeds',
       fields,
@@ -175,7 +176,7 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  getProductGroups(fields, params, fetchFirstPage = true): ProductGroup {
+  getProductGroups (fields, params, fetchFirstPage = true): ProductGroup {
     return this.getEdge(
       ProductGroup,
       fields,
@@ -185,7 +186,7 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  createProductGroup(fields, params): ProductGroup {
+  createProductGroup (fields, params): ProductGroup {
     return this.createEdge(
       '/product_groups',
       fields,
@@ -193,7 +194,7 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  getProductSets(fields, params, fetchFirstPage = true): ProductSet {
+  getProductSets (fields, params, fetchFirstPage = true): ProductSet {
     return this.getEdge(
       ProductSet,
       fields,
@@ -203,7 +204,7 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  createProductSet(fields, params): ProductSet {
+  createProductSet (fields, params): ProductSet {
     return this.createEdge(
       '/product_sets',
       fields,
@@ -211,9 +212,9 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  getProductSetsBatch(fields, params, fetchFirstPage = true): Object {
+  getProductSetsBatch (fields, params, fetchFirstPage = true): AbstractObject {
     return this.getEdge(
-      Object,
+      AbstractObject,
       fields,
       params,
       fetchFirstPage,
@@ -221,7 +222,7 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  getProducts(fields, params, fetchFirstPage = true): ProductItem {
+  getProducts (fields, params, fetchFirstPage = true): ProductItem {
     return this.getEdge(
       ProductItem,
       fields,
@@ -231,7 +232,7 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  createProduct(fields, params): ProductItem {
+  createProduct (fields, params): ProductItem {
     return this.createEdge(
       '/products',
       fields,
@@ -239,7 +240,7 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  createVideo(fields, params): Object {
+  createVideo (fields, params): AbstractObject {
     return this.createEdge(
       '/videos',
       fields,
@@ -247,7 +248,7 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  delete (fields, params): Object {
+  delete (fields, params): AbstractObject {
     return super.delete(
       params
     );

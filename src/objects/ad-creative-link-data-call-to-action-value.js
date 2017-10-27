@@ -14,19 +14,18 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdCreativeLinkDataCallToActionValue extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     app_destination: 'app_destination',
-     app_link: 'app_link',
-     application: 'application',
-     event_id: 'event_id',
-     lead_gen_form_id: 'lead_gen_form_id',
-     link: 'link',
-     link_caption: 'link_caption',
-     link_format: 'link_format',
-     page: 'page',
-     product_link: 'product_link',
+      app_destination: 'app_destination',
+      app_link: 'app_link',
+      application: 'application',
+      event_id: 'event_id',
+      lead_gen_form_id: 'lead_gen_form_id',
+      link: 'link',
+      link_caption: 'link_caption',
+      link_format: 'link_format',
+      page: 'page',
+      product_link: 'product_link'
     });
   }
-
 }

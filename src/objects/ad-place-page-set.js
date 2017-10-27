@@ -14,21 +14,21 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdPlacePageSet extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     account_id: 'account_id',
-     id: 'id',
-     location_types: 'location_types',
-     name: 'name',
-     pages_count: 'pages_count',
-     parent_page: 'parent_page',
+      account_id: 'account_id',
+      id: 'id',
+      location_types: 'location_types',
+      name: 'name',
+      pages_count: 'pages_count',
+      parent_page: 'parent_page'
     });
   }
 
-  static get LocationTypes(): Object {
+  static get LocationTypes (): Object {
     return Object.freeze({
       recent: 'RECENT',
-      home: 'HOME',
+      home: 'HOME'
     });
   }
 

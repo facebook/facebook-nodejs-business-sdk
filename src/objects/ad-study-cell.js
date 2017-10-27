@@ -14,16 +14,15 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdStudyCell extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     ad_entities_count: 'ad_entities_count',
-     control_percentage: 'control_percentage',
-     id: 'id',
-     name: 'name',
-     treatment_percentage: 'treatment_percentage',
+      ad_entities_count: 'ad_entities_count',
+      control_percentage: 'control_percentage',
+      id: 'id',
+      name: 'name',
+      treatment_percentage: 'treatment_percentage'
     });
   }
-
 
   get (fields, params): AdStudyCell {
     return this.read(

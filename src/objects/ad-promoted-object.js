@@ -14,22 +14,22 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdPromotedObject extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     application_id: 'application_id',
-     custom_event_type: 'custom_event_type',
-     event_id: 'event_id',
-     object_store_url: 'object_store_url',
-     offer_id: 'offer_id',
-     page_id: 'page_id',
-     pixel_id: 'pixel_id',
-     place_page_set_id: 'place_page_set_id',
-     product_catalog_id: 'product_catalog_id',
-     product_set_id: 'product_set_id',
+      application_id: 'application_id',
+      custom_event_type: 'custom_event_type',
+      event_id: 'event_id',
+      object_store_url: 'object_store_url',
+      offer_id: 'offer_id',
+      page_id: 'page_id',
+      pixel_id: 'pixel_id',
+      place_page_set_id: 'place_page_set_id',
+      product_catalog_id: 'product_catalog_id',
+      product_set_id: 'product_set_id'
     });
   }
 
-  static get CustomEventType(): Object {
+  static get CustomEventType (): Object {
     return Object.freeze({
       complete_registration: 'COMPLETE_REGISTRATION',
       content_view: 'CONTENT_VIEW',
@@ -45,7 +45,7 @@ export default class AdPromotedObject extends AbstractCrudObject {
       level_achieved: 'LEVEL_ACHIEVED',
       achievement_unlocked: 'ACHIEVEMENT_UNLOCKED',
       spent_credits: 'SPENT_CREDITS',
-      other: 'OTHER',
+      other: 'OTHER'
     });
   }
 }

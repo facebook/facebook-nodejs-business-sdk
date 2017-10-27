@@ -14,14 +14,13 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class Domain extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     id: 'id',
-     name: 'name',
-     url: 'url',
+      id: 'id',
+      name: 'name',
+      url: 'url'
     });
   }
-
 
   get (fields, params): Domain {
     return this.read(

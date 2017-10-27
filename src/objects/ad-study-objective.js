@@ -14,26 +14,26 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdStudyObjective extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     custom_attributes: 'custom_attributes',
-     id: 'id',
-     is_primary: 'is_primary',
-     name: 'name',
-     results: 'results',
-     type: 'type',
+      custom_attributes: 'custom_attributes',
+      id: 'id',
+      is_primary: 'is_primary',
+      name: 'name',
+      results: 'results',
+      type: 'type'
     });
   }
 
-  static get Breakdowns(): Object {
+  static get Breakdowns (): Object {
     return Object.freeze({
       age: 'AGE',
       cell_id: 'CELL_ID',
       gender: 'GENDER',
-      country: 'COUNTRY',
+      country: 'COUNTRY'
     });
   }
-  static get Type(): Object {
+  static get Type (): Object {
     return Object.freeze({
       sales: 'SALES',
       nonsales: 'NONSALES',
@@ -43,7 +43,7 @@ export default class AdStudyObjective extends AbstractCrudObject {
       mai: 'MAI',
       partner: 'PARTNER',
       brandlift: 'BRANDLIFT',
-      brand: 'BRAND',
+      brand: 'BRAND'
     });
   }
 

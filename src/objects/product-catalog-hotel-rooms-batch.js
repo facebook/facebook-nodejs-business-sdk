@@ -14,18 +14,18 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class ProductCatalogHotelRoomsBatch extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     errors: 'errors',
-     errors_total_count: 'errors_total_count',
-     handle: 'handle',
-     status: 'status',
+      errors: 'errors',
+      errors_total_count: 'errors_total_count',
+      handle: 'handle',
+      status: 'status'
     });
   }
 
-  static get Standard(): Object {
+  static get Standard (): Object {
     return Object.freeze({
-      google: 'GOOGLE',
+      google: 'GOOGLE'
     });
   }
 }

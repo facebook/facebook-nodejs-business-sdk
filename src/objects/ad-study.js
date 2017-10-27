@@ -15,33 +15,33 @@ import AdStudyObjective from './ad-study-objective';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdStudy extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     business: 'business',
-     canceled_time: 'canceled_time',
-     cooldown_start_time: 'cooldown_start_time',
-     created_by: 'created_by',
-     created_time: 'created_time',
-     description: 'description',
-     end_time: 'end_time',
-     id: 'id',
-     name: 'name',
-     observation_end_time: 'observation_end_time',
-     start_time: 'start_time',
-     type: 'type',
-     updated_by: 'updated_by',
-     updated_time: 'updated_time',
+      business: 'business',
+      canceled_time: 'canceled_time',
+      cooldown_start_time: 'cooldown_start_time',
+      created_by: 'created_by',
+      created_time: 'created_time',
+      description: 'description',
+      end_time: 'end_time',
+      id: 'id',
+      name: 'name',
+      observation_end_time: 'observation_end_time',
+      start_time: 'start_time',
+      type: 'type',
+      updated_by: 'updated_by',
+      updated_time: 'updated_time'
     });
   }
 
-  static get Type(): Object {
+  static get Type (): Object {
     return Object.freeze({
       lift: 'LIFT',
-      split_test: 'SPLIT_TEST',
+      split_test: 'SPLIT_TEST'
     });
   }
 
-  createObjective(fields, params): AdStudyObjective {
+  createObjective (fields, params): AdStudyObjective {
     return this.createEdge(
       '/objectives',
       fields,

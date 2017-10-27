@@ -14,26 +14,26 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class ProfilePictureSource extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     bottom: 'bottom',
-     height: 'height',
-     is_silhouette: 'is_silhouette',
-     left: 'left',
-     right: 'right',
-     top: 'top',
-     url: 'url',
-     width: 'width',
+      bottom: 'bottom',
+      height: 'height',
+      is_silhouette: 'is_silhouette',
+      left: 'left',
+      right: 'right',
+      top: 'top',
+      url: 'url',
+      width: 'width'
     });
   }
 
-  static get Type(): Object {
+  static get Type (): Object {
     return Object.freeze({
       small: 'SMALL',
       normal: 'NORMAL',
       album: 'ALBUM',
       large: 'LARGE',
-      square: 'SQUARE',
+      square: 'SQUARE'
     });
   }
 }

@@ -14,11 +14,10 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class RevSharePolicy extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     policy_id: 'policy_id',
-     policy_name: 'policy_name',
+      policy_id: 'policy_id',
+      policy_name: 'policy_name'
     });
   }
-
 }

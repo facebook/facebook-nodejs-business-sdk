@@ -13,7 +13,7 @@ import VideoThumbnail from './video-thumbnail';
 import {
   VideoUploader,
   VideoUploadRequest,
-  VideoEncodingStatusChecker,
+  VideoEncodingStatusChecker
 } from '../video-uploader';
 
 /**
@@ -22,11 +22,11 @@ import {
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdVideo extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     filepath: 'filepath',
-     id: 'id',
-     slideshow_spec: 'slideshow_spec',
+      filepath: 'filepath',
+      id: 'id',
+      slideshow_spec: 'slideshow_spec'
     });
   }
 
@@ -34,10 +34,10 @@ export default class AdVideo extends AbstractCrudObject {
    * Uploads filepath and creates the AdVideo object from it.
    * It requires 'filepath' property to be defined.
    **/
-  create(
+  create (
     batch: FacebookAdsBatchApi,
     failureHandler: Function,
-    successHandler: Function,
+    successHandler: Function
   ) {
     let response = null;
 
@@ -48,7 +48,7 @@ export default class AdVideo extends AbstractCrudObject {
         slideshow_spec: {
           images_urls: this[AdVideo.Fields.slideshow_spec]['images_urls'],
           duration_ms: this[AdVideo.Fields.slideshow_spec]['duration_ms'],
-          'transition_ms': this[AdVideo.Fields.slideshow_spec]['transition_ms'],
+          'transition_ms': this[AdVideo.Fields.slideshow_spec]['transition_ms']
         }
       });
       response = request.send([this.getParentId(), 'advideos']);
@@ -67,7 +67,7 @@ export default class AdVideo extends AbstractCrudObject {
     return response;
   }
 
-  waitUntilEncodingReady(interval: Number = 30, timeout: Number = 600) {
+  waitUntilEncodingReady (interval: Number = 30, timeout: Number = 600) {
     if (!this['id']) {
       throw Error('Invalid Video ID');
     }
@@ -76,15 +76,14 @@ export default class AdVideo extends AbstractCrudObject {
       this.getApi(),
       this['id'],
       interval,
-      timeout,
-    )
+      timeout
+    );
   }
 
   /**
    *  Returns all the thumbnails associated with the ad video
    */
-  getThumbnails(fields: Object, params: Object): Cursor {
+  getThumbnails (fields: Object, params: Object): Cursor {
     return this.getEdge(VideoThumbnail, fields, params, 'thumbnails');
   }
-
 }

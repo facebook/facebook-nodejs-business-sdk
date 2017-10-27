@@ -14,14 +14,13 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdsDataPartner extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     id: 'id',
-     name: 'name',
-     rev_share_policies: 'rev_share_policies',
+      id: 'id',
+      name: 'name',
+      rev_share_policies: 'rev_share_policies'
     });
   }
-
 
   get (fields, params): AdsDataPartner {
     return this.read(

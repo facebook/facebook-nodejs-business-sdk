@@ -14,31 +14,31 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdImage extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     account_id: 'account_id',
-     created_time: 'created_time',
-     creatives: 'creatives',
-     hash: 'hash',
-     height: 'height',
-     id: 'id',
-     is_associated_creatives_in_adgroups: 'is_associated_creatives_in_adgroups',
-     name: 'name',
-     original_height: 'original_height',
-     original_width: 'original_width',
-     permalink_url: 'permalink_url',
-     status: 'status',
-     updated_time: 'updated_time',
-     url: 'url',
-     url_128: 'url_128',
-     width: 'width',
+      account_id: 'account_id',
+      created_time: 'created_time',
+      creatives: 'creatives',
+      hash: 'hash',
+      height: 'height',
+      id: 'id',
+      is_associated_creatives_in_adgroups: 'is_associated_creatives_in_adgroups',
+      name: 'name',
+      original_height: 'original_height',
+      original_width: 'original_width',
+      permalink_url: 'permalink_url',
+      status: 'status',
+      updated_time: 'updated_time',
+      url: 'url',
+      url_128: 'url_128',
+      width: 'width'
     });
   }
 
-  static get Status(): Object {
+  static get Status (): Object {
     return Object.freeze({
       active: 'ACTIVE',
-      deleted: 'DELETED',
+      deleted: 'DELETED'
     });
   }
 

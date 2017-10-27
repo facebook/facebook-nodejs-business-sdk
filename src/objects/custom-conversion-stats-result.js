@@ -14,15 +14,15 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class CustomConversionStatsResult extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     aggregation: 'aggregation',
-     data: 'data',
-     timestamp: 'timestamp',
+      aggregation: 'aggregation',
+      data: 'data',
+      timestamp: 'timestamp'
     });
   }
 
-  static get Aggregation(): Object {
+  static get Aggregation (): Object {
     return Object.freeze({
       count: 'COUNT',
       device_type: 'DEVICE_TYPE',
@@ -31,7 +31,7 @@ export default class CustomConversionStatsResult extends AbstractCrudObject {
       unmatched_count: 'UNMATCHED_COUNT',
       unmatched_usd_amount: 'UNMATCHED_USD_AMOUNT',
       url: 'URL',
-      usd_amount: 'USD_AMOUNT',
+      usd_amount: 'USD_AMOUNT'
     });
   }
 }

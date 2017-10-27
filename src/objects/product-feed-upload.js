@@ -15,24 +15,24 @@ import ProductFeedUploadError from './product-feed-upload-error';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class ProductFeedUpload extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     end_time: 'end_time',
-     id: 'id',
-     input_method: 'input_method',
-     start_time: 'start_time',
-     url: 'url',
+      end_time: 'end_time',
+      id: 'id',
+      input_method: 'input_method',
+      start_time: 'start_time',
+      url: 'url'
     });
   }
 
-  static get InputMethod(): Object {
+  static get InputMethod (): Object {
     return Object.freeze({
       manual_upload: 'MANUAL_UPLOAD',
-      server_fetch: 'SERVER_FETCH',
+      server_fetch: 'SERVER_FETCH'
     });
   }
 
-  getErrors(fields, params, fetchFirstPage = true): ProductFeedUploadError {
+  getErrors (fields, params, fetchFirstPage = true): ProductFeedUploadError {
     return this.getEdge(
       ProductFeedUploadError,
       fields,

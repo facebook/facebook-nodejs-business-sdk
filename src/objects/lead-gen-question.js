@@ -14,13 +14,12 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class LeadGenQuestion extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     key: 'key',
-     label: 'label',
-     options: 'options',
-     type: 'type',
+      key: 'key',
+      label: 'label',
+      options: 'options',
+      type: 'type'
     });
   }
-
 }

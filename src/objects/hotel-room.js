@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
 
 /**
  * HotelRoom
@@ -14,24 +15,23 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class HotelRoom extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     applinks: 'applinks',
-     base_price: 'base_price',
-     currency: 'currency',
-     description: 'description',
-     id: 'id',
-     images: 'images',
-     margin_level: 'margin_level',
-     name: 'name',
-     room_id: 'room_id',
-     sale_price: 'sale_price',
-     url: 'url',
+      applinks: 'applinks',
+      base_price: 'base_price',
+      currency: 'currency',
+      description: 'description',
+      id: 'id',
+      images: 'images',
+      margin_level: 'margin_level',
+      name: 'name',
+      room_id: 'room_id',
+      sale_price: 'sale_price',
+      url: 'url'
     });
   }
 
-
-  delete (fields, params): Object {
+  delete (fields, params): AbstractObject {
     return super.delete(
       params
     );

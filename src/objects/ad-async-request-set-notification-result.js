@@ -14,11 +14,10 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdAsyncRequestSetNotificationResult extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     response: 'response',
-     status: 'status',
+      response: 'response',
+      status: 'status'
     });
   }
-
 }

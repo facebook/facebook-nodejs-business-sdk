@@ -14,12 +14,11 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class TargetingProductAudienceSpec extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     exclusions: 'exclusions',
-     inclusions: 'inclusions',
-     product_set_id: 'product_set_id',
+      exclusions: 'exclusions',
+      inclusions: 'inclusions',
+      product_set_id: 'product_set_id'
     });
   }
-
 }

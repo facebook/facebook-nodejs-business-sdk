@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
 import AdLabel from './ad-label';
 import Ad from './ad';
 import AdSet from './ad-set';
@@ -19,39 +20,39 @@ import AdReportRun from './ad-report-run';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class Campaign extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     account_id: 'account_id',
-     adlabels: 'adlabels',
-     brand_lift_studies: 'brand_lift_studies',
-     budget_rebalance_flag: 'budget_rebalance_flag',
-     buying_type: 'buying_type',
-     can_create_brand_lift_study: 'can_create_brand_lift_study',
-     can_use_spend_cap: 'can_use_spend_cap',
-     configured_status: 'configured_status',
-     created_time: 'created_time',
-     effective_status: 'effective_status',
-     id: 'id',
-     name: 'name',
-     objective: 'objective',
-     recommendations: 'recommendations',
-     spend_cap: 'spend_cap',
-     start_time: 'start_time',
-     status: 'status',
-     stop_time: 'stop_time',
-     updated_time: 'updated_time',
+      account_id: 'account_id',
+      adlabels: 'adlabels',
+      brand_lift_studies: 'brand_lift_studies',
+      budget_rebalance_flag: 'budget_rebalance_flag',
+      buying_type: 'buying_type',
+      can_create_brand_lift_study: 'can_create_brand_lift_study',
+      can_use_spend_cap: 'can_use_spend_cap',
+      configured_status: 'configured_status',
+      created_time: 'created_time',
+      effective_status: 'effective_status',
+      id: 'id',
+      name: 'name',
+      objective: 'objective',
+      recommendations: 'recommendations',
+      spend_cap: 'spend_cap',
+      start_time: 'start_time',
+      status: 'status',
+      stop_time: 'stop_time',
+      updated_time: 'updated_time'
     });
   }
 
-  static get ConfiguredStatus(): Object {
+  static get ConfiguredStatus (): Object {
     return Object.freeze({
       active: 'ACTIVE',
       paused: 'PAUSED',
       deleted: 'DELETED',
-      archived: 'ARCHIVED',
+      archived: 'ARCHIVED'
     });
   }
-  static get EffectiveStatus(): Object {
+  static get EffectiveStatus (): Object {
     return Object.freeze({
       active: 'ACTIVE',
       paused: 'PAUSED',
@@ -62,18 +63,18 @@ export default class Campaign extends AbstractCrudObject {
       pending_billing_info: 'PENDING_BILLING_INFO',
       campaign_paused: 'CAMPAIGN_PAUSED',
       archived: 'ARCHIVED',
-      adset_paused: 'ADSET_PAUSED',
+      adset_paused: 'ADSET_PAUSED'
     });
   }
-  static get Status(): Object {
+  static get Status (): Object {
     return Object.freeze({
       active: 'ACTIVE',
       paused: 'PAUSED',
       deleted: 'DELETED',
-      archived: 'ARCHIVED',
+      archived: 'ARCHIVED'
     });
   }
-  static get DatePreset(): Object {
+  static get DatePreset (): Object {
     return Object.freeze({
       today: 'TODAY',
       yesterday: 'YESTERDAY',
@@ -93,23 +94,23 @@ export default class Campaign extends AbstractCrudObject {
       last_year: 'LAST_YEAR',
       this_week_mon_today: 'THIS_WEEK_MON_TODAY',
       this_week_sun_today: 'THIS_WEEK_SUN_TODAY',
-      this_year: 'THIS_YEAR',
+      this_year: 'THIS_YEAR'
     });
   }
-  static get DeleteStrategy(): Object {
+  static get DeleteStrategy (): Object {
     return Object.freeze({
       delete_any: 'DELETE_ANY',
       delete_oldest: 'DELETE_OLDEST',
-      delete_archived_before: 'DELETE_ARCHIVED_BEFORE',
+      delete_archived_before: 'DELETE_ARCHIVED_BEFORE'
     });
   }
-  static get ExecutionOptions(): Object {
+  static get ExecutionOptions (): Object {
     return Object.freeze({
       validate_only: 'VALIDATE_ONLY',
-      include_recommendations: 'INCLUDE_RECOMMENDATIONS',
+      include_recommendations: 'INCLUDE_RECOMMENDATIONS'
     });
   }
-  static get Objective(): Object {
+  static get Objective (): Object {
     return Object.freeze({
       app_installs: 'APP_INSTALLS',
       brand_awareness: 'BRAND_AWARENESS',
@@ -123,24 +124,24 @@ export default class Campaign extends AbstractCrudObject {
       post_engagement: 'POST_ENGAGEMENT',
       product_catalog_sales: 'PRODUCT_CATALOG_SALES',
       reach: 'REACH',
-      video_views: 'VIDEO_VIEWS',
+      video_views: 'VIDEO_VIEWS'
     });
   }
-  static get Operator(): Object {
+  static get Operator (): Object {
     return Object.freeze({
       all: 'ALL',
-      any: 'ANY',
+      any: 'ANY'
     });
   }
 
-  deleteAdLabels(params): Object {
+  deleteAdLabels (params): AbstractObject {
     return super.deleteEdge(
       '/adlabels',
       params
     );
   }
 
-  createAdLabel(fields, params): AdLabel {
+  createAdLabel (fields, params): AdLabel {
     return this.createEdge(
       '/adlabels',
       fields,
@@ -148,7 +149,7 @@ export default class Campaign extends AbstractCrudObject {
     );
   }
 
-  getAds(fields, params, fetchFirstPage = true): Ad {
+  getAds (fields, params, fetchFirstPage = true): Ad {
     return this.getEdge(
       Ad,
       fields,
@@ -158,7 +159,7 @@ export default class Campaign extends AbstractCrudObject {
     );
   }
 
-  getAdSets(fields, params, fetchFirstPage = true): AdSet {
+  getAdSets (fields, params, fetchFirstPage = true): AdSet {
     return this.getEdge(
       AdSet,
       fields,
@@ -168,7 +169,7 @@ export default class Campaign extends AbstractCrudObject {
     );
   }
 
-  getInsights(fields, params, fetchFirstPage = true): AdsInsights {
+  getInsights (fields, params, fetchFirstPage = true): AdsInsights {
     return this.getEdge(
       AdsInsights,
       fields,
@@ -178,7 +179,7 @@ export default class Campaign extends AbstractCrudObject {
     );
   }
 
-  getInsightsAsync(fields, params): AdReportRun {
+  getInsightsAsync (fields, params): AdReportRun {
     return this.createEdge(
       '/insights',
       fields,
@@ -186,7 +187,7 @@ export default class Campaign extends AbstractCrudObject {
     );
   }
 
-  delete (fields, params): Object {
+  delete (fields, params): AbstractObject {
     return super.delete(
       params
     );

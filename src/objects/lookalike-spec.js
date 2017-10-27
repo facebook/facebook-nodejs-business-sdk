@@ -14,16 +14,15 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class LookalikeSpec extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     country: 'country',
-     is_financial_service: 'is_financial_service',
-     origin: 'origin',
-     ratio: 'ratio',
-     starting_ratio: 'starting_ratio',
-     target_countries: 'target_countries',
-     type: 'type',
+      country: 'country',
+      is_financial_service: 'is_financial_service',
+      origin: 'origin',
+      ratio: 'ratio',
+      starting_ratio: 'starting_ratio',
+      target_countries: 'target_countries',
+      type: 'type'
     });
   }
-
 }

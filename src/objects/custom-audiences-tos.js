@@ -14,12 +14,11 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class CustomAudiencesTOS extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({
-     content: 'content',
-     id: 'id',
-     type: 'type',
+      content: 'content',
+      id: 'id',
+      type: 'type'
     });
   }
-
 }
