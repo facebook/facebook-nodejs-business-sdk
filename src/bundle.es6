@@ -31,6 +31,7 @@ export { default as AdReportRun } from './../src/objects/ad-report-run';
 export { default as AdStudy } from './../src/objects/ad-study';
 export { default as AdStudyCell } from './../src/objects/ad-study-cell';
 export { default as AdStudyObjective } from './../src/objects/ad-study-objective';
+export { default as AdVideo } from './../src/objects/ad-video';
 export { default as AdgroupPlacementSpecificReviewFeedback } from './../src/objects/adgroup-placement-specific-review-feedback';
 export { default as AdgroupRelevanceScore } from './../src/objects/adgroup-relevance-score';
 export { default as AdgroupReviewFeedback } from './../src/objects/adgroup-review-feedback';
