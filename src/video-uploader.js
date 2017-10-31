@@ -385,7 +385,7 @@ class VideoUploadRequest {
           this._params,
           this._files,
           true, // use multipart/form-data
-          'https://graph-video.facebook.com' // override graph.facebook.com
+          FacebookAdsApi.GRAPH_VIDEO // override graph.facebook.com
         )
         .then(response => resolve(JSON.parse(response)))
         .catch(error => reject(error));
