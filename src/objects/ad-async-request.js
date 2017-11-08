@@ -23,6 +23,7 @@ export default class AdAsyncRequest extends AbstractCrudObject {
       result: 'result',
       scope_object_id: 'scope_object_id',
       status: 'status',
+      type: 'type',
       updated_time: 'updated_time'
     });
   }

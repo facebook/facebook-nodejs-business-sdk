@@ -27,6 +27,7 @@ export default class AdsActionStats extends AbstractCrudObject {
       action_carousel_card_name: 'action_carousel_card_name',
       action_destination: 'action_destination',
       action_device: 'action_device',
+      action_link_click_destination: 'action_link_click_destination',
       action_reaction: 'action_reaction',
       action_target_id: 'action_target_id',
       action_type: 'action_type',

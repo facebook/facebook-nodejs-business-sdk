@@ -103,7 +103,8 @@ export default class ProductItem extends AbstractCrudObject {
     return Object.freeze({
       pending: 'PENDING',
       rejected: 'REJECTED',
-      approved: 'APPROVED'
+      approved: 'APPROVED',
+      outdated: 'OUTDATED'
     });
   }
   static get ShippingWeightUnit (): Object {

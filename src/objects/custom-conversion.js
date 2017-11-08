@@ -46,9 +46,9 @@ export default class CustomConversion extends AbstractCrudObject {
       content_view: 'CONTENT_VIEW',
       initiated_checkout: 'INITIATED_CHECKOUT',
       lead: 'LEAD',
-      other: 'OTHER',
       purchase: 'PURCHASE',
-      search: 'SEARCH'
+      search: 'SEARCH',
+      other: 'OTHER'
     });
   }
 
@@ -59,6 +59,21 @@ export default class CustomConversion extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/activities'
+    );
+  }
+
+  deleteSharedAgencies (params): AbstractObject {
+    return super.deleteEdge(
+      '/shared_agencies',
+      params
+    );
+  }
+
+  createSharedAgency (fields, params): CustomConversion {
+    return this.createEdge(
+      '/shared_agencies',
+      fields,
+      params
     );
   }
 

@@ -9,20 +9,22 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * ReachEstimate
+ * AdAccountDeliveryEstimate
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class ReachEstimate extends AbstractCrudObject {
+export default class AdAccountDeliveryEstimate extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      estimate_ready: 'estimate_ready',
-      unsupported: 'unsupported',
-      users: 'users'
+      bid_estimate: 'bid_estimate',
+      daily_outcomes_curve: 'daily_outcomes_curve',
+      estimate_dau: 'estimate_dau',
+      estimate_mau: 'estimate_mau',
+      estimate_ready: 'estimate_ready'
     });
   }
 
-  static get OptimizeFor (): Object {
+  static get OptimizationGoal (): Object {
     return Object.freeze({
       none: 'NONE',
       app_installs: 'APP_INSTALLS',

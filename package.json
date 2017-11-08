@@ -1,6 +1,6 @@
 {
   "name": "facebook-nodejs-ads-sdk",
-  "version": "2.9.1",
+  "version": "2.10.0",
   "description": "SDK for the Facebook Ads API in Javascript and Node.js",
   "author": "Facebook",
   "maintainers": [
@@ -56,6 +56,7 @@
   },
   "dependencies": {
     "babel-eslint": "^7.2.3",
+    "babel-plugin-async-to-promises": "^1.0.5",
     "eslint-plugin-flowtype": "^2.34.0",
     "gulp-cli": "^1.3.0",
     "gulp-flowtype": "^1.0.0",

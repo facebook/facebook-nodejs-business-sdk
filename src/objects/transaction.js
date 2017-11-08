@@ -26,6 +26,7 @@ export default class Transaction extends AbstractCrudObject {
       credential_id: 'credential_id',
       fatura_id: 'fatura_id',
       id: 'id',
+      is_business_ec_charge: 'is_business_ec_charge',
       payment_option: 'payment_option',
       product_type: 'product_type',
       provider_amount: 'provider_amount',

@@ -45,11 +45,12 @@ export default class AdVideo extends AbstractCrudObject {
       const request = new VideoUploadRequest(this.getApi());
 
       request.setParams({
-        slideshow_spec: {
-          images_urls: this[AdVideo.Fields.slideshow_spec]['images_urls'],
-          duration_ms: this[AdVideo.Fields.slideshow_spec]['duration_ms'],
-          'transition_ms': this[AdVideo.Fields.slideshow_spec]['transition_ms']
-        }
+        'slideshow_spec[images_urls]':
+          JSON.stringify(this[AdVideo.Fields.slideshow_spec]['images_urls']),
+        'slideshow_spec[duration_ms]':
+          this[AdVideo.Fields.slideshow_spec]['duration_ms'],
+        'slideshow_spec[transition_ms]':
+          this[AdVideo.Fields.slideshow_spec]['transition_ms']
       });
       response = request.send([this.getParentId(), 'advideos']);
     } else if (this[AdVideo.Fields.filepath]) {

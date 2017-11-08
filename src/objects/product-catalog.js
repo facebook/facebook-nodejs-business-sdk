@@ -9,6 +9,7 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Business from './business';
+import CheckBatchRequestStatus from './check-batch-request-status';
 import ExternalEventSource from './external-event-source';
 import ProductCatalogHotelRoomsBatch from './product-catalog-hotel-rooms-batch';
 import Hotel from './hotel';
@@ -31,11 +32,13 @@ export default class ProductCatalog extends AbstractCrudObject {
       default_image_url: 'default_image_url',
       fallback_image_url: 'fallback_image_url',
       feed_count: 'feed_count',
+      flight_catalog_settings: 'flight_catalog_settings',
       id: 'id',
       image_padding_landscape: 'image_padding_landscape',
       image_padding_square: 'image_padding_square',
       name: 'name',
       product_count: 'product_count',
+      qualified_product_count: 'qualified_product_count',
       vertical: 'vertical'
     });
   }
@@ -56,6 +59,16 @@ export default class ProductCatalog extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/agencies'
+    );
+  }
+
+  getCheckBatchRequestStatus (fields, params, fetchFirstPage = true): CheckBatchRequestStatus {
+    return this.getEdge(
+      CheckBatchRequestStatus,
+      fields,
+      params,
+      fetchFirstPage,
+      '/check_batch_request_status'
     );
   }
 

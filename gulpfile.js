@@ -43,7 +43,8 @@ function roll (format, entry, name, entry_dir, dest_dir) {
           "plugins": [
             "external-helpers",
             "syntax-flow",
-            "transform-flow-strip-types"
+            "transform-flow-strip-types",
+            "async-to-promises"
           ],
           exclude: ['node_modules/**', '**/*.json']
         }

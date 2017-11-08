@@ -13,7 +13,7 @@ import AdCreative from './ad-creative';
 import AdLabel from './ad-label';
 import Ad from './ad';
 import AdAsyncRequest from './ad-async-request';
-import DeliveryEstimate from './delivery-estimate';
+import AdCampaignDeliveryEstimate from './ad-campaign-delivery-estimate';
 import AdsInsights from './ads-insights';
 import AdReportRun from './ad-report-run';
 import TargetingSentenceLine from './targeting-sentence-line';
@@ -59,6 +59,8 @@ export default class AdSet extends AbstractCrudObject {
       recurring_budget_semantics: 'recurring_budget_semantics',
       rf_prediction_id: 'rf_prediction_id',
       rtb_flag: 'rtb_flag',
+      source_adset: 'source_adset',
+      source_adset_id: 'source_adset_id',
       start_time: 'start_time',
       status: 'status',
       targeting: 'targeting',
@@ -79,7 +81,8 @@ export default class AdSet extends AbstractCrudObject {
       page_likes: 'PAGE_LIKES',
       post_engagement: 'POST_ENGAGEMENT',
       video_views: 'VIDEO_VIEWS',
-      mrc_video_views: 'MRC_VIDEO_VIEWS'
+      mrc_video_views: 'MRC_VIDEO_VIEWS',
+      completed_video_views: 'COMPLETED_VIDEO_VIEWS'
     });
   }
   static get ConfiguredStatus (): Object {
@@ -123,7 +126,8 @@ export default class AdSet extends AbstractCrudObject {
       reach: 'REACH',
       social_impressions: 'SOCIAL_IMPRESSIONS',
       video_views: 'VIDEO_VIEWS',
-      app_downloads: 'APP_DOWNLOADS'
+      app_downloads: 'APP_DOWNLOADS',
+      landing_page_views: 'LANDING_PAGE_VIEWS'
     });
   }
   static get Status (): Object {
@@ -225,9 +229,19 @@ export default class AdSet extends AbstractCrudObject {
     );
   }
 
-  getDeliveryEstimate (fields, params, fetchFirstPage = true): DeliveryEstimate {
+  getCopies (fields, params, fetchFirstPage = true): AdSet {
     return this.getEdge(
-      DeliveryEstimate,
+      AdSet,
+      fields,
+      params,
+      fetchFirstPage,
+      '/copies'
+    );
+  }
+
+  getDeliveryEstimate (fields, params, fetchFirstPage = true): AdCampaignDeliveryEstimate {
+    return this.getEdge(
+      AdCampaignDeliveryEstimate,
       fields,
       params,
       fetchFirstPage,

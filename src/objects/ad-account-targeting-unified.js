@@ -82,7 +82,6 @@ export default class AdAccountTargetingUnified extends AbstractCrudObject {
       effective_audience_network_positions: 'EFFECTIVE_AUDIENCE_NETWORK_POSITIONS',
       excluded_publisher_categories: 'EXCLUDED_PUBLISHER_CATEGORIES',
       excluded_publisher_list_ids: 'EXCLUDED_PUBLISHER_LIST_IDS',
-      excluded_publisher_domains: 'EXCLUDED_PUBLISHER_DOMAINS',
       publisher_visibility_categories: 'PUBLISHER_VISIBILITY_CATEGORIES',
       user_device: 'USER_DEVICE',
       mobile_device_model: 'MOBILE_DEVICE_MODEL',
@@ -107,6 +106,7 @@ export default class AdAccountTargetingUnified extends AbstractCrudObject {
       moms: 'MOMS',
       office_type: 'OFFICE_TYPE',
       targeting_optimization: 'TARGETING_OPTIMIZATION',
+      direct_install_devices: 'DIRECT_INSTALL_DEVICES',
       engagement_specs: 'ENGAGEMENT_SPECS',
       excluded_engagement_specs: 'EXCLUDED_ENGAGEMENT_SPECS',
       product_audience_specs: 'PRODUCT_AUDIENCE_SPECS',
@@ -118,7 +118,12 @@ export default class AdAccountTargetingUnified extends AbstractCrudObject {
       app_install_state: 'APP_INSTALL_STATE',
       fb_deal_id: 'FB_DEAL_ID',
       interest_defaults_source: 'INTEREST_DEFAULTS_SOURCE',
-      alternate_auto_targeting_option: 'ALTERNATE_AUTO_TARGETING_OPTION'
+      alternate_auto_targeting_option: 'ALTERNATE_AUTO_TARGETING_OPTION',
+      contextual_targeting_categories: 'CONTEXTUAL_TARGETING_CATEGORIES',
+      topic: 'TOPIC',
+      format: 'FORMAT',
+      trending: 'TRENDING',
+      gatekeepers: 'GATEKEEPERS'
     });
   }
 }
