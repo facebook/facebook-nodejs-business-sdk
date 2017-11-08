@@ -16,6 +16,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class AdCreativeVideoData extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
+      additional_image_index: 'additional_image_index',
       branded_content_sponsor_page_id: 'branded_content_sponsor_page_id',
       branded_content_sponsor_relationship: 'branded_content_sponsor_relationship',
       call_to_action: 'call_to_action',
@@ -25,6 +26,7 @@ export default class AdCreativeVideoData extends AbstractCrudObject {
       message: 'message',
       offer_id: 'offer_id',
       page_welcome_message: 'page_welcome_message',
+      retailer_item_ids: 'retailer_item_ids',
       targeting: 'targeting',
       title: 'title',
       video_id: 'video_id'

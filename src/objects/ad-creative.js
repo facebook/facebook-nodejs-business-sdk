@@ -97,6 +97,7 @@ export default class AdCreative extends AbstractCrudObject {
       register_now: 'REGISTER_NOW',
       request_time: 'REQUEST_TIME',
       see_menu: 'SEE_MENU',
+      email_now: 'EMAIL_NOW',
       open_movies: 'OPEN_MOVIES'
     });
   }

@@ -9,20 +9,22 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * LeadGenQuestion
+ * AdAccountAdRuleHistory
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class LeadGenQuestion extends AbstractCrudObject {
+export default class AdAccountAdRuleHistory extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      conditional_questions_choices: 'conditional_questions_choices',
-      conditional_questions_group_id: 'conditional_questions_group_id',
-      dependent_conditional_questions: 'dependent_conditional_questions',
-      key: 'key',
-      label: 'label',
-      options: 'options',
-      type: 'type'
+      evaluation_spec: 'evaluation_spec',
+      exception_code: 'exception_code',
+      exception_message: 'exception_message',
+      execution_spec: 'execution_spec',
+      is_manual: 'is_manual',
+      results: 'results',
+      rule_id: 'rule_id',
+      schedule_spec: 'schedule_spec',
+      timestamp: 'timestamp'
     });
   }
 }

@@ -19,6 +19,7 @@ export default class LeadgenForm extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       allow_organic_lead: 'allow_organic_lead',
+      block_display_for_non_targeted_viewer: 'block_display_for_non_targeted_viewer',
       context_card: 'context_card',
       continued_flow_request_method: 'continued_flow_request_method',
       created_time: 'created_time',

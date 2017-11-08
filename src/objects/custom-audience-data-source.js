@@ -34,6 +34,7 @@ export default class CustomAudienceDataSource extends AbstractCrudObject {
       multi_hashes: 'MULTI_HASHES',
       tokens: 'TOKENS',
       external_ids_mix: 'EXTERNAL_IDS_MIX',
+      household_expansion: 'HOUSEHOLD_EXPANSION',
       web_pixel_hits: 'WEB_PIXEL_HITS',
       mobile_app_events: 'MOBILE_APP_EVENTS',
       mobile_app_combination_events: 'MOBILE_APP_COMBINATION_EVENTS',
@@ -76,7 +77,8 @@ export default class CustomAudienceDataSource extends AbstractCrudObject {
       seed_based: 'SEED_BASED',
       third_party_imported: 'THIRD_PARTY_IMPORTED',
       copy_paste: 'COPY_PASTE',
-      contact_importer: 'CONTACT_IMPORTER'
+      contact_importer: 'CONTACT_IMPORTER',
+      household_audience: 'HOUSEHOLD_AUDIENCE'
     });
   }
 }

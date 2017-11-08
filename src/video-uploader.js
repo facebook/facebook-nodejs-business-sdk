@@ -41,13 +41,19 @@ class VideoUploader {
   }
 }
 
+type SlideshowSpec = {
+  images_urls: Array<String>,
+  duration_ms: Number,
+  transition_ms: Number,
+};
+
 class VideoUploadSession {
   _accountId: String;
   _api: FacebookAdsApi;
   _endOffset: Number;
   _filePath: String;
   _sessionId: String;
-  _slideshowSpec: String;
+  _slideshowSpec: SlideshowSpec;
   _startOffset: Number;
   _startRequestManager: VideoUploadStartRequestManager;
   _transferRequestManager: VideoUploadTransferRequestManager;
@@ -297,6 +303,7 @@ class VideoUploadRequestContext {
   _sessionId: String;
   _startOffset: Number;
   _endOffset: Number;
+  _slideshowSpec: SlideshowSpec;
 
   get accountId (): String {
     return this._accountId;
@@ -359,6 +366,14 @@ class VideoUploadRequestContext {
 
   set endOffset (endOffset: Number) {
     this._endOffset = endOffset;
+  }
+
+  get slideshowSpec (): SlideshowSpec {
+    return this._slideshowSpec;
+  }
+
+  set slideshowSpec (slideshowSpec: SlideshowSpec) {
+    this._slideshowSpec = slideshowSpec;
   }
 }
 

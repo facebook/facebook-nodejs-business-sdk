@@ -19,6 +19,7 @@ export default class AdStudyObjective extends AbstractCrudObject {
       custom_attributes: 'custom_attributes',
       id: 'id',
       is_primary: 'is_primary',
+      last_updated_results: 'last_updated_results',
       name: 'name',
       results: 'results',
       type: 'type'

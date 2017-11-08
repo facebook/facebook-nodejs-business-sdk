@@ -20,6 +20,7 @@ export default class ProductFeedSchedule extends AbstractCrudObject {
       day_of_week: 'day_of_week',
       hour: 'hour',
       interval: 'interval',
+      interval_count: 'interval_count',
       minute: 'minute',
       timezone: 'timezone',
       url: 'url',

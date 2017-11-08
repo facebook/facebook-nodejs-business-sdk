@@ -14,6 +14,7 @@ import AdCreative from './ad-creative';
 import AdImage from './ad-image';
 import AdLabel from './ad-label';
 import AdReportRun from './ad-report-run';
+import AdRule from './ad-rule';
 import Ad from './ad';
 import AdSet from './ad-set';
 import AdsPixel from './ads-pixel';
@@ -23,7 +24,7 @@ import Campaign from './campaign';
 import CustomAudience from './custom-audience';
 import CustomAudiencesTOS from './custom-audiences-tos';
 import CustomConversion from './custom-conversion';
-import DeliveryEstimate from './delivery-estimate';
+import AdAccountDeliveryEstimate from './ad-account-delivery-estimate';
 import AdPreview from './ad-preview';
 import AdsInsights from './ads-insights';
 import LeadgenForm from './leadgen-form';
@@ -53,6 +54,7 @@ export default class AdAccount extends AbstractCrudObject {
       age: 'age',
       agency_client_declaration: 'agency_client_declaration',
       amount_spent: 'amount_spent',
+      attribution_spec: 'attribution_spec',
       balance: 'balance',
       business: 'business',
       business_city: 'business_city',
@@ -75,6 +77,7 @@ export default class AdAccount extends AbstractCrudObject {
       has_migrated_permissions: 'has_migrated_permissions',
       id: 'id',
       io_number: 'io_number',
+      is_attribution_spec_system_default: 'is_attribution_spec_system_default',
       is_notifications_enabled: 'is_notifications_enabled',
       is_personal: 'is_personal',
       is_prepay_account: 'is_prepay_account',
@@ -235,6 +238,14 @@ export default class AdAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/adreportschedules'
+    );
+  }
+
+  createAdRulesLibrary (fields, params): AdRule {
+    return this.createEdge(
+      '/adrules_library',
+      fields,
+      params
     );
   }
 
@@ -449,9 +460,9 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getDeliveryEstimate (fields, params, fetchFirstPage = true): DeliveryEstimate {
+  getDeliveryEstimate (fields, params, fetchFirstPage = true): AdAccountDeliveryEstimate {
     return this.getEdge(
-      DeliveryEstimate,
+      AdAccountDeliveryEstimate,
       fields,
       params,
       fetchFirstPage,
@@ -524,14 +535,6 @@ export default class AdAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/offline_conversion_data_sets'
-    );
-  }
-
-  createOfflineConversion (fields, params): AbstractObject {
-    return this.createEdge(
-      '/offlineconversions',
-      fields,
-      params
     );
   }
 

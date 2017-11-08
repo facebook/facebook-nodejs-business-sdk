@@ -36,6 +36,8 @@ export default class Campaign extends AbstractCrudObject {
       name: 'name',
       objective: 'objective',
       recommendations: 'recommendations',
+      source_campaign: 'source_campaign',
+      source_campaign_id: 'source_campaign_id',
       spend_cap: 'spend_cap',
       start_time: 'start_time',
       status: 'status',
@@ -166,6 +168,16 @@ export default class Campaign extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/adsets'
+    );
+  }
+
+  getCopies (fields, params, fetchFirstPage = true): Campaign {
+    return this.getEdge(
+      Campaign,
+      fields,
+      params,
+      fetchFirstPage,
+      '/copies'
     );
   }
 

@@ -1,5 +1,8 @@
 export { default as FacebookAdsApi } from './../src/api'
+export { default as AdVideo } from './../src/objects/ad-video';
 export { default as AdAccount } from './../src/objects/ad-account';
+export { default as AdAccountAdRuleHistory } from './../src/objects/ad-account-ad-rule-history';
+export { default as AdAccountDeliveryEstimate } from './../src/objects/ad-account-delivery-estimate';
 export { default as AdAccountRoas } from './../src/objects/ad-account-roas';
 export { default as AdAccountTargetingUnified } from './../src/objects/ad-account-targeting-unified';
 export { default as AdAccountUser } from './../src/objects/ad-account-user';
@@ -7,6 +10,7 @@ export { default as AdActivity } from './../src/objects/ad-activity';
 export { default as AdAsyncRequest } from './../src/objects/ad-async-request';
 export { default as AdAsyncRequestSet } from './../src/objects/ad-async-request-set';
 export { default as AdAsyncRequestSetNotificationResult } from './../src/objects/ad-async-request-set-notification-result';
+export { default as AdCampaignDeliveryEstimate } from './../src/objects/ad-campaign-delivery-estimate';
 export { default as AdCreative } from './../src/objects/ad-creative';
 export { default as AdCreativeLinkData } from './../src/objects/ad-creative-link-data';
 export { default as AdCreativeLinkDataAppLinkSpec } from './../src/objects/ad-creative-link-data-app-link-spec';
@@ -28,6 +32,17 @@ export { default as AdPromotedObject } from './../src/objects/ad-promoted-object
 export { default as AdRecommendation } from './../src/objects/ad-recommendation';
 export { default as AdRecommendationData } from './../src/objects/ad-recommendation-data';
 export { default as AdReportRun } from './../src/objects/ad-report-run';
+export { default as AdRule } from './../src/objects/ad-rule';
+export { default as AdRuleEvaluationSpec } from './../src/objects/ad-rule-evaluation-spec';
+export { default as AdRuleExecutionOptions } from './../src/objects/ad-rule-execution-options';
+export { default as AdRuleExecutionSpec } from './../src/objects/ad-rule-execution-spec';
+export { default as AdRuleFilters } from './../src/objects/ad-rule-filters';
+export { default as AdRuleHistory } from './../src/objects/ad-rule-history';
+export { default as AdRuleHistoryResult } from './../src/objects/ad-rule-history-result';
+export { default as AdRuleHistoryResultAction } from './../src/objects/ad-rule-history-result-action';
+export { default as AdRuleSchedule } from './../src/objects/ad-rule-schedule';
+export { default as AdRuleScheduleSpec } from './../src/objects/ad-rule-schedule-spec';
+export { default as AdRuleTrigger } from './../src/objects/ad-rule-trigger';
 export { default as AdStudy } from './../src/objects/ad-study';
 export { default as AdStudyCell } from './../src/objects/ad-study-cell';
 export { default as AdStudyObjective } from './../src/objects/ad-study-objective';
@@ -48,6 +63,7 @@ export { default as BroadTargetingCategories } from './../src/objects/broad-targ
 export { default as Business } from './../src/objects/business';
 export { default as BusinessAdAccountRequest } from './../src/objects/business-ad-account-request';
 export { default as BusinessPageRequest } from './../src/objects/business-page-request';
+export { default as CheckBatchRequestStatus } from './../src/objects/check-batch-request-status';
 export { default as ConversionActionQuery } from './../src/objects/conversion-action-query';
 export { default as CustomAudience } from './../src/objects/custom-audience';
 export { default as CustomAudienceAdAccount } from './../src/objects/custom-audience-ad-account';

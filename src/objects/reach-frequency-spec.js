@@ -17,6 +17,7 @@ export default class ReachFrequencySpec extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       countries: 'countries',
+      default_creation_data: 'default_creation_data',
       max_campaign_duration: 'max_campaign_duration',
       max_days_to_finish: 'max_days_to_finish',
       max_pause_without_prediction_rerun: 'max_pause_without_prediction_rerun',

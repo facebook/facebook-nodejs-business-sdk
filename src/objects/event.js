@@ -19,6 +19,7 @@ export default class Event extends AbstractCrudObject {
     return Object.freeze({
       attending_count: 'attending_count',
       can_guests_invite: 'can_guests_invite',
+      can_viewer_post: 'can_viewer_post',
       category: 'category',
       cover: 'cover',
       declined_count: 'declined_count',
@@ -28,6 +29,7 @@ export default class Event extends AbstractCrudObject {
       id: 'id',
       interested_count: 'interested_count',
       is_canceled: 'is_canceled',
+      is_draft: 'is_draft',
       is_page_owned: 'is_page_owned',
       is_viewer_admin: 'is_viewer_admin',
       maybe_count: 'maybe_count',
@@ -38,6 +40,8 @@ export default class Event extends AbstractCrudObject {
       place: 'place',
       start_time: 'start_time',
       ticket_uri: 'ticket_uri',
+      ticketing_privacy_uri: 'ticketing_privacy_uri',
+      ticketing_terms_uri: 'ticketing_terms_uri',
       timezone: 'timezone',
       type: 'type',
       updated_time: 'updated_time'

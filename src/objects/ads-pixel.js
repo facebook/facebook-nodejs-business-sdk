@@ -22,6 +22,7 @@ export default class AdsPixel extends AbstractCrudObject {
     return Object.freeze({
       code: 'code',
       creation_time: 'creation_time',
+      creator: 'creator',
       id: 'id',
       is_created_by_business: 'is_created_by_business',
       last_fired_time: 'last_fired_time',

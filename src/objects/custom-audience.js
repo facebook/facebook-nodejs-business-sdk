@@ -49,6 +49,7 @@ export default class CustomAudience extends AbstractCrudObject {
 
   static get ClaimObjective (): Object {
     return Object.freeze({
+      auto_offer: 'AUTO_OFFER',
       home_listing: 'HOME_LISTING',
       product: 'PRODUCT',
       travel: 'TRAVEL'
@@ -56,10 +57,11 @@ export default class CustomAudience extends AbstractCrudObject {
   }
   static get ContentType (): Object {
     return Object.freeze({
+      auto_offer: 'AUTO_OFFER',
       destination: 'DESTINATION',
       flight: 'FLIGHT',
-      hotel: 'HOTEL',
-      home_listing: 'HOME_LISTING'
+      home_listing: 'HOME_LISTING',
+      hotel: 'HOTEL'
     });
   }
   static get Subtype (): Object {
@@ -76,7 +78,8 @@ export default class CustomAudience extends AbstractCrudObject {
       engagement: 'ENGAGEMENT',
       data_set: 'DATA_SET',
       bag_of_accounts: 'BAG_OF_ACCOUNTS',
-      study_rule_audience: 'STUDY_RULE_AUDIENCE'
+      study_rule_audience: 'STUDY_RULE_AUDIENCE',
+      fox: 'FOX'
     });
   }
 

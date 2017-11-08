@@ -34,10 +34,12 @@ export default class Business extends AbstractCrudObject {
       name: 'name',
       payment_account_id: 'payment_account_id',
       primary_page: 'primary_page',
+      profile_picture_uri: 'profile_picture_uri',
       timezone_id: 'timezone_id',
       two_factor_type: 'two_factor_type',
       updated_by: 'updated_by',
-      updated_time: 'updated_time'
+      updated_time: 'updated_time',
+      vertical: 'vertical'
     });
   }
 
