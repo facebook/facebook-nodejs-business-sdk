@@ -9,19 +9,22 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * AdCreativePlaceData
+ * AdAccountAdRulesHistory
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class AdCreativePlaceData extends AbstractCrudObject {
+export default class AdAccountAdRulesHistory extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      address_string: 'address_string',
-      label: 'label',
-      latitude: 'latitude',
-      location_source_id: 'location_source_id',
-      longitude: 'longitude',
-      type: 'type'
+      evaluation_spec: 'evaluation_spec',
+      exception_code: 'exception_code',
+      exception_message: 'exception_message',
+      execution_spec: 'execution_spec',
+      is_manual: 'is_manual',
+      results: 'results',
+      rule_id: 'rule_id',
+      schedule_spec: 'schedule_spec',
+      timestamp: 'timestamp'
     });
   }
 }

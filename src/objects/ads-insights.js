@@ -16,6 +16,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class AdsInsights extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
+      account_currency: 'account_currency',
       account_id: 'account_id',
       account_name: 'account_name',
       action_values: 'action_values',
@@ -81,7 +82,6 @@ export default class AdsInsights extends AbstractCrudObject {
       unique_outbound_clicks_ctr: 'unique_outbound_clicks_ctr',
       unique_social_clicks: 'unique_social_clicks',
       video_10_sec_watched_actions: 'video_10_sec_watched_actions',
-      video_15_sec_watched_actions: 'video_15_sec_watched_actions',
       video_30_sec_watched_actions: 'video_30_sec_watched_actions',
       video_avg_percent_watched_actions: 'video_avg_percent_watched_actions',
       video_avg_time_watched_actions: 'video_avg_time_watched_actions',

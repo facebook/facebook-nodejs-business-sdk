@@ -43,15 +43,6 @@ export default class ProductCatalog extends AbstractCrudObject {
     });
   }
 
-  static get Vertical (): Object {
-    return Object.freeze({
-      commerce: 'COMMERCE',
-      destinations: 'DESTINATIONS',
-      flights: 'FLIGHTS',
-      hotels: 'HOTELS'
-    });
-  }
-
   getAgencies (fields, params, fetchFirstPage = true): Business {
     return this.getEdge(
       Business,
@@ -114,6 +105,24 @@ export default class ProductCatalog extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/flights'
+    );
+  }
+
+  getHomeListings (fields, params, fetchFirstPage = true): AbstractObject {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/home_listings'
+    );
+  }
+
+  createHomeListing (fields, params): AbstractObject {
+    return this.createEdge(
+      '/home_listings',
+      fields,
+      params
     );
   }
 

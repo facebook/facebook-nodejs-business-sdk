@@ -32,7 +32,8 @@ export default class ProductFeed extends AbstractCrudObject {
       product_count: 'product_count',
       qualified_product_count: 'qualified_product_count',
       quoted_fields_mode: 'quoted_fields_mode',
-      schedule: 'schedule'
+      schedule: 'schedule',
+      update_schedule: 'update_schedule'
     });
   }
 

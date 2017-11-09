@@ -55,6 +55,7 @@ export default class AdActivity extends AbstractCrudObject {
       update_campaign_name: 'UPDATE_CAMPAIGN_NAME',
       update_campaign_run_status: 'UPDATE_CAMPAIGN_RUN_STATUS',
       update_campaign_group_spend_cap: 'UPDATE_CAMPAIGN_GROUP_SPEND_CAP',
+      campaign_ended: 'CAMPAIGN_ENDED',
       create_campaign: 'CREATE_CAMPAIGN',
       create_campaign_legacy: 'CREATE_CAMPAIGN_LEGACY',
       update_campaign_budget: 'UPDATE_CAMPAIGN_BUDGET',

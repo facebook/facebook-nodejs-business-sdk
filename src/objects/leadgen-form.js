@@ -21,12 +21,12 @@ export default class LeadgenForm extends AbstractCrudObject {
       allow_organic_lead: 'allow_organic_lead',
       block_display_for_non_targeted_viewer: 'block_display_for_non_targeted_viewer',
       context_card: 'context_card',
-      continued_flow_request_method: 'continued_flow_request_method',
       created_time: 'created_time',
       creator: 'creator',
       creator_id: 'creator_id',
       cusomized_tcpa_content: 'cusomized_tcpa_content',
       expired_leads_count: 'expired_leads_count',
+      extra_details: 'extra_details',
       follow_up_action_text: 'follow_up_action_text',
       follow_up_action_url: 'follow_up_action_url',
       id: 'id',
@@ -42,9 +42,11 @@ export default class LeadgenForm extends AbstractCrudObject {
       page_id: 'page_id',
       privacy_policy_url: 'privacy_policy_url',
       qualifiers: 'qualifiers',
+      question_page_custom_headline: 'question_page_custom_headline',
       questions: 'questions',
       status: 'status',
-      tcpa_compliance: 'tcpa_compliance'
+      tcpa_compliance: 'tcpa_compliance',
+      thank_you_page: 'thank_you_page'
     });
   }
 

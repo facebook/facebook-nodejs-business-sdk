@@ -16,6 +16,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class AdCreativePhotoData extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
+      branded_content_shared_to_sponsor_status: 'branded_content_shared_to_sponsor_status',
       branded_content_sponsor_page_id: 'branded_content_sponsor_page_id',
       branded_content_sponsor_relationship: 'branded_content_sponsor_relationship',
       caption: 'caption',

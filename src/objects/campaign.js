@@ -24,6 +24,7 @@ export default class Campaign extends AbstractCrudObject {
     return Object.freeze({
       account_id: 'account_id',
       adlabels: 'adlabels',
+      boosted_object_id: 'boosted_object_id',
       brand_lift_studies: 'brand_lift_studies',
       budget_rebalance_flag: 'budget_rebalance_flag',
       buying_type: 'buying_type',
@@ -33,6 +34,8 @@ export default class Campaign extends AbstractCrudObject {
       created_time: 'created_time',
       effective_status: 'effective_status',
       id: 'id',
+      kpi_custom_conversion_id: 'kpi_custom_conversion_id',
+      kpi_type: 'kpi_type',
       name: 'name',
       objective: 'objective',
       recommendations: 'recommendations',

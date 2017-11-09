@@ -40,16 +40,16 @@ export default class AdSet extends AbstractCrudObject {
       created_time: 'created_time',
       creative_sequence: 'creative_sequence',
       daily_budget: 'daily_budget',
+      destination_type: 'destination_type',
       effective_status: 'effective_status',
       end_time: 'end_time',
-      frequency_cap: 'frequency_cap',
-      frequency_cap_reset_period: 'frequency_cap_reset_period',
       frequency_control_specs: 'frequency_control_specs',
+      full_funnel_exploration_mode: 'full_funnel_exploration_mode',
       id: 'id',
+      instagram_actor_id: 'instagram_actor_id',
       is_autobid: 'is_autobid',
       is_average_price_pacing: 'is_average_price_pacing',
       lifetime_budget: 'lifetime_budget',
-      lifetime_frequency_cap: 'lifetime_frequency_cap',
       lifetime_imps: 'lifetime_imps',
       name: 'name',
       optimization_goal: 'optimization_goal',
@@ -82,7 +82,8 @@ export default class AdSet extends AbstractCrudObject {
       post_engagement: 'POST_ENGAGEMENT',
       video_views: 'VIDEO_VIEWS',
       mrc_video_views: 'MRC_VIDEO_VIEWS',
-      completed_video_views: 'COMPLETED_VIDEO_VIEWS'
+      completed_video_views: 'COMPLETED_VIDEO_VIEWS',
+      video_views_15s: 'VIDEO_VIEWS_15S'
     });
   }
   static get ConfiguredStatus (): Object {
@@ -112,6 +113,7 @@ export default class AdSet extends AbstractCrudObject {
       none: 'NONE',
       app_installs: 'APP_INSTALLS',
       brand_awareness: 'BRAND_AWARENESS',
+      ad_recall_lift: 'AD_RECALL_LIFT',
       clicks: 'CLICKS',
       engaged_users: 'ENGAGED_USERS',
       event_responses: 'EVENT_RESPONSES',
@@ -161,6 +163,15 @@ export default class AdSet extends AbstractCrudObject {
       this_year: 'THIS_YEAR'
     });
   }
+  static get DestinationType (): Object {
+    return Object.freeze({
+      undefined: 'UNDEFINED',
+      website: 'WEBSITE',
+      app: 'APP',
+      messenger: 'MESSENGER',
+      applinks_automatic: 'APPLINKS_AUTOMATIC'
+    });
+  }
   static get ExecutionOptions (): Object {
     return Object.freeze({
       validate_only: 'VALIDATE_ONLY',
@@ -171,6 +182,13 @@ export default class AdSet extends AbstractCrudObject {
     return Object.freeze({
       all: 'ALL',
       any: 'ANY'
+    });
+  }
+  static get FullFunnelExplorationMode (): Object {
+    return Object.freeze({
+      none_exploration: 'NONE_EXPLORATION',
+      limited_exploration: 'LIMITED_EXPLORATION',
+      extended_exploration: 'EXTENDED_EXPLORATION'
     });
   }
 

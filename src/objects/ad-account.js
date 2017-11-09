@@ -14,6 +14,7 @@ import AdCreative from './ad-creative';
 import AdImage from './ad-image';
 import AdLabel from './ad-label';
 import AdReportRun from './ad-report-run';
+import AdAccountAdRulesHistory from './ad-account-ad-rules-history';
 import AdRule from './ad-rule';
 import Ad from './ad';
 import AdSet from './ad-set';
@@ -29,6 +30,7 @@ import AdPreview from './ad-preview';
 import AdsInsights from './ads-insights';
 import LeadgenForm from './leadgen-form';
 import MinimumBudget from './minimum-budget';
+import OfflineConversionDataSet from './offline-conversion-data-set';
 import OffsitePixel from './offsite-pixel';
 import PartnerCategory from './partner-category';
 import AdsDataPartner from './ads-data-partner';
@@ -78,6 +80,7 @@ export default class AdAccount extends AbstractCrudObject {
       id: 'id',
       io_number: 'io_number',
       is_attribution_spec_system_default: 'is_attribution_spec_system_default',
+      is_direct_deals_enabled: 'is_direct_deals_enabled',
       is_notifications_enabled: 'is_notifications_enabled',
       is_personal: 'is_personal',
       is_prepay_account: 'is_prepay_account',
@@ -87,6 +90,7 @@ export default class AdAccount extends AbstractCrudObject {
       min_campaign_group_spend_cap: 'min_campaign_group_spend_cap',
       min_daily_budget: 'min_daily_budget',
       name: 'name',
+      next_bill_date: 'next_bill_date',
       offsite_pixels_tos_accepted: 'offsite_pixels_tos_accepted',
       owner: 'owner',
       partner: 'partner',
@@ -102,23 +106,6 @@ export default class AdAccount extends AbstractCrudObject {
       timezone_offset_hours_utc: 'timezone_offset_hours_utc',
       tos_accepted: 'tos_accepted',
       user_role: 'user_role'
-    });
-  }
-
-  static get AccessType (): Object {
-    return Object.freeze({
-      owner: 'OWNER',
-      agency: 'AGENCY'
-    });
-  }
-  static get PermittedRoles (): Object {
-    return Object.freeze({
-      admin: 'ADMIN',
-      general_user: 'GENERAL_USER',
-      reports_only: 'REPORTS_ONLY',
-      instagram_advertiser: 'INSTAGRAM_ADVERTISER',
-      instagram_manager: 'INSTAGRAM_MANAGER',
-      fb_employee_dso_advertiser: 'FB_EMPLOYEE_DSO_ADVERTISER'
     });
   }
 
@@ -147,6 +134,16 @@ export default class AdAccount extends AbstractCrudObject {
       '/ad_place_page_sets',
       fields,
       params
+    );
+  }
+
+  getAdAssetFeeds (fields, params, fetchFirstPage = true): AbstractObject {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/adasset_feeds'
     );
   }
 
@@ -238,6 +235,16 @@ export default class AdAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/adreportschedules'
+    );
+  }
+
+  getAdRulesHistory (fields, params, fetchFirstPage = true): AdAccountAdRulesHistory {
+    return this.getEdge(
+      AdAccountAdRulesHistory,
+      fields,
+      params,
+      fetchFirstPage,
+      '/adrules_history'
     );
   }
 
@@ -528,9 +535,9 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getOfflineConversionDataSets (fields, params, fetchFirstPage = true): AbstractObject {
+  getOfflineConversionDataSets (fields, params, fetchFirstPage = true): OfflineConversionDataSet {
     return this.getEdge(
-      AbstractObject,
+      OfflineConversionDataSet,
       fields,
       params,
       fetchFirstPage,

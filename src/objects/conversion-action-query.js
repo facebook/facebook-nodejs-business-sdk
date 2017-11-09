@@ -38,7 +38,6 @@ export default class ConversionActionQuery extends AbstractCrudObject {
       post_object: 'post.object',
       post_object_wall: 'post.object.wall',
       post_wall: 'post.wall',
-      product_set_id: 'product_set_id',
       question: 'question',
       question_creator: 'question.creator',
       response: 'response',

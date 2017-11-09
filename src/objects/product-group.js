@@ -8,7 +8,6 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
-import ProductSet from './product-set';
 import ProductItem from './product-item';
 
 /**
@@ -24,16 +23,6 @@ export default class ProductGroup extends AbstractCrudObject {
       retailer_id: 'retailer_id',
       variants: 'variants'
     });
-  }
-
-  getProductSets (fields, params, fetchFirstPage = true): ProductSet {
-    return this.getEdge(
-      ProductSet,
-      fields,
-      params,
-      fetchFirstPage,
-      '/product_sets'
-    );
   }
 
   getProducts (fields, params, fetchFirstPage = true): ProductItem {

@@ -9,19 +9,29 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * AdCreativeLinkDataCallToAction
+ * AdAssetFeedSpec
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class AdCreativeLinkDataCallToAction extends AbstractCrudObject {
+export default class AdAssetFeedSpec extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      type: 'type',
-      value: 'value'
+      ad_formats: 'ad_formats',
+      bodies: 'bodies',
+      call_to_action_types: 'call_to_action_types',
+      captions: 'captions',
+      descriptions: 'descriptions',
+      groups: 'groups',
+      images: 'images',
+      link_urls: 'link_urls',
+      optimization_type: 'optimization_type',
+      target_rules: 'target_rules',
+      titles: 'titles',
+      videos: 'videos'
     });
   }
 
-  static get Type (): Object {
+  static get CallToActionTypes (): Object {
     return Object.freeze({
       open_link: 'OPEN_LINK',
       like_page: 'LIKE_PAGE',

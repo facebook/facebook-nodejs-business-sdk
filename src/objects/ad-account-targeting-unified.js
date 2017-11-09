@@ -123,7 +123,12 @@ export default class AdAccountTargetingUnified extends AbstractCrudObject {
       topic: 'TOPIC',
       format: 'FORMAT',
       trending: 'TRENDING',
-      gatekeepers: 'GATEKEEPERS'
+      gatekeepers: 'GATEKEEPERS',
+      follow_profiles: 'FOLLOW_PROFILES',
+      follow_profiles_negative: 'FOLLOW_PROFILES_NEGATIVE',
+      location_categories: 'LOCATION_CATEGORIES',
+      user_page_threads: 'USER_PAGE_THREADS',
+      user_page_threads_excluded: 'USER_PAGE_THREADS_EXCLUDED'
     });
   }
 }

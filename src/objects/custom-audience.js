@@ -52,7 +52,8 @@ export default class CustomAudience extends AbstractCrudObject {
       auto_offer: 'AUTO_OFFER',
       home_listing: 'HOME_LISTING',
       product: 'PRODUCT',
-      travel: 'TRAVEL'
+      travel: 'TRAVEL',
+      vehicle: 'VEHICLE'
     });
   }
   static get ContentType (): Object {
@@ -61,7 +62,8 @@ export default class CustomAudience extends AbstractCrudObject {
       destination: 'DESTINATION',
       flight: 'FLIGHT',
       home_listing: 'HOME_LISTING',
-      hotel: 'HOTEL'
+      hotel: 'HOTEL',
+      vehicle: 'VEHICLE'
     });
   }
   static get Subtype (): Object {

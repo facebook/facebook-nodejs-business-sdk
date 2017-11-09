@@ -22,6 +22,7 @@ export default class CustomConversion extends AbstractCrudObject {
       aggregation_rule: 'aggregation_rule',
       creation_time: 'creation_time',
       custom_event_type: 'custom_event_type',
+      data_sources: 'data_sources',
       default_conversion_value: 'default_conversion_value',
       description: 'description',
       event_source_type: 'event_source_type',

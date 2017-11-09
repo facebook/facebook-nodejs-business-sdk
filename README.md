@@ -34,24 +34,15 @@ bower install --save facebook-nodejs-ads-sdk
 To instantiate an Api object you will need a valid [access token](https://developers.facebook.com/docs/marketing-api/authentication) for an app with the `ads_management` permission. A quick way to obtaining a short-lived token is using the [Graph API Explorer](https://developers.facebook.com/tools/explorer/). Instantiate the API using the token:
 
 ```javaScript
-const FacebookAdsApi = require('facebook-nodejs-ads-sdk').FacebookAdsApi;
-const api = FacebookAdsApi.init(accessToken)
+const adsSdk = require('facebook-nodejs-ads-sdk');
+const accessToken = '<VALID_ACCESS_TOKEN>';
+const api = adsSdk.FacebookAdsApi.init(accessToken);
 ```
 
 ### Api main class
 
 The `FacebookAdsApi` object is the foundation of the Ads SDK which encapsulates the logic to execute requests against the Graph API.
-
-To instantiate an Api object you will need a valid access token:
-```javaScript
-const adsSdk = require('facebook-nodejs-ads-sdk');
-const accessToken = '<VALID_ACCESS_TOKEN>';
-const accountId = '<AD_ACCOUNT_ID>';
-
-const FacebookAdsApi = adsSdk.FacebookAdsApi.init(accessToken);
-```
-
-Once instantiated, the Api object will allow you to start making requests to the Ads API.
+Once instantiated, the Api object will allows you to start making requests to the Ads API.
 
 ### Facebook Objects
 
@@ -59,7 +50,8 @@ Facebook Ads entities are defined as classes under the `src/objects` directory.
 
 ```javascript
 // instantiating an object
-const AdAccount = require('facebook-nodejs-ads-sdk').AdAccount;
+const adsSdk = require('facebook-nodejs-ads-sdk');
+const AdAccount = adsSdk.AdAccount;
 const account = new AdAccount(accountId);
 console.log(account.id) // fields can be accessed as properties
 ```
@@ -72,6 +64,8 @@ You can access object properties like this,
 
 ```javaScript
 const adsSdk = require('facebook-nodejs-ads-sdk');
+const accessToken = '<VALID_ACCESS_TOKEN>';
+const api = adsSdk.FacebookAdsApi.init(accessToken);
 const AdAccount = adsSdk.AdAccount;
 const Campaign = adsSdk.Campaign;
 const account = new AdAccount('<AD_ACCOUNT_ID>');
@@ -96,6 +90,8 @@ account
 
 ```javascript
 const adsSdk = require('facebook-nodejs-ads-sdk');
+const accessToken = '<VALID_ACCESS_TOKEN>';
+const api = adsSdk.FacebookAdsApi.init(accessToken);
 const AdAccount = adsSdk.AdAccount;
 const account = new AdAccount('<AD_ACCOUNT_ID>');
 account
@@ -113,6 +109,8 @@ Requesting an high number of fields may cause the response time to visibly incre
 
 ```javascript
 const adsSdk = require('facebook-nodejs-ads-sdk');
+const accessToken = '<VALID_ACCESS_TOKEN>';
+const api = adsSdk.FacebookAdsApi.init(accessToken);
 const AdAccount = adsSdk.AdAccount;
 const Campaign = adsSdk.Campaign;
 const account = new AdAccount('<AD_ACCOUNT_ID>');
@@ -134,7 +132,10 @@ account
 #### Update Objects
 
 ```javascript
-const Campaign = require('facebook-nodejs-ads-sdk').Campaign;
+const adsSdk = require('facebook-nodejs-ads-sdk');
+const accessToken = '<VALID_ACCESS_TOKEN>';
+const api = adsSdk.FacebookAdsApi.init(accessToken);
+const Campaign = adsSdk).Campaign;
 const campaignId = <CAMPAIGN_ID>;
 new Campaign(campaignId, {
   [Campaign.Fields.id]: campaign.id,
@@ -145,7 +146,10 @@ new Campaign(campaignId, {
 #### Delete Objects
 
 ```javascript
-const Campaign = require('facebook-nodejs-ads-sdk').Campaign;
+const adsSdk = require('facebook-nodejs-ads-sdk');
+const accessToken = '<VALID_ACCESS_TOKEN>';
+const api = adsSdk.FacebookAdsApi.init(accessToken);
+const Campaign = adsSdk.Campaign;
 const campaignId = <CAMPAIGN_ID>;
 new Campaign(campaignId);
 .delete();
@@ -159,6 +163,8 @@ Here the `Cursor` is a superpowered `Array` (with all it's native helpful operat
 
 ```javascript
 const adsSdk = require('facebook-nodejs-ads-sdk');
+const accessToken = '<VALID_ACCESS_TOKEN>';
+const api = adsSdk.FacebookAdsApi.init(accessToken);
 const AdAccount = adsSdk.AdAccount;
 const Campaign = adsSdk.Campaign;
 const account = new AdAccount('<AD_ACCOUNT_ID>');
@@ -190,6 +196,12 @@ account.getCampaigns([Campaign.Fields.name], { limit: 2 })
 
 A `FacebookAdsApi` object offers a debugging mode that will log all requests. To enable it just call `api.setDebug(true)` on an API instance.
 
+```javascript
+const adsSdk = require('facebook-nodejs-ads-sdk');
+const accessToken = '<VALID_ACCESS_TOKEN>';
+const api = adsSdk.FacebookAdsApi.init(accessToken);
+api.setDebug(true);
+```
 
 ### Style
 
