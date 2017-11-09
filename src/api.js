@@ -24,6 +24,9 @@ export default class FacebookAdsApi {
   static get GRAPH () {
     return 'https://graph.facebook.com';
   }
+  static get GRAPH_VIDEO () {
+    return 'https://graph-video.facebook.com';
+  }
 
   /**
    * @param {String} accessToken
