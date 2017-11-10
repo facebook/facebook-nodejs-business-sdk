@@ -1,4 +1,5 @@
 export { default as FacebookAdsApi } from './../src/api'
+export { default as FacebookAdsApiBatch } from './../src/api-batch'
 export { default as AdVideo } from './../src/objects/ad-video';
 export { default as AdAccount } from './../src/objects/ad-account';
 export { default as AdAccountAdRulesHistory } from './../src/objects/ad-account-ad-rules-history';
