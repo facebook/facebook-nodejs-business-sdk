@@ -91,7 +91,11 @@ class FacebookAdsApiBatch {
       const keyVals = [];
 
       for (let key in params) {
-        keyVals.push(`${key}=${params[key]}`);
+        let value = params[key];
+        if (typeof params[key] === 'object' && !(params[key] instanceof Date)) {
+          value = JSON.stringify(value);
+        }
+        keyVals.push(`${key}=${value}`);
       }
 
       if (method === 'GET') {
