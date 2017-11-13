@@ -103,6 +103,10 @@ class FacebookAdsApiBatch {
       } else {
         call['body'] = keyVals.join('&');
       }
+
+      if (params && params['name']) {
+        call['name'] = params['name'];
+      }
     }
 
     // Handle attached files
