@@ -1,6 +1,6 @@
 {
   "name": "facebook-ads-sdk",
-  "version": "2.11.0",
+  "version": "2.11.1",
   "description": "SDK for the Facebook Ads API in Javascript and Node.js",
   "authors": [
     "Zain Aziz<zaziz@fb.com>",
