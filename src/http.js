@@ -51,7 +51,7 @@ export default class Http {
         try {
           const response = JSON.parse(request.response);
 
-          if (request.status == HTTP_STATUS.OK) {
+          if (request.status.toString() === HTTP_STATUS.OK) {
             resolve(response);
           } else {
             reject(
