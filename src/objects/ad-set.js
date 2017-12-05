@@ -44,7 +44,6 @@ export default class AdSet extends AbstractCrudObject {
       effective_status: 'effective_status',
       end_time: 'end_time',
       frequency_control_specs: 'frequency_control_specs',
-      full_funnel_exploration_mode: 'full_funnel_exploration_mode',
       id: 'id',
       instagram_actor_id: 'instagram_actor_id',
       is_autobid: 'is_autobid',
@@ -182,13 +181,6 @@ export default class AdSet extends AbstractCrudObject {
     return Object.freeze({
       all: 'ALL',
       any: 'ANY'
-    });
-  }
-  static get FullFunnelExplorationMode (): Object {
-    return Object.freeze({
-      none_exploration: 'NONE_EXPLORATION',
-      limited_exploration: 'LIMITED_EXPLORATION',
-      extended_exploration: 'EXTENDED_EXPLORATION'
     });
   }
 
