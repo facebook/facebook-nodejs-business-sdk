@@ -1,3 +1,4 @@
+export { default as Http } from './../src/http';
 export { default as FacebookAdsApi } from './../src/api';
 export { default as FacebookAdsApiBatch } from './../src/api-batch';
 export { default as APIRequest } from './../src/api-request';
