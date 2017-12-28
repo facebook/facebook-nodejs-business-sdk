@@ -24,7 +24,7 @@ export class FacebookRequestError extends FacebookError {
    * @param  {Object}   data
    */
   constructor (response, method, url, data) {
-    let error = response.body.error;
+    let error = response.body.error || response.body;
     let message = error.error_user_msg
       ? `${error.error_user_title}: ${error.error_user_msg}`
       : error.message;
