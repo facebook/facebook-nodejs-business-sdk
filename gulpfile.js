@@ -31,6 +31,11 @@ function roll (format, entry, name, entry_dir, dest_dir) {
     format: format,
     exports: 'named',
     moduleName: 'fb',
+    external: ['fs', 'path'],
+    globals: {
+      'fs': 'fs',
+      'path': 'path',
+    },
     plugins: [
       babel(babelrc.default({
         config: {

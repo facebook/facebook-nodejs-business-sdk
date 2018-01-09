@@ -1,14 +1,14 @@
 {
   "name": "facebook-nodejs-ads-sdk",
-  "version": "2.11.1",
+  "version": "2.11.3",
   "description": "SDK for the Facebook Ads API in Javascript and Node.js",
   "author": "Facebook",
   "maintainers": [
     "Zain Aziz <zaziz@fb.com>, Neil Chen <xiaotchen@fb.com>, Cloud Xu <cloudxu@fb.com>, Supasate Choochaisri <supasate@fb.com>, lucascosta <lucas@lucascosta.com>"
   ],
-  "homepage": "https://github.com/facebook/facebook-js-ads-sdk",
+  "homepage": "https://github.com/facebook/facebook-nodejs-ads-sdk",
   "bugs": {
-    "url": "https://github.com/facebook/facebook-js-ads-sdk/issues"
+    "url": "https://github.com/facebook/facebook-nodejs-ads-sdk/issues"
   },
   "keywords": [
     "facebook",
@@ -27,7 +27,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/facebook/facebook-js-ads-sdk.git"
+    "url": "git://github.com/facebook/facebook-nodejs-ads-sdk.git"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
