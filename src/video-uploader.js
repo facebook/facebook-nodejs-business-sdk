@@ -30,7 +30,7 @@ class VideoUploader {
   upload (video: AdVideo, waitForEncoding: Boolean): Object {
     // Check there is no existing session
     if (this._session) {
-      throw Error('There is already an upload sessoin for this video uploader');
+      throw Error('There is already an upload session for this video uploader');
     }
 
     // Initate an upload session
