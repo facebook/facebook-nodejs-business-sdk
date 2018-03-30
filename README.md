@@ -68,7 +68,7 @@ const accessToken = '<VALID_ACCESS_TOKEN>';
 const api = adsSdk.FacebookAdsApi.init(accessToken);
 const AdAccount = adsSdk.AdAccount;
 const Campaign = adsSdk.Campaign;
-const account = new AdAccount('<AD_ACCOUNT_ID>');
+const account = new AdAccount('act_<AD_ACCOUNT_ID>');
 
 console.log(account.id) // fields can be accessed as properties
 account
@@ -93,7 +93,7 @@ const adsSdk = require('facebook-nodejs-ads-sdk');
 const accessToken = '<VALID_ACCESS_TOKEN>';
 const api = adsSdk.FacebookAdsApi.init(accessToken);
 const AdAccount = adsSdk.AdAccount;
-const account = new AdAccount('<AD_ACCOUNT_ID>');
+const account = new AdAccount('act_<AD_ACCOUNT_ID>');
 account
   .read([AdAccount.Fields.name, AdAccount.Fields.age])
   .then((account) => {
@@ -113,7 +113,7 @@ const accessToken = '<VALID_ACCESS_TOKEN>';
 const api = adsSdk.FacebookAdsApi.init(accessToken);
 const AdAccount = adsSdk.AdAccount;
 const Campaign = adsSdk.Campaign;
-const account = new AdAccount('<AD_ACCOUNT_ID>');
+const account = new AdAccount('act_<AD_ACCOUNT_ID>');
 account
   .createCampaign(
     [],
@@ -167,7 +167,7 @@ const accessToken = '<VALID_ACCESS_TOKEN>';
 const api = adsSdk.FacebookAdsApi.init(accessToken);
 const AdAccount = adsSdk.AdAccount;
 const Campaign = adsSdk.Campaign;
-const account = new AdAccount('<AD_ACCOUNT_ID>');
+const account = new AdAccount('act_<AD_ACCOUNT_ID>');
 account.getCampaigns([Campaign.Fields.name], { limit: 2 })
 .then((campaigns) => {
   if (campaigns.length >= 2 && campaigns.hasNext()) {
