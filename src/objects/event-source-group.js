@@ -19,9 +19,10 @@ export default class EventSourceGroup extends AbstractCrudObject {
       business: 'business',
       event_sources: 'event_sources',
       id: 'id',
-      name: 'name'
+      name: 'name',
     });
   }
+
 
   createSharedAccount (fields, params): EventSourceGroup {
     return this.createEdge(

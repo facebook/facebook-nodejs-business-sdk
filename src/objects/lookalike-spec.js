@@ -22,7 +22,8 @@ export default class LookalikeSpec extends AbstractCrudObject {
       ratio: 'ratio',
       starting_ratio: 'starting_ratio',
       target_countries: 'target_countries',
-      type: 'type'
+      type: 'type',
     });
   }
+
 }

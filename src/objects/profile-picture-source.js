@@ -23,7 +23,7 @@ export default class ProfilePictureSource extends AbstractCrudObject {
       right: 'right',
       top: 'top',
       url: 'url',
-      width: 'width'
+      width: 'width',
     });
   }
 
@@ -33,7 +33,7 @@ export default class ProfilePictureSource extends AbstractCrudObject {
       normal: 'NORMAL',
       album: 'ALBUM',
       large: 'LARGE',
-      square: 'SQUARE'
+      square: 'SQUARE',
     });
   }
 }

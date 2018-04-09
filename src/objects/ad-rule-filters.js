@@ -18,7 +18,7 @@ export default class AdRuleFilters extends AbstractCrudObject {
     return Object.freeze({
       field: 'field',
       operator: 'operator',
-      value: 'value'
+      value: 'value',
     });
   }
 
@@ -36,7 +36,7 @@ export default class AdRuleFilters extends AbstractCrudObject {
       not_contain: 'NOT_CONTAIN',
       any: 'ANY',
       all: 'ALL',
-      none: 'NONE'
+      none: 'NONE',
     });
   }
 }

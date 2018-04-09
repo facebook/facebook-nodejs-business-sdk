@@ -17,7 +17,8 @@ export default class RoasCohortsPerCohortIntervalUnit extends AbstractCrudObject
   static get Fields () {
     return Object.freeze({
       interval_start: 'interval_start',
-      revenue: 'revenue'
+      revenue: 'revenue',
     });
   }
+
 }

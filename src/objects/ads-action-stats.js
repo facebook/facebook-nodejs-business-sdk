@@ -34,7 +34,8 @@ export default class AdsActionStats extends AbstractCrudObject {
       action_video_sound: 'action_video_sound',
       action_video_type: 'action_video_type',
       inline: 'inline',
-      value: 'value'
+      value: 'value',
     });
   }
+
 }

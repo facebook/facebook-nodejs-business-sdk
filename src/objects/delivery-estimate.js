@@ -20,7 +20,8 @@ export default class DeliveryEstimate extends AbstractCrudObject {
       daily_outcomes_curve: 'daily_outcomes_curve',
       estimate_dau: 'estimate_dau',
       estimate_mau: 'estimate_mau',
-      estimate_ready: 'estimate_ready'
+      estimate_ready: 'estimate_ready',
     });
   }
+
 }

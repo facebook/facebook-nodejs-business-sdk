@@ -20,7 +20,8 @@ export default class CustomAudiencePermission extends AbstractCrudObject {
       can_see_insight: 'can_see_insight',
       can_share: 'can_share',
       subtype_supports_lookalike: 'subtype_supports_lookalike',
-      supports_recipient_lookalike: 'supports_recipient_lookalike'
+      supports_recipient_lookalike: 'supports_recipient_lookalike',
     });
   }
+
 }

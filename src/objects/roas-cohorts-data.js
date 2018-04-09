@@ -20,7 +20,8 @@ export default class RoasCohortsData extends AbstractCrudObject {
       cohorts_start: 'cohorts_start',
       installs: 'installs',
       revenue_cohorts: 'revenue_cohorts',
-      spend: 'spend'
+      spend: 'spend',
     });
   }
+
 }

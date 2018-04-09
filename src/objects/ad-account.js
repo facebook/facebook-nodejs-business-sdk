@@ -105,9 +105,10 @@ export default class AdAccount extends AbstractCrudObject {
       timezone_name: 'timezone_name',
       timezone_offset_hours_utc: 'timezone_offset_hours_utc',
       tos_accepted: 'tos_accepted',
-      user_role: 'user_role'
+      user_role: 'user_role',
     });
   }
+
 
   getActivities (fields, params, fetchFirstPage = true): AdActivity {
     return this.getEdge(

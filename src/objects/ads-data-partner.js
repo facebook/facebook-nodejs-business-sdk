@@ -18,9 +18,10 @@ export default class AdsDataPartner extends AbstractCrudObject {
     return Object.freeze({
       id: 'id',
       name: 'name',
-      rev_share_policies: 'rev_share_policies'
+      rev_share_policies: 'rev_share_policies',
     });
   }
+
 
   get (fields, params): AdsDataPartner {
     return this.read(

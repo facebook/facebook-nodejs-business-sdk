@@ -11,6 +11,7 @@ import AbstractObject from './../abstract-object';
 import AdStudy from './ad-study';
 import AdAccount from './ad-account';
 import AdsPixel from './ads-pixel';
+import Page from './page';
 import EventSourceGroup from './event-source-group';
 import ReachFrequencyPrediction from './reach-frequency-prediction';
 import OfflineConversionDataSet from './offline-conversion-data-set';
@@ -38,9 +39,10 @@ export default class Business extends AbstractCrudObject {
       two_factor_type: 'two_factor_type',
       updated_by: 'updated_by',
       updated_time: 'updated_time',
-      vertical: 'vertical'
+      vertical: 'vertical',
     });
   }
+
 
   createAdStudy (fields, params): AdStudy {
     return this.createEdge(
@@ -93,9 +95,9 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  getClientPages (fields, params, fetchFirstPage = true): AbstractObject {
+  getClientPages (fields, params, fetchFirstPage = true): Page {
     return this.getEdge(
-      AbstractObject,
+      Page,
       fields,
       params,
       fetchFirstPage,
@@ -197,9 +199,9 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  getOwnedPages (fields, params, fetchFirstPage = true): AbstractObject {
+  getOwnedPages (fields, params, fetchFirstPage = true): Page {
     return this.getEdge(
-      AbstractObject,
+      Page,
       fields,
       params,
       fetchFirstPage,

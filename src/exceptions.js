@@ -38,7 +38,7 @@ export class FacebookRequestError extends FacebookError {
     this.method = method;
     this.url = url;
     if (data) {
-      this.data = data;
+     this.data = data;
     }
   }
 }

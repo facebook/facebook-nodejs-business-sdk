@@ -45,7 +45,7 @@ export default class Campaign extends AbstractCrudObject {
       start_time: 'start_time',
       status: 'status',
       stop_time: 'stop_time',
-      updated_time: 'updated_time'
+      updated_time: 'updated_time',
     });
   }
 
@@ -54,7 +54,7 @@ export default class Campaign extends AbstractCrudObject {
       active: 'ACTIVE',
       paused: 'PAUSED',
       deleted: 'DELETED',
-      archived: 'ARCHIVED'
+      archived: 'ARCHIVED',
     });
   }
   static get EffectiveStatus (): Object {
@@ -68,7 +68,7 @@ export default class Campaign extends AbstractCrudObject {
       pending_billing_info: 'PENDING_BILLING_INFO',
       campaign_paused: 'CAMPAIGN_PAUSED',
       archived: 'ARCHIVED',
-      adset_paused: 'ADSET_PAUSED'
+      adset_paused: 'ADSET_PAUSED',
     });
   }
   static get Status (): Object {
@@ -76,7 +76,7 @@ export default class Campaign extends AbstractCrudObject {
       active: 'ACTIVE',
       paused: 'PAUSED',
       deleted: 'DELETED',
-      archived: 'ARCHIVED'
+      archived: 'ARCHIVED',
     });
   }
   static get DatePreset (): Object {
@@ -99,20 +99,20 @@ export default class Campaign extends AbstractCrudObject {
       last_year: 'LAST_YEAR',
       this_week_mon_today: 'THIS_WEEK_MON_TODAY',
       this_week_sun_today: 'THIS_WEEK_SUN_TODAY',
-      this_year: 'THIS_YEAR'
+      this_year: 'THIS_YEAR',
     });
   }
   static get DeleteStrategy (): Object {
     return Object.freeze({
       delete_any: 'DELETE_ANY',
       delete_oldest: 'DELETE_OLDEST',
-      delete_archived_before: 'DELETE_ARCHIVED_BEFORE'
+      delete_archived_before: 'DELETE_ARCHIVED_BEFORE',
     });
   }
   static get ExecutionOptions (): Object {
     return Object.freeze({
       validate_only: 'VALIDATE_ONLY',
-      include_recommendations: 'INCLUDE_RECOMMENDATIONS'
+      include_recommendations: 'INCLUDE_RECOMMENDATIONS',
     });
   }
   static get Objective (): Object {
@@ -129,13 +129,13 @@ export default class Campaign extends AbstractCrudObject {
       post_engagement: 'POST_ENGAGEMENT',
       product_catalog_sales: 'PRODUCT_CATALOG_SALES',
       reach: 'REACH',
-      video_views: 'VIDEO_VIEWS'
+      video_views: 'VIDEO_VIEWS',
     });
   }
   static get Operator (): Object {
     return Object.freeze({
       all: 'ALL',
-      any: 'ANY'
+      any: 'ANY',
     });
   }
 

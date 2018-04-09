@@ -26,7 +26,7 @@ export default class AdActivity extends AbstractCrudObject {
       extra_data: 'extra_data',
       object_id: 'object_id',
       object_name: 'object_name',
-      translated_event_type: 'translated_event_type'
+      translated_event_type: 'translated_event_type',
     });
   }
 
@@ -92,7 +92,7 @@ export default class AdActivity extends AbstractCrudObject {
       lifetime_budget_spent: 'LIFETIME_BUDGET_SPENT',
       funding_event_initiated: 'FUNDING_EVENT_INITIATED',
       funding_event_successful: 'FUNDING_EVENT_SUCCESSFUL',
-      update_ad_labels: 'UPDATE_AD_LABELS'
+      update_ad_labels: 'UPDATE_AD_LABELS',
     });
   }
   static get Category (): Object {
@@ -106,7 +106,7 @@ export default class AdActivity extends AbstractCrudObject {
       campaign: 'CAMPAIGN',
       date: 'DATE',
       status: 'STATUS',
-      targeting: 'TARGETING'
+      targeting: 'TARGETING',
     });
   }
 }

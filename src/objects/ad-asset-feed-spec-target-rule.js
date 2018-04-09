@@ -24,7 +24,8 @@ export default class AdAssetFeedSpecTargetRule extends AbstractCrudObject {
       link_url_label: 'link_url_label',
       targeting: 'targeting',
       title_label: 'title_label',
-      video_label: 'video_label'
+      video_label: 'video_label',
     });
   }
+
 }

@@ -23,7 +23,8 @@ export default class AdCreativeOfferData extends AbstractCrudObject {
       message: 'message',
       redemption_link: 'redemption_link',
       reminder_time: 'reminder_time',
-      title: 'title'
+      title: 'title',
     });
   }
+
 }

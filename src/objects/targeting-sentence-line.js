@@ -18,7 +18,8 @@ export default class TargetingSentenceLine extends AbstractCrudObject {
     return Object.freeze({
       id: 'id',
       params: 'params',
-      targetingsentencelines: 'targetingsentencelines'
+      targetingsentencelines: 'targetingsentencelines',
     });
   }
+
 }

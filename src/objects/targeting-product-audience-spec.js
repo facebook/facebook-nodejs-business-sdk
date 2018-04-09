@@ -18,7 +18,8 @@ export default class TargetingProductAudienceSpec extends AbstractCrudObject {
     return Object.freeze({
       exclusions: 'exclusions',
       inclusions: 'inclusions',
-      product_set_id: 'product_set_id'
+      product_set_id: 'product_set_id',
     });
   }
+
 }

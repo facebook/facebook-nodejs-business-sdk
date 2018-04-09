@@ -22,7 +22,7 @@ export default class AdStudyObjective extends AbstractCrudObject {
       last_updated_results: 'last_updated_results',
       name: 'name',
       results: 'results',
-      type: 'type'
+      type: 'type',
     });
   }
 
@@ -31,7 +31,7 @@ export default class AdStudyObjective extends AbstractCrudObject {
       age: 'AGE',
       cell_id: 'CELL_ID',
       gender: 'GENDER',
-      country: 'COUNTRY'
+      country: 'COUNTRY',
     });
   }
   static get Type (): Object {
@@ -44,7 +44,7 @@ export default class AdStudyObjective extends AbstractCrudObject {
       mai: 'MAI',
       partner: 'PARTNER',
       brandlift: 'BRANDLIFT',
-      brand: 'BRAND'
+      brand: 'BRAND',
     });
   }
 

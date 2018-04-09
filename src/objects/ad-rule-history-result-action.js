@@ -19,7 +19,8 @@ export default class AdRuleHistoryResultAction extends AbstractCrudObject {
       action: 'action',
       field: 'field',
       new_value: 'new_value',
-      old_value: 'old_value'
+      old_value: 'old_value',
     });
   }
+
 }

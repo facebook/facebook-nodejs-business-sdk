@@ -22,7 +22,8 @@ export default class AdgroupPlacementSpecificReviewFeedback extends AbstractCrud
       instagram: 'instagram',
       page_admin: 'page_admin',
       product: 'product',
-      seller: 'seller'
+      seller: 'seller',
     });
   }
+
 }

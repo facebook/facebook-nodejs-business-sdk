@@ -17,7 +17,7 @@ export default class AdCreativeLinkDataCallToAction extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       type: 'type',
-      value: 'value'
+      value: 'value',
     });
   }
 
@@ -61,7 +61,7 @@ export default class AdCreativeLinkDataCallToAction extends AbstractCrudObject {
       get_showtimes: 'GET_SHOWTIMES',
       try_it: 'TRY_IT',
       listen_now: 'LISTEN_NOW',
-      open_movies: 'OPEN_MOVIES'
+      open_movies: 'OPEN_MOVIES',
     });
   }
 }

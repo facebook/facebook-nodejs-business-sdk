@@ -33,7 +33,7 @@ export default class ProductFeed extends AbstractCrudObject {
       qualified_product_count: 'qualified_product_count',
       quoted_fields_mode: 'quoted_fields_mode',
       schedule: 'schedule',
-      update_schedule: 'update_schedule'
+      update_schedule: 'update_schedule',
     });
   }
 
@@ -44,14 +44,14 @@ export default class ProductFeed extends AbstractCrudObject {
       comma: 'COMMA',
       tab: 'TAB',
       tilde: 'TILDE',
-      semicolon: 'SEMICOLON'
+      semicolon: 'SEMICOLON',
     });
   }
   static get QuotedFieldsMode (): Object {
     return Object.freeze({
       autodetect: 'AUTODETECT',
       on: 'ON',
-      off: 'OFF'
+      off: 'OFF',
     });
   }
   static get Encoding (): Object {
@@ -62,7 +62,7 @@ export default class ProductFeed extends AbstractCrudObject {
       utf16le: 'UTF16LE',
       utf16be: 'UTF16BE',
       utf32le: 'UTF32LE',
-      utf32be: 'UTF32BE'
+      utf32be: 'UTF32BE',
     });
   }
 

@@ -30,14 +30,14 @@ export default class AdStudy extends AbstractCrudObject {
       start_time: 'start_time',
       type: 'type',
       updated_by: 'updated_by',
-      updated_time: 'updated_time'
+      updated_time: 'updated_time',
     });
   }
 
   static get Type (): Object {
     return Object.freeze({
       lift: 'LIFT',
-      split_test: 'SPLIT_TEST'
+      split_test: 'SPLIT_TEST',
     });
   }
 

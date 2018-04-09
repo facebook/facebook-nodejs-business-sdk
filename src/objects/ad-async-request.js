@@ -24,7 +24,7 @@ export default class AdAsyncRequest extends AbstractCrudObject {
       scope_object_id: 'scope_object_id',
       status: 'status',
       type: 'type',
-      updated_time: 'updated_time'
+      updated_time: 'updated_time',
     });
   }
 
@@ -38,7 +38,7 @@ export default class AdAsyncRequest extends AbstractCrudObject {
       pending_dependency: 'PENDING_DEPENDENCY',
       canceled_dependency: 'CANCELED_DEPENDENCY',
       error_dependency: 'ERROR_DEPENDENCY',
-      error_conflicts: 'ERROR_CONFLICTS'
+      error_conflicts: 'ERROR_CONFLICTS',
     });
   }
   static get Statuses (): Object {
@@ -51,7 +51,7 @@ export default class AdAsyncRequest extends AbstractCrudObject {
       pending_dependency: 'PENDING_DEPENDENCY',
       canceled_dependency: 'CANCELED_DEPENDENCY',
       error_dependency: 'ERROR_DEPENDENCY',
-      error_conflicts: 'ERROR_CONFLICTS'
+      error_conflicts: 'ERROR_CONFLICTS',
     });
   }
 

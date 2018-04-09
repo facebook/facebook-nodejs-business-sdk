@@ -18,7 +18,8 @@ export default class LegacyBusinessAdAccountRequest extends AbstractCrudObject {
     return Object.freeze({
       ad_account: 'ad_account',
       id: 'id',
-      permitted_roles: 'permitted_roles'
+      permitted_roles: 'permitted_roles',
     });
   }
+
 }

@@ -32,21 +32,21 @@ export default class AdAsyncRequestSet extends AbstractCrudObject {
       owner_id: 'owner_id',
       success_count: 'success_count',
       total_count: 'total_count',
-      updated_time: 'updated_time'
+      updated_time: 'updated_time',
     });
   }
 
   static get NotificationMode (): Object {
     return Object.freeze({
       off: 'OFF',
-      on_complete: 'ON_COMPLETE'
+      on_complete: 'ON_COMPLETE',
     });
   }
   static get NotificationStatus (): Object {
     return Object.freeze({
       not_sent: 'NOT_SENT',
       sending: 'SENDING',
-      sent: 'SENT'
+      sent: 'SENT',
     });
   }
 

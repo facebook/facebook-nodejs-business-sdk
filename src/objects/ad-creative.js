@@ -54,7 +54,7 @@ export default class AdCreative extends AbstractCrudObject {
       title: 'title',
       url_tags: 'url_tags',
       use_page_actor_override: 'use_page_actor_override',
-      video_id: 'video_id'
+      video_id: 'video_id',
     });
   }
 
@@ -62,7 +62,7 @@ export default class AdCreative extends AbstractCrudObject {
     return Object.freeze({
       deeplink_with_web_fallback: 'DEEPLINK_WITH_WEB_FALLBACK',
       deeplink_with_appstore_fallback: 'DEEPLINK_WITH_APPSTORE_FALLBACK',
-      web_only: 'WEB_ONLY'
+      web_only: 'WEB_ONLY',
     });
   }
   static get CallToActionType (): Object {
@@ -105,7 +105,7 @@ export default class AdCreative extends AbstractCrudObject {
       get_showtimes: 'GET_SHOWTIMES',
       try_it: 'TRY_IT',
       listen_now: 'LISTEN_NOW',
-      open_movies: 'OPEN_MOVIES'
+      open_movies: 'OPEN_MOVIES',
     });
   }
   static get ObjectType (): Object {
@@ -120,25 +120,25 @@ export default class AdCreative extends AbstractCrudObject {
       status: 'STATUS',
       store_item: 'STORE_ITEM',
       video: 'VIDEO',
-      invalid: 'INVALID'
+      invalid: 'INVALID',
     });
   }
   static get Status (): Object {
     return Object.freeze({
       active: 'ACTIVE',
-      deleted: 'DELETED'
+      deleted: 'DELETED',
     });
   }
   static get DynamicAdVoice (): Object {
     return Object.freeze({
       dynamic: 'DYNAMIC',
-      story_owner: 'STORY_OWNER'
+      story_owner: 'STORY_OWNER',
     });
   }
   static get Operator (): Object {
     return Object.freeze({
       all: 'ALL',
-      any: 'ANY'
+      any: 'ANY',
     });
   }
 

@@ -21,7 +21,8 @@ export default class AdCreativePlaceData extends AbstractCrudObject {
       latitude: 'latitude',
       location_source_id: 'location_source_id',
       longitude: 'longitude',
-      type: 'type'
+      type: 'type',
     });
   }
+
 }

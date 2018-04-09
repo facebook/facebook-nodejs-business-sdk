@@ -32,11 +32,11 @@ export default class Cursor extends Array {
    * @param  {Object} [params]
    * @param  {String} [endpoint]
    */
-  constructor (
+  constructor(
     sourceObject: Object,
     targetClass: Object,
     params: Object,
-    endpoint: ?string
+    endpoint: ?string,
   ) {
     super();
     const next = [sourceObject.getId()];
@@ -109,7 +109,7 @@ export default class Cursor extends Array {
           item && item.id ? item.id : null,
           item,
           undefined,
-          this._api
+          this._api,
         );
       });
     };

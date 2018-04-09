@@ -35,9 +35,10 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
       matched_unique_users: 'matched_unique_users',
       name: 'name',
       usage: 'usage',
-      valid_entries: 'valid_entries'
+      valid_entries: 'valid_entries',
     });
   }
+
 
   getActivities (fields, params, fetchFirstPage = true): AbstractObject {
     return this.getEdge(

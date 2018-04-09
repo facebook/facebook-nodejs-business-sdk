@@ -26,14 +26,14 @@ export default class PartnerCategory extends AbstractCrudObject {
       parent_category: 'parent_category',
       source: 'source',
       status: 'status',
-      targeting_type: 'targeting_type'
+      targeting_type: 'targeting_type',
     });
   }
 
   static get PrivateOrPublic (): Object {
     return Object.freeze({
       private: 'PRIVATE',
-      public: 'PUBLIC'
+      public: 'PUBLIC',
     });
   }
 }

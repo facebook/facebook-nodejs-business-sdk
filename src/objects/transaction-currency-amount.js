@@ -18,7 +18,8 @@ export default class TransactionCurrencyAmount extends AbstractCrudObject {
     return Object.freeze({
       amount: 'amount',
       currency: 'currency',
-      total_amount: 'total_amount'
+      total_amount: 'total_amount',
     });
   }
+
 }

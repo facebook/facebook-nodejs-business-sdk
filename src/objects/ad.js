@@ -48,7 +48,7 @@ export default class Ad extends AbstractCrudObject {
       source_ad_id: 'source_ad_id',
       status: 'status',
       tracking_specs: 'tracking_specs',
-      updated_time: 'updated_time'
+      updated_time: 'updated_time',
     });
   }
 
@@ -58,7 +58,7 @@ export default class Ad extends AbstractCrudObject {
       cpm: 'CPM',
       multi_premium: 'MULTI_PREMIUM',
       absolute_ocpm: 'ABSOLUTE_OCPM',
-      cpa: 'CPA'
+      cpa: 'CPA',
     });
   }
   static get ConfiguredStatus (): Object {
@@ -66,7 +66,7 @@ export default class Ad extends AbstractCrudObject {
       active: 'ACTIVE',
       paused: 'PAUSED',
       deleted: 'DELETED',
-      archived: 'ARCHIVED'
+      archived: 'ARCHIVED',
     });
   }
   static get EffectiveStatus (): Object {
@@ -80,7 +80,7 @@ export default class Ad extends AbstractCrudObject {
       pending_billing_info: 'PENDING_BILLING_INFO',
       campaign_paused: 'CAMPAIGN_PAUSED',
       archived: 'ARCHIVED',
-      adset_paused: 'ADSET_PAUSED'
+      adset_paused: 'ADSET_PAUSED',
     });
   }
   static get Status (): Object {
@@ -88,7 +88,7 @@ export default class Ad extends AbstractCrudObject {
       active: 'ACTIVE',
       paused: 'PAUSED',
       deleted: 'DELETED',
-      archived: 'ARCHIVED'
+      archived: 'ARCHIVED',
     });
   }
   static get DatePreset (): Object {
@@ -111,20 +111,20 @@ export default class Ad extends AbstractCrudObject {
       last_year: 'LAST_YEAR',
       this_week_mon_today: 'THIS_WEEK_MON_TODAY',
       this_week_sun_today: 'THIS_WEEK_SUN_TODAY',
-      this_year: 'THIS_YEAR'
+      this_year: 'THIS_YEAR',
     });
   }
   static get ExecutionOptions (): Object {
     return Object.freeze({
       validate_only: 'VALIDATE_ONLY',
       synchronous_ad_review: 'SYNCHRONOUS_AD_REVIEW',
-      include_recommendations: 'INCLUDE_RECOMMENDATIONS'
+      include_recommendations: 'INCLUDE_RECOMMENDATIONS',
     });
   }
   static get Operator (): Object {
     return Object.freeze({
       all: 'ALL',
-      any: 'ANY'
+      any: 'ANY',
     });
   }
 

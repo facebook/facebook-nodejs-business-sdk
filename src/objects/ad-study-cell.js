@@ -20,9 +20,10 @@ export default class AdStudyCell extends AbstractCrudObject {
       control_percentage: 'control_percentage',
       id: 'id',
       name: 'name',
-      treatment_percentage: 'treatment_percentage'
+      treatment_percentage: 'treatment_percentage',
     });
   }
+
 
   get (fields, params): AdStudyCell {
     return this.read(

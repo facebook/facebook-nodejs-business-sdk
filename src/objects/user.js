@@ -7,7 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import AbstractObject from './../abstract-object';
+import Page from './page';
 import AdAccount from './ad-account';
 import LeadgenForm from './leadgen-form';
 import ProfilePictureSource from './profile-picture-source';
@@ -76,13 +76,14 @@ export default class User extends AbstractCrudObject {
       video_upload_limits: 'video_upload_limits',
       viewer_can_send_gift: 'viewer_can_send_gift',
       website: 'website',
-      work: 'work'
+      work: 'work',
     });
   }
 
-  getAccounts (fields, params, fetchFirstPage = true): AbstractObject {
+
+  getAccounts (fields, params, fetchFirstPage = true): Page {
     return this.getEdge(
-      AbstractObject,
+      Page,
       fields,
       params,
       fetchFirstPage,

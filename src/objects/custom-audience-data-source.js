@@ -18,7 +18,7 @@ export default class CustomAudienceDataSource extends AbstractCrudObject {
     return Object.freeze({
       creation_params: 'creation_params',
       sub_type: 'sub_type',
-      type: 'type'
+      type: 'type',
     });
   }
 
@@ -74,7 +74,7 @@ export default class CustomAudienceDataSource extends AbstractCrudObject {
       constant_contacts_email_hashes: 'CONSTANT_CONTACTS_EMAIL_HASHES',
       copy_paste_email_hashes: 'COPY_PASTE_EMAIL_HASHES',
       contact_importer: 'CONTACT_IMPORTER',
-      data_file: 'DATA_FILE'
+      data_file: 'DATA_FILE',
     });
   }
   static get Type (): Object {
@@ -86,7 +86,7 @@ export default class CustomAudienceDataSource extends AbstractCrudObject {
       third_party_imported: 'THIRD_PARTY_IMPORTED',
       copy_paste: 'COPY_PASTE',
       contact_importer: 'CONTACT_IMPORTER',
-      household_audience: 'HOUSEHOLD_AUDIENCE'
+      household_audience: 'HOUSEHOLD_AUDIENCE',
     });
   }
 }

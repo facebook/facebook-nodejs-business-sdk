@@ -18,7 +18,8 @@ export default class CustomAudiencesTOS extends AbstractCrudObject {
     return Object.freeze({
       content: 'content',
       id: 'id',
-      type: 'type'
+      type: 'type',
     });
   }
+
 }

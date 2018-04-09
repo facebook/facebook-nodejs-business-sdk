@@ -28,9 +28,10 @@ export default class AdsPixel extends AbstractCrudObject {
       last_fired_time: 'last_fired_time',
       name: 'name',
       owner_ad_account: 'owner_ad_account',
-      owner_business: 'owner_business'
+      owner_business: 'owner_business',
     });
   }
+
 
   getAudiences (fields, params, fetchFirstPage = true): CustomAudience {
     return this.getEdge(

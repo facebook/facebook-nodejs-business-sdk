@@ -46,9 +46,10 @@ export default class LeadgenForm extends AbstractCrudObject {
       questions: 'questions',
       status: 'status',
       tcpa_compliance: 'tcpa_compliance',
-      thank_you_page: 'thank_you_page'
+      thank_you_page: 'thank_you_page',
     });
   }
+
 
   getLeads (fields, params, fetchFirstPage = true): Lead {
     return this.getEdge(

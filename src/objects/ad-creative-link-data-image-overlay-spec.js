@@ -22,7 +22,7 @@ export default class AdCreativeLinkDataImageOverlaySpec extends AbstractCrudObje
       text_font: 'text_font',
       text_template_tags: 'text_template_tags',
       text_type: 'text_type',
-      theme_color: 'theme_color'
+      theme_color: 'theme_color',
     });
   }
 
@@ -30,7 +30,7 @@ export default class AdCreativeLinkDataImageOverlaySpec extends AbstractCrudObje
     return Object.freeze({
       pill_with_text: 'PILL_WITH_TEXT',
       circle_with_text: 'CIRCLE_WITH_TEXT',
-      triangle_with_text: 'TRIANGLE_WITH_TEXT'
+      triangle_with_text: 'TRIANGLE_WITH_TEXT',
     });
   }
   static get Position (): Object {
@@ -38,7 +38,7 @@ export default class AdCreativeLinkDataImageOverlaySpec extends AbstractCrudObje
       top_left: 'TOP_LEFT',
       top_right: 'TOP_RIGHT',
       bottom_left: 'BOTTOM_LEFT',
-      bottom_right: 'BOTTOM_RIGHT'
+      bottom_right: 'BOTTOM_RIGHT',
     });
   }
   static get TextFont (): Object {
@@ -52,14 +52,14 @@ export default class AdCreativeLinkDataImageOverlaySpec extends AbstractCrudObje
       roboto_medium: 'ROBOTO_MEDIUM',
       roboto_condensed_regular: 'ROBOTO_CONDENSED_REGULAR',
       noto_sans_regular: 'NOTO_SANS_REGULAR',
-      dynads_hybrid_bold: 'DYNADS_HYBRID_BOLD'
+      dynads_hybrid_bold: 'DYNADS_HYBRID_BOLD',
     });
   }
   static get TextType (): Object {
     return Object.freeze({
       price: 'PRICE',
       strikethrough_price: 'STRIKETHROUGH_PRICE',
-      percentage_off: 'PERCENTAGE_OFF'
+      percentage_off: 'PERCENTAGE_OFF',
     });
   }
   static get ThemeColor (): Object {
@@ -79,7 +79,7 @@ export default class AdCreativeLinkDataImageOverlaySpec extends AbstractCrudObje
       background_ffffff_text_755dde: 'BACKGROUND_FFFFFF_TEXT_755DDE',
       background_ffffff_text_f23474: 'BACKGROUND_FFFFFF_TEXT_F23474',
       background_ffffff_text_646464: 'BACKGROUND_FFFFFF_TEXT_646464',
-      background_ffffff_text_000000: 'BACKGROUND_FFFFFF_TEXT_000000'
+      background_ffffff_text_000000: 'BACKGROUND_FFFFFF_TEXT_000000',
     });
   }
 }

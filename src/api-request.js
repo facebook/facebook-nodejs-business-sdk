@@ -27,7 +27,7 @@ class APIRequest {
    * @param {string} method The HTTP method of the call.
    * @param {string} endpoint The edge of the api call.
    */
-  constructor (nodeId: string, method: string, endpoint: string) {
+  constructor(nodeId: string, method: string, endpoint: string) {
     this._nodeId = nodeId;
     this._method = method;
     this._endpoint = endpoint.replace('/', '');
@@ -42,7 +42,7 @@ class APIRequest {
    * Getter function for node ID
    * @return {string} Node ID
    */
-  get nodeId (): string {
+  get nodeId(): string {
     return this._nodeId;
   }
 
@@ -50,7 +50,7 @@ class APIRequest {
    * Getter function for HTTP method e.g. GET, POST
    * @return {string} HTTP method
    */
-  get method (): string {
+  get method(): string {
     return this._method;
   }
 
@@ -58,7 +58,7 @@ class APIRequest {
    * Getter function for the edge of the API call
    * @return {string} Endpoint edge
    */
-  get endpoint (): string {
+  get endpoint(): string {
     return this._endpoint;
   }
 
@@ -66,7 +66,7 @@ class APIRequest {
    * Getter function for path tokens
    * @return {Array<string>} Array of path tokens
    */
-  get path (): Array<string> {
+  get path(): Array<string> {
     return this._path;
   }
 
@@ -74,7 +74,7 @@ class APIRequest {
    * Getter function for requested fields
    * @return {Array<string>} Array of request fields
    */
-  get fields (): Array<string> {
+  get fields(): Array<string> {
     return this._fields;
   }
 
@@ -82,7 +82,7 @@ class APIRequest {
    * Getter function for API params
    * @return {Object} Object containing API Params
    */
-  get params (): Object {
+  get params(): Object {
     // Deep cloning when object value is not a function
     return JSON.parse(JSON.stringify(this._params));
   }
@@ -91,7 +91,7 @@ class APIRequest {
    * @param {string} filePath Path to file attached to the request
    * @return {APIReqeust} APIRequest instance
    */
-  addFile (filePath: string): APIRequest {
+  addFile(filePath: string): APIRequest {
     const fileKey = `source${this._fileCounter}`;
     const stats = fs.lstatSync(filePath);
 
@@ -109,7 +109,7 @@ class APIRequest {
    * @param {string[]} filePaths Array of paths to files attached to the request
    * @return {APIRequest} APIRequest instance
    */
-  addFiles (filePaths: Array<string>): APIRequest {
+  addFiles(filePaths: Array<string>): APIRequest {
     for (let filePath of filePaths) {
       this.addFile(filePath);
     }
@@ -120,7 +120,7 @@ class APIRequest {
    * @param {string} field Requested field
    * @return {APIReqeust} APIRequest instance
    */
-  addField (field: string): APIRequest {
+  addField(field: string): APIRequest {
     if (!this._fields.includes(field)) {
       this._fields.push(field);
     }
@@ -132,7 +132,7 @@ class APIRequest {
    * @param {string[]} fields Array of requested fields
    * @return {APIRequest} APIRequest instance
    */
-  addFields (fields: Array<string>): APIRequest {
+  addFields(fields: Array<string>): APIRequest {
     for (let field of fields) {
       this.addField(field);
     }
@@ -145,7 +145,7 @@ class APIRequest {
    * @param {*} value Param value
    * @return {APIRequest} APIRequest instance
    */
-  addParam (key: string, value: any): APIRequest {
+  addParam(key: string, value: any): APIRequest {
     this._params[key] = value;
 
     return this;
@@ -155,7 +155,7 @@ class APIRequest {
    * @param {Object} params An object containing param keys and values
    * @return {APIRequest} APIRequest instance
    */
-  addParams (params: Object): APIRequest {
+  addParams(params: Object): APIRequest {
     this._params = params;
 
     return this;

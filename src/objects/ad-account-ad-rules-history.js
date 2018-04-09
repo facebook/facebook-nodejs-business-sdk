@@ -24,7 +24,8 @@ export default class AdAccountAdRulesHistory extends AbstractCrudObject {
       results: 'results',
       rule_id: 'rule_id',
       schedule_spec: 'schedule_spec',
-      timestamp: 'timestamp'
+      timestamp: 'timestamp',
     });
   }
+
 }

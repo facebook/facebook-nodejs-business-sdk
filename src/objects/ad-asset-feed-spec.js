@@ -27,7 +27,7 @@ export default class AdAssetFeedSpec extends AbstractCrudObject {
       optimization_type: 'optimization_type',
       target_rules: 'target_rules',
       titles: 'titles',
-      videos: 'videos'
+      videos: 'videos',
     });
   }
 
@@ -71,7 +71,7 @@ export default class AdAssetFeedSpec extends AbstractCrudObject {
       get_showtimes: 'GET_SHOWTIMES',
       try_it: 'TRY_IT',
       listen_now: 'LISTEN_NOW',
-      open_movies: 'OPEN_MOVIES'
+      open_movies: 'OPEN_MOVIES',
     });
   }
 }

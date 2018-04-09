@@ -32,7 +32,8 @@ export default class AdCreativeVideoData extends AbstractCrudObject {
       retailer_item_ids: 'retailer_item_ids',
       targeting: 'targeting',
       title: 'title',
-      video_id: 'video_id'
+      video_id: 'video_id',
     });
   }
+
 }

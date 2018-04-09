@@ -43,7 +43,7 @@ export default class CustomAudience extends AbstractCrudObject {
       subtype: 'subtype',
       time_content_updated: 'time_content_updated',
       time_created: 'time_created',
-      time_updated: 'time_updated'
+      time_updated: 'time_updated',
     });
   }
 
@@ -53,7 +53,7 @@ export default class CustomAudience extends AbstractCrudObject {
       home_listing: 'HOME_LISTING',
       product: 'PRODUCT',
       travel: 'TRAVEL',
-      vehicle: 'VEHICLE'
+      vehicle: 'VEHICLE',
     });
   }
   static get ContentType (): Object {
@@ -63,7 +63,7 @@ export default class CustomAudience extends AbstractCrudObject {
       flight: 'FLIGHT',
       home_listing: 'HOME_LISTING',
       hotel: 'HOTEL',
-      vehicle: 'VEHICLE'
+      vehicle: 'VEHICLE',
     });
   }
   static get Subtype (): Object {
@@ -81,7 +81,7 @@ export default class CustomAudience extends AbstractCrudObject {
       data_set: 'DATA_SET',
       bag_of_accounts: 'BAG_OF_ACCOUNTS',
       study_rule_audience: 'STUDY_RULE_AUDIENCE',
-      fox: 'FOX'
+      fox: 'FOX',
     });
   }
 
