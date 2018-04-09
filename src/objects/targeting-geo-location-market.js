@@ -19,8 +19,7 @@ export default class TargetingGeoLocationMarket extends AbstractCrudObject {
       country: 'country',
       key: 'key',
       market_type: 'market_type',
-      name: 'name',
+      name: 'name'
     });
   }
-
 }

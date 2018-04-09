@@ -63,7 +63,7 @@ export default class ProductItem extends AbstractCrudObject {
       size: 'size',
       start_date: 'start_date',
       url: 'url',
-      visibility: 'visibility',
+      visibility: 'visibility'
     });
   }
 
@@ -73,7 +73,7 @@ export default class ProductItem extends AbstractCrudObject {
       infant: 'INFANT',
       kids: 'KIDS',
       newborn: 'NEWBORN',
-      toddler: 'TODDLER',
+      toddler: 'TODDLER'
     });
   }
   static get Availability (): Object {
@@ -82,21 +82,21 @@ export default class ProductItem extends AbstractCrudObject {
       out_of_stock: 'OUT_OF_STOCK',
       preorder: 'PREORDER',
       available_for_order: 'AVAILABLE_FOR_ORDER',
-      discontinued: 'DISCONTINUED',
+      discontinued: 'DISCONTINUED'
     });
   }
   static get Condition (): Object {
     return Object.freeze({
       new: 'NEW',
       refurbished: 'REFURBISHED',
-      used: 'USED',
+      used: 'USED'
     });
   }
   static get Gender (): Object {
     return Object.freeze({
       female: 'FEMALE',
       male: 'MALE',
-      unisex: 'UNISEX',
+      unisex: 'UNISEX'
     });
   }
   static get ReviewStatus (): Object {
@@ -104,7 +104,7 @@ export default class ProductItem extends AbstractCrudObject {
       pending: 'PENDING',
       rejected: 'REJECTED',
       approved: 'APPROVED',
-      outdated: 'OUTDATED',
+      outdated: 'OUTDATED'
     });
   }
   static get ShippingWeightUnit (): Object {
@@ -112,13 +112,13 @@ export default class ProductItem extends AbstractCrudObject {
       g: 'G',
       kg: 'KG',
       oz: 'OZ',
-      lb: 'LB',
+      lb: 'LB'
     });
   }
   static get Visibility (): Object {
     return Object.freeze({
       staging: 'STAGING',
-      published: 'PUBLISHED',
+      published: 'PUBLISHED'
     });
   }
 

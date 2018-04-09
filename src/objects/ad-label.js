@@ -25,13 +25,13 @@ export default class AdLabel extends AbstractCrudObject {
       created_time: 'created_time',
       id: 'id',
       name: 'name',
-      updated_time: 'updated_time',
+      updated_time: 'updated_time'
     });
   }
 
   static get ExecutionOptions (): Object {
     return Object.freeze({
-      validate_only: 'VALIDATE_ONLY',
+      validate_only: 'VALIDATE_ONLY'
     });
   }
 

@@ -18,8 +18,7 @@ export default class RateCard extends AbstractCrudObject {
     return Object.freeze({
       country: 'country',
       currency: 'currency',
-      rate: 'rate',
+      rate: 'rate'
     });
   }
-
 }

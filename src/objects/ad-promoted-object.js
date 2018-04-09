@@ -25,7 +25,7 @@ export default class AdPromotedObject extends AbstractCrudObject {
       pixel_id: 'pixel_id',
       place_page_set_id: 'place_page_set_id',
       product_catalog_id: 'product_catalog_id',
-      product_set_id: 'product_set_id',
+      product_set_id: 'product_set_id'
     });
   }
 
@@ -45,7 +45,7 @@ export default class AdPromotedObject extends AbstractCrudObject {
       level_achieved: 'LEVEL_ACHIEVED',
       achievement_unlocked: 'ACHIEVEMENT_UNLOCKED',
       spent_credits: 'SPENT_CREDITS',
-      other: 'OTHER',
+      other: 'OTHER'
     });
   }
 }

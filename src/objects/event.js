@@ -46,7 +46,7 @@ export default class Event extends AbstractCrudObject {
       ticketing_terms_uri: 'ticketing_terms_uri',
       timezone: 'timezone',
       type: 'type',
-      updated_time: 'updated_time',
+      updated_time: 'updated_time'
     });
   }
 
@@ -55,7 +55,7 @@ export default class Event extends AbstractCrudObject {
       private: 'PRIVATE',
       public: 'PUBLIC',
       group: 'GROUP',
-      community: 'COMMUNITY',
+      community: 'COMMUNITY'
     });
   }
 

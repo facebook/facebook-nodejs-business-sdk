@@ -22,14 +22,14 @@ export default class ProductFeedUploadError extends AbstractCrudObject {
       id: 'id',
       severity: 'severity',
       summary: 'summary',
-      total_count: 'total_count',
+      total_count: 'total_count'
     });
   }
 
   static get Severity (): Object {
     return Object.freeze({
       fatal: 'FATAL',
-      warning: 'WARNING',
+      warning: 'WARNING'
     });
   }
 

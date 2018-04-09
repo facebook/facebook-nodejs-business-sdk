@@ -18,10 +18,9 @@ export default class ProductFeedUploadErrorSample extends AbstractCrudObject {
     return Object.freeze({
       id: 'id',
       retailer_id: 'retailer_id',
-      row_number: 'row_number',
+      row_number: 'row_number'
     });
   }
-
 
   get (fields, params): ProductFeedUploadErrorSample {
     return this.read(

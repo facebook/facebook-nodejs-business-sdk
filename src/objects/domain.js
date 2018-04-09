@@ -18,10 +18,9 @@ export default class Domain extends AbstractCrudObject {
     return Object.freeze({
       id: 'id',
       name: 'name',
-      url: 'url',
+      url: 'url'
     });
   }
-
 
   get (fields, params): Domain {
     return this.read(

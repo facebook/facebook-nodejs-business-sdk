@@ -14,14 +14,14 @@
 export default class AbstractObject {
   _data: any;
   _fields: Array<string>;
-  static get Fields() {
+  static get Fields () {
     return Object.freeze({});
   }
-  constructor() {
+  constructor () {
     this._data = {};
     if (this.constructor.Fields === undefined) {
       throw new Error(
-        'A "Fields" frozen object must be defined in the object class',
+        'A "Fields" frozen object must be defined in the object class'
       );
     }
     let fields: any = this.constructor.Fields;
@@ -35,13 +35,13 @@ export default class AbstractObject {
    * Define data getter and setter field
    * @param {String} field
    */
-  _defineProperty(field: string) {
+  _defineProperty (field: string) {
     Object.defineProperty(this, field, {
       get: () => this._data[field],
       set: value => {
         this._data[field] = value;
       },
-      enumerable: true,
+      enumerable: true
     });
   }
 
@@ -51,7 +51,7 @@ export default class AbstractObject {
    * @param {Mixed} value
    * @return this
    */
-  set(field: string, value: mixed) {
+  set (field: string, value: mixed) {
     if (this._fields.indexOf(field) < 0) {
       this._defineProperty(field);
     }
@@ -65,7 +65,7 @@ export default class AbstractObject {
    * @param {Object} data
    * @return this
    */
-  setData(data: Object) {
+  setData (data: Object) {
     Object.keys(data).forEach(key => {
       this.set(key, data[key]);
     });
@@ -76,7 +76,7 @@ export default class AbstractObject {
    * Export object data
    * @return {Object}
    */
-  exportData(): Object {
+  exportData (): Object {
     return this._data;
   }
 }

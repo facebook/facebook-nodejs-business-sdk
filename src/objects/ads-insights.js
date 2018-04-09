@@ -91,7 +91,7 @@ export default class AdsInsights extends AbstractCrudObject {
       video_p75_watched_actions: 'video_p75_watched_actions',
       video_p95_watched_actions: 'video_p95_watched_actions',
       website_ctr: 'website_ctr',
-      website_purchase_roas: 'website_purchase_roas',
+      website_purchase_roas: 'website_purchase_roas'
     });
   }
 
@@ -103,7 +103,7 @@ export default class AdsInsights extends AbstractCrudObject {
       value_1d_click: '1D_CLICK',
       value_7d_click: '7D_CLICK',
       value_28d_click: '28D_CLICK',
-      default: 'DEFAULT',
+      default: 'DEFAULT'
     });
   }
   static get ActionBreakdowns (): Object {
@@ -118,13 +118,13 @@ export default class AdsInsights extends AbstractCrudObject {
       action_target_id: 'ACTION_TARGET_ID',
       action_type: 'ACTION_TYPE',
       action_video_sound: 'ACTION_VIDEO_SOUND',
-      action_video_type: 'ACTION_VIDEO_TYPE',
+      action_video_type: 'ACTION_VIDEO_TYPE'
     });
   }
   static get ActionReportTime (): Object {
     return Object.freeze({
       impression: 'IMPRESSION',
-      conversion: 'CONVERSION',
+      conversion: 'CONVERSION'
     });
   }
   static get Breakdowns (): Object {
@@ -142,7 +142,7 @@ export default class AdsInsights extends AbstractCrudObject {
       platform_position: 'PLATFORM_POSITION',
       device_platform: 'DEVICE_PLATFORM',
       product_id: 'PRODUCT_ID',
-      region: 'REGION',
+      region: 'REGION'
     });
   }
   static get DatePreset (): Object {
@@ -165,7 +165,7 @@ export default class AdsInsights extends AbstractCrudObject {
       last_year: 'LAST_YEAR',
       this_week_mon_today: 'THIS_WEEK_MON_TODAY',
       this_week_sun_today: 'THIS_WEEK_SUN_TODAY',
-      this_year: 'THIS_YEAR',
+      this_year: 'THIS_YEAR'
     });
   }
   static get Level (): Object {
@@ -173,7 +173,7 @@ export default class AdsInsights extends AbstractCrudObject {
       ad: 'AD',
       adset: 'ADSET',
       campaign: 'CAMPAIGN',
-      account: 'ACCOUNT',
+      account: 'ACCOUNT'
     });
   }
   static get SummaryActionBreakdowns (): Object {
@@ -188,7 +188,7 @@ export default class AdsInsights extends AbstractCrudObject {
       action_target_id: 'ACTION_TARGET_ID',
       action_type: 'ACTION_TYPE',
       action_video_sound: 'ACTION_VIDEO_SOUND',
-      action_video_type: 'ACTION_VIDEO_TYPE',
+      action_video_type: 'ACTION_VIDEO_TYPE'
     });
   }
   static get Summary (): Object {
@@ -205,7 +205,7 @@ export default class AdsInsights extends AbstractCrudObject {
       is_running: 'IS_RUNNING',
       schedule_id: 'SCHEDULE_ID',
       time_completed: 'TIME_COMPLETED',
-      time_ref: 'TIME_REF',
+      time_ref: 'TIME_REF'
     });
   }
 }

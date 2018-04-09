@@ -17,8 +17,7 @@ export default class BusinessAdAccountRequest extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       ad_account: 'ad_account',
-      id: 'id',
+      id: 'id'
     });
   }
-
 }

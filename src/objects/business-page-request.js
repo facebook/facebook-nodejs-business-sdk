@@ -17,8 +17,7 @@ export default class BusinessPageRequest extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       id: 'id',
-      page: 'page',
+      page: 'page'
     });
   }
-
 }

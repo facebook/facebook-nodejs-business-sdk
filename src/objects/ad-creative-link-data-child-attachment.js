@@ -26,8 +26,7 @@ export default class AdCreativeLinkDataChildAttachment extends AbstractCrudObjec
       picture: 'picture',
       place_data: 'place_data',
       static_card: 'static_card',
-      video_id: 'video_id',
+      video_id: 'video_id'
     });
   }
-
 }

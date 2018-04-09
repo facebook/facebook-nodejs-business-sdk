@@ -18,8 +18,7 @@ export default class AdRuleSchedule extends AbstractCrudObject {
     return Object.freeze({
       days: 'days',
       end_minute: 'end_minute',
-      start_minute: 'start_minute',
+      start_minute: 'start_minute'
     });
   }
-
 }

@@ -26,8 +26,7 @@ export default class TargetingGeoLocation extends AbstractCrudObject {
       places: 'places',
       political_districts: 'political_districts',
       regions: 'regions',
-      zips: 'zips',
+      zips: 'zips'
     });
   }
-
 }

@@ -16,7 +16,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class AdPreview extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      body: 'body',
+      body: 'body'
     });
   }
 
@@ -37,7 +37,7 @@ export default class AdPreview extends AbstractCrudObject {
       instream_video_desktop: 'INSTREAM_VIDEO_DESKTOP',
       instream_video_mobile: 'INSTREAM_VIDEO_MOBILE',
       suggested_video_desktop: 'SUGGESTED_VIDEO_DESKTOP',
-      suggested_video_mobile: 'SUGGESTED_VIDEO_MOBILE',
+      suggested_video_mobile: 'SUGGESTED_VIDEO_MOBILE'
     });
   }
 }

@@ -18,14 +18,14 @@ export default class AdRuleExecutionOptions extends AbstractCrudObject {
     return Object.freeze({
       field: 'field',
       operator: 'operator',
-      value: 'value',
+      value: 'value'
     });
   }
 
   static get Operator (): Object {
     return Object.freeze({
       equal: 'EQUAL',
-      in: 'IN',
+      in: 'IN'
     });
   }
 }

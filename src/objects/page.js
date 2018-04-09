@@ -150,10 +150,9 @@ export default class Page extends AbstractCrudObject {
       website: 'website',
       were_here_count: 'were_here_count',
       whatsapp_number: 'whatsapp_number',
-      written_by: 'written_by',
+      written_by: 'written_by'
     });
   }
-
 
   getPicture (fields, params, fetchFirstPage = true): ProfilePictureSource {
     return this.getEdge(

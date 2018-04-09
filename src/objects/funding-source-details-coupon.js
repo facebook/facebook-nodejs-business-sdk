@@ -19,8 +19,7 @@ export default class FundingSourceDetailsCoupon extends AbstractCrudObject {
       amount: 'amount',
       currency: 'currency',
       display_amount: 'display_amount',
-      expiration: 'expiration',
+      expiration: 'expiration'
     });
   }
-
 }

@@ -22,8 +22,7 @@ export default class ReachFrequencySpec extends AbstractCrudObject {
       max_days_to_finish: 'max_days_to_finish',
       max_pause_without_prediction_rerun: 'max_pause_without_prediction_rerun',
       min_campaign_duration: 'min_campaign_duration',
-      min_reach_limits: 'min_reach_limits',
+      min_reach_limits: 'min_reach_limits'
     });
   }
-
 }

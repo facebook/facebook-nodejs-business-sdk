@@ -19,8 +19,7 @@ export default class AdAccountUser extends AbstractCrudObject {
       id: 'id',
       name: 'name',
       permissions: 'permissions',
-      role: 'role',
+      role: 'role'
     });
   }
-
 }

@@ -52,7 +52,7 @@ export default class ReachFrequencyPrediction extends AbstractCrudObject {
       target_audience_size: 'target_audience_size',
       target_spec: 'target_spec',
       time_created: 'time_created',
-      time_updated: 'time_updated',
+      time_updated: 'time_updated'
     });
   }
 
@@ -62,7 +62,7 @@ export default class ReachFrequencyPrediction extends AbstractCrudObject {
       draft: 'DRAFT',
       pending: 'PENDING',
       active: 'ACTIVE',
-      completed: 'COMPLETED',
+      completed: 'COMPLETED'
     });
   }
 

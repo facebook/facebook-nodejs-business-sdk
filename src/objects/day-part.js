@@ -19,8 +19,7 @@ export default class DayPart extends AbstractCrudObject {
       days: 'days',
       end_minute: 'end_minute',
       start_minute: 'start_minute',
-      timezone_type: 'timezone_type',
+      timezone_type: 'timezone_type'
     });
   }
-
 }

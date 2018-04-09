@@ -29,10 +29,9 @@ export default class AdReportRun extends AbstractCrudObject {
       is_running: 'is_running',
       schedule_id: 'schedule_id',
       time_completed: 'time_completed',
-      time_ref: 'time_ref',
+      time_ref: 'time_ref'
     });
   }
-
 
   getInsights (fields, params, fetchFirstPage = true): AdsInsights {
     return this.getEdge(

@@ -18,7 +18,7 @@ export default class ReachEstimate extends AbstractCrudObject {
     return Object.freeze({
       estimate_ready: 'estimate_ready',
       unsupported: 'unsupported',
-      users: 'users',
+      users: 'users'
     });
   }
 
@@ -43,7 +43,7 @@ export default class ReachEstimate extends AbstractCrudObject {
       social_impressions: 'SOCIAL_IMPRESSIONS',
       video_views: 'VIDEO_VIEWS',
       app_downloads: 'APP_DOWNLOADS',
-      landing_page_views: 'LANDING_PAGE_VIEWS',
+      landing_page_views: 'LANDING_PAGE_VIEWS'
     });
   }
 }

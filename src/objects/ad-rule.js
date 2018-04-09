@@ -27,7 +27,7 @@ export default class AdRule extends AbstractCrudObject {
       name: 'name',
       schedule_spec: 'schedule_spec',
       status: 'status',
-      updated_time: 'updated_time',
+      updated_time: 'updated_time'
     });
   }
 
@@ -35,7 +35,7 @@ export default class AdRule extends AbstractCrudObject {
     return Object.freeze({
       enabled: 'ENABLED',
       disabled: 'DISABLED',
-      deleted: 'DELETED',
+      deleted: 'DELETED'
     });
   }
 

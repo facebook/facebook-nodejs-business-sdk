@@ -76,10 +76,9 @@ export default class User extends AbstractCrudObject {
       video_upload_limits: 'video_upload_limits',
       viewer_can_send_gift: 'viewer_can_send_gift',
       website: 'website',
-      work: 'work',
+      work: 'work'
     });
   }
-
 
   getAccounts (fields, params, fetchFirstPage = true): Page {
     return this.getEdge(

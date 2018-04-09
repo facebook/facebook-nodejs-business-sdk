@@ -19,8 +19,7 @@ export default class TargetingGeoLocationPoliticalDistrict extends AbstractCrudO
       country: 'country',
       key: 'key',
       name: 'name',
-      political_district: 'political_district',
+      political_district: 'political_district'
     });
   }
-
 }

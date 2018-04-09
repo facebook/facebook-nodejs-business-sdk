@@ -22,8 +22,7 @@ export default class VideoThumbnail extends AbstractCrudObject {
       name: 'name',
       scale: 'scale',
       uri: 'uri',
-      width: 'width',
+      width: 'width'
     });
   }
-
 }

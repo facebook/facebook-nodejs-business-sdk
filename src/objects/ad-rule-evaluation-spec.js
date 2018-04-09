@@ -18,14 +18,14 @@ export default class AdRuleEvaluationSpec extends AbstractCrudObject {
     return Object.freeze({
       evaluation_type: 'evaluation_type',
       filters: 'filters',
-      trigger: 'trigger',
+      trigger: 'trigger'
     });
   }
 
   static get EvaluationType (): Object {
     return Object.freeze({
       schedule: 'SCHEDULE',
-      trigger: 'TRIGGER',
+      trigger: 'TRIGGER'
     });
   }
 }

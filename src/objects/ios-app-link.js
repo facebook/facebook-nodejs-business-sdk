@@ -18,8 +18,7 @@ export default class IosAppLink extends AbstractCrudObject {
     return Object.freeze({
       app_name: 'app_name',
       app_store_id: 'app_store_id',
-      url: 'url',
+      url: 'url'
     });
   }
-
 }

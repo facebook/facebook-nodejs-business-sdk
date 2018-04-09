@@ -27,10 +27,10 @@ class FacebookAdsApiBatch {
    * @param {Function} successCallback
    * @param {Function} failureCallback
    */
-  constructor(
+  constructor (
     api: FacebookAdsApi,
     successCallback?: Function,
-    failureCallback?: Function,
+    failureCallback?: Function
   ) {
     this._api = api;
     this._files = [];
@@ -67,14 +67,14 @@ class FacebookAdsApiBatch {
    * @param {APIRequest} [request] The APIRequest object
    * @return {Object} An object describing the call
    */
-  add(
+  add (
     method: string,
     relativePath: Array<string> | string,
     params?: Object,
     files?: Object,
     successCallback?: Function,
     failureCallback?: Function,
-    request?: APIRequest,
+    request?: APIRequest
   ) {
     // Construct a relaitveUrl from relateivePath by assuming that
     // relativePath can only be a string or an array of strings
@@ -83,7 +83,7 @@ class FacebookAdsApiBatch {
     // A Call object that will be used in a batch request
     const call = {
       method: method,
-      relative_url: relativeUrl,
+      relative_url: relativeUrl
     };
 
     // Contruct key-value pairs from params for GET querystring or POST body
@@ -132,10 +132,10 @@ class FacebookAdsApiBatch {
    *   will be called with the FacebookResponse of this call if the call failed.
    * @return {Object} An object describing the call
    */
-  addRequest(
+  addRequest (
     request: APIRequest,
     successCallback?: Function,
-    failureCallback?: Function,
+    failureCallback?: Function
   ) {
     const updatedParams = request.params;
     updatedParams['fields'] = request.fields.join();
@@ -147,7 +147,7 @@ class FacebookAdsApiBatch {
       request.fileParams,
       successCallback,
       failureCallback,
-      request,
+      request
     );
   }
 
@@ -162,7 +162,7 @@ class FacebookAdsApiBatch {
    *   returns a new FacebookAdsApiBatch object with those calls.
    *   Otherwise, returns None.
    */
-  execute() {
+  execute () {
     if (this._batch.length < 1) {
       return;
     }
@@ -170,7 +170,7 @@ class FacebookAdsApiBatch {
     const method = 'POST';
     const path = []; // request to root domain for a batch request
     const params = {
-      batch: this._batch,
+      batch: this._batch
     };
 
     // Call to the batch endpoint (WIP)

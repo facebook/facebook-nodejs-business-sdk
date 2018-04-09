@@ -21,14 +21,14 @@ export default class AdPlacePageSet extends AbstractCrudObject {
       location_types: 'location_types',
       name: 'name',
       pages_count: 'pages_count',
-      parent_page: 'parent_page',
+      parent_page: 'parent_page'
     });
   }
 
   static get LocationTypes (): Object {
     return Object.freeze({
       recent: 'RECENT',
-      home: 'HOME',
+      home: 'HOME'
     });
   }
 

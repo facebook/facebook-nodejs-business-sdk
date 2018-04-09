@@ -22,8 +22,7 @@ export default class AdCreativePhotoData extends AbstractCrudObject {
       caption: 'caption',
       image_hash: 'image_hash',
       page_welcome_message: 'page_welcome_message',
-      url: 'url',
+      url: 'url'
     });
   }
-
 }

@@ -21,10 +21,9 @@ export default class ProductGroup extends AbstractCrudObject {
       id: 'id',
       product_catalog: 'product_catalog',
       retailer_id: 'retailer_id',
-      variants: 'variants',
+      variants: 'variants'
     });
   }
-
 
   getProducts (fields, params, fetchFirstPage = true): ProductItem {
     return this.getEdge(

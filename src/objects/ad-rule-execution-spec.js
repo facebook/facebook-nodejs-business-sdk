@@ -17,7 +17,7 @@ export default class AdRuleExecutionSpec extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       execution_options: 'execution_options',
-      execution_type: 'execution_type',
+      execution_type: 'execution_type'
     });
   }
 
@@ -30,7 +30,7 @@ export default class AdRuleExecutionSpec extends AbstractCrudObject {
       change_budget: 'CHANGE_BUDGET',
       change_bid: 'CHANGE_BID',
       rotate: 'ROTATE',
-      unpause: 'UNPAUSE',
+      unpause: 'UNPAUSE'
     });
   }
 }

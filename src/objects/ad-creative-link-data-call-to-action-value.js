@@ -25,8 +25,7 @@ export default class AdCreativeLinkDataCallToActionValue extends AbstractCrudObj
       link_caption: 'link_caption',
       link_format: 'link_format',
       page: 'page',
-      product_link: 'product_link',
+      product_link: 'product_link'
     });
   }
-
 }

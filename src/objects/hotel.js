@@ -30,10 +30,9 @@ export default class Hotel extends AbstractCrudObject {
       name: 'name',
       phone: 'phone',
       star_rating: 'star_rating',
-      url: 'url',
+      url: 'url'
     });
   }
-
 
   createHotelRoom (fields, params): HotelRoom {
     return this.createEdge(

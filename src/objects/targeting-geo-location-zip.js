@@ -20,8 +20,7 @@ export default class TargetingGeoLocationZip extends AbstractCrudObject {
       key: 'key',
       name: 'name',
       primary_city_id: 'primary_city_id',
-      region_id: 'region_id',
+      region_id: 'region_id'
     });
   }
-
 }

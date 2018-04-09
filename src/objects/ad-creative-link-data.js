@@ -43,21 +43,21 @@ export default class AdCreativeLinkData extends AbstractCrudObject {
       picture: 'picture',
       post_click_configuration: 'post_click_configuration',
       retailer_item_ids: 'retailer_item_ids',
-      show_multiple_images: 'show_multiple_images',
+      show_multiple_images: 'show_multiple_images'
     });
   }
 
   static get AttachmentStyle (): Object {
     return Object.freeze({
       link: 'LINK',
-      default: 'DEFAULT',
+      default: 'DEFAULT'
     });
   }
   static get FormatOption (): Object {
     return Object.freeze({
       carousel_images_multi_items: 'CAROUSEL_IMAGES_MULTI_ITEMS',
       carousel_images_single_item: 'CAROUSEL_IMAGES_SINGLE_ITEM',
-      single_image: 'SINGLE_IMAGE',
+      single_image: 'SINGLE_IMAGE'
     });
   }
 }

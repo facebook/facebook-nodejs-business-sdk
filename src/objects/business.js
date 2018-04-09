@@ -39,10 +39,9 @@ export default class Business extends AbstractCrudObject {
       two_factor_type: 'two_factor_type',
       updated_by: 'updated_by',
       updated_time: 'updated_time',
-      vertical: 'vertical',
+      vertical: 'vertical'
     });
   }
-
 
   createAdStudy (fields, params): AdStudy {
     return this.createEdge(
@@ -161,8 +160,8 @@ export default class Business extends AbstractCrudObject {
     return this.createEdge(
       '/measurement_reports',
       fields,
-      params,
-      
+      params
+
     );
   }
 
@@ -279,8 +278,8 @@ export default class Business extends AbstractCrudObject {
     return this.createEdge(
       '/userpermissions',
       fields,
-      params,
-      
+      params
+
     );
   }
 

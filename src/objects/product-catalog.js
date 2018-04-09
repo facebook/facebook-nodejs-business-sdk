@@ -39,10 +39,9 @@ export default class ProductCatalog extends AbstractCrudObject {
       name: 'name',
       product_count: 'product_count',
       qualified_product_count: 'qualified_product_count',
-      vertical: 'vertical',
+      vertical: 'vertical'
     });
   }
-
 
   getAgencies (fields, params, fetchFirstPage = true): Business {
     return this.getEdge(
@@ -124,8 +123,8 @@ export default class ProductCatalog extends AbstractCrudObject {
     return this.createEdge(
       '/home_listings',
       fields,
-      params,
-      
+      params
+
     );
   }
 
@@ -276,8 +275,8 @@ export default class ProductCatalog extends AbstractCrudObject {
     return this.createEdge(
       '/videos',
       fields,
-      params,
-      
+      params
+
     );
   }
 

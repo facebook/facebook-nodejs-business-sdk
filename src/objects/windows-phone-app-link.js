@@ -18,8 +18,7 @@ export default class WindowsPhoneAppLink extends AbstractCrudObject {
     return Object.freeze({
       app_id: 'app_id',
       app_name: 'app_name',
-      url: 'url',
+      url: 'url'
     });
   }
-
 }

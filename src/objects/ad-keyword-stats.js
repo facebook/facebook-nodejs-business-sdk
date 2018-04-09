@@ -35,8 +35,7 @@ export default class AdKeywordStats extends AbstractCrudObject {
       unique_actions: 'unique_actions',
       unique_clicks: 'unique_clicks',
       unique_ctr: 'unique_ctr',
-      unique_impressions: 'unique_impressions',
+      unique_impressions: 'unique_impressions'
     });
   }
-
 }

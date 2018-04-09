@@ -21,7 +21,7 @@ export default class ProductFeedUpload extends AbstractCrudObject {
       id: 'id',
       input_method: 'input_method',
       start_time: 'start_time',
-      url: 'url',
+      url: 'url'
     });
   }
 
@@ -30,7 +30,7 @@ export default class ProductFeedUpload extends AbstractCrudObject {
       manual_upload: 'MANUAL_UPLOAD',
       server_fetch: 'SERVER_FETCH',
       reupload_last_file: 'REUPLOAD_LAST_FILE',
-      user_initiated_server_fetch: 'USER_INITIATED_SERVER_FETCH',
+      user_initiated_server_fetch: 'USER_INITIATED_SERVER_FETCH'
     });
   }
 

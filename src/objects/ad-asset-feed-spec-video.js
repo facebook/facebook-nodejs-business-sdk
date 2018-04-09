@@ -20,8 +20,7 @@ export default class AdAssetFeedSpecVideo extends AbstractCrudObject {
       caption_ids: 'caption_ids',
       thumbnail_url: 'thumbnail_url',
       url_tags: 'url_tags',
-      video_id: 'video_id',
+      video_id: 'video_id'
     });
   }
-
 }

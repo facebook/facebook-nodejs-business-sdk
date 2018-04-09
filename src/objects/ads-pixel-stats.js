@@ -19,8 +19,7 @@ export default class AdsPixelStats extends AbstractCrudObject {
       count: 'count',
       diagnostics_hourly_last_timestamp: 'diagnostics_hourly_last_timestamp',
       event: 'event',
-      value: 'value',
+      value: 'value'
     });
   }
-
 }

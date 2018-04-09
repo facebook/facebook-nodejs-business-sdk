@@ -23,7 +23,7 @@ export default class OffsitePixel extends AbstractCrudObject {
       js_pixel: 'js_pixel',
       last_firing_time: 'last_firing_time',
       name: 'name',
-      tag: 'tag',
+      tag: 'tag'
     });
   }
 
@@ -34,7 +34,7 @@ export default class OffsitePixel extends AbstractCrudObject {
       lead: 'LEAD',
       key_page_view: 'KEY_PAGE_VIEW',
       add_to_cart: 'ADD_TO_CART',
-      other: 'OTHER',
+      other: 'OTHER'
     });
   }
 

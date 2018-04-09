@@ -66,7 +66,7 @@ export default class AdSet extends AbstractCrudObject {
       time_based_ad_rotation_id_blocks: 'time_based_ad_rotation_id_blocks',
       time_based_ad_rotation_intervals: 'time_based_ad_rotation_intervals',
       updated_time: 'updated_time',
-      use_new_app_click: 'use_new_app_click',
+      use_new_app_click: 'use_new_app_click'
     });
   }
 
@@ -82,7 +82,7 @@ export default class AdSet extends AbstractCrudObject {
       video_views: 'VIDEO_VIEWS',
       mrc_video_views: 'MRC_VIDEO_VIEWS',
       completed_video_views: 'COMPLETED_VIDEO_VIEWS',
-      video_views_15s: 'VIDEO_VIEWS_15S',
+      video_views_15s: 'VIDEO_VIEWS_15S'
     });
   }
   static get ConfiguredStatus (): Object {
@@ -90,7 +90,7 @@ export default class AdSet extends AbstractCrudObject {
       active: 'ACTIVE',
       paused: 'PAUSED',
       deleted: 'DELETED',
-      archived: 'ARCHIVED',
+      archived: 'ARCHIVED'
     });
   }
   static get EffectiveStatus (): Object {
@@ -104,7 +104,7 @@ export default class AdSet extends AbstractCrudObject {
       pending_billing_info: 'PENDING_BILLING_INFO',
       campaign_paused: 'CAMPAIGN_PAUSED',
       archived: 'ARCHIVED',
-      adset_paused: 'ADSET_PAUSED',
+      adset_paused: 'ADSET_PAUSED'
     });
   }
   static get OptimizationGoal (): Object {
@@ -128,7 +128,7 @@ export default class AdSet extends AbstractCrudObject {
       social_impressions: 'SOCIAL_IMPRESSIONS',
       video_views: 'VIDEO_VIEWS',
       app_downloads: 'APP_DOWNLOADS',
-      landing_page_views: 'LANDING_PAGE_VIEWS',
+      landing_page_views: 'LANDING_PAGE_VIEWS'
     });
   }
   static get Status (): Object {
@@ -136,7 +136,7 @@ export default class AdSet extends AbstractCrudObject {
       active: 'ACTIVE',
       paused: 'PAUSED',
       deleted: 'DELETED',
-      archived: 'ARCHIVED',
+      archived: 'ARCHIVED'
     });
   }
   static get DatePreset (): Object {
@@ -159,7 +159,7 @@ export default class AdSet extends AbstractCrudObject {
       last_year: 'LAST_YEAR',
       this_week_mon_today: 'THIS_WEEK_MON_TODAY',
       this_week_sun_today: 'THIS_WEEK_SUN_TODAY',
-      this_year: 'THIS_YEAR',
+      this_year: 'THIS_YEAR'
     });
   }
   static get DestinationType (): Object {
@@ -168,19 +168,19 @@ export default class AdSet extends AbstractCrudObject {
       website: 'WEBSITE',
       app: 'APP',
       messenger: 'MESSENGER',
-      applinks_automatic: 'APPLINKS_AUTOMATIC',
+      applinks_automatic: 'APPLINKS_AUTOMATIC'
     });
   }
   static get ExecutionOptions (): Object {
     return Object.freeze({
       validate_only: 'VALIDATE_ONLY',
-      include_recommendations: 'INCLUDE_RECOMMENDATIONS',
+      include_recommendations: 'INCLUDE_RECOMMENDATIONS'
     });
   }
   static get Operator (): Object {
     return Object.freeze({
       all: 'ALL',
-      any: 'ANY',
+      any: 'ANY'
     });
   }
 

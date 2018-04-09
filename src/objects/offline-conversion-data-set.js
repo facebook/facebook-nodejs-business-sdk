@@ -35,10 +35,9 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
       matched_unique_users: 'matched_unique_users',
       name: 'name',
       usage: 'usage',
-      valid_entries: 'valid_entries',
+      valid_entries: 'valid_entries'
     });
   }
-
 
   getActivities (fields, params, fetchFirstPage = true): AbstractObject {
     return this.getEdge(
@@ -64,8 +63,8 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
     return this.createEdge(
       '/adaccounts',
       fields,
-      params,
-      
+      params
+
     );
   }
 
@@ -73,8 +72,8 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
     return this.createEdge(
       '/events',
       fields,
-      params,
-      
+      params
+
     );
   }
 

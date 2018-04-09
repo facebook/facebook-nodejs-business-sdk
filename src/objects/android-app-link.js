@@ -19,8 +19,7 @@ export default class AndroidAppLink extends AbstractCrudObject {
       app_name: 'app_name',
       class: 'class',
       package: 'package',
-      url: 'url',
+      url: 'url'
     });
   }
-
 }

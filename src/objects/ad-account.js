@@ -105,10 +105,9 @@ export default class AdAccount extends AbstractCrudObject {
       timezone_name: 'timezone_name',
       timezone_offset_hours_utc: 'timezone_offset_hours_utc',
       tos_accepted: 'tos_accepted',
-      user_role: 'user_role',
+      user_role: 'user_role'
     });
   }
-
 
   getActivities (fields, params, fetchFirstPage = true): AdActivity {
     return this.getEdge(
@@ -363,8 +362,8 @@ export default class AdAccount extends AbstractCrudObject {
     return this.createEdge(
       '/advideos',
       fields,
-      params,
-      
+      params
+
     );
   }
 
@@ -622,8 +621,8 @@ export default class AdAccount extends AbstractCrudObject {
     return this.createEdge(
       '/publisher_block_lists',
       fields,
-      params,
-      
+      params
+
     );
   }
 
@@ -737,8 +736,8 @@ export default class AdAccount extends AbstractCrudObject {
     return this.createEdge(
       '/tracking',
       fields,
-      params,
-      
+      params
+
     );
   }
 

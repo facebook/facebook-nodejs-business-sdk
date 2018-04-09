@@ -27,10 +27,9 @@ export default class HotelRoom extends AbstractCrudObject {
       name: 'name',
       room_id: 'room_id',
       sale_price: 'sale_price',
-      url: 'url',
+      url: 'url'
     });
   }
-
 
   delete (fields, params): AbstractObject {
     return super.delete(

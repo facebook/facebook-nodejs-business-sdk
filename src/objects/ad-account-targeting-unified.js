@@ -22,7 +22,7 @@ export default class AdAccountTargetingUnified extends AbstractCrudObject {
       name: 'name',
       path: 'path',
       type: 'type',
-      valid: 'valid',
+      valid: 'valid'
     });
   }
 
@@ -128,7 +128,7 @@ export default class AdAccountTargetingUnified extends AbstractCrudObject {
       follow_profiles_negative: 'FOLLOW_PROFILES_NEGATIVE',
       location_categories: 'LOCATION_CATEGORIES',
       user_page_threads: 'USER_PAGE_THREADS',
-      user_page_threads_excluded: 'USER_PAGE_THREADS_EXCLUDED',
+      user_page_threads_excluded: 'USER_PAGE_THREADS_EXCLUDED'
     });
   }
 }

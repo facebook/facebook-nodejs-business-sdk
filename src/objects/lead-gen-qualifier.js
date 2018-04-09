@@ -20,8 +20,7 @@ export default class LeadGenQualifier extends AbstractCrudObject {
       field_key: 'field_key',
       id: 'id',
       label: 'label',
-      question: 'question',
+      question: 'question'
     });
   }
-
 }
