@@ -106,7 +106,8 @@ export default class CustomAudience extends AbstractCrudObject {
     return this.createEdge(
       '/adaccounts',
       fields,
-      params
+      params,
+      AdAccount
     );
   }
 
@@ -151,7 +152,8 @@ export default class CustomAudience extends AbstractCrudObject {
     return this.createEdge(
       '/users',
       fields,
-      params
+      params,
+      User
     );
   }
 

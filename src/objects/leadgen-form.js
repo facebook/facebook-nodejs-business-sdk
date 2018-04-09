@@ -65,7 +65,8 @@ export default class LeadgenForm extends AbstractCrudObject {
     return this.createEdge(
       '/test_leads',
       fields,
-      params
+      params,
+      LeadgenForm
     );
   }
 

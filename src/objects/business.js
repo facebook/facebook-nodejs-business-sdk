@@ -48,7 +48,8 @@ export default class Business extends AbstractCrudObject {
     return this.createEdge(
       '/ad_studies',
       fields,
-      params
+      params,
+      AdStudy
     );
   }
 
@@ -56,7 +57,8 @@ export default class Business extends AbstractCrudObject {
     return this.createEdge(
       '/adaccount',
       fields,
-      params
+      params,
+      AdAccount
     );
   }
 
@@ -74,7 +76,8 @@ export default class Business extends AbstractCrudObject {
     return this.createEdge(
       '/adspixels',
       fields,
-      params
+      params,
+      AdsPixel
     );
   }
 
@@ -119,7 +122,8 @@ export default class Business extends AbstractCrudObject {
     return this.createEdge(
       '/event_source_groups',
       fields,
-      params
+      params,
+      EventSourceGroup
     );
   }
 
@@ -157,7 +161,8 @@ export default class Business extends AbstractCrudObject {
     return this.createEdge(
       '/measurement_reports',
       fields,
-      params
+      params,
+      
     );
   }
 
@@ -175,7 +180,8 @@ export default class Business extends AbstractCrudObject {
     return this.createEdge(
       '/offline_conversion_data_sets',
       fields,
-      params
+      params,
+      OfflineConversionDataSet
     );
   }
 
@@ -273,7 +279,8 @@ export default class Business extends AbstractCrudObject {
     return this.createEdge(
       '/userpermissions',
       fields,
-      params
+      params,
+      
     );
   }
 

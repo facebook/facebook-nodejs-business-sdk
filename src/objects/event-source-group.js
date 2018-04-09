@@ -28,7 +28,8 @@ export default class EventSourceGroup extends AbstractCrudObject {
     return this.createEdge(
       '/shared_accounts',
       fields,
-      params
+      params,
+      EventSourceGroup
     );
   }
 

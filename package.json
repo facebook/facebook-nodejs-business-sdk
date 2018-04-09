@@ -1,6 +1,6 @@
 {
   "name": "facebook-nodejs-ads-sdk",
-  "version": "2.11.3",
+  "version": "2.11.4",
   "description": "SDK for the Facebook Ads API in Javascript and Node.js",
   "author": "Facebook",
   "maintainers": [

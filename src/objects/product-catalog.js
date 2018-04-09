@@ -95,7 +95,8 @@ export default class ProductCatalog extends AbstractCrudObject {
     return this.createEdge(
       '/external_event_sources',
       fields,
-      params
+      params,
+      ExternalEventSource
     );
   }
 
@@ -123,7 +124,8 @@ export default class ProductCatalog extends AbstractCrudObject {
     return this.createEdge(
       '/home_listings',
       fields,
-      params
+      params,
+      
     );
   }
 
@@ -141,7 +143,8 @@ export default class ProductCatalog extends AbstractCrudObject {
     return this.createEdge(
       '/hotel_rooms_batch',
       fields,
-      params
+      params,
+      ProductCatalogHotelRoomsBatch
     );
   }
 
@@ -159,7 +162,8 @@ export default class ProductCatalog extends AbstractCrudObject {
     return this.createEdge(
       '/hotels',
       fields,
-      params
+      params,
+      Hotel
     );
   }
 
@@ -177,7 +181,8 @@ export default class ProductCatalog extends AbstractCrudObject {
     return this.createEdge(
       '/pricing_variables_batch',
       fields,
-      params
+      params,
+      ProductCatalogPricingVariablesBatch
     );
   }
 
@@ -195,7 +200,8 @@ export default class ProductCatalog extends AbstractCrudObject {
     return this.createEdge(
       '/product_feeds',
       fields,
-      params
+      params,
+      ProductFeed
     );
   }
 
@@ -213,7 +219,8 @@ export default class ProductCatalog extends AbstractCrudObject {
     return this.createEdge(
       '/product_groups',
       fields,
-      params
+      params,
+      ProductGroup
     );
   }
 
@@ -231,7 +238,8 @@ export default class ProductCatalog extends AbstractCrudObject {
     return this.createEdge(
       '/product_sets',
       fields,
-      params
+      params,
+      ProductSet
     );
   }
 
@@ -259,7 +267,8 @@ export default class ProductCatalog extends AbstractCrudObject {
     return this.createEdge(
       '/products',
       fields,
-      params
+      params,
+      ProductItem
     );
   }
 
@@ -267,7 +276,8 @@ export default class ProductCatalog extends AbstractCrudObject {
     return this.createEdge(
       '/videos',
       fields,
-      params
+      params,
+      
     );
   }
 

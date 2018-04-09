@@ -45,7 +45,8 @@ export default class AdStudy extends AbstractCrudObject {
     return this.createEdge(
       '/objectives',
       fields,
-      params
+      params,
+      AdStudyObjective
     );
   }
 

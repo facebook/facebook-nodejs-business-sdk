@@ -90,7 +90,8 @@ export default class ProductFeed extends AbstractCrudObject {
     return this.createEdge(
       '/uploads',
       fields,
-      params
+      params,
+      ProductFeedUpload
     );
   }
 

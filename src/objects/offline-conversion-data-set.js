@@ -64,7 +64,8 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
     return this.createEdge(
       '/adaccounts',
       fields,
-      params
+      params,
+      
     );
   }
 
@@ -72,7 +73,8 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
     return this.createEdge(
       '/events',
       fields,
-      params
+      params,
+      
     );
   }
 

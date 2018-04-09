@@ -176,7 +176,10 @@ export class AbstractCrudObject extends AbstractObject {
     const path = [this.getNodePath()];
     params = Object.assign(params, this.exportData());
     return new Promise((resolve, reject) => {
-      api.call('POST', path, params).then(data => resolve(data)).catch(reject);
+      api
+        .call('POST', path, params)
+        .then(data => resolve(data))
+        .catch(reject);
     });
   }
 
@@ -232,12 +235,14 @@ export class AbstractCrudObject extends AbstractObject {
    * @param   {String}  [endpoint]
    * @param   {Array}  [fields]
    * @param   {Object}  [params]
+   * @param   {Function} [targetClassConstructor]
    * @return  {Promise}
    */
   createEdge(
     endpoint: string,
     fields: Array<string>,
     params: Object = {},
+    targetClassConstructor: Function = null,
   ): Promise<*> {
     if (params == null) {
       params = {};
@@ -252,7 +257,11 @@ export class AbstractCrudObject extends AbstractObject {
       api
         .call('POST', path, params)
         .then(data => {
-          resolve(this.setData(data));
+          resolve(
+            targetClassConstructor === null
+              ? this.setData(data)
+              : new targetClassConstructor(data.id, data),
+          );
         })
         .catch(reject);
     });

@@ -74,7 +74,8 @@ export default class CustomConversion extends AbstractCrudObject {
     return this.createEdge(
       '/shared_agencies',
       fields,
-      params
+      params,
+      CustomConversion
     );
   }
 
