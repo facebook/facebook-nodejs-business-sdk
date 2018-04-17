@@ -11,8 +11,8 @@
 import HTTP_STATUS from './http-status';
 import {FacebookRequestError} from './exceptions';
 /**
-  * Encapsulates an http response from Facebook's Graph API.
-  */
+ * Encapsulates an http response from Facebook's Graph API.
+ */
 class APIResponse {
   _body: string;
   _httpStatus: string;

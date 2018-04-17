@@ -113,6 +113,7 @@ import './../src/objects/minimum-budget';
 import './../src/objects/offline-conversion-data-set';
 import './../src/objects/offsite-pixel';
 import './../src/objects/outcome-prediction-point';
+import './../src/objects/page';
 import './../src/objects/partner-category';
 import './../src/objects/product-catalog';
 import './../src/objects/product-catalog-hotel-rooms-batch';

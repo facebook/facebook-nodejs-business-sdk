@@ -39,7 +39,8 @@ export default class ProductGroup extends AbstractCrudObject {
     return this.createEdge(
       '/products',
       fields,
-      params
+      params,
+      ProductItem
     );
   }
 

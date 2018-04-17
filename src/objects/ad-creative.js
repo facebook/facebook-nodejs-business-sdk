@@ -153,7 +153,8 @@ export default class AdCreative extends AbstractCrudObject {
     return this.createEdge(
       '/adlabels',
       fields,
-      params
+      params,
+      AdLabel
     );
   }
 

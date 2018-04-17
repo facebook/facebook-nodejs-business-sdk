@@ -11,6 +11,7 @@ import AbstractObject from './../abstract-object';
 import AdStudy from './ad-study';
 import AdAccount from './ad-account';
 import AdsPixel from './ads-pixel';
+import Page from './page';
 import EventSourceGroup from './event-source-group';
 import ReachFrequencyPrediction from './reach-frequency-prediction';
 import OfflineConversionDataSet from './offline-conversion-data-set';
@@ -46,7 +47,8 @@ export default class Business extends AbstractCrudObject {
     return this.createEdge(
       '/ad_studies',
       fields,
-      params
+      params,
+      AdStudy
     );
   }
 
@@ -54,7 +56,8 @@ export default class Business extends AbstractCrudObject {
     return this.createEdge(
       '/adaccount',
       fields,
-      params
+      params,
+      AdAccount
     );
   }
 
@@ -72,7 +75,8 @@ export default class Business extends AbstractCrudObject {
     return this.createEdge(
       '/adspixels',
       fields,
-      params
+      params,
+      AdsPixel
     );
   }
 
@@ -93,9 +97,9 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  getClientPages (fields, params, fetchFirstPage = true): AbstractObject {
+  getClientPages (fields, params, fetchFirstPage = true): Page {
     return this.getEdge(
-      AbstractObject,
+      Page,
       fields,
       params,
       fetchFirstPage,
@@ -117,7 +121,8 @@ export default class Business extends AbstractCrudObject {
     return this.createEdge(
       '/event_source_groups',
       fields,
-      params
+      params,
+      EventSourceGroup
     );
   }
 
@@ -156,6 +161,7 @@ export default class Business extends AbstractCrudObject {
       '/measurement_reports',
       fields,
       params
+
     );
   }
 
@@ -173,7 +179,8 @@ export default class Business extends AbstractCrudObject {
     return this.createEdge(
       '/offline_conversion_data_sets',
       fields,
-      params
+      params,
+      OfflineConversionDataSet
     );
   }
 
@@ -197,9 +204,9 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  getOwnedPages (fields, params, fetchFirstPage = true): AbstractObject {
+  getOwnedPages (fields, params, fetchFirstPage = true): Page {
     return this.getEdge(
-      AbstractObject,
+      Page,
       fields,
       params,
       fetchFirstPage,
@@ -272,6 +279,7 @@ export default class Business extends AbstractCrudObject {
       '/userpermissions',
       fields,
       params
+
     );
   }
 

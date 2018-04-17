@@ -59,7 +59,8 @@ export default class OffsitePixel extends AbstractCrudObject {
     return this.createEdge(
       '/adaccounts',
       fields,
-      params
+      params,
+      AdAccount
     );
   }
 

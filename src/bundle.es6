@@ -116,6 +116,7 @@ export { default as MinimumBudget } from './../src/objects/minimum-budget';
 export { default as OfflineConversionDataSet } from './../src/objects/offline-conversion-data-set';
 export { default as OffsitePixel } from './../src/objects/offsite-pixel';
 export { default as OutcomePredictionPoint } from './../src/objects/outcome-prediction-point';
+export { default as Page } from './../src/objects/page';
 export { default as PartnerCategory } from './../src/objects/partner-category';
 export { default as ProductCatalog } from './../src/objects/product-catalog';
 export { default as ProductCatalogHotelRoomsBatch } from './../src/objects/product-catalog-hotel-rooms-batch';

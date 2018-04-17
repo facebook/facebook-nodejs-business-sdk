@@ -119,10 +119,6 @@ export default class Http {
     }
 
     return requestPromise(options).catch((response: Object) => {
-      response = {
-        body: response.error ? response.error : response,
-        status: response.statusCode
-      };
       throw response;
     });
   }

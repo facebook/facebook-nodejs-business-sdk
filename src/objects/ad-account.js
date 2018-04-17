@@ -133,7 +133,8 @@ export default class AdAccount extends AbstractCrudObject {
     return this.createEdge(
       '/ad_place_page_sets',
       fields,
-      params
+      params,
+      AdPlacePageSet
     );
   }
 
@@ -161,7 +162,8 @@ export default class AdAccount extends AbstractCrudObject {
     return this.createEdge(
       '/adcreatives',
       fields,
-      params
+      params,
+      AdCreative
     );
   }
 
@@ -196,7 +198,8 @@ export default class AdAccount extends AbstractCrudObject {
     return this.createEdge(
       '/adimages',
       fields,
-      params
+      params,
+      AdImage
     );
   }
 
@@ -214,7 +217,8 @@ export default class AdAccount extends AbstractCrudObject {
     return this.createEdge(
       '/adlabels',
       fields,
-      params
+      params,
+      AdLabel
     );
   }
 
@@ -252,7 +256,8 @@ export default class AdAccount extends AbstractCrudObject {
     return this.createEdge(
       '/adrules_library',
       fields,
-      params
+      params,
+      AdRule
     );
   }
 
@@ -270,7 +275,8 @@ export default class AdAccount extends AbstractCrudObject {
     return this.createEdge(
       '/ads',
       fields,
-      params
+      params,
+      Ad
     );
   }
 
@@ -298,7 +304,8 @@ export default class AdAccount extends AbstractCrudObject {
     return this.createEdge(
       '/adsets',
       fields,
-      params
+      params,
+      AdSet
     );
   }
 
@@ -326,7 +333,8 @@ export default class AdAccount extends AbstractCrudObject {
     return this.createEdge(
       '/adspixels',
       fields,
-      params
+      params,
+      AdsPixel
     );
   }
 
@@ -355,6 +363,7 @@ export default class AdAccount extends AbstractCrudObject {
       '/advideos',
       fields,
       params
+
     );
   }
 
@@ -382,7 +391,8 @@ export default class AdAccount extends AbstractCrudObject {
     return this.createEdge(
       '/asyncadrequestsets',
       fields,
-      params
+      params,
+      AdAsyncRequestSet
     );
   }
 
@@ -417,7 +427,8 @@ export default class AdAccount extends AbstractCrudObject {
     return this.createEdge(
       '/campaigns',
       fields,
-      params
+      params,
+      Campaign
     );
   }
 
@@ -445,7 +456,8 @@ export default class AdAccount extends AbstractCrudObject {
     return this.createEdge(
       '/customaudiences',
       fields,
-      params
+      params,
+      CustomAudience
     );
   }
 
@@ -463,7 +475,8 @@ export default class AdAccount extends AbstractCrudObject {
     return this.createEdge(
       '/customconversions',
       fields,
-      params
+      params,
+      CustomConversion
     );
   }
 
@@ -501,7 +514,8 @@ export default class AdAccount extends AbstractCrudObject {
     return this.createEdge(
       '/insights',
       fields,
-      params
+      params,
+      AdReportRun
     );
   }
 
@@ -559,7 +573,8 @@ export default class AdAccount extends AbstractCrudObject {
     return this.createEdge(
       '/offsitepixels',
       fields,
-      params
+      params,
+      OffsitePixel
     );
   }
 
@@ -587,7 +602,8 @@ export default class AdAccount extends AbstractCrudObject {
     return this.createEdge(
       '/product_audiences',
       fields,
-      params
+      params,
+      CustomAudience
     );
   }
 
@@ -606,6 +622,7 @@ export default class AdAccount extends AbstractCrudObject {
       '/publisher_block_lists',
       fields,
       params
+
     );
   }
 
@@ -643,7 +660,8 @@ export default class AdAccount extends AbstractCrudObject {
     return this.createEdge(
       '/reachfrequencypredictions',
       fields,
-      params
+      params,
+      ReachFrequencyPrediction
     );
   }
 
@@ -719,6 +737,7 @@ export default class AdAccount extends AbstractCrudObject {
       '/tracking',
       fields,
       params
+
     );
   }
 

@@ -64,6 +64,7 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
       '/adaccounts',
       fields,
       params
+
     );
   }
 
@@ -72,6 +73,7 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
       '/events',
       fields,
       params
+
     );
   }
 

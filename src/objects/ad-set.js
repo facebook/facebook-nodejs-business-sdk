@@ -215,7 +215,8 @@ export default class AdSet extends AbstractCrudObject {
     return this.createEdge(
       '/adlabels',
       fields,
-      params
+      params,
+      AdLabel
     );
   }
 
@@ -273,7 +274,8 @@ export default class AdSet extends AbstractCrudObject {
     return this.createEdge(
       '/insights',
       fields,
-      params
+      params,
+      AdReportRun
     );
   }
 
