@@ -88,7 +88,7 @@ const api = adsSdk.FacebookAdsApi.init(accessToken);
 
 ### Api main class
 
-The `FacebookAdsApi` object is the foundation of the Ads SDK which encapsulates the logic to execute requests against the Graph API.
+The `FacebookAdsApi` object is the foundation of the Business SDK which encapsulates the logic to execute requests against the Graph API.
 Once instantiated, the Api object will allows you to start making requests to the Ads API.
 
 ### Facebook Objects
@@ -261,5 +261,5 @@ This package uses type safe javascript. <a href="https://flow.org/" target="_bla
 See the CONTRIBUTING file for how to help out.
 
 ## License
-Facebook Ads API SDK for NodeJS is licensed under the LICENSE file in the root directory of this source tree.
+Facebook Business API SDK for NodeJS is licensed under the LICENSE file in the root directory of this source tree.
 ```
