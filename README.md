@@ -141,7 +141,7 @@ const account = new AdAccount('act_<AD_ACCOUNT_ID>');
 account
   .read([AdAccount.Fields.name, AdAccount.Fields.age])
   .then((account) => {
-    logPassedTest(test1 + ':Pass', account);
+    console.log(account);
   })
   .catch((error) => {
   });
@@ -195,8 +195,7 @@ const accessToken = '<VALID_ACCESS_TOKEN>';
 const api = adsSdk.FacebookAdsApi.init(accessToken);
 const Campaign = adsSdk.Campaign;
 const campaignId = <CAMPAIGN_ID>;
-new Campaign(campaignId);
-.delete();
+new Campaign(campaignId).delete();
 ```
 
 ### Pagination
