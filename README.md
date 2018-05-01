@@ -49,13 +49,9 @@ For example, to access the Marketing API, you need to generate a User access tok
 for your app and ask for the ``ads_management`` permission; to access Pages API,
 you need to generate a Page access token for your app and ask for the ``manage_page`` permission.
 
-Refer to our
-<a href="https://developers.facebook.com/docs/facebook-login/access-tokens" target="_blank">
-Access Token Guide</a> to learn more.
+Refer to our [Access Token Guide](https://developers.facebook.com/docs/facebook-login/access-tokens) to learn more.
 
-For now, we can use the
-<a href="https://developers.facebook.com/tools/explorer" target="_blank">Graph Explorer</a>
-to get an access token.
+For now, we can use the [Graph Explorer](https://developers.facebook.com/tools/explorer) to get an access token.
 
 ## Installation
 
@@ -76,9 +72,10 @@ When someone connects with an app using Facebook Login and approves the request 
 An access token is an opaque string that identifies a User, app, or Page.
 
 For example, to access the Marketing API, you need to generate a User access token for your app and ask for the ``ads_management`` permission; to access Pages API, you need to generate a Page access token for your app and ask for the ``manage_page`` permission.
-Refer to our <a href="https://developers.facebook.com/docs/facebook-login/access-tokens" target="_blank">Access Token Guide</a> to learn more.
 
-For now, we can use the <a href="https://developers.facebook.com/tools/explorer" target="_blank">Graph Explorer</a> to get an access token.
+Refer to our [Access Token Guide](https://developers.facebook.com/docs/facebook-login/access-tokens) to learn more.
+
+For now, we can use the [Graph Explorer](https://developers.facebook.com/tools/explorer) to get an access token.
 
 ```javaScript
 const adsSdk = require('facebook-nodejs-business-sdk');
@@ -99,7 +96,7 @@ Facebook Ads entities are defined as classes under the `src/objects` directory.
 // instantiating an object
 const adsSdk = require('facebook-nodejs-business-sdk');
 const AdAccount = adsSdk.AdAccount;
-const account = new AdAccount(accountId);
+const account = new AdAccount('act_<AD_ACCOUNT_ID>');
 console.log(account.id) // fields can be accessed as properties
 ```
 
@@ -204,7 +201,7 @@ new Campaign(campaignId);
 
 ### Pagination
 
-Since the release of the Facebook Graph API 2.0, pagination is handled through <a href="https://developers.facebook.com/docs/graph-api/using-graph-api/v2.2#paging" target="_blank">cursors</>.
+Since the release of the Facebook Graph API 2.0, pagination is handled through [Cursor](https://developers.facebook.com/docs/graph-api/using-graph-api/v2.2#paging)
 
 Here cursors are defined as in `src\cursor.js`. When fetching nodes related to another (Edges) or a collection in the graph, the results are paginated in a `Cursor` class.
 Here the `Cursor` is a superpowered `Array` (with all it's native helpful operations) with `next` and `previous` methods that when resolved fills itself with the new set of objects.
@@ -253,7 +250,7 @@ api.setDebug(true);
 
 ### Style
 
-This package uses type safe javascript. <a href="https://flow.org/" target="_blank">Flow</a>. Inconsistent code will break builds.
+This package uses type safe javascript. [Flow](https://flow.org/) Inconsistent code will break builds.
 
 ## Join the Facebook Marketing Developer community
 * Website: https://www.facebook.com/groups/pmdcommunity
