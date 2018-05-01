@@ -49,9 +49,13 @@ For example, to access the Marketing API, you need to generate a User access tok
 for your app and ask for the ``ads_management`` permission; to access Pages API,
 you need to generate a Page access token for your app and ask for the ``manage_page`` permission.
 
-Refer to our [Access Token Guide](https://developers.facebook.com/docs/facebook-login/access-tokens) to learn more.
+Refer to our
+<a href="https://developers.facebook.com/docs/facebook-login/access-tokens" target="_blank">
+Access Token Guide</a> to learn more.
 
-For now, we can use the [Graph Explorer](https://developers.facebook.com/tools/explorer) to get an access token.
+For now, we can use the
+<a href="https://developers.facebook.com/tools/explorer" target="_blank">Graph Explorer</a>
+to get an access token.
 
 ## Installation
 
@@ -72,10 +76,9 @@ When someone connects with an app using Facebook Login and approves the request 
 An access token is an opaque string that identifies a User, app, or Page.
 
 For example, to access the Marketing API, you need to generate a User access token for your app and ask for the ``ads_management`` permission; to access Pages API, you need to generate a Page access token for your app and ask for the ``manage_page`` permission.
+Refer to our <a href="https://developers.facebook.com/docs/facebook-login/access-tokens" target="_blank">Access Token Guide</a> to learn more.
 
-Refer to our [Access Token Guide](https://developers.facebook.com/docs/facebook-login/access-tokens) to learn more.
-
-For now, we can use the [Graph Explorer](https://developers.facebook.com/tools/explorer) to get an access token.
+For now, we can use the <a href="https://developers.facebook.com/tools/explorer" target="_blank">Graph Explorer</a> to get an access token.
 
 ```javaScript
 const adsSdk = require('facebook-nodejs-business-sdk');
@@ -86,7 +89,7 @@ const api = adsSdk.FacebookAdsApi.init(accessToken);
 ### Api main class
 
 The `FacebookAdsApi` object is the foundation of the Business SDK which encapsulates the logic to execute requests against the Graph API.
-Once instantiated, the Api object will allows you to start making requests to the Ads API.
+Once instantiated, the Api object will allows you to start making requests to the Graph API.
 
 ### Facebook Objects
 
@@ -102,7 +105,7 @@ console.log(account.id) // fields can be accessed as properties
 
 ### Fields
 
-Due to the high number of field names in the Ads API existing objects, in order to facilitate your code maintainability, enum-like field objects are provided within each node class.
+Due to the high number of field names in the existing API objects, in order to facilitate your code maintainability, enum-like field objects are provided within each node class.
 The fields are stored within node object classes which are stored under the `src/objects` directory.
 You can access object properties like this:
 
@@ -200,7 +203,7 @@ new Campaign(campaignId).delete();
 
 ### Pagination
 
-Since the release of the Facebook Graph API 2.0, pagination is handled through [Cursor](https://developers.facebook.com/docs/graph-api/using-graph-api/v2.2#paging)
+Since the release of the Facebook Graph API 2.0, pagination is handled through <a href="https://developers.facebook.com/docs/graph-api/using-graph-api/v2.2#paging" target="_blank">cursors</>.
 
 Here cursors are defined as in `src\cursor.js`. When fetching nodes related to another (Edges) or a collection in the graph, the results are paginated in a `Cursor` class.
 Here the `Cursor` is a superpowered `Array` (with all it's native helpful operations) with `next` and `previous` methods that when resolved fills itself with the new set of objects.
@@ -249,7 +252,7 @@ api.setDebug(true);
 
 ### Style
 
-This package uses type safe javascript. [Flow](https://flow.org/) Inconsistent code will break builds.
+This package uses type safe javascript. <a href="https://flow.org/" target="_blank">Flow</a>. Inconsistent code will break builds.
 
 ## Join the Facebook Marketing Developer community
 * Website: https://www.facebook.com/groups/pmdcommunity
@@ -257,5 +260,5 @@ This package uses type safe javascript. [Flow](https://flow.org/) Inconsistent c
 See the CONTRIBUTING file for how to help out.
 
 ## License
-Facebook Business API SDK for NodeJS is licensed under the LICENSE file in the root directory of this source tree.
+Facebook Business SDK for NodeJS is licensed under the LICENSE file in the root directory of this source tree.
 ```
