@@ -7,9 +7,14 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
 import Page from './page';
 import AdAccount from './ad-account';
+import Album from './album';
+import UnifiedThread from './unified-thread';
 import LeadgenForm from './leadgen-form';
+import LiveVideo from './live-video';
+import Photo from './photo';
 import ProfilePictureSource from './profile-picture-source';
 import Domain from './domain';
 import Event from './event';
@@ -23,6 +28,7 @@ export default class User extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       about: 'about',
+      address: 'address',
       admin_notes: 'admin_notes',
       age_range: 'age_range',
       birthday: 'birthday',
@@ -44,12 +50,16 @@ export default class User extends AbstractCrudObject {
       install_type: 'install_type',
       installed: 'installed',
       interested_in: 'interested_in',
+      is_payment_enabled: 'is_payment_enabled',
       is_shared_login: 'is_shared_login',
       is_verified: 'is_verified',
       labels: 'labels',
       languages: 'languages',
+      last_ad_referral: 'last_ad_referral',
       last_name: 'last_name',
       link: 'link',
+      local_news_megaphone_dismiss_status: 'local_news_megaphone_dismiss_status',
+      local_news_subscription_status: 'local_news_subscription_status',
       locale: 'locale',
       location: 'location',
       meeting_for: 'meeting_for',
@@ -58,6 +68,7 @@ export default class User extends AbstractCrudObject {
       name_format: 'name_format',
       payment_pricepoints: 'payment_pricepoints',
       political: 'political',
+      profile_pic: 'profile_pic',
       public_key: 'public_key',
       quotes: 'quotes',
       relationship_status: 'relationship_status',
@@ -90,6 +101,15 @@ export default class User extends AbstractCrudObject {
     );
   }
 
+  createAccount (fields, params): AbstractObject {
+    return this.createEdge(
+      '/accounts',
+      fields,
+      params
+
+    );
+  }
+
   getAdAccounts (fields, params, fetchFirstPage = true): AdAccount {
     return this.getEdge(
       AdAccount,
@@ -100,6 +120,25 @@ export default class User extends AbstractCrudObject {
     );
   }
 
+  createAlbum (fields, params): Album {
+    return this.createEdge(
+      '/albums',
+      fields,
+      params,
+      Album
+    );
+  }
+
+  getConversations (fields, params, fetchFirstPage = true): UnifiedThread {
+    return this.getEdge(
+      UnifiedThread,
+      fields,
+      params,
+      fetchFirstPage,
+      '/conversations'
+    );
+  }
+
   getLeadGenForms (fields, params, fetchFirstPage = true): LeadgenForm {
     return this.getEdge(
       LeadgenForm,
@@ -107,6 +146,43 @@ export default class User extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/leadgen_forms'
+    );
+  }
+
+  createLiveEncoder (fields, params): AbstractObject {
+    return this.createEdge(
+      '/live_encoders',
+      fields,
+      params
+
+    );
+  }
+
+  getLiveVideos (fields, params, fetchFirstPage = true): LiveVideo {
+    return this.getEdge(
+      LiveVideo,
+      fields,
+      params,
+      fetchFirstPage,
+      '/live_videos'
+    );
+  }
+
+  createLiveVideo (fields, params): LiveVideo {
+    return this.createEdge(
+      '/live_videos',
+      fields,
+      params,
+      LiveVideo
+    );
+  }
+
+  createPhoto (fields, params): Photo {
+    return this.createEdge(
+      '/photos',
+      fields,
+      params,
+      Photo
     );
   }
 
@@ -137,6 +213,16 @@ export default class User extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/promotable_events'
+    );
+  }
+
+  getThreads (fields, params, fetchFirstPage = true): UnifiedThread {
+    return this.getEdge(
+      UnifiedThread,
+      fields,
+      params,
+      fetchFirstPage,
+      '/threads'
     );
   }
 

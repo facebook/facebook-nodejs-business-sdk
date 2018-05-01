@@ -9,15 +9,18 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Business from './business';
+import ProductItem from './product-item';
 import CheckBatchRequestStatus from './check-batch-request-status';
+import ProductDaEventSamplesBatch from './product-da-event-samples-batch';
+import ProductEventStat from './product-event-stat';
 import ExternalEventSource from './external-event-source';
 import ProductCatalogHotelRoomsBatch from './product-catalog-hotel-rooms-batch';
-import Hotel from './hotel';
 import ProductCatalogPricingVariablesBatch from './product-catalog-pricing-variables-batch';
 import ProductFeed from './product-feed';
 import ProductGroup from './product-group';
 import ProductSet from './product-set';
-import ProductItem from './product-item';
+import ProductCatalogProductSetsBatch from './product-catalog-product-sets-batch';
+import ProductsQualityIssue from './products-quality-issue';
 
 /**
  * ProductCatalog
@@ -34,12 +37,22 @@ export default class ProductCatalog extends AbstractCrudObject {
       feed_count: 'feed_count',
       flight_catalog_settings: 'flight_catalog_settings',
       id: 'id',
-      image_padding_landscape: 'image_padding_landscape',
-      image_padding_square: 'image_padding_square',
       name: 'name',
       product_count: 'product_count',
       qualified_product_count: 'qualified_product_count',
       vertical: 'vertical'
+    });
+  }
+
+  static get Vertical (): Object {
+    return Object.freeze({
+      commerce: 'commerce',
+      destinations: 'destinations',
+      flights: 'flights',
+      home_listings: 'home_listings',
+      home_service_providers: 'home_service_providers',
+      hotels: 'hotels',
+      vehicles: 'vehicles'
     });
   }
 
@@ -53,6 +66,15 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
+  createBatch (fields, params): ProductItem {
+    return this.createEdge(
+      '/batch',
+      fields,
+      params,
+      ProductItem
+    );
+  }
+
   getCheckBatchRequestStatus (fields, params, fetchFirstPage = true): CheckBatchRequestStatus {
     return this.getEdge(
       CheckBatchRequestStatus,
@@ -63,6 +85,16 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
+  getDaEventSamples (fields, params, fetchFirstPage = true): ProductDaEventSamplesBatch {
+    return this.getEdge(
+      ProductDaEventSamplesBatch,
+      fields,
+      params,
+      fetchFirstPage,
+      '/da_event_samples'
+    );
+  }
+
   getDestinations (fields, params, fetchFirstPage = true): AbstractObject {
     return this.getEdge(
       AbstractObject,
@@ -70,6 +102,16 @@ export default class ProductCatalog extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/destinations'
+    );
+  }
+
+  getEventStats (fields, params, fetchFirstPage = true): ProductEventStat {
+    return this.getEdge(
+      ProductEventStat,
+      fields,
+      params,
+      fetchFirstPage,
+      '/event_stats'
     );
   }
 
@@ -147,9 +189,9 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  getHotels (fields, params, fetchFirstPage = true): Hotel {
+  getHotels (fields, params, fetchFirstPage = true): AbstractObject {
     return this.getEdge(
-      Hotel,
+      AbstractObject,
       fields,
       params,
       fetchFirstPage,
@@ -157,12 +199,12 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  createHotel (fields, params): Hotel {
+  createHotel (fields, params): AbstractObject {
     return this.createEdge(
       '/hotels',
       fields,
-      params,
-      Hotel
+      params
+
     );
   }
 
@@ -242,9 +284,9 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  getProductSetsBatch (fields, params, fetchFirstPage = true): AbstractObject {
+  getProductSetsBatch (fields, params, fetchFirstPage = true): ProductCatalogProductSetsBatch {
     return this.getEdge(
-      AbstractObject,
+      ProductCatalogProductSetsBatch,
       fields,
       params,
       fetchFirstPage,
@@ -268,6 +310,26 @@ export default class ProductCatalog extends AbstractCrudObject {
       fields,
       params,
       ProductItem
+    );
+  }
+
+  getQualityIssues (fields, params, fetchFirstPage = true): ProductsQualityIssue {
+    return this.getEdge(
+      ProductsQualityIssue,
+      fields,
+      params,
+      fetchFirstPage,
+      '/quality_issues'
+    );
+  }
+
+  getVehicles (fields, params, fetchFirstPage = true): AbstractObject {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/vehicles'
     );
   }
 

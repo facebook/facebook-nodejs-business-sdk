@@ -37,6 +37,16 @@ export default class ProductSet extends AbstractCrudObject {
     );
   }
 
+  getVehicles (fields, params, fetchFirstPage = true): AbstractObject {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/vehicles'
+    );
+  }
+
   delete (fields, params): AbstractObject {
     return super.delete(
       params

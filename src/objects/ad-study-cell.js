@@ -24,9 +24,38 @@ export default class AdStudyCell extends AbstractCrudObject {
     });
   }
 
+  static get CreationTemplate (): Object {
+    return Object.freeze({
+      automatic_placements: 'AUTOMATIC_PLACEMENTS',
+      brand_awareness: 'BRAND_AWARENESS',
+      facebook: 'FACEBOOK',
+      facebook_audience_network: 'FACEBOOK_AUDIENCE_NETWORK',
+      facebook_instagram: 'FACEBOOK_INSTAGRAM',
+      facebook_news_feed: 'FACEBOOK_NEWS_FEED',
+      facebook_news_feed_in_stream_video: 'FACEBOOK_NEWS_FEED_IN_STREAM_VIDEO',
+      in_stream_video: 'IN_STREAM_VIDEO',
+      instagram: 'INSTAGRAM',
+      mobile_optimized_video: 'MOBILE_OPTIMIZED_VIDEO',
+      page_post_engagement: 'PAGE_POST_ENGAGEMENT',
+      reach: 'REACH',
+      tv_commercial: 'TV_COMMERCIAL',
+      tv_facebook: 'TV_FACEBOOK',
+      video_view_optimization: 'VIDEO_VIEW_OPTIMIZATION',
+      low_frequency: 'LOW_FREQUENCY',
+      medium_frequency: 'MEDIUM_FREQUENCY',
+      high_frequency: 'HIGH_FREQUENCY'
+    });
+  }
+
   get (fields, params): AdStudyCell {
     return this.read(
       fields,
+      params
+    );
+  }
+
+  update (fields, params): AdStudyCell {
+    return super.update(
       params
     );
   }

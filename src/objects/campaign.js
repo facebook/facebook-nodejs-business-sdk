@@ -9,6 +9,7 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import AdLabel from './ad-label';
+import AdRule from './ad-rule';
 import Ad from './ad';
 import AdSet from './ad-set';
 import AdsInsights from './ads-insights';
@@ -34,8 +35,6 @@ export default class Campaign extends AbstractCrudObject {
       created_time: 'created_time',
       effective_status: 'effective_status',
       id: 'id',
-      kpi_custom_conversion_id: 'kpi_custom_conversion_id',
-      kpi_type: 'kpi_type',
       name: 'name',
       objective: 'objective',
       recommendations: 'recommendations',
@@ -81,25 +80,25 @@ export default class Campaign extends AbstractCrudObject {
   }
   static get DatePreset (): Object {
     return Object.freeze({
-      today: 'TODAY',
-      yesterday: 'YESTERDAY',
-      this_month: 'THIS_MONTH',
-      last_month: 'LAST_MONTH',
-      this_quarter: 'THIS_QUARTER',
-      lifetime: 'LIFETIME',
-      last_3d: 'LAST_3D',
-      last_7d: 'LAST_7D',
-      last_14d: 'LAST_14D',
-      last_28d: 'LAST_28D',
-      last_30d: 'LAST_30D',
-      last_90d: 'LAST_90D',
-      last_week_mon_sun: 'LAST_WEEK_MON_SUN',
-      last_week_sun_sat: 'LAST_WEEK_SUN_SAT',
-      last_quarter: 'LAST_QUARTER',
-      last_year: 'LAST_YEAR',
-      this_week_mon_today: 'THIS_WEEK_MON_TODAY',
-      this_week_sun_today: 'THIS_WEEK_SUN_TODAY',
-      this_year: 'THIS_YEAR'
+      today: 'today',
+      yesterday: 'yesterday',
+      this_month: 'this_month',
+      last_month: 'last_month',
+      this_quarter: 'this_quarter',
+      lifetime: 'lifetime',
+      last_3d: 'last_3d',
+      last_7d: 'last_7d',
+      last_14d: 'last_14d',
+      last_28d: 'last_28d',
+      last_30d: 'last_30d',
+      last_90d: 'last_90d',
+      last_week_mon_sun: 'last_week_mon_sun',
+      last_week_sun_sat: 'last_week_sun_sat',
+      last_quarter: 'last_quarter',
+      last_year: 'last_year',
+      this_week_mon_today: 'this_week_mon_today',
+      this_week_sun_today: 'this_week_sun_today',
+      this_year: 'this_year'
     });
   }
   static get DeleteStrategy (): Object {
@@ -111,8 +110,8 @@ export default class Campaign extends AbstractCrudObject {
   }
   static get ExecutionOptions (): Object {
     return Object.freeze({
-      validate_only: 'VALIDATE_ONLY',
-      include_recommendations: 'INCLUDE_RECOMMENDATIONS'
+      validate_only: 'validate_only',
+      include_recommendations: 'include_recommendations'
     });
   }
   static get Objective (): Object {
@@ -124,6 +123,7 @@ export default class Campaign extends AbstractCrudObject {
       lead_generation: 'LEAD_GENERATION',
       link_clicks: 'LINK_CLICKS',
       local_awareness: 'LOCAL_AWARENESS',
+      messages: 'MESSAGES',
       offer_claims: 'OFFER_CLAIMS',
       page_likes: 'PAGE_LIKES',
       post_engagement: 'POST_ENGAGEMENT',
@@ -152,6 +152,16 @@ export default class Campaign extends AbstractCrudObject {
       fields,
       params,
       AdLabel
+    );
+  }
+
+  getAdRulesGoverned (fields, params, fetchFirstPage = true): AdRule {
+    return this.getEdge(
+      AdRule,
+      fields,
+      params,
+      fetchFirstPage,
+      '/adrules_governed'
     );
   }
 

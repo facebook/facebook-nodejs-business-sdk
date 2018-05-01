@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
 import CustomAudience from './custom-audience';
 import AdAccount from './ad-account';
 import Business from './business';
@@ -20,6 +21,7 @@ import AdsPixelStatsResult from './ads-pixel-stats-result';
 export default class AdsPixel extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
+      can_proxy: 'can_proxy',
       code: 'code',
       creation_time: 'creation_time',
       creator: 'creator',
@@ -42,6 +44,13 @@ export default class AdsPixel extends AbstractCrudObject {
     );
   }
 
+  deleteSharedAccounts (params): AbstractObject {
+    return super.deleteEdge(
+      '/shared_accounts',
+      params
+    );
+  }
+
   getSharedAccounts (fields, params, fetchFirstPage = true): AdAccount {
     return this.getEdge(
       AdAccount,
@@ -49,6 +58,15 @@ export default class AdsPixel extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/shared_accounts'
+    );
+  }
+
+  createSharedAccount (fields, params): AbstractObject {
+    return this.createEdge(
+      '/shared_accounts',
+      fields,
+      params
+
     );
   }
 

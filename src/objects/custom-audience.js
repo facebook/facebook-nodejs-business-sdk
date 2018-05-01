@@ -63,7 +63,8 @@ export default class CustomAudience extends AbstractCrudObject {
       flight: 'FLIGHT',
       home_listing: 'HOME_LISTING',
       hotel: 'HOTEL',
-      vehicle: 'VEHICLE'
+      vehicle: 'VEHICLE',
+      vehicle_offer: 'VEHICLE_OFFER'
     });
   }
   static get Subtype (): Object {

@@ -9,6 +9,7 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import AdAccount from './ad-account';
+import Business from './business';
 
 /**
  * OfflineConversionDataSet
@@ -18,7 +19,6 @@ import AdAccount from './ad-account';
 export default class OfflineConversionDataSet extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      attribute_stats: 'attribute_stats',
       business: 'business',
       config: 'config',
       creation_time: 'creation_time',
@@ -32,7 +32,6 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
       is_restricted_use: 'is_restricted_use',
       last_upload_app: 'last_upload_app',
       matched_entries: 'matched_entries',
-      matched_unique_users: 'matched_unique_users',
       name: 'name',
       usage: 'usage',
       valid_entries: 'valid_entries'
@@ -46,6 +45,13 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/activities'
+    );
+  }
+
+  deleteAdAccounts (params): AbstractObject {
+    return super.deleteEdge(
+      '/adaccounts',
+      params
     );
   }
 
@@ -65,6 +71,22 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
       fields,
       params
 
+    );
+  }
+
+  deleteAgencies (params): AbstractObject {
+    return super.deleteEdge(
+      '/agencies',
+      params
+    );
+  }
+
+  createAgency (fields, params): Business {
+    return this.createEdge(
+      '/agencies',
+      fields,
+      params,
+      Business
     );
   }
 
@@ -97,9 +119,55 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
     );
   }
 
+  createUpload (fields, params): AbstractObject {
+    return this.createEdge(
+      '/uploads',
+      fields,
+      params
+
+    );
+  }
+
+  deleteUserPermissions (params): AbstractObject {
+    return super.deleteEdge(
+      '/userpermissions',
+      params
+    );
+  }
+
+  createUserPermission (fields, params): AbstractObject {
+    return this.createEdge(
+      '/userpermissions',
+      fields,
+      params
+
+    );
+  }
+
+  createValidate (fields, params): OfflineConversionDataSet {
+    return this.createEdge(
+      '/validate',
+      fields,
+      params,
+      OfflineConversionDataSet
+    );
+  }
+
+  delete (fields, params): AbstractObject {
+    return super.delete(
+      params
+    );
+  }
+
   get (fields, params): OfflineConversionDataSet {
     return this.read(
       fields,
+      params
+    );
+  }
+
+  update (fields, params): OfflineConversionDataSet {
+    return super.update(
       params
     );
   }

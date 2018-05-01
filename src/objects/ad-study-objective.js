@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
 
 /**
  * AdStudyObjective
@@ -28,10 +29,10 @@ export default class AdStudyObjective extends AbstractCrudObject {
 
   static get Breakdowns (): Object {
     return Object.freeze({
-      age: 'AGE',
-      cell_id: 'CELL_ID',
-      gender: 'GENDER',
-      country: 'COUNTRY'
+      age: 'age',
+      cell_id: 'cell_id',
+      gender: 'gender',
+      country: 'country'
     });
   }
   static get Type (): Object {
@@ -48,9 +49,21 @@ export default class AdStudyObjective extends AbstractCrudObject {
     });
   }
 
+  delete (fields, params): AbstractObject {
+    return super.delete(
+      params
+    );
+  }
+
   get (fields, params): AdStudyObjective {
     return this.read(
       fields,
+      params
+    );
+  }
+
+  update (fields, params): AdStudyObjective {
+    return super.update(
       params
     );
   }

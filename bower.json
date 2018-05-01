@@ -1,6 +1,6 @@
 {
-  "name": "facebook-ads-sdk",
-  "version": "2.11.3",
+  "name": "facebook-business-sdk",
+  "version": "3.0.0",
   "description": "SDK for the Facebook Ads API in Javascript and Node.js",
   "authors": [
     "Zain Aziz <zaziz@fb.com>",
@@ -8,11 +8,12 @@
     "Cloud Xu <cloudxu@fb.com>",
     "Supasate Choochaisri <supasate@fb.com>"
   ],
-  "homepage": "https://github.com/facebook/facebook-nodejs-ads-sdk/",
-  "bugs": "https://github.com/facebook/facebook-nodejs-ads-sdk/issues",
+  "homepage": "https://github.com/facebook/facebook-nodejs-business-sdk/",
+  "bugs": "https://github.com/facebook/facebook-nodejs-business-sdk/issues",
   "keywords": [
     "facebook",
     "ads",
+    "business",
     "sdk",
     "api",
     "javascript",
@@ -24,7 +25,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/facebook/facebook-nodejs-ads-sdk.git"
+    "url": "git://github.com/facebook/facebook-nodejs-business-sdk.git"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",

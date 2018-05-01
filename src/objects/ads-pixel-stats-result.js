@@ -18,20 +18,21 @@ export default class AdsPixelStatsResult extends AbstractCrudObject {
     return Object.freeze({
       aggregation: 'aggregation',
       data: 'data',
-      timestamp: 'timestamp'
+      start_time: 'start_time'
     });
   }
 
   static get Aggregation (): Object {
     return Object.freeze({
-      browser_type: 'BROWSER_TYPE',
-      custom_data_field: 'CUSTOM_DATA_FIELD',
-      device_os: 'DEVICE_OS',
-      device_type: 'DEVICE_TYPE',
-      event: 'EVENT',
-      host: 'HOST',
-      pixel_fire: 'PIXEL_FIRE',
-      url: 'URL'
+      browser_type: 'browser_type',
+      custom_data_field: 'custom_data_field',
+      device_os: 'device_os',
+      device_type: 'device_type',
+      event: 'event',
+      host: 'host',
+      pixel_fire: 'pixel_fire',
+      url: 'url',
+      event_total_counts: 'event_total_counts'
     });
   }
 }

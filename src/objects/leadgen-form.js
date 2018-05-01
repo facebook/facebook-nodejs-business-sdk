@@ -30,7 +30,7 @@ export default class LeadgenForm extends AbstractCrudObject {
       follow_up_action_text: 'follow_up_action_text',
       follow_up_action_url: 'follow_up_action_url',
       id: 'id',
-      is_continued_flow: 'is_continued_flow',
+      is_optimized_for_quality: 'is_optimized_for_quality',
       leadgen_export_csv_url: 'leadgen_export_csv_url',
       leads_count: 'leads_count',
       legal_content: 'legal_content',
@@ -50,6 +50,50 @@ export default class LeadgenForm extends AbstractCrudObject {
     });
   }
 
+  static get Locale (): Object {
+    return Object.freeze({
+      en_us: 'EN_US',
+      it_it: 'IT_IT',
+      fr_fr: 'FR_FR',
+      es_es: 'ES_ES',
+      es_la: 'ES_LA',
+      de_de: 'DE_DE',
+      en_gb: 'EN_GB',
+      pt_br: 'PT_BR',
+      zh_tw: 'ZH_TW',
+      zh_hk: 'ZH_HK',
+      tr_tr: 'TR_TR',
+      ar_ar: 'AR_AR',
+      cs_cz: 'CS_CZ',
+      da_dk: 'DA_DK',
+      fi_fi: 'FI_FI',
+      he_il: 'HE_IL',
+      hi_in: 'HI_IN',
+      hu_hu: 'HU_HU',
+      id_id: 'ID_ID',
+      ja_jp: 'JA_JP',
+      ko_kr: 'KO_KR',
+      nb_no: 'NB_NO',
+      nl_nl: 'NL_NL',
+      pl_pl: 'PL_PL',
+      pt_pt: 'PT_PT',
+      ro_ro: 'RO_RO',
+      ru_ru: 'RU_RU',
+      sv_se: 'SV_SE',
+      th_th: 'TH_TH',
+      vi_vn: 'VI_VN',
+      zh_cn: 'ZH_CN'
+    });
+  }
+  static get Status (): Object {
+    return Object.freeze({
+      active: 'ACTIVE',
+      archived: 'ARCHIVED',
+      deleted: 'DELETED',
+      draft: 'DRAFT'
+    });
+  }
+
   getLeads (fields, params, fetchFirstPage = true): Lead {
     return this.getEdge(
       Lead,
@@ -57,6 +101,15 @@ export default class LeadgenForm extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/leads'
+    );
+  }
+
+  createLead (fields, params): LeadgenForm {
+    return this.createEdge(
+      '/leads',
+      fields,
+      params,
+      LeadgenForm
     );
   }
 
@@ -78,6 +131,12 @@ export default class LeadgenForm extends AbstractCrudObject {
   get (fields, params): LeadgenForm {
     return this.read(
       fields,
+      params
+    );
+  }
+
+  update (fields, params): LeadgenForm {
+    return super.update(
       params
     );
   }

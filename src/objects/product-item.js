@@ -19,6 +19,7 @@ export default class ProductItem extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       additional_image_urls: 'additional_image_urls',
+      additional_variant_attributes: 'additional_variant_attributes',
       age_group: 'age_group',
       applinks: 'applinks',
       availability: 'availability',
@@ -40,6 +41,7 @@ export default class ProductItem extends AbstractCrudObject {
       gtin: 'gtin',
       id: 'id',
       image_url: 'image_url',
+      inventory: 'inventory',
       manufacturer_part_number: 'manufacturer_part_number',
       material: 'material',
       name: 'name',
@@ -69,56 +71,58 @@ export default class ProductItem extends AbstractCrudObject {
 
   static get AgeGroup (): Object {
     return Object.freeze({
-      adult: 'ADULT',
-      infant: 'INFANT',
-      kids: 'KIDS',
-      newborn: 'NEWBORN',
-      toddler: 'TODDLER'
+      adult: 'adult',
+      infant: 'infant',
+      kids: 'kids',
+      newborn: 'newborn',
+      toddler: 'toddler'
     });
   }
   static get Availability (): Object {
     return Object.freeze({
-      in_stock: 'IN_STOCK',
-      out_of_stock: 'OUT_OF_STOCK',
-      preorder: 'PREORDER',
-      available_for_order: 'AVAILABLE_FOR_ORDER',
-      discontinued: 'DISCONTINUED'
+      in_stock: 'in stock',
+      out_of_stock: 'out of stock',
+      preorder: 'preorder',
+      available_for_order: 'available for order',
+      discontinued: 'discontinued',
+      pending: 'pending'
     });
   }
   static get Condition (): Object {
     return Object.freeze({
-      new: 'NEW',
-      refurbished: 'REFURBISHED',
-      used: 'USED'
+      new: 'new',
+      refurbished: 'refurbished',
+      used: 'used',
+      cpo: 'cpo'
     });
   }
   static get Gender (): Object {
     return Object.freeze({
-      female: 'FEMALE',
-      male: 'MALE',
-      unisex: 'UNISEX'
+      female: 'female',
+      male: 'male',
+      unisex: 'unisex'
     });
   }
   static get ReviewStatus (): Object {
     return Object.freeze({
-      pending: 'PENDING',
-      rejected: 'REJECTED',
-      approved: 'APPROVED',
-      outdated: 'OUTDATED'
+      pending: 'pending',
+      rejected: 'rejected',
+      approved: 'approved',
+      outdated: 'outdated'
     });
   }
   static get ShippingWeightUnit (): Object {
     return Object.freeze({
-      g: 'G',
-      kg: 'KG',
-      oz: 'OZ',
-      lb: 'LB'
+      g: 'g',
+      kg: 'kg',
+      oz: 'oz',
+      lb: 'lb'
     });
   }
   static get Visibility (): Object {
     return Object.freeze({
-      staging: 'STAGING',
-      published: 'PUBLISHED'
+      staging: 'staging',
+      published: 'published'
     });
   }
 

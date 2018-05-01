@@ -25,7 +25,7 @@ export default class ProductCatalogPricingVariablesBatch extends AbstractCrudObj
 
   static get Standard (): Object {
     return Object.freeze({
-      google: 'GOOGLE'
+      google: 'google'
     });
   }
 }

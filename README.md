@@ -1,13 +1,22 @@
-# Facebook Ads API SDK for NodeJS
+# Facebook Business SDK for NodeJS
 
-[![License](https://img.shields.io/badge/license-Facebook%20Platform-blue.svg?style=flat-square)](https://github.com/facebook/facebook-nodejs-ads-sdk/blob/master/LICENSE)
+[![License](https://img.shields.io/badge/license-Facebook%20Platform-blue.svg?style=flat-square)](https://github.com/facebook/facebook-nodejs-business-sdk/blob/master/LICENSE)
 
-This Ads API SDK is built to facilitate application development for [Facebook Ads API](https://developers.facebook.com/docs/ads-api).
+### Introduction
+
+The Facebook <a href="https://developers.facebook.com/docs/business-sdk" target="_blank">Business SDK</a> is a one-stop shop to help our partners better serve their businesses. Partners are using multiple Facebook API's to server the needs of their clients. Adopting all these API's and keeping them up to date across the various platforms can be time consuming and ultimately prohibitive. For this reason Facebook has developed the Business SDK bundling many of its APIs into one SDK to ease implementation and upkeep. The Business SDK is an upgraded version of the Marketing API SDK that includes the Marketing API as well as many Facebook APIs from different platforms such as Pages, Business Manager, Instagram, etc.
+
 This SDK can be used for both server side as well as client side. It comes with ECMAScript 5 bundled minified distribution with source maps of AMD, CommonJS modules, IIFE, as UMD and as Browser Globals.
+
+## Quick Start
+
+Business SDK <a href="https://developers.facebook.com/docs/business-sdk/getting-started" target="_blank">Getting Started Guide</a>
+
+## Pre-requisites
 
 ### Dependencies
 
-[Gulp](http://gulpjs.com/) and [Bower](http://bower.io/) should be installed globally. Install depencencies:
+[Gulp](http://gulpjs.com/) and [Bower](http://bower.io/) should be installed globally. Install dependencies:
 
 ``` bash
 npm install
@@ -16,25 +25,63 @@ bower install
 
 Checkout `gulpfile.js` for all available tasks.
 
+### Register An App
+
+To get started with the SDK, you must have an app
+registered on <a href="https://developers.facebook.com/" target="_blank">developers.facebook.com</a>.
+
+To manage the Marketing API, please visit your
+<a href="https://developers.facebook.com/apps/<YOUR APP ID>/dashboard"> App Dashboard </a>
+and add the <b>Marketing API</b> product to your app.
+
+**IMPORTANT**: For security, it is recommended that you turn on 'App Secret
+Proof for Server API calls' in your app's Settings->Advanced page.
+
+### Obtain An Access Token
+
+When someone connects with an app using Facebook Login and approves the request
+for permissions, the app obtains an access token that provides temporary, secure
+access to Facebook APIs.
+
+An access token is an opaque string that identifies a User, app, or Page.
+
+For example, to access the Marketing API, you need to generate a User access token
+for your app and ask for the ``ads_management`` permission; to access Pages API,
+you need to generate a Page access token for your app and ask for the ``manage_page`` permission.
+
+Refer to our
+<a href="https://developers.facebook.com/docs/facebook-login/access-tokens" target="_blank">
+Access Token Guide</a> to learn more.
+
+For now, we can use the
+<a href="https://developers.facebook.com/tools/explorer" target="_blank">Graph Explorer</a>
+to get an access token.
 
 ## Installation
 
 NPM
 
-npm install --save facebook-nodejs-ads-sdk
+npm install --save facebook-nodejs-business-sdk
 
 Bower
 
-bower install --save facebook-nodejs-ads-sdk
+bower install --save facebook-nodejs-business-sdk
 
 ## Usage
 
 ### Access Token
 
-To instantiate an Api object you will need a valid [access token](https://developers.facebook.com/docs/marketing-api/authentication) for an app with the `ads_management` permission. A quick way to obtaining a short-lived token is using the [Graph API Explorer](https://developers.facebook.com/tools/explorer/). Instantiate the API using the token:
+When someone connects with an app using Facebook Login and approves the request for permissions, the app obtains an access token that provides temporary, secure access to Facebook APIs.
+
+An access token is an opaque string that identifies a User, app, or Page.
+
+For example, to access the Marketing API, you need to generate a User access token for your app and ask for the ``ads_management`` permission; to access Pages API, you need to generate a Page access token for your app and ask for the ``manage_page`` permission.
+Refer to our <a href="https://developers.facebook.com/docs/facebook-login/access-tokens" target="_blank">Access Token Guide</a> to learn more.
+
+For now, we can use the <a href="https://developers.facebook.com/tools/explorer" target="_blank">Graph Explorer</a> to get an access token.
 
 ```javaScript
-const adsSdk = require('facebook-nodejs-ads-sdk');
+const adsSdk = require('facebook-nodejs-business-sdk');
 const accessToken = '<VALID_ACCESS_TOKEN>';
 const api = adsSdk.FacebookAdsApi.init(accessToken);
 ```
@@ -50,7 +97,7 @@ Facebook Ads entities are defined as classes under the `src/objects` directory.
 
 ```javascript
 // instantiating an object
-const adsSdk = require('facebook-nodejs-ads-sdk');
+const adsSdk = require('facebook-nodejs-business-sdk');
 const AdAccount = adsSdk.AdAccount;
 const account = new AdAccount(accountId);
 console.log(account.id) // fields can be accessed as properties
@@ -60,10 +107,10 @@ console.log(account.id) // fields can be accessed as properties
 
 Due to the high number of field names in the Ads API existing objects, in order to facilitate your code maintainability, enum-like field objects are provided within each node class.
 The fields are stored within node object classes which are stored under the `src/objects` directory.
-You can access object properties like this,
+You can access object properties like this:
 
 ```javaScript
-const adsSdk = require('facebook-nodejs-ads-sdk');
+const adsSdk = require('facebook-nodejs-business-sdk');
 const accessToken = '<VALID_ACCESS_TOKEN>';
 const api = adsSdk.FacebookAdsApi.init(accessToken);
 const AdAccount = adsSdk.AdAccount;
@@ -89,7 +136,7 @@ account
 #### Read Objects
 
 ```javascript
-const adsSdk = require('facebook-nodejs-ads-sdk');
+const adsSdk = require('facebook-nodejs-business-sdk');
 const accessToken = '<VALID_ACCESS_TOKEN>';
 const api = adsSdk.FacebookAdsApi.init(accessToken);
 const AdAccount = adsSdk.AdAccount;
@@ -108,7 +155,7 @@ Requesting an high number of fields may cause the response time to visibly incre
 #### Create Objects
 
 ```javascript
-const adsSdk = require('facebook-nodejs-ads-sdk');
+const adsSdk = require('facebook-nodejs-business-sdk');
 const accessToken = '<VALID_ACCESS_TOKEN>';
 const api = adsSdk.FacebookAdsApi.init(accessToken);
 const AdAccount = adsSdk.AdAccount;
@@ -132,7 +179,7 @@ account
 #### Update Objects
 
 ```javascript
-const adsSdk = require('facebook-nodejs-ads-sdk');
+const adsSdk = require('facebook-nodejs-business-sdk');
 const accessToken = '<VALID_ACCESS_TOKEN>';
 const api = adsSdk.FacebookAdsApi.init(accessToken);
 const Campaign = adsSdk).Campaign;
@@ -146,7 +193,7 @@ new Campaign(campaignId, {
 #### Delete Objects
 
 ```javascript
-const adsSdk = require('facebook-nodejs-ads-sdk');
+const adsSdk = require('facebook-nodejs-business-sdk');
 const accessToken = '<VALID_ACCESS_TOKEN>';
 const api = adsSdk.FacebookAdsApi.init(accessToken);
 const Campaign = adsSdk.Campaign;
@@ -157,12 +204,13 @@ new Campaign(campaignId);
 
 ### Pagination
 
-Since the release of the Facebook Graph API 2.0, pagination is handled through [cursors](https://developers.facebook.com/docs/graph-api/using-graph-api/v2.2#paging).
+Since the release of the Facebook Graph API 2.0, pagination is handled through <a href="https://developers.facebook.com/docs/graph-api/using-graph-api/v2.2#paging" target="_blank">cursors</>.
+
 Here cursors are defined as in `src\cursor.js`. When fetching nodes related to another (Edges) or a collection in the graph, the results are paginated in a `Cursor` class.
 Here the `Cursor` is a superpowered `Array` (with all it's native helpful operations) with `next` and `previous` methods that when resolved fills itself with the new set of objects.
 
 ```javascript
-const adsSdk = require('facebook-nodejs-ads-sdk');
+const adsSdk = require('facebook-nodejs-business-sdk');
 const accessToken = '<VALID_ACCESS_TOKEN>';
 const api = adsSdk.FacebookAdsApi.init(accessToken);
 const AdAccount = adsSdk.AdAccount;
@@ -197,7 +245,7 @@ account.getCampaigns([Campaign.Fields.name], { limit: 2 })
 A `FacebookAdsApi` object offers a debugging mode that will log all requests. To enable it just call `api.setDebug(true)` on an API instance.
 
 ```javascript
-const adsSdk = require('facebook-nodejs-ads-sdk');
+const adsSdk = require('facebook-nodejs-business-sdk');
 const accessToken = '<VALID_ACCESS_TOKEN>';
 const api = adsSdk.FacebookAdsApi.init(accessToken);
 api.setDebug(true);
@@ -205,7 +253,7 @@ api.setDebug(true);
 
 ### Style
 
-This package uses type safe javascript. [Flow](https://flow.org/). Inconsistent code will break builds.
+This package uses type safe javascript. <a href="https://flow.org/" target="_blank">Flow</a>. Inconsistent code will break builds.
 
 ## Join the Facebook Marketing Developer community
 * Website: https://www.facebook.com/groups/pmdcommunity

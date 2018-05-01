@@ -6,16 +6,16 @@
  * LICENSE file in the root directory of this source tree.
  * @flow
  */
-const adsSdk = require('facebook-nodejs-ads-sdk');
-const Ad = adsSdk.Ad;
-const AdAccount = adsSdk.AdAccount;
-const Business = adsSdk.Business;
-const Campaign = adsSdk.Campaign;
+const bizSdk = require('facebook-nodejs-business-sdk');
+const Ad = bizSdk.Ad;
+const AdAccount = bizSdk.AdAccount;
+const Business = bizSdk.Business;
+const Campaign = bizSdk.Campaign;
 const accountId = 'act_<ACCOUNT_ID>';
 const accessToken = '<ACCESS_TOKEN>';
 const bussinessId = ''; // ADD business ID here.
 const campaignId = ''; // ADD Campaign ID Here
-const api = adsSdk.FacebookAdsApi.init(accessToken);
+const api = bizSdk.FacebookAdsApi.init(accessToken);
 const account = new AdAccount(accountId);
 const showDebugingInfo = false;
 if (showDebugingInfo) {

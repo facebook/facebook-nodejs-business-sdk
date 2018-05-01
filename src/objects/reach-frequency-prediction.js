@@ -35,6 +35,9 @@ export default class ReachFrequencyPrediction extends AbstractCrudObject {
       external_minimum_reach: 'external_minimum_reach',
       external_reach: 'external_reach',
       frequency_cap: 'frequency_cap',
+      frequency_distribution: 'frequency_distribution',
+      frequency_distribution_map: 'frequency_distribution_map',
+      frequency_distribution_map_agg: 'frequency_distribution_map_agg',
       grp_dmas_audience_size: 'grp_dmas_audience_size',
       holdout_percentage: 'holdout_percentage',
       id: 'id',
@@ -56,6 +59,15 @@ export default class ReachFrequencyPrediction extends AbstractCrudObject {
     });
   }
 
+  static get InstreamPackages (): Object {
+    return Object.freeze({
+      normal: 'NORMAL',
+      premium: 'PREMIUM',
+      sports: 'SPORTS',
+      entertainment: 'ENTERTAINMENT',
+      beauty: 'BEAUTY'
+    });
+  }
   static get Status (): Object {
     return Object.freeze({
       expired: 'EXPIRED',

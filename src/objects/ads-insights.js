@@ -31,7 +31,6 @@ export default class AdsInsights extends AbstractCrudObject {
       campaign_name: 'campaign_name',
       canvas_avg_view_percent: 'canvas_avg_view_percent',
       canvas_avg_view_time: 'canvas_avg_view_time',
-      canvas_component_avg_pct_view: 'canvas_component_avg_pct_view',
       clicks: 'clicks',
       cost_per_10_sec_video_view: 'cost_per_10_sec_video_view',
       cost_per_action_type: 'cost_per_action_type',
@@ -97,115 +96,123 @@ export default class AdsInsights extends AbstractCrudObject {
 
   static get ActionAttributionWindows (): Object {
     return Object.freeze({
-      value_1d_view: '1D_VIEW',
-      value_7d_view: '7D_VIEW',
-      value_28d_view: '28D_VIEW',
-      value_1d_click: '1D_CLICK',
-      value_7d_click: '7D_CLICK',
-      value_28d_click: '28D_CLICK',
-      default: 'DEFAULT'
+      value_1d_view: '1d_view',
+      value_7d_view: '7d_view',
+      value_28d_view: '28d_view',
+      value_1d_click: '1d_click',
+      value_7d_click: '7d_click',
+      value_28d_click: '28d_click',
+      default: 'default'
     });
   }
   static get ActionBreakdowns (): Object {
     return Object.freeze({
-      action_canvas_component_name: 'ACTION_CANVAS_COMPONENT_NAME',
-      action_carousel_card_id: 'ACTION_CAROUSEL_CARD_ID',
-      action_carousel_card_name: 'ACTION_CAROUSEL_CARD_NAME',
-      action_destination: 'ACTION_DESTINATION',
-      action_device: 'ACTION_DEVICE',
-      action_link_click_destination: 'ACTION_LINK_CLICK_DESTINATION',
-      action_reaction: 'ACTION_REACTION',
-      action_target_id: 'ACTION_TARGET_ID',
-      action_type: 'ACTION_TYPE',
-      action_video_sound: 'ACTION_VIDEO_SOUND',
-      action_video_type: 'ACTION_VIDEO_TYPE'
+      action_canvas_component_name: 'action_canvas_component_name',
+      action_carousel_card_id: 'action_carousel_card_id',
+      action_carousel_card_name: 'action_carousel_card_name',
+      action_destination: 'action_destination',
+      action_device: 'action_device',
+      action_link_click_destination: 'action_link_click_destination',
+      action_reaction: 'action_reaction',
+      action_target_id: 'action_target_id',
+      action_type: 'action_type',
+      action_video_sound: 'action_video_sound',
+      action_video_type: 'action_video_type'
     });
   }
   static get ActionReportTime (): Object {
     return Object.freeze({
-      impression: 'IMPRESSION',
-      conversion: 'CONVERSION'
+      impression: 'impression',
+      conversion: 'conversion'
     });
   }
   static get Breakdowns (): Object {
     return Object.freeze({
-      age: 'AGE',
-      country: 'COUNTRY',
-      dma: 'DMA',
-      gender: 'GENDER',
-      frequency_value: 'FREQUENCY_VALUE',
-      hourly_stats_aggregated_by_advertiser_time_zone: 'HOURLY_STATS_AGGREGATED_BY_ADVERTISER_TIME_ZONE',
-      hourly_stats_aggregated_by_audience_time_zone: 'HOURLY_STATS_AGGREGATED_BY_AUDIENCE_TIME_ZONE',
-      impression_device: 'IMPRESSION_DEVICE',
-      place_page_id: 'PLACE_PAGE_ID',
-      publisher_platform: 'PUBLISHER_PLATFORM',
-      platform_position: 'PLATFORM_POSITION',
-      device_platform: 'DEVICE_PLATFORM',
-      product_id: 'PRODUCT_ID',
-      region: 'REGION'
+      age: 'age',
+      country: 'country',
+      dma: 'dma',
+      gender: 'gender',
+      frequency_value: 'frequency_value',
+      hourly_stats_aggregated_by_advertiser_time_zone: 'hourly_stats_aggregated_by_advertiser_time_zone',
+      hourly_stats_aggregated_by_audience_time_zone: 'hourly_stats_aggregated_by_audience_time_zone',
+      impression_device: 'impression_device',
+      place_page_id: 'place_page_id',
+      publisher_platform: 'publisher_platform',
+      platform_position: 'platform_position',
+      device_platform: 'device_platform',
+      product_id: 'product_id',
+      region: 'region',
+      ad_format_asset: 'ad_format_asset',
+      body_asset: 'body_asset',
+      call_to_action_asset: 'call_to_action_asset',
+      description_asset: 'description_asset',
+      image_asset: 'image_asset',
+      link_url_asset: 'link_url_asset',
+      title_asset: 'title_asset',
+      video_asset: 'video_asset'
     });
   }
   static get DatePreset (): Object {
     return Object.freeze({
-      today: 'TODAY',
-      yesterday: 'YESTERDAY',
-      this_month: 'THIS_MONTH',
-      last_month: 'LAST_MONTH',
-      this_quarter: 'THIS_QUARTER',
-      lifetime: 'LIFETIME',
-      last_3d: 'LAST_3D',
-      last_7d: 'LAST_7D',
-      last_14d: 'LAST_14D',
-      last_28d: 'LAST_28D',
-      last_30d: 'LAST_30D',
-      last_90d: 'LAST_90D',
-      last_week_mon_sun: 'LAST_WEEK_MON_SUN',
-      last_week_sun_sat: 'LAST_WEEK_SUN_SAT',
-      last_quarter: 'LAST_QUARTER',
-      last_year: 'LAST_YEAR',
-      this_week_mon_today: 'THIS_WEEK_MON_TODAY',
-      this_week_sun_today: 'THIS_WEEK_SUN_TODAY',
-      this_year: 'THIS_YEAR'
+      today: 'today',
+      yesterday: 'yesterday',
+      this_month: 'this_month',
+      last_month: 'last_month',
+      this_quarter: 'this_quarter',
+      lifetime: 'lifetime',
+      last_3d: 'last_3d',
+      last_7d: 'last_7d',
+      last_14d: 'last_14d',
+      last_28d: 'last_28d',
+      last_30d: 'last_30d',
+      last_90d: 'last_90d',
+      last_week_mon_sun: 'last_week_mon_sun',
+      last_week_sun_sat: 'last_week_sun_sat',
+      last_quarter: 'last_quarter',
+      last_year: 'last_year',
+      this_week_mon_today: 'this_week_mon_today',
+      this_week_sun_today: 'this_week_sun_today',
+      this_year: 'this_year'
     });
   }
   static get Level (): Object {
     return Object.freeze({
-      ad: 'AD',
-      adset: 'ADSET',
-      campaign: 'CAMPAIGN',
-      account: 'ACCOUNT'
+      ad: 'ad',
+      adset: 'adset',
+      campaign: 'campaign',
+      account: 'account'
     });
   }
   static get SummaryActionBreakdowns (): Object {
     return Object.freeze({
-      action_canvas_component_name: 'ACTION_CANVAS_COMPONENT_NAME',
-      action_carousel_card_id: 'ACTION_CAROUSEL_CARD_ID',
-      action_carousel_card_name: 'ACTION_CAROUSEL_CARD_NAME',
-      action_destination: 'ACTION_DESTINATION',
-      action_device: 'ACTION_DEVICE',
-      action_link_click_destination: 'ACTION_LINK_CLICK_DESTINATION',
-      action_reaction: 'ACTION_REACTION',
-      action_target_id: 'ACTION_TARGET_ID',
-      action_type: 'ACTION_TYPE',
-      action_video_sound: 'ACTION_VIDEO_SOUND',
-      action_video_type: 'ACTION_VIDEO_TYPE'
+      action_canvas_component_name: 'action_canvas_component_name',
+      action_carousel_card_id: 'action_carousel_card_id',
+      action_carousel_card_name: 'action_carousel_card_name',
+      action_destination: 'action_destination',
+      action_device: 'action_device',
+      action_link_click_destination: 'action_link_click_destination',
+      action_reaction: 'action_reaction',
+      action_target_id: 'action_target_id',
+      action_type: 'action_type',
+      action_video_sound: 'action_video_sound',
+      action_video_type: 'action_video_type'
     });
   }
   static get Summary (): Object {
     return Object.freeze({
-      id: 'ID',
-      account_id: 'ACCOUNT_ID',
-      async_percent_completion: 'ASYNC_PERCENT_COMPLETION',
-      async_status: 'ASYNC_STATUS',
-      date_start: 'DATE_START',
-      date_stop: 'DATE_STOP',
-      emails: 'EMAILS',
-      friendly_name: 'FRIENDLY_NAME',
-      is_bookmarked: 'IS_BOOKMARKED',
-      is_running: 'IS_RUNNING',
-      schedule_id: 'SCHEDULE_ID',
-      time_completed: 'TIME_COMPLETED',
-      time_ref: 'TIME_REF'
+      id: 'id',
+      account_id: 'account_id',
+      async_percent_completion: 'async_percent_completion',
+      async_status: 'async_status',
+      date_start: 'date_start',
+      date_stop: 'date_stop',
+      emails: 'emails',
+      friendly_name: 'friendly_name',
+      is_bookmarked: 'is_bookmarked',
+      is_running: 'is_running',
+      schedule_id: 'schedule_id',
+      time_completed: 'time_completed',
+      time_ref: 'time_ref'
     });
   }
 }

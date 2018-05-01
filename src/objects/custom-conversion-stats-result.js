@@ -24,14 +24,14 @@ export default class CustomConversionStatsResult extends AbstractCrudObject {
 
   static get Aggregation (): Object {
     return Object.freeze({
-      count: 'COUNT',
-      device_type: 'DEVICE_TYPE',
-      host: 'HOST',
-      pixel_fire: 'PIXEL_FIRE',
-      unmatched_count: 'UNMATCHED_COUNT',
-      unmatched_usd_amount: 'UNMATCHED_USD_AMOUNT',
-      url: 'URL',
-      usd_amount: 'USD_AMOUNT'
+      count: 'count',
+      device_type: 'device_type',
+      host: 'host',
+      pixel_fire: 'pixel_fire',
+      unmatched_count: 'unmatched_count',
+      unmatched_usd_amount: 'unmatched_usd_amount',
+      url: 'url',
+      usd_amount: 'usd_amount'
     });
   }
 }
