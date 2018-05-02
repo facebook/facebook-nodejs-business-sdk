@@ -65,6 +65,26 @@ export default class ProductFeed extends AbstractCrudObject {
       utf32be: 'UTF32BE'
     });
   }
+  static get FeedType (): Object {
+    return Object.freeze({
+      auto: 'AUTO',
+      auto_offer: 'AUTO_OFFER',
+      destination: 'DESTINATION',
+      flight: 'FLIGHT',
+      home_listing: 'HOME_LISTING',
+      home_service_provider: 'HOME_SERVICE_PROVIDER',
+      home_service_review: 'HOME_SERVICE_REVIEW',
+      hotel: 'HOTEL',
+      hotel_room: 'HOTEL_ROOM',
+      local_inventory: 'LOCAL_INVENTORY',
+      market: 'MARKET',
+      media_title: 'MEDIA_TITLE',
+      products: 'PRODUCTS',
+      test_dynamic_item: 'TEST_DYNAMIC_ITEM',
+      vehicle_offer: 'VEHICLE_OFFER',
+      vehicles: 'VEHICLES'
+    });
+  }
 
   getProducts (fields, params, fetchFirstPage = true): ProductItem {
     return this.getEdge(
@@ -73,6 +93,15 @@ export default class ProductFeed extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/products'
+    );
+  }
+
+  createRule (fields, params): AbstractObject {
+    return this.createEdge(
+      '/rules',
+      fields,
+      params
+
     );
   }
 
@@ -92,6 +121,16 @@ export default class ProductFeed extends AbstractCrudObject {
       fields,
       params,
       ProductFeedUpload
+    );
+  }
+
+  getVehicles (fields, params, fetchFirstPage = true): AbstractObject {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/vehicles'
     );
   }
 

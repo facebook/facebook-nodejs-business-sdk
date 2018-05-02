@@ -31,7 +31,7 @@ export default class AdLabel extends AbstractCrudObject {
 
   static get ExecutionOptions (): Object {
     return Object.freeze({
-      validate_only: 'VALIDATE_ONLY'
+      validate_only: 'validate_only'
     });
   }
 

@@ -74,6 +74,7 @@ export default class Targeting extends AbstractCrudObject {
       instagram_positions: 'instagram_positions',
       interested_in: 'interested_in',
       interests: 'interests',
+      is_whatsapp_destination_ad: 'is_whatsapp_destination_ad',
       keywords: 'keywords',
       life_events: 'life_events',
       locales: 'locales',
@@ -106,16 +107,16 @@ export default class Targeting extends AbstractCrudObject {
 
   static get DevicePlatforms (): Object {
     return Object.freeze({
-      mobile: 'MOBILE',
-      desktop: 'DESKTOP',
-      connected_tv: 'CONNECTED_TV'
+      mobile: 'mobile',
+      desktop: 'desktop',
+      connected_tv: 'connected_tv'
     });
   }
   static get EffectiveDevicePlatforms (): Object {
     return Object.freeze({
-      mobile: 'MOBILE',
-      desktop: 'DESKTOP',
-      connected_tv: 'CONNECTED_TV'
+      mobile: 'mobile',
+      desktop: 'desktop',
+      connected_tv: 'connected_tv'
     });
   }
 }

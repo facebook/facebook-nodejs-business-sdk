@@ -10,6 +10,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import AdCreative from './ad-creative';
 import AdLabel from './ad-label';
+import AdRule from './ad-rule';
 import AdsInsights from './ads-insights';
 import AdReportRun from './ad-report-run';
 import AdKeywordStats from './ad-keyword-stats';
@@ -93,38 +94,45 @@ export default class Ad extends AbstractCrudObject {
   }
   static get DatePreset (): Object {
     return Object.freeze({
-      today: 'TODAY',
-      yesterday: 'YESTERDAY',
-      this_month: 'THIS_MONTH',
-      last_month: 'LAST_MONTH',
-      this_quarter: 'THIS_QUARTER',
-      lifetime: 'LIFETIME',
-      last_3d: 'LAST_3D',
-      last_7d: 'LAST_7D',
-      last_14d: 'LAST_14D',
-      last_28d: 'LAST_28D',
-      last_30d: 'LAST_30D',
-      last_90d: 'LAST_90D',
-      last_week_mon_sun: 'LAST_WEEK_MON_SUN',
-      last_week_sun_sat: 'LAST_WEEK_SUN_SAT',
-      last_quarter: 'LAST_QUARTER',
-      last_year: 'LAST_YEAR',
-      this_week_mon_today: 'THIS_WEEK_MON_TODAY',
-      this_week_sun_today: 'THIS_WEEK_SUN_TODAY',
-      this_year: 'THIS_YEAR'
+      today: 'today',
+      yesterday: 'yesterday',
+      this_month: 'this_month',
+      last_month: 'last_month',
+      this_quarter: 'this_quarter',
+      lifetime: 'lifetime',
+      last_3d: 'last_3d',
+      last_7d: 'last_7d',
+      last_14d: 'last_14d',
+      last_28d: 'last_28d',
+      last_30d: 'last_30d',
+      last_90d: 'last_90d',
+      last_week_mon_sun: 'last_week_mon_sun',
+      last_week_sun_sat: 'last_week_sun_sat',
+      last_quarter: 'last_quarter',
+      last_year: 'last_year',
+      this_week_mon_today: 'this_week_mon_today',
+      this_week_sun_today: 'this_week_sun_today',
+      this_year: 'this_year'
     });
   }
   static get ExecutionOptions (): Object {
     return Object.freeze({
-      validate_only: 'VALIDATE_ONLY',
-      synchronous_ad_review: 'SYNCHRONOUS_AD_REVIEW',
-      include_recommendations: 'INCLUDE_RECOMMENDATIONS'
+      validate_only: 'validate_only',
+      synchronous_ad_review: 'synchronous_ad_review',
+      include_recommendations: 'include_recommendations'
     });
   }
   static get Operator (): Object {
     return Object.freeze({
       all: 'ALL',
       any: 'ANY'
+    });
+  }
+  static get StatusOption (): Object {
+    return Object.freeze({
+      active: 'ACTIVE',
+      paused: 'PAUSED',
+      inherited_from_source: 'INHERITED_FROM_SOURCE'
     });
   }
 
@@ -151,6 +159,25 @@ export default class Ad extends AbstractCrudObject {
       fields,
       params,
       AdLabel
+    );
+  }
+
+  getAdRulesGoverned (fields, params, fetchFirstPage = true): AdRule {
+    return this.getEdge(
+      AdRule,
+      fields,
+      params,
+      fetchFirstPage,
+      '/adrules_governed'
+    );
+  }
+
+  createCopy (fields, params): Ad {
+    return this.createEdge(
+      '/copies',
+      fields,
+      params,
+      Ad
     );
   }
 
@@ -190,6 +217,15 @@ export default class Ad extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/leads'
+    );
+  }
+
+  createLead (fields, params): AbstractObject {
+    return this.createEdge(
+      '/leads',
+      fields,
+      params
+
     );
   }
 

@@ -7,7 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import ProductFeedUploadErrorSample from './product-feed-upload-error-sample';
+import AbstractObject from './../abstract-object';
 
 /**
  * ProductFeedUploadError
@@ -28,14 +28,14 @@ export default class ProductFeedUploadError extends AbstractCrudObject {
 
   static get Severity (): Object {
     return Object.freeze({
-      fatal: 'FATAL',
-      warning: 'WARNING'
+      fatal: 'fatal',
+      warning: 'warning'
     });
   }
 
-  getSamples (fields, params, fetchFirstPage = true): ProductFeedUploadErrorSample {
+  getSamples (fields, params, fetchFirstPage = true): AbstractObject {
     return this.getEdge(
-      ProductFeedUploadErrorSample,
+      AbstractObject,
       fields,
       params,
       fetchFirstPage,

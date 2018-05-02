@@ -17,6 +17,7 @@ export default class ProfilePictureSource extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       bottom: 'bottom',
+      cache_key: 'cache_key',
       height: 'height',
       is_silhouette: 'is_silhouette',
       left: 'left',
@@ -29,11 +30,11 @@ export default class ProfilePictureSource extends AbstractCrudObject {
 
   static get Type (): Object {
     return Object.freeze({
-      small: 'SMALL',
-      normal: 'NORMAL',
-      album: 'ALBUM',
-      large: 'LARGE',
-      square: 'SQUARE'
+      small: 'small',
+      normal: 'normal',
+      album: 'album',
+      large: 'large',
+      square: 'square'
     });
   }
 }

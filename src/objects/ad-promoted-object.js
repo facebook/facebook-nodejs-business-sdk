@@ -31,9 +31,6 @@ export default class AdPromotedObject extends AbstractCrudObject {
 
   static get CustomEventType (): Object {
     return Object.freeze({
-      complete_registration: 'COMPLETE_REGISTRATION',
-      content_view: 'CONTENT_VIEW',
-      search: 'SEARCH',
       rate: 'RATE',
       tutorial_completion: 'TUTORIAL_COMPLETION',
       add_to_cart: 'ADD_TO_CART',
@@ -42,6 +39,9 @@ export default class AdPromotedObject extends AbstractCrudObject {
       add_payment_info: 'ADD_PAYMENT_INFO',
       purchase: 'PURCHASE',
       lead: 'LEAD',
+      complete_registration: 'COMPLETE_REGISTRATION',
+      content_view: 'CONTENT_VIEW',
+      search: 'SEARCH',
       level_achieved: 'LEVEL_ACHIEVED',
       achievement_unlocked: 'ACHIEVEMENT_UNLOCKED',
       spent_credits: 'SPENT_CREDITS',

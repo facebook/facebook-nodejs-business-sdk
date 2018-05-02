@@ -18,10 +18,17 @@ export default class AdgroupPlacementSpecificReviewFeedback extends AbstractCrud
     return Object.freeze({
       account_admin: 'account_admin',
       ad: 'ad',
+      b2c: 'b2c',
+      bsg: 'bsg',
+      city_community: 'city_community',
+      dpa: 'dpa',
       facebook: 'facebook',
       instagram: 'instagram',
+      instagram_shop: 'instagram_shop',
+      marketplace: 'marketplace',
       page_admin: 'page_admin',
       product: 'product',
+      product_service: 'product_service',
       seller: 'seller'
     });
   }

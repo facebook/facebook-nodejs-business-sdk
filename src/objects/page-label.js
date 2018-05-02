@@ -8,38 +8,37 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
-import HotelRoom from './hotel-room';
+import User from './user';
 
 /**
- * Hotel
+ * PageLabel
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class Hotel extends AbstractCrudObject {
+export default class PageLabel extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      address: 'address',
-      applinks: 'applinks',
-      brand: 'brand',
-      description: 'description',
-      guest_ratings: 'guest_ratings',
-      hotel_id: 'hotel_id',
+      creation_time: 'creation_time',
+      creator_id: 'creator_id',
+      from: 'from',
       id: 'id',
-      images: 'images',
-      lowest_base_price: 'lowest_base_price',
-      name: 'name',
-      phone: 'phone',
-      star_rating: 'star_rating',
-      url: 'url'
+      name: 'name'
     });
   }
 
-  createHotelRoom (fields, params): HotelRoom {
+  deleteUsers (params): AbstractObject {
+    return super.deleteEdge(
+      '/users',
+      params
+    );
+  }
+
+  createUser (fields, params): User {
     return this.createEdge(
-      '/hotel_rooms',
+      '/users',
       fields,
       params,
-      HotelRoom
+      User
     );
   }
 
@@ -49,15 +48,9 @@ export default class Hotel extends AbstractCrudObject {
     );
   }
 
-  get (fields, params): Hotel {
+  get (fields, params): PageLabel {
     return this.read(
       fields,
-      params
-    );
-  }
-
-  update (fields, params): Hotel {
-    return super.update(
       params
     );
   }

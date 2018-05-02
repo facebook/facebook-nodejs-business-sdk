@@ -31,7 +31,6 @@ export default class AdsInsights extends AbstractCrudObject {
       campaign_name: 'campaign_name',
       canvas_avg_view_percent: 'canvas_avg_view_percent',
       canvas_avg_view_time: 'canvas_avg_view_time',
-      canvas_component_avg_pct_view: 'canvas_component_avg_pct_view',
       clicks: 'clicks',
       cost_per_10_sec_video_view: 'cost_per_10_sec_video_view',
       cost_per_action_type: 'cost_per_action_type',
@@ -142,7 +141,15 @@ export default class AdsInsights extends AbstractCrudObject {
       platform_position: 'platform_position',
       device_platform: 'device_platform',
       product_id: 'product_id',
-      region: 'region'
+      region: 'region',
+      ad_format_asset: 'ad_format_asset',
+      body_asset: 'body_asset',
+      call_to_action_asset: 'call_to_action_asset',
+      description_asset: 'description_asset',
+      image_asset: 'image_asset',
+      link_url_asset: 'link_url_asset',
+      title_asset: 'title_asset',
+      video_asset: 'video_asset'
     });
   }
   static get DatePreset (): Object {

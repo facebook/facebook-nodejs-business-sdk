@@ -9,18 +9,16 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * RoasCohortsData
+ * BusinessAdvertisableApplicationsResult
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class RoasCohortsData extends AbstractCrudObject {
+export default class BusinessAdvertisableApplicationsResult extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      cohorts_end: 'cohorts_end',
-      cohorts_start: 'cohorts_start',
-      installs: 'installs',
-      revenue_cohorts: 'revenue_cohorts',
-      spend: 'spend'
+      has_insight_permission: 'has_insight_permission',
+      id: 'id',
+      name: 'name'
     });
   }
 }

@@ -7,7 +7,8 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import ProfilePictureSource from './profile-picture-source';
+import AbstractObject from './../abstract-object';
+import Photo from './photo';
 
 /**
  * Event
@@ -19,7 +20,6 @@ export default class Event extends AbstractCrudObject {
     return Object.freeze({
       attending_count: 'attending_count',
       can_guests_invite: 'can_guests_invite',
-      can_viewer_post: 'can_viewer_post',
       category: 'category',
       cover: 'cover',
       declined_count: 'declined_count',
@@ -32,7 +32,6 @@ export default class Event extends AbstractCrudObject {
       is_canceled: 'is_canceled',
       is_draft: 'is_draft',
       is_page_owned: 'is_page_owned',
-      is_viewer_admin: 'is_viewer_admin',
       maybe_count: 'maybe_count',
       name: 'name',
       noreply_count: 'noreply_count',
@@ -42,6 +41,7 @@ export default class Event extends AbstractCrudObject {
       scheduled_publish_time: 'scheduled_publish_time',
       start_time: 'start_time',
       ticket_uri: 'ticket_uri',
+      ticket_uri_start_sales_time: 'ticket_uri_start_sales_time',
       ticketing_privacy_uri: 'ticketing_privacy_uri',
       ticketing_terms_uri: 'ticketing_terms_uri',
       timezone: 'timezone',
@@ -52,20 +52,57 @@ export default class Event extends AbstractCrudObject {
 
   static get Type (): Object {
     return Object.freeze({
-      private: 'PRIVATE',
-      public: 'PUBLIC',
-      group: 'GROUP',
-      community: 'COMMUNITY'
+      private: 'private',
+      public: 'public',
+      group: 'group',
+      community: 'community'
+    });
+  }
+  static get EventStateFilter (): Object {
+    return Object.freeze({
+      canceled: 'canceled',
+      draft: 'draft',
+      scheduled_draft_for_publication: 'scheduled_draft_for_publication',
+      published: 'published'
+    });
+  }
+  static get TimeFilter (): Object {
+    return Object.freeze({
+      upcoming: 'upcoming',
+      past: 'past'
+    });
+  }
+  static get PromotableEventTypes (): Object {
+    return Object.freeze({
+      offsite_ticket: 'OFFSITE_TICKET',
+      onsite_ticket: 'ONSITE_TICKET'
     });
   }
 
-  getPicture (fields, params, fetchFirstPage = true): ProfilePictureSource {
-    return this.getEdge(
-      ProfilePictureSource,
+  createLiveVideo (fields, params): AbstractObject {
+    return this.createEdge(
+      '/live_videos',
+      fields,
+      params
+
+    );
+  }
+
+  createPhoto (fields, params): Photo {
+    return this.createEdge(
+      '/photos',
       fields,
       params,
-      fetchFirstPage,
-      '/picture'
+      Photo
+    );
+  }
+
+  createVideo (fields, params): AbstractObject {
+    return this.createEdge(
+      '/videos',
+      fields,
+      params
+
     );
   }
 

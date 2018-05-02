@@ -11,6 +11,7 @@ import AbstractObject from './../abstract-object';
 import AdActivity from './ad-activity';
 import AdCreative from './ad-creative';
 import AdLabel from './ad-label';
+import AdRule from './ad-rule';
 import Ad from './ad';
 import AdAsyncRequest from './ad-async-request';
 import AdCampaignDeliveryEstimate from './ad-campaign-delivery-estimate';
@@ -32,6 +33,7 @@ export default class AdSet extends AbstractCrudObject {
       attribution_spec: 'attribution_spec',
       bid_amount: 'bid_amount',
       bid_info: 'bid_info',
+      bid_strategy: 'bid_strategy',
       billing_event: 'billing_event',
       budget_remaining: 'budget_remaining',
       campaign: 'campaign',
@@ -46,8 +48,6 @@ export default class AdSet extends AbstractCrudObject {
       frequency_control_specs: 'frequency_control_specs',
       id: 'id',
       instagram_actor_id: 'instagram_actor_id',
-      is_autobid: 'is_autobid',
-      is_average_price_pacing: 'is_average_price_pacing',
       lifetime_budget: 'lifetime_budget',
       lifetime_imps: 'lifetime_imps',
       name: 'name',
@@ -70,19 +70,24 @@ export default class AdSet extends AbstractCrudObject {
     });
   }
 
+  static get BidStrategy (): Object {
+    return Object.freeze({
+      lowest_cost_without_cap: 'LOWEST_COST_WITHOUT_CAP',
+      lowest_cost_with_bid_cap: 'LOWEST_COST_WITH_BID_CAP',
+      target_cost: 'TARGET_COST'
+    });
+  }
   static get BillingEvent (): Object {
     return Object.freeze({
       app_installs: 'APP_INSTALLS',
       clicks: 'CLICKS',
       impressions: 'IMPRESSIONS',
       link_clicks: 'LINK_CLICKS',
+      none: 'NONE',
       offer_claims: 'OFFER_CLAIMS',
       page_likes: 'PAGE_LIKES',
       post_engagement: 'POST_ENGAGEMENT',
-      video_views: 'VIDEO_VIEWS',
-      mrc_video_views: 'MRC_VIDEO_VIEWS',
-      completed_video_views: 'COMPLETED_VIDEO_VIEWS',
-      video_views_15s: 'VIDEO_VIEWS_15S'
+      video_views: 'VIDEO_VIEWS'
     });
   }
   static get ConfiguredStatus (): Object {
@@ -128,7 +133,9 @@ export default class AdSet extends AbstractCrudObject {
       social_impressions: 'SOCIAL_IMPRESSIONS',
       video_views: 'VIDEO_VIEWS',
       app_downloads: 'APP_DOWNLOADS',
-      landing_page_views: 'LANDING_PAGE_VIEWS'
+      landing_page_views: 'LANDING_PAGE_VIEWS',
+      value: 'VALUE',
+      replies: 'REPLIES'
     });
   }
   static get Status (): Object {
@@ -141,25 +148,25 @@ export default class AdSet extends AbstractCrudObject {
   }
   static get DatePreset (): Object {
     return Object.freeze({
-      today: 'TODAY',
-      yesterday: 'YESTERDAY',
-      this_month: 'THIS_MONTH',
-      last_month: 'LAST_MONTH',
-      this_quarter: 'THIS_QUARTER',
-      lifetime: 'LIFETIME',
-      last_3d: 'LAST_3D',
-      last_7d: 'LAST_7D',
-      last_14d: 'LAST_14D',
-      last_28d: 'LAST_28D',
-      last_30d: 'LAST_30D',
-      last_90d: 'LAST_90D',
-      last_week_mon_sun: 'LAST_WEEK_MON_SUN',
-      last_week_sun_sat: 'LAST_WEEK_SUN_SAT',
-      last_quarter: 'LAST_QUARTER',
-      last_year: 'LAST_YEAR',
-      this_week_mon_today: 'THIS_WEEK_MON_TODAY',
-      this_week_sun_today: 'THIS_WEEK_SUN_TODAY',
-      this_year: 'THIS_YEAR'
+      today: 'today',
+      yesterday: 'yesterday',
+      this_month: 'this_month',
+      last_month: 'last_month',
+      this_quarter: 'this_quarter',
+      lifetime: 'lifetime',
+      last_3d: 'last_3d',
+      last_7d: 'last_7d',
+      last_14d: 'last_14d',
+      last_28d: 'last_28d',
+      last_30d: 'last_30d',
+      last_90d: 'last_90d',
+      last_week_mon_sun: 'last_week_mon_sun',
+      last_week_sun_sat: 'last_week_sun_sat',
+      last_quarter: 'last_quarter',
+      last_year: 'last_year',
+      this_week_mon_today: 'this_week_mon_today',
+      this_week_sun_today: 'this_week_sun_today',
+      this_year: 'this_year'
     });
   }
   static get DestinationType (): Object {
@@ -173,8 +180,8 @@ export default class AdSet extends AbstractCrudObject {
   }
   static get ExecutionOptions (): Object {
     return Object.freeze({
-      validate_only: 'VALIDATE_ONLY',
-      include_recommendations: 'INCLUDE_RECOMMENDATIONS'
+      validate_only: 'validate_only',
+      include_recommendations: 'include_recommendations'
     });
   }
   static get Operator (): Object {
@@ -217,6 +224,16 @@ export default class AdSet extends AbstractCrudObject {
       fields,
       params,
       AdLabel
+    );
+  }
+
+  getAdRulesGoverned (fields, params, fetchFirstPage = true): AdRule {
+    return this.getEdge(
+      AdRule,
+      fields,
+      params,
+      fetchFirstPage,
+      '/adrules_governed'
     );
   }
 

@@ -28,18 +28,10 @@ export default class Transaction extends AbstractCrudObject {
       id: 'id',
       is_business_ec_charge: 'is_business_ec_charge',
       payment_option: 'payment_option',
-      product_type: 'product_type',
       provider_amount: 'provider_amount',
       status: 'status',
       time: 'time',
       tracking_id: 'tracking_id'
-    });
-  }
-
-  static get ProductType (): Object {
-    return Object.freeze({
-      facebook_ad: 'FACEBOOK_AD',
-      ig_ad: 'IG_AD'
     });
   }
 }

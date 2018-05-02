@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
 
 /**
  * EventSourceGroup
@@ -29,6 +30,22 @@ export default class EventSourceGroup extends AbstractCrudObject {
       fields,
       params,
       EventSourceGroup
+    );
+  }
+
+  deleteUserPermissions (params): AbstractObject {
+    return super.deleteEdge(
+      '/userpermissions',
+      params
+    );
+  }
+
+  createUserPermission (fields, params): AbstractObject {
+    return this.createEdge(
+      '/userpermissions',
+      fields,
+      params
+
     );
   }
 

@@ -49,6 +49,15 @@ export default class CustomConversion extends AbstractCrudObject {
       lead: 'LEAD',
       purchase: 'PURCHASE',
       search: 'SEARCH',
+      contact: 'CONTACT',
+      customize_product: 'CUSTOMIZE_PRODUCT',
+      donate: 'DONATE',
+      find_location: 'FIND_LOCATION',
+      schedule: 'SCHEDULE',
+      start_trial: 'START_TRIAL',
+      submit_application: 'SUBMIT_APPLICATION',
+      subscribe: 'SUBSCRIBE',
+      take_survey: 'TAKE_SURVEY',
       other: 'OTHER'
     });
   }
@@ -60,6 +69,22 @@ export default class CustomConversion extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/activities'
+    );
+  }
+
+  deleteAdAccounts (params): AbstractObject {
+    return super.deleteEdge(
+      '/adaccounts',
+      params
+    );
+  }
+
+  createAdAccount (fields, params): CustomConversion {
+    return this.createEdge(
+      '/adaccounts',
+      fields,
+      params,
+      CustomConversion
     );
   }
 

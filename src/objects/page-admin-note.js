@@ -7,23 +7,33 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
 
 /**
- * AdCreativeOfferData
+ * PageAdminNote
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class AdCreativeOfferData extends AbstractCrudObject {
+export default class PageAdminNote extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      claim_limit: 'claim_limit',
-      coupon_type: 'coupon_type',
-      expiration_time: 'expiration_time',
-      image_url: 'image_url',
-      message: 'message',
-      redemption_link: 'redemption_link',
-      reminder_time: 'reminder_time',
-      title: 'title'
+      body: 'body',
+      from: 'from',
+      id: 'id',
+      user: 'user'
     });
+  }
+
+  delete (fields, params): AbstractObject {
+    return super.delete(
+      params
+    );
+  }
+
+  get (fields, params): PageAdminNote {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

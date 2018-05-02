@@ -25,7 +25,7 @@ export default class ProductCatalogHotelRoomsBatch extends AbstractCrudObject {
 
   static get Standard (): Object {
     return Object.freeze({
-      google: 'GOOGLE'
+      google: 'google'
     });
   }
 }
