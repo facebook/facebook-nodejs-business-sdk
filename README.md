@@ -182,7 +182,7 @@ account
 const adsSdk = require('facebook-nodejs-business-sdk');
 const accessToken = '<VALID_ACCESS_TOKEN>';
 const api = adsSdk.FacebookAdsApi.init(accessToken);
-const Campaign = adsSdk).Campaign;
+const Campaign = adsSdk.Campaign;
 const campaignId = <CAMPAIGN_ID>;
 new Campaign(campaignId, {
   [Campaign.Fields.id]: campaign.id,
