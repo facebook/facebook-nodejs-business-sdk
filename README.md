@@ -239,6 +239,26 @@ account.getCampaigns([Campaign.Fields.name], { limit: 2 })
 });
 ```
 
+If you are using cursor to iterate all of your object under your Ad Account, this practice is recommended.
+
+```javascript
+const adsSdk = require('facebook-nodejs-ads-sdk');
+const accessToken = '<VALID_ACCESS_TOKEN>';
+const api = adsSdk.FacebookAdsApi.init(accessToken);
+const AdAccount = adsSdk.AdAccount;
+const account = new AdAccount('act_<AD_ACCOUNT_ID>');
+
+void async function () {
+    let campaigns = await account.getCampaigns([Campaign.Fields.name], {limit: 20});
+    campaigns.forEach(c => console.log(c.name));
+    while (campaigns.hasNext()) {
+        campaigns = await campaigns.next();
+        campaigns.forEach(c => console.log(c.name));
+    }
+}();
+```
+
+
 #### Debugging
 
 A `FacebookAdsApi` object offers a debugging mode that will log all requests. To enable it just call `api.setDebug(true)` on an API instance.
