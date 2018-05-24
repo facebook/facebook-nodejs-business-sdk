@@ -61,11 +61,11 @@ to get an access token.
 
 NPM
 
-npm install --save facebook-nodejs-business-sdk
+`npm install --save facebook-nodejs-business-sdk`
 
 Bower
 
-bower install --save facebook-nodejs-business-sdk
+`bower install --save facebook-nodejs-business-sdk`
 
 ## Usage
 
@@ -281,4 +281,3 @@ See the CONTRIBUTING file for how to help out.
 
 ## License
 Facebook Business SDK for NodeJS is licensed under the LICENSE file in the root directory of this source tree.
-```
