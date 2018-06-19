@@ -117,10 +117,8 @@ export { default as DayPart } from './../src/objects/day-part';
 export { default as DeliveryCheck } from './../src/objects/delivery-check';
 export { default as DeliveryCheckExtraInfo } from './../src/objects/delivery-check-extra-info';
 export { default as DirectDeal } from './../src/objects/direct-deal';
-export { default as DirectDebit } from './../src/objects/direct-debit';
 export { default as Domain } from './../src/objects/domain';
 export { default as Engagement } from './../src/objects/engagement';
-export { default as EntWithSponsor } from './../src/objects/ent-with-sponsor';
 export { default as Event } from './../src/objects/event';
 export { default as EventSourceGroup } from './../src/objects/event-source-group';
 export { default as ExtendedCredit } from './../src/objects/extended-credit';
@@ -185,7 +183,6 @@ export { default as PageUpcomingChange } from './../src/objects/page-upcoming-ch
 export { default as PageVideosYouCanUse } from './../src/objects/page-videos-you-can-use';
 export { default as PartnerCategory } from './../src/objects/partner-category';
 export { default as PartnerIntegrationLinked } from './../src/objects/partner-integration-linked';
-export { default as Persona } from './../src/objects/persona';
 export { default as Photo } from './../src/objects/photo';
 export { default as PlaceTopic } from './../src/objects/place-topic';
 export { default as ProductCatalog } from './../src/objects/product-catalog';
@@ -235,8 +232,6 @@ export { default as TargetingGeoLocationZip } from './../src/objects/targeting-g
 export { default as TargetingProductAudienceSpec } from './../src/objects/targeting-product-audience-spec';
 export { default as TargetingProductAudienceSubSpec } from './../src/objects/targeting-product-audience-sub-spec';
 export { default as TargetingSentenceLine } from './../src/objects/targeting-sentence-line';
-export { default as Transaction } from './../src/objects/transaction';
-export { default as TransactionCurrencyAmount } from './../src/objects/transaction-currency-amount';
 export { default as URL } from './../src/objects/url';
 export { default as UnifiedThread } from './../src/objects/unified-thread';
 export { default as User } from './../src/objects/user';

@@ -46,7 +46,8 @@ export default class AdCreativeLinkData extends AbstractCrudObject {
       post_click_configuration: 'post_click_configuration',
       preferred_image_tags: 'preferred_image_tags',
       retailer_item_ids: 'retailer_item_ids',
-      show_multiple_images: 'show_multiple_images'
+      show_multiple_images: 'show_multiple_images',
+      static_fallback_spec: 'static_fallback_spec'
     });
   }
 

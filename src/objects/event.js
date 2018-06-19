@@ -24,6 +24,7 @@ export default class Event extends AbstractCrudObject {
       cover: 'cover',
       declined_count: 'declined_count',
       description: 'description',
+      discount_code_enabled: 'discount_code_enabled',
       end_time: 'end_time',
       event_times: 'event_times',
       guest_list_enabled: 'guest_list_enabled',
@@ -75,7 +76,8 @@ export default class Event extends AbstractCrudObject {
   static get PromotableEventTypes (): Object {
     return Object.freeze({
       offsite_ticket: 'OFFSITE_TICKET',
-      onsite_ticket: 'ONSITE_TICKET'
+      onsite_ticket: 'ONSITE_TICKET',
+      rsvp: 'RSVP'
     });
   }
 

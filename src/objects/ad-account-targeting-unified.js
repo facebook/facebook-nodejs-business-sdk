@@ -133,7 +133,8 @@ export default class AdAccountTargetingUnified extends AbstractCrudObject {
       user_page_threads: 'user_page_threads',
       user_page_threads_excluded: 'user_page_threads_excluded',
       is_whatsapp_destination_ad: 'is_whatsapp_destination_ad',
-      marketplace_product_categories: 'marketplace_product_categories'
+      marketplace_product_categories: 'marketplace_product_categories',
+      instream_video_sponsorship_placements: 'instream_video_sponsorship_placements'
     });
   }
 }

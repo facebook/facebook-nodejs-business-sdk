@@ -36,7 +36,6 @@ import MessengerProfile from './messenger-profile';
 import LifeEvent from './life-event';
 import NativeOffer from './native-offer';
 import BusinessRoleRequest from './business-role-request';
-import Persona from './persona';
 import Photo from './photo';
 import ProfilePictureSource from './profile-picture-source';
 import PlaceTopic from './place-topic';
@@ -84,6 +83,7 @@ export default class Page extends AbstractCrudObject {
       contact_address: 'contact_address',
       context: 'context',
       copyright_attribution_insights: 'copyright_attribution_insights',
+      copyright_whitelisted_ig_partners: 'copyright_whitelisted_ig_partners',
       country_page_likes: 'country_page_likes',
       cover: 'cover',
       culinary_team: 'culinary_team',
@@ -181,6 +181,7 @@ export default class Page extends AbstractCrudObject {
       single_line_address: 'single_line_address',
       starring: 'starring',
       start_info: 'start_info',
+      store_code: 'store_code',
       store_location_descriptor: 'store_location_descriptor',
       store_number: 'store_number',
       studio: 'studio',
@@ -581,15 +582,6 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createJoinThread (fields, params): Page {
-    return this.createEdge(
-      '/join_threads',
-      fields,
-      params,
-      Page
-    );
-  }
-
   createLabel (fields, params): PageLabel {
     return this.createEdge(
       '/labels',
@@ -617,12 +609,12 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createLeadGenDraftForm (fields, params): AbstractObject {
+  createLeadGenDraftForm (fields, params): Page {
     return this.createEdge(
       '/leadgen_draft_forms',
       fields,
-      params
-
+      params,
+      Page
     );
   }
 
@@ -870,25 +862,6 @@ export default class Page extends AbstractCrudObject {
   createPendingUser (fields, params): Page {
     return this.createEdge(
       '/pending_users',
-      fields,
-      params,
-      Page
-    );
-  }
-
-  getPersonas (fields, params, fetchFirstPage = true): Persona {
-    return this.getEdge(
-      Persona,
-      fields,
-      params,
-      fetchFirstPage,
-      '/personas'
-    );
-  }
-
-  createPersona (fields, params): Page {
-    return this.createEdge(
-      '/personas',
       fields,
       params,
       Page

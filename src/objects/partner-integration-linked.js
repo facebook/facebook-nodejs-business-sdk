@@ -20,6 +20,7 @@ export default class PartnerIntegrationLinked extends AbstractCrudObject {
       external_id: 'external_id',
       has_oauth_token: 'has_oauth_token',
       id: 'id',
+      name: 'name',
       offline_conversion_data_set: 'offline_conversion_data_set',
       partner: 'partner',
       product_catalog: 'product_catalog',

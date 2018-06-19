@@ -7,7 +7,6 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import AbstractObject from './../abstract-object';
 import InstagramInsightsResult from './instagram-insights-result';
 import ShadowIGMedia from './shadow-ig-media';
 
@@ -45,15 +44,6 @@ export default class ShadowIGUser extends AbstractCrudObject {
     );
   }
 
-  createMedia (fields, params): AbstractObject {
-    return this.createEdge(
-      '/media',
-      fields,
-      params
-
-    );
-  }
-
   getMedia (fields, params, fetchFirstPage = true): ShadowIGMedia {
     return this.getEdge(
       ShadowIGMedia,
@@ -61,6 +51,15 @@ export default class ShadowIGUser extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/media'
+    );
+  }
+
+  createMedia (fields, params): ShadowIGUser {
+    return this.createEdge(
+      '/media',
+      fields,
+      params,
+      ShadowIGUser
     );
   }
 

@@ -50,6 +50,7 @@ export default class User extends AbstractCrudObject {
       install_type: 'install_type',
       installed: 'installed',
       interested_in: 'interested_in',
+      is_famedeeplinkinguser: 'is_famedeeplinkinguser',
       is_payment_enabled: 'is_payment_enabled',
       is_shared_login: 'is_shared_login',
       is_verified: 'is_verified',

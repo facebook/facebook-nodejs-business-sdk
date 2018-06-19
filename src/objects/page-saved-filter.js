@@ -57,6 +57,7 @@ export default class PageSavedFilter extends AbstractCrudObject {
       lead_ads_draft_forms: 'LEAD_ADS_DRAFT_FORMS',
       lead_ads_forms: 'LEAD_ADS_FORMS',
       lead_ads_crm_setup: 'LEAD_ADS_CRM_SETUP',
+      lead_ads_custom_crm_setup: 'LEAD_ADS_CUSTOM_CRM_SETUP',
       published_posts: 'PUBLISHED_POSTS',
       scheduled_posts: 'SCHEDULED_POSTS',
       ads_posts: 'ADS_POSTS',
@@ -90,6 +91,7 @@ export default class PageSavedFilter extends AbstractCrudObject {
       reference_possible_conflicts: 'REFERENCE_POSSIBLE_CONFLICTS',
       reference_resolutions: 'REFERENCE_RESOLUTIONS',
       sound_recordings: 'SOUND_RECORDINGS',
+      premium_music_videos: 'PREMIUM_MUSIC_VIDEOS',
       live_broadcasts: 'LIVE_BROADCASTS',
       crossposted_videos: 'CROSSPOSTED_VIDEOS',
       published_profile_picture_frames: 'PUBLISHED_PROFILE_PICTURE_FRAMES',
@@ -117,7 +119,9 @@ export default class PageSavedFilter extends AbstractCrudObject {
       sounds_collection: 'SOUNDS_COLLECTION',
       content_tests: 'CONTENT_TESTS',
       gem_producer_dashboard: 'GEM_PRODUCER_DASHBOARD',
-      monetized_videos: 'MONETIZED_VIDEOS'
+      monetized_videos: 'MONETIZED_VIDEOS',
+      audio_releases: 'AUDIO_RELEASES',
+      news_storylines: 'NEWS_STORYLINES'
     });
   }
 

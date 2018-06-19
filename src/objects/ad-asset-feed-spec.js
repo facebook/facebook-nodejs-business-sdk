@@ -17,6 +17,7 @@ export default class AdAssetFeedSpec extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       ad_formats: 'ad_formats',
+      additional_data: 'additional_data',
       asset_customization_rules: 'asset_customization_rules',
       autotranslate: 'autotranslate',
       bodies: 'bodies',
@@ -79,7 +80,8 @@ export default class AdAssetFeedSpec extends AbstractCrudObject {
       get_showtimes: 'GET_SHOWTIMES',
       listen_now: 'LISTEN_NOW',
       event_rsvp: 'EVENT_RSVP',
-      whatsapp_message: 'WHATSAPP_MESSAGE'
+      whatsapp_message: 'WHATSAPP_MESSAGE',
+      follow_news_storyline: 'FOLLOW_NEWS_STORYLINE'
     });
   }
 }

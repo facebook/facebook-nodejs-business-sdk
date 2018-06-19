@@ -77,10 +77,12 @@ export default class AdAccount extends AbstractCrudObject {
       funding_source: 'funding_source',
       funding_source_details: 'funding_source_details',
       has_migrated_permissions: 'has_migrated_permissions',
+      has_page_authorized_adaccount: 'has_page_authorized_adaccount',
       id: 'id',
       io_number: 'io_number',
       is_attribution_spec_system_default: 'is_attribution_spec_system_default',
       is_direct_deals_enabled: 'is_direct_deals_enabled',
+      is_in_middle_of_local_entity_migration: 'is_in_middle_of_local_entity_migration',
       is_notifications_enabled: 'is_notifications_enabled',
       is_personal: 'is_personal',
       is_prepay_account: 'is_prepay_account',
@@ -103,10 +105,22 @@ export default class AdAccount extends AbstractCrudObject {
       timezone_name: 'timezone_name',
       timezone_offset_hours_utc: 'timezone_offset_hours_utc',
       tos_accepted: 'tos_accepted',
-      user_role: 'user_role'
+      user_role: 'user_role',
+      user_tos_accepted: 'user_tos_accepted'
     });
   }
 
+  static get PermittedRoles (): Object {
+    return Object.freeze({
+      admin: 'ADMIN',
+      general_user: 'GENERAL_USER',
+      reports_only: 'REPORTS_ONLY',
+      instagram_advertiser: 'INSTAGRAM_ADVERTISER',
+      instagram_manager: 'INSTAGRAM_MANAGER',
+      creative: 'CREATIVE',
+      fb_employee_dso_advertiser: 'FB_EMPLOYEE_DSO_ADVERTISER'
+    });
+  }
   static get Role (): Object {
     return Object.freeze({
       admin: 'ADMIN',
@@ -118,15 +132,22 @@ export default class AdAccount extends AbstractCrudObject {
       fb_employee_dso_advertiser: 'FB_EMPLOYEE_DSO_ADVERTISER'
     });
   }
-  static get PermittedRoles (): Object {
+  static get Subtype (): Object {
     return Object.freeze({
-      admin: 'ADMIN',
-      general_user: 'GENERAL_USER',
-      reports_only: 'REPORTS_ONLY',
-      instagram_advertiser: 'INSTAGRAM_ADVERTISER',
-      instagram_manager: 'INSTAGRAM_MANAGER',
-      creative: 'CREATIVE',
-      fb_employee_dso_advertiser: 'FB_EMPLOYEE_DSO_ADVERTISER'
+      custom: 'CUSTOM',
+      website: 'WEBSITE',
+      app: 'APP',
+      offline_conversion: 'OFFLINE_CONVERSION',
+      claim: 'CLAIM',
+      partner: 'PARTNER',
+      managed: 'MANAGED',
+      video: 'VIDEO',
+      lookalike: 'LOOKALIKE',
+      engagement: 'ENGAGEMENT',
+      data_set: 'DATA_SET',
+      bag_of_accounts: 'BAG_OF_ACCOUNTS',
+      study_rule_audience: 'STUDY_RULE_AUDIENCE',
+      fox: 'FOX'
     });
   }
 
@@ -404,12 +425,12 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createAgency (fields, params): AbstractObject {
+  createAgency (fields, params): AdAccount {
     return this.createEdge(
       '/agencies',
       fields,
-      params
-
+      params,
+      AdAccount
     );
   }
 
@@ -656,15 +677,6 @@ export default class AdAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/offsitepixels'
-    );
-  }
-
-  createOffsitePixel (fields, params): OffsitePixel {
-    return this.createEdge(
-      '/offsitepixels',
-      fields,
-      params,
-      OffsitePixel
     );
   }
 

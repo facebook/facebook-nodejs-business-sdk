@@ -46,7 +46,8 @@ export default class LiveVideo extends AbstractCrudObject {
     return Object.freeze({
       follower: 'FOLLOWER',
       slow: 'SLOW',
-      discussion: 'DISCUSSION'
+      discussion: 'DISCUSSION',
+      restricted: 'RESTRICTED'
     });
   }
   static get Status (): Object {
@@ -80,8 +81,7 @@ export default class LiveVideo extends AbstractCrudObject {
   static get Projection (): Object {
     return Object.freeze({
       equirectangular: 'EQUIRECTANGULAR',
-      cubemap: 'CUBEMAP',
-      single_fish_eye: 'SINGLE_FISH_EYE'
+      cubemap: 'CUBEMAP'
     });
   }
   static get SpatialAudioFormat (): Object {

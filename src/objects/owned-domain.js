@@ -17,8 +17,7 @@ export default class OwnedDomain extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       domain_name: 'domain_name',
-      id: 'id',
-      page_block_list: 'page_block_list'
+      id: 'id'
     });
   }
 

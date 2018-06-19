@@ -45,7 +45,8 @@ export default class AdRuleTrigger extends AbstractCrudObject {
       metadata_creation: 'METADATA_CREATION',
       metadata_update: 'METADATA_UPDATE',
       stats_milestone: 'STATS_MILESTONE',
-      stats_change: 'STATS_CHANGE'
+      stats_change: 'STATS_CHANGE',
+      delivery_insights_change: 'DELIVERY_INSIGHTS_CHANGE'
     });
   }
 }

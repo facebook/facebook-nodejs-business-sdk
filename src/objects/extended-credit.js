@@ -23,6 +23,7 @@ export default class ExtendedCredit extends AbstractCrudObject {
       credit_available: 'credit_available',
       credit_type: 'credit_type',
       id: 'id',
+      is_automated_experience: 'is_automated_experience',
       last_payment_time: 'last_payment_time',
       legal_entity_name: 'legal_entity_name',
       liable_biz_name: 'liable_biz_name',

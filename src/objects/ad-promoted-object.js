@@ -42,6 +42,7 @@ export default class AdPromotedObject extends AbstractCrudObject {
       complete_registration: 'COMPLETE_REGISTRATION',
       content_view: 'CONTENT_VIEW',
       search: 'SEARCH',
+      messaging_conversation_started_7d: 'MESSAGING_CONVERSATION_STARTED_7D',
       level_achieved: 'LEVEL_ACHIEVED',
       achievement_unlocked: 'ACHIEVEMENT_UNLOCKED',
       spent_credits: 'SPENT_CREDITS',

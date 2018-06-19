@@ -18,6 +18,7 @@ import AdAccount from './ad-account';
 export default class ExtendedCreditInvoiceGroup extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
+      customer_po_number: 'customer_po_number',
       email: 'email',
       emails: 'emails',
       id: 'id',

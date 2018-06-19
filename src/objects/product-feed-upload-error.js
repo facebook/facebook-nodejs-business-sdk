@@ -17,6 +17,7 @@ import AbstractObject from './../abstract-object';
 export default class ProductFeedUploadError extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
+      affected_surfaces: 'affected_surfaces',
       description: 'description',
       error_type: 'error_type',
       id: 'id',
@@ -26,6 +27,13 @@ export default class ProductFeedUploadError extends AbstractCrudObject {
     });
   }
 
+  static get AffectedSurfaces (): Object {
+    return Object.freeze({
+      dynamic_ads: 'Dynamic Ads',
+      marketplace: 'Marketplace',
+      us_marketplace: 'US Marketplace'
+    });
+  }
   static get Severity (): Object {
     return Object.freeze({
       fatal: 'fatal',

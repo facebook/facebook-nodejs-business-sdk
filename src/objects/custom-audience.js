@@ -24,6 +24,7 @@ export default class CustomAudience extends AbstractCrudObject {
     return Object.freeze({
       account_id: 'account_id',
       approximate_count: 'approximate_count',
+      customer_file_source: 'customer_file_source',
       data_source: 'data_source',
       delivery_status: 'delivery_status',
       description: 'description',
@@ -63,8 +64,16 @@ export default class CustomAudience extends AbstractCrudObject {
       flight: 'FLIGHT',
       home_listing: 'HOME_LISTING',
       hotel: 'HOTEL',
+      media_title: 'MEDIA_TITLE',
       vehicle: 'VEHICLE',
       vehicle_offer: 'VEHICLE_OFFER'
+    });
+  }
+  static get CustomerFileSource (): Object {
+    return Object.freeze({
+      user_provided_only: 'USER_PROVIDED_ONLY',
+      partner_provided_only: 'PARTNER_PROVIDED_ONLY',
+      both_user_and_partner_provided: 'BOTH_USER_AND_PARTNER_PROVIDED'
     });
   }
   static get Subtype (): Object {

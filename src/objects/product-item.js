@@ -18,6 +18,7 @@ import ProductSet from './product-set';
 export default class ProductItem extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
+      additional_image_cdn_urls: 'additional_image_cdn_urls',
       additional_image_urls: 'additional_image_urls',
       additional_variant_attributes: 'additional_variant_attributes',
       age_group: 'age_group',
@@ -40,10 +41,12 @@ export default class ProductItem extends AbstractCrudObject {
       gender: 'gender',
       gtin: 'gtin',
       id: 'id',
+      image_cdn_urls: 'image_cdn_urls',
       image_url: 'image_url',
       inventory: 'inventory',
       manufacturer_part_number: 'manufacturer_part_number',
       material: 'material',
+      mobile_link: 'mobile_link',
       name: 'name',
       ordering_index: 'ordering_index',
       pattern: 'pattern',
@@ -72,9 +75,11 @@ export default class ProductItem extends AbstractCrudObject {
   static get AgeGroup (): Object {
     return Object.freeze({
       adult: 'adult',
+      all_ages: 'all ages',
       infant: 'infant',
       kids: 'kids',
       newborn: 'newborn',
+      teen: 'teen',
       toddler: 'toddler'
     });
   }

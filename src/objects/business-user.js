@@ -19,8 +19,10 @@ export default class BusinessUser extends AbstractCrudObject {
     return Object.freeze({
       business: 'business',
       email: 'email',
+      finance_permission: 'finance_permission',
       first_name: 'first_name',
       id: 'id',
+      ip_permission: 'ip_permission',
       last_name: 'last_name',
       marked_for_removal: 'marked_for_removal',
       name: 'name',

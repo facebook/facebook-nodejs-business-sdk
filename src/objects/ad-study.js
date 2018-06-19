@@ -28,6 +28,7 @@ export default class AdStudy extends AbstractCrudObject {
       id: 'id',
       name: 'name',
       observation_end_time: 'observation_end_time',
+      results_first_available_date: 'results_first_available_date',
       start_time: 'start_time',
       type: 'type',
       updated_by: 'updated_by',

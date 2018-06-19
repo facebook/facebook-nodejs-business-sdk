@@ -31,6 +31,7 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
       id: 'id',
       is_restricted_use: 'is_restricted_use',
       last_upload_app: 'last_upload_app',
+      match_rate_approx: 'match_rate_approx',
       matched_entries: 'matched_entries',
       name: 'name',
       usage: 'usage',

@@ -46,6 +46,7 @@ import SystemUser from './system-user';
 export default class Business extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
+      block_offline_analytics: 'block_offline_analytics',
       created_by: 'created_by',
       created_time: 'created_time',
       id: 'id',
