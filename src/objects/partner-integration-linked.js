@@ -17,6 +17,7 @@ export default class PartnerIntegrationLinked extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       ads_pixel: 'ads_pixel',
+      application: 'application',
       external_id: 'external_id',
       has_oauth_token: 'has_oauth_token',
       id: 'id',

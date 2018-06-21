@@ -25,16 +25,20 @@ export default class Campaign extends AbstractCrudObject {
     return Object.freeze({
       account_id: 'account_id',
       adlabels: 'adlabels',
+      bid_strategy: 'bid_strategy',
       boosted_object_id: 'boosted_object_id',
       brand_lift_studies: 'brand_lift_studies',
       budget_rebalance_flag: 'budget_rebalance_flag',
+      budget_remaining: 'budget_remaining',
       buying_type: 'buying_type',
       can_create_brand_lift_study: 'can_create_brand_lift_study',
       can_use_spend_cap: 'can_use_spend_cap',
       configured_status: 'configured_status',
       created_time: 'created_time',
+      daily_budget: 'daily_budget',
       effective_status: 'effective_status',
       id: 'id',
+      lifetime_budget: 'lifetime_budget',
       name: 'name',
       objective: 'objective',
       recommendations: 'recommendations',
@@ -48,6 +52,13 @@ export default class Campaign extends AbstractCrudObject {
     });
   }
 
+  static get BidStrategy (): Object {
+    return Object.freeze({
+      lowest_cost_without_cap: 'LOWEST_COST_WITHOUT_CAP',
+      lowest_cost_with_bid_cap: 'LOWEST_COST_WITH_BID_CAP',
+      target_cost: 'TARGET_COST'
+    });
+  }
   static get ConfiguredStatus (): Object {
     return Object.freeze({
       active: 'ACTIVE',
