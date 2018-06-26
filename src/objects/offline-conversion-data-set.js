@@ -22,6 +22,7 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
       business: 'business',
       config: 'config',
       creation_time: 'creation_time',
+      data_origin: 'data_origin',
       description: 'description',
       duplicate_entries: 'duplicate_entries',
       enable_auto_assign_to_accounts: 'enable_auto_assign_to_accounts',
@@ -36,6 +37,15 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
       name: 'name',
       usage: 'usage',
       valid_entries: 'valid_entries'
+    });
+  }
+
+  static get DataOrigin (): Object {
+    return Object.freeze({
+      directly_from_people: 'DIRECTLY_FROM_PEOPLE',
+      people_and_partners: 'PEOPLE_AND_PARTNERS',
+      directly_from_partners: 'DIRECTLY_FROM_PARTNERS',
+      none: 'NONE'
     });
   }
 

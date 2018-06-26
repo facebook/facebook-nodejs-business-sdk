@@ -22,6 +22,7 @@ export default class LiveVideo extends AbstractCrudObject {
       broadcast_start_time: 'broadcast_start_time',
       copyright: 'copyright',
       creation_time: 'creation_time',
+      dash_ingest_url: 'dash_ingest_url',
       dash_preview_url: 'dash_preview_url',
       description: 'description',
       embed_html: 'embed_html',
@@ -87,6 +88,13 @@ export default class LiveVideo extends AbstractCrudObject {
   static get SpatialAudioFormat (): Object {
     return Object.freeze({
       ambix_4: 'ambiX_4'
+    });
+  }
+  static get StereoscopicMode (): Object {
+    return Object.freeze({
+      mono: 'MONO',
+      left_right: 'LEFT_RIGHT',
+      top_bottom: 'TOP_BOTTOM'
     });
   }
   static get Type (): Object {

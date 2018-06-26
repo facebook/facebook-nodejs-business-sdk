@@ -24,6 +24,7 @@ export default class PartnerIntegrationLinked extends AbstractCrudObject {
       name: 'name',
       offline_conversion_data_set: 'offline_conversion_data_set',
       partner: 'partner',
+      partner_profile: 'partner_profile',
       product_catalog: 'product_catalog',
       setup_status: 'setup_status'
     });
