@@ -428,8 +428,8 @@ class VideoEncodingStatusChecker {
     let status = null;
 
     while (true) {
-      status = VideoEncodingStatusChecker.getStatus(api, videoId);
-      status = status['video_status'];
+      status = await VideoEncodingStatusChecker.getStatus(api, videoId);
+      status = status['status']['video_status'];
 
       if (status !== 'processing') {
         break;
@@ -450,7 +450,7 @@ class VideoEncodingStatusChecker {
   static getStatus (api: FacebookAdsApi, videoId: Number) {
     const result = api.call('GET', [parseInt(videoId)], {fields: 'status'});
 
-    return result['status'];
+    return result;
   }
 }
 

@@ -73,7 +73,7 @@ export default class AdVideo extends AbstractCrudObject {
       throw Error('Invalid Video ID');
     }
 
-    VideoEncodingStatusChecker.waitUntilReady(
+    return VideoEncodingStatusChecker.waitUntilReady(
       this.getApi(),
       this['id'],
       interval,
