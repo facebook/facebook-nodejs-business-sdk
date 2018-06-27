@@ -444,6 +444,8 @@ class VideoEncodingStatusChecker {
 
     if (status !== 'ready') {
       throw Error(`Video encoding status ${status}`);
+    }else{
+      return status
     }
   }
 
