@@ -355,16 +355,6 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  getClientBusinesses (fields, params, fetchFirstPage = true): Business {
-    return this.getEdge(
-      Business,
-      fields,
-      params,
-      fetchFirstPage,
-      '/client_businesses'
-    );
-  }
-
   getClientPages (fields, params, fetchFirstPage = true): Page {
     return this.getEdge(
       Page,

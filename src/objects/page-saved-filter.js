@@ -110,7 +110,9 @@ export default class PageSavedFilter extends AbstractCrudObject {
       subscriptions: 'SUBSCRIPTIONS',
       news_subscriptions_publisher_tools: 'NEWS_SUBSCRIPTIONS_PUBLISHER_TOOLS',
       news_subscriptions_publisher_asset_management: 'NEWS_SUBSCRIPTIONS_PUBLISHER_ASSET_MANAGEMENT',
+      news_subscriptions_publisher_offer_management: 'NEWS_SUBSCRIPTIONS_PUBLISHER_OFFER_MANAGEMENT',
       qr_code: 'QR_CODE',
+      organic_pixel: 'ORGANIC_PIXEL',
       credibility_indicators: 'CREDIBILITY_INDICATORS',
       attributions: 'ATTRIBUTIONS',
       broadcasted_messages: 'BROADCASTED_MESSAGES',
@@ -121,7 +123,9 @@ export default class PageSavedFilter extends AbstractCrudObject {
       gem_producer_dashboard: 'GEM_PRODUCER_DASHBOARD',
       monetized_videos: 'MONETIZED_VIDEOS',
       audio_releases: 'AUDIO_RELEASES',
-      news_storylines: 'NEWS_STORYLINES'
+      news_storylines: 'NEWS_STORYLINES',
+      registrations: 'REGISTRATIONS',
+      ia_regiwall_settings: 'IA_REGIWALL_SETTINGS'
     });
   }
 

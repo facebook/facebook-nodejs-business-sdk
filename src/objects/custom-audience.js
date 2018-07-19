@@ -95,6 +95,15 @@ export default class CustomAudience extends AbstractCrudObject {
     });
   }
 
+  createAdAccount (fields, params): AdAccount {
+    return this.createEdge(
+      '/ad_accounts',
+      fields,
+      params,
+      AdAccount
+    );
+  }
+
   deleteAdAccounts (params): AbstractObject {
     return super.deleteEdge(
       '/adaccounts',
@@ -109,15 +118,6 @@ export default class CustomAudience extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/adaccounts'
-    );
-  }
-
-  createAdAccount (fields, params): AdAccount {
-    return this.createEdge(
-      '/adaccounts',
-      fields,
-      params,
-      AdAccount
     );
   }
 
