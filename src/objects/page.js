@@ -35,7 +35,6 @@ import MessagingFeatureReview from './messaging-feature-review';
 import MessengerProfile from './messenger-profile';
 import LifeEvent from './life-event';
 import NativeOffer from './native-offer';
-import BusinessRoleRequest from './business-role-request';
 import Photo from './photo';
 import ProfilePictureSource from './profile-picture-source';
 import PlaceTopic from './place-topic';
@@ -268,13 +267,15 @@ export default class Page extends AbstractCrudObject {
       vietnamese: 'Vietnamese'
     });
   }
-  static get Role (): Object {
+  static get Tasks (): Object {
     return Object.freeze({
-      manager: 'MANAGER',
-      content_creator: 'CONTENT_CREATOR',
-      moderator: 'MODERATOR',
-      advertiser: 'ADVERTISER',
-      insights_analyst: 'INSIGHTS_ANALYST'
+      manage: 'MANAGE',
+      create_content: 'CREATE_CONTENT',
+      moderate: 'MODERATE',
+      moderate_community: 'MODERATE_COMMUNITY',
+      advertise: 'ADVERTISE',
+      analyze: 'ANALYZE',
+      create_live_content: 'CREATE_LIVE_CONTENT'
     });
   }
   static get Locale (): Object {
@@ -815,15 +816,6 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createOffersV3 (fields, params): AbstractObject {
-    return this.createEdge(
-      '/offers_v3',
-      fields,
-      params
-
-    );
-  }
-
   createPageBackedInstagramAccount (fields, params): AbstractObject {
     return this.createEdge(
       '/page_backed_instagram_accounts',
@@ -839,32 +831,6 @@ export default class Page extends AbstractCrudObject {
       fields,
       params
 
-    );
-  }
-
-  deletePendingUsers (params): AbstractObject {
-    return super.deleteEdge(
-      '/pending_users',
-      params
-    );
-  }
-
-  getPendingUsers (fields, params, fetchFirstPage = true): BusinessRoleRequest {
-    return this.getEdge(
-      BusinessRoleRequest,
-      fields,
-      params,
-      fetchFirstPage,
-      '/pending_users'
-    );
-  }
-
-  createPendingUser (fields, params): Page {
-    return this.createEdge(
-      '/pending_users',
-      fields,
-      params,
-      Page
     );
   }
 

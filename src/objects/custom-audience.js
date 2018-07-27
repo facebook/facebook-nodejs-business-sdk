@@ -59,12 +59,12 @@ export default class CustomAudience extends AbstractCrudObject {
   }
   static get ContentType (): Object {
     return Object.freeze({
-      auto_offer: 'AUTO_OFFER',
       destination: 'DESTINATION',
       flight: 'FLIGHT',
       home_listing: 'HOME_LISTING',
       hotel: 'HOTEL',
       media_title: 'MEDIA_TITLE',
+      product: 'PRODUCT',
       vehicle: 'VEHICLE',
       vehicle_offer: 'VEHICLE_OFFER'
     });

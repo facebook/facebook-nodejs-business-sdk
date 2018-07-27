@@ -85,6 +85,12 @@ export default class LiveVideo extends AbstractCrudObject {
       cubemap: 'CUBEMAP'
     });
   }
+  static get Source (): Object {
+    return Object.freeze({
+      target: 'target',
+      owner: 'owner'
+    });
+  }
   static get SpatialAudioFormat (): Object {
     return Object.freeze({
       ambix_4: 'ambiX_4'
@@ -95,12 +101,6 @@ export default class LiveVideo extends AbstractCrudObject {
       mono: 'MONO',
       left_right: 'LEFT_RIGHT',
       top_bottom: 'TOP_BOTTOM'
-    });
-  }
-  static get Type (): Object {
-    return Object.freeze({
-      tagged: 'tagged',
-      uploaded: 'uploaded'
     });
   }
 

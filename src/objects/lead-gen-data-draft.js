@@ -35,7 +35,8 @@ export default class LeadGenDataDraft extends AbstractCrudObject {
       question_page_custom_headline: 'question_page_custom_headline',
       questions: 'questions',
       status: 'status',
-      thank_you_page: 'thank_you_page'
+      thank_you_page: 'thank_you_page',
+      tracking_parameters: 'tracking_parameters'
     });
   }
 

@@ -95,6 +95,7 @@ export default class AdAccount extends AbstractCrudObject {
       offsite_pixels_tos_accepted: 'offsite_pixels_tos_accepted',
       owner: 'owner',
       partner: 'partner',
+      rate_limit_reset_time: 'rate_limit_reset_time',
       rf_spec: 'rf_spec',
       show_checkout_experience: 'show_checkout_experience',
       spend_cap: 'spend_cap',
@@ -110,26 +111,18 @@ export default class AdAccount extends AbstractCrudObject {
     });
   }
 
-  static get PermittedRoles (): Object {
+  static get PermittedTasks (): Object {
     return Object.freeze({
-      admin: 'ADMIN',
-      general_user: 'GENERAL_USER',
-      reports_only: 'REPORTS_ONLY',
-      instagram_advertiser: 'INSTAGRAM_ADVERTISER',
-      instagram_manager: 'INSTAGRAM_MANAGER',
-      creative: 'CREATIVE',
-      fb_employee_dso_advertiser: 'FB_EMPLOYEE_DSO_ADVERTISER'
+      manage: 'MANAGE',
+      advertise: 'ADVERTISE',
+      analyze: 'ANALYZE'
     });
   }
-  static get Role (): Object {
+  static get Tasks (): Object {
     return Object.freeze({
-      admin: 'ADMIN',
-      general_user: 'GENERAL_USER',
-      reports_only: 'REPORTS_ONLY',
-      instagram_advertiser: 'INSTAGRAM_ADVERTISER',
-      instagram_manager: 'INSTAGRAM_MANAGER',
-      creative: 'CREATIVE',
-      fb_employee_dso_advertiser: 'FB_EMPLOYEE_DSO_ADVERTISER'
+      manage: 'MANAGE',
+      advertise: 'ADVERTISE',
+      analyze: 'ANALYZE'
     });
   }
   static get Subtype (): Object {
@@ -697,22 +690,6 @@ export default class AdAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/partners'
-    );
-  }
-
-  deletePendingUsers (params): AbstractObject {
-    return super.deleteEdge(
-      '/pending_users',
-      params
-    );
-  }
-
-  createPendingUser (fields, params): AdAccount {
-    return this.createEdge(
-      '/pending_users',
-      fields,
-      params,
-      AdAccount
     );
   }
 
