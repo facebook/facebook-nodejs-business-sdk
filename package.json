@@ -64,7 +64,7 @@
   "dependencies": {
     "mixwith": "~0.1.1",
     "request": "^2.81.0",
-    "request-promise": "~4.1.1",
+    "request-promise": "~4.1.1"
   },
   "scripts": {
     "prepublish": "gulp dist",
