@@ -61,7 +61,6 @@ export default class AdsInsights extends AbstractCrudObject {
       place_page_name: 'place_page_name',
       reach: 'reach',
       relevance_score: 'relevance_score',
-      social_impressions: 'social_impressions',
       social_spend: 'social_spend',
       spend: 'spend',
       total_action_value: 'total_action_value',
