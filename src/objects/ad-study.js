@@ -80,6 +80,12 @@ export default class AdStudy extends AbstractCrudObject {
     );
   }
 
+  deleteAdStudy(params): AbstractObject {
+    return super.delete(
+      params
+    );
+  }
+
   createUserPermission (fields, params): AdStudy {
     return this.createEdge(
       '/userpermissions',
