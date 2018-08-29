@@ -80,7 +80,7 @@ export default class AdStudy extends AbstractCrudObject {
     );
   }
 
-  deleteAdStudy(params): AbstractObject {
+  delete(params): AbstractObject {
     return super.delete(
       params
     );
