@@ -16,6 +16,7 @@ import {FacebookRequestError} from './exceptions';
 export default class FacebookAdsApi {
   _debug: boolean;
   accessToken: string;
+  appsecret_proof: string;
   locale: string;
   static _defaultApi: FacebookAdsApi;
   static get VERSION () {
@@ -33,11 +34,12 @@ export default class FacebookAdsApi {
    * @param {String} accessToken
    * @param {String} [locale]
    */
-  constructor (accessToken: string, locale: string = 'en_US') {
+  constructor (accessToken: string, appsecret_proof: string = null, locale: string = 'en_US') {
     if (!accessToken) {
       throw new Error('Access token required');
     }
     this.accessToken = accessToken;
+    this.appsecret_proof = appsecret_proof
     this.locale = locale;
     this._debug = false;
   }
@@ -93,11 +95,23 @@ export default class FacebookAdsApi {
     if (typeof path !== 'string' && !(path instanceof String)) {
       url = [domain, FacebookAdsApi.VERSION, ...path].join('/');
       params['access_token'] = this.accessToken;
+      params['appsecret_proof'] = this.appsecret_proof;
       url += `?${FacebookAdsApi._encodeParams(params)}`;
     } else {
       url = path;
+      
+    }
+
+    if(this.appsecret_proof ){
+      let connector: string = '?';
+      if(url.indexOf('?') > -1)
+      { 
+        connector ='&';
+      }
+      url += connector + 'appsecret_proof=' + this.appsecret_proof;
     }
     const strUrl: string = (url: any);
+
     return Http.request(method, strUrl, data, files, useMultipartFormData)
       .then(response => {
         if (this._debug) {
