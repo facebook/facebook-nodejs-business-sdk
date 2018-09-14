@@ -8,6 +8,16 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Business from './business';
+import BusinessTag from './business-tag';
+import BusinessRequest from './business-request';
+import Comment from './comment';
+import BusinessObject from './business-object';
+import InsightsResult from './insights-result';
+import Profile from './profile';
+import Post from './post';
+import Page from './page';
+import TaggableSubject from './taggable-subject';
 
 /**
  * Photo
@@ -55,13 +65,6 @@ export default class Photo extends AbstractCrudObject {
       none: 'none'
     });
   }
-  static get Type (): Object {
-    return Object.freeze({
-      profile: 'profile',
-      tagged: 'tagged',
-      uploaded: 'uploaded'
-    });
-  }
   static get UnpublishedContentType (): Object {
     return Object.freeze({
       scheduled: 'SCHEDULED',
@@ -69,6 +72,13 @@ export default class Photo extends AbstractCrudObject {
       ads_post: 'ADS_POST',
       inline_created: 'INLINE_CREATED',
       published: 'PUBLISHED'
+    });
+  }
+  static get Type (): Object {
+    return Object.freeze({
+      profile: 'profile',
+      tagged: 'tagged',
+      uploaded: 'uploaded'
     });
   }
   static get CheckinEntryPoint (): Object {
@@ -79,6 +89,99 @@ export default class Photo extends AbstractCrudObject {
       branding_other: 'BRANDING_OTHER'
     });
   }
+  static get Formatting (): Object {
+    return Object.freeze({
+      plaintext: 'PLAINTEXT',
+      markdown: 'MARKDOWN'
+    });
+  }
+  static get PostSurfacesBlacklist (): Object {
+    return Object.freeze({
+      value_1: '1',
+      value_2: '2',
+      value_3: '3',
+      value_4: '4',
+      value_5: '5'
+    });
+  }
+
+  getAssignedPartners (fields, params, fetchFirstPage = true): Business {
+    return this.getEdge(
+      Business,
+      fields,
+      params,
+      fetchFirstPage,
+      '/assigned_partners'
+    );
+  }
+
+  getBusinessObjectTags (fields, params, fetchFirstPage = true): BusinessTag {
+    return this.getEdge(
+      BusinessTag,
+      fields,
+      params,
+      fetchFirstPage,
+      '/business_object_tags'
+    );
+  }
+
+  getBusinessRequests (fields, params, fetchFirstPage = true): BusinessRequest {
+    return this.getEdge(
+      BusinessRequest,
+      fields,
+      params,
+      fetchFirstPage,
+      '/business_requests'
+    );
+  }
+
+  getComments (fields, params, fetchFirstPage = true): Comment {
+    return this.getEdge(
+      Comment,
+      fields,
+      params,
+      fetchFirstPage,
+      '/comments'
+    );
+  }
+
+  createComment (fields, params): Comment {
+    return this.createEdge(
+      '/comments',
+      fields,
+      params,
+      Comment
+    );
+  }
+
+  getConnectedBusinessObjects (fields, params, fetchFirstPage = true): BusinessObject {
+    return this.getEdge(
+      BusinessObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/connected_business_objects'
+    );
+  }
+
+  createDismissTagSuggestion (fields, params): Photo {
+    return this.createEdge(
+      '/dismisstagsuggestion',
+      fields,
+      params,
+      Photo
+    );
+  }
+
+  getInsights (fields, params, fetchFirstPage = true): InsightsResult {
+    return this.getEdge(
+      InsightsResult,
+      fields,
+      params,
+      fetchFirstPage,
+      '/insights'
+    );
+  }
 
   deleteLikes (params): AbstractObject {
     return super.deleteEdge(
@@ -87,21 +190,80 @@ export default class Photo extends AbstractCrudObject {
     );
   }
 
-  createLike (fields, params): AbstractObject {
-    return this.createEdge(
-      '/likes',
+  getLikes (fields, params, fetchFirstPage = true): Profile {
+    return this.getEdge(
+      Profile,
       fields,
-      params
-
+      params,
+      fetchFirstPage,
+      '/likes'
     );
   }
 
-  createTag (fields, params): AbstractObject {
+  createLike (fields, params): Photo {
+    return this.createEdge(
+      '/likes',
+      fields,
+      params,
+      Photo
+    );
+  }
+
+  createPhoto (fields, params): Photo {
+    return this.createEdge(
+      '/photos',
+      fields,
+      params,
+      Photo
+    );
+  }
+
+  getReactions (fields, params, fetchFirstPage = true): Profile {
+    return this.getEdge(
+      Profile,
+      fields,
+      params,
+      fetchFirstPage,
+      '/reactions'
+    );
+  }
+
+  getShareDPosts (fields, params, fetchFirstPage = true): Post {
+    return this.getEdge(
+      Post,
+      fields,
+      params,
+      fetchFirstPage,
+      '/sharedposts'
+    );
+  }
+
+  getSponsorTags (fields, params, fetchFirstPage = true): Page {
+    return this.getEdge(
+      Page,
+      fields,
+      params,
+      fetchFirstPage,
+      '/sponsor_tags'
+    );
+  }
+
+  getTags (fields, params, fetchFirstPage = true): TaggableSubject {
+    return this.getEdge(
+      TaggableSubject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/tags'
+    );
+  }
+
+  createTag (fields, params): Photo {
     return this.createEdge(
       '/tags',
       fields,
-      params
-
+      params,
+      Photo
     );
   }
 

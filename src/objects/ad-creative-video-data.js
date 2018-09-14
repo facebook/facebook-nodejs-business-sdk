@@ -22,6 +22,8 @@ export default class AdCreativeVideoData extends AbstractCrudObject {
       branded_content_sponsor_relationship: 'branded_content_sponsor_relationship',
       call_to_action: 'call_to_action',
       collection_thumbnails: 'collection_thumbnails',
+      custom_overlay_spec: 'custom_overlay_spec',
+      description: 'description',
       image_hash: 'image_hash',
       image_url: 'image_url',
       link_description: 'link_description',
@@ -32,7 +34,15 @@ export default class AdCreativeVideoData extends AbstractCrudObject {
       retailer_item_ids: 'retailer_item_ids',
       targeting: 'targeting',
       title: 'title',
-      video_id: 'video_id'
+      video_id: 'video_id',
+      id: 'id'
     });
+  }
+
+  get (fields, params): AdCreativeVideoData {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

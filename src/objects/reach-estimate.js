@@ -18,7 +18,42 @@ export default class ReachEstimate extends AbstractCrudObject {
     return Object.freeze({
       estimate_ready: 'estimate_ready',
       unsupported: 'unsupported',
-      users: 'users'
+      users: 'users',
+      id: 'id'
     });
+  }
+
+  static get OptimizeFor (): Object {
+    return Object.freeze({
+      none: 'NONE',
+      app_installs: 'APP_INSTALLS',
+      brand_awareness: 'BRAND_AWARENESS',
+      ad_recall_lift: 'AD_RECALL_LIFT',
+      clicks: 'CLICKS',
+      engaged_users: 'ENGAGED_USERS',
+      event_responses: 'EVENT_RESPONSES',
+      impressions: 'IMPRESSIONS',
+      lead_generation: 'LEAD_GENERATION',
+      link_clicks: 'LINK_CLICKS',
+      offer_claims: 'OFFER_CLAIMS',
+      offsite_conversions: 'OFFSITE_CONVERSIONS',
+      page_engagement: 'PAGE_ENGAGEMENT',
+      page_likes: 'PAGE_LIKES',
+      post_engagement: 'POST_ENGAGEMENT',
+      reach: 'REACH',
+      social_impressions: 'SOCIAL_IMPRESSIONS',
+      video_views: 'VIDEO_VIEWS',
+      app_downloads: 'APP_DOWNLOADS',
+      landing_page_views: 'LANDING_PAGE_VIEWS',
+      value: 'VALUE',
+      replies: 'REPLIES'
+    });
+  }
+
+  get (fields, params): ReachEstimate {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

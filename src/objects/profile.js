@@ -40,6 +40,19 @@ export default class Profile extends AbstractCrudObject {
       application: 'application'
     });
   }
+  static get Type (): Object {
+    return Object.freeze({
+      none: 'NONE',
+      like: 'LIKE',
+      love: 'LOVE',
+      wow: 'WOW',
+      haha: 'HAHA',
+      sad: 'SAD',
+      angry: 'ANGRY',
+      thankful: 'THANKFUL',
+      pride: 'PRIDE'
+    });
+  }
 
   getPicture (fields, params, fetchFirstPage = true): ProfilePictureSource {
     return this.getEdge(

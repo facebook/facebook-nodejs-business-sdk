@@ -20,7 +20,15 @@ export default class MinimumBudget extends AbstractCrudObject {
       min_daily_budget_high_freq: 'min_daily_budget_high_freq',
       min_daily_budget_imp: 'min_daily_budget_imp',
       min_daily_budget_low_freq: 'min_daily_budget_low_freq',
-      min_daily_budget_video_views: 'min_daily_budget_video_views'
+      min_daily_budget_video_views: 'min_daily_budget_video_views',
+      id: 'id'
     });
+  }
+
+  get (fields, params): MinimumBudget {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

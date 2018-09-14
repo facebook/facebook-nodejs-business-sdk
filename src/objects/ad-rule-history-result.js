@@ -18,7 +18,8 @@ export default class AdRuleHistoryResult extends AbstractCrudObject {
     return Object.freeze({
       actions: 'actions',
       object_id: 'object_id',
-      object_type: 'object_type'
+      object_type: 'object_type',
+      id: 'id'
     });
   }
 
@@ -28,5 +29,12 @@ export default class AdRuleHistoryResult extends AbstractCrudObject {
       adset: 'ADSET',
       ad: 'AD'
     });
+  }
+
+  get (fields, params): AdRuleHistoryResult {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

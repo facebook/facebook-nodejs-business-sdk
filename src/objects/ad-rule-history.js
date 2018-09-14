@@ -23,7 +23,8 @@ export default class AdRuleHistory extends AbstractCrudObject {
       is_manual: 'is_manual',
       results: 'results',
       schedule_spec: 'schedule_spec',
-      timestamp: 'timestamp'
+      timestamp: 'timestamp',
+      id: 'id'
     });
   }
 
@@ -41,5 +42,12 @@ export default class AdRuleHistory extends AbstractCrudObject {
       paused: 'PAUSED',
       unpaused: 'UNPAUSED'
     });
+  }
+
+  get (fields, params): AdRuleHistory {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

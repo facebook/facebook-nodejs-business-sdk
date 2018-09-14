@@ -17,7 +17,15 @@ export default class UserLeadGenDisclaimerResponse extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       checkbox_key: 'checkbox_key',
-      is_checked: 'is_checked'
+      is_checked: 'is_checked',
+      id: 'id'
     });
+  }
+
+  get (fields, params): UserLeadGenDisclaimerResponse {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

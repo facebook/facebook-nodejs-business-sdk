@@ -18,7 +18,15 @@ export default class CustomAudiencePrefillState extends AbstractCrudObject {
     return Object.freeze({
       description: 'description',
       num_added: 'num_added',
-      status: 'status'
+      status: 'status',
+      id: 'id'
     });
+  }
+
+  get (fields, params): CustomAudiencePrefillState {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

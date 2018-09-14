@@ -18,7 +18,8 @@ export default class AdsPixelStatsResult extends AbstractCrudObject {
     return Object.freeze({
       aggregation: 'aggregation',
       data: 'data',
-      start_time: 'start_time'
+      start_time: 'start_time',
+      id: 'id'
     });
   }
 
@@ -34,5 +35,12 @@ export default class AdsPixelStatsResult extends AbstractCrudObject {
       url: 'url',
       event_total_counts: 'event_total_counts'
     });
+  }
+
+  get (fields, params): AdsPixelStatsResult {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

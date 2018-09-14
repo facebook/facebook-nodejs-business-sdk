@@ -23,4 +23,11 @@ export default class CoverPhoto extends AbstractCrudObject {
       source: 'source'
     });
   }
+
+  get (fields, params): CoverPhoto {
+    return this.read(
+      fields,
+      params
+    );
+  }
 }

@@ -18,7 +18,15 @@ export default class DeliveryCheckExtraInfo extends AbstractCrudObject {
     return Object.freeze({
       adgroup_ids: 'adgroup_ids',
       campaign_ids: 'campaign_ids',
-      countries: 'countries'
+      countries: 'countries',
+      id: 'id'
     });
+  }
+
+  get (fields, params): DeliveryCheckExtraInfo {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

@@ -8,6 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import TextWithEntities from './text-with-entities';
 
 /**
  * Canvas
@@ -39,12 +40,22 @@ export default class Canvas extends AbstractCrudObject {
     );
   }
 
-  createPreviewNotification (fields, params): AbstractObject {
+  createPreviewNotification (fields, params): Canvas {
     return this.createEdge(
       '/preview_notifications',
       fields,
-      params
+      params,
+      Canvas
+    );
+  }
 
+  getPreviews (fields, params, fetchFirstPage = true): TextWithEntities {
+    return this.getEdge(
+      TextWithEntities,
+      fields,
+      params,
+      fetchFirstPage,
+      '/previews'
     );
   }
 

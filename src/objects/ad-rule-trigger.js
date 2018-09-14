@@ -19,7 +19,8 @@ export default class AdRuleTrigger extends AbstractCrudObject {
       field: 'field',
       operator: 'operator',
       type: 'type',
-      value: 'value'
+      value: 'value',
+      id: 'id'
     });
   }
 
@@ -48,5 +49,12 @@ export default class AdRuleTrigger extends AbstractCrudObject {
       stats_change: 'STATS_CHANGE',
       delivery_insights_change: 'DELIVERY_INSIGHTS_CHANGE'
     });
+  }
+
+  get (fields, params): AdRuleTrigger {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

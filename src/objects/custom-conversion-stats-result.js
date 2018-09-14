@@ -18,7 +18,8 @@ export default class CustomConversionStatsResult extends AbstractCrudObject {
     return Object.freeze({
       aggregation: 'aggregation',
       data: 'data',
-      timestamp: 'timestamp'
+      timestamp: 'timestamp',
+      id: 'id'
     });
   }
 
@@ -33,5 +34,12 @@ export default class CustomConversionStatsResult extends AbstractCrudObject {
       url: 'url',
       usd_amount: 'usd_amount'
     });
+  }
+
+  get (fields, params): CustomConversionStatsResult {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

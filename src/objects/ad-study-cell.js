@@ -7,6 +7,9 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AdAccount from './ad-account';
+import AdSet from './ad-set';
+import Campaign from './campaign';
 
 /**
  * AdStudyCell
@@ -45,6 +48,36 @@ export default class AdStudyCell extends AbstractCrudObject {
       medium_frequency: 'MEDIUM_FREQUENCY',
       high_frequency: 'HIGH_FREQUENCY'
     });
+  }
+
+  getAdAccounts (fields, params, fetchFirstPage = true): AdAccount {
+    return this.getEdge(
+      AdAccount,
+      fields,
+      params,
+      fetchFirstPage,
+      '/adaccounts'
+    );
+  }
+
+  getAdSets (fields, params, fetchFirstPage = true): AdSet {
+    return this.getEdge(
+      AdSet,
+      fields,
+      params,
+      fetchFirstPage,
+      '/adsets'
+    );
+  }
+
+  getCampaigns (fields, params, fetchFirstPage = true): Campaign {
+    return this.getEdge(
+      Campaign,
+      fields,
+      params,
+      fetchFirstPage,
+      '/campaigns'
+    );
   }
 
   get (fields, params): AdStudyCell {

@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
 
 /**
  * AudioCopyright
@@ -31,9 +32,33 @@ export default class AudioCopyright extends AbstractCrudObject {
     });
   }
 
+  static get UpdateSource (): Object {
+    return Object.freeze({
+      edit_reference_dialog: 'edit_reference_dialog',
+      ddex: 'ddex',
+      reference_conflict_dialog: 'reference_conflict_dialog'
+    });
+  }
+
+  getUpdateRecords (fields, params, fetchFirstPage = true): AbstractObject {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/update_records'
+    );
+  }
+
   get (fields, params): AudioCopyright {
     return this.read(
       fields,
+      params
+    );
+  }
+
+  update (fields, params): AudioCopyright {
+    return super.update(
       params
     );
   }

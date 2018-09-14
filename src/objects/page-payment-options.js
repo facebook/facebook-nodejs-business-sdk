@@ -20,7 +20,15 @@ export default class PagePaymentOptions extends AbstractCrudObject {
       cash_only: 'cash_only',
       discover: 'discover',
       mastercard: 'mastercard',
-      visa: 'visa'
+      visa: 'visa',
+      id: 'id'
     });
+  }
+
+  get (fields, params): PagePaymentOptions {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

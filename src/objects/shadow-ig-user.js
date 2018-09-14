@@ -7,8 +7,16 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import InstagramInsightsResult from './instagram-insights-result';
+import AnalyticsCohortQueryResult from './analytics-cohort-query-result';
+import AnalyticsEntityUserConfig from './analytics-entity-user-config';
+import AnalyticsEventTypes from './analytics-event-types';
+import AnalyticsFunnelQueryResult from './analytics-funnel-query-result';
+import AnalyticsQueryResult from './analytics-query-result';
+import AnalyticsQueryExportResult from './analytics-query-export-result';
+import AnalyticsSegment from './analytics-segment';
 import ShadowIGMedia from './shadow-ig-media';
+import InstagramInsightsResult from './instagram-insights-result';
+import VideoGroup from './video-group';
 
 /**
  * ShadowIGUser
@@ -34,6 +42,86 @@ export default class ShadowIGUser extends AbstractCrudObject {
     });
   }
 
+  getAnalyticsCohortQuery (fields, params, fetchFirstPage = true): AnalyticsCohortQueryResult {
+    return this.getEdge(
+      AnalyticsCohortQueryResult,
+      fields,
+      params,
+      fetchFirstPage,
+      '/analytics_cohort_query'
+    );
+  }
+
+  getAnalyticsEntityUserConfig (fields, params, fetchFirstPage = true): AnalyticsEntityUserConfig {
+    return this.getEdge(
+      AnalyticsEntityUserConfig,
+      fields,
+      params,
+      fetchFirstPage,
+      '/analytics_entity_user_config'
+    );
+  }
+
+  getAnalyticsEventTypes (fields, params, fetchFirstPage = true): AnalyticsEventTypes {
+    return this.getEdge(
+      AnalyticsEventTypes,
+      fields,
+      params,
+      fetchFirstPage,
+      '/analytics_event_types'
+    );
+  }
+
+  getAnalyticsFunnelQuery (fields, params, fetchFirstPage = true): AnalyticsFunnelQueryResult {
+    return this.getEdge(
+      AnalyticsFunnelQueryResult,
+      fields,
+      params,
+      fetchFirstPage,
+      '/analytics_funnel_query'
+    );
+  }
+
+  getAnalyticsQuery (fields, params, fetchFirstPage = true): AnalyticsQueryResult {
+    return this.getEdge(
+      AnalyticsQueryResult,
+      fields,
+      params,
+      fetchFirstPage,
+      '/analytics_query'
+    );
+  }
+
+  getAnalyticsQueryExport (fields, params, fetchFirstPage = true): AnalyticsQueryExportResult {
+    return this.getEdge(
+      AnalyticsQueryExportResult,
+      fields,
+      params,
+      fetchFirstPage,
+      '/analytics_query_export'
+    );
+  }
+
+  getAnalyticsSegments (fields, params, fetchFirstPage = true): AnalyticsSegment {
+    return this.getEdge(
+      AnalyticsSegment,
+      fields,
+      params,
+      fetchFirstPage,
+      '/analytics_segments'
+    );
+  }
+
+  getBrandedContent (fields, params, fetchFirstPage = true): ShadowIGMedia {
+    return this.getEdge(
+      ShadowIGMedia,
+      fields,
+      params,
+      fetchFirstPage,
+      '/branded_content'
+    );
+  }
+
   getInsights (fields, params, fetchFirstPage = true): InstagramInsightsResult {
     return this.getEdge(
       InstagramInsightsResult,
@@ -54,12 +142,12 @@ export default class ShadowIGUser extends AbstractCrudObject {
     );
   }
 
-  createMedia (fields, params): ShadowIGUser {
+  createMedia (fields, params): ShadowIGMedia {
     return this.createEdge(
       '/media',
       fields,
       params,
-      ShadowIGUser
+      ShadowIGMedia
     );
   }
 
@@ -72,6 +160,16 @@ export default class ShadowIGUser extends AbstractCrudObject {
     );
   }
 
+  getStories (fields, params, fetchFirstPage = true): ShadowIGMedia {
+    return this.getEdge(
+      ShadowIGMedia,
+      fields,
+      params,
+      fetchFirstPage,
+      '/stories'
+    );
+  }
+
   getTags (fields, params, fetchFirstPage = true): ShadowIGMedia {
     return this.getEdge(
       ShadowIGMedia,
@@ -79,6 +177,16 @@ export default class ShadowIGUser extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/tags'
+    );
+  }
+
+  getVideoGroups (fields, params, fetchFirstPage = true): VideoGroup {
+    return this.getEdge(
+      VideoGroup,
+      fields,
+      params,
+      fetchFirstPage,
+      '/video_groups'
     );
   }
 

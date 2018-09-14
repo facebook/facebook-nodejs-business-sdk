@@ -19,10 +19,19 @@ export default class LookalikeSpec extends AbstractCrudObject {
       country: 'country',
       is_financial_service: 'is_financial_service',
       origin: 'origin',
+      origin_event_source_type: 'origin_event_source_type',
       ratio: 'ratio',
       starting_ratio: 'starting_ratio',
       target_countries: 'target_countries',
-      type: 'type'
+      type: 'type',
+      id: 'id'
     });
+  }
+
+  get (fields, params): LookalikeSpec {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

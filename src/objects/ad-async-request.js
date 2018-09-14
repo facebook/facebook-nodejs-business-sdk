@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
 
 /**
  * AdAsyncRequest
@@ -53,6 +54,12 @@ export default class AdAsyncRequest extends AbstractCrudObject {
       error_dependency: 'ERROR_DEPENDENCY',
       error_conflicts: 'ERROR_CONFLICTS'
     });
+  }
+
+  delete (fields, params): AbstractObject {
+    return super.delete(
+      params
+    );
   }
 
   get (fields, params): AdAsyncRequest {

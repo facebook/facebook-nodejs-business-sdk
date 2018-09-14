@@ -20,7 +20,15 @@ export default class PageRestaurantSpecialties extends AbstractCrudObject {
       coffee: 'coffee',
       dinner: 'dinner',
       drinks: 'drinks',
-      lunch: 'lunch'
+      lunch: 'lunch',
+      id: 'id'
     });
+  }
+
+  get (fields, params): PageRestaurantSpecialties {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

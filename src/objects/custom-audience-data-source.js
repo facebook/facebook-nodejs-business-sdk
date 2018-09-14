@@ -18,7 +18,8 @@ export default class CustomAudienceDataSource extends AbstractCrudObject {
     return Object.freeze({
       creation_params: 'creation_params',
       sub_type: 'sub_type',
-      type: 'type'
+      type: 'type',
+      id: 'id'
     });
   }
 
@@ -70,6 +71,7 @@ export default class CustomAudienceDataSource extends AbstractCrudObject {
       platform_users: 'PLATFORM_USERS',
       multi_event_source: 'MULTI_EVENT_SOURCE',
       smart_audience: 'SMART_AUDIENCE',
+      lookalike_platform: 'LOOKALIKE_PLATFORM',
       mail_chimp_email_hashes: 'MAIL_CHIMP_EMAIL_HASHES',
       constant_contacts_email_hashes: 'CONSTANT_CONTACTS_EMAIL_HASHES',
       copy_paste_email_hashes: 'COPY_PASTE_EMAIL_HASHES',
@@ -88,5 +90,12 @@ export default class CustomAudienceDataSource extends AbstractCrudObject {
       contact_importer: 'CONTACT_IMPORTER',
       household_audience: 'HOUSEHOLD_AUDIENCE'
     });
+  }
+
+  get (fields, params): CustomAudienceDataSource {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

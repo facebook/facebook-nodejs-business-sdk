@@ -21,6 +21,7 @@ export default class MediaFingerprint extends AbstractCrudObject {
       expiration_time: 'expiration_time',
       fingerprint_content_type: 'fingerprint_content_type',
       fingerprint_type: 'fingerprint_type',
+      fingerprint_validity: 'fingerprint_validity',
       id: 'id',
       metadata: 'metadata',
       title: 'title',
@@ -35,6 +36,13 @@ export default class MediaFingerprint extends AbstractCrudObject {
       other: 'OTHER',
       movie: 'MOVIE',
       am_songtrack: 'AM_SONGTRACK'
+    });
+  }
+  static get FingerprintValidity (): Object {
+    return Object.freeze({
+      valid: 'VALID',
+      expiring: 'EXPIRING',
+      expired: 'EXPIRED'
     });
   }
 

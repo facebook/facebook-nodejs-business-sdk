@@ -83,10 +83,12 @@ export default class Targeting extends AbstractCrudObject {
       moms: 'moms',
       net_worth: 'net_worth',
       office_type: 'office_type',
+      page_types: 'page_types',
       place_page_set_ids: 'place_page_set_ids',
       political_views: 'political_views',
       politics: 'politics',
       product_audience_specs: 'product_audience_specs',
+      prospecting_audience: 'prospecting_audience',
       publisher_platforms: 'publisher_platforms',
       publisher_visibility_categories: 'publisher_visibility_categories',
       radius: 'radius',
@@ -102,7 +104,8 @@ export default class Targeting extends AbstractCrudObject {
       wireless_carrier: 'wireless_carrier',
       work_employers: 'work_employers',
       work_positions: 'work_positions',
-      zips: 'zips'
+      zips: 'zips',
+      id: 'id'
     });
   }
 
@@ -119,5 +122,12 @@ export default class Targeting extends AbstractCrudObject {
       desktop: 'desktop',
       connected_tv: 'connected_tv'
     });
+  }
+
+  get (fields, params): Targeting {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

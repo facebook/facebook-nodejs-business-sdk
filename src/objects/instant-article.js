@@ -8,6 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import InstantArticleInsightsQueryResult from './instant-article-insights-query-result';
 
 /**
  * InstantArticle
@@ -29,9 +30,18 @@ export default class InstantArticle extends AbstractCrudObject {
     });
   }
 
-  deleteInstantArticles (params): AbstractObject {
-    return super.deleteEdge(
-      '/instant_articles',
+  getInsights (fields, params, fetchFirstPage = true): InstantArticleInsightsQueryResult {
+    return this.getEdge(
+      InstantArticleInsightsQueryResult,
+      fields,
+      params,
+      fetchFirstPage,
+      '/insights'
+    );
+  }
+
+  delete (fields, params): AbstractObject {
+    return super.delete(
       params
     );
   }

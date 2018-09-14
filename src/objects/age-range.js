@@ -1,0 +1,31 @@
+/**
+ * Copyright (c) 2017-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
+ * @flow
+ */
+import {AbstractCrudObject} from './../abstract-crud-object';
+
+/**
+ * AgeRange
+ * @extends AbstractCrudObject
+ * @see {@link https://developers.facebook.com/docs/marketing-api/}
+ */
+export default class AgeRange extends AbstractCrudObject {
+  static get Fields () {
+    return Object.freeze({
+      max: 'max',
+      min: 'min',
+      id: 'id'
+    });
+  }
+
+  get (fields, params): AgeRange {
+    return this.read(
+      fields,
+      params
+    );
+  }
+}

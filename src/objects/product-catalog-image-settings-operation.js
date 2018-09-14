@@ -16,7 +16,15 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class ProductCatalogImageSettingsOperation extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      transformation_type: 'transformation_type'
+      transformation_type: 'transformation_type',
+      id: 'id'
     });
+  }
+
+  get (fields, params): ProductCatalogImageSettingsOperation {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

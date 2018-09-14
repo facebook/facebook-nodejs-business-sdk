@@ -8,7 +8,10 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Comment from './comment';
+import ProductItemInsights from './product-item-insights';
 import ProductSet from './product-set';
+import DynamicItemQualityIssue from './dynamic-item-quality-issue';
 
 /**
  * ProductItem
@@ -25,6 +28,7 @@ export default class ProductItem extends AbstractCrudObject {
       applinks: 'applinks',
       availability: 'availability',
       brand: 'brand',
+      capability_to_review_status: 'capability_to_review_status',
       category: 'category',
       color: 'color',
       commerce_insights: 'commerce_insights',
@@ -130,6 +134,32 @@ export default class ProductItem extends AbstractCrudObject {
       published: 'published'
     });
   }
+  static get OrderBy (): Object {
+    return Object.freeze({
+      num_xouts: 'NUM_XOUTS',
+      num_reports: 'NUM_REPORTS',
+      num_imps: 'NUM_IMPS'
+    });
+  }
+
+  createComment (fields, params): Comment {
+    return this.createEdge(
+      '/comments',
+      fields,
+      params,
+      Comment
+    );
+  }
+
+  getInsights (fields, params, fetchFirstPage = true): ProductItemInsights {
+    return this.getEdge(
+      ProductItemInsights,
+      fields,
+      params,
+      fetchFirstPage,
+      '/insights'
+    );
+  }
 
   getProductSets (fields, params, fetchFirstPage = true): ProductSet {
     return this.getEdge(
@@ -138,6 +168,16 @@ export default class ProductItem extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/product_sets'
+    );
+  }
+
+  getQualityIssues (fields, params, fetchFirstPage = true): DynamicItemQualityIssue {
+    return this.getEdge(
+      DynamicItemQualityIssue,
+      fields,
+      params,
+      fetchFirstPage,
+      '/quality_issues'
     );
   }
 

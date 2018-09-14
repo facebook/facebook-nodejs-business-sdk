@@ -7,7 +7,10 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
+import AdAccount from './ad-account';
 import ExtendedCreditInvoiceGroup from './extended-credit-invoice-group';
+import CRMAddress from './crm-address';
 import ExtendedCreditAllocationConfig from './extended-credit-allocation-config';
 
 /**
@@ -23,6 +26,7 @@ export default class ExtendedCredit extends AbstractCrudObject {
       credit_available: 'credit_available',
       credit_type: 'credit_type',
       id: 'id',
+      is_access_revoked: 'is_access_revoked',
       is_automated_experience: 'is_automated_experience',
       last_payment_time: 'last_payment_time',
       legal_entity_name: 'legal_entity_name',
@@ -37,6 +41,26 @@ export default class ExtendedCredit extends AbstractCrudObject {
     });
   }
 
+  getAdAccounts (fields, params, fetchFirstPage = true): AdAccount {
+    return this.getEdge(
+      AdAccount,
+      fields,
+      params,
+      fetchFirstPage,
+      '/ad_accounts'
+    );
+  }
+
+  getExtendedCreditEmails (fields, params, fetchFirstPage = true): AbstractObject {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/extended_credit_emails'
+    );
+  }
+
   getExtendedCreditInvoiceGroups (fields, params, fetchFirstPage = true): ExtendedCreditInvoiceGroup {
     return this.getEdge(
       ExtendedCreditInvoiceGroup,
@@ -47,12 +71,22 @@ export default class ExtendedCredit extends AbstractCrudObject {
     );
   }
 
-  createExtendedCreditInvoiceGroup (fields, params): ExtendedCredit {
+  createExtendedCreditInvoiceGroup (fields, params): ExtendedCreditInvoiceGroup {
     return this.createEdge(
       '/extended_credit_invoice_groups',
       fields,
       params,
-      ExtendedCredit
+      ExtendedCreditInvoiceGroup
+    );
+  }
+
+  getLiableAddresses (fields, params, fetchFirstPage = true): CRMAddress {
+    return this.getEdge(
+      CRMAddress,
+      fields,
+      params,
+      fetchFirstPage,
+      '/liable_addresses'
     );
   }
 
@@ -72,6 +106,26 @@ export default class ExtendedCredit extends AbstractCrudObject {
       fields,
       params,
       ExtendedCreditAllocationConfig
+    );
+  }
+
+  getSendBillToAddresses (fields, params, fetchFirstPage = true): CRMAddress {
+    return this.getEdge(
+      CRMAddress,
+      fields,
+      params,
+      fetchFirstPage,
+      '/send_bill_to_addresses'
+    );
+  }
+
+  getSoldToAddresses (fields, params, fetchFirstPage = true): CRMAddress {
+    return this.getEdge(
+      CRMAddress,
+      fields,
+      params,
+      fetchFirstPage,
+      '/sold_to_addresses'
     );
   }
 

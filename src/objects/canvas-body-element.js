@@ -16,7 +16,15 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class CanvasBodyElement extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      element: 'element'
+      element: 'element',
+      id: 'id'
     });
+  }
+
+  get (fields, params): CanvasBodyElement {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

@@ -8,6 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import SavedMessageResponseMacro from './saved-message-response-macro';
 
 /**
  * SavedMessageResponse
@@ -35,8 +36,24 @@ export default class SavedMessageResponse extends AbstractCrudObject {
       follow_up: 'FOLLOW_UP',
       messenger_code: 'MESSENGER_CODE',
       referral: 'REFERRAL',
-      appointment_reminder: 'APPOINTMENT_REMINDER'
+      appointment_reminder: 'APPOINTMENT_REMINDER',
+      smart_reply_contact: 'SMART_REPLY_CONTACT',
+      smart_reply_hours: 'SMART_REPLY_HOURS',
+      smart_reply_location: 'SMART_REPLY_LOCATION',
+      smart_reply_negative_feedback: 'SMART_REPLY_NEGATIVE_FEEDBACK',
+      smart_reply_positive_feedback: 'SMART_REPLY_POSITIVE_FEEDBACK',
+      job_application: 'JOB_APPLICATION'
     });
+  }
+
+  getMacros (fields, params, fetchFirstPage = true): SavedMessageResponseMacro {
+    return this.getEdge(
+      SavedMessageResponseMacro,
+      fields,
+      params,
+      fetchFirstPage,
+      '/macros'
+    );
   }
 
   delete (fields, params): AbstractObject {

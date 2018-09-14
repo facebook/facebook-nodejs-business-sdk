@@ -47,7 +47,9 @@ export default class AdCreativeLinkData extends AbstractCrudObject {
       preferred_image_tags: 'preferred_image_tags',
       retailer_item_ids: 'retailer_item_ids',
       show_multiple_images: 'show_multiple_images',
-      static_fallback_spec: 'static_fallback_spec'
+      sponsorship_info: 'sponsorship_info',
+      static_fallback_spec: 'static_fallback_spec',
+      id: 'id'
     });
   }
 
@@ -64,5 +66,12 @@ export default class AdCreativeLinkData extends AbstractCrudObject {
       carousel_slideshows: 'carousel_slideshows',
       single_image: 'single_image'
     });
+  }
+
+  get (fields, params): AdCreativeLinkData {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

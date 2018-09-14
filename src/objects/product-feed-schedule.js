@@ -24,7 +24,8 @@ export default class ProductFeedSchedule extends AbstractCrudObject {
       minute: 'minute',
       timezone: 'timezone',
       url: 'url',
-      username: 'username'
+      username: 'username',
+      id: 'id'
     });
   }
 
@@ -46,5 +47,12 @@ export default class ProductFeedSchedule extends AbstractCrudObject {
       weekly: 'WEEKLY',
       monthly: 'MONTHLY'
     });
+  }
+
+  get (fields, params): ProductFeedSchedule {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

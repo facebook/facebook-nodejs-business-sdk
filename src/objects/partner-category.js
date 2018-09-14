@@ -36,4 +36,11 @@ export default class PartnerCategory extends AbstractCrudObject {
       public: 'PUBLIC'
     });
   }
+
+  get (fields, params): PartnerCategory {
+    return this.read(
+      fields,
+      params
+    );
+  }
 }

@@ -22,7 +22,8 @@ export default class BusinessMatchedSearchApplicationsEdgeData extends AbstractC
       search_source_store: 'search_source_store',
       store: 'store',
       unique_id: 'unique_id',
-      url: 'url'
+      url: 'url',
+      id: 'id'
     });
   }
 
@@ -41,5 +42,12 @@ export default class BusinessMatchedSearchApplicationsEdgeData extends AbstractC
       instant_game: 'INSTANT_GAME',
       does_not_exist: 'DOES_NOT_EXIST'
     });
+  }
+
+  get (fields, params): BusinessMatchedSearchApplicationsEdgeData {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

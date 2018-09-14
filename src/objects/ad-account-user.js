@@ -21,4 +21,11 @@ export default class AdAccountUser extends AbstractCrudObject {
       tasks: 'tasks'
     });
   }
+
+  get (fields, params): AdAccountUser {
+    return this.read(
+      fields,
+      params
+    );
+  }
 }

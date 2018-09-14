@@ -22,12 +22,21 @@ export default class TargetingGeoLocation extends AbstractCrudObject {
       custom_locations: 'custom_locations',
       electoral_districts: 'electoral_districts',
       geo_markets: 'geo_markets',
+      location_cluster_ids: 'location_cluster_ids',
       location_set_ids: 'location_set_ids',
       location_types: 'location_types',
       places: 'places',
       political_districts: 'political_districts',
       regions: 'regions',
-      zips: 'zips'
+      zips: 'zips',
+      id: 'id'
     });
+  }
+
+  get (fields, params): TargetingGeoLocation {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

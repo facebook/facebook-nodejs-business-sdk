@@ -27,7 +27,8 @@ export default class AdActivity extends AbstractCrudObject {
       object_id: 'object_id',
       object_name: 'object_name',
       object_type: 'object_type',
-      translated_event_type: 'translated_event_type'
+      translated_event_type: 'translated_event_type',
+      id: 'id'
     });
   }
 
@@ -113,5 +114,20 @@ export default class AdActivity extends AbstractCrudObject {
       status: 'STATUS',
       targeting: 'TARGETING'
     });
+  }
+  static get ActivityType (): Object {
+    return Object.freeze({
+      all: 'ALL',
+      sig_edit: 'SIG_EDIT',
+      sig_edit_with_cpa_change: 'SIG_EDIT_WITH_CPA_CHANGE',
+      learning_stage_exit: 'LEARNING_STAGE_EXIT'
+    });
+  }
+
+  get (fields, params): AdActivity {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

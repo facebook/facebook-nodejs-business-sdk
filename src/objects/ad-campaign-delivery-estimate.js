@@ -16,10 +16,12 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class AdCampaignDeliveryEstimate extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
+      bid_estimate: 'bid_estimate',
       daily_outcomes_curve: 'daily_outcomes_curve',
       estimate_dau: 'estimate_dau',
       estimate_mau: 'estimate_mau',
-      estimate_ready: 'estimate_ready'
+      estimate_ready: 'estimate_ready',
+      id: 'id'
     });
   }
 
@@ -48,5 +50,12 @@ export default class AdCampaignDeliveryEstimate extends AbstractCrudObject {
       value: 'VALUE',
       replies: 'REPLIES'
     });
+  }
+
+  get (fields, params): AdCampaignDeliveryEstimate {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

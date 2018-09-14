@@ -8,12 +8,20 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
-import AdLabel from './ad-label';
+import AdCampaignGroupActivity from './ad-campaign-group-activity';
+import AdStudy from './ad-study';
+import AdDraft from './ad-draft';
 import AdRule from './ad-rule';
 import Ad from './ad';
 import AdSet from './ad-set';
+import ColumnSuggestions from './column-suggestions';
+import FAMEAdCampaign from './fame-ad-campaign';
 import AdsInsights from './ads-insights';
 import AdReportRun from './ad-report-run';
+import AdsReportBuilder from './ads-report-builder';
+import AdCampaignGroupStats from './ad-campaign-group-stats';
+import ApplicationThirdPartyPayload from './application-third-party-payload';
+import VideoGroup from './video-group';
 
 /**
  * Campaign
@@ -38,9 +46,14 @@ export default class Campaign extends AbstractCrudObject {
       daily_budget: 'daily_budget',
       effective_status: 'effective_status',
       id: 'id',
+      kpi_custom_conversion_id: 'kpi_custom_conversion_id',
+      kpi_type: 'kpi_type',
+      last_budget_toggling_time: 'last_budget_toggling_time',
       lifetime_budget: 'lifetime_budget',
       name: 'name',
       objective: 'objective',
+      pacing_type: 'pacing_type',
+      promoted_object: 'promoted_object',
       recommendations: 'recommendations',
       source_campaign: 'source_campaign',
       source_campaign_id: 'source_campaign_id',
@@ -48,6 +61,7 @@ export default class Campaign extends AbstractCrudObject {
       start_time: 'start_time',
       status: 'status',
       stop_time: 'stop_time',
+      topline_id: 'topline_id',
       updated_time: 'updated_time'
     });
   }
@@ -112,13 +126,6 @@ export default class Campaign extends AbstractCrudObject {
       this_year: 'this_year'
     });
   }
-  static get DeleteStrategy (): Object {
-    return Object.freeze({
-      delete_any: 'DELETE_ANY',
-      delete_oldest: 'DELETE_OLDEST',
-      delete_archived_before: 'DELETE_ARCHIVED_BEFORE'
-    });
-  }
   static get ExecutionOptions (): Object {
     return Object.freeze({
       validate_only: 'validate_only',
@@ -149,6 +156,43 @@ export default class Campaign extends AbstractCrudObject {
       any: 'ANY'
     });
   }
+  static get StatusOption (): Object {
+    return Object.freeze({
+      active: 'ACTIVE',
+      paused: 'PAUSED',
+      inherited_from_source: 'INHERITED_FROM_SOURCE'
+    });
+  }
+
+  getActivityLogs (fields, params, fetchFirstPage = true): AdCampaignGroupActivity {
+    return this.getEdge(
+      AdCampaignGroupActivity,
+      fields,
+      params,
+      fetchFirstPage,
+      '/activity_logs'
+    );
+  }
+
+  getAdStudies (fields, params, fetchFirstPage = true): AdStudy {
+    return this.getEdge(
+      AdStudy,
+      fields,
+      params,
+      fetchFirstPage,
+      '/ad_studies'
+    );
+  }
+
+  getAdDrafts (fields, params, fetchFirstPage = true): AdDraft {
+    return this.getEdge(
+      AdDraft,
+      fields,
+      params,
+      fetchFirstPage,
+      '/addrafts'
+    );
+  }
 
   deleteAdLabels (params): AbstractObject {
     return super.deleteEdge(
@@ -157,12 +201,12 @@ export default class Campaign extends AbstractCrudObject {
     );
   }
 
-  createAdLabel (fields, params): AdLabel {
+  createAdLabel (fields, params): Campaign {
     return this.createEdge(
       '/adlabels',
       fields,
       params,
-      AdLabel
+      Campaign
     );
   }
 
@@ -196,6 +240,16 @@ export default class Campaign extends AbstractCrudObject {
     );
   }
 
+  getColumnSuggestions (fields, params, fetchFirstPage = true): ColumnSuggestions {
+    return this.getEdge(
+      ColumnSuggestions,
+      fields,
+      params,
+      fetchFirstPage,
+      '/column_suggestions'
+    );
+  }
+
   getCopies (fields, params, fetchFirstPage = true): Campaign {
     return this.getEdge(
       Campaign,
@@ -203,6 +257,25 @@ export default class Campaign extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/copies'
+    );
+  }
+
+  createCopy (fields, params): Campaign {
+    return this.createEdge(
+      '/copies',
+      fields,
+      params,
+      Campaign
+    );
+  }
+
+  getFameAdSets (fields, params, fetchFirstPage = true): FAMEAdCampaign {
+    return this.getEdge(
+      FAMEAdCampaign,
+      fields,
+      params,
+      fetchFirstPage,
+      '/fame_adsets'
     );
   }
 
@@ -222,6 +295,46 @@ export default class Campaign extends AbstractCrudObject {
       fields,
       params,
       AdReportRun
+    );
+  }
+
+  getReporting (fields, params, fetchFirstPage = true): AdsReportBuilder {
+    return this.getEdge(
+      AdsReportBuilder,
+      fields,
+      params,
+      fetchFirstPage,
+      '/reporting'
+    );
+  }
+
+  getStats (fields, params, fetchFirstPage = true): AdCampaignGroupStats {
+    return this.getEdge(
+      AdCampaignGroupStats,
+      fields,
+      params,
+      fetchFirstPage,
+      '/stats'
+    );
+  }
+
+  getThirdPartyPayload (fields, params, fetchFirstPage = true): ApplicationThirdPartyPayload {
+    return this.getEdge(
+      ApplicationThirdPartyPayload,
+      fields,
+      params,
+      fetchFirstPage,
+      '/third_party_payload'
+    );
+  }
+
+  getVideoGroups (fields, params, fetchFirstPage = true): VideoGroup {
+    return this.getEdge(
+      VideoGroup,
+      fields,
+      params,
+      fetchFirstPage,
+      '/video_groups'
     );
   }
 

@@ -21,7 +21,15 @@ export default class AdCreativePlaceData extends AbstractCrudObject {
       latitude: 'latitude',
       location_source_id: 'location_source_id',
       longitude: 'longitude',
-      type: 'type'
+      type: 'type',
+      id: 'id'
     });
+  }
+
+  get (fields, params): AdCreativePlaceData {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

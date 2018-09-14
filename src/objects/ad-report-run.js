@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
 import AdsInsights from './ads-insights';
 
 /**
@@ -43,9 +44,30 @@ export default class AdReportRun extends AbstractCrudObject {
     );
   }
 
+  createRetry (fields, params): AdReportRun {
+    return this.createEdge(
+      '/retry',
+      fields,
+      params,
+      AdReportRun
+    );
+  }
+
+  delete (fields, params): AbstractObject {
+    return super.delete(
+      params
+    );
+  }
+
   get (fields, params): AdReportRun {
     return this.read(
       fields,
+      params
+    );
+  }
+
+  update (fields, params): AdReportRun {
+    return super.update(
       params
     );
   }

@@ -47,6 +47,7 @@ export default class PageCallToAction extends AbstractCrudObject {
       phone_call: 'PHONE_CALL',
       messenger: 'MESSENGER',
       email: 'EMAIL',
+      shop_on_facebook: 'SHOP_ON_FACEBOOK',
       none: 'NONE'
     });
   }
@@ -58,6 +59,7 @@ export default class PageCallToAction extends AbstractCrudObject {
       phone_call: 'PHONE_CALL',
       messenger: 'MESSENGER',
       email: 'EMAIL',
+      shop_on_facebook: 'SHOP_ON_FACEBOOK',
       none: 'NONE'
     });
   }
@@ -85,7 +87,9 @@ export default class PageCallToAction extends AbstractCrudObject {
       get_directions: 'GET_DIRECTIONS',
       buy_tickets: 'BUY_TICKETS',
       play_music: 'PLAY_MUSIC',
-      visit_group: 'VISIT_GROUP'
+      visit_group: 'VISIT_GROUP',
+      shop_on_facebook: 'SHOP_ON_FACEBOOK',
+      local_dev_platform: 'LOCAL_DEV_PLATFORM'
     });
   }
   static get WebDestinationType (): Object {
@@ -93,7 +97,8 @@ export default class PageCallToAction extends AbstractCrudObject {
       email: 'EMAIL',
       messenger: 'MESSENGER',
       none: 'NONE',
-      website: 'WEBSITE'
+      website: 'WEBSITE',
+      shop_on_facebook: 'SHOP_ON_FACEBOOK'
     });
   }
 

@@ -18,7 +18,8 @@ export default class ProductDaEventSamplesBatch extends AbstractCrudObject {
     return Object.freeze({
       samples: 'samples',
       time_start: 'time_start',
-      time_stop: 'time_stop'
+      time_stop: 'time_stop',
+      id: 'id'
     });
   }
 
@@ -38,5 +39,12 @@ export default class ProductDaEventSamplesBatch extends AbstractCrudObject {
       lead: 'Lead',
       addtowishlist: 'AddToWishlist'
     });
+  }
+
+  get (fields, params): ProductDaEventSamplesBatch {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

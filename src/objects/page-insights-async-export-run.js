@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
 
 /**
  * PageInsightsAsyncExportRun
@@ -26,6 +27,13 @@ export default class PageInsightsAsyncExportRun extends AbstractCrudObject {
       sorters: 'sorters',
       status: 'status'
     });
+  }
+
+  deleteInsightsExports (params): AbstractObject {
+    return super.deleteEdge(
+      '/insights_exports',
+      params
+    );
   }
 
   get (fields, params): PageInsightsAsyncExportRun {

@@ -7,6 +7,8 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
+import Application from './application';
 
 /**
  * DirectDeal
@@ -51,6 +53,36 @@ export default class DirectDeal extends AbstractCrudObject {
       value_5: '5',
       value_6: '6'
     });
+  }
+
+  getApplications (fields, params, fetchFirstPage = true): Application {
+    return this.getEdge(
+      Application,
+      fields,
+      params,
+      fetchFirstPage,
+      '/applications'
+    );
+  }
+
+  getInventoryEstimations (fields, params, fetchFirstPage = true): AbstractObject {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/inventory_estimations'
+    );
+  }
+
+  getOverlapProjections (fields, params, fetchFirstPage = true): AbstractObject {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/overlap_projections'
+    );
   }
 
   get (fields, params): DirectDeal {

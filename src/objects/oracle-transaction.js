@@ -7,6 +7,8 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import InvoiceCampaign from './invoice-campaign';
+import AtlasURL from './atlas-url';
 
 /**
  * OracleTransaction
@@ -34,6 +36,26 @@ export default class OracleTransaction extends AbstractCrudObject {
       payment_term: 'payment_term',
       type: 'type'
     });
+  }
+
+  getCampaigns (fields, params, fetchFirstPage = true): InvoiceCampaign {
+    return this.getEdge(
+      InvoiceCampaign,
+      fields,
+      params,
+      fetchFirstPage,
+      '/campaigns'
+    );
+  }
+
+  getData (fields, params, fetchFirstPage = true): AtlasURL {
+    return this.getEdge(
+      AtlasURL,
+      fields,
+      params,
+      fetchFirstPage,
+      '/data'
+    );
   }
 
   get (fields, params): OracleTransaction {

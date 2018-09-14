@@ -28,4 +28,11 @@ export default class Tab extends AbstractCrudObject {
       position: 'position'
     });
   }
+
+  get (fields, params): Tab {
+    return this.read(
+      fields,
+      params
+    );
+  }
 }

@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import ProfilePictureSource from './profile-picture-source';
 
 /**
  * PlaceTopic
@@ -27,13 +28,14 @@ export default class PlaceTopic extends AbstractCrudObject {
     });
   }
 
-  static get IconSize (): Object {
-    return Object.freeze({
-      value_24: '24',
-      value_36: '36',
-      value_48: '48',
-      value_72: '72'
-    });
+  getPicture (fields, params, fetchFirstPage = true): ProfilePictureSource {
+    return this.getEdge(
+      ProfilePictureSource,
+      fields,
+      params,
+      fetchFirstPage,
+      '/picture'
+    );
   }
 
   get (fields, params): PlaceTopic {

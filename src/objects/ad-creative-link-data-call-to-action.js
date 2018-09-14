@@ -17,7 +17,8 @@ export default class AdCreativeLinkDataCallToAction extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       type: 'type',
-      value: 'value'
+      value: 'value',
+      id: 'id'
     });
   }
 
@@ -67,9 +68,17 @@ export default class AdCreativeLinkDataCallToAction extends AbstractCrudObject {
       record_now: 'RECORD_NOW',
       get_showtimes: 'GET_SHOWTIMES',
       listen_now: 'LISTEN_NOW',
+      woodhenge_support: 'WOODHENGE_SUPPORT',
       event_rsvp: 'EVENT_RSVP',
       whatsapp_message: 'WHATSAPP_MESSAGE',
       follow_news_storyline: 'FOLLOW_NEWS_STORYLINE'
     });
+  }
+
+  get (fields, params): AdCreativeLinkDataCallToAction {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

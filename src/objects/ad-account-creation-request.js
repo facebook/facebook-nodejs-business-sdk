@@ -8,6 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import AdAccount from './ad-account';
 
 /**
  * AdAccountCreationRequest
@@ -21,6 +22,7 @@ export default class AdAccountCreationRequest extends AbstractCrudObject {
       additional_comment: 'additional_comment',
       address_in_chinese: 'address_in_chinese',
       address_in_english: 'address_in_english',
+      address_in_local_language: 'address_in_local_language',
       advertiser_business: 'advertiser_business',
       appeal_reason: 'appeal_reason',
       business: 'business',
@@ -35,6 +37,7 @@ export default class AdAccountCreationRequest extends AbstractCrudObject {
       is_smb: 'is_smb',
       is_test: 'is_test',
       is_under_authorization: 'is_under_authorization',
+      legal_entity_name_in_local_language: 'legal_entity_name_in_local_language',
       official_website_url: 'official_website_url',
       planning_agency_business: 'planning_agency_business',
       planning_agency_business_id: 'planning_agency_business_id',
@@ -212,6 +215,16 @@ export default class AdAccountCreationRequest extends AbstractCrudObject {
       appeal_approved: 'APPEAL_APPROVED',
       appeal_disapproved: 'APPEAL_DISAPPROVED'
     });
+  }
+
+  getAdAccounts (fields, params, fetchFirstPage = true): AdAccount {
+    return this.getEdge(
+      AdAccount,
+      fields,
+      params,
+      fetchFirstPage,
+      '/adaccounts'
+    );
   }
 
   delete (fields, params): AbstractObject {

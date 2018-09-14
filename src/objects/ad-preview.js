@@ -16,7 +16,8 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class AdPreview extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      body: 'body'
+      body: 'body',
+      id: 'id'
     });
   }
 
@@ -43,7 +44,20 @@ export default class AdPreview extends AbstractCrudObject {
       messenger_mobile_inbox_media: 'MESSENGER_MOBILE_INBOX_MEDIA',
       suggested_video_desktop: 'SUGGESTED_VIDEO_DESKTOP',
       suggested_video_mobile: 'SUGGESTED_VIDEO_MOBILE',
-      marketplace_mobile: 'MARKETPLACE_MOBILE'
+      marketplace_mobile: 'MARKETPLACE_MOBILE',
+      facebook_story_mobile: 'FACEBOOK_STORY_MOBILE'
     });
+  }
+  static get RenderType (): Object {
+    return Object.freeze({
+      fallback: 'FALLBACK'
+    });
+  }
+
+  get (fields, params): AdPreview {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

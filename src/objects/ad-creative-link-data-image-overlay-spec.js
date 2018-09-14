@@ -23,7 +23,8 @@ export default class AdCreativeLinkDataImageOverlaySpec extends AbstractCrudObje
       text_font: 'text_font',
       text_template_tags: 'text_template_tags',
       text_type: 'text_type',
-      theme_color: 'theme_color'
+      theme_color: 'theme_color',
+      id: 'id'
     });
   }
 
@@ -89,5 +90,12 @@ export default class AdCreativeLinkDataImageOverlaySpec extends AbstractCrudObje
       background_ffffff_text_646464: 'background_ffffff_text_646464',
       background_ffffff_text_000000: 'background_ffffff_text_000000'
     });
+  }
+
+  get (fields, params): AdCreativeLinkDataImageOverlaySpec {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

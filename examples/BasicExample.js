@@ -13,8 +13,8 @@ const Business = bizSdk.Business;
 const Campaign = bizSdk.Campaign;
 const accountId = 'act_<ACCOUNT_ID>';
 const accessToken = '<ACCESS_TOKEN>';
-const bussinessId = ''; // ADD business ID here.
-const campaignId = ''; // ADD Campaign ID Here
+const bussinessId = ''; //ADD business ID here.
+const campaignId = ''; //ADD Campaign ID Here
 const api = bizSdk.FacebookAdsApi.init(accessToken);
 const account = new AdAccount(accountId);
 const showDebugingInfo = false;
@@ -51,7 +51,7 @@ account
   .getAds(
     [],
   {
-    [Ad.Fields.effective_status]: [Ad.EffectiveStatus.active]
+      [Ad.Fields.effective_status]: [Ad.EffectiveStatus.active]
   })
   .then((ad) => {
     logPassedTest(test2 + ':Pass', ad);
@@ -66,27 +66,28 @@ new Campaign(campaignId)
   .then((insight) => { logPassedTest(test3 + ':Pass', insight); })
   .catch(errorFunction(test3));
 
-let test3a = 'Node.js getCampaigns Edge';
-const campaignFields =
+  let test3a = 'Node.js getCampaigns Edge';
+  const campaignFields =
     [Campaign.Fields.objective];
-account.getCampaigns(campaignFields, { limit: 2 })
+  account.getCampaigns(campaignFields, { limit: 2 })
     .then((campaign) => {
-      campaign.forEach((campaign) => {
+      campaign.forEach((campaign)=>{
       });
       logPassedTest(test3a + '-GetCampaigns:Pass', campaign);
     })
     .catch(errorFunction(test3a));
 
-var test3b = 'Node.js getAssignedPages Edge';
-new Business(bussinessId, { limit: 2 }).getAssignedPages([
-  Business.Fields.name
-], {}, true).then((result) => {
-  if (result) {
-    result.forEach((page) => {
-    });
-    logPassedTest(test3b + '-GetAssignedPages:Pass', result);
-  }
-}).catch(errorFunction(test3b));
+  var test3b = 'Node.js getAssignedPages Edge';
+  new Business(bussinessId, { limit: 2 }).getAssignedPages([
+         Business.Fields.name
+     ], {}, true).then((result)=>{
+     if(result){
+       result.forEach((page)=>{
+       });
+       logPassedTest(test3b + '-GetAssignedPages:Pass', result);
+     }
+  }).catch(errorFunction(test3b));
+
 
 let test4 = 'Node.js nestedCalls';
 account.read([AdAccount.Fields.name])
@@ -116,24 +117,24 @@ let test5 = 'Create Edge';
 account
   .createCampaign(
     [],
-  {
-    [Campaign.Fields.name]: 'Test Campaign - Delete',
-    [Campaign.Fields.status]: Campaign.Status.paused,
-    [Campaign.Fields.objective]: Campaign.Objective.page_likes
-  }
+    {
+      [Campaign.Fields.name]: 'Test Campaign - Delete',
+      [Campaign.Fields.status]: Campaign.Status.paused,
+      [Campaign.Fields.objective]: Campaign.Objective.page_likes
+    }
   )
   .then((campaign) => {
     logPassedTest(test5 + ':Pass', account);
   })
   .catch(errorFunction(test5));
 
-let test6 = 'Delete Image Edge';
-account
+  let test6 = 'Delete Image Edge';
+  account
   .createAdImage(
     [],
-  {
-    'bytes': 'iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAMAAAAMs7fIAAAAOVBMVEX///87WZg7WZg7WZg7WZg7WZg7WZg7WZg7WZg7WZg7WZhMeMJEaa5Xi9tKdb0+Xp5Wi9tXjNxThNH+wk/7AAAACnRSTlMAsHIoaM7g/fx9Zr/g5QAAAGlJREFUeNplkFsOwCAIBPGJrtbX/Q/bqm1qwnxuJrBAE6OVD15pQy/WYePsDiIjp9FGyuC4DK7l6pOrVH4s41D6R4EzpJGXsa0MTQqp/yQo8hhHMuApoB1JQ5COnCN3yT6ys7xL3i7/cwMYsAveYa+MxAAAAABJRU5ErkJggg=='
-  }
+    {
+      'bytes': 'iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAMAAAAMs7fIAAAAOVBMVEX///87WZg7WZg7WZg7WZg7WZg7WZg7WZg7WZg7WZg7WZhMeMJEaa5Xi9tKdb0+Xp5Wi9tXjNxThNH+wk/7AAAACnRSTlMAsHIoaM7g/fx9Zr/g5QAAAGlJREFUeNplkFsOwCAIBPGJrtbX/Q/bqm1qwnxuJrBAE6OVD15pQy/WYePsDiIjp9FGyuC4DK7l6pOrVH4s41D6R4EzpJGXsa0MTQqp/yQo8hhHMuApoB1JQ5COnCN3yT6ys7xL3i7/cwMYsAveYa+MxAAAAABJRU5ErkJggg==',
+    }
   )
   .then((result) => {
     logPassedTest(test6 + ':Pass', account);
@@ -150,11 +151,11 @@ let campaignIdToDelete;
 account
   .createCampaign(
     [Campaign.Fields.status],
-  {
-    [Campaign.Fields.name]: 'Test Campaign - Delete',
-    [Campaign.Fields.status]: Campaign.Status.paused,
-    [Campaign.Fields.objective]: Campaign.Objective.page_likes
-  }
+    {
+      [Campaign.Fields.name]: 'Test Campaign - Delete',
+      [Campaign.Fields.status]: Campaign.Status.paused,
+      [Campaign.Fields.objective]: Campaign.Objective.page_likes
+    }
   )
 .then((campaign) => {
   logPassedTest(test7 + '-Create:Pass', campaign);
@@ -178,6 +179,7 @@ account
   logPassedTest(test7 + '-Delete:Pass', result);
 })
 .catch(errorFunction(test7));
+
 
 let test8 = 'Pagination Campaign';
 account.getCampaigns([Campaign.Fields.name], { limit: 2 })

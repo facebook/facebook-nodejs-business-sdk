@@ -22,7 +22,15 @@ export default class AdCreativePhotoData extends AbstractCrudObject {
       caption: 'caption',
       image_hash: 'image_hash',
       page_welcome_message: 'page_welcome_message',
-      url: 'url'
+      url: 'url',
+      id: 'id'
     });
+  }
+
+  get (fields, params): AdCreativePhotoData {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

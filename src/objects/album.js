@@ -7,7 +7,12 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
+import Comment from './comment';
+import Profile from './profile';
 import Photo from './photo';
+import ProfilePictureSource from './profile-picture-source';
+import Post from './post';
 
 /**
  * Album
@@ -43,12 +48,97 @@ export default class Album extends AbstractCrudObject {
     });
   }
 
+  getComments (fields, params, fetchFirstPage = true): Comment {
+    return this.getEdge(
+      Comment,
+      fields,
+      params,
+      fetchFirstPage,
+      '/comments'
+    );
+  }
+
+  createComment (fields, params): Comment {
+    return this.createEdge(
+      '/comments',
+      fields,
+      params,
+      Comment
+    );
+  }
+
+  deleteLikes (params): AbstractObject {
+    return super.deleteEdge(
+      '/likes',
+      params
+    );
+  }
+
+  getLikes (fields, params, fetchFirstPage = true): Profile {
+    return this.getEdge(
+      Profile,
+      fields,
+      params,
+      fetchFirstPage,
+      '/likes'
+    );
+  }
+
+  createLike (fields, params): Album {
+    return this.createEdge(
+      '/likes',
+      fields,
+      params,
+      Album
+    );
+  }
+
+  getPhotos (fields, params, fetchFirstPage = true): Photo {
+    return this.getEdge(
+      Photo,
+      fields,
+      params,
+      fetchFirstPage,
+      '/photos'
+    );
+  }
+
   createPhoto (fields, params): Photo {
     return this.createEdge(
       '/photos',
       fields,
       params,
       Photo
+    );
+  }
+
+  getPicture (fields, params, fetchFirstPage = true): ProfilePictureSource {
+    return this.getEdge(
+      ProfilePictureSource,
+      fields,
+      params,
+      fetchFirstPage,
+      '/picture'
+    );
+  }
+
+  getReactions (fields, params, fetchFirstPage = true): Profile {
+    return this.getEdge(
+      Profile,
+      fields,
+      params,
+      fetchFirstPage,
+      '/reactions'
+    );
+  }
+
+  getShareDPosts (fields, params, fetchFirstPage = true): Post {
+    return this.getEdge(
+      Post,
+      fields,
+      params,
+      fetchFirstPage,
+      '/sharedposts'
     );
   }
 

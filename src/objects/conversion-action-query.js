@@ -41,7 +41,15 @@ export default class ConversionActionQuery extends AbstractCrudObject {
       question: 'question',
       question_creator: 'question.creator',
       response: 'response',
-      subtype: 'subtype'
+      subtype: 'subtype',
+      id: 'id'
     });
+  }
+
+  get (fields, params): ConversionActionQuery {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

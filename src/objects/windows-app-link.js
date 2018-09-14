@@ -19,7 +19,15 @@ export default class WindowsAppLink extends AbstractCrudObject {
       app_id: 'app_id',
       app_name: 'app_name',
       package_family_name: 'package_family_name',
-      url: 'url'
+      url: 'url',
+      id: 'id'
     });
+  }
+
+  get (fields, params): WindowsAppLink {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

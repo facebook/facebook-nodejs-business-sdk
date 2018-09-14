@@ -39,6 +39,15 @@ export default class AdRule extends AbstractCrudObject {
     });
   }
 
+  createExecute (fields, params): AbstractObject {
+    return this.createEdge(
+      '/execute',
+      fields,
+      params
+
+    );
+  }
+
   getHistory (fields, params, fetchFirstPage = true): AdRuleHistory {
     return this.getEdge(
       AdRuleHistory,
@@ -46,6 +55,15 @@ export default class AdRule extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/history'
+    );
+  }
+
+  createPreview (fields, params): AdRule {
+    return this.createEdge(
+      '/preview',
+      fields,
+      params,
+      AdRule
     );
   }
 

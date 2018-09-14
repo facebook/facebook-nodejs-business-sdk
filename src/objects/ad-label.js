@@ -29,12 +29,6 @@ export default class AdLabel extends AbstractCrudObject {
     });
   }
 
-  static get ExecutionOptions (): Object {
-    return Object.freeze({
-      validate_only: 'validate_only'
-    });
-  }
-
   getAdCreatives (fields, params, fetchFirstPage = true): AdCreative {
     return this.getEdge(
       AdCreative,

@@ -8,6 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import BusinessObject from './business-object';
 
 /**
  * BusinessRoleRequest
@@ -21,6 +22,7 @@ export default class BusinessRoleRequest extends AbstractCrudObject {
       created_time: 'created_time',
       email: 'email',
       expiration_time: 'expiration_time',
+      expiry_time: 'expiry_time',
       finance_role: 'finance_role',
       id: 'id',
       invite_link: 'invite_link',
@@ -50,6 +52,26 @@ export default class BusinessRoleRequest extends AbstractCrudObject {
       declined: 'DECLINED',
       expired: 'EXPIRED'
     });
+  }
+
+  getAssignedClientAssets (fields, params, fetchFirstPage = true): AbstractObject {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/assigned_client_assets'
+    );
+  }
+
+  getAssignedOwnedAssets (fields, params, fetchFirstPage = true): BusinessObject {
+    return this.getEdge(
+      BusinessObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/assigned_owned_assets'
+    );
   }
 
   delete (fields, params): AbstractObject {

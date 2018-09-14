@@ -24,10 +24,14 @@ export default class AdPromotedObject extends AbstractCrudObject {
       offer_id: 'offer_id',
       offline_conversion_data_set_id: 'offline_conversion_data_set_id',
       page_id: 'page_id',
+      pixel_aggregation_rule: 'pixel_aggregation_rule',
       pixel_id: 'pixel_id',
+      pixel_rule: 'pixel_rule',
       place_page_set_id: 'place_page_set_id',
       product_catalog_id: 'product_catalog_id',
-      product_set_id: 'product_set_id'
+      product_set_id: 'product_set_id',
+      retention_days: 'retention_days',
+      id: 'id'
     });
   }
 
@@ -51,5 +55,12 @@ export default class AdPromotedObject extends AbstractCrudObject {
       spent_credits: 'SPENT_CREDITS',
       other: 'OTHER'
     });
+  }
+
+  get (fields, params): AdPromotedObject {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

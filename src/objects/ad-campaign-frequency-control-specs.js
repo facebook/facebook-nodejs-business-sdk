@@ -18,7 +18,15 @@ export default class AdCampaignFrequencyControlSpecs extends AbstractCrudObject 
     return Object.freeze({
       event: 'event',
       interval_days: 'interval_days',
-      max_frequency: 'max_frequency'
+      max_frequency: 'max_frequency',
+      id: 'id'
     });
+  }
+
+  get (fields, params): AdCampaignFrequencyControlSpecs {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

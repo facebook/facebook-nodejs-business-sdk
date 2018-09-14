@@ -22,19 +22,31 @@ export default class AdsActionStats extends AbstractCrudObject {
       value_28d_view: '28d_view',
       value_7d_click: '7d_click',
       value_7d_view: '7d_view',
+      action_canvas_component_id: 'action_canvas_component_id',
       action_canvas_component_name: 'action_canvas_component_name',
       action_carousel_card_id: 'action_carousel_card_id',
       action_carousel_card_name: 'action_carousel_card_name',
       action_destination: 'action_destination',
       action_device: 'action_device',
+      action_event_channel: 'action_event_channel',
       action_link_click_destination: 'action_link_click_destination',
+      action_location_code: 'action_location_code',
       action_reaction: 'action_reaction',
       action_target_id: 'action_target_id',
       action_type: 'action_type',
+      action_video_asset_id: 'action_video_asset_id',
       action_video_sound: 'action_video_sound',
       action_video_type: 'action_video_type',
       inline: 'inline',
-      value: 'value'
+      value: 'value',
+      id: 'id'
     });
+  }
+
+  get (fields, params): AdsActionStats {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

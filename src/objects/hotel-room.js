@@ -8,6 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import DynamicPriceConfigByDate from './dynamic-price-config-by-date';
 
 /**
  * HotelRoom
@@ -29,6 +30,16 @@ export default class HotelRoom extends AbstractCrudObject {
       sale_price: 'sale_price',
       url: 'url'
     });
+  }
+
+  getPricingVariables (fields, params, fetchFirstPage = true): DynamicPriceConfigByDate {
+    return this.getEdge(
+      DynamicPriceConfigByDate,
+      fields,
+      params,
+      fetchFirstPage,
+      '/pricing_variables'
+    );
   }
 
   delete (fields, params): AbstractObject {

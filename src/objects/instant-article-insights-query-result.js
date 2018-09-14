@@ -19,7 +19,8 @@ export default class InstantArticleInsightsQueryResult extends AbstractCrudObjec
       breakdowns: 'breakdowns',
       name: 'name',
       time: 'time',
-      value: 'value'
+      value: 'value',
+      id: 'id'
     });
   }
 
@@ -42,8 +43,14 @@ export default class InstantArticleInsightsQueryResult extends AbstractCrudObjec
       week: 'week',
       days_28: 'days_28',
       month: 'month',
-      lifetime: 'lifetime',
-      total_over_range: 'total_over_range'
+      lifetime: 'lifetime'
     });
+  }
+
+  get (fields, params): InstantArticleInsightsQueryResult {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

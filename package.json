@@ -1,6 +1,6 @@
 {
   "name": "facebook-nodejs-business-sdk",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "description": "SDK for the Facebook Ads API in Javascript and Node.js",
   "author": "Facebook",
   "maintainers": [
@@ -29,6 +29,11 @@
     "type": "git",
     "url": "git://github.com/facebook/facebook-nodejs-business-sdk.git"
   },
+  "dependencies": {
+    "mixwith": "~0.1.1",
+    "request": "^2.81.0",
+    "request-promise": "~4.1.1"
+  },
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-core": "~6.17.0",
@@ -52,18 +57,13 @@
     "rollup-plugin-node-resolve": "~2.0.0",
     "rollup-stream": "~1.14.0",
     "vinyl-buffer": "~1.0.0",
-    "vinyl-source-stream": "~1.1.0"
-  },
-  "dependencies": {
+    "vinyl-source-stream": "~1.1.0",
     "babel-eslint": "^7.2.3",
     "babel-plugin-async-to-promises": "^1.0.5",
     "eslint-plugin-flowtype": "^2.34.0",
     "gulp-cli": "^1.3.0",
     "gulp-flowtype": "^1.0.0",
     "jshint-sourcemap-reporter": "0.0.1",
-    "mixwith": "~0.1.1",
-    "request": "^2.81.0",
-    "request-promise": "~4.1.1",
     "semistandard": "^11.0.0"
   },
   "scripts": {
@@ -87,7 +87,8 @@
     ],
     "ignore": [
       "gulpfile.js",
-      "/dist/"
+      "/dist/",
+      "/examples/"
     ],
     "plugins": [
       "flowtype"

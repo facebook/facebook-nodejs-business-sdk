@@ -18,7 +18,8 @@ export default class AdRuleEvaluationSpec extends AbstractCrudObject {
     return Object.freeze({
       evaluation_type: 'evaluation_type',
       filters: 'filters',
-      trigger: 'trigger'
+      trigger: 'trigger',
+      id: 'id'
     });
   }
 
@@ -27,5 +28,12 @@ export default class AdRuleEvaluationSpec extends AbstractCrudObject {
       schedule: 'SCHEDULE',
       trigger: 'TRIGGER'
     });
+  }
+
+  get (fields, params): AdRuleEvaluationSpec {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

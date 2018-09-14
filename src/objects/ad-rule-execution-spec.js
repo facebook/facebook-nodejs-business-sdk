@@ -17,7 +17,8 @@ export default class AdRuleExecutionSpec extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       execution_options: 'execution_options',
-      execution_type: 'execution_type'
+      execution_type: 'execution_type',
+      id: 'id'
     });
   }
 
@@ -32,5 +33,12 @@ export default class AdRuleExecutionSpec extends AbstractCrudObject {
       rotate: 'ROTATE',
       unpause: 'UNPAUSE'
     });
+  }
+
+  get (fields, params): AdRuleExecutionSpec {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

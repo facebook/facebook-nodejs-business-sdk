@@ -95,6 +95,26 @@ export default class LeadgenForm extends AbstractCrudObject {
     });
   }
 
+  getAdSets (fields, params, fetchFirstPage = true): AbstractObject {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/adsets'
+    );
+  }
+
+  getCampaigns (fields, params, fetchFirstPage = true): AbstractObject {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/campaigns'
+    );
+  }
+
   getLeads (fields, params, fetchFirstPage = true): Lead {
     return this.getEdge(
       Lead,
@@ -105,21 +125,31 @@ export default class LeadgenForm extends AbstractCrudObject {
     );
   }
 
-  createLead (fields, params): LeadgenForm {
+  createLead (fields, params): Lead {
     return this.createEdge(
       '/leads',
       fields,
       params,
-      LeadgenForm
+      Lead
     );
   }
 
-  createTestLead (fields, params): LeadgenForm {
+  getTestLeads (fields, params, fetchFirstPage = true): Lead {
+    return this.getEdge(
+      Lead,
+      fields,
+      params,
+      fetchFirstPage,
+      '/test_leads'
+    );
+  }
+
+  createTestLead (fields, params): Lead {
     return this.createEdge(
       '/test_leads',
       fields,
       params,
-      LeadgenForm
+      Lead
     );
   }
 

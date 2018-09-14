@@ -22,6 +22,15 @@ export default class LeadGenLegalContent extends AbstractCrudObject {
     });
   }
 
+  static get Status (): Object {
+    return Object.freeze({
+      active: 'ACTIVE',
+      archived: 'ARCHIVED',
+      deleted: 'DELETED',
+      draft: 'DRAFT'
+    });
+  }
+
   get (fields, params): LeadGenLegalContent {
     return this.read(
       fields,

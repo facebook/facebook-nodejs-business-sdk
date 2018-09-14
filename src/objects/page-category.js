@@ -22,4 +22,11 @@ export default class PageCategory extends AbstractCrudObject {
       name: 'name'
     });
   }
+
+  get (fields, params): PageCategory {
+    return this.read(
+      fields,
+      params
+    );
+  }
 }

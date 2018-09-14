@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
 
 /**
  * PageSavedFilter
@@ -29,6 +30,7 @@ export default class PageSavedFilter extends AbstractCrudObject {
   static get Section (): Object {
     return Object.freeze({
       audience_alerts: 'AUDIENCE_ALERTS',
+      candidate_videos: 'CANDIDATE_VIDEOS',
       chex_pending_orders: 'CHEX_PENDING_ORDERS',
       chex_completed_orders: 'CHEX_COMPLETED_ORDERS',
       commerce_platform_settings: 'COMMERCE_PLATFORM_SETTINGS',
@@ -105,7 +107,6 @@ export default class PageSavedFilter extends AbstractCrudObject {
       archived_events: 'ARCHIVED_EVENTS',
       tours: 'TOURS',
       polls_composer: 'POLLS_COMPOSER',
-      brand_asset_library: 'BRAND_ASSET_LIBRARY',
       job_applications: 'JOB_APPLICATIONS',
       subscriptions: 'SUBSCRIPTIONS',
       news_subscriptions_publisher_tools: 'NEWS_SUBSCRIPTIONS_PUBLISHER_TOOLS',
@@ -119,6 +120,7 @@ export default class PageSavedFilter extends AbstractCrudObject {
       branded_content: 'BRANDED_CONTENT',
       branded_content_creator: 'BRANDED_CONTENT_CREATOR',
       sounds_collection: 'SOUNDS_COLLECTION',
+      creator_studio: 'CREATOR_STUDIO',
       content_tests: 'CONTENT_TESTS',
       gem_producer_dashboard: 'GEM_PRODUCER_DASHBOARD',
       monetized_videos: 'MONETIZED_VIDEOS',
@@ -127,6 +129,12 @@ export default class PageSavedFilter extends AbstractCrudObject {
       registrations: 'REGISTRATIONS',
       ia_regiwall_settings: 'IA_REGIWALL_SETTINGS'
     });
+  }
+
+  delete (fields, params): AbstractObject {
+    return super.delete(
+      params
+    );
   }
 
   get (fields, params): PageSavedFilter {

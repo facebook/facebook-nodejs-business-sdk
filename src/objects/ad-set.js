@@ -9,14 +9,25 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import AdActivity from './ad-activity';
+import AdCampaignActivity from './ad-campaign-activity';
+import AdStudy from './ad-study';
 import AdCreative from './ad-creative';
-import AdLabel from './ad-label';
+import AdDraft from './ad-draft';
 import AdRule from './ad-rule';
 import Ad from './ad';
 import AdAsyncRequest from './ad-async-request';
+import ColumnSuggestions from './column-suggestions';
+import AdConversions from './ad-conversions';
 import AdCampaignDeliveryEstimate from './ad-campaign-delivery-estimate';
+import AdDeliveryInsights from './ad-delivery-insights';
+import AdCampaignDeliveryStats from './ad-campaign-delivery-stats';
+import FAMEAdGroup from './fame-ad-group';
 import AdsInsights from './ads-insights';
 import AdReportRun from './ad-report-run';
+import ReachEstimate from './reach-estimate';
+import AdsReportBuilder from './ads-report-builder';
+import AdCampaignStats from './ad-campaign-stats';
+import AdsTargetingInsights from './ads-targeting-insights';
 import TargetingSentenceLine from './targeting-sentence-line';
 
 /**
@@ -28,9 +39,14 @@ export default class AdSet extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       account_id: 'account_id',
+      ad_keywords: 'ad_keywords',
+      adasset_feed: 'adasset_feed',
       adlabels: 'adlabels',
       adset_schedule: 'adset_schedule',
+      asset_feed_id: 'asset_feed_id',
       attribution_spec: 'attribution_spec',
+      best_creative: 'best_creative',
+      bid_adjustments: 'bid_adjustments',
       bid_amount: 'bid_amount',
       bid_info: 'bid_info',
       bid_strategy: 'bid_strategy',
@@ -47,10 +63,18 @@ export default class AdSet extends AbstractCrudObject {
       destination_type: 'destination_type',
       effective_status: 'effective_status',
       end_time: 'end_time',
+      frequency_cap: 'frequency_cap',
+      frequency_cap_reset_period: 'frequency_cap_reset_period',
       frequency_control_specs: 'frequency_control_specs',
+      full_funnel_exploration_mode: 'full_funnel_exploration_mode',
       id: 'id',
       instagram_actor_id: 'instagram_actor_id',
+      is_autobid: 'is_autobid',
+      is_average_price_pacing: 'is_average_price_pacing',
+      is_dynamic_creative: 'is_dynamic_creative',
+      is_dynamic_creative_optimization: 'is_dynamic_creative_optimization',
       lifetime_budget: 'lifetime_budget',
+      lifetime_frequency_cap: 'lifetime_frequency_cap',
       lifetime_imps: 'lifetime_imps',
       lifetime_min_spend_target: 'lifetime_min_spend_target',
       lifetime_spend_cap: 'lifetime_spend_cap',
@@ -60,6 +84,7 @@ export default class AdSet extends AbstractCrudObject {
       promoted_object: 'promoted_object',
       recommendations: 'recommendations',
       recurring_budget_semantics: 'recurring_budget_semantics',
+      review_feedback: 'review_feedback',
       rf_prediction_id: 'rf_prediction_id',
       rtb_flag: 'rtb_flag',
       source_adset: 'source_adset',
@@ -69,6 +94,7 @@ export default class AdSet extends AbstractCrudObject {
       targeting: 'targeting',
       time_based_ad_rotation_id_blocks: 'time_based_ad_rotation_id_blocks',
       time_based_ad_rotation_intervals: 'time_based_ad_rotation_intervals',
+      tracking_specs: 'tracking_specs',
       updated_time: 'updated_time',
       use_new_app_click: 'use_new_app_click'
     });
@@ -188,10 +214,24 @@ export default class AdSet extends AbstractCrudObject {
       include_recommendations: 'include_recommendations'
     });
   }
+  static get FullFunnelExplorationMode (): Object {
+    return Object.freeze({
+      none_exploration: 'NONE_EXPLORATION',
+      limited_exploration: 'LIMITED_EXPLORATION',
+      extended_exploration: 'EXTENDED_EXPLORATION'
+    });
+  }
   static get Operator (): Object {
     return Object.freeze({
       all: 'ALL',
       any: 'ANY'
+    });
+  }
+  static get StatusOption (): Object {
+    return Object.freeze({
+      active: 'ACTIVE',
+      paused: 'PAUSED',
+      inherited_from_source: 'INHERITED_FROM_SOURCE'
     });
   }
 
@@ -205,6 +245,26 @@ export default class AdSet extends AbstractCrudObject {
     );
   }
 
+  getActivityLogs (fields, params, fetchFirstPage = true): AdCampaignActivity {
+    return this.getEdge(
+      AdCampaignActivity,
+      fields,
+      params,
+      fetchFirstPage,
+      '/activity_logs'
+    );
+  }
+
+  getAdStudies (fields, params, fetchFirstPage = true): AdStudy {
+    return this.getEdge(
+      AdStudy,
+      fields,
+      params,
+      fetchFirstPage,
+      '/ad_studies'
+    );
+  }
+
   getAdCreatives (fields, params, fetchFirstPage = true): AdCreative {
     return this.getEdge(
       AdCreative,
@@ -215,6 +275,16 @@ export default class AdSet extends AbstractCrudObject {
     );
   }
 
+  getAdDrafts (fields, params, fetchFirstPage = true): AdDraft {
+    return this.getEdge(
+      AdDraft,
+      fields,
+      params,
+      fetchFirstPage,
+      '/addrafts'
+    );
+  }
+
   deleteAdLabels (params): AbstractObject {
     return super.deleteEdge(
       '/adlabels',
@@ -222,12 +292,12 @@ export default class AdSet extends AbstractCrudObject {
     );
   }
 
-  createAdLabel (fields, params): AdLabel {
+  createAdLabel (fields, params): AdSet {
     return this.createEdge(
       '/adlabels',
       fields,
       params,
-      AdLabel
+      AdSet
     );
   }
 
@@ -261,6 +331,26 @@ export default class AdSet extends AbstractCrudObject {
     );
   }
 
+  getColumnSuggestions (fields, params, fetchFirstPage = true): ColumnSuggestions {
+    return this.getEdge(
+      ColumnSuggestions,
+      fields,
+      params,
+      fetchFirstPage,
+      '/column_suggestions'
+    );
+  }
+
+  getConversions (fields, params, fetchFirstPage = true): AdConversions {
+    return this.getEdge(
+      AdConversions,
+      fields,
+      params,
+      fetchFirstPage,
+      '/conversions'
+    );
+  }
+
   getCopies (fields, params, fetchFirstPage = true): AdSet {
     return this.getEdge(
       AdSet,
@@ -271,6 +361,15 @@ export default class AdSet extends AbstractCrudObject {
     );
   }
 
+  createCopy (fields, params): AdSet {
+    return this.createEdge(
+      '/copies',
+      fields,
+      params,
+      AdSet
+    );
+  }
+
   getDeliveryEstimate (fields, params, fetchFirstPage = true): AdCampaignDeliveryEstimate {
     return this.getEdge(
       AdCampaignDeliveryEstimate,
@@ -278,6 +377,36 @@ export default class AdSet extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/delivery_estimate'
+    );
+  }
+
+  getDeliveryInsights (fields, params, fetchFirstPage = true): AdDeliveryInsights {
+    return this.getEdge(
+      AdDeliveryInsights,
+      fields,
+      params,
+      fetchFirstPage,
+      '/delivery_insights'
+    );
+  }
+
+  getDeliveryStats (fields, params, fetchFirstPage = true): AdCampaignDeliveryStats {
+    return this.getEdge(
+      AdCampaignDeliveryStats,
+      fields,
+      params,
+      fetchFirstPage,
+      '/delivery_stats'
+    );
+  }
+
+  getFameAds (fields, params, fetchFirstPage = true): FAMEAdGroup {
+    return this.getEdge(
+      FAMEAdGroup,
+      fields,
+      params,
+      fetchFirstPage,
+      '/fame_ads'
     );
   }
 
@@ -297,6 +426,46 @@ export default class AdSet extends AbstractCrudObject {
       fields,
       params,
       AdReportRun
+    );
+  }
+
+  getReachEstimate (fields, params, fetchFirstPage = true): ReachEstimate {
+    return this.getEdge(
+      ReachEstimate,
+      fields,
+      params,
+      fetchFirstPage,
+      '/reachestimate'
+    );
+  }
+
+  getReporting (fields, params, fetchFirstPage = true): AdsReportBuilder {
+    return this.getEdge(
+      AdsReportBuilder,
+      fields,
+      params,
+      fetchFirstPage,
+      '/reporting'
+    );
+  }
+
+  getStats (fields, params, fetchFirstPage = true): AdCampaignStats {
+    return this.getEdge(
+      AdCampaignStats,
+      fields,
+      params,
+      fetchFirstPage,
+      '/stats'
+    );
+  }
+
+  getTargetingInsights (fields, params, fetchFirstPage = true): AdsTargetingInsights {
+    return this.getEdge(
+      AdsTargetingInsights,
+      fields,
+      params,
+      fetchFirstPage,
+      '/targeting_insights'
     );
   }
 
