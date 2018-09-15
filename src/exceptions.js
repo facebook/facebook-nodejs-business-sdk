@@ -22,7 +22,7 @@ FacebookError.prototype.constructor = FacebookError;
  */
 export class FacebookRequestError extends FacebookError {
   /**
-   * @param  {[Object}  response
+   * @param  {Object}  response
    * @param  {String}   method
    * @param  {String}   url
    * @param  {Object}   data
@@ -83,6 +83,10 @@ function constructErrorResponse (response: Object) {
       message = response.message;
       // Network errors have no status code
       status = null;
+    } else {
+      body = response.body.error
+      message = response.body.error.message || response.body.error.error_user_msg
+      status = response.status
     }
   }
 
