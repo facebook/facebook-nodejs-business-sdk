@@ -18,7 +18,8 @@ export default class BusinessAdvertisableApplicationsResult extends AbstractCrud
     return Object.freeze({
       has_insight_permission: 'has_insight_permission',
       id: 'id',
-      name: 'name'
+      name: 'name',
+      photo_url: 'photo_url'
     });
   }
 

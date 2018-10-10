@@ -59,6 +59,7 @@ export default class PartnerIntegrationLinked extends AbstractCrudObject {
       magento_2: 'magento_2',
       marketo: 'marketo',
       meesho: 'meesho',
+      m_particle: 'm_particle',
       now_floats: 'now_floats',
       opencart: 'opencart',
       prestashop: 'prestashop',

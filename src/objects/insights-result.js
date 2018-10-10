@@ -28,21 +28,7 @@ export default class InsightsResult extends AbstractCrudObject {
 
   static get Metric (): Object {
     return Object.freeze({
-      daily_total: 'daily_total',
-      is_traveling_breakdowns: 'is_traveling_breakdowns',
-      hourly_breakdowns: 'hourly_breakdowns',
-      demographic_breakdowns: 'demographic_breakdowns',
-      seen_ads_daily_total: 'seen_ads_daily_total',
-      seen_ads_hourly_breakdowns: 'seen_ads_hourly_breakdowns'
-    });
-  }
-  static get Period (): Object {
-    return Object.freeze({
-      day: 'day',
-      week: 'week',
-      days_28: 'days_28',
-      month: 'month',
-      lifetime: 'lifetime'
+      messages_sent: 'messages_sent'
     });
   }
   static get DatePreset (): Object {
@@ -68,10 +54,13 @@ export default class InsightsResult extends AbstractCrudObject {
       this_year: 'this_year'
     });
   }
-  static get SortDir (): Object {
+  static get Period (): Object {
     return Object.freeze({
-      asc: 'asc',
-      desc: 'desc'
+      day: 'day',
+      week: 'week',
+      days_28: 'days_28',
+      month: 'month',
+      lifetime: 'lifetime'
     });
   }
 

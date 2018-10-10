@@ -13,8 +13,6 @@ import User from './user';
 import Null from './null';
 import Comment from './comment';
 import Photo from './photo';
-import EventTicketTier from './event-ticket-tier';
-import EventTour from './event-tour';
 import AdVideo from './ad-video';
 
 /**
@@ -94,7 +92,7 @@ export default class Event extends AbstractCrudObject {
     });
   }
 
-  getAdMIns (fields, params, fetchFirstPage = true): Profile {
+  getAdmins (fields, params, fetchFirstPage = true): Profile {
     return this.getEdge(
       Profile,
       fields,
@@ -169,16 +167,6 @@ export default class Event extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/interested'
-    );
-  }
-
-  getInviteD (fields, params, fetchFirstPage = true): User {
-    return this.getEdge(
-      User,
-      fields,
-      params,
-      fetchFirstPage,
-      '/invited'
     );
   }
 
@@ -267,26 +255,6 @@ export default class Event extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/roles'
-    );
-  }
-
-  getTicketTiers (fields, params, fetchFirstPage = true): EventTicketTier {
-    return this.getEdge(
-      EventTicketTier,
-      fields,
-      params,
-      fetchFirstPage,
-      '/ticket_tiers'
-    );
-  }
-
-  getTours (fields, params, fetchFirstPage = true): EventTour {
-    return this.getEdge(
-      EventTour,
-      fields,
-      params,
-      fetchFirstPage,
-      '/tours'
     );
   }
 

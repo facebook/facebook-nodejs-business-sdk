@@ -7,7 +7,6 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import AbstractObject from './../abstract-object';
 import Application from './application';
 
 /**
@@ -62,26 +61,6 @@ export default class DirectDeal extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/applications'
-    );
-  }
-
-  getInventoryEstimations (fields, params, fetchFirstPage = true): AbstractObject {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/inventory_estimations'
-    );
-  }
-
-  getOverlapProjections (fields, params, fetchFirstPage = true): AbstractObject {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/overlap_projections'
     );
   }
 

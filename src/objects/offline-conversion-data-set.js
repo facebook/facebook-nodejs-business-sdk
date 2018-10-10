@@ -10,22 +10,9 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import AdAccount from './ad-account';
 import Business from './business';
-import AnalyticsCohortQueryResult from './analytics-cohort-query-result';
-import AnalyticsEntityUserConfig from './analytics-entity-user-config';
-import AnalyticsEventTypes from './analytics-event-types';
-import AnalyticsFunnelQueryResult from './analytics-funnel-query-result';
-import AnalyticsQueryResult from './analytics-query-result';
-import AnalyticsQueryExportResult from './analytics-query-export-result';
-import AnalyticsSegment from './analytics-segment';
-import AssignedUser from './assigned-user';
 import CustomAudience from './custom-audience';
-import BusinessTag from './business-tag';
-import BusinessRequest from './business-request';
-import BusinessObject from './business-object';
 import CustomConversion from './custom-conversion';
 import DACheck from './da-check';
-import ExternalEventSourceDAStatsResult from './external-event-source-da-stats-result';
-import ProductCatalog from './product-catalog';
 
 /**
  * OfflineConversionDataSet
@@ -49,6 +36,7 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
       id: 'id',
       is_restricted_use: 'is_restricted_use',
       last_upload_app: 'last_upload_app',
+      last_upload_app_changed_time: 'last_upload_app_changed_time',
       match_rate_approx: 'match_rate_approx',
       matched_entries: 'matched_entries',
       matched_unique_users: 'matched_unique_users',
@@ -71,6 +59,14 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
       admin: 'ADMIN',
       uploader: 'UPLOADER',
       advertiser: 'ADVERTISER'
+    });
+  }
+  static get RelationshipType (): Object {
+    return Object.freeze({
+      ad_manager: 'AD_MANAGER',
+      audience_manager: 'AUDIENCE_MANAGER',
+      agency: 'AGENCY',
+      other: 'OTHER'
     });
   }
   static get Role (): Object {
@@ -143,106 +139,6 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
     );
   }
 
-  getAnalyticsCohortQuery (fields, params, fetchFirstPage = true): AnalyticsCohortQueryResult {
-    return this.getEdge(
-      AnalyticsCohortQueryResult,
-      fields,
-      params,
-      fetchFirstPage,
-      '/analytics_cohort_query'
-    );
-  }
-
-  getAnalyticsEntityUserConfig (fields, params, fetchFirstPage = true): AnalyticsEntityUserConfig {
-    return this.getEdge(
-      AnalyticsEntityUserConfig,
-      fields,
-      params,
-      fetchFirstPage,
-      '/analytics_entity_user_config'
-    );
-  }
-
-  getAnalyticsEventTypes (fields, params, fetchFirstPage = true): AnalyticsEventTypes {
-    return this.getEdge(
-      AnalyticsEventTypes,
-      fields,
-      params,
-      fetchFirstPage,
-      '/analytics_event_types'
-    );
-  }
-
-  getAnalyticsFunnelQuery (fields, params, fetchFirstPage = true): AnalyticsFunnelQueryResult {
-    return this.getEdge(
-      AnalyticsFunnelQueryResult,
-      fields,
-      params,
-      fetchFirstPage,
-      '/analytics_funnel_query'
-    );
-  }
-
-  getAnalyticsQuery (fields, params, fetchFirstPage = true): AnalyticsQueryResult {
-    return this.getEdge(
-      AnalyticsQueryResult,
-      fields,
-      params,
-      fetchFirstPage,
-      '/analytics_query'
-    );
-  }
-
-  getAnalyticsQueryExport (fields, params, fetchFirstPage = true): AnalyticsQueryExportResult {
-    return this.getEdge(
-      AnalyticsQueryExportResult,
-      fields,
-      params,
-      fetchFirstPage,
-      '/analytics_query_export'
-    );
-  }
-
-  getAnalyticsSegments (fields, params, fetchFirstPage = true): AnalyticsSegment {
-    return this.getEdge(
-      AnalyticsSegment,
-      fields,
-      params,
-      fetchFirstPage,
-      '/analytics_segments'
-    );
-  }
-
-  getAssignedPartners (fields, params, fetchFirstPage = true): Business {
-    return this.getEdge(
-      Business,
-      fields,
-      params,
-      fetchFirstPage,
-      '/assigned_partners'
-    );
-  }
-
-  getAssignedUsers (fields, params, fetchFirstPage = true): AssignedUser {
-    return this.getEdge(
-      AssignedUser,
-      fields,
-      params,
-      fetchFirstPage,
-      '/assigned_users'
-    );
-  }
-
-  getAttributedEvents (fields, params, fetchFirstPage = true): AbstractObject {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/attributed_events'
-    );
-  }
-
   getAudiences (fields, params, fetchFirstPage = true): CustomAudience {
     return this.getEdge(
       CustomAudience,
@@ -250,36 +146,6 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/audiences'
-    );
-  }
-
-  getBusinessObjectTags (fields, params, fetchFirstPage = true): BusinessTag {
-    return this.getEdge(
-      BusinessTag,
-      fields,
-      params,
-      fetchFirstPage,
-      '/business_object_tags'
-    );
-  }
-
-  getBusinessRequests (fields, params, fetchFirstPage = true): BusinessRequest {
-    return this.getEdge(
-      BusinessRequest,
-      fields,
-      params,
-      fetchFirstPage,
-      '/business_requests'
-    );
-  }
-
-  getConnectedBusinessObjects (fields, params, fetchFirstPage = true): BusinessObject {
-    return this.getEdge(
-      BusinessObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/connected_business_objects'
     );
   }
 
@@ -303,42 +169,12 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
     );
   }
 
-  getDaStats (fields, params, fetchFirstPage = true): ExternalEventSourceDAStatsResult {
-    return this.getEdge(
-      ExternalEventSourceDAStatsResult,
-      fields,
-      params,
-      fetchFirstPage,
-      '/da_stats'
-    );
-  }
-
   createEvent (fields, params): AbstractObject {
     return this.createEdge(
       '/events',
       fields,
       params
 
-    );
-  }
-
-  getOptimizationStatuses (fields, params, fetchFirstPage = true): AbstractObject {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/optimization_statuses'
-    );
-  }
-
-  getProductCatalogs (fields, params, fetchFirstPage = true): ProductCatalog {
-    return this.getEdge(
-      ProductCatalog,
-      fields,
-      params,
-      fetchFirstPage,
-      '/product_catalogs'
     );
   }
 

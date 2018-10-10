@@ -11,7 +11,6 @@ import AbstractObject from './../abstract-object';
 import Comment from './comment';
 import Profile from './profile';
 import Photo from './photo';
-import ProfilePictureSource from './profile-picture-source';
 import Post from './post';
 
 /**
@@ -70,16 +69,6 @@ export default class LifeEvent extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/photos'
-    );
-  }
-
-  getPicture (fields, params, fetchFirstPage = true): ProfilePictureSource {
-    return this.getEdge(
-      ProfilePictureSource,
-      fields,
-      params,
-      fetchFirstPage,
-      '/picture'
     );
   }
 

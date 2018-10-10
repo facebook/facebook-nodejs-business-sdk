@@ -95,26 +95,6 @@ export default class LeadgenForm extends AbstractCrudObject {
     });
   }
 
-  getAdSets (fields, params, fetchFirstPage = true): AbstractObject {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/adsets'
-    );
-  }
-
-  getCampaigns (fields, params, fetchFirstPage = true): AbstractObject {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/campaigns'
-    );
-  }
-
   getLeads (fields, params, fetchFirstPage = true): Lead {
     return this.getEdge(
       Lead,

@@ -20,6 +20,8 @@ export default class AdScriptExecutionHistory extends AbstractCrudObject {
       changes: 'changes',
       complete_time: 'complete_time',
       execution_status: 'execution_status',
+      execution_token: 'execution_token',
+      logs: 'logs',
       script_id: 'script_id',
       script_schedule_spec_id: 'script_schedule_spec_id',
       start_time: 'start_time',

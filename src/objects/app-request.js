@@ -8,7 +8,6 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
-import ProfilePictureSource from './profile-picture-source';
 
 /**
  * AppRequest
@@ -28,16 +27,6 @@ export default class AppRequest extends AbstractCrudObject {
       object: 'object',
       to: 'to'
     });
-  }
-
-  getPicture (fields, params, fetchFirstPage = true): ProfilePictureSource {
-    return this.getEdge(
-      ProfilePictureSource,
-      fields,
-      params,
-      fetchFirstPage,
-      '/picture'
-    );
   }
 
   delete (fields, params): AbstractObject {

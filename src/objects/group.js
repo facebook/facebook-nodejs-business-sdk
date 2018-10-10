@@ -8,10 +8,10 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
-import User from './user';
 import Album from './album';
 import Event from './event';
 import LiveVideo from './live-video';
+import User from './user';
 import Photo from './photo';
 import ProfilePictureSource from './profile-picture-source';
 import AdVideo from './ad-video';
@@ -130,34 +130,14 @@ export default class Group extends AbstractCrudObject {
     });
   }
 
-  getAccessRequests (fields, params, fetchFirstPage = true): AbstractObject {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/access_requests'
-    );
-  }
-
-  deleteAdMIns (params): AbstractObject {
+  deleteAdmins (params): AbstractObject {
     return super.deleteEdge(
       '/admins',
       params
     );
   }
 
-  getAdMIns (fields, params, fetchFirstPage = true): User {
-    return this.getEdge(
-      User,
-      fields,
-      params,
-      fetchFirstPage,
-      '/admins'
-    );
-  }
-
-  createAdMIn (fields, params): Group {
+  createAdmin (fields, params): Group {
     return this.createEdge(
       '/admins',
       fields,
@@ -182,16 +162,6 @@ export default class Group extends AbstractCrudObject {
       fields,
       params,
       Album
-    );
-  }
-
-  getCompanies (fields, params, fetchFirstPage = true): Group {
-    return this.getEdge(
-      Group,
-      fields,
-      params,
-      fetchFirstPage,
-      '/companies'
     );
   }
 
@@ -233,16 +203,6 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  getFormerMembers (fields, params, fetchFirstPage = true): User {
-    return this.getEdge(
-      User,
-      fields,
-      params,
-      fetchFirstPage,
-      '/former_members'
-    );
-  }
-
   createGroupThread (fields, params): AbstractObject {
     return this.createEdge(
       '/group_threads',
@@ -271,16 +231,6 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  getGuestMembers (fields, params, fetchFirstPage = true): User {
-    return this.getEdge(
-      User,
-      fields,
-      params,
-      fetchFirstPage,
-      '/guest_members'
-    );
-  }
-
   getLiveVideos (fields, params, fetchFirstPage = true): LiveVideo {
     return this.getEdge(
       LiveVideo,
@@ -300,30 +250,10 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  getMemberRequests (fields, params, fetchFirstPage = true): User {
-    return this.getEdge(
-      User,
-      fields,
-      params,
-      fetchFirstPage,
-      '/member_requests'
-    );
-  }
-
   deleteMembers (params): AbstractObject {
     return super.deleteEdge(
       '/members',
       params
-    );
-  }
-
-  getMembers (fields, params, fetchFirstPage = true): User {
-    return this.getEdge(
-      User,
-      fields,
-      params,
-      fetchFirstPage,
-      '/members'
     );
   }
 
@@ -340,16 +270,6 @@ export default class Group extends AbstractCrudObject {
     return super.deleteEdge(
       '/moderators',
       params
-    );
-  }
-
-  getModerators (fields, params, fetchFirstPage = true): User {
-    return this.getEdge(
-      User,
-      fields,
-      params,
-      fetchFirstPage,
-      '/moderators'
     );
   }
 
@@ -397,26 +317,6 @@ export default class Group extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/picture'
-    );
-  }
-
-  getPixelInsights (fields, params, fetchFirstPage = true): AbstractObject {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/pixel_insights'
-    );
-  }
-
-  getReportedContent (fields, params, fetchFirstPage = true): AbstractObject {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/reported_content'
     );
   }
 

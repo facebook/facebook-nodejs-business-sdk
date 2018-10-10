@@ -24,17 +24,6 @@ export default class PageStoreVisitsDemographicInsights extends AbstractCrudObje
     });
   }
 
-  static get Breakdowns (): Object {
-    return Object.freeze({
-      age_gender: 'AGE_GENDER',
-      highest_education: 'HIGHEST_EDUCATION',
-      job_title: 'JOB_TITLE',
-      page_like: 'PAGE_LIKE',
-      home_city: 'HOME_CITY',
-      locale: 'LOCALE'
-    });
-  }
-
   get (fields, params): PageStoreVisitsDemographicInsights {
     return this.read(
       fields,

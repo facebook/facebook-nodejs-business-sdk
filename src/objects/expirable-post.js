@@ -7,7 +7,6 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import AbstractObject from './../abstract-object';
 
 /**
  * ExpirablePost
@@ -37,16 +36,6 @@ export default class ExpirablePost extends AbstractCrudObject {
       thumbnail: 'thumbnail',
       video_id: 'video_id'
     });
-  }
-
-  getEditActions (fields, params, fetchFirstPage = true): AbstractObject {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/edit_actions'
-    );
   }
 
   get (fields, params): ExpirablePost {

@@ -28,9 +28,11 @@ export default class HomeListing extends AbstractCrudObject {
       area_size: 'area_size',
       area_unit: 'area_unit',
       availability: 'availability',
+      co_2_emission_rating_eu: 'co_2_emission_rating_eu',
       currency: 'currency',
       days_on_market: 'days_on_market',
       description: 'description',
+      energy_rating_eu: 'energy_rating_eu',
       furnish_type: 'furnish_type',
       group_id: 'group_id',
       heating_type: 'heating_type',
@@ -57,16 +59,6 @@ export default class HomeListing extends AbstractCrudObject {
       url: 'url',
       year_built: 'year_built'
     });
-  }
-
-  getVideosMetadata (fields, params, fetchFirstPage = true): AbstractObject {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/videos_metadata'
-    );
   }
 
   delete (fields, params): AbstractObject {

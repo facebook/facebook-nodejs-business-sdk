@@ -26,20 +26,6 @@ export default class AdKpiShift extends AbstractCrudObject {
     });
   }
 
-  static get EventSource (): Object {
-    return Object.freeze({
-      ads_delivery_dashboard_bunnylol: 'ADS_DELIVERY_DASHBOARD_BUNNYLOL',
-      ads_delivery_debugger: 'ADS_DELIVERY_DEBUGGER',
-      ads_delivery_insights_availability_tool: 'ADS_DELIVERY_INSIGHTS_AVAILABILITY_TOOL',
-      ads_manager_delivery_column: 'ADS_MANAGER_DELIVERY_COLUMN',
-      checkout_graduation_flow: 'CHECKOUT_GRADUATION_FLOW',
-      notifications: 'NOTIFICATIONS',
-      power_editor_delivery_column: 'POWER_EDITOR_DELIVERY_COLUMN',
-      best_practices_report: 'BEST_PRACTICES_REPORT',
-      unknown: 'UNKNOWN'
-    });
-  }
-
   get (fields, params): AdKpiShift {
     return this.read(
       fields,

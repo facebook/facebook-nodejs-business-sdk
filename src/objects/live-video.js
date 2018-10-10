@@ -47,6 +47,7 @@ export default class LiveVideo extends AbstractCrudObject {
       secure_stream_url: 'secure_stream_url',
       status: 'status',
       stream_url: 'stream_url',
+      targeting: 'targeting',
       title: 'title',
       total_views: 'total_views',
       video: 'video'

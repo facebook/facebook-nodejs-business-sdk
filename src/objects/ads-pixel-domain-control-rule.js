@@ -22,13 +22,6 @@ export default class AdsPixelDomainControlRule extends AbstractCrudObject {
     });
   }
 
-  static get Type (): Object {
-    return Object.freeze({
-      blacklist: 'BLACKLIST',
-      whitelist: 'WHITELIST'
-    });
-  }
-
   get (fields, params): AdsPixelDomainControlRule {
     return this.read(
       fields,

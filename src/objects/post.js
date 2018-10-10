@@ -30,6 +30,7 @@ export default class Post extends AbstractCrudObject {
       application: 'application',
       backdated_time: 'backdated_time',
       call_to_action: 'call_to_action',
+      can_reply_privately: 'can_reply_privately',
       caption: 'caption',
       child_attachments: 'child_attachments',
       comments_mirroring_domain: 'comments_mirroring_domain',

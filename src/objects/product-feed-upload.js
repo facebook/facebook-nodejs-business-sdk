@@ -8,7 +8,6 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import ProductFeedUploadError from './product-feed-upload-error';
-import ProductFeedUploadProgress from './product-feed-upload-progress';
 
 /**
  * ProductFeedUpload
@@ -49,16 +48,6 @@ export default class ProductFeedUpload extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/errors'
-    );
-  }
-
-  getProgresses (fields, params, fetchFirstPage = true): ProductFeedUploadProgress {
-    return this.getEdge(
-      ProductFeedUploadProgress,
-      fields,
-      params,
-      fetchFirstPage,
-      '/progresses'
     );
   }
 

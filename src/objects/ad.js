@@ -8,19 +8,12 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
-import AdgroupActivity from './adgroup-activity';
 import AdCreative from './ad-creative';
-import AdDraft from './ad-draft';
-import AdRule from './ad-rule';
-import ColumnSuggestions from './column-suggestions';
-import AdConversions from './ad-conversions';
 import AdsInsights from './ads-insights';
 import AdReportRun from './ad-report-run';
 import AdKeywordStats from './ad-keyword-stats';
 import Lead from './lead';
 import AdPreview from './ad-preview';
-import AdsReportBuilder from './ads-report-builder';
-import AdCampaignStats from './ad-campaign-stats';
 import TargetingSentenceLine from './targeting-sentence-line';
 
 /**
@@ -52,6 +45,7 @@ export default class Ad extends AbstractCrudObject {
       failed_delivery_checks: 'failed_delivery_checks',
       id: 'id',
       impression_control_map: 'impression_control_map',
+      issues_info: 'issues_info',
       last_updated_by_app_id: 'last_updated_by_app_id',
       locations: 'locations',
       name: 'name',
@@ -152,23 +146,6 @@ export default class Ad extends AbstractCrudObject {
       inherited_from_source: 'INHERITED_FROM_SOURCE'
     });
   }
-  static get Restriction (): Object {
-    return Object.freeze({
-      allow_all: 'ALLOW_ALL',
-      blacklist: 'BLACKLIST',
-      whitelist: 'WHITELIST'
-    });
-  }
-
-  getActivityLogs (fields, params, fetchFirstPage = true): AdgroupActivity {
-    return this.getEdge(
-      AdgroupActivity,
-      fields,
-      params,
-      fetchFirstPage,
-      '/activity_logs'
-    );
-  }
 
   getAdCreatives (fields, params, fetchFirstPage = true): AdCreative {
     return this.getEdge(
@@ -177,16 +154,6 @@ export default class Ad extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/adcreatives'
-    );
-  }
-
-  getAdDrafts (fields, params, fetchFirstPage = true): AdDraft {
-    return this.getEdge(
-      AdDraft,
-      fields,
-      params,
-      fetchFirstPage,
-      '/addrafts'
     );
   }
 
@@ -203,36 +170,6 @@ export default class Ad extends AbstractCrudObject {
       fields,
       params,
       Ad
-    );
-  }
-
-  getAdRulesGoverned (fields, params, fetchFirstPage = true): AdRule {
-    return this.getEdge(
-      AdRule,
-      fields,
-      params,
-      fetchFirstPage,
-      '/adrules_governed'
-    );
-  }
-
-  getColumnSuggestions (fields, params, fetchFirstPage = true): ColumnSuggestions {
-    return this.getEdge(
-      ColumnSuggestions,
-      fields,
-      params,
-      fetchFirstPage,
-      '/column_suggestions'
-    );
-  }
-
-  getConversions (fields, params, fetchFirstPage = true): AdConversions {
-    return this.getEdge(
-      AdConversions,
-      fields,
-      params,
-      fetchFirstPage,
-      '/conversions'
     );
   }
 
@@ -310,26 +247,6 @@ export default class Ad extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/previews'
-    );
-  }
-
-  getReporting (fields, params, fetchFirstPage = true): AdsReportBuilder {
-    return this.getEdge(
-      AdsReportBuilder,
-      fields,
-      params,
-      fetchFirstPage,
-      '/reporting'
-    );
-  }
-
-  getStats (fields, params, fetchFirstPage = true): AdCampaignStats {
-    return this.getEdge(
-      AdCampaignStats,
-      fields,
-      params,
-      fetchFirstPage,
-      '/stats'
     );
   }
 

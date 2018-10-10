@@ -16,18 +16,13 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class LeadGenDataDraft extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      allow_organic_lead: 'allow_organic_lead',
       block_display_for_non_targeted_viewer: 'block_display_for_non_targeted_viewer',
       context_card: 'context_card',
-      continued_flow_request_method: 'continued_flow_request_method',
       created_time: 'created_time',
       creator_id: 'creator_id',
-      expired_leads_count: 'expired_leads_count',
       follow_up_action_url: 'follow_up_action_url',
       id: 'id',
-      is_continued_flow: 'is_continued_flow',
       is_optimized_for_quality: 'is_optimized_for_quality',
-      leadgen_export_csv_url: 'leadgen_export_csv_url',
       legal_content: 'legal_content',
       locale: 'locale',
       name: 'name',

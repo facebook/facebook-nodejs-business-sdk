@@ -95,7 +95,8 @@ export default class AdAssetFeed extends AbstractCrudObject {
       video_bandwidth: 'VIDEO_BANDWIDTH',
       brand: 'BRAND',
       asset_customization: 'ASSET_CUSTOMIZATION',
-      dco_parity: 'DCO_PARITY'
+      dco_parity: 'DCO_PARITY',
+      preview_dynamic_rendering: 'PREVIEW_DYNAMIC_RENDERING'
     });
   }
   static get CallToActionType (): Object {
@@ -181,16 +182,6 @@ export default class AdAssetFeed extends AbstractCrudObject {
     );
   }
 
-  getCallToActions (fields, params, fetchFirstPage = true): AbstractObject {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/call_to_actions'
-    );
-  }
-
   getCaptions (fields, params, fetchFirstPage = true): AbstractObject {
     return this.getEdge(
       AbstractObject,
@@ -238,16 +229,6 @@ export default class AdAssetFeed extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/link_urls'
-    );
-  }
-
-  getTargetRules (fields, params, fetchFirstPage = true): AbstractObject {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/target_rules'
     );
   }
 

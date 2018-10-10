@@ -17,8 +17,14 @@ export default class MerchantReport extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       add_to_cart: 'add_to_cart',
+      catalog_segment_id: 'catalog_segment_id',
       catalog_segment_purchase_value: 'catalog_segment_purchase_value',
+      date: 'date',
       link_clicks: 'link_clicks',
+      page_id: 'page_id',
+      product_id: 'product_id',
+      product_quantity: 'product_quantity',
+      product_total_value: 'product_total_value',
       purchase: 'purchase',
       purchase_value: 'purchase_value',
       id: 'id'

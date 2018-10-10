@@ -8,9 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
-import AdAccount from './ad-account';
 import ExtendedCreditInvoiceGroup from './extended-credit-invoice-group';
-import CRMAddress from './crm-address';
 import ExtendedCreditAllocationConfig from './extended-credit-allocation-config';
 
 /**
@@ -39,16 +37,6 @@ export default class ExtendedCredit extends AbstractCrudObject {
       receiving_credit_allocation_config: 'receiving_credit_allocation_config',
       send_bill_to_biz_name: 'send_bill_to_biz_name'
     });
-  }
-
-  getAdAccounts (fields, params, fetchFirstPage = true): AdAccount {
-    return this.getEdge(
-      AdAccount,
-      fields,
-      params,
-      fetchFirstPage,
-      '/ad_accounts'
-    );
   }
 
   getExtendedCreditEmails (fields, params, fetchFirstPage = true): AbstractObject {
@@ -80,16 +68,6 @@ export default class ExtendedCredit extends AbstractCrudObject {
     );
   }
 
-  getLiableAddresses (fields, params, fetchFirstPage = true): CRMAddress {
-    return this.getEdge(
-      CRMAddress,
-      fields,
-      params,
-      fetchFirstPage,
-      '/liable_addresses'
-    );
-  }
-
   getOwningCreditAllocationConfigs (fields, params, fetchFirstPage = true): ExtendedCreditAllocationConfig {
     return this.getEdge(
       ExtendedCreditAllocationConfig,
@@ -106,26 +84,6 @@ export default class ExtendedCredit extends AbstractCrudObject {
       fields,
       params,
       ExtendedCreditAllocationConfig
-    );
-  }
-
-  getSendBillToAddresses (fields, params, fetchFirstPage = true): CRMAddress {
-    return this.getEdge(
-      CRMAddress,
-      fields,
-      params,
-      fetchFirstPage,
-      '/send_bill_to_addresses'
-    );
-  }
-
-  getSoldToAddresses (fields, params, fetchFirstPage = true): CRMAddress {
-    return this.getEdge(
-      CRMAddress,
-      fields,
-      params,
-      fetchFirstPage,
-      '/sold_to_addresses'
     );
   }
 

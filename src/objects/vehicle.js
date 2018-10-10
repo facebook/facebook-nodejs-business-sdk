@@ -7,7 +7,6 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import AbstractObject from './../abstract-object';
 
 /**
  * Vehicle
@@ -55,19 +54,11 @@ export default class Vehicle extends AbstractCrudObject {
       url: 'url',
       vehicle_id: 'vehicle_id',
       vehicle_registration_plate: 'vehicle_registration_plate',
+      vehicle_specifications: 'vehicle_specifications',
+      vehicle_type: 'vehicle_type',
       vin: 'vin',
       year: 'year'
     });
-  }
-
-  getVideosMetadata (fields, params, fetchFirstPage = true): AbstractObject {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/videos_metadata'
-    );
   }
 
   get (fields, params): Vehicle {

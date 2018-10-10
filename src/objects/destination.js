@@ -7,7 +7,6 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import AbstractObject from './../abstract-object';
 
 /**
  * Destination
@@ -31,16 +30,6 @@ export default class Destination extends AbstractCrudObject {
       types: 'types',
       url: 'url'
     });
-  }
-
-  getVideosMetadata (fields, params, fetchFirstPage = true): AbstractObject {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/videos_metadata'
-    );
   }
 
   get (fields, params): Destination {

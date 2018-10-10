@@ -8,11 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
-import Business from './business';
-import BusinessTag from './business-tag';
-import BusinessRequest from './business-request';
 import Comment from './comment';
-import BusinessObject from './business-object';
 import InsightsResult from './insights-result';
 import Profile from './profile';
 import Post from './post';
@@ -105,36 +101,6 @@ export default class Photo extends AbstractCrudObject {
     });
   }
 
-  getAssignedPartners (fields, params, fetchFirstPage = true): Business {
-    return this.getEdge(
-      Business,
-      fields,
-      params,
-      fetchFirstPage,
-      '/assigned_partners'
-    );
-  }
-
-  getBusinessObjectTags (fields, params, fetchFirstPage = true): BusinessTag {
-    return this.getEdge(
-      BusinessTag,
-      fields,
-      params,
-      fetchFirstPage,
-      '/business_object_tags'
-    );
-  }
-
-  getBusinessRequests (fields, params, fetchFirstPage = true): BusinessRequest {
-    return this.getEdge(
-      BusinessRequest,
-      fields,
-      params,
-      fetchFirstPage,
-      '/business_requests'
-    );
-  }
-
   getComments (fields, params, fetchFirstPage = true): Comment {
     return this.getEdge(
       Comment,
@@ -151,16 +117,6 @@ export default class Photo extends AbstractCrudObject {
       fields,
       params,
       Comment
-    );
-  }
-
-  getConnectedBusinessObjects (fields, params, fetchFirstPage = true): BusinessObject {
-    return this.getEdge(
-      BusinessObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/connected_business_objects'
     );
   }
 

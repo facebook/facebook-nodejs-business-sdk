@@ -8,14 +8,6 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
-import AdPlacePageSet from './ad-place-page-set';
-import AdsPixel from './ads-pixel';
-import Application from './application';
-import BrandRequest from './brand-request';
-import CustomConversion from './custom-conversion';
-import OfflineConversionDataSet from './offline-conversion-data-set';
-import OffsitePixel from './offsite-pixel';
-import PartnerStudy from './partner-study';
 
 /**
  * AdStudyObjective
@@ -47,86 +39,6 @@ export default class AdStudyObjective extends AbstractCrudObject {
       brandlift: 'BRANDLIFT',
       brand: 'BRAND'
     });
-  }
-
-  getAdPlacePageSets (fields, params, fetchFirstPage = true): AdPlacePageSet {
-    return this.getEdge(
-      AdPlacePageSet,
-      fields,
-      params,
-      fetchFirstPage,
-      '/ad_place_page_sets'
-    );
-  }
-
-  getAdsPixels (fields, params, fetchFirstPage = true): AdsPixel {
-    return this.getEdge(
-      AdsPixel,
-      fields,
-      params,
-      fetchFirstPage,
-      '/adspixels'
-    );
-  }
-
-  getApplications (fields, params, fetchFirstPage = true): Application {
-    return this.getEdge(
-      Application,
-      fields,
-      params,
-      fetchFirstPage,
-      '/applications'
-    );
-  }
-
-  getBrandRequests (fields, params, fetchFirstPage = true): BrandRequest {
-    return this.getEdge(
-      BrandRequest,
-      fields,
-      params,
-      fetchFirstPage,
-      '/brand_requests'
-    );
-  }
-
-  getCustomConversions (fields, params, fetchFirstPage = true): CustomConversion {
-    return this.getEdge(
-      CustomConversion,
-      fields,
-      params,
-      fetchFirstPage,
-      '/customconversions'
-    );
-  }
-
-  getOfflineConversionDataSets (fields, params, fetchFirstPage = true): OfflineConversionDataSet {
-    return this.getEdge(
-      OfflineConversionDataSet,
-      fields,
-      params,
-      fetchFirstPage,
-      '/offline_conversion_data_sets'
-    );
-  }
-
-  getOffsitePixels (fields, params, fetchFirstPage = true): OffsitePixel {
-    return this.getEdge(
-      OffsitePixel,
-      fields,
-      params,
-      fetchFirstPage,
-      '/offsitepixels'
-    );
-  }
-
-  getPartnerStudies (fields, params, fetchFirstPage = true): PartnerStudy {
-    return this.getEdge(
-      PartnerStudy,
-      fields,
-      params,
-      fetchFirstPage,
-      '/partnerstudies'
-    );
   }
 
   delete (fields, params): AbstractObject {

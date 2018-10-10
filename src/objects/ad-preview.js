@@ -45,7 +45,8 @@ export default class AdPreview extends AbstractCrudObject {
       suggested_video_desktop: 'SUGGESTED_VIDEO_DESKTOP',
       suggested_video_mobile: 'SUGGESTED_VIDEO_MOBILE',
       marketplace_mobile: 'MARKETPLACE_MOBILE',
-      facebook_story_mobile: 'FACEBOOK_STORY_MOBILE'
+      facebook_story_mobile: 'FACEBOOK_STORY_MOBILE',
+      watch_feed_mobile: 'WATCH_FEED_MOBILE'
     });
   }
   static get RenderType (): Object {

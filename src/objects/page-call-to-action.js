@@ -89,7 +89,8 @@ export default class PageCallToAction extends AbstractCrudObject {
       play_music: 'PLAY_MUSIC',
       visit_group: 'VISIT_GROUP',
       shop_on_facebook: 'SHOP_ON_FACEBOOK',
-      local_dev_platform: 'LOCAL_DEV_PLATFORM'
+      local_dev_platform: 'LOCAL_DEV_PLATFORM',
+      interested: 'INTERESTED'
     });
   }
   static get WebDestinationType (): Object {

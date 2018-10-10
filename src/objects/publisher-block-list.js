@@ -8,9 +8,6 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
-import Business from './business';
-import AssignedUser from './assigned-user';
-import AdAccount from './ad-account';
 import AppPublisher from './app-publisher';
 import WebPublisher from './web-publisher';
 
@@ -33,46 +30,6 @@ export default class PublisherBlockList extends AbstractCrudObject {
       owner_ad_account_id: 'owner_ad_account_id',
       web_publishers: 'web_publishers'
     });
-  }
-
-  getAgencies (fields, params, fetchFirstPage = true): Business {
-    return this.getEdge(
-      Business,
-      fields,
-      params,
-      fetchFirstPage,
-      '/agencies'
-    );
-  }
-
-  getAssignedUsers (fields, params, fetchFirstPage = true): AssignedUser {
-    return this.getEdge(
-      AssignedUser,
-      fields,
-      params,
-      fetchFirstPage,
-      '/assigned_users'
-    );
-  }
-
-  getAutoAppliedAdAccounts (fields, params, fetchFirstPage = true): AdAccount {
-    return this.getEdge(
-      AdAccount,
-      fields,
-      params,
-      fetchFirstPage,
-      '/auto_applied_ad_accounts'
-    );
-  }
-
-  getAutoAppliedBusinesses (fields, params, fetchFirstPage = true): Business {
-    return this.getEdge(
-      Business,
-      fields,
-      params,
-      fetchFirstPage,
-      '/auto_applied_businesses'
-    );
   }
 
   getPageDAppPublishers (fields, params, fetchFirstPage = true): AppPublisher {

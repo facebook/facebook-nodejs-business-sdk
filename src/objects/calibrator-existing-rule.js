@@ -29,16 +29,6 @@ export default class CalibratorExistingRule extends AbstractCrudObject {
     });
   }
 
-  static get CreationSource (): Object {
-    return Object.freeze({
-      system_suggestion: 'SYSTEM_SUGGESTION',
-      low_confidence_suggestion: 'LOW_CONFIDENCE_SUGGESTION',
-      user_config: 'USER_CONFIG',
-      iwl_suggestion: 'IWL_SUGGESTION',
-      iwl_config: 'IWL_CONFIG'
-    });
-  }
-
   getActivities (fields, params, fetchFirstPage = true): AbstractObject {
     return this.getEdge(
       AbstractObject,

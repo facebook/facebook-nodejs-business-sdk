@@ -7,7 +7,6 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import AbstractObject from './../abstract-object';
 import InsightsResult from './insights-result';
 
 /**
@@ -36,16 +35,6 @@ export default class AdsPost extends AbstractCrudObject {
       type: 'type',
       video_id: 'video_id'
     });
-  }
-
-  getEditActions (fields, params, fetchFirstPage = true): AbstractObject {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/edit_actions'
-    );
   }
 
   getInsights (fields, params, fetchFirstPage = true): InsightsResult {

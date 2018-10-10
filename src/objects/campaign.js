@@ -8,20 +8,11 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
-import AdCampaignGroupActivity from './ad-campaign-group-activity';
 import AdStudy from './ad-study';
-import AdDraft from './ad-draft';
-import AdRule from './ad-rule';
 import Ad from './ad';
 import AdSet from './ad-set';
-import ColumnSuggestions from './column-suggestions';
-import FAMEAdCampaign from './fame-ad-campaign';
 import AdsInsights from './ads-insights';
 import AdReportRun from './ad-report-run';
-import AdsReportBuilder from './ads-report-builder';
-import AdCampaignGroupStats from './ad-campaign-group-stats';
-import ApplicationThirdPartyPayload from './application-third-party-payload';
-import VideoGroup from './video-group';
 
 /**
  * Campaign
@@ -46,6 +37,8 @@ export default class Campaign extends AbstractCrudObject {
       daily_budget: 'daily_budget',
       effective_status: 'effective_status',
       id: 'id',
+      is_autobid: 'is_autobid',
+      is_average_price_pacing: 'is_average_price_pacing',
       kpi_custom_conversion_id: 'kpi_custom_conversion_id',
       kpi_type: 'kpi_type',
       last_budget_toggling_time: 'last_budget_toggling_time',
@@ -164,16 +157,6 @@ export default class Campaign extends AbstractCrudObject {
     });
   }
 
-  getActivityLogs (fields, params, fetchFirstPage = true): AdCampaignGroupActivity {
-    return this.getEdge(
-      AdCampaignGroupActivity,
-      fields,
-      params,
-      fetchFirstPage,
-      '/activity_logs'
-    );
-  }
-
   getAdStudies (fields, params, fetchFirstPage = true): AdStudy {
     return this.getEdge(
       AdStudy,
@@ -181,16 +164,6 @@ export default class Campaign extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/ad_studies'
-    );
-  }
-
-  getAdDrafts (fields, params, fetchFirstPage = true): AdDraft {
-    return this.getEdge(
-      AdDraft,
-      fields,
-      params,
-      fetchFirstPage,
-      '/addrafts'
     );
   }
 
@@ -207,16 +180,6 @@ export default class Campaign extends AbstractCrudObject {
       fields,
       params,
       Campaign
-    );
-  }
-
-  getAdRulesGoverned (fields, params, fetchFirstPage = true): AdRule {
-    return this.getEdge(
-      AdRule,
-      fields,
-      params,
-      fetchFirstPage,
-      '/adrules_governed'
     );
   }
 
@@ -240,16 +203,6 @@ export default class Campaign extends AbstractCrudObject {
     );
   }
 
-  getColumnSuggestions (fields, params, fetchFirstPage = true): ColumnSuggestions {
-    return this.getEdge(
-      ColumnSuggestions,
-      fields,
-      params,
-      fetchFirstPage,
-      '/column_suggestions'
-    );
-  }
-
   getCopies (fields, params, fetchFirstPage = true): Campaign {
     return this.getEdge(
       Campaign,
@@ -269,16 +222,6 @@ export default class Campaign extends AbstractCrudObject {
     );
   }
 
-  getFameAdSets (fields, params, fetchFirstPage = true): FAMEAdCampaign {
-    return this.getEdge(
-      FAMEAdCampaign,
-      fields,
-      params,
-      fetchFirstPage,
-      '/fame_adsets'
-    );
-  }
-
   getInsights (fields, params, fetchFirstPage = true): AdsInsights {
     return this.getEdge(
       AdsInsights,
@@ -295,46 +238,6 @@ export default class Campaign extends AbstractCrudObject {
       fields,
       params,
       AdReportRun
-    );
-  }
-
-  getReporting (fields, params, fetchFirstPage = true): AdsReportBuilder {
-    return this.getEdge(
-      AdsReportBuilder,
-      fields,
-      params,
-      fetchFirstPage,
-      '/reporting'
-    );
-  }
-
-  getStats (fields, params, fetchFirstPage = true): AdCampaignGroupStats {
-    return this.getEdge(
-      AdCampaignGroupStats,
-      fields,
-      params,
-      fetchFirstPage,
-      '/stats'
-    );
-  }
-
-  getThirdPartyPayload (fields, params, fetchFirstPage = true): ApplicationThirdPartyPayload {
-    return this.getEdge(
-      ApplicationThirdPartyPayload,
-      fields,
-      params,
-      fetchFirstPage,
-      '/third_party_payload'
-    );
-  }
-
-  getVideoGroups (fields, params, fetchFirstPage = true): VideoGroup {
-    return this.getEdge(
-      VideoGroup,
-      fields,
-      params,
-      fetchFirstPage,
-      '/video_groups'
     );
   }
 

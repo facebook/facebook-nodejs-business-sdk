@@ -17,6 +17,7 @@ export default class AdCreativeRecommenderSettings extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       preferred_events: 'preferred_events',
+      product_sales_channel: 'product_sales_channel',
       id: 'id'
     });
   }

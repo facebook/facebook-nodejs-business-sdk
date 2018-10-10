@@ -18,6 +18,7 @@ import AdAccount from './ad-account';
 export default class AdAccountCreationRequest extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
+      ad_accounts_currency: 'ad_accounts_currency',
       ad_accounts_info: 'ad_accounts_info',
       additional_comment: 'additional_comment',
       address_in_chinese: 'address_in_chinese',
@@ -30,6 +31,7 @@ export default class AdAccountCreationRequest extends AbstractCrudObject {
       chinese_legal_entity_name: 'chinese_legal_entity_name',
       contact: 'contact',
       creator: 'creator',
+      credit_card_id: 'credit_card_id',
       disapproval_reasons: 'disapproval_reasons',
       english_legal_entity_name: 'english_legal_entity_name',
       extended_credit_id: 'extended_credit_id',
@@ -224,6 +226,15 @@ export default class AdAccountCreationRequest extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/adaccounts'
+    );
+  }
+
+  createVietnam (fields, params): AdAccountCreationRequest {
+    return this.createEdge(
+      '/vietnam',
+      fields,
+      params,
+      AdAccountCreationRequest
     );
   }
 

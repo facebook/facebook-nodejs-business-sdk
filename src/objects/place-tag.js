@@ -7,8 +7,6 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import Photo from './photo';
-import ProfilePictureSource from './profile-picture-source';
 
 /**
  * PlaceTag
@@ -22,26 +20,6 @@ export default class PlaceTag extends AbstractCrudObject {
       id: 'id',
       place: 'place'
     });
-  }
-
-  getContents (fields, params, fetchFirstPage = true): Photo {
-    return this.getEdge(
-      Photo,
-      fields,
-      params,
-      fetchFirstPage,
-      '/contents'
-    );
-  }
-
-  getPicture (fields, params, fetchFirstPage = true): ProfilePictureSource {
-    return this.getEdge(
-      ProfilePictureSource,
-      fields,
-      params,
-      fetchFirstPage,
-      '/picture'
-    );
   }
 
   get (fields, params): PlaceTag {

@@ -10,8 +10,6 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import CustomConversionActivities from './custom-conversion-activities';
 import AdAccount from './ad-account';
-import BusinessUnit from './business-unit';
-import AdsPixelRawFiresResult from './ads-pixel-raw-fires-result';
 import CustomConversionStatsResult from './custom-conversion-stats-result';
 
 /**
@@ -99,26 +97,6 @@ export default class CustomConversion extends AbstractCrudObject {
       fields,
       params,
       CustomConversion
-    );
-  }
-
-  getBusinessUnits (fields, params, fetchFirstPage = true): BusinessUnit {
-    return this.getEdge(
-      BusinessUnit,
-      fields,
-      params,
-      fetchFirstPage,
-      '/business_units'
-    );
-  }
-
-  getRawFires (fields, params, fetchFirstPage = true): AdsPixelRawFiresResult {
-    return this.getEdge(
-      AdsPixelRawFiresResult,
-      fields,
-      params,
-      fetchFirstPage,
-      '/raw_fires'
     );
   }
 

@@ -20,6 +20,7 @@ export default class AdsPixelRealTimeEventLogResult extends AbstractCrudObject {
       device_type: 'device_type',
       event: 'event',
       event_detection_method: 'event_detection_method',
+      rule_conditions: 'rule_conditions',
       timestamp: 'timestamp',
       url: 'url',
       id: 'id'

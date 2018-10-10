@@ -115,14 +115,6 @@ export default class AdActivity extends AbstractCrudObject {
       targeting: 'TARGETING'
     });
   }
-  static get ActivityType (): Object {
-    return Object.freeze({
-      all: 'ALL',
-      sig_edit: 'SIG_EDIT',
-      sig_edit_with_cpa_change: 'SIG_EDIT_WITH_CPA_CHANGE',
-      learning_stage_exit: 'LEARNING_STAGE_EXIT'
-    });
-  }
 
   get (fields, params): AdActivity {
     return this.read(

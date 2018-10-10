@@ -9,7 +9,6 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import HotelRoom from './hotel-room';
-import AdVideo from './ad-video';
 
 /**
  * Hotel
@@ -22,6 +21,7 @@ export default class Hotel extends AbstractCrudObject {
       address: 'address',
       applinks: 'applinks',
       brand: 'brand',
+      currency: 'currency',
       description: 'description',
       guest_ratings: 'guest_ratings',
       hotel_id: 'hotel_id',
@@ -54,26 +54,6 @@ export default class Hotel extends AbstractCrudObject {
       fields,
       params,
       HotelRoom
-    );
-  }
-
-  getVideos (fields, params, fetchFirstPage = true): AdVideo {
-    return this.getEdge(
-      AdVideo,
-      fields,
-      params,
-      fetchFirstPage,
-      '/videos'
-    );
-  }
-
-  getVideosMetadata (fields, params, fetchFirstPage = true): AbstractObject {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/videos_metadata'
     );
   }
 

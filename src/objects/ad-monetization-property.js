@@ -7,16 +7,8 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import AbstractObject from './../abstract-object';
 import AdNetworkAnalyticsSyncQueryResult from './ad-network-analytics-sync-query-result';
 import AdNetworkAnalyticsAsyncQueryResult from './ad-network-analytics-async-query-result';
-import AnalyticsQueryResult from './analytics-query-result';
-import AnalyticsQueryExportResult from './analytics-query-export-result';
-import Application from './application';
-import Business from './business';
-import BusinessTag from './business-tag';
-import BusinessRequest from './business-request';
-import BusinessObject from './business-object';
 
 /**
  * AdMonetizationProperty
@@ -103,16 +95,6 @@ export default class AdMonetizationProperty extends AbstractCrudObject {
     });
   }
 
-  getAdSpaces (fields, params, fetchFirstPage = true): AbstractObject {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/ad_spaces'
-    );
-  }
-
   getAdNetworkAnalytics (fields, params, fetchFirstPage = true): AdNetworkAnalyticsSyncQueryResult {
     return this.getEdge(
       AdNetworkAnalyticsSyncQueryResult,
@@ -139,96 +121,6 @@ export default class AdMonetizationProperty extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/adnetworkanalytics_results'
-    );
-  }
-
-  getAnalyticsQuery (fields, params, fetchFirstPage = true): AnalyticsQueryResult {
-    return this.getEdge(
-      AnalyticsQueryResult,
-      fields,
-      params,
-      fetchFirstPage,
-      '/analytics_query'
-    );
-  }
-
-  getAnalyticsQueryExport (fields, params, fetchFirstPage = true): AnalyticsQueryExportResult {
-    return this.getEdge(
-      AnalyticsQueryExportResult,
-      fields,
-      params,
-      fetchFirstPage,
-      '/analytics_query_export'
-    );
-  }
-
-  getApplications (fields, params, fetchFirstPage = true): Application {
-    return this.getEdge(
-      Application,
-      fields,
-      params,
-      fetchFirstPage,
-      '/applications'
-    );
-  }
-
-  getAssignedPartners (fields, params, fetchFirstPage = true): Business {
-    return this.getEdge(
-      Business,
-      fields,
-      params,
-      fetchFirstPage,
-      '/assigned_partners'
-    );
-  }
-
-  getBusinessObjectTags (fields, params, fetchFirstPage = true): BusinessTag {
-    return this.getEdge(
-      BusinessTag,
-      fields,
-      params,
-      fetchFirstPage,
-      '/business_object_tags'
-    );
-  }
-
-  getBusinessRequests (fields, params, fetchFirstPage = true): BusinessRequest {
-    return this.getEdge(
-      BusinessRequest,
-      fields,
-      params,
-      fetchFirstPage,
-      '/business_requests'
-    );
-  }
-
-  getConnectedBusinessObjects (fields, params, fetchFirstPage = true): BusinessObject {
-    return this.getEdge(
-      BusinessObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/connected_business_objects'
-    );
-  }
-
-  getPriceTargetSegments (fields, params, fetchFirstPage = true): AbstractObject {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/price_target_segments'
-    );
-  }
-
-  getUserPermissions (fields, params, fetchFirstPage = true): AbstractObject {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/userpermissions'
     );
   }
 

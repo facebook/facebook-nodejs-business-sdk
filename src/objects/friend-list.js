@@ -8,8 +8,6 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
-import Profile from './profile';
-import ProfilePictureSource from './profile-picture-source';
 
 /**
  * FriendList
@@ -39,32 +37,12 @@ export default class FriendList extends AbstractCrudObject {
     );
   }
 
-  getMembers (fields, params, fetchFirstPage = true): Profile {
-    return this.getEdge(
-      Profile,
-      fields,
-      params,
-      fetchFirstPage,
-      '/members'
-    );
-  }
-
   createMember (fields, params): FriendList {
     return this.createEdge(
       '/members',
       fields,
       params,
       FriendList
-    );
-  }
-
-  getPicture (fields, params, fetchFirstPage = true): ProfilePictureSource {
-    return this.getEdge(
-      ProfilePictureSource,
-      fields,
-      params,
-      fetchFirstPage,
-      '/picture'
     );
   }
 

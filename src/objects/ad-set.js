@@ -9,25 +9,13 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import AdActivity from './ad-activity';
-import AdCampaignActivity from './ad-campaign-activity';
 import AdStudy from './ad-study';
 import AdCreative from './ad-creative';
-import AdDraft from './ad-draft';
-import AdRule from './ad-rule';
 import Ad from './ad';
 import AdAsyncRequest from './ad-async-request';
-import ColumnSuggestions from './column-suggestions';
-import AdConversions from './ad-conversions';
 import AdCampaignDeliveryEstimate from './ad-campaign-delivery-estimate';
-import AdDeliveryInsights from './ad-delivery-insights';
-import AdCampaignDeliveryStats from './ad-campaign-delivery-stats';
-import FAMEAdGroup from './fame-ad-group';
 import AdsInsights from './ads-insights';
 import AdReportRun from './ad-report-run';
-import ReachEstimate from './reach-estimate';
-import AdsReportBuilder from './ads-report-builder';
-import AdCampaignStats from './ad-campaign-stats';
-import AdsTargetingInsights from './ads-targeting-insights';
 import TargetingSentenceLine from './targeting-sentence-line';
 
 /**
@@ -245,16 +233,6 @@ export default class AdSet extends AbstractCrudObject {
     );
   }
 
-  getActivityLogs (fields, params, fetchFirstPage = true): AdCampaignActivity {
-    return this.getEdge(
-      AdCampaignActivity,
-      fields,
-      params,
-      fetchFirstPage,
-      '/activity_logs'
-    );
-  }
-
   getAdStudies (fields, params, fetchFirstPage = true): AdStudy {
     return this.getEdge(
       AdStudy,
@@ -275,16 +253,6 @@ export default class AdSet extends AbstractCrudObject {
     );
   }
 
-  getAdDrafts (fields, params, fetchFirstPage = true): AdDraft {
-    return this.getEdge(
-      AdDraft,
-      fields,
-      params,
-      fetchFirstPage,
-      '/addrafts'
-    );
-  }
-
   deleteAdLabels (params): AbstractObject {
     return super.deleteEdge(
       '/adlabels',
@@ -298,16 +266,6 @@ export default class AdSet extends AbstractCrudObject {
       fields,
       params,
       AdSet
-    );
-  }
-
-  getAdRulesGoverned (fields, params, fetchFirstPage = true): AdRule {
-    return this.getEdge(
-      AdRule,
-      fields,
-      params,
-      fetchFirstPage,
-      '/adrules_governed'
     );
   }
 
@@ -328,26 +286,6 @@ export default class AdSet extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/asyncadrequests'
-    );
-  }
-
-  getColumnSuggestions (fields, params, fetchFirstPage = true): ColumnSuggestions {
-    return this.getEdge(
-      ColumnSuggestions,
-      fields,
-      params,
-      fetchFirstPage,
-      '/column_suggestions'
-    );
-  }
-
-  getConversions (fields, params, fetchFirstPage = true): AdConversions {
-    return this.getEdge(
-      AdConversions,
-      fields,
-      params,
-      fetchFirstPage,
-      '/conversions'
     );
   }
 
@@ -380,36 +318,6 @@ export default class AdSet extends AbstractCrudObject {
     );
   }
 
-  getDeliveryInsights (fields, params, fetchFirstPage = true): AdDeliveryInsights {
-    return this.getEdge(
-      AdDeliveryInsights,
-      fields,
-      params,
-      fetchFirstPage,
-      '/delivery_insights'
-    );
-  }
-
-  getDeliveryStats (fields, params, fetchFirstPage = true): AdCampaignDeliveryStats {
-    return this.getEdge(
-      AdCampaignDeliveryStats,
-      fields,
-      params,
-      fetchFirstPage,
-      '/delivery_stats'
-    );
-  }
-
-  getFameAds (fields, params, fetchFirstPage = true): FAMEAdGroup {
-    return this.getEdge(
-      FAMEAdGroup,
-      fields,
-      params,
-      fetchFirstPage,
-      '/fame_ads'
-    );
-  }
-
   getInsights (fields, params, fetchFirstPage = true): AdsInsights {
     return this.getEdge(
       AdsInsights,
@@ -426,46 +334,6 @@ export default class AdSet extends AbstractCrudObject {
       fields,
       params,
       AdReportRun
-    );
-  }
-
-  getReachEstimate (fields, params, fetchFirstPage = true): ReachEstimate {
-    return this.getEdge(
-      ReachEstimate,
-      fields,
-      params,
-      fetchFirstPage,
-      '/reachestimate'
-    );
-  }
-
-  getReporting (fields, params, fetchFirstPage = true): AdsReportBuilder {
-    return this.getEdge(
-      AdsReportBuilder,
-      fields,
-      params,
-      fetchFirstPage,
-      '/reporting'
-    );
-  }
-
-  getStats (fields, params, fetchFirstPage = true): AdCampaignStats {
-    return this.getEdge(
-      AdCampaignStats,
-      fields,
-      params,
-      fetchFirstPage,
-      '/stats'
-    );
-  }
-
-  getTargetingInsights (fields, params, fetchFirstPage = true): AdsTargetingInsights {
-    return this.getEdge(
-      AdsTargetingInsights,
-      fields,
-      params,
-      fetchFirstPage,
-      '/targeting_insights'
     );
   }
 

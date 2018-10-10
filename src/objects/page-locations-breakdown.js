@@ -29,14 +29,6 @@ export default class PageLocationsBreakdown extends AbstractCrudObject {
     });
   }
 
-  static get Type (): Object {
-    return Object.freeze({
-      country: 'country',
-      city: 'city',
-      region: 'region'
-    });
-  }
-
   get (fields, params): PageLocationsBreakdown {
     return this.read(
       fields,

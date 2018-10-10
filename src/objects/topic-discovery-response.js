@@ -22,17 +22,6 @@ export default class TopicDiscoveryResponse extends AbstractCrudObject {
     });
   }
 
-  static get QueryMethod (): Object {
-    return Object.freeze({
-      cooccur_7: 'cooccur_7',
-      cooccur_28: 'cooccur_28',
-      embedding_w2v_1: 'embedding_w2v_1',
-      embedding_w2v_7: 'embedding_w2v_7',
-      string_search: 'string_search',
-      all: 'all'
-    });
-  }
-
   get (fields, params): TopicDiscoveryResponse {
     return this.read(
       fields,

@@ -8,12 +8,9 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AdAccount from './ad-account';
-import Application from './application';
-import BusinessResourceGroup from './business-resource-group';
 import AdMonetizationProperty from './ad-monetization-property';
 import Page from './page';
 import ProductCatalog from './product-catalog';
-import WhatsAppBusinessAccount from './whats-app-business-account';
 import User from './user';
 
 /**
@@ -54,26 +51,6 @@ export default class SystemUser extends AbstractCrudObject {
     );
   }
 
-  getAssignedApps (fields, params, fetchFirstPage = true): Application {
-    return this.getEdge(
-      Application,
-      fields,
-      params,
-      fetchFirstPage,
-      '/assigned_apps'
-    );
-  }
-
-  getAssignedBusinessResourceGroups (fields, params, fetchFirstPage = true): BusinessResourceGroup {
-    return this.getEdge(
-      BusinessResourceGroup,
-      fields,
-      params,
-      fetchFirstPage,
-      '/assigned_business_resource_groups'
-    );
-  }
-
   getAssignedMonetizationProperties (fields, params, fetchFirstPage = true): AdMonetizationProperty {
     return this.getEdge(
       AdMonetizationProperty,
@@ -104,17 +81,7 @@ export default class SystemUser extends AbstractCrudObject {
     );
   }
 
-  getAssignedWhatsAppBusinessAccounts (fields, params, fetchFirstPage = true): WhatsAppBusinessAccount {
-    return this.getEdge(
-      WhatsAppBusinessAccount,
-      fields,
-      params,
-      fetchFirstPage,
-      '/assigned_whatsapp_business_accounts'
-    );
-  }
-
-  getUpdateDBy (fields, params, fetchFirstPage = true): User {
+  getUpdatedBy (fields, params, fetchFirstPage = true): User {
     return this.getEdge(
       User,
       fields,

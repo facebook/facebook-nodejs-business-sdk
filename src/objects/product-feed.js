@@ -8,21 +8,13 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
-import AutoMarket from './auto-market';
 import AutomotiveModel from './automotive-model';
-import Auto from './auto';
 import Destination from './destination';
 import Flight from './flight';
 import HomeListing from './home-listing';
-import HomeServiceProvider from './home-service-provider';
 import Hotel from './hotel';
-import MediaTitle from './media-title';
 import ProductItem from './product-item';
-import ProductsQualityIssue from './products-quality-issue';
-import ProductFeedRulePreviewSample from './product-feed-rule-preview-sample';
-import ProductFeedRule from './product-feed-rule';
 import ProductFeedUpload from './product-feed-upload';
-import VehicleOffer from './vehicle-offer';
 import Vehicle from './vehicle';
 
 /**
@@ -99,16 +91,6 @@ export default class ProductFeed extends AbstractCrudObject {
     });
   }
 
-  getAutoMarkets (fields, params, fetchFirstPage = true): AutoMarket {
-    return this.getEdge(
-      AutoMarket,
-      fields,
-      params,
-      fetchFirstPage,
-      '/auto_markets'
-    );
-  }
-
   getAutomotiveModels (fields, params, fetchFirstPage = true): AutomotiveModel {
     return this.getEdge(
       AutomotiveModel,
@@ -116,16 +98,6 @@ export default class ProductFeed extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/automotive_models'
-    );
-  }
-
-  getAutos (fields, params, fetchFirstPage = true): Auto {
-    return this.getEdge(
-      Auto,
-      fields,
-      params,
-      fetchFirstPage,
-      '/autos'
     );
   }
 
@@ -159,16 +131,6 @@ export default class ProductFeed extends AbstractCrudObject {
     );
   }
 
-  getHomeServiceProviders (fields, params, fetchFirstPage = true): HomeServiceProvider {
-    return this.getEdge(
-      HomeServiceProvider,
-      fields,
-      params,
-      fetchFirstPage,
-      '/home_service_providers'
-    );
-  }
-
   getHotels (fields, params, fetchFirstPage = true): Hotel {
     return this.getEdge(
       Hotel,
@@ -176,16 +138,6 @@ export default class ProductFeed extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/hotels'
-    );
-  }
-
-  getMediaTitles (fields, params, fetchFirstPage = true): MediaTitle {
-    return this.getEdge(
-      MediaTitle,
-      fields,
-      params,
-      fetchFirstPage,
-      '/media_titles'
     );
   }
 
@@ -199,29 +151,9 @@ export default class ProductFeed extends AbstractCrudObject {
     );
   }
 
-  getQualityIssues (fields, params, fetchFirstPage = true): ProductsQualityIssue {
+  getRules (fields, params, fetchFirstPage = true): AbstractObject {
     return this.getEdge(
-      ProductsQualityIssue,
-      fields,
-      params,
-      fetchFirstPage,
-      '/quality_issues'
-    );
-  }
-
-  getRulePreviewSamples (fields, params, fetchFirstPage = true): ProductFeedRulePreviewSample {
-    return this.getEdge(
-      ProductFeedRulePreviewSample,
-      fields,
-      params,
-      fetchFirstPage,
-      '/rule_preview_samples'
-    );
-  }
-
-  getRules (fields, params, fetchFirstPage = true): ProductFeedRule {
-    return this.getEdge(
-      ProductFeedRule,
+      AbstractObject,
       fields,
       params,
       fetchFirstPage,
@@ -229,12 +161,12 @@ export default class ProductFeed extends AbstractCrudObject {
     );
   }
 
-  createRule (fields, params): ProductFeedRule {
+  createRule (fields, params): AbstractObject {
     return this.createEdge(
       '/rules',
       fields,
-      params,
-      ProductFeedRule
+      params
+
     );
   }
 
@@ -254,16 +186,6 @@ export default class ProductFeed extends AbstractCrudObject {
       fields,
       params,
       ProductFeedUpload
-    );
-  }
-
-  getVehicleOffers (fields, params, fetchFirstPage = true): VehicleOffer {
-    return this.getEdge(
-      VehicleOffer,
-      fields,
-      params,
-      fetchFirstPage,
-      '/vehicle_offers'
     );
   }
 

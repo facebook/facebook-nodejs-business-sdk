@@ -10,7 +10,6 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import AdStudyCell from './ad-study-cell';
 import AdsTALHealthCheckError from './ads-tal-health-check-error';
-import AdsTALNudge from './ads-tal-nudge';
 import AdStudyObjective from './ad-study-objective';
 import AdStudyAdsAssetUserPermissions from './ad-study-ads-asset-user-permissions';
 import User from './user';
@@ -86,16 +85,6 @@ export default class AdStudy extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/health_check_errors'
-    );
-  }
-
-  getNudges (fields, params, fetchFirstPage = true): AdsTALNudge {
-    return this.getEdge(
-      AdsTALNudge,
-      fields,
-      params,
-      fetchFirstPage,
-      '/nudges'
     );
   }
 

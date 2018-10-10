@@ -18,7 +18,6 @@ export default class AdCreativeLinkDataImageLayerSpec extends AbstractCrudObject
     return Object.freeze({
       blending_mode: 'blending_mode',
       content: 'content',
-      float_with_margin: 'float_with_margin',
       frame_image_hash: 'frame_image_hash',
       frame_source: 'frame_source',
       image_source: 'image_source',

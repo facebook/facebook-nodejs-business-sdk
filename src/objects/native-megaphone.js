@@ -24,16 +24,6 @@ export default class NativeMegaphone extends AbstractCrudObject {
     });
   }
 
-  static get MegaphoneLocation (): Object {
-    return Object.freeze({
-      newsfeed: 'NEWSFEED',
-      messenger_bottom: 'MESSENGER_BOTTOM',
-      app_top: 'APP_TOP',
-      pages_manager_app_top: 'PAGES_MANAGER_APP_TOP',
-      snaptu_main_screen: 'SNAPTU_MAIN_SCREEN'
-    });
-  }
-
   get (fields, params): NativeMegaphone {
     return this.read(
       fields,

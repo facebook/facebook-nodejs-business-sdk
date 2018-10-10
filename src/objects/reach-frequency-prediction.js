@@ -130,7 +130,13 @@ export default class ReachFrequencyPrediction extends AbstractCrudObject {
       premium: 'PREMIUM',
       sports: 'SPORTS',
       entertainment: 'ENTERTAINMENT',
-      beauty: 'BEAUTY'
+      beauty: 'BEAUTY',
+      regular_animals_pets: 'REGULAR_ANIMALS_PETS',
+      regular_food: 'REGULAR_FOOD',
+      regular_politics: 'REGULAR_POLITICS',
+      regular_sports: 'REGULAR_SPORTS',
+      regular_style: 'REGULAR_STYLE',
+      regular_tv_movies: 'REGULAR_TV_MOVIES'
     });
   }
   static get Status (): Object {

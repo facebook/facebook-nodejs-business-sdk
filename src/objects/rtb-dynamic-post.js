@@ -9,7 +9,6 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Comment from './comment';
-import InstagramComment from './instagram-comment';
 import Profile from './profile';
 
 /**
@@ -44,9 +43,9 @@ export default class RTBDynamicPost extends AbstractCrudObject {
     );
   }
 
-  getInstagramComments (fields, params, fetchFirstPage = true): InstagramComment {
+  getInstagramComments (fields, params, fetchFirstPage = true): AbstractObject {
     return this.getEdge(
-      InstagramComment,
+      AbstractObject,
       fields,
       params,
       fetchFirstPage,

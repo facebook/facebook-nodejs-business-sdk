@@ -10,16 +10,9 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import AdAccount from './ad-account';
 import Ad from './ad';
-import Business from './business';
-import BusinessTag from './business-tag';
-import BusinessRequest from './business-request';
-import CustomAudienceCapabilities from './custom-audience-capabilities';
-import BusinessObject from './business-object';
 import CustomAudiencePrefillState from './custom-audience-prefill-state';
 import CustomAudienceSession from './custom-audience-session';
-import CustomAudienceSharedAccountCampaignInfo from './custom-audience-shared-account-campaign-info';
 import CustomAudiencesharedAccountInfo from './custom-audienceshared-account-info';
-import CustomAudienceUsageHistory from './custom-audience-usage-history';
 
 /**
  * CustomAudience
@@ -70,12 +63,12 @@ export default class CustomAudience extends AbstractCrudObject {
 
   static get ClaimObjective (): Object {
     return Object.freeze({
-      auto_offer: 'AUTO_OFFER',
       automotive_model: 'AUTOMOTIVE_MODEL',
       home_listing: 'HOME_LISTING',
       product: 'PRODUCT',
       travel: 'TRAVEL',
-      vehicle: 'VEHICLE'
+      vehicle: 'VEHICLE',
+      vehicle_offer: 'VEHICLE_OFFER'
     });
   }
   static get ContentType (): Object {
@@ -116,14 +109,6 @@ export default class CustomAudience extends AbstractCrudObject {
       fox: 'FOX'
     });
   }
-  static get StudyStatus (): Object {
-    return Object.freeze({
-      expired: 'EXPIRED',
-      completed: 'COMPLETED',
-      running: 'RUNNING',
-      scheduled: 'SCHEDULED'
-    });
-  }
 
   deleteAdAccounts (params): AbstractObject {
     return super.deleteEdge(
@@ -161,50 +146,10 @@ export default class CustomAudience extends AbstractCrudObject {
     );
   }
 
-  getAssignedPartners (fields, params, fetchFirstPage = true): Business {
-    return this.getEdge(
-      Business,
-      fields,
-      params,
-      fetchFirstPage,
-      '/assigned_partners'
-    );
-  }
-
-  getBusinessObjectTags (fields, params, fetchFirstPage = true): BusinessTag {
-    return this.getEdge(
-      BusinessTag,
-      fields,
-      params,
-      fetchFirstPage,
-      '/business_object_tags'
-    );
-  }
-
-  getBusinessRequests (fields, params, fetchFirstPage = true): BusinessRequest {
-    return this.getEdge(
-      BusinessRequest,
-      fields,
-      params,
-      fetchFirstPage,
-      '/business_requests'
-    );
-  }
-
   deleteCapabilities (params): AbstractObject {
     return super.deleteEdge(
       '/capabilities',
       params
-    );
-  }
-
-  getCapabilities (fields, params, fetchFirstPage = true): CustomAudienceCapabilities {
-    return this.getEdge(
-      CustomAudienceCapabilities,
-      fields,
-      params,
-      fetchFirstPage,
-      '/capabilities'
     );
   }
 
@@ -214,16 +159,6 @@ export default class CustomAudience extends AbstractCrudObject {
       fields,
       params
 
-    );
-  }
-
-  getConnectedBusinessObjects (fields, params, fetchFirstPage = true): BusinessObject {
-    return this.getEdge(
-      BusinessObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/connected_business_objects'
     );
   }
 
@@ -256,16 +191,6 @@ export default class CustomAudience extends AbstractCrudObject {
     );
   }
 
-  getSharedAccountCampaignInfo (fields, params, fetchFirstPage = true): CustomAudienceSharedAccountCampaignInfo {
-    return this.getEdge(
-      CustomAudienceSharedAccountCampaignInfo,
-      fields,
-      params,
-      fetchFirstPage,
-      '/shared_account_campaign_info'
-    );
-  }
-
   getShareDAccountInfo (fields, params, fetchFirstPage = true): CustomAudiencesharedAccountInfo {
     return this.getEdge(
       CustomAudiencesharedAccountInfo,
@@ -289,16 +214,6 @@ export default class CustomAudience extends AbstractCrudObject {
       fields,
       params,
       CustomAudience
-    );
-  }
-
-  getUsageHistory (fields, params, fetchFirstPage = true): CustomAudienceUsageHistory {
-    return this.getEdge(
-      CustomAudienceUsageHistory,
-      fields,
-      params,
-      fetchFirstPage,
-      '/usage_history'
     );
   }
 

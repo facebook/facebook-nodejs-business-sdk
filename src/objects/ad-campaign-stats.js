@@ -43,25 +43,6 @@ export default class AdCampaignStats extends AbstractCrudObject {
     });
   }
 
-  static get ActionAttributionDaysAfterClick (): Object {
-    return Object.freeze({
-      value_0: '0',
-      value_1: '1',
-      value_7: '7',
-      value_14: '14',
-      value_28: '28'
-    });
-  }
-  static get ActionAttributionDaysAfterImp (): Object {
-    return Object.freeze({
-      value_0: '0',
-      value_1: '1',
-      value_7: '7',
-      value_14: '14',
-      value_28: '28'
-    });
-  }
-
   get (fields, params): AdCampaignStats {
     return this.read(
       fields,

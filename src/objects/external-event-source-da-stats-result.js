@@ -26,18 +26,6 @@ export default class ExternalEventSourceDAStatsResult extends AbstractCrudObject
     });
   }
 
-  static get Event (): Object {
-    return Object.freeze({
-      viewcontent: 'ViewContent',
-      addtocart: 'AddToCart',
-      purchase: 'Purchase',
-      initiatecheckout: 'InitiateCheckout',
-      search: 'Search',
-      lead: 'Lead',
-      addtowishlist: 'AddToWishlist'
-    });
-  }
-
   get (fields, params): ExternalEventSourceDAStatsResult {
     return this.read(
       fields,

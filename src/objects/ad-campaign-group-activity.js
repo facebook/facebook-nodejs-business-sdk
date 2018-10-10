@@ -86,32 +86,6 @@ export default class AdCampaignGroupActivity extends AbstractCrudObject {
       messages: 'MESSAGES'
     });
   }
-  static get ChangedAll (): Object {
-    return Object.freeze({
-      buying_type: 'BUYING_TYPE',
-      is_autobid: 'IS_AUTOBID',
-      is_average_price_pacing: 'IS_AVERAGE_PRICE_PACING',
-      name: 'NAME',
-      objective: 'OBJECTIVE',
-      pacing_type: 'PACING_TYPE',
-      run_status: 'RUN_STATUS',
-      spend_cap: 'SPEND_CAP',
-      budget_limit: 'BUDGET_LIMIT'
-    });
-  }
-  static get ChangedAny (): Object {
-    return Object.freeze({
-      buying_type: 'BUYING_TYPE',
-      is_autobid: 'IS_AUTOBID',
-      is_average_price_pacing: 'IS_AVERAGE_PRICE_PACING',
-      name: 'NAME',
-      objective: 'OBJECTIVE',
-      pacing_type: 'PACING_TYPE',
-      run_status: 'RUN_STATUS',
-      spend_cap: 'SPEND_CAP',
-      budget_limit: 'BUDGET_LIMIT'
-    });
-  }
 
   get (fields, params): AdCampaignGroupActivity {
     return this.read(

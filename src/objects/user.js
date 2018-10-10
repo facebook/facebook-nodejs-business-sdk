@@ -9,80 +9,41 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Page from './page';
-import AdExportPreset from './ad-export-preset';
 import AdStudy from './ad-study';
 import AdAccount from './ad-account';
 import AdContract from './ad-contract';
-import Group from './group';
-import InsightsQueryResult from './insights-query-result';
-import AdSavedReport from './ad-saved-report';
 import Album from './album';
 import AppRequestFormerRecipient from './app-request-former-recipient';
 import AppRequest from './app-request';
 import WithAsset3D from './with-asset3-d';
-import Application from './application';
-import BusinessResourceGroup from './business-resource-group';
 import AdMonetizationProperty from './ad-monetization-property';
 import ProductCatalog from './product-catalog';
-import WhatsAppBusinessAccount from './whats-app-business-account';
-import AtlasNotification from './atlas-notification';
-import AtlasUser from './atlas-user';
-import BlindPig from './blind-pig';
-import BlockedUserInfo from './blocked-user-info';
 import BusinessActivityLogEvent from './business-activity-log-event';
 import BusinessUser from './business-user';
 import Business from './business';
-import AtlasCompany from './atlas-company';
-import ContactsMessengerSyncConfig from './contacts-messenger-sync-config';
 import UnifiedThread from './unified-thread';
-import CreditCard from './credit-card';
 import PageUserMessageThreadLabel from './page-user-message-thread-label';
 import Domain from './domain';
 import Event from './event';
-import FAMEKumo from './fame-kumo';
 import FavoriteRequest from './favorite-request';
-import FBLiteToNTTransitions from './fb-lite-to-nt-transitions';
-import FPlugSave from './f-plug-save';
 import FriendList from './friend-list';
-import FundraiserPersonToCharity from './fundraiser-person-to-charity';
-import GameItem from './game-item';
-import GameTime from './game-time';
-import GamesStat from './games-stat';
-import HashedUser from './hashed-user';
+import Group from './group';
 import UserIDForApp from './user-id-for-app';
 import UserIDForPage from './user-id-for-page';
-import InstagramBusiness from './instagram-business';
 import UserInvitableFriend from './user-invitable-friend';
 import LeadgenForm from './leadgen-form';
 import Link from './link';
-import LiveEncoder from './live-encoder';
 import LiveVideo from './live-video';
-import NativeMegaphone from './native-megaphone';
-import MobileAppAlert from './mobile-app-alert';
-import UserMobileConfig from './user-mobile-config';
-import UserNotificationSeenStateData from './user-notification-seen-state-data';
-import UserNuxStatuses from './user-nux-statuses';
 import OpenGraphObject from './open-graph-object';
-import PageStatusCard from './page-status-card';
 import Permission from './permission';
-import PersistentStreamProfile from './persistent-stream-profile';
-import PersonalAdsPersona from './personal-ads-persona';
-import ScimCompanyUserPhoneNumber from './scim-company-user-phone-number';
 import Photo from './photo';
 import ProfilePictureSource from './profile-picture-source';
-import EventTour from './event-tour';
 import RequestHistory from './request-history';
 import Canvas from './canvas';
 import PlatformSessionKey from './platform-session-key';
-import Status from './status';
 import StreamFilter from './stream-filter';
 import UserTaggableFriend from './user-taggable-friend';
 import PlaceTag from './place-tag';
-import TrustMetrics from './trust-metrics';
-import VaultDeletedImage from './vault-deleted-image';
-import VaultDevice from './vault-device';
-import VaultImage from './vault-image';
-import VideoGroup from './video-group';
 import AdVideo from './ad-video';
 
 /**
@@ -199,6 +160,57 @@ export default class User extends AbstractCrudObject {
       content_update: 'content_update'
     });
   }
+  static get ServiceType (): Object {
+    return Object.freeze({
+      aim: 'AIM',
+      gadu: 'GADU',
+      icq: 'ICQ',
+      gtalk: 'GTALK',
+      msn: 'MSN',
+      skype: 'SKYPE',
+      yahoo: 'YAHOO',
+      yahoo_jp: 'YAHOO_JP',
+      qq: 'QQ',
+      nateon: 'NATEON',
+      twitter: 'TWITTER',
+      hyves: 'HYVES',
+      orkut: 'ORKUT',
+      myspace: 'MYSPACE',
+      groupwise: 'GROUPWISE',
+      cyworld: 'CYWORLD',
+      mixi: 'MIXI',
+      qip: 'QIP',
+      rediff_bol: 'REDIFF_BOL',
+      vkontakte: 'VKONTAKTE',
+      ebuddy: 'EBUDDY',
+      mailru: 'MAILRU',
+      jabber: 'JABBER',
+      icloud: 'ICLOUD',
+      bbm: 'BBM',
+      bbm_ppid: 'BBM_PPID',
+      instagram: 'INSTAGRAM',
+      line: 'LINE',
+      wechat: 'WECHAT',
+      kakaotalk: 'KAKAOTALK',
+      others: 'OTHERS',
+      snapchat: 'SNAPCHAT',
+      tumblr: 'TUMBLR',
+      sound_cloud: 'SOUND_CLOUD',
+      linked_in: 'LINKED_IN',
+      pinterest: 'PINTEREST',
+      you_tube: 'YOU_TUBE',
+      medium: 'MEDIUM',
+      foursquare: 'FOURSQUARE',
+      spotify: 'SPOTIFY',
+      vimeo: 'VIMEO',
+      kik: 'KIK',
+      ask_fm: 'ASK_FM',
+      ok: 'OK',
+      github: 'GITHUB',
+      twitch: 'TWITCH',
+      whatsapp: 'WHATSAPP'
+    });
+  }
 
   createPaymentCurrency (fields, params): User {
     return this.createEdge(
@@ -263,26 +275,6 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  getActivities (fields, params, fetchFirstPage = true): Page {
-    return this.getEdge(
-      Page,
-      fields,
-      params,
-      fetchFirstPage,
-      '/activities'
-    );
-  }
-
-  getAdExportPresets (fields, params, fetchFirstPage = true): AdExportPreset {
-    return this.getEdge(
-      AdExportPreset,
-      fields,
-      params,
-      fetchFirstPage,
-      '/ad_export_presets'
-    );
-  }
-
   getAdStudies (fields, params, fetchFirstPage = true): AdStudy {
     return this.getEdge(
       AdStudy,
@@ -313,36 +305,6 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  getAdminedGroups (fields, params, fetchFirstPage = true): Group {
-    return this.getEdge(
-      Group,
-      fields,
-      params,
-      fetchFirstPage,
-      '/admined_groups'
-    );
-  }
-
-  getAdNetworkAnalytics (fields, params, fetchFirstPage = true): InsightsQueryResult {
-    return this.getEdge(
-      InsightsQueryResult,
-      fields,
-      params,
-      fetchFirstPage,
-      '/adnetworkanalytics'
-    );
-  }
-
-  getAdSavedReports (fields, params, fetchFirstPage = true): AdSavedReport {
-    return this.getEdge(
-      AdSavedReport,
-      fields,
-      params,
-      fetchFirstPage,
-      '/adsavedreports'
-    );
-  }
-
   getAlbums (fields, params, fetchFirstPage = true): Album {
     return this.getEdge(
       Album,
@@ -359,16 +321,6 @@ export default class User extends AbstractCrudObject {
       fields,
       params,
       Album
-    );
-  }
-
-  getAppFriends (fields, params, fetchFirstPage = true): User {
-    return this.getEdge(
-      User,
-      fields,
-      params,
-      fetchFirstPage,
-      '/app_friends'
     );
   }
 
@@ -421,26 +373,6 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  getAssignedApps (fields, params, fetchFirstPage = true): Application {
-    return this.getEdge(
-      Application,
-      fields,
-      params,
-      fetchFirstPage,
-      '/assigned_apps'
-    );
-  }
-
-  getAssignedBusinessResourceGroups (fields, params, fetchFirstPage = true): BusinessResourceGroup {
-    return this.getEdge(
-      BusinessResourceGroup,
-      fields,
-      params,
-      fetchFirstPage,
-      '/assigned_business_resource_groups'
-    );
-  }
-
   getAssignedMonetizationProperties (fields, params, fetchFirstPage = true): AdMonetizationProperty {
     return this.getEdge(
       AdMonetizationProperty,
@@ -468,56 +400,6 @@ export default class User extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/assigned_product_catalogs'
-    );
-  }
-
-  getAssignedWhatsAppBusinessAccounts (fields, params, fetchFirstPage = true): WhatsAppBusinessAccount {
-    return this.getEdge(
-      WhatsAppBusinessAccount,
-      fields,
-      params,
-      fetchFirstPage,
-      '/assigned_whatsapp_business_accounts'
-    );
-  }
-
-  getAtlasNotifications (fields, params, fetchFirstPage = true): AtlasNotification {
-    return this.getEdge(
-      AtlasNotification,
-      fields,
-      params,
-      fetchFirstPage,
-      '/atlas_notifications'
-    );
-  }
-
-  getAtlasUsers (fields, params, fetchFirstPage = true): AtlasUser {
-    return this.getEdge(
-      AtlasUser,
-      fields,
-      params,
-      fetchFirstPage,
-      '/atlas_users'
-    );
-  }
-
-  getBlindPigs (fields, params, fetchFirstPage = true): BlindPig {
-    return this.getEdge(
-      BlindPig,
-      fields,
-      params,
-      fetchFirstPage,
-      '/blind_pigs'
-    );
-  }
-
-  getBlocked (fields, params, fetchFirstPage = true): BlockedUserInfo {
-    return this.getEdge(
-      BlockedUserInfo,
-      fields,
-      params,
-      fetchFirstPage,
-      '/blocked'
     );
   }
 
@@ -575,22 +457,12 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  createCheckIn (fields, params): AbstractObject {
+  createCheckin (fields, params): AbstractObject {
     return this.createEdge(
       '/checkins',
       fields,
       params
 
-    );
-  }
-
-  getCompanies (fields, params, fetchFirstPage = true): AtlasCompany {
-    return this.getEdge(
-      AtlasCompany,
-      fields,
-      params,
-      fetchFirstPage,
-      '/companies'
     );
   }
 
@@ -603,16 +475,6 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  getContactsMessengerSync (fields, params, fetchFirstPage = true): ContactsMessengerSyncConfig {
-    return this.getEdge(
-      ContactsMessengerSyncConfig,
-      fields,
-      params,
-      fetchFirstPage,
-      '/contactsmessengersync'
-    );
-  }
-
   getConversations (fields, params, fetchFirstPage = true): UnifiedThread {
     return this.getEdge(
       UnifiedThread,
@@ -620,16 +482,6 @@ export default class User extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/conversations'
-    );
-  }
-
-  getCreditCards (fields, params, fetchFirstPage = true): CreditCard {
-    return this.getEdge(
-      CreditCard,
-      fields,
-      params,
-      fetchFirstPage,
-      '/credit_cards'
     );
   }
 
@@ -672,16 +524,6 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  getFameKumo (fields, params, fetchFirstPage = true): FAMEKumo {
-    return this.getEdge(
-      FAMEKumo,
-      fields,
-      params,
-      fetchFirstPage,
-      '/fame_kumo'
-    );
-  }
-
   getFamily (fields, params, fetchFirstPage = true): User {
     return this.getEdge(
       User,
@@ -711,32 +553,12 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  getFbLiteToNtTransitions (fields, params, fetchFirstPage = true): FBLiteToNTTransitions {
-    return this.getEdge(
-      FBLiteToNTTransitions,
-      fields,
-      params,
-      fetchFirstPage,
-      '/fblite_to_nt_transitions'
-    );
-  }
-
   createFeed (fields, params): AbstractObject {
     return this.createEdge(
       '/feed',
       fields,
       params
 
-    );
-  }
-
-  getFPlugSaves (fields, params, fetchFirstPage = true): FPlugSave {
-    return this.getEdge(
-      FPlugSave,
-      fields,
-      params,
-      fetchFirstPage,
-      '/fplug_saves'
     );
   }
 
@@ -769,51 +591,21 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  getFundraisers (fields, params, fetchFirstPage = true): FundraiserPersonToCharity {
-    return this.getEdge(
-      FundraiserPersonToCharity,
-      fields,
-      params,
-      fetchFirstPage,
-      '/fundraisers'
-    );
-  }
-
-  getGameItems (fields, params, fetchFirstPage = true): GameItem {
-    return this.getEdge(
-      GameItem,
-      fields,
-      params,
-      fetchFirstPage,
-      '/game_items'
-    );
-  }
-
-  createGameItem (fields, params): GameItem {
+  createGameItem (fields, params): AbstractObject {
     return this.createEdge(
       '/game_items',
       fields,
-      params,
-      GameItem
+      params
+
     );
   }
 
-  getGameTimes (fields, params, fetchFirstPage = true): GameTime {
-    return this.getEdge(
-      GameTime,
-      fields,
-      params,
-      fetchFirstPage,
-      '/game_times'
-    );
-  }
-
-  createGameTime (fields, params): GameTime {
+  createGameTime (fields, params): AbstractObject {
     return this.createEdge(
       '/game_times',
       fields,
-      params,
-      GameTime
+      params
+
     );
   }
 
@@ -827,22 +619,12 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  getGamesStats (fields, params, fetchFirstPage = true): GamesStat {
-    return this.getEdge(
-      GamesStat,
-      fields,
-      params,
-      fetchFirstPage,
-      '/games_stats'
-    );
-  }
-
-  createGamesStat (fields, params): GamesStat {
+  createGamesStat (fields, params): AbstractObject {
     return this.createEdge(
       '/games_stats',
       fields,
-      params,
-      GamesStat
+      params
+
     );
   }
 
@@ -874,16 +656,6 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  getHashedFriends (fields, params, fetchFirstPage = true): HashedUser {
-    return this.getEdge(
-      HashedUser,
-      fields,
-      params,
-      fetchFirstPage,
-      '/hashed_friends'
-    );
-  }
-
   getIdsForApps (fields, params, fetchFirstPage = true): UserIDForApp {
     return this.getEdge(
       UserIDForApp,
@@ -911,26 +683,6 @@ export default class User extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/ids_for_pages'
-    );
-  }
-
-  getInstagramBusinesses (fields, params, fetchFirstPage = true): InstagramBusiness {
-    return this.getEdge(
-      InstagramBusiness,
-      fields,
-      params,
-      fetchFirstPage,
-      '/instagram_businesses'
-    );
-  }
-
-  getInterests (fields, params, fetchFirstPage = true): Page {
-    return this.getEdge(
-      Page,
-      fields,
-      params,
-      fetchFirstPage,
-      '/interests'
     );
   }
 
@@ -980,16 +732,6 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  getLinks (fields, params, fetchFirstPage = true): Link {
-    return this.getEdge(
-      Link,
-      fields,
-      params,
-      fetchFirstPage,
-      '/links'
-    );
-  }
-
   createLink (fields, params): Link {
     return this.createEdge(
       '/links',
@@ -999,22 +741,12 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  getLiveEncoders (fields, params, fetchFirstPage = true): LiveEncoder {
-    return this.getEdge(
-      LiveEncoder,
-      fields,
-      params,
-      fetchFirstPage,
-      '/live_encoders'
-    );
-  }
-
-  createLiveEncoder (fields, params): LiveEncoder {
+  createLiveEncoder (fields, params): AbstractObject {
     return this.createEdge(
       '/live_encoders',
       fields,
-      params,
-      LiveEncoder
+      params
+
     );
   }
 
@@ -1046,52 +778,12 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  createLoginApprovalsKey (fields, params): AbstractObject {
+  createLogInApprovalsKey (fields, params): AbstractObject {
     return this.createEdge(
       '/loginapprovalskeys',
       fields,
       params
 
-    );
-  }
-
-  getMAnAgeDGroups (fields, params, fetchFirstPage = true): Group {
-    return this.getEdge(
-      Group,
-      fields,
-      params,
-      fetchFirstPage,
-      '/managed_groups'
-    );
-  }
-
-  getManagers (fields, params, fetchFirstPage = true): User {
-    return this.getEdge(
-      User,
-      fields,
-      params,
-      fetchFirstPage,
-      '/managers'
-    );
-  }
-
-  getMegaphoneTopStories (fields, params, fetchFirstPage = true): NativeMegaphone {
-    return this.getEdge(
-      NativeMegaphone,
-      fields,
-      params,
-      fetchFirstPage,
-      '/megaphone_top_stories'
-    );
-  }
-
-  getMegaphones (fields, params, fetchFirstPage = true): MobileAppAlert {
-    return this.getEdge(
-      MobileAppAlert,
-      fields,
-      params,
-      fetchFirstPage,
-      '/megaphones'
     );
   }
 
@@ -1101,16 +793,6 @@ export default class User extends AbstractCrudObject {
       fields,
       params,
       User
-    );
-  }
-
-  getMobileConfigs (fields, params, fetchFirstPage = true): UserMobileConfig {
-    return this.getEdge(
-      UserMobileConfig,
-      fields,
-      params,
-      fetchFirstPage,
-      '/mobile_configs'
     );
   }
 
@@ -1161,16 +843,6 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  getMusicPreferences (fields, params, fetchFirstPage = true): Page {
-    return this.getEdge(
-      Page,
-      fields,
-      params,
-      fetchFirstPage,
-      '/music_preferences'
-    );
-  }
-
   createNote (fields, params): AbstractObject {
     return this.createEdge(
       '/notes',
@@ -1180,32 +852,12 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  getNotificationSeenStates (fields, params, fetchFirstPage = true): UserNotificationSeenStateData {
-    return this.getEdge(
-      UserNotificationSeenStateData,
-      fields,
-      params,
-      fetchFirstPage,
-      '/notification_seen_states'
-    );
-  }
-
   createNotification (fields, params): User {
     return this.createEdge(
       '/notifications',
       fields,
       params,
       User
-    );
-  }
-
-  getNuxStatuses (fields, params, fetchFirstPage = true): UserNuxStatuses {
-    return this.getEdge(
-      UserNuxStatuses,
-      fields,
-      params,
-      fetchFirstPage,
-      '/nux_statuses'
     );
   }
 
@@ -1234,26 +886,6 @@ export default class User extends AbstractCrudObject {
       fields,
       params
 
-    );
-  }
-
-  getOwnedProductCatalogs (fields, params, fetchFirstPage = true): ProductCatalog {
-    return this.getEdge(
-      ProductCatalog,
-      fields,
-      params,
-      fetchFirstPage,
-      '/owned_product_catalogs'
-    );
-  }
-
-  getPageStatusCards (fields, params, fetchFirstPage = true): PageStatusCard {
-    return this.getEdge(
-      PageStatusCard,
-      fields,
-      params,
-      fetchFirstPage,
-      '/page_status_cards'
     );
   }
 
@@ -1292,16 +924,6 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  getPersistentStreamProfiles (fields, params, fetchFirstPage = true): PersistentStreamProfile {
-    return this.getEdge(
-      PersistentStreamProfile,
-      fields,
-      params,
-      fetchFirstPage,
-      '/persistent_stream_profiles'
-    );
-  }
-
   getPersonalAdAccounts (fields, params, fetchFirstPage = true): AdAccount {
     return this.getEdge(
       AdAccount,
@@ -1309,26 +931,6 @@ export default class User extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/personal_ad_accounts'
-    );
-  }
-
-  getPersonalAdsPersona (fields, params, fetchFirstPage = true): PersonalAdsPersona {
-    return this.getEdge(
-      PersonalAdsPersona,
-      fields,
-      params,
-      fetchFirstPage,
-      '/personal_ads_persona'
-    );
-  }
-
-  getPhones (fields, params, fetchFirstPage = true): ScimCompanyUserPhoneNumber {
-    return this.getEdge(
-      ScimCompanyUserPhoneNumber,
-      fields,
-      params,
-      fetchFirstPage,
-      '/phones'
     );
   }
 
@@ -1370,16 +972,6 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  getProductCatalogs (fields, params, fetchFirstPage = true): ProductCatalog {
-    return this.getEdge(
-      ProductCatalog,
-      fields,
-      params,
-      fetchFirstPage,
-      '/product_catalogs'
-    );
-  }
-
   getPromotableDomains (fields, params, fetchFirstPage = true): Domain {
     return this.getEdge(
       Domain,
@@ -1397,26 +989,6 @@ export default class User extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/promotable_events'
-    );
-  }
-
-  getPromotableTours (fields, params, fetchFirstPage = true): EventTour {
-    return this.getEdge(
-      EventTour,
-      fields,
-      params,
-      fetchFirstPage,
-      '/promotable_tours'
-    );
-  }
-
-  getReports (fields, params, fetchFirstPage = true): User {
-    return this.getEdge(
-      User,
-      fields,
-      params,
-      fetchFirstPage,
-      '/reports'
     );
   }
 
@@ -1456,16 +1028,6 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  getSeenNuxes (fields, params, fetchFirstPage = true): Application {
-    return this.getEdge(
-      Application,
-      fields,
-      params,
-      fetchFirstPage,
-      '/seen_nuxes'
-    );
-  }
-
   getSessionKeys (fields, params, fetchFirstPage = true): PlatformSessionKey {
     return this.getEdge(
       PlatformSessionKey,
@@ -1482,16 +1044,6 @@ export default class User extends AbstractCrudObject {
       fields,
       params,
       User
-    );
-  }
-
-  getStatuses (fields, params, fetchFirstPage = true): Status {
-    return this.getEdge(
-      Status,
-      fields,
-      params,
-      fetchFirstPage,
-      '/statuses'
     );
   }
 
@@ -1524,7 +1076,7 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  getTagGeDPlaces (fields, params, fetchFirstPage = true): PlaceTag {
+  getTaggedPlaces (fields, params, fetchFirstPage = true): PlaceTag {
     return this.getEdge(
       PlaceTag,
       fields,
@@ -1554,46 +1106,6 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  getTrustMetrics (fields, params, fetchFirstPage = true): TrustMetrics {
-    return this.getEdge(
-      TrustMetrics,
-      fields,
-      params,
-      fetchFirstPage,
-      '/trust_metrics'
-    );
-  }
-
-  getVaultDeletedImages (fields, params, fetchFirstPage = true): VaultDeletedImage {
-    return this.getEdge(
-      VaultDeletedImage,
-      fields,
-      params,
-      fetchFirstPage,
-      '/vaultdeletedimages'
-    );
-  }
-
-  getVaultDevices (fields, params, fetchFirstPage = true): VaultDevice {
-    return this.getEdge(
-      VaultDevice,
-      fields,
-      params,
-      fetchFirstPage,
-      '/vaultdevices'
-    );
-  }
-
-  getVaultImages (fields, params, fetchFirstPage = true): VaultImage {
-    return this.getEdge(
-      VaultImage,
-      fields,
-      params,
-      fetchFirstPage,
-      '/vaultimages'
-    );
-  }
-
   getVideoBroadcasts (fields, params, fetchFirstPage = true): LiveVideo {
     return this.getEdge(
       LiveVideo,
@@ -1601,16 +1113,6 @@ export default class User extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/video_broadcasts'
-    );
-  }
-
-  getVideoGroups (fields, params, fetchFirstPage = true): VideoGroup {
-    return this.getEdge(
-      VideoGroup,
-      fields,
-      params,
-      fetchFirstPage,
-      '/video_groups'
     );
   }
 

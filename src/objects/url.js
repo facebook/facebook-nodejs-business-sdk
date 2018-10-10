@@ -7,7 +7,6 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import Post from './post';
 
 /**
  * URL
@@ -26,16 +25,6 @@ export default class URL extends AbstractCrudObject {
       ownership_permissions: 'ownership_permissions',
       share: 'share'
     });
-  }
-
-  getShareDPosts (fields, params, fetchFirstPage = true): Post {
-    return this.getEdge(
-      Post,
-      fields,
-      params,
-      fetchFirstPage,
-      '/sharedposts'
-    );
   }
 
   get (fields, params): URL {

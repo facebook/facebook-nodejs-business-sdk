@@ -7,10 +7,6 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import AbstractObject from './../abstract-object';
-import AdAccount from './ad-account';
-import AtlasCampaign from './atlas-campaign';
-import BusinessUser from './business-user';
 
 /**
  * BusinessUnit
@@ -25,66 +21,6 @@ export default class BusinessUnit extends AbstractCrudObject {
       id: 'id',
       name: 'name'
     });
-  }
-
-  getAdAccounts (fields, params, fetchFirstPage = true): AdAccount {
-    return this.getEdge(
-      AdAccount,
-      fields,
-      params,
-      fetchFirstPage,
-      '/ad_accounts'
-    );
-  }
-
-  getCampaigns (fields, params, fetchFirstPage = true): AtlasCampaign {
-    return this.getEdge(
-      AtlasCampaign,
-      fields,
-      params,
-      fetchFirstPage,
-      '/campaigns'
-    );
-  }
-
-  getFbConversionEvents (fields, params, fetchFirstPage = true): AbstractObject {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/fb_conversion_events'
-    );
-  }
-
-  getReportColumns (fields, params, fetchFirstPage = true): AbstractObject {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/report_columns'
-    );
-  }
-
-  getReports (fields, params, fetchFirstPage = true): AbstractObject {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/reports'
-    );
-  }
-
-  getUsers (fields, params, fetchFirstPage = true): BusinessUser {
-    return this.getEdge(
-      BusinessUser,
-      fields,
-      params,
-      fetchFirstPage,
-      '/users'
-    );
   }
 
   get (fields, params): BusinessUnit {

@@ -27,14 +27,6 @@ export default class ProductCatalogCategory extends AbstractCrudObject {
     });
   }
 
-  static get CategorizationCriteria (): Object {
-    return Object.freeze({
-      brand: 'BRAND',
-      category: 'CATEGORY',
-      product_type: 'PRODUCT_TYPE'
-    });
-  }
-
   get (fields, params): ProductCatalogCategory {
     return this.read(
       fields,

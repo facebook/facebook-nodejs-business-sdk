@@ -8,7 +8,6 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
-import PartnerStudy from './partner-study';
 
 /**
  * AdsDataPartner
@@ -22,16 +21,6 @@ export default class AdsDataPartner extends AbstractCrudObject {
       name: 'name',
       rev_share_policies: 'rev_share_policies'
     });
-  }
-
-  getPartnerStudies (fields, params, fetchFirstPage = true): PartnerStudy {
-    return this.getEdge(
-      PartnerStudy,
-      fields,
-      params,
-      fetchFirstPage,
-      '/partnerstudies'
-    );
   }
 
   deleteUsersOfAnyAudience (params): AbstractObject {

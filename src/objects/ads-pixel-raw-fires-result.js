@@ -26,15 +26,6 @@ export default class AdsPixelRawFiresResult extends AbstractCrudObject {
     });
   }
 
-  static get FilterType (): Object {
-    return Object.freeze({
-      device_type: 'device_type',
-      event_detection_method: 'event_detection_method',
-      host: 'host',
-      url: 'url'
-    });
-  }
-
   get (fields, params): AdsPixelRawFiresResult {
     return this.read(
       fields,

@@ -8,16 +8,13 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
-import AutoOffer from './auto-offer';
 import AutomotiveModel from './automotive-model';
 import DACheck from './da-check';
 import Destination from './destination';
 import Flight from './flight';
 import HomeListing from './home-listing';
 import Hotel from './hotel';
-import MediaTitle from './media-title';
 import ProductItem from './product-item';
-import VehicleOffer from './vehicle-offer';
 import Vehicle from './vehicle';
 
 /**
@@ -35,16 +32,6 @@ export default class ProductSet extends AbstractCrudObject {
       product_catalog: 'product_catalog',
       product_count: 'product_count'
     });
-  }
-
-  getAutoOffers (fields, params, fetchFirstPage = true): AutoOffer {
-    return this.getEdge(
-      AutoOffer,
-      fields,
-      params,
-      fetchFirstPage,
-      '/auto_offers'
-    );
   }
 
   getAutomotiveModels (fields, params, fetchFirstPage = true): AutomotiveModel {
@@ -107,16 +94,6 @@ export default class ProductSet extends AbstractCrudObject {
     );
   }
 
-  getMediaTitles (fields, params, fetchFirstPage = true): MediaTitle {
-    return this.getEdge(
-      MediaTitle,
-      fields,
-      params,
-      fetchFirstPage,
-      '/media_titles'
-    );
-  }
-
   getProducts (fields, params, fetchFirstPage = true): ProductItem {
     return this.getEdge(
       ProductItem,
@@ -124,16 +101,6 @@ export default class ProductSet extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/products'
-    );
-  }
-
-  getVehicleOffers (fields, params, fetchFirstPage = true): VehicleOffer {
-    return this.getEdge(
-      VehicleOffer,
-      fields,
-      params,
-      fetchFirstPage,
-      '/vehicle_offers'
     );
   }
 

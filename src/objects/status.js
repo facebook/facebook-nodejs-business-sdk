@@ -10,7 +10,6 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Comment from './comment';
 import Profile from './profile';
-import ProfilePictureSource from './profile-picture-source';
 import Post from './post';
 
 /**
@@ -72,16 +71,6 @@ export default class Status extends AbstractCrudObject {
       fields,
       params,
       Status
-    );
-  }
-
-  getPicture (fields, params, fetchFirstPage = true): ProfilePictureSource {
-    return this.getEdge(
-      ProfilePictureSource,
-      fields,
-      params,
-      fetchFirstPage,
-      '/picture'
     );
   }
 

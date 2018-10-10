@@ -16,7 +16,9 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class ExternalEventSourceDebugging extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
+      app_version: 'app_version',
       content_url: 'content_url',
+      device_os: 'device_os',
       diagnostic: 'diagnostic',
       event_name: 'event_name',
       event_time: 'event_time',

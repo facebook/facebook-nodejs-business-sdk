@@ -25,14 +25,6 @@ export default class ProductItemInsights extends AbstractCrudObject {
     });
   }
 
-  static get InsightsSources (): Object {
-    return Object.freeze({
-      external_event_source: 'external_event_source',
-      ad_account: 'ad_account',
-      user_feedback: 'user_feedback'
-    });
-  }
-
   get (fields, params): ProductItemInsights {
     return this.read(
       fields,

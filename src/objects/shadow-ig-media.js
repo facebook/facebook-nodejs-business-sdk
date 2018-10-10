@@ -35,26 +35,6 @@ export default class ShadowIGMedia extends AbstractCrudObject {
     });
   }
 
-  getChildren (fields, params, fetchFirstPage = true): ShadowIGMedia {
-    return this.getEdge(
-      ShadowIGMedia,
-      fields,
-      params,
-      fetchFirstPage,
-      '/children'
-    );
-  }
-
-  getComments (fields, params, fetchFirstPage = true): ShadowIGComment {
-    return this.getEdge(
-      ShadowIGComment,
-      fields,
-      params,
-      fetchFirstPage,
-      '/comments'
-    );
-  }
-
   createComment (fields, params): ShadowIGComment {
     return this.createEdge(
       '/comments',

@@ -7,7 +7,6 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import InsightsQueryResult from './insights-query-result';
 
 /**
  * Domain
@@ -21,16 +20,6 @@ export default class Domain extends AbstractCrudObject {
       name: 'name',
       url: 'url'
     });
-  }
-
-  getUrlInsights (fields, params, fetchFirstPage = true): InsightsQueryResult {
-    return this.getEdge(
-      InsightsQueryResult,
-      fields,
-      params,
-      fetchFirstPage,
-      '/url_insights'
-    );
   }
 
   get (fields, params): Domain {

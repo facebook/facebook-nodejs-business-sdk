@@ -7,7 +7,6 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import ProfilePictureSource from './profile-picture-source';
 
 /**
  * PlaceTopic
@@ -26,16 +25,6 @@ export default class PlaceTopic extends AbstractCrudObject {
       plural_name: 'plural_name',
       top_subtopic_names: 'top_subtopic_names'
     });
-  }
-
-  getPicture (fields, params, fetchFirstPage = true): ProfilePictureSource {
-    return this.getEdge(
-      ProfilePictureSource,
-      fields,
-      params,
-      fetchFirstPage,
-      '/picture'
-    );
   }
 
   get (fields, params): PlaceTopic {
