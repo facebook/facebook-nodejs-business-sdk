@@ -34,6 +34,7 @@ export default class AdCreativeLinkData extends AbstractCrudObject {
       format_option: 'format_option',
       image_crops: 'image_crops',
       image_hash: 'image_hash',
+      image_layer_specs: 'image_layer_specs',
       image_overlay_spec: 'image_overlay_spec',
       link: 'link',
       message: 'message',

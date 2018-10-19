@@ -38,6 +38,7 @@ export default class Vehicle extends AbstractCrudObject {
       id: 'id',
       images: 'images',
       interior_color: 'interior_color',
+      legal_disclosure_impressum_url: 'legal_disclosure_impressum_url',
       make: 'make',
       mileage: 'mileage',
       model: 'model',

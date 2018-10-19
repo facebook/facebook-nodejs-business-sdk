@@ -13,6 +13,7 @@ export { default as AdAccountDefaultDestination } from './../src/objects/ad-acco
 export { default as AdAccountDefaultObjective } from './../src/objects/ad-account-default-objective';
 export { default as AdAccountDeliveryEstimate } from './../src/objects/ad-account-delivery-estimate';
 export { default as AdAccountMatchedSearchApplicationsEdgeData } from './../src/objects/ad-account-matched-search-applications-edge-data';
+export { default as AdAccountMaxBid } from './../src/objects/ad-account-max-bid';
 export { default as AdAccountPlacementUsage } from './../src/objects/ad-account-placement-usage';
 export { default as AdAccountPromotableObjects } from './../src/objects/ad-account-promotable-objects';
 export { default as AdAccountRecommendedCamapaignBudget } from './../src/objects/ad-account-recommended-camapaign-budget';

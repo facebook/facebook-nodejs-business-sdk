@@ -76,7 +76,6 @@ export default class ProductFeed extends AbstractCrudObject {
   static get FeedType (): Object {
     return Object.freeze({
       auto: 'AUTO',
-      auto_offer: 'AUTO_OFFER',
       destination: 'DESTINATION',
       flight: 'FLIGHT',
       home_listing: 'HOME_LISTING',

@@ -9,26 +9,19 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * AdsPixelRealTimeEventLogResult
+ * AdAccountMaxBid
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class AdsPixelRealTimeEventLogResult extends AbstractCrudObject {
+export default class AdAccountMaxBid extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      data_json: 'data_json',
-      device_type: 'device_type',
-      event: 'event',
-      event_detection_method: 'event_detection_method',
-      matched_rule_conditions: 'matched_rule_conditions',
-      source_rule_condition: 'source_rule_condition',
-      timestamp: 'timestamp',
-      url: 'url',
+      max_bid: 'max_bid',
       id: 'id'
     });
   }
 
-  get (fields, params): AdsPixelRealTimeEventLogResult {
+  get (fields, params): AdAccountMaxBid {
     return this.read(
       fields,
       params

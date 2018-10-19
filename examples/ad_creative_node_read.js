@@ -8,8 +8,7 @@
  */
 
  const adsSdk = require('facebook-nodejs-ads-sdk');
-const AdAccount = adsSdk.AdAccount;
-const CustomAudience = adsSdk.CustomAudience;
+const AdCreative = adsSdk.AdCreative;
 
 let access_token = '<ACCESS_TOKEN>';
 let app_secret = '<APP_SECRET>';
@@ -30,14 +29,13 @@ const logApiCallResult = (apiCallName, data) => {
 
 let fields, params;
 fields = [
+  'name',
+  'object_story_id',
 ];
 params = {
-  'name' : 'Test Value-Based lookalike from Pixel',
-  'subtype' : 'LOOKALIKE',
-  'lookalike_spec' : {'origin_event_sources':[{'id':'<sourceID>'}],'type':'custom_ratio','ratio':0.01,'country':'US'},
 };
-let customaudiences = (new AdAccount(id)).createCustomAudience(
+let sample_code = (new AdCreative(id)).get(
   fields,
   params
 );
-logApiCallResult('customaudiences api call complete.', customaudiences);
+logApiCallResult('sample_code api call complete.', sample_code);

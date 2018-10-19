@@ -38,7 +38,8 @@ export default class DirectDeal extends AbstractCrudObject {
       sales_lead_email: 'sales_lead_email',
       start_time: 'start_time',
       status: 'status',
-      targeting: 'targeting'
+      targeting: 'targeting',
+      third_party_integrated_deal: 'third_party_integrated_deal'
     });
   }
 

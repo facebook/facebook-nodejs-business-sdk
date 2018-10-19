@@ -8,8 +8,8 @@
  */
 
  const adsSdk = require('facebook-nodejs-ads-sdk');
-const AdAccount = adsSdk.AdAccount;
-const CustomAudience = adsSdk.CustomAudience;
+const Business = adsSdk.Business;
+const ProductCatalog = adsSdk.ProductCatalog;
 
 let access_token = '<ACCESS_TOKEN>';
 let app_secret = '<APP_SECRET>';
@@ -32,12 +32,11 @@ let fields, params;
 fields = [
 ];
 params = {
-  'name' : 'Test Value-Based lookalike from Pixel',
-  'subtype' : 'LOOKALIKE',
-  'lookalike_spec' : {'origin_event_sources':[{'id':'<sourceID>'}],'type':'custom_ratio','ratio':0.01,'country':'US'},
+  'name' : 'Test Flight Catalog',
+  'vertical' : 'flights',
 };
-let customaudiences = (new AdAccount(id)).createCustomAudience(
+let owned_product_catalogs = (new Business(id)).createOwnedProductCatalog(
   fields,
   params
 );
-logApiCallResult('customaudiences api call complete.', customaudiences);
+logApiCallResult('owned_product_catalogs api call complete.', owned_product_catalogs);

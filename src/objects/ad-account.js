@@ -49,6 +49,7 @@ import AdPreview from './ad-preview';
 import AdsInsights from './ads-insights';
 import LeadgenForm from './leadgen-form';
 import AdAccountMatchedSearchApplicationsEdgeData from './ad-account-matched-search-applications-edge-data';
+import AdAccountMaxBid from './ad-account-max-bid';
 import MinimumBudget from './minimum-budget';
 import OfflineConversionDataSet from './offline-conversion-data-set';
 import PartnerIntegrationLinked from './partner-integration-linked';
@@ -248,7 +249,6 @@ export default class AdAccount extends AbstractCrudObject {
       video: 'VIDEO',
       lookalike: 'LOOKALIKE',
       engagement: 'ENGAGEMENT',
-      data_set: 'DATA_SET',
       bag_of_accounts: 'BAG_OF_ACCOUNTS',
       study_rule_audience: 'STUDY_RULE_AUDIENCE',
       fox: 'FOX'
@@ -1069,6 +1069,16 @@ export default class AdAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/matched_search_applications'
+    );
+  }
+
+  getMaxBid (fields, params, fetchFirstPage = true): AdAccountMaxBid {
+    return this.getEdge(
+      AdAccountMaxBid,
+      fields,
+      params,
+      fetchFirstPage,
+      '/max_bid'
     );
   }
 

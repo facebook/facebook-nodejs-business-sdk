@@ -11,6 +11,7 @@ import './../src/objects/ad-account-default-destination';
 import './../src/objects/ad-account-default-objective';
 import './../src/objects/ad-account-delivery-estimate';
 import './../src/objects/ad-account-matched-search-applications-edge-data';
+import './../src/objects/ad-account-max-bid';
 import './../src/objects/ad-account-placement-usage';
 import './../src/objects/ad-account-promotable-objects';
 import './../src/objects/ad-account-recommended-camapaign-budget';

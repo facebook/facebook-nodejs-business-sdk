@@ -31,7 +31,6 @@ import Group from './group';
 import UserIDForApp from './user-id-for-app';
 import UserIDForPage from './user-id-for-page';
 import UserInvitableFriend from './user-invitable-friend';
-import LeadgenForm from './leadgen-form';
 import Link from './link';
 import LiveVideo from './live-video';
 import OpenGraphObject from './open-graph-object';
@@ -693,16 +692,6 @@ export default class User extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/invitable_friends'
-    );
-  }
-
-  getLeadGenForms (fields, params, fetchFirstPage = true): LeadgenForm {
-    return this.getEdge(
-      LeadgenForm,
-      fields,
-      params,
-      fetchFirstPage,
-      '/leadgen_forms'
     );
   }
 

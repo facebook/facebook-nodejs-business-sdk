@@ -208,6 +208,15 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
+  createFlight (fields, params): Flight {
+    return this.createEdge(
+      '/flights',
+      fields,
+      params,
+      Flight
+    );
+  }
+
   getHomeListings (fields, params, fetchFirstPage = true): HomeListing {
     return this.getEdge(
       HomeListing,
