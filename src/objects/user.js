@@ -465,15 +465,6 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  createContactsPhoto (fields, params): AbstractObject {
-    return this.createEdge(
-      '/contacts_photos',
-      fields,
-      params
-
-    );
-  }
-
   getConversations (fields, params, fetchFirstPage = true): UnifiedThread {
     return this.getEdge(
       UnifiedThread,
@@ -755,6 +746,15 @@ export default class User extends AbstractCrudObject {
       fields,
       params,
       LiveVideo
+    );
+  }
+
+  createLocationupdate (fields, params): User {
+    return this.createEdge(
+      '/locationupdates',
+      fields,
+      params,
+      User
     );
   }
 

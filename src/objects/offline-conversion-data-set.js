@@ -34,6 +34,7 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
       event_time_max: 'event_time_max',
       event_time_min: 'event_time_min',
       id: 'id',
+      is_mta_use: 'is_mta_use',
       is_restricted_use: 'is_restricted_use',
       last_upload_app: 'last_upload_app',
       last_upload_app_changed_time: 'last_upload_app_changed_time',

@@ -10,7 +10,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Profile from './profile';
 import User from './user';
-import Null from './null';
+import NullNode from './null-node';
 import Comment from './comment';
 import Photo from './photo';
 import AdVideo from './ad-video';
@@ -112,9 +112,9 @@ export default class Event extends AbstractCrudObject {
     );
   }
 
-  getComments (fields, params, fetchFirstPage = true): Null {
+  getComments (fields, params, fetchFirstPage = true): NullNode {
     return this.getEdge(
-      Null,
+      NullNode,
       fields,
       params,
       fetchFirstPage,
@@ -141,9 +141,9 @@ export default class Event extends AbstractCrudObject {
     );
   }
 
-  getFeed (fields, params, fetchFirstPage = true): Null {
+  getFeed (fields, params, fetchFirstPage = true): NullNode {
     return this.getEdge(
-      Null,
+      NullNode,
       fields,
       params,
       fetchFirstPage,
@@ -170,9 +170,9 @@ export default class Event extends AbstractCrudObject {
     );
   }
 
-  getLiveVideos (fields, params, fetchFirstPage = true): Null {
+  getLiveVideos (fields, params, fetchFirstPage = true): NullNode {
     return this.getEdge(
-      Null,
+      NullNode,
       fields,
       params,
       fetchFirstPage,
@@ -209,9 +209,9 @@ export default class Event extends AbstractCrudObject {
     );
   }
 
-  getPhotos (fields, params, fetchFirstPage = true): Null {
+  getPhotos (fields, params, fetchFirstPage = true): NullNode {
     return this.getEdge(
-      Null,
+      NullNode,
       fields,
       params,
       fetchFirstPage,
@@ -228,9 +228,9 @@ export default class Event extends AbstractCrudObject {
     );
   }
 
-  getPicture (fields, params, fetchFirstPage = true): Null {
+  getPicture (fields, params, fetchFirstPage = true): NullNode {
     return this.getEdge(
-      Null,
+      NullNode,
       fields,
       params,
       fetchFirstPage,
@@ -238,9 +238,9 @@ export default class Event extends AbstractCrudObject {
     );
   }
 
-  getPosts (fields, params, fetchFirstPage = true): Null {
+  getPosts (fields, params, fetchFirstPage = true): NullNode {
     return this.getEdge(
-      Null,
+      NullNode,
       fields,
       params,
       fetchFirstPage,
@@ -258,9 +258,9 @@ export default class Event extends AbstractCrudObject {
     );
   }
 
-  getVideos (fields, params, fetchFirstPage = true): Null {
+  getVideos (fields, params, fetchFirstPage = true): NullNode {
     return this.getEdge(
-      Null,
+      NullNode,
       fields,
       params,
       fetchFirstPage,

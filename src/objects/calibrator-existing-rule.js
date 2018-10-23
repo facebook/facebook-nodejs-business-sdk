@@ -24,6 +24,7 @@ export default class CalibratorExistingRule extends AbstractCrudObject {
       event_type: 'event_type',
       id: 'id',
       rule: 'rule',
+      rule_type: 'rule_type',
       sample_urls: 'sample_urls',
       status: 'status'
     });

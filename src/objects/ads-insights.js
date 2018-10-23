@@ -31,6 +31,9 @@ export default class AdsInsights extends AbstractCrudObject {
       adset_name: 'adset_name',
       age: 'age',
       age_targeting: 'age_targeting',
+      auction_bid: 'auction_bid',
+      auction_competitiveness: 'auction_competitiveness',
+      auction_max_competitor_bid: 'auction_max_competitor_bid',
       bid_type: 'bid_type',
       body_asset: 'body_asset',
       buying_type: 'buying_type',
@@ -108,10 +111,10 @@ export default class AdsInsights extends AbstractCrudObject {
       reach: 'reach',
       region: 'region',
       relevance_score: 'relevance_score',
+      rule_asset: 'rule_asset',
       social_spend: 'social_spend',
       spend: 'spend',
       title_asset: 'title_asset',
-      total_action_value: 'total_action_value',
       unique_actions: 'unique_actions',
       unique_clicks: 'unique_clicks',
       unique_ctr: 'unique_ctr',
@@ -144,6 +147,7 @@ export default class AdsInsights extends AbstractCrudObject {
       video_time_watched_actions: 'video_time_watched_actions',
       website_ctr: 'website_ctr',
       website_purchase_roas: 'website_purchase_roas',
+      wish_bid: 'wish_bid',
       id: 'id'
     });
   }

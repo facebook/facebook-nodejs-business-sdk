@@ -63,6 +63,8 @@ export default class AdPromotedObject extends AbstractCrudObject {
       level_achieved: 'LEVEL_ACHIEVED',
       achievement_unlocked: 'ACHIEVEMENT_UNLOCKED',
       spent_credits: 'SPENT_CREDITS',
+      d2_retention: 'D2_RETENTION',
+      d7_retention: 'D7_RETENTION',
       other: 'OTHER'
     });
   }

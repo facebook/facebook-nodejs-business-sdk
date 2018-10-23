@@ -27,6 +27,7 @@ export default class CustomAudience extends AbstractCrudObject {
       customer_file_source: 'customer_file_source',
       data_source: 'data_source',
       data_source_types: 'data_source_types',
+      datafile_custom_audience_uploading_status: 'datafile_custom_audience_uploading_status',
       delivery_status: 'delivery_status',
       description: 'description',
       excluded_custom_audiences: 'excluded_custom_audiences',

@@ -153,7 +153,8 @@ export default class AdSet extends AbstractCrudObject {
       app_downloads: 'APP_DOWNLOADS',
       landing_page_views: 'LANDING_PAGE_VIEWS',
       value: 'VALUE',
-      replies: 'REPLIES'
+      replies: 'REPLIES',
+      derived_events: 'DERIVED_EVENTS'
     });
   }
   static get Status (): Object {

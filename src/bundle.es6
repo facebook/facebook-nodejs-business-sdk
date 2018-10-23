@@ -40,6 +40,7 @@ export { default as AdBidAdjustments } from './../src/objects/ad-bid-adjustments
 export { default as AdCampaignActivity } from './../src/objects/ad-campaign-activity';
 export { default as AdCampaignBidConstraint } from './../src/objects/ad-campaign-bid-constraint';
 export { default as AdCampaignDeliveryEstimate } from './../src/objects/ad-campaign-delivery-estimate';
+export { default as AdCampaignDeliveryStatsUnsupportedReasons } from './../src/objects/ad-campaign-delivery-stats-unsupported-reasons';
 export { default as AdCampaignFrequencyControlSpecs } from './../src/objects/ad-campaign-frequency-control-specs';
 export { default as AdCampaignGroupActivity } from './../src/objects/ad-campaign-group-activity';
 export { default as AdCampaignGroupStats } from './../src/objects/ad-campaign-group-stats';
@@ -53,6 +54,7 @@ export { default as AdConversionValues } from './../src/objects/ad-conversion-va
 export { default as AdConversions } from './../src/objects/ad-conversions';
 export { default as AdCreative } from './../src/objects/ad-creative';
 export { default as AdCreativeCollectionThumbnailInfo } from './../src/objects/ad-creative-collection-thumbnail-info';
+export { default as AdCreativeDegreesOfFreedomSpec } from './../src/objects/ad-creative-degrees-of-freedom-spec';
 export { default as AdCreativeLinkData } from './../src/objects/ad-creative-link-data';
 export { default as AdCreativeLinkDataAppLinkSpec } from './../src/objects/ad-creative-link-data-app-link-spec';
 export { default as AdCreativeLinkDataCallToAction } from './../src/objects/ad-creative-link-data-call-to-action';
@@ -319,7 +321,6 @@ export { default as NativeMegaphone } from './../src/objects/native-megaphone';
 export { default as NativeOffer } from './../src/objects/native-offer';
 export { default as NativeOfferDiscount } from './../src/objects/native-offer-discount';
 export { default as NativeOfferView } from './../src/objects/native-offer-view';
-export { default as Null } from './../src/objects/null';
 export { default as OfflineConversionDataSet } from './../src/objects/offline-conversion-data-set';
 export { default as OfflineTermsOfService } from './../src/objects/offline-terms-of-service';
 export { default as OffsitePixel } from './../src/objects/offsite-pixel';
@@ -506,3 +507,4 @@ export { default as Ad } from './../src/objects/ad';
 export { default as Lead } from './../src/objects/lead';
 export { default as LeadgenForm } from './../src/objects/leadgen-form';
 export { default as AdVideo } from './../src/objects/ad-video';
+export { default as NullNode } from './../src/objects/null-node';

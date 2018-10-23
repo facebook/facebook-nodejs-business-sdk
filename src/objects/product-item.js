@@ -100,7 +100,8 @@ export default class ProductItem extends AbstractCrudObject {
       new: 'new',
       refurbished: 'refurbished',
       used: 'used',
-      cpo: 'cpo'
+      cpo: 'cpo',
+      open_box_new: 'open_box_new'
     });
   }
   static get Gender (): Object {

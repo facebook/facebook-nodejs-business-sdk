@@ -9,18 +9,20 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * Null
+ * AdCampaignDeliveryStatsUnsupportedReasons
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class Null extends AbstractCrudObject {
+export default class AdCampaignDeliveryStatsUnsupportedReasons extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
+      reason_data: 'reason_data',
+      reason_type: 'reason_type',
       id: 'id'
     });
   }
 
-  get (fields, params): Null {
+  get (fields, params): AdCampaignDeliveryStatsUnsupportedReasons {
     return this.read(
       fields,
       params

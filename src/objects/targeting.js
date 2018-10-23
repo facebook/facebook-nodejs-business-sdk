@@ -83,7 +83,6 @@ export default class Targeting extends AbstractCrudObject {
       moms: 'moms',
       net_worth: 'net_worth',
       office_type: 'office_type',
-      page_types: 'page_types',
       place_page_set_ids: 'place_page_set_ids',
       political_views: 'political_views',
       politics: 'politics',

@@ -44,23 +44,19 @@ export default class Ad extends AbstractCrudObject {
       engagement_audience: 'engagement_audience',
       failed_delivery_checks: 'failed_delivery_checks',
       id: 'id',
-      impression_control_map: 'impression_control_map',
       issues_info: 'issues_info',
       last_updated_by_app_id: 'last_updated_by_app_id',
-      locations: 'locations',
       name: 'name',
       objective_source: 'objective_source',
       priority: 'priority',
       recommendations: 'recommendations',
-      social_prefs: 'social_prefs',
       source_ad: 'source_ad',
       source_ad_id: 'source_ad_id',
       status: 'status',
       targeting: 'targeting',
       tracking_and_conversion_with_defaults: 'tracking_and_conversion_with_defaults',
       tracking_specs: 'tracking_specs',
-      updated_time: 'updated_time',
-      url_override: 'url_override'
+      updated_time: 'updated_time'
     });
   }
 

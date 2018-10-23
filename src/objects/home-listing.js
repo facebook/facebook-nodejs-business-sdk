@@ -18,6 +18,7 @@ export default class HomeListing extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       ac_type: 'ac_type',
+      additional_fees_description: 'additional_fees_description',
       address: 'address',
       agent_company: 'agent_company',
       agent_email: 'agent_email',

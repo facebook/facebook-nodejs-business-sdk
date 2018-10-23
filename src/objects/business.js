@@ -122,6 +122,14 @@ export default class Business extends AbstractCrudObject {
       analyze: 'ANALYZE'
     });
   }
+  static get SurveyBusinessType (): Object {
+    return Object.freeze({
+      agency: 'AGENCY',
+      advertiser: 'ADVERTISER',
+      app_developer: 'APP_DEVELOPER',
+      publisher: 'PUBLISHER'
+    });
+  }
   static get PagePermittedRoles (): Object {
     return Object.freeze({
       manager: 'MANAGER',
@@ -129,14 +137,6 @@ export default class Business extends AbstractCrudObject {
       moderator: 'MODERATOR',
       advertiser: 'ADVERTISER',
       insights_analyst: 'INSIGHTS_ANALYST'
-    });
-  }
-  static get SurveyBusinessType (): Object {
-    return Object.freeze({
-      agency: 'AGENCY',
-      advertiser: 'ADVERTISER',
-      app_developer: 'APP_DEVELOPER',
-      publisher: 'PUBLISHER'
     });
   }
   static get PermittedRoles (): Object {
@@ -604,6 +604,15 @@ export default class Business extends AbstractCrudObject {
     return super.deleteEdge(
       '/instagram_accounts',
       params
+    );
+  }
+
+  createManagedBusiness (fields, params): Business {
+    return this.createEdge(
+      '/managed_businesses',
+      fields,
+      params,
+      Business
     );
   }
 
