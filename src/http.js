@@ -70,6 +70,12 @@ export default class Http {
           );
         }
       };
+      request.onerror = function () {
+        reject({
+          body: { error: { message: 'An unknown error occurred during the request.' } },
+          status: request.status
+        });
+      }
       request.setRequestHeader('Content-Type', 'application/json');
       request.setRequestHeader('Accept', 'application/json');
       request.send(JSON.stringify(data));
