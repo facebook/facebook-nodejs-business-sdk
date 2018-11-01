@@ -17,7 +17,15 @@ export default class ProductCatalogImageSettings extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       carousel_ad: 'carousel_ad',
-      single_ad: 'single_ad'
+      single_ad: 'single_ad',
+      id: 'id'
     });
+  }
+
+  get (fields, params): ProductCatalogImageSettings {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

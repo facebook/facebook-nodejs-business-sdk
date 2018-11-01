@@ -26,7 +26,9 @@ export default class AdActivity extends AbstractCrudObject {
       extra_data: 'extra_data',
       object_id: 'object_id',
       object_name: 'object_name',
-      translated_event_type: 'translated_event_type'
+      object_type: 'object_type',
+      translated_event_type: 'translated_event_type',
+      id: 'id'
     });
   }
 
@@ -66,6 +68,7 @@ export default class AdActivity extends AbstractCrudObject {
       update_ad_set_duration: 'update_ad_set_duration',
       update_ad_set_run_status: 'update_ad_set_run_status',
       update_ad_set_name: 'update_ad_set_name',
+      update_ad_set_optimization_goal: 'update_ad_set_optimization_goal',
       update_ad_set_target_spec: 'update_ad_set_target_spec',
       update_ad_set_bid_adjustments: 'update_ad_set_bid_adjustments',
       create_ad: 'create_ad',
@@ -76,6 +79,7 @@ export default class AdActivity extends AbstractCrudObject {
       update_ad_bid_info: 'update_ad_bid_info',
       update_ad_bid_type: 'update_ad_bid_type',
       update_ad_run_status: 'update_ad_run_status',
+      update_ad_run_status_to_be_set_after_review: 'update_ad_run_status_to_be_set_after_review',
       update_ad_friendly_name: 'update_ad_friendly_name',
       update_ad_targets_spec: 'update_ad_targets_spec',
       update_adgroup_stop_delivery: 'update_adgroup_stop_delivery',
@@ -93,7 +97,8 @@ export default class AdActivity extends AbstractCrudObject {
       lifetime_budget_spent: 'lifetime_budget_spent',
       funding_event_initiated: 'funding_event_initiated',
       funding_event_successful: 'funding_event_successful',
-      update_ad_labels: 'update_ad_labels'
+      update_ad_labels: 'update_ad_labels',
+      di_ad_set_learning_stage_exit: 'di_ad_set_learning_stage_exit'
     });
   }
   static get Category (): Object {
@@ -109,5 +114,12 @@ export default class AdActivity extends AbstractCrudObject {
       status: 'STATUS',
       targeting: 'TARGETING'
     });
+  }
+
+  get (fields, params): AdActivity {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

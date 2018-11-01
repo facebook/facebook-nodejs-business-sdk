@@ -8,6 +8,8 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Comment from './comment';
+import Profile from './profile';
 
 /**
  * RTBDynamicPost
@@ -29,6 +31,36 @@ export default class RTBDynamicPost extends AbstractCrudObject {
       product_id: 'product_id',
       title: 'title'
     });
+  }
+
+  getComments (fields, params, fetchFirstPage = true): Comment {
+    return this.getEdge(
+      Comment,
+      fields,
+      params,
+      fetchFirstPage,
+      '/comments'
+    );
+  }
+
+  getInstagramComments (fields, params, fetchFirstPage = true): AbstractObject {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/instagram_comments'
+    );
+  }
+
+  getLikes (fields, params, fetchFirstPage = true): Profile {
+    return this.getEdge(
+      Profile,
+      fields,
+      params,
+      fetchFirstPage,
+      '/likes'
+    );
   }
 
   delete (fields, params): AbstractObject {

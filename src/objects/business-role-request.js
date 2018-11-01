@@ -21,6 +21,7 @@ export default class BusinessRoleRequest extends AbstractCrudObject {
       created_time: 'created_time',
       email: 'email',
       expiration_time: 'expiration_time',
+      expiry_time: 'expiry_time',
       finance_role: 'finance_role',
       id: 'id',
       invite_link: 'invite_link',

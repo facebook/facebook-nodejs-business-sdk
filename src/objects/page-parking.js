@@ -18,7 +18,15 @@ export default class PageParking extends AbstractCrudObject {
     return Object.freeze({
       lot: 'lot',
       street: 'street',
-      valet: 'valet'
+      valet: 'valet',
+      id: 'id'
     });
+  }
+
+  get (fields, params): PageParking {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

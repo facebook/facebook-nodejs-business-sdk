@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import NativeOfferView from './native-offer-view';
 
 /**
  * NativeOffer
@@ -20,6 +21,7 @@ export default class NativeOffer extends AbstractCrudObject {
       barcode_photo_uri: 'barcode_photo_uri',
       barcode_type: 'barcode_type',
       barcode_value: 'barcode_value',
+      block_reshares: 'block_reshares',
       details: 'details',
       disable_location: 'disable_location',
       discounts: 'discounts',
@@ -31,6 +33,7 @@ export default class NativeOffer extends AbstractCrudObject {
       online_code: 'online_code',
       page: 'page',
       page_set_id: 'page_set_id',
+      redemption_code: 'redemption_code',
       redemption_link: 'redemption_link',
       save_count: 'save_count',
       terms: 'terms',
@@ -94,6 +97,16 @@ export default class NativeOffer extends AbstractCrudObject {
       fields,
       params,
       NativeOffer
+    );
+  }
+
+  getViews (fields, params, fetchFirstPage = true): NativeOfferView {
+    return this.getEdge(
+      NativeOfferView,
+      fields,
+      params,
+      fetchFirstPage,
+      '/views'
     );
   }
 

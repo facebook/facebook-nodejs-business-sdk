@@ -18,7 +18,15 @@ export default class AudiencePermission extends AbstractCrudObject {
     return Object.freeze({
       audience: 'audience',
       share_account_id: 'share_account_id',
-      share_account_name: 'share_account_name'
+      share_account_name: 'share_account_name',
+      id: 'id'
     });
+  }
+
+  get (fields, params): AudiencePermission {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

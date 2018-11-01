@@ -17,7 +17,15 @@ export default class PageStartInfo extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       date: 'date',
-      type: 'type'
+      type: 'type',
+      id: 'id'
     });
+  }
+
+  get (fields, params): PageStartInfo {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

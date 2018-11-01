@@ -8,6 +8,13 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Comment from './comment';
+import RTBDynamicPost from './rtb-dynamic-post';
+import InsightsResult from './insights-result';
+import Profile from './profile';
+import User from './user';
+import Post from './post';
+import Page from './page';
 
 /**
  * PagePost
@@ -157,6 +164,160 @@ export default class PagePost extends AbstractCrudObject {
       normal: 'normal',
       forced_allow: 'forced_allow'
     });
+  }
+
+  getAttachments (fields, params, fetchFirstPage = true): AbstractObject {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/attachments'
+    );
+  }
+
+  getComments (fields, params, fetchFirstPage = true): Comment {
+    return this.getEdge(
+      Comment,
+      fields,
+      params,
+      fetchFirstPage,
+      '/comments'
+    );
+  }
+
+  createComment (fields, params): Comment {
+    return this.createEdge(
+      '/comments',
+      fields,
+      params,
+      Comment
+    );
+  }
+
+  getDynamicPosts (fields, params, fetchFirstPage = true): RTBDynamicPost {
+    return this.getEdge(
+      RTBDynamicPost,
+      fields,
+      params,
+      fetchFirstPage,
+      '/dynamic_posts'
+    );
+  }
+
+  getEditActions (fields, params, fetchFirstPage = true): AbstractObject {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/edit_actions'
+    );
+  }
+
+  getInsights (fields, params, fetchFirstPage = true): InsightsResult {
+    return this.getEdge(
+      InsightsResult,
+      fields,
+      params,
+      fetchFirstPage,
+      '/insights'
+    );
+  }
+
+  deleteLikes (params): AbstractObject {
+    return super.deleteEdge(
+      '/likes',
+      params
+    );
+  }
+
+  getLikes (fields, params, fetchFirstPage = true): Profile {
+    return this.getEdge(
+      Profile,
+      fields,
+      params,
+      fetchFirstPage,
+      '/likes'
+    );
+  }
+
+  createLike (fields, params): PagePost {
+    return this.createEdge(
+      '/likes',
+      fields,
+      params,
+      PagePost
+    );
+  }
+
+  createPromotion (fields, params): AbstractObject {
+    return this.createEdge(
+      '/promotions',
+      fields,
+      params
+
+    );
+  }
+
+  getReactions (fields, params, fetchFirstPage = true): Profile {
+    return this.getEdge(
+      Profile,
+      fields,
+      params,
+      fetchFirstPage,
+      '/reactions'
+    );
+  }
+
+  getSeen (fields, params, fetchFirstPage = true): User {
+    return this.getEdge(
+      User,
+      fields,
+      params,
+      fetchFirstPage,
+      '/seen'
+    );
+  }
+
+  getShareDPosts (fields, params, fetchFirstPage = true): Post {
+    return this.getEdge(
+      Post,
+      fields,
+      params,
+      fetchFirstPage,
+      '/sharedposts'
+    );
+  }
+
+  getSponsorTags (fields, params, fetchFirstPage = true): Page {
+    return this.getEdge(
+      Page,
+      fields,
+      params,
+      fetchFirstPage,
+      '/sponsor_tags'
+    );
+  }
+
+  getTo (fields, params, fetchFirstPage = true): Profile {
+    return this.getEdge(
+      Profile,
+      fields,
+      params,
+      fetchFirstPage,
+      '/to'
+    );
+  }
+
+  getWithTags (fields, params, fetchFirstPage = true): Profile {
+    return this.getEdge(
+      Profile,
+      fields,
+      params,
+      fetchFirstPage,
+      '/with_tags'
+    );
   }
 
   delete (fields, params): AbstractObject {

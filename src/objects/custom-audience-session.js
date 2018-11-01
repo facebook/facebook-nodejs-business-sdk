@@ -23,7 +23,15 @@ export default class CustomAudienceSession extends AbstractCrudObject {
       progress: 'progress',
       session_id: 'session_id',
       stage: 'stage',
-      start_time: 'start_time'
+      start_time: 'start_time',
+      id: 'id'
     });
+  }
+
+  get (fields, params): CustomAudienceSession {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

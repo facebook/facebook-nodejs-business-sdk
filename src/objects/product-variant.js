@@ -18,7 +18,15 @@ export default class ProductVariant extends AbstractCrudObject {
     return Object.freeze({
       label: 'label',
       options: 'options',
-      product_field: 'product_field'
+      product_field: 'product_field',
+      id: 'id'
     });
+  }
+
+  get (fields, params): ProductVariant {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

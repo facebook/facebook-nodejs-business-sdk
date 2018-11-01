@@ -38,4 +38,11 @@ export default class AdKeywordStats extends AbstractCrudObject {
       unique_impressions: 'unique_impressions'
     });
   }
+
+  get (fields, params): AdKeywordStats {
+    return this.read(
+      fields,
+      params
+    );
+  }
 }

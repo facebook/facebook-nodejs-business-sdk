@@ -39,12 +39,12 @@ export default class Canvas extends AbstractCrudObject {
     );
   }
 
-  createPreviewNotification (fields, params): AbstractObject {
+  createPreviewNotification (fields, params): Canvas {
     return this.createEdge(
       '/preview_notifications',
       fields,
-      params
-
+      params,
+      Canvas
     );
   }
 

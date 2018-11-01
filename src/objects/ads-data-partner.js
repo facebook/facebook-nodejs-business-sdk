@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
 
 /**
  * AdsDataPartner
@@ -20,6 +21,13 @@ export default class AdsDataPartner extends AbstractCrudObject {
       name: 'name',
       rev_share_policies: 'rev_share_policies'
     });
+  }
+
+  deleteUsersOfAnyAudience (params): AbstractObject {
+    return super.deleteEdge(
+      '/usersofanyaudience',
+      params
+    );
   }
 
   get (fields, params): AdsDataPartner {

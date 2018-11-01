@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import Application from './application';
 
 /**
  * DirectDeal
@@ -37,7 +38,9 @@ export default class DirectDeal extends AbstractCrudObject {
       sales_lead_email: 'sales_lead_email',
       start_time: 'start_time',
       status: 'status',
-      targeting: 'targeting'
+      targeting: 'targeting',
+      third_party_ids: 'third_party_ids',
+      third_party_integrated_deal: 'third_party_integrated_deal'
     });
   }
 
@@ -51,6 +54,16 @@ export default class DirectDeal extends AbstractCrudObject {
       value_5: '5',
       value_6: '6'
     });
+  }
+
+  getApplications (fields, params, fetchFirstPage = true): Application {
+    return this.getEdge(
+      Application,
+      fields,
+      params,
+      fetchFirstPage,
+      '/applications'
+    );
   }
 
   get (fields, params): DirectDeal {

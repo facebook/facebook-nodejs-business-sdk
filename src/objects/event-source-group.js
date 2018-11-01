@@ -8,6 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import AdAccount from './ad-account';
 
 /**
  * EventSourceGroup
@@ -24,7 +25,24 @@ export default class EventSourceGroup extends AbstractCrudObject {
     });
   }
 
-  createSharedAccount (fields, params): EventSourceGroup {
+  static get Role (): Object {
+    return Object.freeze({
+      analyst: 'ANALYST',
+      limited_analyst: 'LIMITED_ANALYST'
+    });
+  }
+
+  getShareDAccounts (fields, params, fetchFirstPage = true): AdAccount {
+    return this.getEdge(
+      AdAccount,
+      fields,
+      params,
+      fetchFirstPage,
+      '/shared_accounts'
+    );
+  }
+
+  createShareDAccount (fields, params): EventSourceGroup {
     return this.createEdge(
       '/shared_accounts',
       fields,
@@ -40,12 +58,22 @@ export default class EventSourceGroup extends AbstractCrudObject {
     );
   }
 
-  createUserPermission (fields, params): AbstractObject {
+  getUserPermissions (fields, params, fetchFirstPage = true): AbstractObject {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/userpermissions'
+    );
+  }
+
+  createUserPermission (fields, params): EventSourceGroup {
     return this.createEdge(
       '/userpermissions',
       fields,
-      params
-
+      params,
+      EventSourceGroup
     );
   }
 

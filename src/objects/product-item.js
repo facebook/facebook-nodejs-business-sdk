@@ -8,6 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Comment from './comment';
 import ProductSet from './product-set';
 
 /**
@@ -18,12 +19,14 @@ import ProductSet from './product-set';
 export default class ProductItem extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
+      additional_image_cdn_urls: 'additional_image_cdn_urls',
       additional_image_urls: 'additional_image_urls',
       additional_variant_attributes: 'additional_variant_attributes',
       age_group: 'age_group',
       applinks: 'applinks',
       availability: 'availability',
       brand: 'brand',
+      capability_to_review_status: 'capability_to_review_status',
       category: 'category',
       color: 'color',
       commerce_insights: 'commerce_insights',
@@ -40,10 +43,12 @@ export default class ProductItem extends AbstractCrudObject {
       gender: 'gender',
       gtin: 'gtin',
       id: 'id',
+      image_cdn_urls: 'image_cdn_urls',
       image_url: 'image_url',
       inventory: 'inventory',
       manufacturer_part_number: 'manufacturer_part_number',
       material: 'material',
+      mobile_link: 'mobile_link',
       name: 'name',
       ordering_index: 'ordering_index',
       pattern: 'pattern',
@@ -72,9 +77,11 @@ export default class ProductItem extends AbstractCrudObject {
   static get AgeGroup (): Object {
     return Object.freeze({
       adult: 'adult',
+      all_ages: 'all ages',
       infant: 'infant',
       kids: 'kids',
       newborn: 'newborn',
+      teen: 'teen',
       toddler: 'toddler'
     });
   }
@@ -93,7 +100,8 @@ export default class ProductItem extends AbstractCrudObject {
       new: 'new',
       refurbished: 'refurbished',
       used: 'used',
-      cpo: 'cpo'
+      cpo: 'cpo',
+      open_box_new: 'open_box_new'
     });
   }
   static get Gender (): Object {
@@ -124,6 +132,15 @@ export default class ProductItem extends AbstractCrudObject {
       staging: 'staging',
       published: 'published'
     });
+  }
+
+  createComment (fields, params): Comment {
+    return this.createEdge(
+      '/comments',
+      fields,
+      params,
+      Comment
+    );
   }
 
   getProductSets (fields, params, fetchFirstPage = true): ProductSet {

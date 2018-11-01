@@ -17,6 +17,7 @@ export default class AdAssetFeedSpec extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       ad_formats: 'ad_formats',
+      additional_data: 'additional_data',
       asset_customization_rules: 'asset_customization_rules',
       autotranslate: 'autotranslate',
       bodies: 'bodies',
@@ -28,7 +29,8 @@ export default class AdAssetFeedSpec extends AbstractCrudObject {
       link_urls: 'link_urls',
       optimization_type: 'optimization_type',
       titles: 'titles',
-      videos: 'videos'
+      videos: 'videos',
+      id: 'id'
     });
   }
 
@@ -78,8 +80,17 @@ export default class AdAssetFeedSpec extends AbstractCrudObject {
       record_now: 'RECORD_NOW',
       get_showtimes: 'GET_SHOWTIMES',
       listen_now: 'LISTEN_NOW',
+      woodhenge_support: 'WOODHENGE_SUPPORT',
       event_rsvp: 'EVENT_RSVP',
-      whatsapp_message: 'WHATSAPP_MESSAGE'
+      whatsapp_message: 'WHATSAPP_MESSAGE',
+      follow_news_storyline: 'FOLLOW_NEWS_STORYLINE'
     });
+  }
+
+  get (fields, params): AdAssetFeedSpec {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

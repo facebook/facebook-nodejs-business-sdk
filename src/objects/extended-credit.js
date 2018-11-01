@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
 import ExtendedCreditInvoiceGroup from './extended-credit-invoice-group';
 import ExtendedCreditAllocationConfig from './extended-credit-allocation-config';
 
@@ -23,6 +24,8 @@ export default class ExtendedCredit extends AbstractCrudObject {
       credit_available: 'credit_available',
       credit_type: 'credit_type',
       id: 'id',
+      is_access_revoked: 'is_access_revoked',
+      is_automated_experience: 'is_automated_experience',
       last_payment_time: 'last_payment_time',
       legal_entity_name: 'legal_entity_name',
       liable_biz_name: 'liable_biz_name',
@@ -36,6 +39,16 @@ export default class ExtendedCredit extends AbstractCrudObject {
     });
   }
 
+  getExtendedCreditEmails (fields, params, fetchFirstPage = true): AbstractObject {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/extended_credit_emails'
+    );
+  }
+
   getExtendedCreditInvoiceGroups (fields, params, fetchFirstPage = true): ExtendedCreditInvoiceGroup {
     return this.getEdge(
       ExtendedCreditInvoiceGroup,
@@ -46,12 +59,12 @@ export default class ExtendedCredit extends AbstractCrudObject {
     );
   }
 
-  createExtendedCreditInvoiceGroup (fields, params): ExtendedCredit {
+  createExtendedCreditInvoiceGroup (fields, params): ExtendedCreditInvoiceGroup {
     return this.createEdge(
       '/extended_credit_invoice_groups',
       fields,
       params,
-      ExtendedCredit
+      ExtendedCreditInvoiceGroup
     );
   }
 

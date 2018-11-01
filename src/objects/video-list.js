@@ -8,6 +8,8 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Comment from './comment';
+import AdVideo from './ad-video';
 
 /**
  * VideoList
@@ -29,10 +31,29 @@ export default class VideoList extends AbstractCrudObject {
     });
   }
 
+  createComment (fields, params): Comment {
+    return this.createEdge(
+      '/comments',
+      fields,
+      params,
+      Comment
+    );
+  }
+
   deleteVideos (params): AbstractObject {
     return super.deleteEdge(
       '/videos',
       params
+    );
+  }
+
+  getVideos (fields, params, fetchFirstPage = true): AdVideo {
+    return this.getEdge(
+      AdVideo,
+      fields,
+      params,
+      fetchFirstPage,
+      '/videos'
     );
   }
 

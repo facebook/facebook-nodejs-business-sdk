@@ -23,7 +23,8 @@ export default class AdCreativeLinkDataCustomOverlaySpec extends AbstractCrudObj
       position: 'position',
       render_with_icon: 'render_with_icon',
       template: 'template',
-      text_color: 'text_color'
+      text_color: 'text_color',
+      id: 'id'
     });
   }
 
@@ -60,7 +61,10 @@ export default class AdCreativeLinkDataCustomOverlaySpec extends AbstractCrudObj
       cash_on_delivery: 'cash_on_delivery',
       home_delivery: 'home_delivery',
       free_shipping: 'free_shipping',
-      inventory: 'inventory'
+      inventory: 'inventory',
+      pay_on_arrival: 'pay_on_arrival',
+      pay_at_hotel: 'pay_at_hotel',
+      fast_delivery: 'fast_delivery'
     });
   }
   static get Position (): Object {
@@ -88,5 +92,12 @@ export default class AdCreativeLinkDataCustomOverlaySpec extends AbstractCrudObj
       text_646464: 'text_646464',
       text_000000: 'text_000000'
     });
+  }
+
+  get (fields, params): AdCreativeLinkDataCustomOverlaySpec {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

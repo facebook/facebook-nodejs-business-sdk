@@ -46,7 +46,8 @@ export default class LeadgenForm extends AbstractCrudObject {
       questions: 'questions',
       status: 'status',
       tcpa_compliance: 'tcpa_compliance',
-      thank_you_page: 'thank_you_page'
+      thank_you_page: 'thank_you_page',
+      tracking_parameters: 'tracking_parameters'
     });
   }
 
@@ -104,21 +105,31 @@ export default class LeadgenForm extends AbstractCrudObject {
     );
   }
 
-  createLead (fields, params): LeadgenForm {
+  createLead (fields, params): Lead {
     return this.createEdge(
       '/leads',
       fields,
       params,
-      LeadgenForm
+      Lead
     );
   }
 
-  createTestLead (fields, params): LeadgenForm {
+  getTestLeads (fields, params, fetchFirstPage = true): Lead {
+    return this.getEdge(
+      Lead,
+      fields,
+      params,
+      fetchFirstPage,
+      '/test_leads'
+    );
+  }
+
+  createTestLead (fields, params): Lead {
     return this.createEdge(
       '/test_leads',
       fields,
       params,
-      LeadgenForm
+      Lead
     );
   }
 

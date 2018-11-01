@@ -18,7 +18,15 @@ export default class ProductItemCommerceInsights extends AbstractCrudObject {
     return Object.freeze({
       message_sends: 'message_sends',
       organic_impressions: 'organic_impressions',
-      paid_impressions: 'paid_impressions'
+      paid_impressions: 'paid_impressions',
+      id: 'id'
     });
+  }
+
+  get (fields, params): ProductItemCommerceInsights {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

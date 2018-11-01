@@ -23,7 +23,15 @@ export default class LeadGenDraftQuestion extends AbstractCrudObject {
       key: 'key',
       label: 'label',
       options: 'options',
-      type: 'type'
+      type: 'type',
+      id: 'id'
     });
+  }
+
+  get (fields, params): LeadGenDraftQuestion {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

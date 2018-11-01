@@ -17,7 +17,15 @@ export default class TargetingProductAudienceSubSpec extends AbstractCrudObject 
   static get Fields () {
     return Object.freeze({
       retention_seconds: 'retention_seconds',
-      rule: 'rule'
+      rule: 'rule',
+      id: 'id'
     });
+  }
+
+  get (fields, params): TargetingProductAudienceSubSpec {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

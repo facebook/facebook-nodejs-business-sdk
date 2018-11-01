@@ -19,7 +19,15 @@ export default class AdgroupRelevanceScore extends AbstractCrudObject {
       negative_feedback: 'negative_feedback',
       positive_feedback: 'positive_feedback',
       score: 'score',
-      status: 'status'
+      status: 'status',
+      id: 'id'
     });
+  }
+
+  get (fields, params): AdgroupRelevanceScore {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

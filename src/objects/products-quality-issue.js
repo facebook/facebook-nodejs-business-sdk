@@ -21,7 +21,15 @@ export default class ProductsQualityIssue extends AbstractCrudObject {
       issue_type: 'issue_type',
       property_names: 'property_names',
       samples: 'samples',
-      summary: 'summary'
+      summary: 'summary',
+      id: 'id'
     });
+  }
+
+  get (fields, params): ProductsQualityIssue {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

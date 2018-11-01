@@ -8,6 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import AdAccount from './ad-account';
 
 /**
  * AdAccountCreationRequest
@@ -17,10 +18,12 @@ import AbstractObject from './../abstract-object';
 export default class AdAccountCreationRequest extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
+      ad_accounts_currency: 'ad_accounts_currency',
       ad_accounts_info: 'ad_accounts_info',
       additional_comment: 'additional_comment',
       address_in_chinese: 'address_in_chinese',
       address_in_english: 'address_in_english',
+      address_in_local_language: 'address_in_local_language',
       advertiser_business: 'advertiser_business',
       appeal_reason: 'appeal_reason',
       business: 'business',
@@ -28,6 +31,7 @@ export default class AdAccountCreationRequest extends AbstractCrudObject {
       chinese_legal_entity_name: 'chinese_legal_entity_name',
       contact: 'contact',
       creator: 'creator',
+      credit_card_id: 'credit_card_id',
       disapproval_reasons: 'disapproval_reasons',
       english_legal_entity_name: 'english_legal_entity_name',
       extended_credit_id: 'extended_credit_id',
@@ -35,8 +39,10 @@ export default class AdAccountCreationRequest extends AbstractCrudObject {
       is_smb: 'is_smb',
       is_test: 'is_test',
       is_under_authorization: 'is_under_authorization',
+      legal_entity_name_in_local_language: 'legal_entity_name_in_local_language',
       official_website_url: 'official_website_url',
       planning_agency_business: 'planning_agency_business',
+      planning_agency_business_id: 'planning_agency_business_id',
       promotable_app_ids: 'promotable_app_ids',
       promotable_page_ids: 'promotable_page_ids',
       promotable_urls: 'promotable_urls',
@@ -58,7 +64,9 @@ export default class AdAccountCreationRequest extends AbstractCrudObject {
       apparel_and_accessories: 'APPAREL_AND_ACCESSORIES',
       arts: 'ARTS',
       auctions: 'AUCTIONS',
+      auto_agency: 'AUTO_AGENCY',
       auto_rental: 'AUTO_RENTAL',
+      automotive_manufacturer: 'AUTOMOTIVE_MANUFACTURER',
       b2b: 'B2B',
       b2b_manufacturing: 'B2B_MANUFACTURING',
       beauty_and_personal_care: 'BEAUTY_AND_PERSONAL_CARE',
@@ -80,6 +88,7 @@ export default class AdAccountCreationRequest extends AbstractCrudObject {
       cvb_convention_and_visitors_bureau: 'CVB_CONVENTION_AND_VISITORS_BUREAU',
       dailydeals: 'DAILYDEALS',
       dating: 'DATING',
+      dealership: 'DEALERSHIP',
       department_store: 'DEPARTMENT_STORE',
       desktop_software: 'DESKTOP_SOFTWARE',
       digital_advertising_and_marketing_or_untagged_agencies: 'DIGITAL_ADVERTISING_AND_MARKETING_OR_UNTAGGED_AGENCIES',
@@ -103,11 +112,13 @@ export default class AdAccountCreationRequest extends AbstractCrudObject {
       home_service: 'HOME_SERVICE',
       hotel_and_accomodation: 'HOTEL_AND_ACCOMODATION',
       household_goods: 'HOUSEHOLD_GOODS',
+      industrial_and_farm_vehicle: 'INDUSTRIAL_AND_FARM_VEHICLE',
       insurance: 'INSURANCE',
       investment_bank_and_brokerage: 'INVESTMENT_BANK_AND_BROKERAGE',
       media: 'MEDIA',
       mobile_and_social: 'MOBILE_AND_SOCIAL',
       mobile_apps: 'MOBILE_APPS',
+      motorcycles: 'MOTORCYCLES',
       movies: 'MOVIES',
       museums_and_parks_and_libraries: 'MUSEUMS_AND_PARKS_AND_LIBRARIES',
       music_and_radio: 'MUSIC_AND_RADIO',
@@ -116,6 +127,7 @@ export default class AdAccountCreationRequest extends AbstractCrudObject {
       office: 'OFFICE',
       oil_and_gas_and_consumable_fuel: 'OIL_AND_GAS_AND_CONSUMABLE_FUEL',
       online_or_software: 'ONLINE_OR_SOFTWARE',
+      parts_and_service: 'PARTS_AND_SERVICE',
       pet: 'PET',
       pet_retail: 'PET_RETAIL',
       pharmaceutical_or_health: 'PHARMACEUTICAL_OR_HEALTH',
@@ -124,6 +136,7 @@ export default class AdAccountCreationRequest extends AbstractCrudObject {
       pr: 'PR',
       publishing_internet: 'PUBLISHING_INTERNET',
       railroads: 'RAILROADS',
+      recreational: 'RECREATIONAL',
       real_estate: 'REAL_ESTATE',
       real_money_or_skilled_gaming: 'REAL_MONEY_OR_SKILLED_GAMING',
       religious: 'RELIGIOUS',
@@ -148,7 +161,7 @@ export default class AdAccountCreationRequest extends AbstractCrudObject {
       smb_religious: 'SMB_RELIGIOUS',
       smb_rentals: 'SMB_RENTALS',
       smb_repair_and_maintenance: 'SMB_REPAIR_AND_MAINTENANCE',
-      smb_wireline_services: 'SMB_WIRELINE_SERVICES',
+      other_wireline_services: 'OTHER_WIRELINE_SERVICES',
       software: 'SOFTWARE',
       sporting: 'SPORTING',
       sports: 'SPORTS',
@@ -169,6 +182,7 @@ export default class AdAccountCreationRequest extends AbstractCrudObject {
     return Object.freeze({
       advertising_and_marketing: 'ADVERTISING_AND_MARKETING',
       auto_agency: 'AUTO_AGENCY',
+      automotive: 'AUTOMOTIVE',
       consumer_packaged_goods: 'CONSUMER_PACKAGED_GOODS',
       cpg_and_beverage: 'CPG_AND_BEVERAGE',
       ecommerce: 'ECOMMERCE',
@@ -203,6 +217,25 @@ export default class AdAccountCreationRequest extends AbstractCrudObject {
       appeal_approved: 'APPEAL_APPROVED',
       appeal_disapproved: 'APPEAL_DISAPPROVED'
     });
+  }
+
+  getAdAccounts (fields, params, fetchFirstPage = true): AdAccount {
+    return this.getEdge(
+      AdAccount,
+      fields,
+      params,
+      fetchFirstPage,
+      '/adaccounts'
+    );
+  }
+
+  createVietnam (fields, params): AdAccountCreationRequest {
+    return this.createEdge(
+      '/vietnam',
+      fields,
+      params,
+      AdAccountCreationRequest
+    );
   }
 
   delete (fields, params): AbstractObject {

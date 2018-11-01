@@ -19,13 +19,15 @@ export default class ProductCatalogPricingVariablesBatch extends AbstractCrudObj
       errors: 'errors',
       errors_total_count: 'errors_total_count',
       handle: 'handle',
-      status: 'status'
+      status: 'status',
+      id: 'id'
     });
   }
 
-  static get Standard (): Object {
-    return Object.freeze({
-      google: 'google'
-    });
+  get (fields, params): ProductCatalogPricingVariablesBatch {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

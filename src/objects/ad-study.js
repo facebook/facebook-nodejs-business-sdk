@@ -8,7 +8,11 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import AdStudyCell from './ad-study-cell';
+import AdsTALHealthCheckError from './ads-tal-health-check-error';
 import AdStudyObjective from './ad-study-objective';
+import AdStudyAdsAssetUserPermissions from './ad-study-ads-asset-user-permissions';
+import User from './user';
 
 /**
  * AdStudy
@@ -28,6 +32,7 @@ export default class AdStudy extends AbstractCrudObject {
       id: 'id',
       name: 'name',
       observation_end_time: 'observation_end_time',
+      results_first_available_date: 'results_first_available_date',
       start_time: 'start_time',
       type: 'type',
       updated_by: 'updated_by',
@@ -54,12 +59,42 @@ export default class AdStudy extends AbstractCrudObject {
     });
   }
 
+  getCells (fields, params, fetchFirstPage = true): AdStudyCell {
+    return this.getEdge(
+      AdStudyCell,
+      fields,
+      params,
+      fetchFirstPage,
+      '/cells'
+    );
+  }
+
   createCustomAudience (fields, params): AdStudy {
     return this.createEdge(
       '/customaudiences',
       fields,
       params,
       AdStudy
+    );
+  }
+
+  getHealthCheckErrors (fields, params, fetchFirstPage = true): AdsTALHealthCheckError {
+    return this.getEdge(
+      AdsTALHealthCheckError,
+      fields,
+      params,
+      fetchFirstPage,
+      '/health_check_errors'
+    );
+  }
+
+  getObjectives (fields, params, fetchFirstPage = true): AdStudyObjective {
+    return this.getEdge(
+      AdStudyObjective,
+      fields,
+      params,
+      fetchFirstPage,
+      '/objectives'
     );
   }
 
@@ -79,12 +114,32 @@ export default class AdStudy extends AbstractCrudObject {
     );
   }
 
+  getUserPermissions (fields, params, fetchFirstPage = true): AdStudyAdsAssetUserPermissions {
+    return this.getEdge(
+      AdStudyAdsAssetUserPermissions,
+      fields,
+      params,
+      fetchFirstPage,
+      '/userpermissions'
+    );
+  }
+
   createUserPermission (fields, params): AdStudy {
     return this.createEdge(
       '/userpermissions',
       fields,
       params,
       AdStudy
+    );
+  }
+
+  getViewers (fields, params, fetchFirstPage = true): User {
+    return this.getEdge(
+      User,
+      fields,
+      params,
+      fetchFirstPage,
+      '/viewers'
     );
   }
 

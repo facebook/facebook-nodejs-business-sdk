@@ -9,8 +9,6 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import AdCreative from './ad-creative';
-import AdLabel from './ad-label';
-import AdRule from './ad-rule';
 import AdsInsights from './ads-insights';
 import AdReportRun from './ad-report-run';
 import AdKeywordStats from './ad-keyword-stats';
@@ -40,14 +38,23 @@ export default class Ad extends AbstractCrudObject {
       conversion_specs: 'conversion_specs',
       created_time: 'created_time',
       creative: 'creative',
+      demolink_hash: 'demolink_hash',
+      display_sequence: 'display_sequence',
       effective_status: 'effective_status',
+      engagement_audience: 'engagement_audience',
+      failed_delivery_checks: 'failed_delivery_checks',
       id: 'id',
+      issues_info: 'issues_info',
       last_updated_by_app_id: 'last_updated_by_app_id',
       name: 'name',
+      objective_source: 'objective_source',
+      priority: 'priority',
       recommendations: 'recommendations',
       source_ad: 'source_ad',
       source_ad_id: 'source_ad_id',
       status: 'status',
+      targeting: 'targeting',
+      tracking_and_conversion_with_defaults: 'tracking_and_conversion_with_defaults',
       tracking_specs: 'tracking_specs',
       updated_time: 'updated_time'
     });
@@ -153,22 +160,22 @@ export default class Ad extends AbstractCrudObject {
     );
   }
 
-  createAdLabel (fields, params): AdLabel {
+  createAdLabel (fields, params): Ad {
     return this.createEdge(
       '/adlabels',
       fields,
       params,
-      AdLabel
+      Ad
     );
   }
 
-  getAdRulesGoverned (fields, params, fetchFirstPage = true): AdRule {
+  getCopies (fields, params, fetchFirstPage = true): Ad {
     return this.getEdge(
-      AdRule,
+      Ad,
       fields,
       params,
       fetchFirstPage,
-      '/adrules_governed'
+      '/copies'
     );
   }
 
@@ -220,12 +227,12 @@ export default class Ad extends AbstractCrudObject {
     );
   }
 
-  createLead (fields, params): AbstractObject {
+  createLead (fields, params): Lead {
     return this.createEdge(
       '/leads',
       fields,
-      params
-
+      params,
+      Lead
     );
   }
 
@@ -246,6 +253,22 @@ export default class Ad extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/targetingsentencelines'
+    );
+  }
+
+  deleteTrackingTag (params): AbstractObject {
+    return super.deleteEdge(
+      '/trackingtag',
+      params
+    );
+  }
+
+  createTrackingTag (fields, params): AbstractObject {
+    return this.createEdge(
+      '/trackingtag',
+      fields,
+      params
+
     );
   }
 

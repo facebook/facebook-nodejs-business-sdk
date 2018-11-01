@@ -18,7 +18,15 @@ export default class TargetingGeoLocationRegion extends AbstractCrudObject {
     return Object.freeze({
       country: 'country',
       key: 'key',
-      name: 'name'
+      name: 'name',
+      id: 'id'
     });
+  }
+
+  get (fields, params): TargetingGeoLocationRegion {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
 
 /**
  * PageSavedFilter
@@ -29,6 +30,7 @@ export default class PageSavedFilter extends AbstractCrudObject {
   static get Section (): Object {
     return Object.freeze({
       audience_alerts: 'AUDIENCE_ALERTS',
+      candidate_videos: 'CANDIDATE_VIDEOS',
       chex_pending_orders: 'CHEX_PENDING_ORDERS',
       chex_completed_orders: 'CHEX_COMPLETED_ORDERS',
       commerce_platform_settings: 'COMMERCE_PLATFORM_SETTINGS',
@@ -36,7 +38,6 @@ export default class PageSavedFilter extends AbstractCrudObject {
       commerce_collections: 'COMMERCE_COLLECTIONS',
       commerce_pending_orders: 'COMMERCE_PENDING_ORDERS',
       commerce_past_orders: 'COMMERCE_PAST_ORDERS',
-      commerce_discount_codes: 'COMMERCE_DISCOUNT_CODES',
       commerce_merchant_settings: 'COMMERCE_MERCHANT_SETTINGS',
       commerce_shop_link: 'COMMERCE_SHOP_LINK',
       donations_settings: 'DONATIONS_SETTINGS',
@@ -57,6 +58,8 @@ export default class PageSavedFilter extends AbstractCrudObject {
       lead_ads_draft_forms: 'LEAD_ADS_DRAFT_FORMS',
       lead_ads_forms: 'LEAD_ADS_FORMS',
       lead_ads_crm_setup: 'LEAD_ADS_CRM_SETUP',
+      lead_ads_custom_crm_setup: 'LEAD_ADS_CUSTOM_CRM_SETUP',
+      post_ideas: 'POST_IDEAS',
       published_posts: 'PUBLISHED_POSTS',
       scheduled_posts: 'SCHEDULED_POSTS',
       ads_posts: 'ADS_POSTS',
@@ -67,6 +70,9 @@ export default class PageSavedFilter extends AbstractCrudObject {
       reported: 'REPORTED',
       playlists: 'PLAYLISTS',
       playlist_details: 'PLAYLIST_DETAILS',
+      popular_videos: 'POPULAR_VIDEOS',
+      popular_facebook_videos: 'POPULAR_FACEBOOK_VIDEOS',
+      popular_instagram_videos: 'POPULAR_INSTAGRAM_VIDEOS',
       posts_config: 'POSTS_CONFIG',
       seasons: 'SEASONS',
       season_details: 'SEASON_DETAILS',
@@ -90,35 +96,47 @@ export default class PageSavedFilter extends AbstractCrudObject {
       reference_possible_conflicts: 'REFERENCE_POSSIBLE_CONFLICTS',
       reference_resolutions: 'REFERENCE_RESOLUTIONS',
       sound_recordings: 'SOUND_RECORDINGS',
+      premium_music_videos: 'PREMIUM_MUSIC_VIDEOS',
       live_broadcasts: 'LIVE_BROADCASTS',
       crossposted_videos: 'CROSSPOSTED_VIDEOS',
       published_profile_picture_frames: 'PUBLISHED_PROFILE_PICTURE_FRAMES',
       pending_profile_picture_frames: 'PENDING_PROFILE_PICTURE_FRAMES',
-      tarot_composer: 'TAROT_COMPOSER',
-      draft_editions: 'DRAFT_EDITIONS',
-      published_editions: 'PUBLISHED_EDITIONS',
       published_events: 'PUBLISHED_EVENTS',
       draft_events: 'DRAFT_EVENTS',
       scheduled_events: 'SCHEDULED_EVENTS',
       archived_events: 'ARCHIVED_EVENTS',
       tours: 'TOURS',
       polls_composer: 'POLLS_COMPOSER',
-      brand_asset_library: 'BRAND_ASSET_LIBRARY',
       job_applications: 'JOB_APPLICATIONS',
       subscriptions: 'SUBSCRIPTIONS',
       news_subscriptions_publisher_tools: 'NEWS_SUBSCRIPTIONS_PUBLISHER_TOOLS',
       news_subscriptions_publisher_asset_management: 'NEWS_SUBSCRIPTIONS_PUBLISHER_ASSET_MANAGEMENT',
+      news_subscriptions_publisher_offer_management: 'NEWS_SUBSCRIPTIONS_PUBLISHER_OFFER_MANAGEMENT',
+      news_subscriptions_publisher_config: 'NEWS_SUBSCRIPTIONS_PUBLISHER_CONFIG',
+      news_subscriptions_publisher_insights: 'NEWS_SUBSCRIPTIONS_PUBLISHER_INSIGHTS',
+      news_subscriptions_publisher_test_users: 'NEWS_SUBSCRIPTIONS_PUBLISHER_TEST_USERS',
       qr_code: 'QR_CODE',
-      credibility_indicators: 'CREDIBILITY_INDICATORS',
+      organic_pixel: 'ORGANIC_PIXEL',
       attributions: 'ATTRIBUTIONS',
       broadcasted_messages: 'BROADCASTED_MESSAGES',
       branded_content: 'BRANDED_CONTENT',
       branded_content_creator: 'BRANDED_CONTENT_CREATOR',
       sounds_collection: 'SOUNDS_COLLECTION',
+      creator_studio: 'CREATOR_STUDIO',
       content_tests: 'CONTENT_TESTS',
       gem_producer_dashboard: 'GEM_PRODUCER_DASHBOARD',
-      monetized_videos: 'MONETIZED_VIDEOS'
+      monetized_videos: 'MONETIZED_VIDEOS',
+      audio_releases: 'AUDIO_RELEASES',
+      news_storylines: 'NEWS_STORYLINES',
+      registrations: 'REGISTRATIONS',
+      ia_regiwall_settings: 'IA_REGIWALL_SETTINGS'
     });
+  }
+
+  delete (fields, params): AbstractObject {
+    return super.delete(
+      params
+    );
   }
 
   get (fields, params): PageSavedFilter {

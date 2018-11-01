@@ -33,12 +33,22 @@ export default class PageLabel extends AbstractCrudObject {
     );
   }
 
-  createUser (fields, params): User {
+  getUsers (fields, params, fetchFirstPage = true): User {
+    return this.getEdge(
+      User,
+      fields,
+      params,
+      fetchFirstPage,
+      '/users'
+    );
+  }
+
+  createUser (fields, params): PageLabel {
     return this.createEdge(
       '/users',
       fields,
       params,
-      User
+      PageLabel
     );
   }
 

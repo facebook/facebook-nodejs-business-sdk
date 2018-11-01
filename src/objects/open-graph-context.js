@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import User from './user';
 
 /**
  * OpenGraphContext
@@ -18,6 +19,46 @@ export default class OpenGraphContext extends AbstractCrudObject {
     return Object.freeze({
       id: 'id'
     });
+  }
+
+  getFriendsTaggedAt (fields, params, fetchFirstPage = true): User {
+    return this.getEdge(
+      User,
+      fields,
+      params,
+      fetchFirstPage,
+      '/friends_tagged_at'
+    );
+  }
+
+  getFriendsWhoLike (fields, params, fetchFirstPage = true): User {
+    return this.getEdge(
+      User,
+      fields,
+      params,
+      fetchFirstPage,
+      '/friends_who_like'
+    );
+  }
+
+  getMusicListenFriends (fields, params, fetchFirstPage = true): User {
+    return this.getEdge(
+      User,
+      fields,
+      params,
+      fetchFirstPage,
+      '/music_listen_friends'
+    );
+  }
+
+  getVideoWatchFriends (fields, params, fetchFirstPage = true): User {
+    return this.getEdge(
+      User,
+      fields,
+      params,
+      fetchFirstPage,
+      '/video_watch_friends'
+    );
   }
 
   get (fields, params): OpenGraphContext {

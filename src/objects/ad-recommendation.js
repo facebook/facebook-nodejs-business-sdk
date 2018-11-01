@@ -22,7 +22,8 @@ export default class AdRecommendation extends AbstractCrudObject {
       importance: 'importance',
       message: 'message',
       recommendation_data: 'recommendation_data',
-      title: 'title'
+      title: 'title',
+      id: 'id'
     });
   }
 
@@ -39,5 +40,12 @@ export default class AdRecommendation extends AbstractCrudObject {
       medium: 'MEDIUM',
       low: 'LOW'
     });
+  }
+
+  get (fields, params): AdRecommendation {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

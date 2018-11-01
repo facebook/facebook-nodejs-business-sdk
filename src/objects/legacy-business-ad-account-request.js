@@ -21,4 +21,11 @@ export default class LegacyBusinessAdAccountRequest extends AbstractCrudObject {
       permitted_roles: 'permitted_roles'
     });
   }
+
+  get (fields, params): LegacyBusinessAdAccountRequest {
+    return this.read(
+      fields,
+      params
+    );
+  }
 }

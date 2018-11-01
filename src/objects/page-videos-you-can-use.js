@@ -21,4 +21,11 @@ export default class PageVideosYouCanUse extends AbstractCrudObject {
       title: 'title'
     });
   }
+
+  get (fields, params): PageVideosYouCanUse {
+    return this.read(
+      fields,
+      params
+    );
+  }
 }

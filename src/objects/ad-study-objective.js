@@ -27,14 +27,6 @@ export default class AdStudyObjective extends AbstractCrudObject {
     });
   }
 
-  static get Breakdowns (): Object {
-    return Object.freeze({
-      age: 'age',
-      cell_id: 'cell_id',
-      gender: 'gender',
-      country: 'country'
-    });
-  }
   static get Type (): Object {
     return Object.freeze({
       sales: 'SALES',

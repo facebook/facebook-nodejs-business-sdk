@@ -27,15 +27,6 @@ export default class PlaceTopic extends AbstractCrudObject {
     });
   }
 
-  static get IconSize (): Object {
-    return Object.freeze({
-      value_24: '24',
-      value_36: '36',
-      value_48: '48',
-      value_72: '72'
-    });
-  }
-
   get (fields, params): PlaceTopic {
     return this.read(
       fields,

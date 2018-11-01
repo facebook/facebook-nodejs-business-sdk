@@ -22,4 +22,11 @@ export default class FundingSourceDetails extends AbstractCrudObject {
       type: 'type'
     });
   }
+
+  get (fields, params): FundingSourceDetails {
+    return this.read(
+      fields,
+      params
+    );
+  }
 }

@@ -26,7 +26,8 @@ export default class ProductEventStat extends AbstractCrudObject {
       total_unmatched_content_ids: 'total_unmatched_content_ids',
       unique_content_ids_matched_other_catalogs: 'unique_content_ids_matched_other_catalogs',
       unique_matched_content_ids: 'unique_matched_content_ids',
-      unique_unmatched_content_ids: 'unique_unmatched_content_ids'
+      unique_unmatched_content_ids: 'unique_unmatched_content_ids',
+      id: 'id'
     });
   }
 
@@ -59,5 +60,12 @@ export default class ProductEventStat extends AbstractCrudObject {
     return Object.freeze({
       device_type: 'DEVICE_TYPE'
     });
+  }
+
+  get (fields, params): ProductEventStat {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

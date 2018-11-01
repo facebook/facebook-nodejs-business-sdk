@@ -34,6 +34,7 @@ export default class AdCreativeLinkData extends AbstractCrudObject {
       format_option: 'format_option',
       image_crops: 'image_crops',
       image_hash: 'image_hash',
+      image_layer_specs: 'image_layer_specs',
       image_overlay_spec: 'image_overlay_spec',
       link: 'link',
       message: 'message',
@@ -46,7 +47,10 @@ export default class AdCreativeLinkData extends AbstractCrudObject {
       post_click_configuration: 'post_click_configuration',
       preferred_image_tags: 'preferred_image_tags',
       retailer_item_ids: 'retailer_item_ids',
-      show_multiple_images: 'show_multiple_images'
+      show_multiple_images: 'show_multiple_images',
+      sponsorship_info: 'sponsorship_info',
+      static_fallback_spec: 'static_fallback_spec',
+      id: 'id'
     });
   }
 
@@ -63,5 +67,12 @@ export default class AdCreativeLinkData extends AbstractCrudObject {
       carousel_slideshows: 'carousel_slideshows',
       single_image: 'single_image'
     });
+  }
+
+  get (fields, params): AdCreativeLinkData {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

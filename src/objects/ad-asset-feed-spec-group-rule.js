@@ -22,7 +22,15 @@ export default class AdAssetFeedSpecGroupRule extends AbstractCrudObject {
       image_label: 'image_label',
       link_url_label: 'link_url_label',
       title_label: 'title_label',
-      video_label: 'video_label'
+      video_label: 'video_label',
+      id: 'id'
     });
+  }
+
+  get (fields, params): AdAssetFeedSpecGroupRule {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

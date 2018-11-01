@@ -20,7 +20,15 @@ export default class AdAssetFeedSpecImage extends AbstractCrudObject {
       hash: 'hash',
       image_crops: 'image_crops',
       url: 'url',
-      url_tags: 'url_tags'
+      url_tags: 'url_tags',
+      id: 'id'
     });
+  }
+
+  get (fields, params): AdAssetFeedSpecImage {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

@@ -19,7 +19,15 @@ export default class AdCreativeLinkDataAppLinkSpec extends AbstractCrudObject {
       android: 'android',
       ios: 'ios',
       ipad: 'ipad',
-      iphone: 'iphone'
+      iphone: 'iphone',
+      id: 'id'
     });
+  }
+
+  get (fields, params): AdCreativeLinkDataAppLinkSpec {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

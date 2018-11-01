@@ -28,6 +28,7 @@ export default class VideoCopyright extends AbstractCrudObject {
       reference_file: 'reference_file',
       reference_file_disabled: 'reference_file_disabled',
       reference_file_disabled_by_ops: 'reference_file_disabled_by_ops',
+      reference_file_expired: 'reference_file_expired',
       reference_owner_id: 'reference_owner_id',
       rule_ids: 'rule_ids',
       whitelisted_ids: 'whitelisted_ids'

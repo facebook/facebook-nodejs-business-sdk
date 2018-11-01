@@ -49,8 +49,14 @@ export default class InstagramInsightsResult extends AbstractCrudObject {
       week: 'week',
       days_28: 'days_28',
       month: 'month',
-      lifetime: 'lifetime',
-      total_over_range: 'total_over_range'
+      lifetime: 'lifetime'
     });
+  }
+
+  get (fields, params): InstagramInsightsResult {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

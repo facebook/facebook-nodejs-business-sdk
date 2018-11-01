@@ -25,7 +25,15 @@ export default class AdStudyAdsAssetUserPermissions extends AbstractCrudObject {
       status: 'status',
       updated_by: 'updated_by',
       updated_time: 'updated_time',
-      user: 'user'
+      user: 'user',
+      id: 'id'
     });
+  }
+
+  get (fields, params): AdStudyAdsAssetUserPermissions {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

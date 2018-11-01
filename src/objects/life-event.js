@@ -8,6 +8,10 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Comment from './comment';
+import Profile from './profile';
+import Photo from './photo';
+import Post from './post';
 
 /**
  * LifeEvent
@@ -29,18 +33,70 @@ export default class LifeEvent extends AbstractCrudObject {
     });
   }
 
-  createComment (fields, params): AbstractObject {
+  getComments (fields, params, fetchFirstPage = true): Comment {
+    return this.getEdge(
+      Comment,
+      fields,
+      params,
+      fetchFirstPage,
+      '/comments'
+    );
+  }
+
+  createComment (fields, params): Comment {
     return this.createEdge(
       '/comments',
       fields,
-      params
+      params,
+      Comment
+    );
+  }
 
+  getLikes (fields, params, fetchFirstPage = true): Profile {
+    return this.getEdge(
+      Profile,
+      fields,
+      params,
+      fetchFirstPage,
+      '/likes'
+    );
+  }
+
+  getPhotos (fields, params, fetchFirstPage = true): Photo {
+    return this.getEdge(
+      Photo,
+      fields,
+      params,
+      fetchFirstPage,
+      '/photos'
+    );
+  }
+
+  getShareDPosts (fields, params, fetchFirstPage = true): Post {
+    return this.getEdge(
+      Post,
+      fields,
+      params,
+      fetchFirstPage,
+      '/sharedposts'
+    );
+  }
+
+  delete (fields, params): AbstractObject {
+    return super.delete(
+      params
     );
   }
 
   get (fields, params): LifeEvent {
     return this.read(
       fields,
+      params
+    );
+  }
+
+  update (fields, params): LifeEvent {
+    return super.update(
       params
     );
   }

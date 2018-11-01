@@ -8,8 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
-import AdLabel from './ad-label';
-import AdRule from './ad-rule';
+import AdStudy from './ad-study';
 import Ad from './ad';
 import AdSet from './ad-set';
 import AdsInsights from './ads-insights';
@@ -25,18 +24,29 @@ export default class Campaign extends AbstractCrudObject {
     return Object.freeze({
       account_id: 'account_id',
       adlabels: 'adlabels',
+      bid_strategy: 'bid_strategy',
       boosted_object_id: 'boosted_object_id',
       brand_lift_studies: 'brand_lift_studies',
       budget_rebalance_flag: 'budget_rebalance_flag',
+      budget_remaining: 'budget_remaining',
       buying_type: 'buying_type',
       can_create_brand_lift_study: 'can_create_brand_lift_study',
       can_use_spend_cap: 'can_use_spend_cap',
       configured_status: 'configured_status',
       created_time: 'created_time',
+      daily_budget: 'daily_budget',
       effective_status: 'effective_status',
       id: 'id',
+      is_autobid: 'is_autobid',
+      is_average_price_pacing: 'is_average_price_pacing',
+      kpi_custom_conversion_id: 'kpi_custom_conversion_id',
+      kpi_type: 'kpi_type',
+      last_budget_toggling_time: 'last_budget_toggling_time',
+      lifetime_budget: 'lifetime_budget',
       name: 'name',
       objective: 'objective',
+      pacing_type: 'pacing_type',
+      promoted_object: 'promoted_object',
       recommendations: 'recommendations',
       source_campaign: 'source_campaign',
       source_campaign_id: 'source_campaign_id',
@@ -44,10 +54,18 @@ export default class Campaign extends AbstractCrudObject {
       start_time: 'start_time',
       status: 'status',
       stop_time: 'stop_time',
+      topline_id: 'topline_id',
       updated_time: 'updated_time'
     });
   }
 
+  static get BidStrategy (): Object {
+    return Object.freeze({
+      lowest_cost_without_cap: 'LOWEST_COST_WITHOUT_CAP',
+      lowest_cost_with_bid_cap: 'LOWEST_COST_WITH_BID_CAP',
+      target_cost: 'TARGET_COST'
+    });
+  }
   static get ConfiguredStatus (): Object {
     return Object.freeze({
       active: 'ACTIVE',
@@ -101,13 +119,6 @@ export default class Campaign extends AbstractCrudObject {
       this_year: 'this_year'
     });
   }
-  static get DeleteStrategy (): Object {
-    return Object.freeze({
-      delete_any: 'DELETE_ANY',
-      delete_oldest: 'DELETE_OLDEST',
-      delete_archived_before: 'DELETE_ARCHIVED_BEFORE'
-    });
-  }
   static get ExecutionOptions (): Object {
     return Object.freeze({
       validate_only: 'validate_only',
@@ -138,6 +149,23 @@ export default class Campaign extends AbstractCrudObject {
       any: 'ANY'
     });
   }
+  static get StatusOption (): Object {
+    return Object.freeze({
+      active: 'ACTIVE',
+      paused: 'PAUSED',
+      inherited_from_source: 'INHERITED_FROM_SOURCE'
+    });
+  }
+
+  getAdStudies (fields, params, fetchFirstPage = true): AdStudy {
+    return this.getEdge(
+      AdStudy,
+      fields,
+      params,
+      fetchFirstPage,
+      '/ad_studies'
+    );
+  }
 
   deleteAdLabels (params): AbstractObject {
     return super.deleteEdge(
@@ -146,22 +174,12 @@ export default class Campaign extends AbstractCrudObject {
     );
   }
 
-  createAdLabel (fields, params): AdLabel {
+  createAdLabel (fields, params): Campaign {
     return this.createEdge(
       '/adlabels',
       fields,
       params,
-      AdLabel
-    );
-  }
-
-  getAdRulesGoverned (fields, params, fetchFirstPage = true): AdRule {
-    return this.getEdge(
-      AdRule,
-      fields,
-      params,
-      fetchFirstPage,
-      '/adrules_governed'
+      Campaign
     );
   }
 
@@ -192,6 +210,15 @@ export default class Campaign extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/copies'
+    );
+  }
+
+  createCopy (fields, params): Campaign {
+    return this.createEdge(
+      '/copies',
+      fields,
+      params,
+      Campaign
     );
   }
 

@@ -37,10 +37,4 @@ export default class LeadGenLegalContent extends AbstractCrudObject {
       params
     );
   }
-
-  update (fields, params): LeadGenLegalContent {
-    return super.update(
-      params
-    );
-  }
 }

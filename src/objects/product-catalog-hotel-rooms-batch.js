@@ -19,13 +19,15 @@ export default class ProductCatalogHotelRoomsBatch extends AbstractCrudObject {
       errors: 'errors',
       errors_total_count: 'errors_total_count',
       handle: 'handle',
-      status: 'status'
+      status: 'status',
+      id: 'id'
     });
   }
 
-  static get Standard (): Object {
-    return Object.freeze({
-      google: 'google'
-    });
+  get (fields, params): ProductCatalogHotelRoomsBatch {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

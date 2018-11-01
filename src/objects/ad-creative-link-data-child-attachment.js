@@ -25,8 +25,17 @@ export default class AdCreativeLinkDataChildAttachment extends AbstractCrudObjec
       name: 'name',
       picture: 'picture',
       place_data: 'place_data',
+      referral_id: 'referral_id',
       static_card: 'static_card',
-      video_id: 'video_id'
+      video_id: 'video_id',
+      id: 'id'
     });
+  }
+
+  get (fields, params): AdCreativeLinkDataChildAttachment {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

@@ -18,7 +18,8 @@ export default class AdRuleExecutionOptions extends AbstractCrudObject {
     return Object.freeze({
       field: 'field',
       operator: 'operator',
-      value: 'value'
+      value: 'value',
+      id: 'id'
     });
   }
 
@@ -27,5 +28,12 @@ export default class AdRuleExecutionOptions extends AbstractCrudObject {
       equal: 'EQUAL',
       in: 'IN'
     });
+  }
+
+  get (fields, params): AdRuleExecutionOptions {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

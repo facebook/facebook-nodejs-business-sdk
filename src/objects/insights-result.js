@@ -26,6 +26,11 @@ export default class InsightsResult extends AbstractCrudObject {
     });
   }
 
+  static get Metric (): Object {
+    return Object.freeze({
+      messages_sent: 'messages_sent'
+    });
+  }
   static get DatePreset (): Object {
     return Object.freeze({
       today: 'today',
@@ -55,8 +60,14 @@ export default class InsightsResult extends AbstractCrudObject {
       week: 'week',
       days_28: 'days_28',
       month: 'month',
-      lifetime: 'lifetime',
-      total_over_range: 'total_over_range'
+      lifetime: 'lifetime'
     });
+  }
+
+  get (fields, params): InsightsResult {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

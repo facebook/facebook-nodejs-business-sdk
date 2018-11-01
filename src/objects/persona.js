@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
 
 /**
  * Persona
@@ -20,6 +21,12 @@ export default class Persona extends AbstractCrudObject {
       name: 'name',
       profile_picture_url: 'profile_picture_url'
     });
+  }
+
+  delete (fields, params): AbstractObject {
+    return super.delete(
+      params
+    );
   }
 
   get (fields, params): Persona {

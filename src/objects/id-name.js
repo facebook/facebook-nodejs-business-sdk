@@ -20,4 +20,11 @@ export default class IDName extends AbstractCrudObject {
       name: 'name'
     });
   }
+
+  get (fields, params): IDName {
+    return this.read(
+      fields,
+      params
+    );
+  }
 }

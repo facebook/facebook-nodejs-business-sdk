@@ -18,7 +18,15 @@ export default class ScreenName extends AbstractCrudObject {
     return Object.freeze({
       service_name: 'service_name',
       service_type: 'service_type',
-      value: 'value'
+      value: 'value',
+      id: 'id'
     });
+  }
+
+  get (fields, params): ScreenName {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

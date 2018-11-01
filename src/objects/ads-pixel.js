@@ -8,9 +8,12 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import AssignedUser from './assigned-user';
 import CustomAudience from './custom-audience';
-import AdAccount from './ad-account';
+import DACheck from './da-check';
+import SignalsIWLExtractor from './signals-iwl-extractor';
 import Business from './business';
+import AdAccount from './ad-account';
 import AdsPixelStatsResult from './ads-pixel-stats-result';
 
 /**
@@ -25,6 +28,8 @@ export default class AdsPixel extends AbstractCrudObject {
       code: 'code',
       creation_time: 'creation_time',
       creator: 'creator',
+      data_use_setting: 'data_use_setting',
+      first_party_cookie_status: 'first_party_cookie_status',
       id: 'id',
       is_created_by_business: 'is_created_by_business',
       last_fired_time: 'last_fired_time',
@@ -32,6 +37,73 @@ export default class AdsPixel extends AbstractCrudObject {
       owner_ad_account: 'owner_ad_account',
       owner_business: 'owner_business'
     });
+  }
+
+  static get SortBy (): Object {
+    return Object.freeze({
+      last_fired_time: 'LAST_FIRED_TIME',
+      name: 'NAME'
+    });
+  }
+  static get DataUseSetting (): Object {
+    return Object.freeze({
+      empty: 'EMPTY',
+      advertising_and_analytics: 'ADVERTISING_AND_ANALYTICS',
+      analytics_only: 'ANALYTICS_ONLY'
+    });
+  }
+  static get FirstPartyCookieStatus (): Object {
+    return Object.freeze({
+      empty: 'EMPTY',
+      first_party_cookie_enabled: 'FIRST_PARTY_COOKIE_ENABLED',
+      first_party_cookie_disabled: 'FIRST_PARTY_COOKIE_DISABLED'
+    });
+  }
+  static get Tasks (): Object {
+    return Object.freeze({
+      edit: 'EDIT',
+      analyze: 'ANALYZE'
+    });
+  }
+  static get Type (): Object {
+    return Object.freeze({
+      primary: 'PRIMARY',
+      secondary: 'SECONDARY'
+    });
+  }
+  static get RelationshipType (): Object {
+    return Object.freeze({
+      ad_manager: 'AD_MANAGER',
+      audience_manager: 'AUDIENCE_MANAGER',
+      agency: 'AGENCY',
+      other: 'OTHER'
+    });
+  }
+
+  deleteAssignedUsers (params): AbstractObject {
+    return super.deleteEdge(
+      '/assigned_users',
+      params
+    );
+  }
+
+  getAssignedUsers (fields, params, fetchFirstPage = true): AssignedUser {
+    return this.getEdge(
+      AssignedUser,
+      fields,
+      params,
+      fetchFirstPage,
+      '/assigned_users'
+    );
+  }
+
+  createAssignedUser (fields, params): AdsPixel {
+    return this.createEdge(
+      '/assigned_users',
+      fields,
+      params,
+      AdsPixel
+    );
   }
 
   getAudiences (fields, params, fetchFirstPage = true): CustomAudience {
@@ -44,14 +116,71 @@ export default class AdsPixel extends AbstractCrudObject {
     );
   }
 
-  deleteSharedAccounts (params): AbstractObject {
+  createCreateServerToServerKey (fields, params): AdsPixel {
+    return this.createEdge(
+      '/create_server_to_server_keys',
+      fields,
+      params,
+      AdsPixel
+    );
+  }
+
+  getDaChecks (fields, params, fetchFirstPage = true): DACheck {
+    return this.getEdge(
+      DACheck,
+      fields,
+      params,
+      fetchFirstPage,
+      '/da_checks'
+    );
+  }
+
+  getExtractors (fields, params, fetchFirstPage = true): SignalsIWLExtractor {
+    return this.getEdge(
+      SignalsIWLExtractor,
+      fields,
+      params,
+      fetchFirstPage,
+      '/extractors'
+    );
+  }
+
+  createExtractor (fields, params): SignalsIWLExtractor {
+    return this.createEdge(
+      '/extractors',
+      fields,
+      params,
+      SignalsIWLExtractor
+    );
+  }
+
+  getPendingShareDAgencies (fields, params, fetchFirstPage = true): Business {
+    return this.getEdge(
+      Business,
+      fields,
+      params,
+      fetchFirstPage,
+      '/pending_shared_agencies'
+    );
+  }
+
+  createResetServerToServerKey (fields, params): AdsPixel {
+    return this.createEdge(
+      '/reset_server_to_server_key',
+      fields,
+      params,
+      AdsPixel
+    );
+  }
+
+  deleteShareDAccounts (params): AbstractObject {
     return super.deleteEdge(
       '/shared_accounts',
       params
     );
   }
 
-  getSharedAccounts (fields, params, fetchFirstPage = true): AdAccount {
+  getShareDAccounts (fields, params, fetchFirstPage = true): AdAccount {
     return this.getEdge(
       AdAccount,
       fields,
@@ -61,22 +190,38 @@ export default class AdsPixel extends AbstractCrudObject {
     );
   }
 
-  createSharedAccount (fields, params): AbstractObject {
+  createShareDAccount (fields, params): AdsPixel {
     return this.createEdge(
       '/shared_accounts',
       fields,
-      params
-
+      params,
+      AdsPixel
     );
   }
 
-  getSharedAgencies (fields, params, fetchFirstPage = true): Business {
+  deleteShareDAgencies (params): AbstractObject {
+    return super.deleteEdge(
+      '/shared_agencies',
+      params
+    );
+  }
+
+  getShareDAgencies (fields, params, fetchFirstPage = true): Business {
     return this.getEdge(
       Business,
       fields,
       params,
       fetchFirstPage,
       '/shared_agencies'
+    );
+  }
+
+  createShareDAgency (fields, params): AdsPixel {
+    return this.createEdge(
+      '/shared_agencies',
+      fields,
+      params,
+      AdsPixel
     );
   }
 

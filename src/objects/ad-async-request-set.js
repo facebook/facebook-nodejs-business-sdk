@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
 import AdAsyncRequest from './ad-async-request';
 
 /**
@@ -60,9 +61,21 @@ export default class AdAsyncRequestSet extends AbstractCrudObject {
     );
   }
 
+  delete (fields, params): AbstractObject {
+    return super.delete(
+      params
+    );
+  }
+
   get (fields, params): AdAsyncRequestSet {
     return this.read(
       fields,
+      params
+    );
+  }
+
+  update (fields, params): AdAsyncRequestSet {
+    return super.update(
       params
     );
   }

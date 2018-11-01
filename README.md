@@ -61,11 +61,11 @@ to get an access token.
 
 NPM
 
-npm install --save facebook-nodejs-business-sdk
+`npm install --save facebook-nodejs-business-sdk`
 
 Bower
 
-bower install --save facebook-nodejs-business-sdk
+`bower install --save facebook-nodejs-business-sdk`
 
 ## Usage
 
@@ -182,7 +182,7 @@ account
 const adsSdk = require('facebook-nodejs-business-sdk');
 const accessToken = '<VALID_ACCESS_TOKEN>';
 const api = adsSdk.FacebookAdsApi.init(accessToken);
-const Campaign = adsSdk).Campaign;
+const Campaign = adsSdk.Campaign;
 const campaignId = <CAMPAIGN_ID>;
 new Campaign(campaignId, {
   [Campaign.Fields.id]: campaign.id,
@@ -203,7 +203,11 @@ new Campaign(campaignId).delete();
 
 ### Pagination
 
+<<<<<<< HEAD
 Since the release of the Facebook Graph API 2.0, pagination is handled through <a href="https://developers.facebook.com/docs/graph-api/using-graph-api/v2.2#paging" target="_blank">cursors</>.
+=======
+Since the release of the Facebook Graph API 2.0, pagination is handled through <a href="https://developers.facebook.com/docs/graph-api/using-graph-api/v2.2#paging" target="_blank">cursors</a>.
+>>>>>>> 94ab38c6fe6b00aa4b45142af80bd25e151f83d7
 
 Here cursors are defined as in `src\cursor.js`. When fetching nodes related to another (Edges) or a collection in the graph, the results are paginated in a `Cursor` class.
 Here the `Cursor` is a superpowered `Array` (with all it's native helpful operations) with `next` and `previous` methods that when resolved fills itself with the new set of objects.
@@ -239,6 +243,26 @@ account.getCampaigns([Campaign.Fields.name], { limit: 2 })
 });
 ```
 
+If you are using cursor to iterate all of your object under your Ad Account, this practice is recommended.
+
+```javascript
+const adsSdk = require('facebook-nodejs-ads-sdk');
+const accessToken = '<VALID_ACCESS_TOKEN>';
+const api = adsSdk.FacebookAdsApi.init(accessToken);
+const AdAccount = adsSdk.AdAccount;
+const account = new AdAccount('act_<AD_ACCOUNT_ID>');
+
+void async function () {
+    let campaigns = await account.getCampaigns([Campaign.Fields.name], {limit: 20});
+    campaigns.forEach(c => console.log(c.name));
+    while (campaigns.hasNext()) {
+        campaigns = await campaigns.next();
+        campaigns.forEach(c => console.log(c.name));
+    }
+}();
+```
+
+
 #### Debugging
 
 A `FacebookAdsApi` object offers a debugging mode that will log all requests. To enable it just call `api.setDebug(true)` on an API instance.
@@ -261,4 +285,3 @@ See the CONTRIBUTING file for how to help out.
 
 ## License
 Facebook Business SDK for NodeJS is licensed under the LICENSE file in the root directory of this source tree.
-```
