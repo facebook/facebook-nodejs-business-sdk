@@ -20,11 +20,4 @@ export default class ANBlockedBICategory extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): ANBlockedBICategory {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

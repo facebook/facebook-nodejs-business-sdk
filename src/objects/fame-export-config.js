@@ -23,11 +23,4 @@ export default class FAMEExportConfig extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): FAMEExportConfig {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

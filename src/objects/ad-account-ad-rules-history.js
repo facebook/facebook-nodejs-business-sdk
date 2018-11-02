@@ -44,11 +44,4 @@ export default class AdAccountAdRulesHistory extends AbstractCrudObject {
       unpaused: 'UNPAUSED'
     });
   }
-
-  get (fields, params): AdAccountAdRulesHistory {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

@@ -25,11 +25,4 @@ export default class ExternalEventSourceDAStatsResult extends AbstractCrudObject
       id: 'id'
     });
   }
-
-  get (fields, params): ExternalEventSourceDAStatsResult {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

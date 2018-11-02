@@ -24,11 +24,4 @@ export default class CopyrightAttributionInsights extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): CopyrightAttributionInsights {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

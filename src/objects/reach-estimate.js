@@ -50,11 +50,4 @@ export default class ReachEstimate extends AbstractCrudObject {
       derived_events: 'DERIVED_EVENTS'
     });
   }
-
-  get (fields, params): ReachEstimate {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

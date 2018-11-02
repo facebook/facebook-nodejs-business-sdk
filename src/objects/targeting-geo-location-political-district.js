@@ -23,11 +23,4 @@ export default class TargetingGeoLocationPoliticalDistrict extends AbstractCrudO
       id: 'id'
     });
   }
-
-  get (fields, params): TargetingGeoLocationPoliticalDistrict {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

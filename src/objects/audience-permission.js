@@ -22,11 +22,4 @@ export default class AudiencePermission extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AudiencePermission {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

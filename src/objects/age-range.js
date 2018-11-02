@@ -21,11 +21,4 @@ export default class AgeRange extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AgeRange {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

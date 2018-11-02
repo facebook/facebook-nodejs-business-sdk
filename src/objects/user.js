@@ -32,6 +32,7 @@ import UserIDForApp from './user-id-for-app';
 import UserIDForPage from './user-id-for-page';
 import UserInvitableFriend from './user-invitable-friend';
 import Link from './link';
+import LiveEncoder from './live-encoder';
 import LiveVideo from './live-video';
 import OpenGraphObject from './open-graph-object';
 import Permission from './permission';
@@ -78,10 +79,12 @@ export default class User extends AbstractCrudObject {
       installed: 'installed',
       interested_in: 'interested_in',
       is_famedeeplinkinguser: 'is_famedeeplinkinguser',
+      is_payment_enabled: 'is_payment_enabled',
       is_shared_login: 'is_shared_login',
       is_verified: 'is_verified',
       labels: 'labels',
       languages: 'languages',
+      last_ad_referral: 'last_ad_referral',
       last_name: 'last_name',
       link: 'link',
       local_news_megaphone_dismiss_status: 'local_news_megaphone_dismiss_status',
@@ -284,6 +287,15 @@ export default class User extends AbstractCrudObject {
     );
   }
 
+  createAdStudy (fields, params): AdStudy {
+    return this.createEdge(
+      '/ad_studies',
+      fields,
+      params,
+      AdStudy
+    );
+  }
+
   getAdAccounts (fields, params, fetchFirstPage = true): AdAccount {
     return this.getEdge(
       AdAccount,
@@ -359,6 +371,15 @@ export default class User extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/asset3ds'
+    );
+  }
+
+  createAsset3D (fields, params): WithAsset3D {
+    return this.createEdge(
+      '/asset3ds',
+      fields,
+      params,
+      WithAsset3D
     );
   }
 
@@ -721,12 +742,22 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  createLiveEncoder (fields, params): AbstractObject {
+  getLiveEncoders (fields, params, fetchFirstPage = true): LiveEncoder {
+    return this.getEdge(
+      LiveEncoder,
+      fields,
+      params,
+      fetchFirstPage,
+      '/live_encoders'
+    );
+  }
+
+  createLiveEncoder (fields, params): LiveEncoder {
     return this.createEdge(
       '/live_encoders',
       fields,
-      params
-
+      params,
+      LiveEncoder
     );
   }
 
@@ -746,15 +777,6 @@ export default class User extends AbstractCrudObject {
       fields,
       params,
       LiveVideo
-    );
-  }
-
-  createLocationupdate (fields, params): User {
-    return this.createEdge(
-      '/locationupdates',
-      fields,
-      params,
-      User
     );
   }
 

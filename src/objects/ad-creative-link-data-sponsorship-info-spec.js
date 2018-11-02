@@ -21,11 +21,4 @@ export default class AdCreativeLinkDataSponsorshipInfoSpec extends AbstractCrudO
       id: 'id'
     });
   }
-
-  get (fields, params): AdCreativeLinkDataSponsorshipInfoSpec {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

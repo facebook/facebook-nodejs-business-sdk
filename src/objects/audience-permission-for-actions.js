@@ -24,11 +24,4 @@ export default class AudiencePermissionForActions extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AudiencePermissionForActions {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

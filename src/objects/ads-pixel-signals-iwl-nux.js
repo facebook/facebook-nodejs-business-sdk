@@ -24,11 +24,4 @@ export default class AdsPixelSignalsIWLNux extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AdsPixelSignalsIWLNux {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

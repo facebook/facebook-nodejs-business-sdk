@@ -115,11 +115,4 @@ export default class AdActivity extends AbstractCrudObject {
       targeting: 'TARGETING'
     });
   }
-
-  get (fields, params): AdActivity {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

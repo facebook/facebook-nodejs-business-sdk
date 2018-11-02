@@ -34,11 +34,4 @@ export default class RequestHistory extends AbstractCrudObject {
       delete: 'DELETE'
     });
   }
-
-  get (fields, params): RequestHistory {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

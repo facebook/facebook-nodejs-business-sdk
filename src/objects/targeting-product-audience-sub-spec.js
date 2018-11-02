@@ -21,11 +21,4 @@ export default class TargetingProductAudienceSubSpec extends AbstractCrudObject 
       id: 'id'
     });
   }
-
-  get (fields, params): TargetingProductAudienceSubSpec {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

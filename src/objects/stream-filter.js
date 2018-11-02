@@ -22,11 +22,4 @@ export default class StreamFilter extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): StreamFilter {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

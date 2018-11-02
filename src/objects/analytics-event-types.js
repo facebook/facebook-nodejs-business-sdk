@@ -23,11 +23,4 @@ export default class AnalyticsEventTypes extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AnalyticsEventTypes {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

@@ -68,11 +68,4 @@ export default class AdPromotedObject extends AbstractCrudObject {
       other: 'OTHER'
     });
   }
-
-  get (fields, params): AdPromotedObject {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

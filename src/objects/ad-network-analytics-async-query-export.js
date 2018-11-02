@@ -23,11 +23,4 @@ export default class AdNetworkAnalyticsAsyncQueryExport extends AbstractCrudObje
       id: 'id'
     });
   }
-
-  get (fields, params): AdNetworkAnalyticsAsyncQueryExport {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

@@ -29,11 +29,4 @@ export default class AdRuleExecutionOptions extends AbstractCrudObject {
       in: 'IN'
     });
   }
-
-  get (fields, params): AdRuleExecutionOptions {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

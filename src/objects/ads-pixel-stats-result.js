@@ -43,11 +43,4 @@ export default class AdsPixelStatsResult extends AbstractCrudObject {
       event_source: 'event_source'
     });
   }
-
-  get (fields, params): AdsPixelStatsResult {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

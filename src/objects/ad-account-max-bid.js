@@ -20,11 +20,4 @@ export default class AdAccountMaxBid extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AdAccountMaxBid {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

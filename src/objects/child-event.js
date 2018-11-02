@@ -22,11 +22,4 @@ export default class ChildEvent extends AbstractCrudObject {
       ticket_uri: 'ticket_uri'
     });
   }
-
-  get (fields, params): ChildEvent {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

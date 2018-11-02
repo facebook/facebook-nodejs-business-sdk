@@ -22,11 +22,4 @@ export default class PlatformImageSource extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): PlatformImageSource {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

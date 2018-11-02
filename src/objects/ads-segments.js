@@ -27,11 +27,4 @@ export default class AdsSegments extends AbstractCrudObject {
       projected_daily_revenue: 'projected_daily_revenue'
     });
   }
-
-  get (fields, params): AdsSegments {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

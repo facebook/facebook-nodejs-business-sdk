@@ -22,11 +22,4 @@ export default class LeadGenConditionalQuestionsGroupQuestions extends AbstractC
       id: 'id'
     });
   }
-
-  get (fields, params): LeadGenConditionalQuestionsGroupQuestions {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

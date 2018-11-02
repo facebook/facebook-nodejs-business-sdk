@@ -23,11 +23,4 @@ export default class AdConversions extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AdConversions {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

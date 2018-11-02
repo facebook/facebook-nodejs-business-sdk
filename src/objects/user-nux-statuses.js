@@ -22,11 +22,4 @@ export default class UserNuxStatuses extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): UserNuxStatuses {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

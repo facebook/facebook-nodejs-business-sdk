@@ -30,11 +30,4 @@ export default class AdRuleHistoryResult extends AbstractCrudObject {
       ad: 'AD'
     });
   }
-
-  get (fields, params): AdRuleHistoryResult {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

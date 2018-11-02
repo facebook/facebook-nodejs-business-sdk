@@ -40,11 +40,4 @@ export default class AdRuleFilters extends AbstractCrudObject {
       none: 'NONE'
     });
   }
-
-  get (fields, params): AdRuleFilters {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

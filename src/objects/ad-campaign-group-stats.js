@@ -34,11 +34,4 @@ export default class AdCampaignGroupStats extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AdCampaignGroupStats {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

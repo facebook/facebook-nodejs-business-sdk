@@ -22,11 +22,4 @@ export default class CreditPartitionActionOptions extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): CreditPartitionActionOptions {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

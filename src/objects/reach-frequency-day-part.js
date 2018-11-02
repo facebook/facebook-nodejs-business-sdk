@@ -22,11 +22,4 @@ export default class ReachFrequencyDayPart extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): ReachFrequencyDayPart {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

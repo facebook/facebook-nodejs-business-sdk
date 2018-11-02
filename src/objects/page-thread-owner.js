@@ -20,11 +20,4 @@ export default class PageThreadOwner extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): PageThreadOwner {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

@@ -23,11 +23,4 @@ export default class NativeMegaphone extends AbstractCrudObject {
       title: 'title'
     });
   }
-
-  get (fields, params): NativeMegaphone {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

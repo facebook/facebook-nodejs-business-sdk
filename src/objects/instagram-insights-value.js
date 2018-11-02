@@ -21,11 +21,4 @@ export default class InstagramInsightsValue extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): InstagramInsightsValue {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

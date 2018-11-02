@@ -25,11 +25,4 @@ export default class ReachFrequencyCurveLowerConfidenceRange extends AbstractCru
       id: 'id'
     });
   }
-
-  get (fields, params): ReachFrequencyCurveLowerConfidenceRange {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

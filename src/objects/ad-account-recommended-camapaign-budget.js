@@ -22,11 +22,4 @@ export default class AdAccountRecommendedCamapaignBudget extends AbstractCrudObj
       id: 'id'
     });
   }
-
-  get (fields, params): AdAccountRecommendedCamapaignBudget {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

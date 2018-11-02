@@ -143,6 +143,12 @@ export default class AdStudy extends AbstractCrudObject {
     );
   }
 
+  delete (fields, params): AbstractObject {
+    return super.delete(
+      params
+    );
+  }
+
   get (fields, params): AdStudy {
     return this.read(
       fields,

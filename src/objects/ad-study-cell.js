@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
 import AdAccount from './ad-account';
 import AdSet from './ad-set';
 import Campaign from './campaign';
@@ -77,6 +78,12 @@ export default class AdStudyCell extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/campaigns'
+    );
+  }
+
+  delete (fields, params): AbstractObject {
+    return super.delete(
+      params
     );
   }
 

@@ -20,11 +20,4 @@ export default class AdCreativeDegreesOfFreedomSpec extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AdCreativeDegreesOfFreedomSpec {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

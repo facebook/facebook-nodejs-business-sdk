@@ -25,11 +25,4 @@ export default class ProductsQualityIssue extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): ProductsQualityIssue {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

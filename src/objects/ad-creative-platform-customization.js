@@ -20,11 +20,4 @@ export default class AdCreativePlatformCustomization extends AbstractCrudObject 
       id: 'id'
     });
   }
-
-  get (fields, params): AdCreativePlatformCustomization {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

@@ -22,11 +22,4 @@ export default class UserInfluence extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): UserInfluence {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

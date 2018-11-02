@@ -38,11 +38,4 @@ export default class BusinessActivityLogEvent extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): BusinessActivityLogEvent {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

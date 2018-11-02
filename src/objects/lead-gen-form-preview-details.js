@@ -30,11 +30,4 @@ export default class LeadGenFormPreviewDetails extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): LeadGenFormPreviewDetails {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

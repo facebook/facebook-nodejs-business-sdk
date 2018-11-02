@@ -22,11 +22,4 @@ export default class ScimCompanyUserPhoneNumber extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): ScimCompanyUserPhoneNumber {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

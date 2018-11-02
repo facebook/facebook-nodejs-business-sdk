@@ -50,6 +50,10 @@ export default class AdsInsights extends AbstractCrudObject {
       cost_per_action_type: 'cost_per_action_type',
       cost_per_ad_click: 'cost_per_ad_click',
       cost_per_dda_countby_convs: 'cost_per_dda_countby_convs',
+      cost_per_dwell: 'cost_per_dwell',
+      cost_per_dwell_3_sec: 'cost_per_dwell_3_sec',
+      cost_per_dwell_5_sec: 'cost_per_dwell_5_sec',
+      cost_per_dwell_7_sec: 'cost_per_dwell_7_sec',
       cost_per_estimated_ad_recallers: 'cost_per_estimated_ad_recallers',
       cost_per_inline_link_click: 'cost_per_inline_link_click',
       cost_per_inline_post_engagement: 'cost_per_inline_post_engagement',
@@ -73,6 +77,10 @@ export default class AdsInsights extends AbstractCrudObject {
       description_asset: 'description_asset',
       device_platform: 'device_platform',
       dma: 'dma',
+      dwell_3_sec: 'dwell_3_sec',
+      dwell_5_sec: 'dwell_5_sec',
+      dwell_7_sec: 'dwell_7_sec',
+      dwell_rate: 'dwell_rate',
       estimated_ad_recall_rate: 'estimated_ad_recall_rate',
       estimated_ad_recall_rate_lower_bound: 'estimated_ad_recall_rate_lower_bound',
       estimated_ad_recall_rate_upper_bound: 'estimated_ad_recall_rate_upper_bound',
@@ -114,6 +122,7 @@ export default class AdsInsights extends AbstractCrudObject {
       rule_asset: 'rule_asset',
       social_spend: 'social_spend',
       spend: 'spend',
+      thumb_stops: 'thumb_stops',
       title_asset: 'title_asset',
       unique_actions: 'unique_actions',
       unique_clicks: 'unique_clicks',
@@ -255,12 +264,5 @@ export default class AdsInsights extends AbstractCrudObject {
       action_video_sound: 'action_video_sound',
       action_video_type: 'action_video_type'
     });
-  }
-
-  get (fields, params): AdsInsights {
-    return this.read(
-      fields,
-      params
-    );
   }
 }

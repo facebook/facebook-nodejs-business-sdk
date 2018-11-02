@@ -20,11 +20,4 @@ export default class FBLiteToNTTransitions extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): FBLiteToNTTransitions {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

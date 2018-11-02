@@ -16,17 +16,11 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class PagePublisher extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
+      global_parent_id: 'global_parent_id',
       icon: 'icon',
       id: 'id',
       name: 'name',
       url: 'url'
     });
-  }
-
-  get (fields, params): PagePublisher {
-    return this.read(
-      fields,
-      params
-    );
   }
 }

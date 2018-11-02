@@ -43,11 +43,4 @@ export default class AdAccountMatchedSearchApplicationsEdgeData extends Abstract
       does_not_exist: 'DOES_NOT_EXIST'
     });
   }
-
-  get (fields, params): AdAccountMatchedSearchApplicationsEdgeData {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

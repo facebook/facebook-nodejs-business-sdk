@@ -8,6 +8,11 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import AdsPixel from './ads-pixel';
+import Application from './application';
+import CustomConversion from './custom-conversion';
+import OfflineConversionDataSet from './offline-conversion-data-set';
+import OffsitePixel from './offsite-pixel';
 
 /**
  * AdStudyObjective
@@ -39,6 +44,56 @@ export default class AdStudyObjective extends AbstractCrudObject {
       brandlift: 'BRANDLIFT',
       brand: 'BRAND'
     });
+  }
+
+  getAdsPixels (fields, params, fetchFirstPage = true): AdsPixel {
+    return this.getEdge(
+      AdsPixel,
+      fields,
+      params,
+      fetchFirstPage,
+      '/adspixels'
+    );
+  }
+
+  getApplications (fields, params, fetchFirstPage = true): Application {
+    return this.getEdge(
+      Application,
+      fields,
+      params,
+      fetchFirstPage,
+      '/applications'
+    );
+  }
+
+  getCustomConversions (fields, params, fetchFirstPage = true): CustomConversion {
+    return this.getEdge(
+      CustomConversion,
+      fields,
+      params,
+      fetchFirstPage,
+      '/customconversions'
+    );
+  }
+
+  getOfflineConversionDataSets (fields, params, fetchFirstPage = true): OfflineConversionDataSet {
+    return this.getEdge(
+      OfflineConversionDataSet,
+      fields,
+      params,
+      fetchFirstPage,
+      '/offline_conversion_data_sets'
+    );
+  }
+
+  getOffsitePixels (fields, params, fetchFirstPage = true): OffsitePixel {
+    return this.getEdge(
+      OffsitePixel,
+      fields,
+      params,
+      fetchFirstPage,
+      '/offsitepixels'
+    );
   }
 
   delete (fields, params): AbstractObject {

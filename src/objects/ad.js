@@ -9,6 +9,7 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import AdCreative from './ad-creative';
+import AdRule from './ad-rule';
 import AdsInsights from './ads-insights';
 import AdReportRun from './ad-report-run';
 import AdKeywordStats from './ad-keyword-stats';
@@ -166,6 +167,16 @@ export default class Ad extends AbstractCrudObject {
       fields,
       params,
       Ad
+    );
+  }
+
+  getAdRulesGoverned (fields, params, fetchFirstPage = true): AdRule {
+    return this.getEdge(
+      AdRule,
+      fields,
+      params,
+      fetchFirstPage,
+      '/adrules_governed'
     );
   }
 

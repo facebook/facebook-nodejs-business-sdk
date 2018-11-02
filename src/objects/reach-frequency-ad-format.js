@@ -21,11 +21,4 @@ export default class ReachFrequencyAdFormat extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): ReachFrequencyAdFormat {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

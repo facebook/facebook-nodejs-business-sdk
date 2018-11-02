@@ -23,11 +23,4 @@ export default class FundingSourceDetailsCoupon extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): FundingSourceDetailsCoupon {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

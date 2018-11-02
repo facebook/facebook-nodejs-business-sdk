@@ -25,11 +25,4 @@ export default class VideoThumbnail extends AbstractCrudObject {
       width: 'width'
     });
   }
-
-  get (fields, params): VideoThumbnail {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

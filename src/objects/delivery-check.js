@@ -23,11 +23,4 @@ export default class DeliveryCheck extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): DeliveryCheck {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

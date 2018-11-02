@@ -23,11 +23,4 @@ export default class LeadGenQualifier extends AbstractCrudObject {
       question: 'question'
     });
   }
-
-  get (fields, params): LeadGenQualifier {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

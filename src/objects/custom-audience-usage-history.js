@@ -22,11 +22,4 @@ export default class CustomAudienceUsageHistory extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): CustomAudienceUsageHistory {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

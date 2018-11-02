@@ -24,11 +24,4 @@ export default class AnalyticsQueryResult extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AnalyticsQueryResult {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

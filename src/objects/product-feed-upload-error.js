@@ -8,6 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import ProductFeedUploadErrorSample from './product-feed-upload-error-sample';
+import ProductFeedRuleSuggestion from './product-feed-rule-suggestion';
 
 /**
  * ProductFeedUploadError
@@ -50,6 +51,16 @@ export default class ProductFeedUploadError extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/samples'
+    );
+  }
+
+  getSuggestedRules (fields, params, fetchFirstPage = true): ProductFeedRuleSuggestion {
+    return this.getEdge(
+      ProductFeedRuleSuggestion,
+      fields,
+      params,
+      fetchFirstPage,
+      '/suggested_rules'
     );
   }
 

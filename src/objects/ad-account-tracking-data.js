@@ -20,11 +20,4 @@ export default class AdAccountTrackingData extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AdAccountTrackingData {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

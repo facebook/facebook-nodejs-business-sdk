@@ -24,11 +24,4 @@ export default class ProductFeedUploadProgress extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): ProductFeedUploadProgress {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

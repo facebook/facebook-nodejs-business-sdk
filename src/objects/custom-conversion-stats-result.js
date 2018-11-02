@@ -35,11 +35,4 @@ export default class CustomConversionStatsResult extends AbstractCrudObject {
       usd_amount: 'usd_amount'
     });
   }
-
-  get (fields, params): CustomConversionStatsResult {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

@@ -23,11 +23,4 @@ export default class UserPaymentMobilePricepoints extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): UserPaymentMobilePricepoints {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

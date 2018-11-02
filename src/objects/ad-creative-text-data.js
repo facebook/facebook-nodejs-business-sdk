@@ -20,11 +20,4 @@ export default class AdCreativeTextData extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AdCreativeTextData {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

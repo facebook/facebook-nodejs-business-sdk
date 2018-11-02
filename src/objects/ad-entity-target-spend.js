@@ -24,11 +24,4 @@ export default class AdEntityTargetSpend extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AdEntityTargetSpend {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

@@ -22,11 +22,4 @@ export default class AdPlacePageSetMetadata extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AdPlacePageSetMetadata {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

@@ -22,11 +22,4 @@ export default class ProductVariant extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): ProductVariant {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

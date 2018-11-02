@@ -23,11 +23,4 @@ export default class AnalyticsCohortQueryResult extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AnalyticsCohortQueryResult {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

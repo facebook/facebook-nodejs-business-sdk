@@ -20,11 +20,4 @@ export default class ContactsMessengerSyncConfig extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): ContactsMessengerSyncConfig {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

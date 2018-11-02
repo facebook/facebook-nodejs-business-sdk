@@ -29,11 +29,4 @@ export default class AdAccountUserPermissions extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AdAccountUserPermissions {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

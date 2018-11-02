@@ -45,11 +45,4 @@ export default class ConversionActionQuery extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): ConversionActionQuery {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

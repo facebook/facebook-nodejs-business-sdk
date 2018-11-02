@@ -23,11 +23,4 @@ export default class Experience extends AbstractCrudObject {
       with: 'with'
     });
   }
-
-  get (fields, params): Experience {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

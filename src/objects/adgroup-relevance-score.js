@@ -23,11 +23,4 @@ export default class AdgroupRelevanceScore extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AdgroupRelevanceScore {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

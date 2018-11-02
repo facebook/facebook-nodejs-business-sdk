@@ -27,11 +27,4 @@ export default class AdCustomizationRuleSpec extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AdCustomizationRuleSpec {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

@@ -21,11 +21,4 @@ export default class ProductCatalogImageSettings extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): ProductCatalogImageSettings {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

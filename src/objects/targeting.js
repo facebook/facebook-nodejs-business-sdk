@@ -23,6 +23,7 @@ export default class Targeting extends AbstractCrudObject {
       app_install_state: 'app_install_state',
       audience_network_positions: 'audience_network_positions',
       behaviors: 'behaviors',
+      brand_safety_content_severity_levels: 'brand_safety_content_severity_levels',
       cities: 'cities',
       college_years: 'college_years',
       connections: 'connections',
@@ -121,12 +122,5 @@ export default class Targeting extends AbstractCrudObject {
       desktop: 'desktop',
       connected_tv: 'connected_tv'
     });
-  }
-
-  get (fields, params): Targeting {
-    return this.read(
-      fields,
-      params
-    );
   }
 }

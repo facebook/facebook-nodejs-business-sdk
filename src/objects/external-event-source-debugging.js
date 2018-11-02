@@ -27,11 +27,4 @@ export default class ExternalEventSourceDebugging extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): ExternalEventSourceDebugging {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

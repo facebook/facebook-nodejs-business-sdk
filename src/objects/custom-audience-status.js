@@ -21,11 +21,4 @@ export default class CustomAudienceStatus extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): CustomAudienceStatus {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

@@ -22,11 +22,4 @@ export default class AdgroupIssuesInfo extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AdgroupIssuesInfo {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

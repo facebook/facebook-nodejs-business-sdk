@@ -25,11 +25,4 @@ export default class AdsPixelRawFiresResult extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AdsPixelRawFiresResult {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

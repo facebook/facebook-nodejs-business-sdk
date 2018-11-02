@@ -21,11 +21,4 @@ export default class UserLeadGenDisclaimerResponse extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): UserLeadGenDisclaimerResponse {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

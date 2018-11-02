@@ -34,11 +34,4 @@ export default class UserInvitableFriend extends AbstractCrudObject {
       '/picture'
     );
   }
-
-  get (fields, params): UserInvitableFriend {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

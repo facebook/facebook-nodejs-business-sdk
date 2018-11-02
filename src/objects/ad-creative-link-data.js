@@ -68,11 +68,4 @@ export default class AdCreativeLinkData extends AbstractCrudObject {
       single_image: 'single_image'
     });
   }
-
-  get (fields, params): AdCreativeLinkData {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

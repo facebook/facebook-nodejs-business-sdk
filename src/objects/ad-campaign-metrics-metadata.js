@@ -23,11 +23,4 @@ export default class AdCampaignMetricsMetadata extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AdCampaignMetricsMetadata {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

@@ -54,11 +54,4 @@ export default class AdPreview extends AbstractCrudObject {
       fallback: 'FALLBACK'
     });
   }
-
-  get (fields, params): AdPreview {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

@@ -21,11 +21,4 @@ export default class AdPlacePageSetInvalidLocation extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AdPlacePageSetInvalidLocation {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

@@ -22,11 +22,4 @@ export default class DeliveryCheckExtraInfo extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): DeliveryCheckExtraInfo {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

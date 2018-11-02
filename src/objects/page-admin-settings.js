@@ -21,11 +21,4 @@ export default class PageAdminSettings extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): PageAdminSettings {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

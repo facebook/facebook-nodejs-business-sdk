@@ -28,11 +28,4 @@ export default class Permission extends AbstractCrudObject {
       declined: 'declined'
     });
   }
-
-  get (fields, params): Permission {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

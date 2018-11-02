@@ -50,11 +50,4 @@ export default class AdRuleTrigger extends AbstractCrudObject {
       delivery_insights_change: 'DELIVERY_INSIGHTS_CHANGE'
     });
   }
-
-  get (fields, params): AdRuleTrigger {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

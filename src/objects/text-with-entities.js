@@ -20,11 +20,4 @@ export default class TextWithEntities extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): TextWithEntities {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

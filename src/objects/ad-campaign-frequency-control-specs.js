@@ -22,11 +22,4 @@ export default class AdCampaignFrequencyControlSpecs extends AbstractCrudObject 
       id: 'id'
     });
   }
-
-  get (fields, params): AdCampaignFrequencyControlSpecs {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

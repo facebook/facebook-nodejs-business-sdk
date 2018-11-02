@@ -32,11 +32,4 @@ export default class Location extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): Location {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

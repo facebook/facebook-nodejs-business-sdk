@@ -27,11 +27,4 @@ export default class CustomAudienceSharedAccountCampaignInfo extends AbstractCru
       id: 'id'
     });
   }
-
-  get (fields, params): CustomAudienceSharedAccountCampaignInfo {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

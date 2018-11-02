@@ -20,11 +20,4 @@ export default class SecuritySettings extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): SecuritySettings {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

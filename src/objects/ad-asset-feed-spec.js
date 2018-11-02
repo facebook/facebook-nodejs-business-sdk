@@ -86,11 +86,4 @@ export default class AdAssetFeedSpec extends AbstractCrudObject {
       follow_news_storyline: 'FOLLOW_NEWS_STORYLINE'
     });
   }
-
-  get (fields, params): AdAssetFeedSpec {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

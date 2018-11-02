@@ -44,6 +44,16 @@ export default class ShadowIGUser extends AbstractCrudObject {
     );
   }
 
+  getMedia (fields, params, fetchFirstPage = true): ShadowIGMedia {
+    return this.getEdge(
+      ShadowIGMedia,
+      fields,
+      params,
+      fetchFirstPage,
+      '/media'
+    );
+  }
+
   createMedia (fields, params): ShadowIGMedia {
     return this.createEdge(
       '/media',
@@ -59,6 +69,16 @@ export default class ShadowIGUser extends AbstractCrudObject {
       fields,
       params,
       ShadowIGMedia
+    );
+  }
+
+  getStories (fields, params, fetchFirstPage = true): ShadowIGMedia {
+    return this.getEdge(
+      ShadowIGMedia,
+      fields,
+      params,
+      fetchFirstPage,
+      '/stories'
     );
   }
 

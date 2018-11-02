@@ -20,11 +20,4 @@ export default class BusinessApplicationRequest extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): BusinessApplicationRequest {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

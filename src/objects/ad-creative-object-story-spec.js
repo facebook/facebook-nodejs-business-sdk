@@ -26,11 +26,4 @@ export default class AdCreativeObjectStorySpec extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AdCreativeObjectStorySpec {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

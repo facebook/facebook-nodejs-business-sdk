@@ -23,11 +23,4 @@ export default class AnalyticsFunnelQueryResult extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AnalyticsFunnelQueryResult {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

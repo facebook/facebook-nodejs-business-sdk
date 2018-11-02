@@ -21,11 +21,4 @@ export default class RevSharePolicy extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): RevSharePolicy {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

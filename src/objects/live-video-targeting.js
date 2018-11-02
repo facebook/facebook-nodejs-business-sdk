@@ -23,11 +23,4 @@ export default class LiveVideoTargeting extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): LiveVideoTargeting {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

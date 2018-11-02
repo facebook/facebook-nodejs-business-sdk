@@ -92,11 +92,4 @@ export default class AdCreativeLinkDataImageLayerSpec extends AbstractCrudObject
       roboto_medium: 'roboto_medium'
     });
   }
-
-  get (fields, params): AdCreativeLinkDataImageLayerSpec {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

@@ -26,11 +26,4 @@ export default class AdDeliveryInsights extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AdDeliveryInsights {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

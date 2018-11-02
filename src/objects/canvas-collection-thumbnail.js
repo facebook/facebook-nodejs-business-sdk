@@ -22,11 +22,4 @@ export default class CanvasCollectionThumbnail extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): CanvasCollectionThumbnail {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

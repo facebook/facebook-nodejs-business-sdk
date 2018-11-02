@@ -22,11 +22,4 @@ export default class AssignedUser extends AbstractCrudObject {
       user_type: 'user_type'
     });
   }
-
-  get (fields, params): AssignedUser {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

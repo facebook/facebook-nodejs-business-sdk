@@ -21,11 +21,4 @@ export default class CreativeHistory extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): CreativeHistory {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

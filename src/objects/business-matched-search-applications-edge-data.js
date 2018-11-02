@@ -43,11 +43,4 @@ export default class BusinessMatchedSearchApplicationsEdgeData extends AbstractC
       does_not_exist: 'DOES_NOT_EXIST'
     });
   }
-
-  get (fields, params): BusinessMatchedSearchApplicationsEdgeData {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

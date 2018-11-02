@@ -22,11 +22,4 @@ export default class AdAccountPromotableObjects extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AdAccountPromotableObjects {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

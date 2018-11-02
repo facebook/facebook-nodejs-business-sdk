@@ -22,11 +22,4 @@ export default class IosAppLink extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): IosAppLink {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

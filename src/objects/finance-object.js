@@ -21,11 +21,4 @@ export default class FinanceObject extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): FinanceObject {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

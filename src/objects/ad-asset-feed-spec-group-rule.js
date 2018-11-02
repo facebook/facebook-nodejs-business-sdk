@@ -26,11 +26,4 @@ export default class AdAssetFeedSpecGroupRule extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AdAssetFeedSpecGroupRule {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

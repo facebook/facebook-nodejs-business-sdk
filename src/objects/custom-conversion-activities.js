@@ -31,11 +31,4 @@ export default class CustomConversionActivities extends AbstractCrudObject {
       conversion_update: 'conversion_update'
     });
   }
-
-  get (fields, params): CustomConversionActivities {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

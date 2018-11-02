@@ -19,11 +19,4 @@ export default class PlatformSessionKey extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): PlatformSessionKey {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

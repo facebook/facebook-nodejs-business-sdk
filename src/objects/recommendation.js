@@ -27,11 +27,4 @@ export default class Recommendation extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): Recommendation {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

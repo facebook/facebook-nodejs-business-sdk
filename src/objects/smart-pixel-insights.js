@@ -21,11 +21,4 @@ export default class SmartPixelInsights extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): SmartPixelInsights {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

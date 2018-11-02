@@ -23,11 +23,4 @@ export default class CheckBatchRequestStatus extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): CheckBatchRequestStatus {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

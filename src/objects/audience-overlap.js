@@ -22,11 +22,4 @@ export default class AudienceOverlap extends AbstractCrudObject {
       overlap: 'overlap'
     });
   }
-
-  get (fields, params): AudienceOverlap {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

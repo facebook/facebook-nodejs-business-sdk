@@ -112,6 +112,15 @@ export default class Event extends AbstractCrudObject {
     );
   }
 
+  createAttending (fields, params): Event {
+    return this.createEdge(
+      '/attending',
+      fields,
+      params,
+      Event
+    );
+  }
+
   getComments (fields, params, fetchFirstPage = true): NullNode {
     return this.getEdge(
       NullNode,
@@ -138,6 +147,15 @@ export default class Event extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/declined'
+    );
+  }
+
+  createDeclined (fields, params): Event {
+    return this.createEdge(
+      '/declined',
+      fields,
+      params,
+      Event
     );
   }
 
@@ -196,6 +214,15 @@ export default class Event extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/maybe'
+    );
+  }
+
+  createMaybe (fields, params): Event {
+    return this.createEdge(
+      '/maybe',
+      fields,
+      params,
+      Event
     );
   }
 

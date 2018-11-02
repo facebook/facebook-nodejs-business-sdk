@@ -21,11 +21,4 @@ export default class UserDevice extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): UserDevice {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

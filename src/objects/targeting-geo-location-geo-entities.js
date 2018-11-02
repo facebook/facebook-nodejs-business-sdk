@@ -24,11 +24,4 @@ export default class TargetingGeoLocationGeoEntities extends AbstractCrudObject 
       id: 'id'
     });
   }
-
-  get (fields, params): TargetingGeoLocationGeoEntities {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

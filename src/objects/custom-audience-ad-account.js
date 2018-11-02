@@ -19,11 +19,4 @@ export default class CustomAudienceAdAccount extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): CustomAudienceAdAccount {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

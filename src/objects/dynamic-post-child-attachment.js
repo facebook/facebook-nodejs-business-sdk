@@ -25,11 +25,4 @@ export default class DynamicPostChildAttachment extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): DynamicPostChildAttachment {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

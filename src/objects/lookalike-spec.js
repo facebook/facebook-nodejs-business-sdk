@@ -27,11 +27,4 @@ export default class LookalikeSpec extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): LookalikeSpec {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

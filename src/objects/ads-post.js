@@ -46,11 +46,4 @@ export default class AdsPost extends AbstractCrudObject {
       '/insights'
     );
   }
-
-  get (fields, params): AdsPost {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

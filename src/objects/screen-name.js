@@ -22,11 +22,4 @@ export default class ScreenName extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): ScreenName {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

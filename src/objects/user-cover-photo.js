@@ -22,11 +22,4 @@ export default class UserCoverPhoto extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): UserCoverPhoto {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

@@ -29,11 +29,4 @@ export default class CopyrightReferenceContainer extends AbstractCrudObject {
       universal_content_id: 'universal_content_id'
     });
   }
-
-  get (fields, params): CopyrightReferenceContainer {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

@@ -22,11 +22,4 @@ export default class LeadGenAppointmentBookingInfo extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): LeadGenAppointmentBookingInfo {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

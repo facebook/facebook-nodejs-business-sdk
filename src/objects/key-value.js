@@ -21,11 +21,4 @@ export default class KeyValue extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): KeyValue {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

@@ -23,11 +23,4 @@ export default class AdsTALNudge extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AdsTALNudge {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

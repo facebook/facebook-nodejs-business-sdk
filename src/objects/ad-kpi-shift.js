@@ -25,11 +25,4 @@ export default class AdKpiShift extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AdKpiShift {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

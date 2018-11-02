@@ -21,11 +21,4 @@ export default class CustomAudiencesTOS extends AbstractCrudObject {
       type: 'type'
     });
   }
-
-  get (fields, params): CustomAudiencesTOS {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

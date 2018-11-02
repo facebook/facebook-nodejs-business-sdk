@@ -25,20 +25,6 @@ export default class AdPlacePageSet extends AbstractCrudObject {
     });
   }
 
-  static get LocationTypes (): Object {
-    return Object.freeze({
-      recent: 'recent',
-      home: 'home'
-    });
-  }
-  static get TargetedAreaType (): Object {
-    return Object.freeze({
-      custom_radius: 'CUSTOM_RADIUS',
-      marketing_area: 'MARKETING_AREA',
-      none: 'NONE'
-    });
-  }
-
   get (fields, params): AdPlacePageSet {
     return this.read(
       fields,

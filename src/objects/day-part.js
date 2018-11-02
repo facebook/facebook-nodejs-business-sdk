@@ -23,11 +23,4 @@ export default class DayPart extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): DayPart {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

@@ -23,11 +23,4 @@ export default class TrackingAndConversionWithDefaults extends AbstractCrudObjec
       id: 'id'
     });
   }
-
-  get (fields, params): TrackingAndConversionWithDefaults {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

@@ -21,11 +21,4 @@ export default class BusinessProductCatalogTOS extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): BusinessProductCatalogTOS {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

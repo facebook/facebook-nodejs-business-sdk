@@ -38,11 +38,4 @@ export default class AdCreativeVideoData extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AdCreativeVideoData {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

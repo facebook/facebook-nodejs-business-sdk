@@ -20,11 +20,4 @@ export default class ProductCatalogImageSettingsOperation extends AbstractCrudOb
       id: 'id'
     });
   }
-
-  get (fields, params): ProductCatalogImageSettingsOperation {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

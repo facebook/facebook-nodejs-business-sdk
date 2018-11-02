@@ -91,11 +91,4 @@ export default class CustomAudienceDataSource extends AbstractCrudObject {
       household_audience: 'HOUSEHOLD_AUDIENCE'
     });
   }
-
-  get (fields, params): CustomAudienceDataSource {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

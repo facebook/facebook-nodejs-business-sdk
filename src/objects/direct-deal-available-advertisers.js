@@ -22,11 +22,4 @@ export default class DirectDealAvailableAdvertisers extends AbstractCrudObject {
       status: 'status'
     });
   }
-
-  get (fields, params): DirectDealAvailableAdvertisers {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

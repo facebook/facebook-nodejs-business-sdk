@@ -20,11 +20,4 @@ export default class PageFeatureAccessList extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): PageFeatureAccessList {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

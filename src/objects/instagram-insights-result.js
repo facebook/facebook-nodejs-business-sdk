@@ -52,11 +52,4 @@ export default class InstagramInsightsResult extends AbstractCrudObject {
       lifetime: 'lifetime'
     });
   }
-
-  get (fields, params): InstagramInsightsResult {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

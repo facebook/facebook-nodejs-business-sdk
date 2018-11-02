@@ -24,11 +24,4 @@ export default class AdAccountCustomAudienceLimits extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AdAccountCustomAudienceLimits {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

@@ -27,11 +27,4 @@ export default class InvoiceCampaign extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): InvoiceCampaign {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

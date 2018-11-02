@@ -27,11 +27,4 @@ export default class AudienceInsightsStudySpec extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AudienceInsightsStudySpec {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

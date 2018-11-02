@@ -27,11 +27,4 @@ export default class CustomAudienceSession extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): CustomAudienceSession {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

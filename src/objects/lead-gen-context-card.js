@@ -28,21 +28,6 @@ export default class LeadGenContextCard extends AbstractCrudObject {
     });
   }
 
-  static get Status (): Object {
-    return Object.freeze({
-      active: 'ACTIVE',
-      archived: 'ARCHIVED',
-      deleted: 'DELETED',
-      draft: 'DRAFT'
-    });
-  }
-  static get Style (): Object {
-    return Object.freeze({
-      list_style: 'LIST_STYLE',
-      paragraph_style: 'PARAGRAPH_STYLE'
-    });
-  }
-
   get (fields, params): LeadGenContextCard {
     return this.read(
       fields,

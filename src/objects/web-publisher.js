@@ -21,11 +21,4 @@ export default class WebPublisher extends AbstractCrudObject {
       publisher_name: 'publisher_name'
     });
   }
-
-  get (fields, params): WebPublisher {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

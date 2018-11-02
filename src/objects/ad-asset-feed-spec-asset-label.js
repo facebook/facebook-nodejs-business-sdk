@@ -20,11 +20,4 @@ export default class AdAssetFeedSpecAssetLabel extends AbstractCrudObject {
       name: 'name'
     });
   }
-
-  get (fields, params): AdAssetFeedSpecAssetLabel {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

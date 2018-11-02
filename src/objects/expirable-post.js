@@ -37,11 +37,4 @@ export default class ExpirablePost extends AbstractCrudObject {
       video_id: 'video_id'
     });
   }
-
-  get (fields, params): ExpirablePost {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

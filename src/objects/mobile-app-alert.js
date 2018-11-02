@@ -23,11 +23,4 @@ export default class MobileAppAlert extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): MobileAppAlert {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

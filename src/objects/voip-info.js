@@ -26,11 +26,4 @@ export default class VoipInfo extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): VoipInfo {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

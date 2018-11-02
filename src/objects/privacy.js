@@ -25,11 +25,4 @@ export default class Privacy extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): Privacy {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

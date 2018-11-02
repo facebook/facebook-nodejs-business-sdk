@@ -23,11 +23,4 @@ export default class AdsPixelStats extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AdsPixelStats {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

@@ -20,11 +20,4 @@ export default class TargetingGeoLocationLocationCluster extends AbstractCrudObj
       id: 'id'
     });
   }
-
-  get (fields, params): TargetingGeoLocationLocationCluster {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

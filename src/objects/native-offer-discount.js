@@ -25,11 +25,4 @@ export default class NativeOfferDiscount extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): NativeOfferDiscount {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

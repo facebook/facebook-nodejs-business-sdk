@@ -18,14 +18,8 @@ export default class VideoCopyrightConditionGroup extends AbstractCrudObject {
     return Object.freeze({
       action: 'action',
       conditions: 'conditions',
+      validity_status: 'validity_status',
       id: 'id'
     });
-  }
-
-  get (fields, params): VideoCopyrightConditionGroup {
-    return this.read(
-      fields,
-      params
-    );
   }
 }

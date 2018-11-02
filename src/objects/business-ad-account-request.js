@@ -20,11 +20,4 @@ export default class BusinessAdAccountRequest extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): BusinessAdAccountRequest {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

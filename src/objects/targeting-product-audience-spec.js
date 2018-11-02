@@ -22,11 +22,4 @@ export default class TargetingProductAudienceSpec extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): TargetingProductAudienceSpec {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

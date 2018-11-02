@@ -23,11 +23,4 @@ export default class ProductCatalogPricingVariablesBatch extends AbstractCrudObj
       id: 'id'
     });
   }
-
-  get (fields, params): ProductCatalogPricingVariablesBatch {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

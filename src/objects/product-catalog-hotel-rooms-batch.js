@@ -23,11 +23,4 @@ export default class ProductCatalogHotelRoomsBatch extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): ProductCatalogHotelRoomsBatch {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

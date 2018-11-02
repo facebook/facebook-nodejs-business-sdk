@@ -21,11 +21,4 @@ export default class AdAccountDefaultDestination extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AdAccountDefaultDestination {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

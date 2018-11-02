@@ -20,11 +20,4 @@ export default class TaggableSubject extends AbstractCrudObject {
       name: 'name'
     });
   }
-
-  get (fields, params): TaggableSubject {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

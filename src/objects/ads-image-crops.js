@@ -26,11 +26,4 @@ export default class AdsImageCrops extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AdsImageCrops {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

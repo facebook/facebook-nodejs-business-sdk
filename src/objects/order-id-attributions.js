@@ -28,11 +28,4 @@ export default class OrderIDAttributions extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): OrderIDAttributions {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

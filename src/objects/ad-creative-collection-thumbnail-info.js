@@ -22,11 +22,4 @@ export default class AdCreativeCollectionThumbnailInfo extends AbstractCrudObjec
       id: 'id'
     });
   }
-
-  get (fields, params): AdCreativeCollectionThumbnailInfo {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

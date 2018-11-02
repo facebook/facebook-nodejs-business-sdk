@@ -22,11 +22,4 @@ export default class RichMediaElement extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): RichMediaElement {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

@@ -22,11 +22,4 @@ export default class VideoCopyrightSegment extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): VideoCopyrightSegment {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

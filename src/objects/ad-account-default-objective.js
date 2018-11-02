@@ -66,11 +66,4 @@ export default class AdAccountDefaultObjective extends AbstractCrudObject {
       messages: 'MESSAGES'
     });
   }
-
-  get (fields, params): AdAccountDefaultObjective {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

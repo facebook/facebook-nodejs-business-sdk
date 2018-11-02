@@ -23,11 +23,4 @@ export default class BilledAmountDetails extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): BilledAmountDetails {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

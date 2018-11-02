@@ -20,11 +20,4 @@ export default class AdCampaignBidConstraint extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AdCampaignBidConstraint {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

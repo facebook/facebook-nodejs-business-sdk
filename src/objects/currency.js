@@ -25,11 +25,4 @@ export default class Currency extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): Currency {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

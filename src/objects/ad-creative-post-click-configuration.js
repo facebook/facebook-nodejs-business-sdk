@@ -21,11 +21,4 @@ export default class AdCreativePostClickConfiguration extends AbstractCrudObject
       id: 'id'
     });
   }
-
-  get (fields, params): AdCreativePostClickConfiguration {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

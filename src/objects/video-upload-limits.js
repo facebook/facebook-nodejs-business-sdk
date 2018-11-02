@@ -21,11 +21,4 @@ export default class VideoUploadLimits extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): VideoUploadLimits {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

@@ -25,11 +25,4 @@ export default class AdCampaignLearningStageInfo extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AdCampaignLearningStageInfo {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

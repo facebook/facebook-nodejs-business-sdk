@@ -9,6 +9,7 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import AdStudy from './ad-study';
+import AdRule from './ad-rule';
 import Ad from './ad';
 import AdSet from './ad-set';
 import AdsInsights from './ads-insights';
@@ -43,6 +44,7 @@ export default class Campaign extends AbstractCrudObject {
       kpi_type: 'kpi_type',
       last_budget_toggling_time: 'last_budget_toggling_time',
       lifetime_budget: 'lifetime_budget',
+      metrics_metadata: 'metrics_metadata',
       name: 'name',
       objective: 'objective',
       pacing_type: 'pacing_type',
@@ -180,6 +182,16 @@ export default class Campaign extends AbstractCrudObject {
       fields,
       params,
       Campaign
+    );
+  }
+
+  getAdRulesGoverned (fields, params, fetchFirstPage = true): AdRule {
+    return this.getEdge(
+      AdRule,
+      fields,
+      params,
+      fetchFirstPage,
+      '/adrules_governed'
     );
   }
 

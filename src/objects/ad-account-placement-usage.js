@@ -21,11 +21,4 @@ export default class AdAccountPlacementUsage extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AdAccountPlacementUsage {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

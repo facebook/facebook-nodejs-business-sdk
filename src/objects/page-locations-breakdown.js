@@ -28,11 +28,4 @@ export default class PageLocationsBreakdown extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): PageLocationsBreakdown {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

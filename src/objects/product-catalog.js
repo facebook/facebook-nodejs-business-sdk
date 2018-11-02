@@ -10,6 +10,9 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Business from './business';
 import AutomotiveModel from './automotive-model';
+import DynamicItemDisplayBundleFolder from './dynamic-item-display-bundle-folder';
+import DynamicItemDisplayBundle from './dynamic-item-display-bundle';
+import ProductCatalogCategory from './product-catalog-category';
 import CheckBatchRequestStatus from './check-batch-request-status';
 import ProductDaEventSamplesBatch from './product-da-event-samples-batch';
 import Destination from './destination';
@@ -80,6 +83,30 @@ export default class ProductCatalog extends AbstractCrudObject {
       google: 'google'
     });
   }
+  static get ProductType (): Object {
+    return Object.freeze({
+      auto: 'AUTO',
+      auto_market: 'AUTO_MARKET',
+      auto_offer: 'AUTO_OFFER',
+      automotive_model: 'AUTOMOTIVE_MODEL',
+      destination: 'DESTINATION',
+      flight: 'FLIGHT',
+      geo_based_item: 'GEO_BASED_ITEM',
+      home_listing: 'HOME_LISTING',
+      home_service_provider: 'HOME_SERVICE_PROVIDER',
+      home_service_review: 'HOME_SERVICE_REVIEW',
+      hotel: 'HOTEL',
+      hotel_room: 'HOTEL_ROOM',
+      media_title: 'MEDIA_TITLE',
+      other_test_dynamic_item: 'OTHER_TEST_DYNAMIC_ITEM',
+      product_group: 'PRODUCT_GROUP',
+      product_item: 'PRODUCT_ITEM',
+      store_product_item: 'STORE_PRODUCT_ITEM',
+      test_dynamic_item: 'TEST_DYNAMIC_ITEM',
+      vehicle: 'VEHICLE',
+      vehicle_offer: 'VEHICLE_OFFER'
+    });
+  }
   static get Role (): Object {
     return Object.freeze({
       admin: 'ADMIN',
@@ -129,6 +156,63 @@ export default class ProductCatalog extends AbstractCrudObject {
       fields,
       params,
       ProductCatalog
+    );
+  }
+
+  getBundleFolders (fields, params, fetchFirstPage = true): DynamicItemDisplayBundleFolder {
+    return this.getEdge(
+      DynamicItemDisplayBundleFolder,
+      fields,
+      params,
+      fetchFirstPage,
+      '/bundle_folders'
+    );
+  }
+
+  createBundleFolder (fields, params): DynamicItemDisplayBundleFolder {
+    return this.createEdge(
+      '/bundle_folders',
+      fields,
+      params,
+      DynamicItemDisplayBundleFolder
+    );
+  }
+
+  getBundles (fields, params, fetchFirstPage = true): DynamicItemDisplayBundle {
+    return this.getEdge(
+      DynamicItemDisplayBundle,
+      fields,
+      params,
+      fetchFirstPage,
+      '/bundles'
+    );
+  }
+
+  createBundle (fields, params): DynamicItemDisplayBundle {
+    return this.createEdge(
+      '/bundles',
+      fields,
+      params,
+      DynamicItemDisplayBundle
+    );
+  }
+
+  getCategories (fields, params, fetchFirstPage = true): ProductCatalogCategory {
+    return this.getEdge(
+      ProductCatalogCategory,
+      fields,
+      params,
+      fetchFirstPage,
+      '/categories'
+    );
+  }
+
+  createCategory (fields, params): ProductCatalogCategory {
+    return this.createEdge(
+      '/categories',
+      fields,
+      params,
+      ProductCatalogCategory
     );
   }
 
@@ -385,6 +469,15 @@ export default class ProductCatalog extends AbstractCrudObject {
       fields,
       params,
       ProductItem
+    );
+  }
+
+  createProductsBatch (fields, params): ProductCatalog {
+    return this.createEdge(
+      '/products_batch',
+      fields,
+      params,
+      ProductCatalog
     );
   }
 

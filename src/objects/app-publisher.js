@@ -25,11 +25,4 @@ export default class AppPublisher extends AbstractCrudObject {
       store_url: 'store_url'
     });
   }
-
-  get (fields, params): AppPublisher {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

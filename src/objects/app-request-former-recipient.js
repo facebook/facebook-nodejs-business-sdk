@@ -20,11 +20,4 @@ export default class AppRequestFormerRecipient extends AbstractCrudObject {
       recipient_id: 'recipient_id'
     });
   }
-
-  get (fields, params): AppRequestFormerRecipient {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

@@ -27,11 +27,4 @@ export default class PageBudgetRecs extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): PageBudgetRecs {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

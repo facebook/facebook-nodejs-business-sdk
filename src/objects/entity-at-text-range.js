@@ -34,11 +34,4 @@ export default class EntityAtTextRange extends AbstractCrudObject {
       application: 'application'
     });
   }
-
-  get (fields, params): EntityAtTextRange {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

@@ -24,11 +24,4 @@ export default class BusinessSettingLogsData extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): BusinessSettingLogsData {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

@@ -27,11 +27,4 @@ export default class AdsPixelRealTimeEventLogResult extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AdsPixelRealTimeEventLogResult {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

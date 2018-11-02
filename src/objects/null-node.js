@@ -19,11 +19,4 @@ export default class NullNode extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): NullNode {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

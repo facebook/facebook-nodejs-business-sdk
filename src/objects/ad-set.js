@@ -11,6 +11,7 @@ import AbstractObject from './../abstract-object';
 import AdActivity from './ad-activity';
 import AdStudy from './ad-study';
 import AdCreative from './ad-creative';
+import AdRule from './ad-rule';
 import Ad from './ad';
 import AdAsyncRequest from './ad-async-request';
 import AdCampaignDeliveryEstimate from './ad-campaign-delivery-estimate';
@@ -36,6 +37,7 @@ export default class AdSet extends AbstractCrudObject {
       best_creative: 'best_creative',
       bid_adjustments: 'bid_adjustments',
       bid_amount: 'bid_amount',
+      bid_constraints: 'bid_constraints',
       bid_info: 'bid_info',
       bid_strategy: 'bid_strategy',
       billing_event: 'billing_event',
@@ -61,6 +63,7 @@ export default class AdSet extends AbstractCrudObject {
       is_average_price_pacing: 'is_average_price_pacing',
       is_dynamic_creative: 'is_dynamic_creative',
       is_dynamic_creative_optimization: 'is_dynamic_creative_optimization',
+      issues_info: 'issues_info',
       lifetime_budget: 'lifetime_budget',
       lifetime_frequency_cap: 'lifetime_frequency_cap',
       lifetime_imps: 'lifetime_imps',
@@ -267,6 +270,16 @@ export default class AdSet extends AbstractCrudObject {
       fields,
       params,
       AdSet
+    );
+  }
+
+  getAdRulesGoverned (fields, params, fetchFirstPage = true): AdRule {
+    return this.getEdge(
+      AdRule,
+      fields,
+      params,
+      fetchFirstPage,
+      '/adrules_governed'
     );
   }
 

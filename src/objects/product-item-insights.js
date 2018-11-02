@@ -24,11 +24,4 @@ export default class ProductItemInsights extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): ProductItemInsights {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

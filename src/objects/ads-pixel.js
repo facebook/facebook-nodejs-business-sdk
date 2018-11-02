@@ -24,11 +24,13 @@ import AdsPixelStatsResult from './ads-pixel-stats-result';
 export default class AdsPixel extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
+      automatic_matching_fields: 'automatic_matching_fields',
       can_proxy: 'can_proxy',
       code: 'code',
       creation_time: 'creation_time',
       creator: 'creator',
       data_use_setting: 'data_use_setting',
+      enable_automatic_matching: 'enable_automatic_matching',
       first_party_cookie_status: 'first_party_cookie_status',
       id: 'id',
       is_created_by_business: 'is_created_by_business',
@@ -43,6 +45,18 @@ export default class AdsPixel extends AbstractCrudObject {
     return Object.freeze({
       last_fired_time: 'LAST_FIRED_TIME',
       name: 'NAME'
+    });
+  }
+  static get AutomaticMatchingFields (): Object {
+    return Object.freeze({
+      em: 'em',
+      fn: 'fn',
+      ln: 'ln',
+      ph: 'ph',
+      ge: 'ge',
+      zp: 'zp',
+      ct: 'ct',
+      st: 'st'
     });
   }
   static get DataUseSetting (): Object {

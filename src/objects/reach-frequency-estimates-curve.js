@@ -28,11 +28,4 @@ export default class ReachFrequencyEstimatesCurve extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): ReachFrequencyEstimatesCurve {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

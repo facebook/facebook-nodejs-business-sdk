@@ -20,11 +20,4 @@ export default class BusinessPageRequest extends AbstractCrudObject {
       page: 'page'
     });
   }
-
-  get (fields, params): BusinessPageRequest {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

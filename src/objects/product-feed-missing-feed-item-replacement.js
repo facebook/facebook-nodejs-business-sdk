@@ -23,11 +23,4 @@ export default class ProductFeedMissingFeedItemReplacement extends AbstractCrudO
       id: 'id'
     });
   }
-
-  get (fields, params): ProductFeedMissingFeedItemReplacement {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

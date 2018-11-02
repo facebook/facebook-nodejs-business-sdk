@@ -22,11 +22,4 @@ export default class AdAssetFeedSpecDescription extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AdAssetFeedSpecDescription {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

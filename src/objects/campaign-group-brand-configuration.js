@@ -22,11 +22,4 @@ export default class CampaignGroupBrandConfiguration extends AbstractCrudObject 
       id: 'id'
     });
   }
-
-  get (fields, params): CampaignGroupBrandConfiguration {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

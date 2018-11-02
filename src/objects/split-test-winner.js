@@ -22,11 +22,4 @@ export default class SplitTestWinner extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): SplitTestWinner {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

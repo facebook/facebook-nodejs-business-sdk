@@ -21,11 +21,4 @@ export default class AdsPixelServerToServerKey extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AdsPixelServerToServerKey {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

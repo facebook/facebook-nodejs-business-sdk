@@ -20,11 +20,4 @@ export default class AdDynamicCreative extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AdDynamicCreative {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

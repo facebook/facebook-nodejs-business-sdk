@@ -21,11 +21,4 @@ export default class PageStartInfo extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): PageStartInfo {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

@@ -23,11 +23,4 @@ export default class WindowsAppLink extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): WindowsAppLink {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

@@ -23,11 +23,4 @@ export default class ProductCatalogProductSetsBatch extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): ProductCatalogProductSetsBatch {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

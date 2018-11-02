@@ -29,11 +29,4 @@ export default class ProductCatalogUserPermissions extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): ProductCatalogUserPermissions {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

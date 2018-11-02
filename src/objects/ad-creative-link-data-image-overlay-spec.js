@@ -91,11 +91,4 @@ export default class AdCreativeLinkDataImageOverlaySpec extends AbstractCrudObje
       background_ffffff_text_000000: 'background_ffffff_text_000000'
     });
   }
-
-  get (fields, params): AdCreativeLinkDataImageOverlaySpec {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

@@ -21,11 +21,4 @@ export default class UserLeadGenFieldData extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): UserLeadGenFieldData {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

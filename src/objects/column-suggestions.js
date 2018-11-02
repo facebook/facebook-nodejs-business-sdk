@@ -23,11 +23,4 @@ export default class ColumnSuggestions extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): ColumnSuggestions {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

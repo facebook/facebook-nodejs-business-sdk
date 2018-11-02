@@ -34,11 +34,4 @@ export default class UserTaggableFriend extends AbstractCrudObject {
       '/picture'
     );
   }
-
-  get (fields, params): UserTaggableFriend {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

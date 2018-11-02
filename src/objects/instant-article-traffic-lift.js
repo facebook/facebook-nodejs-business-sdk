@@ -25,11 +25,4 @@ export default class InstantArticleTrafficLift extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): InstantArticleTrafficLift {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

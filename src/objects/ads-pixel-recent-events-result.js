@@ -21,11 +21,4 @@ export default class AdsPixelRecentEventsResult extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AdsPixelRecentEventsResult {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

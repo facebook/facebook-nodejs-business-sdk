@@ -28,11 +28,4 @@ export default class AdScriptExecutionHistory extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AdScriptExecutionHistory {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

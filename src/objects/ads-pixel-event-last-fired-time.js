@@ -21,11 +21,4 @@ export default class AdsPixelEventLastFiredTime extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AdsPixelEventLastFiredTime {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

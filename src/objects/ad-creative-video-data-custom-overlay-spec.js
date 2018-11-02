@@ -65,11 +65,4 @@ export default class AdCreativeVideoDataCustomOverlaySpec extends AbstractCrudOb
       rectangle_with_text: 'rectangle_with_text'
     });
   }
-
-  get (fields, params): AdCreativeVideoDataCustomOverlaySpec {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

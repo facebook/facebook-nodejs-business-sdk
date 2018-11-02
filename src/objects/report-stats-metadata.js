@@ -29,11 +29,4 @@ export default class ReportStatsMetadata extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): ReportStatsMetadata {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

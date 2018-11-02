@@ -24,11 +24,4 @@ export default class TargetingGeoLocationZip extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): TargetingGeoLocationZip {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

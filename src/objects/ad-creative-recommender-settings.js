@@ -21,11 +21,4 @@ export default class AdCreativeRecommenderSettings extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AdCreativeRecommenderSettings {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

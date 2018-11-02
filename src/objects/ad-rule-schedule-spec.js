@@ -21,11 +21,4 @@ export default class AdRuleScheduleSpec extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AdRuleScheduleSpec {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

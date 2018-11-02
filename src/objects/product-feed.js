@@ -14,6 +14,7 @@ import Flight from './flight';
 import HomeListing from './home-listing';
 import Hotel from './hotel';
 import ProductItem from './product-item';
+import ProductFeedRule from './product-feed-rule';
 import ProductFeedUpload from './product-feed-upload';
 import Vehicle from './vehicle';
 
@@ -150,9 +151,9 @@ export default class ProductFeed extends AbstractCrudObject {
     );
   }
 
-  getRules (fields, params, fetchFirstPage = true): AbstractObject {
+  getRules (fields, params, fetchFirstPage = true): ProductFeedRule {
     return this.getEdge(
-      AbstractObject,
+      ProductFeedRule,
       fields,
       params,
       fetchFirstPage,
@@ -160,12 +161,12 @@ export default class ProductFeed extends AbstractCrudObject {
     );
   }
 
-  createRule (fields, params): AbstractObject {
+  createRule (fields, params): ProductFeedRule {
     return this.createEdge(
       '/rules',
       fields,
-      params
-
+      params,
+      ProductFeedRule
     );
   }
 

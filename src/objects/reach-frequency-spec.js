@@ -28,11 +28,4 @@ export default class ReachFrequencySpec extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): ReachFrequencySpec {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

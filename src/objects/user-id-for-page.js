@@ -20,11 +20,4 @@ export default class UserIDForPage extends AbstractCrudObject {
       page: 'page'
     });
   }
-
-  get (fields, params): UserIDForPage {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

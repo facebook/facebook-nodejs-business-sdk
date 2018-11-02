@@ -25,11 +25,4 @@ export default class DACheck extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): DACheck {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

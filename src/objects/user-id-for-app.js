@@ -20,11 +20,4 @@ export default class UserIDForApp extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): UserIDForApp {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

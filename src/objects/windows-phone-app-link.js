@@ -22,11 +22,4 @@ export default class WindowsPhoneAppLink extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): WindowsPhoneAppLink {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

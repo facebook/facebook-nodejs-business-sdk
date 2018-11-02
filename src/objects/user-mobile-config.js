@@ -21,11 +21,4 @@ export default class UserMobileConfig extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): UserMobileConfig {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

@@ -20,11 +20,4 @@ export default class AdRecommendationData extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AdRecommendationData {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

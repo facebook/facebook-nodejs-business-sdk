@@ -24,11 +24,4 @@ export default class PageRestaurantSpecialties extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): PageRestaurantSpecialties {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

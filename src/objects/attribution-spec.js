@@ -21,11 +21,4 @@ export default class AttributionSpec extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AttributionSpec {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

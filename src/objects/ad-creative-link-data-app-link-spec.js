@@ -23,11 +23,4 @@ export default class AdCreativeLinkDataAppLinkSpec extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AdCreativeLinkDataAppLinkSpec {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

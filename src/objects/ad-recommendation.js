@@ -41,11 +41,4 @@ export default class AdRecommendation extends AbstractCrudObject {
       low: 'LOW'
     });
   }
-
-  get (fields, params): AdRecommendation {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

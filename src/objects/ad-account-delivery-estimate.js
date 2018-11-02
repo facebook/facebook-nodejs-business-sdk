@@ -52,11 +52,4 @@ export default class AdAccountDeliveryEstimate extends AbstractCrudObject {
       derived_events: 'DERIVED_EVENTS'
     });
   }
-
-  get (fields, params): AdAccountDeliveryEstimate {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

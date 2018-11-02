@@ -29,11 +29,4 @@ export default class LiveVideoAdBreakConfig extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): LiveVideoAdBreakConfig {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

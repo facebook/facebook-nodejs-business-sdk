@@ -21,11 +21,4 @@ export default class AdAsyncRequestSetNotificationResult extends AbstractCrudObj
       id: 'id'
     });
   }
-
-  get (fields, params): AdAsyncRequestSetNotificationResult {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

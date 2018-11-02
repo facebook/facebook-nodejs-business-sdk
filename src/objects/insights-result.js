@@ -63,11 +63,4 @@ export default class InsightsResult extends AbstractCrudObject {
       lifetime: 'lifetime'
     });
   }
-
-  get (fields, params): InsightsResult {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

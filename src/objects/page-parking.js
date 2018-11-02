@@ -22,11 +22,4 @@ export default class PageParking extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): PageParking {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

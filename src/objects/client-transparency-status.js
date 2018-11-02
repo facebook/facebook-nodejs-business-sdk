@@ -23,11 +23,4 @@ export default class ClientTransparencyStatus extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): ClientTransparencyStatus {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

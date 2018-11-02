@@ -21,11 +21,4 @@ export default class PageSettings extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): PageSettings {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

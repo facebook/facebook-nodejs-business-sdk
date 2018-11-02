@@ -21,11 +21,4 @@ export default class TargetingSentenceLine extends AbstractCrudObject {
       targetingsentencelines: 'targetingsentencelines'
     });
   }
-
-  get (fields, params): TargetingSentenceLine {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

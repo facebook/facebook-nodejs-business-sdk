@@ -20,11 +20,4 @@ export default class AdCreativePortraitCustomizations extends AbstractCrudObject
       id: 'id'
     });
   }
-
-  get (fields, params): AdCreativePortraitCustomizations {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

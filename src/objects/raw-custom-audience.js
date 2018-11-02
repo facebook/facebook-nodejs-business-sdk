@@ -20,11 +20,4 @@ export default class RawCustomAudience extends AbstractCrudObject {
       name: 'name'
     });
   }
-
-  get (fields, params): RawCustomAudience {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

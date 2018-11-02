@@ -22,11 +22,4 @@ export default class ExternalEventSourcePixelHelperDebuggingInfo extends Abstrac
       id: 'id'
     });
   }
-
-  get (fields, params): ExternalEventSourcePixelHelperDebuggingInfo {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

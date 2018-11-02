@@ -22,11 +22,4 @@ export default class AdBidAdjustments extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AdBidAdjustments {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

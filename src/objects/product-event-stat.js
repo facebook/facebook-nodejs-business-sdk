@@ -61,11 +61,4 @@ export default class ProductEventStat extends AbstractCrudObject {
       device_type: 'DEVICE_TYPE'
     });
   }
-
-  get (fields, params): ProductEventStat {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

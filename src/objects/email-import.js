@@ -21,11 +21,4 @@ export default class EmailImport extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): EmailImport {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

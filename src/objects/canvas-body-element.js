@@ -20,11 +20,4 @@ export default class CanvasBodyElement extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): CanvasBodyElement {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

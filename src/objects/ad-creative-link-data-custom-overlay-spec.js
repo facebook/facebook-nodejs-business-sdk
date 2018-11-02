@@ -93,11 +93,4 @@ export default class AdCreativeLinkDataCustomOverlaySpec extends AbstractCrudObj
       text_000000: 'text_000000'
     });
   }
-
-  get (fields, params): AdCreativeLinkDataCustomOverlaySpec {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

@@ -20,11 +20,4 @@ export default class CustomAudienceCapabilities extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): CustomAudienceCapabilities {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

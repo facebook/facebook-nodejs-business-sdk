@@ -47,11 +47,4 @@ export default class FlexibleTargeting extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): FlexibleTargeting {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

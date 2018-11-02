@@ -26,11 +26,4 @@ export default class Engagement extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): Engagement {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

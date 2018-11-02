@@ -21,11 +21,4 @@ export default class AdgroupMetadata extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AdgroupMetadata {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

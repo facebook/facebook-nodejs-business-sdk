@@ -35,11 +35,4 @@ export default class MerchantReport extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): MerchantReport {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

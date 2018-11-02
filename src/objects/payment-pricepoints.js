@@ -20,11 +20,4 @@ export default class PaymentPricepoints extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): PaymentPricepoints {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

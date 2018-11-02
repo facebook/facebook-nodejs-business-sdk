@@ -26,11 +26,4 @@ export default class AdAccountContextualTargeting extends AbstractCrudObject {
       type: 'type'
     });
   }
-
-  get (fields, params): AdAccountContextualTargeting {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

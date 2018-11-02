@@ -25,11 +25,4 @@ export default class AdAssetFeedSpecLinkURL extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AdAssetFeedSpecLinkURL {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

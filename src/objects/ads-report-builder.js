@@ -21,11 +21,4 @@ export default class AdsReportBuilder extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AdsReportBuilder {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

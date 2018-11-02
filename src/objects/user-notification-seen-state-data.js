@@ -20,11 +20,4 @@ export default class UserNotificationSeenStateData extends AbstractCrudObject {
       seen_state: 'seen_state'
     });
   }
-
-  get (fields, params): UserNotificationSeenStateData {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

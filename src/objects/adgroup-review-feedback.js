@@ -21,11 +21,4 @@ export default class AdgroupReviewFeedback extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AdgroupReviewFeedback {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

@@ -22,11 +22,4 @@ export default class InstantArticleCTA extends AbstractCrudObject {
       update_time: 'update_time'
     });
   }
-
-  get (fields, params): InstantArticleCTA {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

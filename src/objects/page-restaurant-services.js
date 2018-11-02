@@ -29,11 +29,4 @@ export default class PageRestaurantServices extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): PageRestaurantServices {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

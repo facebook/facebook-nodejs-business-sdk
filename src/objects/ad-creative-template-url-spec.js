@@ -26,11 +26,4 @@ export default class AdCreativeTemplateURLSpec extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AdCreativeTemplateURLSpec {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

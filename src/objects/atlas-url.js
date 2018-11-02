@@ -20,11 +20,4 @@ export default class AtlasURL extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AtlasURL {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

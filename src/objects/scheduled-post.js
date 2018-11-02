@@ -34,11 +34,4 @@ export default class ScheduledPost extends AbstractCrudObject {
       video_id: 'video_id'
     });
   }
-
-  get (fields, params): ScheduledPost {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

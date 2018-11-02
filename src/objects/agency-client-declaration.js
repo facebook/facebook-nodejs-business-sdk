@@ -31,11 +31,4 @@ export default class AgencyClientDeclaration extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AgencyClientDeclaration {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

@@ -21,11 +21,4 @@ export default class ProductCatalogFacets extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): ProductCatalogFacets {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

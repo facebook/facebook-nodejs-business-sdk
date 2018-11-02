@@ -22,11 +22,4 @@ export default class AdsOptimalDeliveryGrowthOpportunity extends AbstractCrudObj
       id: 'id'
     });
   }
-
-  get (fields, params): AdsOptimalDeliveryGrowthOpportunity {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

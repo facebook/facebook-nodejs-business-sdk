@@ -22,11 +22,4 @@ export default class BusinessAdvertisableApplicationsResult extends AbstractCrud
       photo_url: 'photo_url'
     });
   }
-
-  get (fields, params): BusinessAdvertisableApplicationsResult {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

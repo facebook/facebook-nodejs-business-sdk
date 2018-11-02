@@ -61,11 +61,4 @@ export default class AdContract extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AdContract {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

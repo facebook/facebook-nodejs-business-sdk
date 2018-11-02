@@ -24,11 +24,4 @@ export default class TimezoneOffset extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): TimezoneOffset {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

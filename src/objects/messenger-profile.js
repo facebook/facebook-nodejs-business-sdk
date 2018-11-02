@@ -27,11 +27,4 @@ export default class MessengerProfile extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): MessengerProfile {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

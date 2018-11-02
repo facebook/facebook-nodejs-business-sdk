@@ -21,11 +21,4 @@ export default class VideoCopyrightGeoGate extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): VideoCopyrightGeoGate {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

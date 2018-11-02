@@ -25,11 +25,4 @@ export default class AdCreativeStaticFallbackSpec extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AdCreativeStaticFallbackSpec {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

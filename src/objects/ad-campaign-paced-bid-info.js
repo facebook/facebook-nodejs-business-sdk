@@ -20,11 +20,4 @@ export default class AdCampaignPacedBidInfo extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AdCampaignPacedBidInfo {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

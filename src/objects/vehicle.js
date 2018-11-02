@@ -25,6 +25,7 @@ export default class Vehicle extends AbstractCrudObject {
       custom_label_0: 'custom_label_0',
       date_first_on_lot: 'date_first_on_lot',
       dealer_communication_channel: 'dealer_communication_channel',
+      dealer_email: 'dealer_email',
       dealer_id: 'dealer_id',
       dealer_name: 'dealer_name',
       dealer_phone: 'dealer_phone',

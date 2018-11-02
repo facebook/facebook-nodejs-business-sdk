@@ -26,11 +26,4 @@ export default class AdCreativePhotoData extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AdCreativePhotoData {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

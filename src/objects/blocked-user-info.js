@@ -23,11 +23,4 @@ export default class BlockedUserInfo extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): BlockedUserInfo {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

@@ -29,11 +29,4 @@ export default class AdRuleEvaluationSpec extends AbstractCrudObject {
       trigger: 'TRIGGER'
     });
   }
-
-  get (fields, params): AdRuleEvaluationSpec {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

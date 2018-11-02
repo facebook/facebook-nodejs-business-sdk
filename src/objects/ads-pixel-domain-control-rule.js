@@ -21,11 +21,4 @@ export default class AdsPixelDomainControlRule extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AdsPixelDomainControlRule {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

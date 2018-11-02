@@ -31,11 +31,4 @@ export default class AdCreativeLinkDataChildAttachment extends AbstractCrudObjec
       id: 'id'
     });
   }
-
-  get (fields, params): AdCreativeLinkDataChildAttachment {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

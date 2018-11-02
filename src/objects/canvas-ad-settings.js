@@ -26,11 +26,4 @@ export default class CanvasAdSettings extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): CanvasAdSettings {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

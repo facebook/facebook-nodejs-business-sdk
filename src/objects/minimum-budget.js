@@ -24,11 +24,4 @@ export default class MinimumBudget extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): MinimumBudget {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

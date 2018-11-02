@@ -23,11 +23,4 @@ export default class DynamicItemQualityIssue extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): DynamicItemQualityIssue {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

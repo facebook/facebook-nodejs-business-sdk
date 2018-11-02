@@ -34,11 +34,4 @@ export default class DraftPost extends AbstractCrudObject {
       video_id: 'video_id'
     });
   }
-
-  get (fields, params): DraftPost {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

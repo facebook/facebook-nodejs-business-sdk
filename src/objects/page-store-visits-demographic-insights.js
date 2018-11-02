@@ -23,11 +23,4 @@ export default class PageStoreVisitsDemographicInsights extends AbstractCrudObje
       id: 'id'
     });
   }
-
-  get (fields, params): PageStoreVisitsDemographicInsights {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

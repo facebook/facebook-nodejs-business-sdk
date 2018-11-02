@@ -23,6 +23,7 @@ import BusinessSettingLogsData from './business-setting-logs-data';
 import PageCallToAction from './page-call-to-action';
 import CanvasBodyElement from './canvas-body-element';
 import Canvas from './canvas';
+import URL from './url';
 import UnifiedThread from './unified-thread';
 import PageUserMessageThreadLabel from './page-user-message-thread-label';
 import Event from './event';
@@ -32,6 +33,7 @@ import PagePost from './page-post';
 import VideoCopyright from './video-copyright';
 import InsightsResult from './insights-result';
 import PageInsightsAsyncExportRun from './page-insights-async-export-run';
+import InstagramUser from './instagram-user';
 import InstantArticle from './instant-article';
 import InstantArticleInsightsQueryResult from './instant-article-insights-query-result';
 import PageLabel from './page-label';
@@ -42,6 +44,7 @@ import LeadgenForm from './leadgen-form';
 import LeadGenLegalContent from './lead-gen-legal-content';
 import LeadGenQualifier from './lead-gen-qualifier';
 import Link from './link';
+import LiveEncoder from './live-encoder';
 import LiveVideo from './live-video';
 import MediaFingerprint from './media-fingerprint';
 import MessagingFeatureReview from './messaging-feature-review';
@@ -189,6 +192,7 @@ export default class Page extends AbstractCrudObject {
       preferred_audience: 'preferred_audience',
       press_contact: 'press_contact',
       price_range: 'price_range',
+      privacy_info_url: 'privacy_info_url',
       produced_by: 'produced_by',
       products: 'products',
       promotion_eligible: 'promotion_eligible',
@@ -486,6 +490,21 @@ export default class Page extends AbstractCrudObject {
     return Object.freeze({
       add: 'ADD',
       remove: 'REMOVE'
+    });
+  }
+  static get SettingType (): Object {
+    return Object.freeze({
+      account_linking: 'ACCOUNT_LINKING',
+      call_to_actions: 'CALL_TO_ACTIONS',
+      greeting: 'GREETING',
+      domain_whitelisting: 'DOMAIN_WHITELISTING',
+      payment: 'PAYMENT'
+    });
+  }
+  static get ThreadState (): Object {
+    return Object.freeze({
+      new_thread: 'NEW_THREAD',
+      existing_thread: 'EXISTING_THREAD'
     });
   }
 
@@ -809,6 +828,25 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
+  getClaimedUrls (fields, params, fetchFirstPage = true): URL {
+    return this.getEdge(
+      URL,
+      fields,
+      params,
+      fetchFirstPage,
+      '/claimed_urls'
+    );
+  }
+
+  createClaimedUrl (fields, params): Page {
+    return this.createEdge(
+      '/claimed_urls',
+      fields,
+      params,
+      Page
+    );
+  }
+
   getConversations (fields, params, fetchFirstPage = true): UnifiedThread {
     return this.getEdge(
       UnifiedThread,
@@ -1036,6 +1074,16 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
+  getInstagramAccounts (fields, params, fetchFirstPage = true): InstagramUser {
+    return this.getEdge(
+      InstagramUser,
+      fields,
+      params,
+      fetchFirstPage,
+      '/instagram_accounts'
+    );
+  }
+
   getInstantArticles (fields, params, fetchFirstPage = true): InstantArticle {
     return this.getEdge(
       InstantArticle,
@@ -1119,15 +1167,6 @@ export default class Page extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/leadgen_context_cards'
-    );
-  }
-
-  createLeadGenContextCard (fields, params): LeadGenContextCard {
-    return this.createEdge(
-      '/leadgen_context_cards',
-      fields,
-      params,
-      LeadGenContextCard
     );
   }
 
@@ -1249,6 +1288,25 @@ export default class Page extends AbstractCrudObject {
       fields,
       params,
       Link
+    );
+  }
+
+  getLiveEncoders (fields, params, fetchFirstPage = true): LiveEncoder {
+    return this.getEdge(
+      LiveEncoder,
+      fields,
+      params,
+      fetchFirstPage,
+      '/live_encoders'
+    );
+  }
+
+  createLiveEncoder (fields, params): LiveEncoder {
+    return this.createEdge(
+      '/live_encoders',
+      fields,
+      params,
+      LiveEncoder
     );
   }
 
@@ -1483,12 +1541,22 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createPageBackedInstagramAccount (fields, params): AbstractObject {
+  getPageBackedInstagramAccounts (fields, params, fetchFirstPage = true): InstagramUser {
+    return this.getEdge(
+      InstagramUser,
+      fields,
+      params,
+      fetchFirstPage,
+      '/page_backed_instagram_accounts'
+    );
+  }
+
+  createPageBackedInstagramAccount (fields, params): InstagramUser {
     return this.createEdge(
       '/page_backed_instagram_accounts',
       fields,
-      params
-
+      params,
+      InstagramUser
     );
   }
 

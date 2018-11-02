@@ -40,11 +40,4 @@ export default class ProductDaEventSamplesBatch extends AbstractCrudObject {
       addtowishlist: 'AddToWishlist'
     });
   }
-
-  get (fields, params): ProductDaEventSamplesBatch {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

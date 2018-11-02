@@ -37,11 +37,4 @@ export default class ProfilePictureSource extends AbstractCrudObject {
       album: 'album'
     });
   }
-
-  get (fields, params): ProfilePictureSource {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

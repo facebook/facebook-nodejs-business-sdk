@@ -30,11 +30,4 @@ export default class AdCreativeLinkDataCallToActionValue extends AbstractCrudObj
       id: 'id'
     });
   }
-
-  get (fields, params): AdCreativeLinkDataCallToActionValue {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

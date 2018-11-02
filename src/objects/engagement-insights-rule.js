@@ -23,11 +23,4 @@ export default class EngagementInsightsRule extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): EngagementInsightsRule {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

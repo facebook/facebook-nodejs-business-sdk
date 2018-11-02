@@ -21,11 +21,4 @@ export default class AdsTALHealthCheckError extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AdsTALHealthCheckError {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

@@ -38,11 +38,4 @@ export default class AsyncRequest extends AbstractCrudObject {
       async_adgroup_creation: 'ASYNC_ADGROUP_CREATION'
     });
   }
-
-  get (fields, params): AsyncRequest {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

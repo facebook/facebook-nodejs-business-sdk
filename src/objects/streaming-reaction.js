@@ -35,11 +35,4 @@ export default class StreamingReaction extends AbstractCrudObject {
       pride: 'PRIDE'
     });
   }
-
-  get (fields, params): StreamingReaction {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

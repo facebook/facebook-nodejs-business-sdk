@@ -48,11 +48,4 @@ export default class AdAccountRoas extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AdAccountRoas {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

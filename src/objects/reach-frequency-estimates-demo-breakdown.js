@@ -21,11 +21,4 @@ export default class ReachFrequencyEstimatesDemoBreakdown extends AbstractCrudOb
       id: 'id'
     });
   }
-
-  get (fields, params): ReachFrequencyEstimatesDemoBreakdown {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

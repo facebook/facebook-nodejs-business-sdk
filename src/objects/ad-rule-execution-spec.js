@@ -34,11 +34,4 @@ export default class AdRuleExecutionSpec extends AbstractCrudObject {
       unpause: 'UNPAUSE'
     });
   }
-
-  get (fields, params): AdRuleExecutionSpec {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

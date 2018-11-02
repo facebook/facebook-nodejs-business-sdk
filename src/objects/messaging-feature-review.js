@@ -21,11 +21,4 @@ export default class MessagingFeatureReview extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): MessagingFeatureReview {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

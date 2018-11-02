@@ -31,11 +31,4 @@ export default class ReachFrequencyActivity extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): ReachFrequencyActivity {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

@@ -48,11 +48,4 @@ export default class ProductFeedSchedule extends AbstractCrudObject {
       monthly: 'MONTHLY'
     });
   }
-
-  get (fields, params): ProductFeedSchedule {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

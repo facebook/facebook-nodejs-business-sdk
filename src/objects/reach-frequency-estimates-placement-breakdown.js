@@ -31,11 +31,4 @@ export default class ReachFrequencyEstimatesPlacementBreakdown extends AbstractC
       id: 'id'
     });
   }
-
-  get (fields, params): ReachFrequencyEstimatesPlacementBreakdown {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

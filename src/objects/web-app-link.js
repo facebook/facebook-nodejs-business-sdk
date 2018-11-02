@@ -21,11 +21,4 @@ export default class WebAppLink extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): WebAppLink {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

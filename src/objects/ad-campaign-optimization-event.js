@@ -22,11 +22,4 @@ export default class AdCampaignOptimizationEvent extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): AdCampaignOptimizationEvent {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

@@ -21,11 +21,4 @@ export default class CommerceSettings extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): CommerceSettings {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

@@ -74,11 +74,4 @@ export default class AdCreativeLinkDataCallToAction extends AbstractCrudObject {
       follow_news_storyline: 'FOLLOW_NEWS_STORYLINE'
     });
   }
-
-  get (fields, params): AdCreativeLinkDataCallToAction {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

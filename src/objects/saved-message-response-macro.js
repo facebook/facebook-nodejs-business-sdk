@@ -22,11 +22,4 @@ export default class SavedMessageResponseMacro extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): SavedMessageResponseMacro {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

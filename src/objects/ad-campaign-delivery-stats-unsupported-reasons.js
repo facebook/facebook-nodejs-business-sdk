@@ -21,11 +21,4 @@ export default class AdCampaignDeliveryStatsUnsupportedReasons extends AbstractC
       id: 'id'
     });
   }
-
-  get (fields, params): AdCampaignDeliveryStatsUnsupportedReasons {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

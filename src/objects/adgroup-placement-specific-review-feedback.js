@@ -42,11 +42,4 @@ export default class AdgroupPlacementSpecificReviewFeedback extends AbstractCrud
       id: 'id'
     });
   }
-
-  get (fields, params): AdgroupPlacementSpecificReviewFeedback {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

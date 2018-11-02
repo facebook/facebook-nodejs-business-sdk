@@ -21,11 +21,4 @@ export default class TopicDiscoveryResponse extends AbstractCrudObject {
       id: 'id'
     });
   }
-
-  get (fields, params): TopicDiscoveryResponse {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

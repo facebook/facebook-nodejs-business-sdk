@@ -22,11 +22,4 @@ export default class AdCreativeLinkDataTemplateVideoSpec extends AbstractCrudObj
       id: 'id'
     });
   }
-
-  get (fields, params): AdCreativeLinkDataTemplateVideoSpec {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

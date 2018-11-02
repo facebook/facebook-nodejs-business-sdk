@@ -46,11 +46,4 @@ export default class InstantArticleInsightsQueryResult extends AbstractCrudObjec
       lifetime: 'lifetime'
     });
   }
-
-  get (fields, params): InstantArticleInsightsQueryResult {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }
