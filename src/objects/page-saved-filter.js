@@ -29,7 +29,6 @@ export default class PageSavedFilter extends AbstractCrudObject {
 
   static get Section (): Object {
     return Object.freeze({
-      audience_alerts: 'AUDIENCE_ALERTS',
       candidate_videos: 'CANDIDATE_VIDEOS',
       chex_pending_orders: 'CHEX_PENDING_ORDERS',
       chex_completed_orders: 'CHEX_COMPLETED_ORDERS',

@@ -22,7 +22,6 @@ export default class AdCreative extends AbstractCrudObject {
       actor_id: 'actor_id',
       adlabels: 'adlabels',
       applink_treatment: 'applink_treatment',
-      asset_feed_id: 'asset_feed_id',
       asset_feed_spec: 'asset_feed_spec',
       authorization_category: 'authorization_category',
       auto_update: 'auto_update',
@@ -60,6 +59,7 @@ export default class AdCreative extends AbstractCrudObject {
       place_page_set_id: 'place_page_set_id',
       platform_customizations: 'platform_customizations',
       playable_asset_id: 'playable_asset_id',
+      portrait_customizations: 'portrait_customizations',
       product_set_id: 'product_set_id',
       recommender_settings: 'recommender_settings',
       status: 'status',
@@ -129,7 +129,8 @@ export default class AdCreative extends AbstractCrudObject {
       woodhenge_support: 'WOODHENGE_SUPPORT',
       event_rsvp: 'EVENT_RSVP',
       whatsapp_message: 'WHATSAPP_MESSAGE',
-      follow_news_storyline: 'FOLLOW_NEWS_STORYLINE'
+      follow_news_storyline: 'FOLLOW_NEWS_STORYLINE',
+      see_more: 'SEE_MORE'
     });
   }
   static get ObjectType (): Object {

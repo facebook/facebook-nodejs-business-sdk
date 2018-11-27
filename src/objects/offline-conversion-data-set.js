@@ -22,7 +22,6 @@ import DACheck from './da-check';
 export default class OfflineConversionDataSet extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      attribute_stats: 'attribute_stats',
       business: 'business',
       config: 'config',
       creation_time: 'creation_time',
@@ -40,7 +39,6 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
       last_upload_app_changed_time: 'last_upload_app_changed_time',
       match_rate_approx: 'match_rate_approx',
       matched_entries: 'matched_entries',
-      matched_unique_users: 'matched_unique_users',
       name: 'name',
       usage: 'usage',
       valid_entries: 'valid_entries'
@@ -228,6 +226,22 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
   createUserPermission (fields, params): OfflineConversionDataSet {
     return this.createEdge(
       '/userpermissions',
+      fields,
+      params,
+      OfflineConversionDataSet
+    );
+  }
+
+  deleteUsers (params): AbstractObject {
+    return super.deleteEdge(
+      '/users',
+      params
+    );
+  }
+
+  createUser (fields, params): OfflineConversionDataSet {
+    return this.createEdge(
+      '/users',
       fields,
       params,
       OfflineConversionDataSet

@@ -51,6 +51,14 @@ export default class LeadgenForm extends AbstractCrudObject {
     });
   }
 
+  static get Status (): Object {
+    return Object.freeze({
+      active: 'ACTIVE',
+      archived: 'ARCHIVED',
+      deleted: 'DELETED',
+      draft: 'DRAFT'
+    });
+  }
   static get Locale (): Object {
     return Object.freeze({
       en_us: 'EN_US',
@@ -84,14 +92,6 @@ export default class LeadgenForm extends AbstractCrudObject {
       th_th: 'TH_TH',
       vi_vn: 'VI_VN',
       zh_cn: 'ZH_CN'
-    });
-  }
-  static get Status (): Object {
-    return Object.freeze({
-      active: 'ACTIVE',
-      archived: 'ARCHIVED',
-      deleted: 'DELETED',
-      draft: 'DRAFT'
     });
   }
 

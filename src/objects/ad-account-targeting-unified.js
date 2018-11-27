@@ -151,7 +151,8 @@ export default class AdAccountTargetingUnified extends AbstractCrudObject {
       marketplace_product_categories: 'marketplace_product_categories',
       instream_video_sponsorship_placements: 'instream_video_sponsorship_placements',
       prospecting_audience: 'prospecting_audience',
-      brand_safety_content_severity_levels: 'brand_safety_content_severity_levels'
+      brand_safety_content_severity_levels: 'brand_safety_content_severity_levels',
+      catalog_based_targeting: 'catalog_based_targeting'
     });
   }
   static get WhitelistedTypes (): Object {
@@ -264,7 +265,8 @@ export default class AdAccountTargetingUnified extends AbstractCrudObject {
       marketplace_product_categories: 'marketplace_product_categories',
       instream_video_sponsorship_placements: 'instream_video_sponsorship_placements',
       prospecting_audience: 'prospecting_audience',
-      brand_safety_content_severity_levels: 'brand_safety_content_severity_levels'
+      brand_safety_content_severity_levels: 'brand_safety_content_severity_levels',
+      catalog_based_targeting: 'catalog_based_targeting'
     });
   }
   static get Mode (): Object {

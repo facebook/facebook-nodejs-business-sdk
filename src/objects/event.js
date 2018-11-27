@@ -25,7 +25,6 @@ export default class Event extends AbstractCrudObject {
     return Object.freeze({
       attending_count: 'attending_count',
       can_guests_invite: 'can_guests_invite',
-      can_viewer_post: 'can_viewer_post',
       category: 'category',
       cover: 'cover',
       declined_count: 'declined_count',
@@ -36,19 +35,15 @@ export default class Event extends AbstractCrudObject {
       guest_list_enabled: 'guest_list_enabled',
       id: 'id',
       interested_count: 'interested_count',
-      invited_count: 'invited_count',
       is_canceled: 'is_canceled',
-      is_date_only: 'is_date_only',
       is_draft: 'is_draft',
       is_page_owned: 'is_page_owned',
-      location: 'location',
       maybe_count: 'maybe_count',
       name: 'name',
       noreply_count: 'noreply_count',
       owner: 'owner',
       parent_group: 'parent_group',
       place: 'place',
-      privacy: 'privacy',
       scheduled_publish_time: 'scheduled_publish_time',
       start_time: 'start_time',
       ticket_uri: 'ticket_uri',
@@ -57,8 +52,7 @@ export default class Event extends AbstractCrudObject {
       ticketing_terms_uri: 'ticketing_terms_uri',
       timezone: 'timezone',
       type: 'type',
-      updated_time: 'updated_time',
-      venue: 'venue'
+      updated_time: 'updated_time'
     });
   }
 
@@ -68,6 +62,40 @@ export default class Event extends AbstractCrudObject {
       public: 'public',
       group: 'group',
       community: 'community'
+    });
+  }
+  static get Projection (): Object {
+    return Object.freeze({
+      equirectangular: 'EQUIRECTANGULAR',
+      cubemap: 'CUBEMAP',
+      half_equirectangular: 'HALF_EQUIRECTANGULAR'
+    });
+  }
+  static get SpatialAudioFormat (): Object {
+    return Object.freeze({
+      ambix_4: 'ambiX_4'
+    });
+  }
+  static get Status (): Object {
+    return Object.freeze({
+      unpublished: 'UNPUBLISHED',
+      live_now: 'LIVE_NOW',
+      scheduled_unpublished: 'SCHEDULED_UNPUBLISHED',
+      scheduled_live: 'SCHEDULED_LIVE',
+      scheduled_canceled: 'SCHEDULED_CANCELED'
+    });
+  }
+  static get StereoscopicMode (): Object {
+    return Object.freeze({
+      mono: 'MONO',
+      left_right: 'LEFT_RIGHT',
+      top_bottom: 'TOP_BOTTOM'
+    });
+  }
+  static get StreamType (): Object {
+    return Object.freeze({
+      regular: 'REGULAR',
+      ambient: 'AMBIENT'
     });
   }
   static get EventStateFilter (): Object {
@@ -198,12 +226,12 @@ export default class Event extends AbstractCrudObject {
     );
   }
 
-  createLiveVideo (fields, params): AbstractObject {
+  createLiveVideo (fields, params): Event {
     return this.createEdge(
       '/live_videos',
       fields,
-      params
-
+      params,
+      Event
     );
   }
 

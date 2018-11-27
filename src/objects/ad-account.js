@@ -10,7 +10,6 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import AdActivity from './ad-activity';
 import AdStudy from './ad-study';
-import AdAssetFeed from './ad-asset-feed';
 import AdContract from './ad-contract';
 import AdCreative from './ad-creative';
 import AdImage from './ad-image';
@@ -36,8 +35,8 @@ import BrandAudience from './brand-audience';
 import BroadTargetingCategories from './broad-targeting-categories';
 import BusinessActivityLogEvent from './business-activity-log-event';
 import BusinessProject from './business-project';
+import BusinessSettingLogsData from './business-setting-logs-data';
 import AdAccountContextualTargeting from './ad-account-contextual-targeting';
-import AdAccountCustomAudienceLimits from './ad-account-custom-audience-limits';
 import CustomAudience from './custom-audience';
 import CustomAudiencesTOS from './custom-audiences-tos';
 import CustomConversion from './custom-conversion';
@@ -67,7 +66,6 @@ import AdAccountTargetingUnified from './ad-account-targeting-unified';
 import TargetingSentenceLine from './targeting-sentence-line';
 import TimezoneOffset from './timezone-offset';
 import AdAccountTrackingData from './ad-account-tracking-data';
-import AdAccountUserPermissions from './ad-account-user-permissions';
 import AdAccountUser from './ad-account-user';
 
 /**
@@ -99,7 +97,6 @@ export default class AdAccount extends AbstractCrudObject {
       capabilities: 'capabilities',
       created_time: 'created_time',
       currency: 'currency',
-      daily_spend_limit: 'daily_spend_limit',
       direct_deals_tos_accepted: 'direct_deals_tos_accepted',
       disable_reason: 'disable_reason',
       end_advertiser: 'end_advertiser',
@@ -128,7 +125,6 @@ export default class AdAccount extends AbstractCrudObject {
       offsite_pixels_tos_accepted: 'offsite_pixels_tos_accepted',
       owner: 'owner',
       partner: 'partner',
-      rate_limit_reset_time: 'rate_limit_reset_time',
       rf_spec: 'rf_spec',
       show_checkout_experience: 'show_checkout_experience',
       spend_cap: 'spend_cap',
@@ -279,22 +275,12 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getAdAssetFeeds (fields, params, fetchFirstPage = true): AdAssetFeed {
-    return this.getEdge(
-      AdAssetFeed,
-      fields,
-      params,
-      fetchFirstPage,
-      '/adasset_feeds'
-    );
-  }
-
-  createAdAssetFeed (fields, params): AdAssetFeed {
+  createAdAssetFeed (fields, params): AbstractObject {
     return this.createEdge(
       '/adasset_feeds',
       fields,
-      params,
-      AdAssetFeed
+      params
+
     );
   }
 
@@ -391,22 +377,12 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getAdLanguageAssets (fields, params, fetchFirstPage = true): AdAssetFeed {
-    return this.getEdge(
-      AdAssetFeed,
-      fields,
-      params,
-      fetchFirstPage,
-      '/adlanguage_assets'
-    );
-  }
-
-  createAdLanguageAsset (fields, params): AdAssetFeed {
+  createAdLanguageAsset (fields, params): AbstractObject {
     return this.createEdge(
       '/adlanguage_assets',
       fields,
-      params,
-      AdAssetFeed
+      params
+
     );
   }
 
@@ -838,6 +814,16 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
+  getBusinessSettingLogs (fields, params, fetchFirstPage = true): BusinessSettingLogsData {
+    return this.getEdge(
+      BusinessSettingLogsData,
+      fields,
+      params,
+      fetchFirstPage,
+      '/businesssettinglogs'
+    );
+  }
+
   deleteCampaigns (params): AbstractObject {
     return super.deleteEdge(
       '/campaigns',
@@ -890,16 +876,6 @@ export default class AdAccount extends AbstractCrudObject {
       fields,
       params,
       AdAccount
-    );
-  }
-
-  getCustomAudienceLimits (fields, params, fetchFirstPage = true): AdAccountCustomAudienceLimits {
-    return this.getEdge(
-      AdAccountCustomAudienceLimits,
-      fields,
-      params,
-      fetchFirstPage,
-      '/custom_audience_limits'
     );
   }
 
@@ -1404,14 +1380,14 @@ export default class AdAccount extends AbstractCrudObject {
 
   deleteUserMatch (params): AbstractObject {
     return super.deleteEdge(
-      '/user_match',
+      '/usermatch',
       params
     );
   }
 
   createUserMatch (fields, params): AbstractObject {
     return this.createEdge(
-      '/user_match',
+      '/usermatch',
       fields,
       params
 
@@ -1422,16 +1398,6 @@ export default class AdAccount extends AbstractCrudObject {
     return super.deleteEdge(
       '/userpermissions',
       params
-    );
-  }
-
-  getUserPermissions (fields, params, fetchFirstPage = true): AdAccountUserPermissions {
-    return this.getEdge(
-      AdAccountUserPermissions,
-      fields,
-      params,
-      fetchFirstPage,
-      '/userpermissions'
     );
   }
 

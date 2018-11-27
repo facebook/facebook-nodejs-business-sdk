@@ -46,6 +46,7 @@ export default class ReachEstimate extends AbstractCrudObject {
       app_downloads: 'APP_DOWNLOADS',
       landing_page_views: 'LANDING_PAGE_VIEWS',
       value: 'VALUE',
+      thruplay: 'THRUPLAY',
       replies: 'REPLIES',
       derived_events: 'DERIVED_EVENTS'
     });

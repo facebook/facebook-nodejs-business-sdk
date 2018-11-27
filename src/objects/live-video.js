@@ -13,6 +13,7 @@ import Comment from './comment';
 import Page from './page';
 import LiveVideoError from './live-video-error';
 import VideoGameShow from './video-game-show';
+import LiveWithGuestSession from './live-with-guest-session';
 import Profile from './profile';
 import VideoPoll from './video-poll';
 
@@ -42,7 +43,6 @@ export default class LiveVideo extends AbstractCrudObject {
       live_views: 'live_views',
       permalink_url: 'permalink_url',
       planned_start_time: 'planned_start_time',
-      preview_url: 'preview_url',
       seconds_left: 'seconds_left',
       secure_stream_url: 'secure_stream_url',
       status: 'status',
@@ -179,6 +179,25 @@ export default class LiveVideo extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/game_shows'
+    );
+  }
+
+  getGuestSessions (fields, params, fetchFirstPage = true): LiveWithGuestSession {
+    return this.getEdge(
+      LiveWithGuestSession,
+      fields,
+      params,
+      fetchFirstPage,
+      '/guest_sessions'
+    );
+  }
+
+  createGuestSession (fields, params): LiveWithGuestSession {
+    return this.createEdge(
+      '/guest_sessions',
+      fields,
+      params,
+      LiveWithGuestSession
     );
   }
 

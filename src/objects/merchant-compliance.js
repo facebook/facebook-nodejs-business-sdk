@@ -9,15 +9,18 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * AdgroupMetadata
+ * MerchantCompliance
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class AdgroupMetadata extends AbstractCrudObject {
+export default class MerchantCompliance extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      carousel_style: 'carousel_style',
-      carousel_with_static_card_style: 'carousel_with_static_card_style',
+      a2c_p_disc: 'a2c_p_disc',
+      base_compliance_status: 'base_compliance_status',
+      non_null_id: 'non_null_id',
+      non_null_quantity: 'non_null_quantity',
+      vc_a2c_disc: 'vc_a2c_disc',
       id: 'id'
     });
   }

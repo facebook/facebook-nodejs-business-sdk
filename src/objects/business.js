@@ -16,7 +16,6 @@ import AdNetworkAnalyticsAsyncQueryResult from './ad-network-analytics-async-que
 import AdsPixel from './ads-pixel';
 import BusinessAdvertisableApplicationsResult from './business-advertisable-applications-result';
 import Page from './page';
-import BusinessActivityLogEvent from './business-activity-log-event';
 import OracleTransaction from './oracle-transaction';
 import BusinessUser from './business-user';
 import BusinessProject from './business-project';
@@ -395,16 +394,6 @@ export default class Business extends AbstractCrudObject {
       fields,
       params,
       Business
-    );
-  }
-
-  getBusinessActivities (fields, params, fetchFirstPage = true): BusinessActivityLogEvent {
-    return this.getEdge(
-      BusinessActivityLogEvent,
-      fields,
-      params,
-      fetchFirstPage,
-      '/business_activities'
     );
   }
 

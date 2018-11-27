@@ -21,7 +21,6 @@ export default class OffsitePixel extends AbstractCrudObject {
       js_pixel: 'js_pixel',
       last_firing_time: 'last_firing_time',
       name: 'name',
-      status: 'status',
       tag: 'tag'
     });
   }

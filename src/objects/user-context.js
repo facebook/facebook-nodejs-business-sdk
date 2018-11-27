@@ -7,8 +7,6 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import AbstractObject from './../abstract-object';
-import User from './user';
 import Page from './page';
 
 /**
@@ -23,26 +21,6 @@ export default class UserContext extends AbstractCrudObject {
     });
   }
 
-  getAllMutualFriends (fields, params, fetchFirstPage = true): AbstractObject {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/all_mutual_friends'
-    );
-  }
-
-  getMutualFriends (fields, params, fetchFirstPage = true): User {
-    return this.getEdge(
-      User,
-      fields,
-      params,
-      fetchFirstPage,
-      '/mutual_friends'
-    );
-  }
-
   getMutualLikes (fields, params, fetchFirstPage = true): Page {
     return this.getEdge(
       Page,
@@ -50,16 +28,6 @@ export default class UserContext extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/mutual_likes'
-    );
-  }
-
-  getThreeDegreeMutualFriends (fields, params, fetchFirstPage = true): AbstractObject {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/three_degree_mutual_friends'
     );
   }
 

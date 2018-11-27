@@ -41,7 +41,6 @@ export default class OpenGraphObject extends AbstractCrudObject {
       title: 'title',
       type: 'type',
       updated_time: 'updated_time',
-      url: 'url',
       video: 'video'
     });
   }

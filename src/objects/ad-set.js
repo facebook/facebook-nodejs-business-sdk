@@ -29,7 +29,6 @@ export default class AdSet extends AbstractCrudObject {
     return Object.freeze({
       account_id: 'account_id',
       ad_keywords: 'ad_keywords',
-      adasset_feed: 'adasset_feed',
       adlabels: 'adlabels',
       adset_schedule: 'adset_schedule',
       asset_feed_id: 'asset_feed_id',
@@ -53,19 +52,13 @@ export default class AdSet extends AbstractCrudObject {
       destination_type: 'destination_type',
       effective_status: 'effective_status',
       end_time: 'end_time',
-      frequency_cap: 'frequency_cap',
-      frequency_cap_reset_period: 'frequency_cap_reset_period',
       frequency_control_specs: 'frequency_control_specs',
       full_funnel_exploration_mode: 'full_funnel_exploration_mode',
       id: 'id',
       instagram_actor_id: 'instagram_actor_id',
-      is_autobid: 'is_autobid',
-      is_average_price_pacing: 'is_average_price_pacing',
       is_dynamic_creative: 'is_dynamic_creative',
-      is_dynamic_creative_optimization: 'is_dynamic_creative_optimization',
       issues_info: 'issues_info',
       lifetime_budget: 'lifetime_budget',
-      lifetime_frequency_cap: 'lifetime_frequency_cap',
       lifetime_imps: 'lifetime_imps',
       lifetime_min_spend_target: 'lifetime_min_spend_target',
       lifetime_spend_cap: 'lifetime_spend_cap',
@@ -77,7 +70,6 @@ export default class AdSet extends AbstractCrudObject {
       recurring_budget_semantics: 'recurring_budget_semantics',
       review_feedback: 'review_feedback',
       rf_prediction_id: 'rf_prediction_id',
-      rtb_flag: 'rtb_flag',
       source_adset: 'source_adset',
       source_adset_id: 'source_adset_id',
       start_time: 'start_time',
@@ -85,7 +77,6 @@ export default class AdSet extends AbstractCrudObject {
       targeting: 'targeting',
       time_based_ad_rotation_id_blocks: 'time_based_ad_rotation_id_blocks',
       time_based_ad_rotation_intervals: 'time_based_ad_rotation_intervals',
-      tracking_specs: 'tracking_specs',
       updated_time: 'updated_time',
       use_new_app_click: 'use_new_app_click'
     });
@@ -108,7 +99,8 @@ export default class AdSet extends AbstractCrudObject {
       offer_claims: 'OFFER_CLAIMS',
       page_likes: 'PAGE_LIKES',
       post_engagement: 'POST_ENGAGEMENT',
-      video_views: 'VIDEO_VIEWS'
+      video_views: 'VIDEO_VIEWS',
+      thruplay: 'THRUPLAY'
     });
   }
   static get ConfiguredStatus (): Object {
@@ -156,6 +148,7 @@ export default class AdSet extends AbstractCrudObject {
       app_downloads: 'APP_DOWNLOADS',
       landing_page_views: 'LANDING_PAGE_VIEWS',
       value: 'VALUE',
+      thruplay: 'THRUPLAY',
       replies: 'REPLIES',
       derived_events: 'DERIVED_EVENTS'
     });

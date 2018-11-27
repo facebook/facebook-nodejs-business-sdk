@@ -23,7 +23,6 @@ export default class ProfilePictureSource extends AbstractCrudObject {
       left: 'left',
       right: 'right',
       top: 'top',
-      uri: 'uri',
       url: 'url',
       width: 'width',
       id: 'id'

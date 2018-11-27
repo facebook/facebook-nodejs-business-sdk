@@ -9,23 +9,17 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * PublisherSpace
+ * PageLocationsHealthSummary
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class PublisherSpace extends AbstractCrudObject {
+export default class PageLocationsHealthSummary extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      id: 'id',
-      page: 'page',
-      sections: 'sections'
+      checked_count: 'checked_count',
+      health_check: 'health_check',
+      unhealthy_count: 'unhealthy_count',
+      id: 'id'
     });
-  }
-
-  get (fields, params): PublisherSpace {
-    return this.read(
-      fields,
-      params
-    );
   }
 }

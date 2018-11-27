@@ -19,11 +19,9 @@ export default class ProductFeedUploadError extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       affected_surfaces: 'affected_surfaces',
-      column_number: 'column_number',
       description: 'description',
       error_type: 'error_type',
       id: 'id',
-      row_number: 'row_number',
       severity: 'severity',
       summary: 'summary',
       total_count: 'total_count'

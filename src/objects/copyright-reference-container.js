@@ -22,11 +22,13 @@ export default class CopyrightReferenceContainer extends AbstractCrudObject {
       duration_in_sec: 'duration_in_sec',
       fingerprint_validity: 'fingerprint_validity',
       id: 'id',
+      iswc: 'iswc',
       metadata: 'metadata',
       published_time: 'published_time',
       thumbnail_url: 'thumbnail_url',
       title: 'title',
-      universal_content_id: 'universal_content_id'
+      universal_content_id: 'universal_content_id',
+      writer_names: 'writer_names'
     });
   }
 }

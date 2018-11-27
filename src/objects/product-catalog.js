@@ -47,8 +47,6 @@ export default class ProductCatalog extends AbstractCrudObject {
       feed_count: 'feed_count',
       flight_catalog_settings: 'flight_catalog_settings',
       id: 'id',
-      image_padding_landscape: 'image_padding_landscape',
-      image_padding_square: 'image_padding_square',
       name: 'name',
       product_count: 'product_count',
       qualified_product_count: 'qualified_product_count',
@@ -83,11 +81,10 @@ export default class ProductCatalog extends AbstractCrudObject {
       google: 'google'
     });
   }
-  static get ProductType (): Object {
+  static get ItemType (): Object {
     return Object.freeze({
       auto: 'AUTO',
       auto_market: 'AUTO_MARKET',
-      auto_offer: 'AUTO_OFFER',
       automotive_model: 'AUTOMOTIVE_MODEL',
       destination: 'DESTINATION',
       flight: 'FLIGHT',
@@ -246,6 +243,15 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
+  createDestination (fields, params): Destination {
+    return this.createEdge(
+      '/destinations',
+      fields,
+      params,
+      Destination
+    );
+  }
+
   getEventStats (fields, params, fetchFirstPage = true): ProductEventStat {
     return this.getEdge(
       ProductEventStat,
@@ -355,6 +361,15 @@ export default class ProductCatalog extends AbstractCrudObject {
       fields,
       params,
       Hotel
+    );
+  }
+
+  createItemsBatch (fields, params): ProductCatalog {
+    return this.createEdge(
+      '/items_batch',
+      fields,
+      params,
+      ProductCatalog
     );
   }
 
@@ -469,15 +484,6 @@ export default class ProductCatalog extends AbstractCrudObject {
       fields,
       params,
       ProductItem
-    );
-  }
-
-  createProductsBatch (fields, params): ProductCatalog {
-    return this.createEdge(
-      '/products_batch',
-      fields,
-      params,
-      ProductCatalog
     );
   }
 

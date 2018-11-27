@@ -83,7 +83,8 @@ export default class AdAssetFeedSpec extends AbstractCrudObject {
       woodhenge_support: 'WOODHENGE_SUPPORT',
       event_rsvp: 'EVENT_RSVP',
       whatsapp_message: 'WHATSAPP_MESSAGE',
-      follow_news_storyline: 'FOLLOW_NEWS_STORYLINE'
+      follow_news_storyline: 'FOLLOW_NEWS_STORYLINE',
+      see_more: 'SEE_MORE'
     });
   }
 }

@@ -25,6 +25,8 @@ export default class AutomotiveModel extends AbstractCrudObject {
       description: 'description',
       drivetrain: 'drivetrain',
       exterior_color: 'exterior_color',
+      finance_description: 'finance_description',
+      finance_type: 'finance_type',
       fuel_type: 'fuel_type',
       generation: 'generation',
       id: 'id',

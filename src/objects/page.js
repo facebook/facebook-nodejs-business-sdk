@@ -131,7 +131,6 @@ export default class Page extends AbstractCrudObject {
       general_manager: 'general_manager',
       genre: 'genre',
       global_brand_page_name: 'global_brand_page_name',
-      global_brand_parent_page: 'global_brand_parent_page',
       global_brand_root_id: 'global_brand_root_id',
       has_added_app: 'has_added_app',
       has_whatsapp_business_number: 'has_whatsapp_business_number',
@@ -198,7 +197,6 @@ export default class Page extends AbstractCrudObject {
       promotion_eligible: 'promotion_eligible',
       promotion_ineligible_reason: 'promotion_ineligible_reason',
       public_transit: 'public_transit',
-      publisher_space: 'publisher_space',
       rating_count: 'rating_count',
       recipient: 'recipient',
       record_label: 'record_label',
@@ -321,7 +319,8 @@ export default class Page extends AbstractCrudObject {
       create_new: 'CREATE_NEW',
       auto_lookalike: 'AUTO_LOOKALIKE',
       mult_custom_audiences: 'MULT_CUSTOM_AUDIENCES',
-      event_custom_audiences: 'EVENT_CUSTOM_AUDIENCES'
+      event_custom_audiences: 'EVENT_CUSTOM_AUDIENCES',
+      auto_page_lookalike: 'AUTO_PAGE_LOOKALIKE'
     });
   }
   static get PermittedTasks (): Object {
@@ -1218,15 +1217,6 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createLeadGenLegalContent (fields, params): LeadGenLegalContent {
-    return this.createEdge(
-      '/leadgen_legal_content',
-      fields,
-      params,
-      LeadGenLegalContent
-    );
-  }
-
   getLeadGenQualifiers (fields, params, fetchFirstPage = true): LeadGenQualifier {
     return this.getEdge(
       LeadGenQualifier,
@@ -1234,15 +1224,6 @@ export default class Page extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/leadgen_qualifiers'
-    );
-  }
-
-  createLeadGenThankYouPage (fields, params): AbstractObject {
-    return this.createEdge(
-      '/leadgen_thank_you_page',
-      fields,
-      params
-
     );
   }
 

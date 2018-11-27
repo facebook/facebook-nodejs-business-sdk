@@ -22,6 +22,7 @@ export default class LiveVideoInputStream extends AbstractCrudObject {
       is_master: 'is_master',
       live_encoder: 'live_encoder',
       secure_stream_url: 'secure_stream_url',
+      stream_health: 'stream_health',
       stream_id: 'stream_id',
       stream_url: 'stream_url'
     });
