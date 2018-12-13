@@ -192,7 +192,7 @@ export default class CustomAudience extends AbstractCrudObject {
     );
   }
 
-  getShareDAccountInfo (fields, params, fetchFirstPage = true): CustomAudiencesharedAccountInfo {
+  getSharedAccountInfo (fields, params, fetchFirstPage = true): CustomAudiencesharedAccountInfo {
     return this.getEdge(
       CustomAudiencesharedAccountInfo,
       fields,

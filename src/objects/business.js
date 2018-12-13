@@ -24,6 +24,7 @@ import BusinessProductCatalogTOS from './business-product-catalog-tos';
 import CustomConversion from './custom-conversion';
 import Application from './application';
 import ProductCatalog from './product-catalog';
+import CreativeDemocracyRun from './creative-democracy-run';
 import DirectDeal from './direct-deal';
 import EventSourceGroup from './event-source-group';
 import ExtendedCredit from './extended-credit';
@@ -45,6 +46,7 @@ import BusinessRoleRequest from './business-role-request';
 import ProfilePictureSource from './profile-picture-source';
 import AudiencePermission from './audience-permission';
 import SystemUser from './system-user';
+import MeasurementUploadEvent from './measurement-upload-event';
 
 /**
  * Business
@@ -567,6 +569,25 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
+  getCreativeCompassStudy (fields, params, fetchFirstPage = true): CreativeDemocracyRun {
+    return this.getEdge(
+      CreativeDemocracyRun,
+      fields,
+      params,
+      fetchFirstPage,
+      '/creative_compass_study'
+    );
+  }
+
+  createCreativeCompassStudy (fields, params): CreativeDemocracyRun {
+    return this.createEdge(
+      '/creative_compass_study',
+      fields,
+      params,
+      CreativeDemocracyRun
+    );
+  }
+
   getCustomConversions (fields, params, fetchFirstPage = true): CustomConversion {
     return this.getEdge(
       CustomConversion,
@@ -1014,7 +1035,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  getPendingShareDPixels (fields, params, fetchFirstPage = true): AdsPixel {
+  getPendingSharedPixels (fields, params, fetchFirstPage = true): AdsPixel {
     return this.getEdge(
       AdsPixel,
       fields,
@@ -1083,7 +1104,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  getShareDAudiencePermissions (fields, params, fetchFirstPage = true): AudiencePermission {
+  getSharedAudiencePermissions (fields, params, fetchFirstPage = true): AudiencePermission {
     return this.getEdge(
       AudiencePermission,
       fields,
@@ -1118,6 +1139,25 @@ export default class Business extends AbstractCrudObject {
       fields,
       params,
       SystemUser
+    );
+  }
+
+  getUploadEvent (fields, params, fetchFirstPage = true): MeasurementUploadEvent {
+    return this.getEdge(
+      MeasurementUploadEvent,
+      fields,
+      params,
+      fetchFirstPage,
+      '/upload_event'
+    );
+  }
+
+  createUploadEvent (fields, params): MeasurementUploadEvent {
+    return this.createEdge(
+      '/upload_event',
+      fields,
+      params,
+      MeasurementUploadEvent
     );
   }
 

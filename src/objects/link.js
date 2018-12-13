@@ -9,7 +9,6 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Comment from './comment';
-import Lead from './lead';
 import Profile from './profile';
 import Post from './post';
 
@@ -66,16 +65,6 @@ export default class Link extends AbstractCrudObject {
     );
   }
 
-  getLeads (fields, params, fetchFirstPage = true): Lead {
-    return this.getEdge(
-      Lead,
-      fields,
-      params,
-      fetchFirstPage,
-      '/leads'
-    );
-  }
-
   deleteLikes (params): AbstractObject {
     return super.deleteEdge(
       '/likes',
@@ -112,7 +101,7 @@ export default class Link extends AbstractCrudObject {
     );
   }
 
-  getShareDPosts (fields, params, fetchFirstPage = true): Post {
+  getSharedPosts (fields, params, fetchFirstPage = true): Post {
     return this.getEdge(
       Post,
       fields,

@@ -32,7 +32,7 @@ export default class EventSourceGroup extends AbstractCrudObject {
     });
   }
 
-  getShareDAccounts (fields, params, fetchFirstPage = true): AdAccount {
+  getSharedAccounts (fields, params, fetchFirstPage = true): AdAccount {
     return this.getEdge(
       AdAccount,
       fields,
@@ -42,7 +42,7 @@ export default class EventSourceGroup extends AbstractCrudObject {
     );
   }
 
-  createShareDAccount (fields, params): EventSourceGroup {
+  createSharedAccount (fields, params): EventSourceGroup {
     return this.createEdge(
       '/shared_accounts',
       fields,

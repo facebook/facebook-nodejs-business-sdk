@@ -184,7 +184,7 @@ export default class Photo extends AbstractCrudObject {
     );
   }
 
-  getShareDPosts (fields, params, fetchFirstPage = true): Post {
+  getSharedPosts (fields, params, fetchFirstPage = true): Post {
     return this.getEdge(
       Post,
       fields,

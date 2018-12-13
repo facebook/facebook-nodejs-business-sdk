@@ -7,15 +7,16 @@
  * @flow
  */
 
- const adsSdk = require('facebook-nodejs-ads-sdk');
-const AdAccount = adsSdk.AdAccount;
-const AdSet = adsSdk.AdSet;
+ 'use strict';
+const bizSdk = require('facebook-nodejs-business-sdk');
+const AdAccount = bizSdk.AdAccount;
+const AdSet = bizSdk.AdSet;
 
-let access_token = '<ACCESS_TOKEN>';
-let app_secret = '<APP_SECRET>';
-let app_id = '<APP_ID>';
-let id = '<ID>';
-const api = adsSdk.FacebookAdsApi.init(access_token);
+const access_token = '<ACCESS_TOKEN>';
+const app_secret = '<APP_SECRET>';
+const app_id = '<APP_ID>';
+const id = '<ID>';
+const api = bizSdk.FacebookAdsApi.init(access_token);
 const showDebugingInfo = true; // Setting this to true shows more debugging info.
 if (showDebugingInfo) {
   api.setDebug(true);
@@ -35,8 +36,8 @@ params = {
   'name' : 'A CPA Ad Set',
   'campaign_id' : '<adCampaignLinkClicksID>',
   'daily_budget' : '5000',
-  'start_time' : '2018-09-27T12:12:21-0700',
-  'end_time' : '2018-10-04T12:12:21-0700',
+  'start_time' : '2018-12-06T17:37:49-0800',
+  'end_time' : '2018-12-13T17:37:49-0800',
   'billing_event' : 'IMPRESSIONS',
   'optimization_goal' : 'REACH',
   'bid_amount' : '1000',
@@ -46,7 +47,7 @@ params = {
   'publisher_platforms' : 'facebook',
   'device_platforms' : 'mobile',
 };
-let adsets = (new AdAccount(id)).createAdSet(
+const adsets = (new AdAccount(id)).createAdSet(
   fields,
   params
 );

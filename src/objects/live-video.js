@@ -118,7 +118,8 @@ export default class LiveVideo extends AbstractCrudObject {
       follower: 'FOLLOWER',
       slow: 'SLOW',
       discussion: 'DISCUSSION',
-      restricted: 'RESTRICTED'
+      restricted: 'RESTRICTED',
+      protected_mode: 'PROTECTED_MODE'
     });
   }
 
@@ -142,7 +143,7 @@ export default class LiveVideo extends AbstractCrudObject {
     );
   }
 
-  getCrosspostShareDPages (fields, params, fetchFirstPage = true): Page {
+  getCrosspostSharedPages (fields, params, fetchFirstPage = true): Page {
     return this.getEdge(
       Page,
       fields,

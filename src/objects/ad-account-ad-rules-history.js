@@ -44,4 +44,10 @@ export default class AdAccountAdRulesHistory extends AbstractCrudObject {
       unpaused: 'UNPAUSED'
     });
   }
+  static get EvaluationType (): Object {
+    return Object.freeze({
+      schedule: 'SCHEDULE',
+      trigger: 'TRIGGER'
+    });
+  }
 }

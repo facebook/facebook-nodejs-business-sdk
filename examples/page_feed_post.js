@@ -7,15 +7,16 @@
  * @flow
  */
 
- const adsSdk = require('facebook-nodejs-ads-sdk');
-const Page = adsSdk.Page;
-const PagePost = adsSdk.PagePost;
+ 'use strict';
+const bizSdk = require('facebook-nodejs-business-sdk');
+const Page = bizSdk.Page;
+const PagePost = bizSdk.PagePost;
 
-let access_token = '<ACCESS_TOKEN>';
-let app_secret = '<APP_SECRET>';
-let app_id = '<APP_ID>';
-let id = '<ID>';
-const api = adsSdk.FacebookAdsApi.init(access_token);
+const access_token = '<ACCESS_TOKEN>';
+const app_secret = '<APP_SECRET>';
+const app_id = '<APP_ID>';
+const id = '<ID>';
+const api = bizSdk.FacebookAdsApi.init(access_token);
 const showDebugingInfo = true; // Setting this to true shows more debugging info.
 if (showDebugingInfo) {
   api.setDebug(true);
@@ -34,7 +35,7 @@ fields = [
 params = {
   'message' : 'This is a test value',
 };
-let feed = (new Page(id)).createFeed(
+const feed = (new Page(id)).createFeed(
   fields,
   params
 );

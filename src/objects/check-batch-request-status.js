@@ -19,6 +19,7 @@ export default class CheckBatchRequestStatus extends AbstractCrudObject {
       errors: 'errors',
       errors_total_count: 'errors_total_count',
       handle: 'handle',
+      invalid_item_ids: 'invalid_item_ids',
       status: 'status',
       id: 'id'
     });

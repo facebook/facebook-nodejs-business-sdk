@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
 import InstagramInsightsResult from './instagram-insights-result';
 import ShadowIGMedia from './shadow-ig-media';
 
@@ -32,6 +33,15 @@ export default class ShadowIGUser extends AbstractCrudObject {
       username: 'username',
       website: 'website'
     });
+  }
+
+  createMention (fields, params): AbstractObject {
+    return this.createEdge(
+      '/Mentions',
+      fields,
+      params
+
+    );
   }
 
   getInsights (fields, params, fetchFirstPage = true): InstagramInsightsResult {
@@ -72,6 +82,16 @@ export default class ShadowIGUser extends AbstractCrudObject {
     );
   }
 
+  getRecentlySearchedHashtags (fields, params, fetchFirstPage = true): AbstractObject {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/recently_searched_hashtags'
+    );
+  }
+
   getStories (fields, params, fetchFirstPage = true): ShadowIGMedia {
     return this.getEdge(
       ShadowIGMedia,
@@ -79,6 +99,16 @@ export default class ShadowIGUser extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/stories'
+    );
+  }
+
+  getTags (fields, params, fetchFirstPage = true): ShadowIGMedia {
+    return this.getEdge(
+      ShadowIGMedia,
+      fields,
+      params,
+      fetchFirstPage,
+      '/tags'
     );
   }
 

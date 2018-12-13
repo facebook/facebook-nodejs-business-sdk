@@ -88,7 +88,8 @@ export default class Ad extends AbstractCrudObject {
       pending_billing_info: 'PENDING_BILLING_INFO',
       campaign_paused: 'CAMPAIGN_PAUSED',
       archived: 'ARCHIVED',
-      adset_paused: 'ADSET_PAUSED'
+      adset_paused: 'ADSET_PAUSED',
+      with_issues: 'WITH_ISSUES'
     });
   }
   static get Status (): Object {

@@ -21,8 +21,6 @@ import DirectDeal from './direct-deal';
 import Event from './event';
 import Photo from './photo';
 import ProfilePictureSource from './profile-picture-source';
-import ExternalEventSourcePixelHelperDebuggingInfo from './external-event-source-pixel-helper-debugging-info';
-import ExternalEventSourceDebugging from './external-event-source-debugging';
 
 /**
  * Application
@@ -55,7 +53,6 @@ export default class Application extends AbstractCrudObject {
       auto_event_mapping_android: 'auto_event_mapping_android',
       auto_event_mapping_ios: 'auto_event_mapping_ios',
       auto_event_setup_enabled: 'auto_event_setup_enabled',
-      business: 'business',
       canvas_fluid_height: 'canvas_fluid_height',
       canvas_fluid_width: 'canvas_fluid_width',
       canvas_url: 'canvas_url',
@@ -254,6 +251,12 @@ export default class Application extends AbstractCrudObject {
       delete: 'DELETE'
     });
   }
+  static get PostMethod (): Object {
+    return Object.freeze({
+      eymt: 'EYMT',
+      codeless: 'CODELESS'
+    });
+  }
   static get ScoreType (): Object {
     return Object.freeze({
       custom: 'CUSTOM',
@@ -356,26 +359,6 @@ export default class Application extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/adnetworkanalytics_results'
-    );
-  }
-
-  getAdsAppInsights (fields, params, fetchFirstPage = true): AbstractObject {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/ads_app_insights'
-    );
-  }
-
-  getAdsAppInsightsDimensions (fields, params, fetchFirstPage = true): AbstractObject {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/ads_app_insights_dimensions'
     );
   }
 
@@ -912,16 +895,6 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  getPixelHelperDebuggingInfo (fields, params, fetchFirstPage = true): ExternalEventSourcePixelHelperDebuggingInfo {
-    return this.getEdge(
-      ExternalEventSourcePixelHelperDebuggingInfo,
-      fields,
-      params,
-      fetchFirstPage,
-      '/pixel_helper_debugging_info'
-    );
-  }
-
   getProducts (fields, params, fetchFirstPage = true): AbstractObject {
     return this.getEdge(
       AbstractObject,
@@ -939,16 +912,6 @@ export default class Application extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/purchases'
-    );
-  }
-
-  getRecentDebuggings (fields, params, fetchFirstPage = true): ExternalEventSourceDebugging {
-    return this.getEdge(
-      ExternalEventSourceDebugging,
-      fields,
-      params,
-      fetchFirstPage,
-      '/recent_debuggings'
     );
   }
 

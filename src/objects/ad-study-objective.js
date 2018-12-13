@@ -8,6 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import AdPlacePageSet from './ad-place-page-set';
 import AdsPixel from './ads-pixel';
 import Application from './application';
 import CustomConversion from './custom-conversion';
@@ -44,6 +45,16 @@ export default class AdStudyObjective extends AbstractCrudObject {
       brandlift: 'BRANDLIFT',
       brand: 'BRAND'
     });
+  }
+
+  getAdPlacePageSets (fields, params, fetchFirstPage = true): AdPlacePageSet {
+    return this.getEdge(
+      AdPlacePageSet,
+      fields,
+      params,
+      fetchFirstPage,
+      '/ad_place_page_sets'
+    );
   }
 
   getAdsPixels (fields, params, fetchFirstPage = true): AdsPixel {

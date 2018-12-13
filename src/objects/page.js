@@ -450,6 +450,7 @@ export default class Page extends AbstractCrudObject {
       hours: 'hours',
       parking: 'parking',
       public_transit: 'public_transit',
+      page_about_story: 'page_about_story',
       phone: 'phone',
       email: 'email',
       website: 'website',
@@ -1762,7 +1763,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  getScheduleDPosts (fields, params, fetchFirstPage = true): PagePost {
+  getScheduledPosts (fields, params, fetchFirstPage = true): PagePost {
     return this.getEdge(
       PagePost,
       fields,

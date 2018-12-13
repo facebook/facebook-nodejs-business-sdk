@@ -9,6 +9,7 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import AdActivity from './ad-activity';
+import AdPlacePageSet from './ad-place-page-set';
 import AdStudy from './ad-study';
 import AdContract from './ad-contract';
 import AdCreative from './ad-creative';
@@ -42,7 +43,6 @@ import CustomAudiencesTOS from './custom-audiences-tos';
 import CustomConversion from './custom-conversion';
 import AdAccountDeliveryEstimate from './ad-account-delivery-estimate';
 import DirectDeal from './direct-deal';
-import EmailImport from './email-import';
 import AdPreview from './ad-preview';
 import AdsInsights from './ads-insights';
 import InstagramUser from './instagram-user';
@@ -262,6 +262,25 @@ export default class AdAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/activities'
+    );
+  }
+
+  getAdPlacePageSets (fields, params, fetchFirstPage = true): AdPlacePageSet {
+    return this.getEdge(
+      AdPlacePageSet,
+      fields,
+      params,
+      fetchFirstPage,
+      '/ad_place_page_sets'
+    );
+  }
+
+  createAdPlacePageSet (fields, params): AdPlacePageSet {
+    return this.createEdge(
+      '/ad_place_page_sets',
+      fields,
+      params,
+      AdPlacePageSet
     );
   }
 
@@ -975,12 +994,12 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createEmailImport (fields, params): EmailImport {
+  createEmailImport (fields, params): AbstractObject {
     return this.createEdge(
       '/emailimport',
       fields,
-      params,
-      EmailImport
+      params
+
     );
   }
 

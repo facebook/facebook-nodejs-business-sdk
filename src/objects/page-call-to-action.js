@@ -90,7 +90,8 @@ export default class PageCallToAction extends AbstractCrudObject {
       visit_group: 'VISIT_GROUP',
       shop_on_facebook: 'SHOP_ON_FACEBOOK',
       local_dev_platform: 'LOCAL_DEV_PLATFORM',
-      interested: 'INTERESTED'
+      interested: 'INTERESTED',
+      woodhenge_support: 'WOODHENGE_SUPPORT'
     });
   }
   static get WebDestinationType (): Object {
@@ -99,7 +100,8 @@ export default class PageCallToAction extends AbstractCrudObject {
       messenger: 'MESSENGER',
       none: 'NONE',
       website: 'WEBSITE',
-      shop_on_facebook: 'SHOP_ON_FACEBOOK'
+      shop_on_facebook: 'SHOP_ON_FACEBOOK',
+      become_supporter: 'BECOME_SUPPORTER'
     });
   }
 

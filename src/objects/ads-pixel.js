@@ -11,7 +11,6 @@ import AbstractObject from './../abstract-object';
 import AssignedUser from './assigned-user';
 import CustomAudience from './custom-audience';
 import DACheck from './da-check';
-import SignalsIWLExtractor from './signals-iwl-extractor';
 import Business from './business';
 import AdAccount from './ad-account';
 import AdsPixelStatsResult from './ads-pixel-stats-result';
@@ -149,26 +148,7 @@ export default class AdsPixel extends AbstractCrudObject {
     );
   }
 
-  getExtractors (fields, params, fetchFirstPage = true): SignalsIWLExtractor {
-    return this.getEdge(
-      SignalsIWLExtractor,
-      fields,
-      params,
-      fetchFirstPage,
-      '/extractors'
-    );
-  }
-
-  createExtractor (fields, params): SignalsIWLExtractor {
-    return this.createEdge(
-      '/extractors',
-      fields,
-      params,
-      SignalsIWLExtractor
-    );
-  }
-
-  getPendingShareDAgencies (fields, params, fetchFirstPage = true): Business {
+  getPendingSharedAgencies (fields, params, fetchFirstPage = true): Business {
     return this.getEdge(
       Business,
       fields,
@@ -187,14 +167,14 @@ export default class AdsPixel extends AbstractCrudObject {
     );
   }
 
-  deleteShareDAccounts (params): AbstractObject {
+  deleteSharedAccounts (params): AbstractObject {
     return super.deleteEdge(
       '/shared_accounts',
       params
     );
   }
 
-  getShareDAccounts (fields, params, fetchFirstPage = true): AdAccount {
+  getSharedAccounts (fields, params, fetchFirstPage = true): AdAccount {
     return this.getEdge(
       AdAccount,
       fields,
@@ -204,7 +184,7 @@ export default class AdsPixel extends AbstractCrudObject {
     );
   }
 
-  createShareDAccount (fields, params): AdsPixel {
+  createSharedAccount (fields, params): AdsPixel {
     return this.createEdge(
       '/shared_accounts',
       fields,
@@ -213,14 +193,14 @@ export default class AdsPixel extends AbstractCrudObject {
     );
   }
 
-  deleteShareDAgencies (params): AbstractObject {
+  deleteSharedAgencies (params): AbstractObject {
     return super.deleteEdge(
       '/shared_agencies',
       params
     );
   }
 
-  getShareDAgencies (fields, params, fetchFirstPage = true): Business {
+  getSharedAgencies (fields, params, fetchFirstPage = true): Business {
     return this.getEdge(
       Business,
       fields,
@@ -230,7 +210,7 @@ export default class AdsPixel extends AbstractCrudObject {
     );
   }
 
-  createShareDAgency (fields, params): AdsPixel {
+  createSharedAgency (fields, params): AdsPixel {
     return this.createEdge(
       '/shared_agencies',
       fields,

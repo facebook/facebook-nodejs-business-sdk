@@ -8,8 +8,6 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
-import AppPublisher from './app-publisher';
-import WebPublisher from './web-publisher';
 
 /**
  * PublisherBlockList
@@ -32,9 +30,9 @@ export default class PublisherBlockList extends AbstractCrudObject {
     });
   }
 
-  getPageDAppPublishers (fields, params, fetchFirstPage = true): AppPublisher {
+  getPageDAppPublishers (fields, params, fetchFirstPage = true): AbstractObject {
     return this.getEdge(
-      AppPublisher,
+      AbstractObject,
       fields,
       params,
       fetchFirstPage,
@@ -42,9 +40,9 @@ export default class PublisherBlockList extends AbstractCrudObject {
     );
   }
 
-  getPageDWebPublishers (fields, params, fetchFirstPage = true): WebPublisher {
+  getPageDWebPublishers (fields, params, fetchFirstPage = true): AbstractObject {
     return this.getEdge(
-      WebPublisher,
+      AbstractObject,
       fields,
       params,
       fetchFirstPage,

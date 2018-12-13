@@ -346,4 +346,10 @@ export default class Group extends AbstractCrudObject {
       params
     );
   }
+
+  update (fields, params): Group {
+    return super.update(
+      params
+    );
+  }
 }
