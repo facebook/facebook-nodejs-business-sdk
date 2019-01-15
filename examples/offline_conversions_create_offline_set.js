@@ -15,7 +15,7 @@ const OfflineConversionDataSet = bizSdk.OfflineConversionDataSet;
 const access_token = '<ACCESS_TOKEN>';
 const app_secret = '<APP_SECRET>';
 const app_id = '<APP_ID>';
-const id = '<ID>';
+const id = '<BUSINESS_ID>';
 const api = bizSdk.FacebookAdsApi.init(access_token);
 const showDebugingInfo = true; // Setting this to true shows more debugging info.
 if (showDebugingInfo) {
@@ -35,7 +35,6 @@ fields = [
 params = {
   'name' : 'offline_event_set',
   'description' : 'conversion data used for superbowl campaign',
-  'data_origin' : 'DIRECTLY_FROM_PEOPLE',
 };
 const offline_conversion_data_sets = (new Business(id)).createOfflineConversionDataSet(
   fields,

@@ -24,7 +24,6 @@ import BusinessProductCatalogTOS from './business-product-catalog-tos';
 import CustomConversion from './custom-conversion';
 import Application from './application';
 import ProductCatalog from './product-catalog';
-import CreativeDemocracyRun from './creative-democracy-run';
 import DirectDeal from './direct-deal';
 import EventSourceGroup from './event-source-group';
 import ExtendedCredit from './extended-credit';
@@ -45,6 +44,7 @@ import LegacyBusinessAdAccountRequest from './legacy-business-ad-account-request
 import BusinessRoleRequest from './business-role-request';
 import ProfilePictureSource from './profile-picture-source';
 import AudiencePermission from './audience-permission';
+import BusinessOwnedObjectOnBehalfOfRequest from './business-owned-object-on-behalf-of-request';
 import SystemUser from './system-user';
 import MeasurementUploadEvent from './measurement-upload-event';
 
@@ -364,6 +364,16 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
+  getAgencies (fields, params, fetchFirstPage = true): Business {
+    return this.getEdge(
+      Business,
+      fields,
+      params,
+      fetchFirstPage,
+      '/agencies'
+    );
+  }
+
   getAgencyPages (fields, params, fetchFirstPage = true): Page {
     return this.getEdge(
       Page,
@@ -569,22 +579,13 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  getCreativeCompassStudy (fields, params, fetchFirstPage = true): CreativeDemocracyRun {
+  getClients (fields, params, fetchFirstPage = true): Business {
     return this.getEdge(
-      CreativeDemocracyRun,
+      Business,
       fields,
       params,
       fetchFirstPage,
-      '/creative_compass_study'
-    );
-  }
-
-  createCreativeCompassStudy (fields, params): CreativeDemocracyRun {
-    return this.createEdge(
-      '/creative_compass_study',
-      fields,
-      params,
-      CreativeDemocracyRun
+      '/clients'
     );
   }
 
@@ -1094,6 +1095,16 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
+  getReceivedInprogressOnBehalfRequests (fields, params, fetchFirstPage = true): BusinessOwnedObjectOnBehalfOfRequest {
+    return this.getEdge(
+      BusinessOwnedObjectOnBehalfOfRequest,
+      fields,
+      params,
+      fetchFirstPage,
+      '/received_inprogress_onbehalf_requests'
+    );
+  }
+
   getReceivedSharingAgreements (fields, params, fetchFirstPage = true): BusinessAgreement {
     return this.getEdge(
       BusinessAgreement,
@@ -1101,6 +1112,25 @@ export default class Business extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/received_sharing_agreements'
+    );
+  }
+
+  getSentInprogressOnBehalfRequests (fields, params, fetchFirstPage = true): BusinessOwnedObjectOnBehalfOfRequest {
+    return this.getEdge(
+      BusinessOwnedObjectOnBehalfOfRequest,
+      fields,
+      params,
+      fetchFirstPage,
+      '/sent_inprogress_onbehalf_requests'
+    );
+  }
+
+  createSentInprogressOnBehalfRequest (fields, params): BusinessOwnedObjectOnBehalfOfRequest {
+    return this.createEdge(
+      '/sent_inprogress_onbehalf_requests',
+      fields,
+      params,
+      BusinessOwnedObjectOnBehalfOfRequest
     );
   }
 

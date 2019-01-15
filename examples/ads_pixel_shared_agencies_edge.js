@@ -9,12 +9,13 @@
 
  'use strict';
 const bizSdk = require('facebook-nodejs-business-sdk');
-const AdAccount = bizSdk.AdAccount;
+const AdsPixel = bizSdk.AdsPixel;
+const Business = bizSdk.Business;
 
 const access_token = '<ACCESS_TOKEN>';
 const app_secret = '<APP_SECRET>';
 const app_id = '<APP_ID>';
-const id = '<AD_ACCOUNT_ID>';
+const id = '<PIXEL_ID>';
 const api = bizSdk.FacebookAdsApi.init(access_token);
 const showDebugingInfo = true; // Setting this to true shows more debugging info.
 if (showDebugingInfo) {
@@ -30,12 +31,11 @@ const logApiCallResult = (apiCallName, data) => {
 
 let fields, params;
 fields = [
-  'name',
 ];
 params = {
 };
-const sample_code = (new AdAccount(id)).get(
+const shared_agenciess = (new AdsPixel(id)).getShareDAgencies(
   fields,
   params
 );
-logApiCallResult('sample_code api call complete.', sample_code);
+logApiCallResult('shared_agenciess api call complete.', shared_agenciess);

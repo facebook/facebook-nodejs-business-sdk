@@ -106,6 +106,52 @@ export default class Group extends AbstractCrudObject {
       anyone: 'ANYONE'
     });
   }
+  static get Purpose (): Object {
+    return Object.freeze({
+      family: 'FAMILY',
+      close_friends: 'CLOSE_FRIENDS',
+      neighbors: 'NEIGHBORS',
+      teammates: 'TEAMMATES',
+      for_sale: 'FOR_SALE',
+      event_planning: 'EVENT_PLANNING',
+      support: 'SUPPORT',
+      club: 'CLUB',
+      project: 'PROJECT',
+      sorority: 'SORORITY',
+      fraternity: 'FRATERNITY',
+      study_group: 'STUDY_GROUP',
+      school_class: 'SCHOOL_CLASS',
+      learning: 'LEARNING',
+      meme: 'MEME',
+      travel_planning: 'TRAVEL_PLANNING',
+      couple: 'COUPLE',
+      parents: 'PARENTS',
+      custom: 'CUSTOM',
+      none: 'NONE',
+      work_team: 'WORK_TEAM',
+      work_teamwork: 'WORK_TEAMWORK',
+      work_feedback: 'WORK_FEEDBACK',
+      work_announcement: 'WORK_ANNOUNCEMENT',
+      work_demo_group: 'WORK_DEMO_GROUP',
+      work_social: 'WORK_SOCIAL',
+      work_discussion: 'WORK_DISCUSSION',
+      work_multi_company: 'WORK_MULTI_COMPANY',
+      work_for_sale: 'WORK_FOR_SALE',
+      work_learning: 'WORK_LEARNING',
+      fitness: 'FITNESS',
+      real_world: 'REAL_WORLD',
+      casual: 'CASUAL',
+      game: 'GAME',
+      high_school_forum: 'HIGH_SCHOOL_FORUM',
+      jobs: 'JOBS',
+      real_world_at_work: 'REAL_WORLD_AT_WORK',
+      for_work: 'FOR_WORK',
+      mentorship: 'MENTORSHIP',
+      work_mentorship: 'WORK_MENTORSHIP',
+      ephemeral: 'EPHEMERAL',
+      work_ephemeral: 'WORK_EPHEMERAL'
+    });
+  }
   static get SuggestionCategory (): Object {
     return Object.freeze({
       family: 'FAMILY',

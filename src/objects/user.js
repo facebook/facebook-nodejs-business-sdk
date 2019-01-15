@@ -123,6 +123,7 @@ export default class User extends AbstractCrudObject {
       create_content: 'CREATE_CONTENT',
       moderate: 'MODERATE',
       moderate_community: 'MODERATE_COMMUNITY',
+      manage_jobs: 'MANAGE_JOBS',
       advertise: 'ADVERTISE',
       analyze: 'ANALYZE'
     });

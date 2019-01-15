@@ -147,6 +147,7 @@ export default class AdSet extends AbstractCrudObject {
       social_impressions: 'SOCIAL_IMPRESSIONS',
       video_views: 'VIDEO_VIEWS',
       app_downloads: 'APP_DOWNLOADS',
+      two_second_continuous_video_views: 'TWO_SECOND_CONTINUOUS_VIDEO_VIEWS',
       landing_page_views: 'LANDING_PAGE_VIEWS',
       value: 'VALUE',
       thruplay: 'THRUPLAY',

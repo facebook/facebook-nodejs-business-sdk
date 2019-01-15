@@ -10,7 +10,7 @@
  'use strict';
 const bizSdk = require('facebook-nodejs-business-sdk');
 const AdAccount = bizSdk.AdAccount;
-const AdSet = bizSdk.AdSet;
+const Ad = bizSdk.Ad;
 
 const access_token = '<ACCESS_TOKEN>';
 const app_secret = '<APP_SECRET>';
@@ -33,19 +33,14 @@ let fields, params;
 fields = [
 ];
 params = {
-  'name' : 'My First Adset',
-  'lifetime_budget' : '20000',
-  'start_time' : '2019-01-02T21:39:32-0800',
-  'end_time' : '2019-01-12T21:39:32-0800',
-  'campaign_id' : '<adCampaignLinkClicksID>',
-  'bid_amount' : '500',
-  'billing_event' : 'IMPRESSIONS',
-  'optimization_goal' : 'POST_ENGAGEMENT',
-  'targeting' : {'geo_locations':{'countries':['US'],'regions':[{'key':'4081'}],'cities':[{'key':777934,'radius':10,'distance_unit':'mile'}]},'genders':[1],'age_max':24,'age_min':20,'behaviors':[{'id':6002714895372,'name':'All travelers'}],'life_events':[{'id':6002714398172,'name':'Newlywed (1 year)'}],'home_ownership':[{'id':6006371327132,'name':'Renters'}],'publisher_platforms':['facebook'],'device_platforms':['desktop']},
+  'name' : 'My AdGroup with Redownload',
+  'adset_id' : '<adSetID>',
+  'creative' : {'creative_id':'<adCreativeID>'},
+  'redownload' : '1',
   'status' : 'PAUSED',
 };
-const adsets = (new AdAccount(id)).createAdSet(
+const ads = (new AdAccount(id)).createAd(
   fields,
   params
 );
-logApiCallResult('adsets api call complete.', adsets);
+logApiCallResult('ads api call complete.', ads);

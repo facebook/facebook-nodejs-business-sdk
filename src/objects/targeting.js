@@ -23,6 +23,7 @@ export default class Targeting extends AbstractCrudObject {
       app_install_state: 'app_install_state',
       audience_network_positions: 'audience_network_positions',
       behaviors: 'behaviors',
+      brand_safety_content_filter_levels: 'brand_safety_content_filter_levels',
       brand_safety_content_severity_levels: 'brand_safety_content_severity_levels',
       catalog_based_targeting: 'catalog_based_targeting',
       cities: 'cities',

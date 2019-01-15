@@ -15,7 +15,7 @@ const AdCreative = bizSdk.AdCreative;
 const access_token = '<ACCESS_TOKEN>';
 const app_secret = '<APP_SECRET>';
 const app_id = '<APP_ID>';
-const id = '<ID>';
+const id = '<AD_ACCOUNT_ID>';
 const api = bizSdk.FacebookAdsApi.init(access_token);
 const showDebugingInfo = true; // Setting this to true shows more debugging info.
 if (showDebugingInfo) {
@@ -34,7 +34,7 @@ fields = [
 ];
 params = {
   'name' : 'Carousel app ad',
-  'object_story_spec' : {'page_id':'<pageID>','link_data':{'message':'My message','link':'http://www.example.com/appstoreurl','caption':'WWW.ITUNES.COM','name':'The link name','description':'The link's description','child_attachments':[{'link':'http://www.example.com/appstoreurl','image_hash':'<imageHash>','call_to_action':{'type':'USE_MOBILE_APP','value':{'app_link':'<deepLink>'}}},{'link':'http://www.example.com/appstoreurl','image_hash':'<imageHash>','call_to_action':{'type':'USE_MOBILE_APP','value':{'app_link':'<deepLink>'}}},{'link':'http://www.example.com/appstoreurl','image_hash':'<imageHash>','call_to_action':{'type':'USE_MOBILE_APP','value':{'app_link':'<deepLink>'}}},{'link':'http://www.example.com/appstoreurl','image_hash':'<imageHash>','call_to_action':{'type':'USE_MOBILE_APP','value':{'app_link':'<deepLink>'}}}],'multi_share_optimized':true}},
+  'object_story_spec' : {'page_id':'<pageID>','link_data':{'message':'My message','link':'http://www.example.com/appstoreurl','caption':'WWW.ITUNES.COM','name':'The link name','description':'The link description','child_attachments':[{'link':'http://www.example.com/appstoreurl','image_hash':'<imageHash>','call_to_action':{'type':'USE_MOBILE_APP','value':{'app_link':'<deepLink>'}}},{'link':'http://www.example.com/appstoreurl','image_hash':'<imageHash>','call_to_action':{'type':'USE_MOBILE_APP','value':{'app_link':'<deepLink>'}}},{'link':'http://www.example.com/appstoreurl','image_hash':'<imageHash>','call_to_action':{'type':'USE_MOBILE_APP','value':{'app_link':'<deepLink>'}}},{'link':'http://www.example.com/appstoreurl','image_hash':'<imageHash>','call_to_action':{'type':'USE_MOBILE_APP','value':{'app_link':'<deepLink>'}}}],'multi_share_optimized':true}},
 };
 const adcreatives = (new AdAccount(id)).createAdCreative(
   fields,

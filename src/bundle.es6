@@ -157,6 +157,7 @@ export { default as BusinessAgreement } from './../src/objects/business-agreemen
 export { default as BusinessApplicationRequest } from './../src/objects/business-application-request';
 export { default as BusinessAssetSharingAgreement } from './../src/objects/business-asset-sharing-agreement';
 export { default as BusinessMatchedSearchApplicationsEdgeData } from './../src/objects/business-matched-search-applications-edge-data';
+export { default as BusinessOwnedObjectOnBehalfOfRequest } from './../src/objects/business-owned-object-on-behalf-of-request';
 export { default as BusinessPageRequest } from './../src/objects/business-page-request';
 export { default as BusinessProductCatalogTOS } from './../src/objects/business-product-catalog-tos';
 export { default as BusinessProject } from './../src/objects/business-project';
@@ -180,7 +181,6 @@ export { default as ConversionActionQuery } from './../src/objects/conversion-ac
 export { default as CopyrightAttributionInsights } from './../src/objects/copyright-attribution-insights';
 export { default as CopyrightReferenceContainer } from './../src/objects/copyright-reference-container';
 export { default as CoverPhoto } from './../src/objects/cover-photo';
-export { default as CreativeDemocracyRun } from './../src/objects/creative-democracy-run';
 export { default as CreativeHistory } from './../src/objects/creative-history';
 export { default as CreditPartitionActionOptions } from './../src/objects/credit-partition-action-options';
 export { default as Currency } from './../src/objects/currency';
@@ -294,6 +294,7 @@ export { default as OracleTransaction } from './../src/objects/oracle-transactio
 export { default as OutcomePredictionPoint } from './../src/objects/outcome-prediction-point';
 export { default as OwnedDomain } from './../src/objects/owned-domain';
 export { default as Page } from './../src/objects/page';
+export { default as PageAboutStory } from './../src/objects/page-about-story';
 export { default as PageAdminNote } from './../src/objects/page-admin-note';
 export { default as PageBroadcast } from './../src/objects/page-broadcast';
 export { default as PageCallToAction } from './../src/objects/page-call-to-action';

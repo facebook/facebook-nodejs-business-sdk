@@ -119,7 +119,8 @@ export default class LiveVideo extends AbstractCrudObject {
       slow: 'SLOW',
       discussion: 'DISCUSSION',
       restricted: 'RESTRICTED',
-      protected_mode: 'PROTECTED_MODE'
+      protected_mode: 'PROTECTED_MODE',
+      supporter: 'SUPPORTER'
     });
   }
 

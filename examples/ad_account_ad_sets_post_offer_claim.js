@@ -15,7 +15,7 @@ const AdSet = bizSdk.AdSet;
 const access_token = '<ACCESS_TOKEN>';
 const app_secret = '<APP_SECRET>';
 const app_id = '<APP_ID>';
-const id = '<ID>';
+const id = '<AD_ACCOUNT_ID>';
 const api = bizSdk.FacebookAdsApi.init(access_token);
 const showDebugingInfo = true; // Setting this to true shows more debugging info.
 if (showDebugingInfo) {
@@ -35,8 +35,8 @@ fields = [
 params = {
   'name' : 'My Offer Claim AdSet',
   'lifetime_budget' : '56000',
-  'start_time' : '2018-11-29T17:40:53-0800',
-  'end_time' : '2018-12-06T17:40:53-0800',
+  'start_time' : '2019-01-02T21:34:39-0800',
+  'end_time' : '2019-01-09T21:34:39-0800',
   'campaign_id' : '<adCampaignLinkClicksID>',
   'billing_event' : 'LINK_CLICKS',
   'optimization_goal' : 'LINK_CLICKS',

@@ -52,6 +52,7 @@ import AdAccountMaxBid from './ad-account-max-bid';
 import MinimumBudget from './minimum-budget';
 import OfflineConversionDataSet from './offline-conversion-data-set';
 import OffsitePixel from './offsite-pixel';
+import BusinessOwnedObjectOnBehalfOfRequest from './business-owned-object-on-behalf-of-request';
 import PartnerIntegrationLinked from './partner-integration-linked';
 import PartnerCategory from './partner-category';
 import AdsDataPartner from './ads-data-partner';
@@ -1127,6 +1128,16 @@ export default class AdAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/offsitepixels'
+    );
+  }
+
+  getOnBehalfRequests (fields, params, fetchFirstPage = true): BusinessOwnedObjectOnBehalfOfRequest {
+    return this.getEdge(
+      BusinessOwnedObjectOnBehalfOfRequest,
+      fields,
+      params,
+      fetchFirstPage,
+      '/onbehalf_requests'
     );
   }
 

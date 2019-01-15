@@ -178,6 +178,7 @@ export default class Page extends AbstractCrudObject {
       new_like_count: 'new_like_count',
       offer_eligible: 'offer_eligible',
       overall_star_rating: 'overall_star_rating',
+      page_about_story: 'page_about_story',
       page_token: 'page_token',
       parent_page: 'parent_page',
       parking: 'parking',
@@ -320,7 +321,8 @@ export default class Page extends AbstractCrudObject {
       auto_lookalike: 'AUTO_LOOKALIKE',
       mult_custom_audiences: 'MULT_CUSTOM_AUDIENCES',
       event_custom_audiences: 'EVENT_CUSTOM_AUDIENCES',
-      auto_page_lookalike: 'AUTO_PAGE_LOOKALIKE'
+      auto_page_lookalike: 'AUTO_PAGE_LOOKALIKE',
+      auto_targeting: 'AUTO_TARGETING'
     });
   }
   static get PermittedTasks (): Object {
@@ -329,6 +331,7 @@ export default class Page extends AbstractCrudObject {
       create_content: 'CREATE_CONTENT',
       moderate: 'MODERATE',
       moderate_community: 'MODERATE_COMMUNITY',
+      manage_jobs: 'MANAGE_JOBS',
       advertise: 'ADVERTISE',
       analyze: 'ANALYZE'
     });
@@ -339,6 +342,7 @@ export default class Page extends AbstractCrudObject {
       create_content: 'CREATE_CONTENT',
       moderate: 'MODERATE',
       moderate_community: 'MODERATE_COMMUNITY',
+      manage_jobs: 'MANAGE_JOBS',
       advertise: 'ADVERTISE',
       analyze: 'ANALYZE'
     });
@@ -648,16 +652,6 @@ export default class Page extends AbstractCrudObject {
       fields,
       params,
       Page
-    );
-  }
-
-  getAudioCopyrights (fields, params, fetchFirstPage = true): AudioCopyright {
-    return this.getEdge(
-      AudioCopyright,
-      fields,
-      params,
-      fetchFirstPage,
-      '/audio_copyrights'
     );
   }
 
@@ -1457,16 +1451,6 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  getMusicVideoCopyrights (fields, params, fetchFirstPage = true): MusicVideoCopyright {
-    return this.getEdge(
-      MusicVideoCopyright,
-      fields,
-      params,
-      fetchFirstPage,
-      '/music_video_copyrights'
-    );
-  }
-
   getMusicVideoMediaCopyrights (fields, params, fetchFirstPage = true): MusicVideoCopyright {
     return this.getEdge(
       MusicVideoCopyright,
@@ -1517,6 +1501,15 @@ export default class Page extends AbstractCrudObject {
   createNotification (fields, params): Page {
     return this.createEdge(
       '/notifications',
+      fields,
+      params,
+      Page
+    );
+  }
+
+  createPageAboutStory (fields, params): Page {
+    return this.createEdge(
+      '/page_about_story',
       fields,
       params,
       Page

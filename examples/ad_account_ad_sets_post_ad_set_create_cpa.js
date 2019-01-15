@@ -15,7 +15,7 @@ const AdSet = bizSdk.AdSet;
 const access_token = '<ACCESS_TOKEN>';
 const app_secret = '<APP_SECRET>';
 const app_id = '<APP_ID>';
-const id = '<ID>';
+const id = '<AD_ACCOUNT_ID>';
 const api = bizSdk.FacebookAdsApi.init(access_token);
 const showDebugingInfo = true; // Setting this to true shows more debugging info.
 if (showDebugingInfo) {
@@ -36,8 +36,8 @@ params = {
   'name' : 'A CPA Ad Set',
   'campaign_id' : '<adCampaignLinkClicksID>',
   'daily_budget' : '5000',
-  'start_time' : '2018-12-06T17:37:49-0800',
-  'end_time' : '2018-12-13T17:37:49-0800',
+  'start_time' : '2019-01-09T21:31:19-0800',
+  'end_time' : '2019-01-16T21:31:19-0800',
   'billing_event' : 'IMPRESSIONS',
   'optimization_goal' : 'REACH',
   'bid_amount' : '1000',

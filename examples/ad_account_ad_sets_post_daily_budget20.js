@@ -15,7 +15,7 @@ const AdSet = bizSdk.AdSet;
 const access_token = '<ACCESS_TOKEN>';
 const app_secret = '<APP_SECRET>';
 const app_id = '<APP_ID>';
-const id = '<ID>';
+const id = '<AD_ACCOUNT_ID>';
 const api = bizSdk.FacebookAdsApi.init(access_token);
 const showDebugingInfo = true; // Setting this to true shows more debugging info.
 if (showDebugingInfo) {
@@ -35,8 +35,8 @@ fields = [
 params = {
   'name' : 'My First Adset',
   'daily_budget' : '2000',
-  'start_time' : '2018-11-29T17:42:25-0800',
-  'end_time' : '2018-12-06T17:42:25-0800',
+  'start_time' : '2019-01-02T21:36:18-0800',
+  'end_time' : '2019-01-09T21:36:18-0800',
   'campaign_id' : '<adCampaignLinkClicksID>',
   'bid_amount' : '100',
   'billing_event' : 'LINK_CLICKS',

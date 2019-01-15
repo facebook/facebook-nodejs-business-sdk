@@ -33,16 +33,17 @@ let fields, params;
 fields = [
 ];
 params = {
-  'name' : 'My First Adset',
-  'lifetime_budget' : '20000',
-  'start_time' : '2019-01-02T21:39:32-0800',
-  'end_time' : '2019-01-12T21:39:32-0800',
-  'campaign_id' : '<adCampaignLinkClicksID>',
-  'bid_amount' : '500',
+  'name' : 'A CPA Ad Set optimized for App Events',
+  'campaign_id' : '<adCampaignAppInstallsID>',
+  'daily_budget' : '300',
+  'start_time' : '2019-01-09T21:41:08-0800',
+  'end_time' : '2019-01-16T21:41:08-0800',
   'billing_event' : 'IMPRESSIONS',
-  'optimization_goal' : 'POST_ENGAGEMENT',
-  'targeting' : {'geo_locations':{'countries':['US'],'regions':[{'key':'4081'}],'cities':[{'key':777934,'radius':10,'distance_unit':'mile'}]},'genders':[1],'age_max':24,'age_min':20,'behaviors':[{'id':6002714895372,'name':'All travelers'}],'life_events':[{'id':6002714398172,'name':'Newlywed (1 year)'}],'home_ownership':[{'id':6006371327132,'name':'Renters'}],'publisher_platforms':['facebook'],'device_platforms':['desktop']},
+  'optimization_goal' : 'OFFSITE_CONVERSIONS',
+  'bid_amount' : '100',
   'status' : 'PAUSED',
+  'promoted_object' : {'application_id':'<appID>','object_store_url':'<appLink>','custom_event_type':'PURCHASE'},
+  'targeting' : {'geo_locations':{'countries':['US']},'user_os':['iOS']},
 };
 const adsets = (new AdAccount(id)).createAdSet(
   fields,

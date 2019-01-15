@@ -24,8 +24,7 @@ export default class IterativeSplitTestConfig extends AbstractCrudObject {
       iterative_split_test_variant_to_split_mapping: 'iterative_split_test_variant_to_split_mapping',
       results_window: 'results_window',
       splits: 'splits',
-      start_time: 'start_time',
-      test_end_metrics_snapshot: 'test_end_metrics_snapshot'
+      start_time: 'start_time'
     });
   }
 
