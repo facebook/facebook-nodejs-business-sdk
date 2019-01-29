@@ -36,16 +36,6 @@ export default class Link extends AbstractCrudObject {
     });
   }
 
-  static get UnpublishedContentType (): Object {
-    return Object.freeze({
-      scheduled: 'SCHEDULED',
-      draft: 'DRAFT',
-      ads_post: 'ADS_POST',
-      inline_created: 'INLINE_CREATED',
-      published: 'PUBLISHED'
-    });
-  }
-
   getComments (fields, params, fetchFirstPage = true): Comment {
     return this.getEdge(
       Comment,

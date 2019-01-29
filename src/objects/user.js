@@ -31,7 +31,6 @@ import Group from './group';
 import UserIDForApp from './user-id-for-app';
 import UserIDForPage from './user-id-for-page';
 import UserInvitableFriend from './user-invitable-friend';
-import Link from './link';
 import LiveEncoder from './live-encoder';
 import LiveVideo from './live-video';
 import OpenGraphObject from './open-graph-object';
@@ -474,15 +473,6 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  createCheckin (fields, params): AbstractObject {
-    return this.createEdge(
-      '/checkins',
-      fields,
-      params
-
-    );
-  }
-
   getConversations (fields, params, fetchFirstPage = true): UnifiedThread {
     return this.getEdge(
       UnifiedThread,
@@ -520,15 +510,6 @@ export default class User extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/events'
-    );
-  }
-
-  createEvent (fields, params): Event {
-    return this.createEdge(
-      '/events',
-      fields,
-      params,
-      Event
     );
   }
 
@@ -577,15 +558,6 @@ export default class User extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/friendlists'
-    );
-  }
-
-  createFriendList (fields, params): FriendList {
-    return this.createEdge(
-      '/friendlists',
-      fields,
-      params,
-      FriendList
     );
   }
 
@@ -730,15 +702,6 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  createLink (fields, params): Link {
-    return this.createEdge(
-      '/links',
-      fields,
-      params,
-      Link
-    );
-  }
-
   getLiveEncoders (fields, params, fetchFirstPage = true): LiveEncoder {
     return this.getEdge(
       LiveEncoder,
@@ -848,15 +811,6 @@ export default class User extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/music'
-    );
-  }
-
-  createNote (fields, params): AbstractObject {
-    return this.createEdge(
-      '/notes',
-      fields,
-      params
-
     );
   }
 

@@ -195,7 +195,6 @@ export default class AdAccount extends AbstractCrudObject {
       twd: 'TWD',
       usd: 'USD',
       uyu: 'UYU',
-      vef: 'VEF',
       vnd: 'VND',
       zar: 'ZAR'
     });
@@ -217,6 +216,7 @@ export default class AdAccount extends AbstractCrudObject {
   static get ClaimObjective (): Object {
     return Object.freeze({
       automotive_model: 'AUTOMOTIVE_MODEL',
+      collaborative_ads: 'COLLABORATIVE_ADS',
       home_listing: 'HOME_LISTING',
       media_title: 'MEDIA_TITLE',
       product: 'PRODUCT',
@@ -292,15 +292,6 @@ export default class AdAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/ad_studies'
-    );
-  }
-
-  createAdAssetFeed (fields, params): AbstractObject {
-    return this.createEdge(
-      '/adasset_feeds',
-      fields,
-      params
-
     );
   }
 
@@ -394,15 +385,6 @@ export default class AdAccount extends AbstractCrudObject {
       fields,
       params,
       AdLabel
-    );
-  }
-
-  createAdLanguageAsset (fields, params): AbstractObject {
-    return this.createEdge(
-      '/adlanguage_assets',
-      fields,
-      params
-
     );
   }
 
@@ -682,13 +664,6 @@ export default class AdAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/applications'
-    );
-  }
-
-  deleteAssignedUsers (params): AbstractObject {
-    return super.deleteEdge(
-      '/assigned_users',
-      params
     );
   }
 
@@ -1284,15 +1259,6 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createReportStat (fields, params): AbstractObject {
-    return this.createEdge(
-      '/reportstats',
-      fields,
-      params
-
-    );
-  }
-
   getRoas (fields, params, fetchFirstPage = true): AdAccountRoas {
     return this.getEdge(
       AdAccountRoas,
@@ -1421,22 +1387,6 @@ export default class AdAccount extends AbstractCrudObject {
       fields,
       params
 
-    );
-  }
-
-  deleteUserPermissions (params): AbstractObject {
-    return super.deleteEdge(
-      '/userpermissions',
-      params
-    );
-  }
-
-  createUserPermission (fields, params): AdAccount {
-    return this.createEdge(
-      '/userpermissions',
-      fields,
-      params,
-      AdAccount
     );
   }
 

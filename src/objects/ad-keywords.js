@@ -9,23 +9,18 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * FPlugSave
+ * AdKeywords
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class FPlugSave extends AbstractCrudObject {
+export default class AdKeywords extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      html: 'html',
-      id: 'id',
-      js: 'js'
+      brands: 'brands',
+      product_categories: 'product_categories',
+      product_names: 'product_names',
+      search_terms: 'search_terms',
+      id: 'id'
     });
-  }
-
-  get (fields, params): FPlugSave {
-    return this.read(
-      fields,
-      params
-    );
   }
 }

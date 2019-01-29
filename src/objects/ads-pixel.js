@@ -84,14 +84,6 @@ export default class AdsPixel extends AbstractCrudObject {
       secondary: 'SECONDARY'
     });
   }
-  static get RelationshipType (): Object {
-    return Object.freeze({
-      ad_manager: 'AD_MANAGER',
-      audience_manager: 'AUDIENCE_MANAGER',
-      agency: 'AGENCY',
-      other: 'OTHER'
-    });
-  }
 
   deleteAssignedUsers (params): AbstractObject {
     return super.deleteEdge(
@@ -207,15 +199,6 @@ export default class AdsPixel extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/shared_agencies'
-    );
-  }
-
-  createSharedAgency (fields, params): AdsPixel {
-    return this.createEdge(
-      '/shared_agencies',
-      fields,
-      params,
-      AdsPixel
     );
   }
 

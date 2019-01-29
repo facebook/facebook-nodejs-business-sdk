@@ -107,12 +107,6 @@ export default class LiveVideo extends AbstractCrudObject {
       ambient: 'AMBIENT'
     });
   }
-  static get Type (): Object {
-    return Object.freeze({
-      tagged: 'tagged',
-      uploaded: 'uploaded'
-    });
-  }
   static get LiveCommentModerationSetting (): Object {
     return Object.freeze({
       follower: 'FOLLOWER',

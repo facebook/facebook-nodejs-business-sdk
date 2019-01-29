@@ -332,21 +332,9 @@ export default class Event extends AbstractCrudObject {
     );
   }
 
-  delete (fields, params): AbstractObject {
-    return super.delete(
-      params
-    );
-  }
-
   get (fields, params): Event {
     return this.read(
       fields,
-      params
-    );
-  }
-
-  update (fields, params): Event {
-    return super.update(
       params
     );
   }

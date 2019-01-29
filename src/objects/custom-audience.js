@@ -65,6 +65,7 @@ export default class CustomAudience extends AbstractCrudObject {
   static get ClaimObjective (): Object {
     return Object.freeze({
       automotive_model: 'AUTOMOTIVE_MODEL',
+      collaborative_ads: 'COLLABORATIVE_ADS',
       home_listing: 'HOME_LISTING',
       media_title: 'MEDIA_TITLE',
       product: 'PRODUCT',

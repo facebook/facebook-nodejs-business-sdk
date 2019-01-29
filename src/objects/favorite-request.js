@@ -55,7 +55,7 @@ export default class FavoriteRequest extends AbstractCrudObject {
       v3_0: 'v3.0',
       v3_1: 'v3.1',
       v3_2: 'v3.2',
-      v4_0: 'v4.0'
+      v3_3: 'v3.3'
     });
   }
 

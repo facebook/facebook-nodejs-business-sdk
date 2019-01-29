@@ -9,24 +9,15 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * PagesPlatformComponentFlowServiceConfig
+ * AdCreativeInteractiveComponentsSpec
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class PagesPlatformComponentFlowServiceConfig extends AbstractCrudObject {
+export default class AdCreativeInteractiveComponentsSpec extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      deeplink: 'deeplink',
-      flow_category: 'flow_category',
-      id: 'id',
-      label: 'label'
+      components: 'components',
+      id: 'id'
     });
-  }
-
-  get (fields, params): PagesPlatformComponentFlowServiceConfig {
-    return this.read(
-      fields,
-      params
-    );
   }
 }

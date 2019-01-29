@@ -43,7 +43,6 @@ import LeadGenDataDraft from './lead-gen-data-draft';
 import LeadgenForm from './leadgen-form';
 import LeadGenLegalContent from './lead-gen-legal-content';
 import LeadGenQualifier from './lead-gen-qualifier';
-import Link from './link';
 import LiveEncoder from './live-encoder';
 import LiveVideo from './live-video';
 import MediaFingerprint from './media-fingerprint';
@@ -73,7 +72,6 @@ import ThreadSetting from './thread-setting';
 import EventTour from './event-tour';
 import VideoCopyrightRule from './video-copyright-rule';
 import PageVideosYouCanUse from './page-videos-you-can-use';
-import PagesPlatformComponentFlowServiceConfig from './pages-platform-component-flow-service-config';
 
 /**
  * Page
@@ -629,13 +627,6 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  deleteAssignedUsers (params): AbstractObject {
-    return super.deleteEdge(
-      '/assigned_users',
-      params
-    );
-  }
-
   getAssignedUsers (fields, params, fetchFirstPage = true): AssignedUser {
     return this.getEdge(
       AssignedUser,
@@ -951,15 +942,6 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createEvent (fields, params): Event {
-    return this.createEdge(
-      '/events',
-      fields,
-      params,
-      Event
-    );
-  }
-
   getExpiredPosts (fields, params, fetchFirstPage = true): ExpirablePost {
     return this.getEdge(
       ExpirablePost,
@@ -1258,15 +1240,6 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createLink (fields, params): Link {
-    return this.createEdge(
-      '/links',
-      fields,
-      params,
-      Link
-    );
-  }
-
   getLiveEncoders (fields, params, fetchFirstPage = true): LiveEncoder {
     return this.getEdge(
       LiveEncoder,
@@ -1489,15 +1462,6 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createNote (fields, params): AbstractObject {
-    return this.createEdge(
-      '/notes',
-      fields,
-      params
-
-    );
-  }
-
   createNotification (fields, params): Page {
     return this.createEdge(
       '/notifications',
@@ -1657,15 +1621,6 @@ export default class Page extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/published_posts'
-    );
-  }
-
-  createQuestion (fields, params): AbstractObject {
-    return this.createEdge(
-      '/questions',
-      fields,
-      params
-
     );
   }
 
@@ -1970,22 +1925,6 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  deleteUserPermissions (params): AbstractObject {
-    return super.deleteEdge(
-      '/userpermissions',
-      params
-    );
-  }
-
-  createUserPermission (fields, params): Page {
-    return this.createEdge(
-      '/userpermissions',
-      fields,
-      params,
-      Page
-    );
-  }
-
   getVideoBroadcasts (fields, params, fetchFirstPage = true): LiveVideo {
     return this.getEdge(
       LiveVideo,
@@ -2106,16 +2045,6 @@ export default class Page extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/visitor_posts'
-    );
-  }
-
-  getWorkFlows (fields, params, fetchFirstPage = true): PagesPlatformComponentFlowServiceConfig {
-    return this.getEdge(
-      PagesPlatformComponentFlowServiceConfig,
-      fields,
-      params,
-      fetchFirstPage,
-      '/workflows'
     );
   }
 

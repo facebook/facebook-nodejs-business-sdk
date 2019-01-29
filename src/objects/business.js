@@ -216,23 +216,13 @@ export default class Business extends AbstractCrudObject {
       insights_analyst: 'INSIGHTS_ANALYST'
     });
   }
-  static get PermittedRoles (): Object {
-    return Object.freeze({
-      manager: 'MANAGER',
-      content_creator: 'CONTENT_CREATOR',
-      moderator: 'MODERATOR',
-      advertiser: 'ADVERTISER',
-      insights_analyst: 'INSIGHTS_ANALYST'
-    });
-  }
   static get Role (): Object {
     return Object.freeze({
       finance_editor: 'FINANCE_EDITOR',
       finance_analyst: 'FINANCE_ANALYST',
       ads_rights_reviewer: 'ADS_RIGHTS_REVIEWER',
       admin: 'ADMIN',
-      employee: 'EMPLOYEE',
-      fb_employee_sales_rep: 'FB_EMPLOYEE_SALES_REP'
+      employee: 'EMPLOYEE'
     });
   }
 
@@ -761,7 +751,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  getOfFLineTermsOfService (fields, params, fetchFirstPage = true): OfflineTermsOfService {
+  getOfflineTermsOfService (fields, params, fetchFirstPage = true): OfflineTermsOfService {
     return this.getEdge(
       OfflineTermsOfService,
       fields,
@@ -929,15 +919,6 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createPage (fields, params): Business {
-    return this.createEdge(
-      '/pages',
-      fields,
-      params,
-      Business
-    );
-  }
-
   getPartnerIntegrations (fields, params, fetchFirstPage = true): PartnerIntegrationLinked {
     return this.getEdge(
       PartnerIntegrationLinked,
@@ -1063,15 +1044,6 @@ export default class Business extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/picture'
-    );
-  }
-
-  createProductCatalog (fields, params): ProductCatalog {
-    return this.createEdge(
-      '/product_catalogs',
-      fields,
-      params,
-      ProductCatalog
     );
   }
 

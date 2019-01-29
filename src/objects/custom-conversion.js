@@ -60,6 +60,7 @@ export default class CustomConversion extends AbstractCrudObject {
       start_trial: 'START_TRIAL',
       submit_application: 'SUBMIT_APPLICATION',
       subscribe: 'SUBSCRIBE',
+      listing_interaction: 'LISTING_INTERACTION',
       other: 'OTHER'
     });
   }

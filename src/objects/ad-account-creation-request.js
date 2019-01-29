@@ -40,6 +40,7 @@ export default class AdAccountCreationRequest extends AbstractCrudObject {
       is_test: 'is_test',
       is_under_authorization: 'is_under_authorization',
       legal_entity_name_in_local_language: 'legal_entity_name_in_local_language',
+      oe_request_id: 'oe_request_id',
       official_website_url: 'official_website_url',
       planning_agency_business: 'planning_agency_business',
       planning_agency_business_id: 'planning_agency_business_id',

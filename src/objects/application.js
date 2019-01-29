@@ -430,15 +430,6 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  createAppLinkHost (fields, params): AbstractObject {
-    return this.createEdge(
-      '/app_link_hosts',
-      fields,
-      params
-
-    );
-  }
-
   createAppPushDeviceToken (fields, params): Application {
     return this.createEdge(
       '/app_push_device_token',
