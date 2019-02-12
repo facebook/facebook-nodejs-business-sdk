@@ -41,6 +41,7 @@ export default class ProductCatalog extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       business: 'business',
+      cpas_parent_catalog_settings: 'cpas_parent_catalog_settings',
       da_display_settings: 'da_display_settings',
       default_image_url: 'default_image_url',
       fallback_image_url: 'fallback_image_url',

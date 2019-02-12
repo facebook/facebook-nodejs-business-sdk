@@ -494,21 +494,6 @@ export default class Page extends AbstractCrudObject {
       remove: 'REMOVE'
     });
   }
-  static get SettingType (): Object {
-    return Object.freeze({
-      account_linking: 'ACCOUNT_LINKING',
-      call_to_actions: 'CALL_TO_ACTIONS',
-      greeting: 'GREETING',
-      domain_whitelisting: 'DOMAIN_WHITELISTING',
-      payment: 'PAYMENT'
-    });
-  }
-  static get ThreadState (): Object {
-    return Object.freeze({
-      new_thread: 'NEW_THREAD',
-      existing_thread: 'EXISTING_THREAD'
-    });
-  }
 
   createActivity (fields, params): Page {
     return this.createEdge(

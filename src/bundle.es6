@@ -166,6 +166,7 @@ export { default as BusinessRoleRequest } from './../src/objects/business-role-r
 export { default as BusinessSettingLogsData } from './../src/objects/business-setting-logs-data';
 export { default as BusinessUnit } from './../src/objects/business-unit';
 export { default as BusinessUser } from './../src/objects/business-user';
+export { default as CPASParentCatalogSettings } from './../src/objects/cpas-parent-catalog-settings';
 export { default as CalibratorExistingRule } from './../src/objects/calibrator-existing-rule';
 export { default as CampaignGroupBrandConfiguration } from './../src/objects/campaign-group-brand-configuration';
 export { default as Canvas } from './../src/objects/canvas';

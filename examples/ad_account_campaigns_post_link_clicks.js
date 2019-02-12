@@ -33,8 +33,8 @@ let fields, params;
 fields = [
 ];
 params = {
-  'name' : 'My First Campaign',
-  'objective' : 'POST_ENGAGEMENT',
+  'name' : 'My campaign',
+  'objective' : 'LINK_CLICKS',
   'status' : 'PAUSED',
 };
 const campaigns = (new AdAccount(id)).createCampaign(

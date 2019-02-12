@@ -68,7 +68,8 @@ export default class AdCreativeLinkDataImageOverlaySpec extends AbstractCrudObje
       strikethrough_price: 'strikethrough_price',
       percentage_off: 'percentage_off',
       custom: 'custom',
-      from_price: 'from_price'
+      from_price: 'from_price',
+      disclaimer: 'disclaimer'
     });
   }
   static get ThemeColor (): Object {

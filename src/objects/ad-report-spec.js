@@ -51,7 +51,9 @@ export default class AdReportSpec extends AbstractCrudObject {
       action_type: 'action_type',
       action_video_sound: 'action_video_sound',
       action_video_type: 'action_video_type',
-      action_converted_product_id: 'action_converted_product_id'
+      action_converted_product_id: 'action_converted_product_id',
+      interactive_component_sticker_id: 'interactive_component_sticker_id',
+      interactive_component_sticker_response: 'interactive_component_sticker_response'
     });
   }
   static get CreationSource (): Object {

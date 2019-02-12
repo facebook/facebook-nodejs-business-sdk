@@ -9,13 +9,12 @@
 
  'use strict';
 const bizSdk = require('facebook-nodejs-business-sdk');
-const AdAccount = bizSdk.AdAccount;
-const Campaign = bizSdk.Campaign;
+const AdsPixel = bizSdk.AdsPixel;
 
 const access_token = '<ACCESS_TOKEN>';
 const app_secret = '<APP_SECRET>';
 const app_id = '<APP_ID>';
-const id = '<AD_ACCOUNT_ID>';
+const id = '<PIXEL_ID>';
 const api = bizSdk.FacebookAdsApi.init(access_token);
 const showDebugingInfo = true; // Setting this to true shows more debugging info.
 if (showDebugingInfo) {
@@ -33,12 +32,11 @@ let fields, params;
 fields = [
 ];
 params = {
-  'name' : 'My First Campaign',
-  'objective' : 'POST_ENGAGEMENT',
-  'status' : 'PAUSED',
+  'account_id' : '<adAccountID>',
+  'business' : '<businessID>',
 };
-const campaigns = (new AdAccount(id)).createCampaign(
+const shared_accounts = (new AdsPixel(id)).createShareDAccount(
   fields,
   params
 );
-logApiCallResult('campaigns api call complete.', campaigns);
+logApiCallResult('shared_accounts api call complete.', shared_accounts);

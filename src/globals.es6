@@ -164,6 +164,7 @@ import './../src/objects/business-role-request';
 import './../src/objects/business-setting-logs-data';
 import './../src/objects/business-unit';
 import './../src/objects/business-user';
+import './../src/objects/cpas-parent-catalog-settings';
 import './../src/objects/calibrator-existing-rule';
 import './../src/objects/campaign-group-brand-configuration';
 import './../src/objects/canvas';
