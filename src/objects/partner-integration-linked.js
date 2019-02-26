@@ -59,28 +59,29 @@ export default class PartnerIntegrationLinked extends AbstractCrudObject {
       jumpseller: 'jumpseller',
       kajabi: 'kajabi',
       kraftly: 'kraftly',
+      m_particle: 'm_particle',
       magento: 'magento',
       magento_2: 'magento_2',
       marketo: 'marketo',
       meesho: 'meesho',
-      m_particle: 'm_particle',
       now_floats: 'now_floats',
       opencart: 'opencart',
       prestashop: 'prestashop',
       productsup: 'productsup',
-      ruby_on_rails: 'ruby_on_rails',
       riversoft: 'riversoft',
+      ruby_on_rails: 'ruby_on_rails',
       salesforce: 'salesforce',
       salesforce_zap: 'salesforce_zap',
       segment: 'segment',
+      shop_up: 'shop_up',
       shopify: 'shopify',
       shopify_online: 'shopify_online',
       shopline: 'shopline',
-      shop_up: 'shop_up',
       sirclo: 'sirclo',
       squarespace: 'squarespace',
       storeden: 'storeden',
       test: 'test',
+      ticketmaster: 'ticketmaster',
       verifone: 'verifone',
       waca: 'waca',
       webflow: 'webflow',
@@ -88,8 +89,7 @@ export default class PartnerIntegrationLinked extends AbstractCrudObject {
       wix: 'wix',
       woocommerce: 'woocommerce',
       wordpress: 'wordpress',
-      zoho_zap: 'zoho_zap',
-      ticketmaster: 'ticketmaster'
+      zoho_zap: 'zoho_zap'
     });
   }
   static get CompletedIntegrationTypes (): Object {
@@ -102,8 +102,8 @@ export default class PartnerIntegrationLinked extends AbstractCrudObject {
   }
   static get SetupStatus (): Object {
     return Object.freeze({
-      start: 'START',
-      complete: 'COMPLETE'
+      complete: 'COMPLETE',
+      start: 'START'
     });
   }
 

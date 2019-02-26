@@ -33,9 +33,9 @@ export default class AdRule extends AbstractCrudObject {
 
   static get Status (): Object {
     return Object.freeze({
-      enabled: 'ENABLED',
+      deleted: 'DELETED',
       disabled: 'DISABLED',
-      deleted: 'DELETED'
+      enabled: 'ENABLED'
     });
   }
 

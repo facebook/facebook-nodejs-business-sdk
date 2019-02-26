@@ -48,13 +48,13 @@ export default class NativeOffer extends AbstractCrudObject {
 
   static get UniqueCodesFileCodeType (): Object {
     return Object.freeze({
-      discount_codes: 'discount_codes',
       barcodes: 'barcodes',
-      online_discount_codes: 'online_discount_codes',
-      instore_discount_codes: 'instore_discount_codes',
-      instore_barcodes: 'instore_barcodes',
       discount_and_barcodes: 'discount_and_barcodes',
-      discount_and_discount: 'discount_and_discount'
+      discount_and_discount: 'discount_and_discount',
+      discount_codes: 'discount_codes',
+      instore_barcodes: 'instore_barcodes',
+      instore_discount_codes: 'instore_discount_codes',
+      online_discount_codes: 'online_discount_codes'
     });
   }
   static get BarcodeType (): Object {
@@ -76,9 +76,9 @@ export default class NativeOffer extends AbstractCrudObject {
   }
   static get LocationType (): Object {
     return Object.freeze({
-      online: 'online',
+      both: 'both',
       offline: 'offline',
-      both: 'both'
+      online: 'online'
     });
   }
 

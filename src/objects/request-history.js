@@ -29,9 +29,9 @@ export default class RequestHistory extends AbstractCrudObject {
 
   static get HttpMethod (): Object {
     return Object.freeze({
+      delete: 'DELETE',
       get: 'GET',
-      post: 'POST',
-      delete: 'DELETE'
+      post: 'POST'
     });
   }
 }

@@ -88,12 +88,12 @@ export default class Post extends AbstractCrudObject {
 
   static get BackdatedTimeGranularity (): Object {
     return Object.freeze({
-      year: 'year',
-      month: 'month',
       day: 'day',
       hour: 'hour',
       min: 'min',
-      none: 'none'
+      month: 'month',
+      none: 'none',
+      year: 'year'
     });
   }
   static get FeedStoryVisibility (): Object {
@@ -104,9 +104,9 @@ export default class Post extends AbstractCrudObject {
   }
   static get TimelineVisibility (): Object {
     return Object.freeze({
+      forced_allow: 'forced_allow',
       hidden: 'hidden',
-      normal: 'normal',
-      forced_allow: 'forced_allow'
+      normal: 'normal'
     });
   }
 

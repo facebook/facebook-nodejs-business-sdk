@@ -27,8 +27,8 @@ export default class VideoGameShow extends AbstractCrudObject {
 
   static get Action (): Object {
     return Object.freeze({
-      start_game: 'START_GAME',
-      end_game: 'END_GAME'
+      end_game: 'END_GAME',
+      start_game: 'START_GAME'
     });
   }
 

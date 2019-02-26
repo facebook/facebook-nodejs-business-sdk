@@ -30,9 +30,9 @@ export default class FavoriteRequest extends AbstractCrudObject {
 
   static get HttpMethod (): Object {
     return Object.freeze({
+      delete: 'DELETE',
       get: 'GET',
-      post: 'POST',
-      delete: 'DELETE'
+      post: 'POST'
     });
   }
   static get ApiVersion (): Object {
@@ -41,6 +41,9 @@ export default class FavoriteRequest extends AbstractCrudObject {
       v1_0: 'v1.0',
       v2_0: 'v2.0',
       v2_1: 'v2.1',
+      v2_10: 'v2.10',
+      v2_11: 'v2.11',
+      v2_12: 'v2.12',
       v2_2: 'v2.2',
       v2_3: 'v2.3',
       v2_4: 'v2.4',
@@ -49,9 +52,6 @@ export default class FavoriteRequest extends AbstractCrudObject {
       v2_7: 'v2.7',
       v2_8: 'v2.8',
       v2_9: 'v2.9',
-      v2_10: 'v2.10',
-      v2_11: 'v2.11',
-      v2_12: 'v2.12',
       v3_0: 'v3.0',
       v3_1: 'v3.1',
       v3_2: 'v3.2',

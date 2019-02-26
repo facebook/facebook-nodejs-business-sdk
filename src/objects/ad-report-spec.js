@@ -44,6 +44,7 @@ export default class AdReportSpec extends AbstractCrudObject {
       action_canvas_component_name: 'action_canvas_component_name',
       action_carousel_card_id: 'action_carousel_card_id',
       action_carousel_card_name: 'action_carousel_card_name',
+      action_converted_product_id: 'action_converted_product_id',
       action_destination: 'action_destination',
       action_device: 'action_device',
       action_event_channel: 'action_event_channel',
@@ -51,45 +52,44 @@ export default class AdReportSpec extends AbstractCrudObject {
       action_type: 'action_type',
       action_video_sound: 'action_video_sound',
       action_video_type: 'action_video_type',
-      action_converted_product_id: 'action_converted_product_id',
       interactive_component_sticker_id: 'interactive_component_sticker_id',
       interactive_component_sticker_response: 'interactive_component_sticker_response'
     });
   }
   static get CreationSource (): Object {
     return Object.freeze({
+      adsexceladdin: 'adsExcelAddin',
       adsmanagerreporting: 'adsManagerReporting',
-      newadsmanager: 'newAdsManager',
-      adsexceladdin: 'adsExcelAddin'
+      newadsmanager: 'newAdsManager'
     });
   }
   static get DatePreset (): Object {
     return Object.freeze({
-      today: 'today',
-      yesterday: 'yesterday',
-      this_month: 'this_month',
-      last_month: 'last_month',
-      this_quarter: 'this_quarter',
-      lifetime: 'lifetime',
-      last_3d: 'last_3d',
-      last_7d: 'last_7d',
       last_14d: 'last_14d',
       last_28d: 'last_28d',
       last_30d: 'last_30d',
+      last_3d: 'last_3d',
+      last_7d: 'last_7d',
       last_90d: 'last_90d',
+      last_month: 'last_month',
+      last_quarter: 'last_quarter',
       last_week_mon_sun: 'last_week_mon_sun',
       last_week_sun_sat: 'last_week_sun_sat',
-      last_quarter: 'last_quarter',
       last_year: 'last_year',
+      lifetime: 'lifetime',
+      this_month: 'this_month',
+      this_quarter: 'this_quarter',
       this_week_mon_today: 'this_week_mon_today',
       this_week_sun_today: 'this_week_sun_today',
-      this_year: 'this_year'
+      this_year: 'this_year',
+      today: 'today',
+      yesterday: 'yesterday'
     });
   }
   static get Format (): Object {
     return Object.freeze({
-      json: 'JSON',
       csv: 'CSV',
+      json: 'JSON',
       xls: 'XLS',
       xlsx: 'XLSX'
     });

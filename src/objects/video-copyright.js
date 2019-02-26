@@ -44,9 +44,9 @@ export default class VideoCopyright extends AbstractCrudObject {
   }
   static get MonitoringType (): Object {
     return Object.freeze({
+      audio_only: 'AUDIO_ONLY',
       video_and_audio: 'VIDEO_AND_AUDIO',
-      video_only: 'VIDEO_ONLY',
-      audio_only: 'AUDIO_ONLY'
+      video_only: 'VIDEO_ONLY'
     });
   }
 

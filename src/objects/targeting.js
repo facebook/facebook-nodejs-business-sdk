@@ -112,16 +112,16 @@ export default class Targeting extends AbstractCrudObject {
 
   static get DevicePlatforms (): Object {
     return Object.freeze({
-      mobile: 'mobile',
+      connected_tv: 'connected_tv',
       desktop: 'desktop',
-      connected_tv: 'connected_tv'
+      mobile: 'mobile'
     });
   }
   static get EffectiveDevicePlatforms (): Object {
     return Object.freeze({
-      mobile: 'mobile',
+      connected_tv: 'connected_tv',
       desktop: 'desktop',
-      connected_tv: 'connected_tv'
+      mobile: 'mobile'
     });
   }
 }

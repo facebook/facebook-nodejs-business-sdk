@@ -25,9 +25,9 @@ export default class AdRuleHistoryResult extends AbstractCrudObject {
 
   static get ObjectType (): Object {
     return Object.freeze({
-      campaign: 'CAMPAIGN',
+      ad: 'AD',
       adset: 'ADSET',
-      ad: 'AD'
+      campaign: 'CAMPAIGN'
     });
   }
 }

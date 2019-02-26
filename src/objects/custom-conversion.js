@@ -47,21 +47,21 @@ export default class CustomConversion extends AbstractCrudObject {
       add_to_cart: 'ADD_TO_CART',
       add_to_wishlist: 'ADD_TO_WISHLIST',
       complete_registration: 'COMPLETE_REGISTRATION',
-      content_view: 'CONTENT_VIEW',
-      initiated_checkout: 'INITIATED_CHECKOUT',
-      lead: 'LEAD',
-      purchase: 'PURCHASE',
-      search: 'SEARCH',
       contact: 'CONTACT',
+      content_view: 'CONTENT_VIEW',
       customize_product: 'CUSTOMIZE_PRODUCT',
       donate: 'DONATE',
       find_location: 'FIND_LOCATION',
+      initiated_checkout: 'INITIATED_CHECKOUT',
+      lead: 'LEAD',
+      listing_interaction: 'LISTING_INTERACTION',
+      other: 'OTHER',
+      purchase: 'PURCHASE',
       schedule: 'SCHEDULE',
+      search: 'SEARCH',
       start_trial: 'START_TRIAL',
       submit_application: 'SUBMIT_APPLICATION',
-      subscribe: 'SUBSCRIBE',
-      listing_interaction: 'LISTING_INTERACTION',
-      other: 'OTHER'
+      subscribe: 'SUBSCRIBE'
     });
   }
 

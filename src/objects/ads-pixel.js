@@ -48,34 +48,34 @@ export default class AdsPixel extends AbstractCrudObject {
   }
   static get AutomaticMatchingFields (): Object {
     return Object.freeze({
+      ct: 'ct',
       em: 'em',
       fn: 'fn',
+      ge: 'ge',
       ln: 'ln',
       ph: 'ph',
-      ge: 'ge',
-      zp: 'zp',
-      ct: 'ct',
-      st: 'st'
+      st: 'st',
+      zp: 'zp'
     });
   }
   static get DataUseSetting (): Object {
     return Object.freeze({
-      empty: 'EMPTY',
       advertising_and_analytics: 'ADVERTISING_AND_ANALYTICS',
-      analytics_only: 'ANALYTICS_ONLY'
+      analytics_only: 'ANALYTICS_ONLY',
+      empty: 'EMPTY'
     });
   }
   static get FirstPartyCookieStatus (): Object {
     return Object.freeze({
       empty: 'EMPTY',
-      first_party_cookie_enabled: 'FIRST_PARTY_COOKIE_ENABLED',
-      first_party_cookie_disabled: 'FIRST_PARTY_COOKIE_DISABLED'
+      first_party_cookie_disabled: 'FIRST_PARTY_COOKIE_DISABLED',
+      first_party_cookie_enabled: 'FIRST_PARTY_COOKIE_ENABLED'
     });
   }
   static get Tasks (): Object {
     return Object.freeze({
-      edit: 'EDIT',
-      analyze: 'ANALYZE'
+      analyze: 'ANALYZE',
+      edit: 'EDIT'
     });
   }
   static get Type (): Object {

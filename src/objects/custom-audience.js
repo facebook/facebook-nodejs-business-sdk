@@ -89,26 +89,26 @@ export default class CustomAudience extends AbstractCrudObject {
   }
   static get CustomerFileSource (): Object {
     return Object.freeze({
-      user_provided_only: 'USER_PROVIDED_ONLY',
+      both_user_and_partner_provided: 'BOTH_USER_AND_PARTNER_PROVIDED',
       partner_provided_only: 'PARTNER_PROVIDED_ONLY',
-      both_user_and_partner_provided: 'BOTH_USER_AND_PARTNER_PROVIDED'
+      user_provided_only: 'USER_PROVIDED_ONLY'
     });
   }
   static get Subtype (): Object {
     return Object.freeze({
-      custom: 'CUSTOM',
-      website: 'WEBSITE',
       app: 'APP',
-      offline_conversion: 'OFFLINE_CONVERSION',
-      claim: 'CLAIM',
-      partner: 'PARTNER',
-      managed: 'MANAGED',
-      video: 'VIDEO',
-      lookalike: 'LOOKALIKE',
-      engagement: 'ENGAGEMENT',
       bag_of_accounts: 'BAG_OF_ACCOUNTS',
+      claim: 'CLAIM',
+      custom: 'CUSTOM',
+      engagement: 'ENGAGEMENT',
+      fox: 'FOX',
+      lookalike: 'LOOKALIKE',
+      managed: 'MANAGED',
+      offline_conversion: 'OFFLINE_CONVERSION',
+      partner: 'PARTNER',
       study_rule_audience: 'STUDY_RULE_AUDIENCE',
-      fox: 'FOX'
+      video: 'VIDEO',
+      website: 'WEBSITE'
     });
   }
 

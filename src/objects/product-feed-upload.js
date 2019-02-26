@@ -36,8 +36,8 @@ export default class ProductFeedUpload extends AbstractCrudObject {
   static get InputMethod (): Object {
     return Object.freeze({
       manual_upload: 'Manual Upload',
-      server_fetch: 'Server Fetch',
       reupload_last_file: 'Reupload Last File',
+      server_fetch: 'Server Fetch',
       user_initiated_server_fetch: 'User initiated server fetch'
     });
   }

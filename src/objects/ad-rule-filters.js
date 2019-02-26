@@ -25,19 +25,19 @@ export default class AdRuleFilters extends AbstractCrudObject {
 
   static get Operator (): Object {
     return Object.freeze({
-      greater_than: 'GREATER_THAN',
-      less_than: 'LESS_THAN',
-      equal: 'EQUAL',
-      not_equal: 'NOT_EQUAL',
-      in_range: 'IN_RANGE',
-      not_in_range: 'NOT_IN_RANGE',
-      in: 'IN',
-      not_in: 'NOT_IN',
-      contain: 'CONTAIN',
-      not_contain: 'NOT_CONTAIN',
-      any: 'ANY',
       all: 'ALL',
-      none: 'NONE'
+      any: 'ANY',
+      contain: 'CONTAIN',
+      equal: 'EQUAL',
+      greater_than: 'GREATER_THAN',
+      in: 'IN',
+      in_range: 'IN_RANGE',
+      less_than: 'LESS_THAN',
+      none: 'NONE',
+      not_contain: 'NOT_CONTAIN',
+      not_equal: 'NOT_EQUAL',
+      not_in: 'NOT_IN',
+      not_in_range: 'NOT_IN_RANGE'
     });
   }
 }

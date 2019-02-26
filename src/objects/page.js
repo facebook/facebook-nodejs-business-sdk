@@ -229,9 +229,9 @@ export default class Page extends AbstractCrudObject {
 
   static get Attire (): Object {
     return Object.freeze({
-      unspecified: 'Unspecified',
       casual: 'Casual',
-      dressy: 'Dressy'
+      dressy: 'Dressy',
+      unspecified: 'Unspecified'
     });
   }
   static get FoodStyles (): Object {
@@ -297,66 +297,66 @@ export default class Page extends AbstractCrudObject {
   }
   static get Setting (): Object {
     return Object.freeze({
-      post_as_self: 'POST_AS_SELF',
       email_notif: 'EMAIL_NOTIF',
-      mobile_notif: 'MOBILE_NOTIF'
+      mobile_notif: 'MOBILE_NOTIF',
+      post_as_self: 'POST_AS_SELF'
     });
   }
   static get Audience (): Object {
     return Object.freeze({
-      grouper: 'GROUPER',
-      ncpp: 'NCPP',
-      custom_audience: 'CUSTOM_AUDIENCE',
-      lookalike: 'LOOKALIKE',
-      fans: 'FANS',
-      local: 'LOCAL',
-      ig_promoted_post_auto: 'IG_PROMOTED_POST_AUTO',
-      saved_audience: 'SAVED_AUDIENCE',
-      event_engagement: 'EVENT_ENGAGEMENT',
-      district: 'DISTRICT',
-      smart_audience: 'SMART_AUDIENCE',
-      create_new: 'CREATE_NEW',
       auto_lookalike: 'AUTO_LOOKALIKE',
-      mult_custom_audiences: 'MULT_CUSTOM_AUDIENCES',
-      event_custom_audiences: 'EVENT_CUSTOM_AUDIENCES',
       auto_page_lookalike: 'AUTO_PAGE_LOOKALIKE',
-      auto_targeting: 'AUTO_TARGETING'
+      auto_targeting: 'AUTO_TARGETING',
+      create_new: 'CREATE_NEW',
+      custom_audience: 'CUSTOM_AUDIENCE',
+      district: 'DISTRICT',
+      event_custom_audiences: 'EVENT_CUSTOM_AUDIENCES',
+      event_engagement: 'EVENT_ENGAGEMENT',
+      fans: 'FANS',
+      grouper: 'GROUPER',
+      ig_promoted_post_auto: 'IG_PROMOTED_POST_AUTO',
+      local: 'LOCAL',
+      lookalike: 'LOOKALIKE',
+      mult_custom_audiences: 'MULT_CUSTOM_AUDIENCES',
+      ncpp: 'NCPP',
+      saved_audience: 'SAVED_AUDIENCE',
+      smart_audience: 'SMART_AUDIENCE'
     });
   }
   static get PermittedTasks (): Object {
     return Object.freeze({
-      manage: 'MANAGE',
-      create_content: 'CREATE_CONTENT',
-      moderate: 'MODERATE',
-      moderate_community: 'MODERATE_COMMUNITY',
-      manage_jobs: 'MANAGE_JOBS',
       advertise: 'ADVERTISE',
-      analyze: 'ANALYZE'
+      analyze: 'ANALYZE',
+      create_content: 'CREATE_CONTENT',
+      manage: 'MANAGE',
+      manage_jobs: 'MANAGE_JOBS',
+      moderate: 'MODERATE',
+      moderate_community: 'MODERATE_COMMUNITY'
     });
   }
   static get Tasks (): Object {
     return Object.freeze({
-      manage: 'MANAGE',
-      create_content: 'CREATE_CONTENT',
-      moderate: 'MODERATE',
-      moderate_community: 'MODERATE_COMMUNITY',
-      manage_jobs: 'MANAGE_JOBS',
       advertise: 'ADVERTISE',
-      analyze: 'ANALYZE'
+      analyze: 'ANALYZE',
+      create_content: 'CREATE_CONTENT',
+      manage: 'MANAGE',
+      manage_jobs: 'MANAGE_JOBS',
+      moderate: 'MODERATE',
+      moderate_community: 'MODERATE_COMMUNITY'
     });
   }
   static get MessagingType (): Object {
     return Object.freeze({
+      message_tag: 'MESSAGE_TAG',
       response: 'RESPONSE',
-      update: 'UPDATE',
-      message_tag: 'MESSAGE_TAG'
+      update: 'UPDATE'
     });
   }
   static get NotificationType (): Object {
     return Object.freeze({
+      no_push: 'NO_PUSH',
       regular: 'REGULAR',
-      silent_push: 'SILENT_PUSH',
-      no_push: 'NO_PUSH'
+      silent_push: 'SILENT_PUSH'
     });
   }
   static get PublishStatus (): Object {
@@ -368,14 +368,14 @@ export default class Page extends AbstractCrudObject {
   static get SenderAction (): Object {
     return Object.freeze({
       mark_seen: 'MARK_SEEN',
-      typing_on: 'TYPING_ON',
-      typing_off: 'TYPING_OFF'
+      typing_off: 'TYPING_OFF',
+      typing_on: 'TYPING_ON'
     });
   }
   static get Type (): Object {
     return Object.freeze({
-      standard: 'STANDARD',
-      ref: 'REF'
+      ref: 'REF',
+      standard: 'STANDARD'
     });
   }
   static get Model (): Object {
@@ -407,79 +407,79 @@ export default class Page extends AbstractCrudObject {
   }
   static get Filtering (): Object {
     return Object.freeze({
+      ema: 'ema',
       groups: 'groups',
-      groups_social: 'groups_social',
-      ema: 'ema'
+      groups_social: 'groups_social'
     });
   }
   static get SubscribedFields (): Object {
     return Object.freeze({
-      feed: 'feed',
-      mention: 'mention',
-      name: 'name',
-      picture: 'picture',
-      category: 'category',
-      description: 'description',
-      conversations: 'conversations',
+      affiliation: 'affiliation',
+      attire: 'attire',
+      awards: 'awards',
+      bio: 'bio',
+      birthday: 'birthday',
       branded_camera: 'branded_camera',
-      feature_access_list: 'feature_access_list',
-      standby: 'standby',
-      messages: 'messages',
-      messaging_account_linking: 'messaging_account_linking',
-      messaging_checkout_updates: 'messaging_checkout_updates',
-      message_echoes: 'message_echoes',
-      message_deliveries: 'message_deliveries',
-      messaging_game_plays: 'messaging_game_plays',
-      messaging_optins: 'messaging_optins',
-      messaging_optouts: 'messaging_optouts',
-      messaging_payments: 'messaging_payments',
-      messaging_postbacks: 'messaging_postbacks',
-      messaging_pre_checkouts: 'messaging_pre_checkouts',
-      message_reads: 'message_reads',
-      messaging_referrals: 'messaging_referrals',
-      messaging_handovers: 'messaging_handovers',
-      messaging_policy_enforcement: 'messaging_policy_enforcement',
-      messaging_page_feedback: 'messaging_page_feedback',
-      messaging_appointments: 'messaging_appointments',
-      founded: 'founded',
+      category: 'category',
+      checkins: 'checkins',
       company_overview: 'company_overview',
-      mission: 'mission',
-      products: 'products',
+      conversations: 'conversations',
+      culinary_team: 'culinary_team',
+      current_location: 'current_location',
+      description: 'description',
+      email: 'email',
+      feature_access_list: 'feature_access_list',
+      feed: 'feed',
+      founded: 'founded',
       general_info: 'general_info',
+      general_manager: 'general_manager',
+      hometown: 'hometown',
+      hours: 'hours',
       leadgen: 'leadgen',
       leadgen_fat: 'leadgen_fat',
+      live_videos: 'live_videos',
       location: 'location',
-      hours: 'hours',
-      parking: 'parking',
-      public_transit: 'public_transit',
+      members: 'members',
+      mention: 'mention',
+      merchant_review: 'merchant_review',
+      message_deliveries: 'message_deliveries',
+      message_echoes: 'message_echoes',
+      message_reads: 'message_reads',
+      messages: 'messages',
+      messaging_account_linking: 'messaging_account_linking',
+      messaging_appointments: 'messaging_appointments',
+      messaging_checkout_updates: 'messaging_checkout_updates',
+      messaging_game_plays: 'messaging_game_plays',
+      messaging_handovers: 'messaging_handovers',
+      messaging_optins: 'messaging_optins',
+      messaging_optouts: 'messaging_optouts',
+      messaging_page_feedback: 'messaging_page_feedback',
+      messaging_payments: 'messaging_payments',
+      messaging_policy_enforcement: 'messaging_policy_enforcement',
+      messaging_postbacks: 'messaging_postbacks',
+      messaging_pre_checkouts: 'messaging_pre_checkouts',
+      messaging_referrals: 'messaging_referrals',
+      mission: 'mission',
+      name: 'name',
       page_about_story: 'page_about_story',
-      phone: 'phone',
-      email: 'email',
-      website: 'website',
-      ratings: 'ratings',
-      attire: 'attire',
+      page_change_proposal: 'page_change_proposal',
+      page_upcoming_change: 'page_upcoming_change',
+      parking: 'parking',
       payment_options: 'payment_options',
-      culinary_team: 'culinary_team',
-      general_manager: 'general_manager',
-      price_range: 'price_range',
-      awards: 'awards',
-      hometown: 'hometown',
-      current_location: 'current_location',
-      bio: 'bio',
-      affiliation: 'affiliation',
-      birthday: 'birthday',
       personal_info: 'personal_info',
       personal_interests: 'personal_interests',
-      publisher_subscriptions: 'publisher_subscriptions',
-      members: 'members',
-      checkins: 'checkins',
-      page_upcoming_change: 'page_upcoming_change',
-      page_change_proposal: 'page_change_proposal',
-      merchant_review: 'merchant_review',
+      phone: 'phone',
+      picture: 'picture',
+      price_range: 'price_range',
       product_review: 'product_review',
+      products: 'products',
+      public_transit: 'public_transit',
+      publisher_subscriptions: 'publisher_subscriptions',
+      ratings: 'ratings',
+      registration: 'registration',
+      standby: 'standby',
       videos: 'videos',
-      live_videos: 'live_videos',
-      registration: 'registration'
+      website: 'website'
     });
   }
   static get DomainActionType (): Object {
@@ -492,6 +492,21 @@ export default class Page extends AbstractCrudObject {
     return Object.freeze({
       add: 'ADD',
       remove: 'REMOVE'
+    });
+  }
+  static get SettingType (): Object {
+    return Object.freeze({
+      account_linking: 'ACCOUNT_LINKING',
+      call_to_actions: 'CALL_TO_ACTIONS',
+      domain_whitelisting: 'DOMAIN_WHITELISTING',
+      greeting: 'GREETING',
+      payment: 'PAYMENT'
+    });
+  }
+  static get ThreadState (): Object {
+    return Object.freeze({
+      existing_thread: 'EXISTING_THREAD',
+      new_thread: 'NEW_THREAD'
     });
   }
 
@@ -609,6 +624,13 @@ export default class Page extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/asset3ds'
+    );
+  }
+
+  deleteAssignedUsers (params): AbstractObject {
+    return super.deleteEdge(
+      '/assigned_users',
+      params
     );
   }
 

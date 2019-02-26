@@ -99,113 +99,113 @@ export default class AdSet extends AbstractCrudObject {
       offer_claims: 'OFFER_CLAIMS',
       page_likes: 'PAGE_LIKES',
       post_engagement: 'POST_ENGAGEMENT',
-      video_views: 'VIDEO_VIEWS',
-      thruplay: 'THRUPLAY'
+      thruplay: 'THRUPLAY',
+      video_views: 'VIDEO_VIEWS'
     });
   }
   static get ConfiguredStatus (): Object {
     return Object.freeze({
       active: 'ACTIVE',
-      paused: 'PAUSED',
+      archived: 'ARCHIVED',
       deleted: 'DELETED',
-      archived: 'ARCHIVED'
+      paused: 'PAUSED'
     });
   }
   static get EffectiveStatus (): Object {
     return Object.freeze({
       active: 'ACTIVE',
-      paused: 'PAUSED',
-      deleted: 'DELETED',
-      pending_review: 'PENDING_REVIEW',
-      disapproved: 'DISAPPROVED',
-      preapproved: 'PREAPPROVED',
-      pending_billing_info: 'PENDING_BILLING_INFO',
-      campaign_paused: 'CAMPAIGN_PAUSED',
-      archived: 'ARCHIVED',
       adset_paused: 'ADSET_PAUSED',
+      archived: 'ARCHIVED',
+      campaign_paused: 'CAMPAIGN_PAUSED',
+      deleted: 'DELETED',
+      disapproved: 'DISAPPROVED',
+      paused: 'PAUSED',
+      pending_billing_info: 'PENDING_BILLING_INFO',
+      pending_review: 'PENDING_REVIEW',
+      preapproved: 'PREAPPROVED',
       with_issues: 'WITH_ISSUES'
     });
   }
   static get OptimizationGoal (): Object {
     return Object.freeze({
-      none: 'NONE',
+      ad_recall_lift: 'AD_RECALL_LIFT',
+      app_downloads: 'APP_DOWNLOADS',
       app_installs: 'APP_INSTALLS',
       brand_awareness: 'BRAND_AWARENESS',
-      ad_recall_lift: 'AD_RECALL_LIFT',
       clicks: 'CLICKS',
+      derived_events: 'DERIVED_EVENTS',
       engaged_users: 'ENGAGED_USERS',
       event_responses: 'EVENT_RESPONSES',
       impressions: 'IMPRESSIONS',
+      landing_page_views: 'LANDING_PAGE_VIEWS',
       lead_generation: 'LEAD_GENERATION',
       link_clicks: 'LINK_CLICKS',
+      none: 'NONE',
       offer_claims: 'OFFER_CLAIMS',
       offsite_conversions: 'OFFSITE_CONVERSIONS',
       page_engagement: 'PAGE_ENGAGEMENT',
       page_likes: 'PAGE_LIKES',
       post_engagement: 'POST_ENGAGEMENT',
       reach: 'REACH',
-      social_impressions: 'SOCIAL_IMPRESSIONS',
-      video_views: 'VIDEO_VIEWS',
-      app_downloads: 'APP_DOWNLOADS',
-      two_second_continuous_video_views: 'TWO_SECOND_CONTINUOUS_VIDEO_VIEWS',
-      landing_page_views: 'LANDING_PAGE_VIEWS',
-      value: 'VALUE',
-      thruplay: 'THRUPLAY',
       replies: 'REPLIES',
-      derived_events: 'DERIVED_EVENTS'
+      social_impressions: 'SOCIAL_IMPRESSIONS',
+      thruplay: 'THRUPLAY',
+      two_second_continuous_video_views: 'TWO_SECOND_CONTINUOUS_VIDEO_VIEWS',
+      value: 'VALUE',
+      video_views: 'VIDEO_VIEWS'
     });
   }
   static get Status (): Object {
     return Object.freeze({
       active: 'ACTIVE',
-      paused: 'PAUSED',
+      archived: 'ARCHIVED',
       deleted: 'DELETED',
-      archived: 'ARCHIVED'
+      paused: 'PAUSED'
     });
   }
   static get DatePreset (): Object {
     return Object.freeze({
-      today: 'today',
-      yesterday: 'yesterday',
-      this_month: 'this_month',
-      last_month: 'last_month',
-      this_quarter: 'this_quarter',
-      lifetime: 'lifetime',
-      last_3d: 'last_3d',
-      last_7d: 'last_7d',
       last_14d: 'last_14d',
       last_28d: 'last_28d',
       last_30d: 'last_30d',
+      last_3d: 'last_3d',
+      last_7d: 'last_7d',
       last_90d: 'last_90d',
+      last_month: 'last_month',
+      last_quarter: 'last_quarter',
       last_week_mon_sun: 'last_week_mon_sun',
       last_week_sun_sat: 'last_week_sun_sat',
-      last_quarter: 'last_quarter',
       last_year: 'last_year',
+      lifetime: 'lifetime',
+      this_month: 'this_month',
+      this_quarter: 'this_quarter',
       this_week_mon_today: 'this_week_mon_today',
       this_week_sun_today: 'this_week_sun_today',
-      this_year: 'this_year'
+      this_year: 'this_year',
+      today: 'today',
+      yesterday: 'yesterday'
     });
   }
   static get DestinationType (): Object {
     return Object.freeze({
-      undefined: 'UNDEFINED',
-      website: 'WEBSITE',
       app: 'APP',
+      applinks_automatic: 'APPLINKS_AUTOMATIC',
       messenger: 'MESSENGER',
-      applinks_automatic: 'APPLINKS_AUTOMATIC'
+      undefined: 'UNDEFINED',
+      website: 'WEBSITE'
     });
   }
   static get ExecutionOptions (): Object {
     return Object.freeze({
-      validate_only: 'validate_only',
-      include_recommendations: 'include_recommendations'
+      include_recommendations: 'include_recommendations',
+      validate_only: 'validate_only'
     });
   }
   static get FullFunnelExplorationMode (): Object {
     return Object.freeze({
-      none_exploration: 'NONE_EXPLORATION',
+      extended_exploration: 'EXTENDED_EXPLORATION',
       limited_exploration: 'LIMITED_EXPLORATION',
-      extended_exploration: 'EXTENDED_EXPLORATION'
+      none_exploration: 'NONE_EXPLORATION'
     });
   }
   static get Operator (): Object {
@@ -217,8 +217,8 @@ export default class AdSet extends AbstractCrudObject {
   static get StatusOption (): Object {
     return Object.freeze({
       active: 'ACTIVE',
-      paused: 'PAUSED',
-      inherited_from_source: 'INHERITED_FROM_SOURCE'
+      inherited_from_source: 'INHERITED_FROM_SOURCE',
+      paused: 'PAUSED'
     });
   }
 

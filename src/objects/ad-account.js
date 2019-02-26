@@ -201,16 +201,16 @@ export default class AdAccount extends AbstractCrudObject {
   }
   static get PermittedTasks (): Object {
     return Object.freeze({
-      manage: 'MANAGE',
       advertise: 'ADVERTISE',
-      analyze: 'ANALYZE'
+      analyze: 'ANALYZE',
+      manage: 'MANAGE'
     });
   }
   static get Tasks (): Object {
     return Object.freeze({
-      manage: 'MANAGE',
       advertise: 'ADVERTISE',
-      analyze: 'ANALYZE'
+      analyze: 'ANALYZE',
+      manage: 'MANAGE'
     });
   }
   static get ClaimObjective (): Object {
@@ -240,19 +240,19 @@ export default class AdAccount extends AbstractCrudObject {
   }
   static get Subtype (): Object {
     return Object.freeze({
-      custom: 'CUSTOM',
-      website: 'WEBSITE',
       app: 'APP',
-      offline_conversion: 'OFFLINE_CONVERSION',
-      claim: 'CLAIM',
-      partner: 'PARTNER',
-      managed: 'MANAGED',
-      video: 'VIDEO',
-      lookalike: 'LOOKALIKE',
-      engagement: 'ENGAGEMENT',
       bag_of_accounts: 'BAG_OF_ACCOUNTS',
+      claim: 'CLAIM',
+      custom: 'CUSTOM',
+      engagement: 'ENGAGEMENT',
+      fox: 'FOX',
+      lookalike: 'LOOKALIKE',
+      managed: 'MANAGED',
+      offline_conversion: 'OFFLINE_CONVERSION',
+      partner: 'PARTNER',
       study_rule_audience: 'STUDY_RULE_AUDIENCE',
-      fox: 'FOX'
+      video: 'VIDEO',
+      website: 'WEBSITE'
     });
   }
 
@@ -664,6 +664,13 @@ export default class AdAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/applications'
+    );
+  }
+
+  deleteAssignedUsers (params): AbstractObject {
+    return super.deleteEdge(
+      '/assigned_users',
+      params
     );
   }
 

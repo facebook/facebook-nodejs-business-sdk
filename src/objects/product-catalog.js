@@ -85,8 +85,8 @@ export default class ProductCatalog extends AbstractCrudObject {
   static get ItemType (): Object {
     return Object.freeze({
       auto: 'AUTO',
-      auto_market: 'AUTO_MARKET',
       automotive_model: 'AUTOMOTIVE_MODEL',
+      auto_market: 'AUTO_MARKET',
       destination: 'DESTINATION',
       flight: 'FLIGHT',
       geo_based_item: 'GEO_BASED_ITEM',
@@ -521,6 +521,15 @@ export default class ProductCatalog extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/vehicles'
+    );
+  }
+
+  createVehicle (fields, params): Vehicle {
+    return this.createEdge(
+      '/vehicles',
+      fields,
+      params,
+      Vehicle
     );
   }
 

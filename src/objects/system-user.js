@@ -32,11 +32,11 @@ export default class SystemUser extends AbstractCrudObject {
 
   static get Role (): Object {
     return Object.freeze({
-      finance_editor: 'FINANCE_EDITOR',
-      finance_analyst: 'FINANCE_ANALYST',
-      ads_rights_reviewer: 'ADS_RIGHTS_REVIEWER',
       admin: 'ADMIN',
-      employee: 'EMPLOYEE'
+      ads_rights_reviewer: 'ADS_RIGHTS_REVIEWER',
+      employee: 'EMPLOYEE',
+      finance_analyst: 'FINANCE_ANALYST',
+      finance_editor: 'FINANCE_EDITOR'
     });
   }
 

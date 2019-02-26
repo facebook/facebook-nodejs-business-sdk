@@ -26,24 +26,24 @@ export default class InstantArticleInsightsQueryResult extends AbstractCrudObjec
 
   static get Breakdown (): Object {
     return Object.freeze({
-      no_breakdown: 'no_breakdown',
-      platform: 'platform',
       age: 'age',
-      region: 'region',
       country: 'country',
-      is_shared_by_ia_owner: 'is_shared_by_ia_owner',
       gender: 'gender',
       gender_and_age: 'gender_and_age',
-      is_organic: 'is_organic'
+      is_organic: 'is_organic',
+      is_shared_by_ia_owner: 'is_shared_by_ia_owner',
+      no_breakdown: 'no_breakdown',
+      platform: 'platform',
+      region: 'region'
     });
   }
   static get Period (): Object {
     return Object.freeze({
       day: 'day',
-      week: 'week',
       days_28: 'days_28',
+      lifetime: 'lifetime',
       month: 'month',
-      lifetime: 'lifetime'
+      week: 'week'
     });
   }
 }

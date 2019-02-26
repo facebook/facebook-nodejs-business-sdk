@@ -80,9 +80,9 @@ export default class Business extends AbstractCrudObject {
 
   static get TwoFactorType (): Object {
     return Object.freeze({
-      none: 'none',
       admin_required: 'admin_required',
-      all_required: 'all_required'
+      all_required: 'all_required',
+      none: 'none'
     });
   }
   static get Vertical (): Object {
@@ -97,57 +97,133 @@ export default class Business extends AbstractCrudObject {
       financial_services: 'FINANCIAL_SERVICES',
       gaming: 'GAMING',
       government_and_politics: 'GOVERNMENT_AND_POLITICS',
+      health: 'HEALTH',
+      luxury: 'LUXURY',
       marketing: 'MARKETING',
+      non_profit: 'NON_PROFIT',
       organizations_and_associations: 'ORGANIZATIONS_AND_ASSOCIATIONS',
+      other: 'OTHER',
       professional_services: 'PROFESSIONAL_SERVICES',
+      restaurant: 'RESTAURANT',
       retail: 'RETAIL',
       technology: 'TECHNOLOGY',
       telecom: 'TELECOM',
-      travel: 'TRAVEL',
-      non_profit: 'NON_PROFIT',
-      restaurant: 'RESTAURANT',
-      health: 'HEALTH',
-      luxury: 'LUXURY',
-      other: 'OTHER'
+      travel: 'TRAVEL'
+    });
+  }
+  static get AggregationPeriod (): Object {
+    return Object.freeze({
+      day: 'DAY',
+      hour: 'HOUR',
+      total: 'TOTAL'
+    });
+  }
+  static get Breakdowns (): Object {
+    return Object.freeze({
+      age: 'AGE',
+      app: 'APP',
+      clicked_view_tag: 'CLICKED_VIEW_TAG',
+      country: 'COUNTRY',
+      deal: 'DEAL',
+      deal_ad: 'DEAL_AD',
+      deal_page: 'DEAL_PAGE',
+      delivery_method: 'DELIVERY_METHOD',
+      display_format: 'DISPLAY_FORMAT',
+      fail_reason: 'FAIL_REASON',
+      gender: 'GENDER',
+      placement: 'PLACEMENT',
+      platform: 'PLATFORM',
+      property: 'PROPERTY',
+      sdk_version: 'SDK_VERSION'
+    });
+  }
+  static get Metrics (): Object {
+    return Object.freeze({
+      fb_ad_network_bidding_bid_rate: 'FB_AD_NETWORK_BIDDING_BID_RATE',
+      fb_ad_network_bidding_request: 'FB_AD_NETWORK_BIDDING_REQUEST',
+      fb_ad_network_bidding_response: 'FB_AD_NETWORK_BIDDING_RESPONSE',
+      fb_ad_network_bidding_revenue: 'FB_AD_NETWORK_BIDDING_REVENUE',
+      fb_ad_network_bidding_win_rate: 'FB_AD_NETWORK_BIDDING_WIN_RATE',
+      fb_ad_network_click: 'FB_AD_NETWORK_CLICK',
+      fb_ad_network_click_value_score: 'FB_AD_NETWORK_CLICK_VALUE_SCORE',
+      fb_ad_network_click_value_score_denominator: 'FB_AD_NETWORK_CLICK_VALUE_SCORE_DENOMINATOR',
+      fb_ad_network_click_value_score_numerator: 'FB_AD_NETWORK_CLICK_VALUE_SCORE_NUMERATOR',
+      fb_ad_network_cpm: 'FB_AD_NETWORK_CPM',
+      fb_ad_network_ctr: 'FB_AD_NETWORK_CTR',
+      fb_ad_network_direct_publisher_bill: 'FB_AD_NETWORK_DIRECT_PUBLISHER_BILL',
+      fb_ad_network_direct_total_revenue: 'FB_AD_NETWORK_DIRECT_TOTAL_REVENUE',
+      fb_ad_network_fast_click_denominator: 'FB_AD_NETWORK_FAST_CLICK_DENOMINATOR',
+      fb_ad_network_fast_click_numerator: 'FB_AD_NETWORK_FAST_CLICK_NUMERATOR',
+      fb_ad_network_fast_click_rate: 'FB_AD_NETWORK_FAST_CLICK_RATE',
+      fb_ad_network_fast_return_denominator: 'FB_AD_NETWORK_FAST_RETURN_DENOMINATOR',
+      fb_ad_network_fast_return_numerator: 'FB_AD_NETWORK_FAST_RETURN_NUMERATOR',
+      fb_ad_network_fast_return_rate: 'FB_AD_NETWORK_FAST_RETURN_RATE',
+      fb_ad_network_filled_request: 'FB_AD_NETWORK_FILLED_REQUEST',
+      fb_ad_network_fill_rate: 'FB_AD_NETWORK_FILL_RATE',
+      fb_ad_network_imp: 'FB_AD_NETWORK_IMP',
+      fb_ad_network_no_bid: 'FB_AD_NETWORK_NO_BID',
+      fb_ad_network_no_fill: 'FB_AD_NETWORK_NO_FILL',
+      fb_ad_network_request: 'FB_AD_NETWORK_REQUEST',
+      fb_ad_network_revenue: 'FB_AD_NETWORK_REVENUE',
+      fb_ad_network_show_rate: 'FB_AD_NETWORK_SHOW_RATE',
+      fb_ad_network_video_guarantee_revenue: 'FB_AD_NETWORK_VIDEO_GUARANTEE_REVENUE',
+      fb_ad_network_video_mrc: 'FB_AD_NETWORK_VIDEO_MRC',
+      fb_ad_network_video_mrc_rate: 'FB_AD_NETWORK_VIDEO_MRC_RATE',
+      fb_ad_network_video_view: 'FB_AD_NETWORK_VIDEO_VIEW',
+      fb_ad_network_video_view_rate: 'FB_AD_NETWORK_VIDEO_VIEW_RATE',
+      fb_ad_network_win_rate: 'FB_AD_NETWORK_WIN_RATE'
+    });
+  }
+  static get OrderingColumn (): Object {
+    return Object.freeze({
+      metric: 'METRIC',
+      time: 'TIME',
+      value: 'VALUE'
+    });
+  }
+  static get OrderingType (): Object {
+    return Object.freeze({
+      ascending: 'ASCENDING',
+      descending: 'DESCENDING'
     });
   }
   static get AccessType (): Object {
     return Object.freeze({
-      owner: 'OWNER',
-      agency: 'AGENCY'
+      agency: 'AGENCY',
+      owner: 'OWNER'
     });
   }
   static get PermittedTasks (): Object {
     return Object.freeze({
-      manage: 'MANAGE',
       advertise: 'ADVERTISE',
-      analyze: 'ANALYZE'
+      analyze: 'ANALYZE',
+      manage: 'MANAGE'
     });
   }
   static get SurveyBusinessType (): Object {
     return Object.freeze({
-      agency: 'AGENCY',
       advertiser: 'ADVERTISER',
+      agency: 'AGENCY',
       app_developer: 'APP_DEVELOPER',
       publisher: 'PUBLISHER'
     });
   }
   static get PagePermittedRoles (): Object {
     return Object.freeze({
-      manager: 'MANAGER',
-      content_creator: 'CONTENT_CREATOR',
-      moderator: 'MODERATOR',
       advertiser: 'ADVERTISER',
-      insights_analyst: 'INSIGHTS_ANALYST'
+      content_creator: 'CONTENT_CREATOR',
+      insights_analyst: 'INSIGHTS_ANALYST',
+      manager: 'MANAGER',
+      moderator: 'MODERATOR'
     });
   }
   static get Role (): Object {
     return Object.freeze({
-      finance_editor: 'FINANCE_EDITOR',
-      finance_analyst: 'FINANCE_ANALYST',
-      ads_rights_reviewer: 'ADS_RIGHTS_REVIEWER',
       admin: 'ADMIN',
-      employee: 'EMPLOYEE'
+      ads_rights_reviewer: 'ADS_RIGHTS_REVIEWER',
+      employee: 'EMPLOYEE',
+      finance_analyst: 'FINANCE_ANALYST',
+      finance_editor: 'FINANCE_EDITOR'
     });
   }
 

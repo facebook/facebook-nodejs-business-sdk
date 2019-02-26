@@ -58,16 +58,16 @@ export default class Event extends AbstractCrudObject {
 
   static get Type (): Object {
     return Object.freeze({
-      private: 'private',
-      public: 'public',
+      community: 'community',
       group: 'group',
-      community: 'community'
+      private: 'private',
+      public: 'public'
     });
   }
   static get Projection (): Object {
     return Object.freeze({
-      equirectangular: 'EQUIRECTANGULAR',
       cubemap: 'CUBEMAP',
+      equirectangular: 'EQUIRECTANGULAR',
       half_equirectangular: 'HALF_EQUIRECTANGULAR'
     });
   }
@@ -78,38 +78,38 @@ export default class Event extends AbstractCrudObject {
   }
   static get Status (): Object {
     return Object.freeze({
-      unpublished: 'UNPUBLISHED',
       live_now: 'LIVE_NOW',
-      scheduled_unpublished: 'SCHEDULED_UNPUBLISHED',
+      scheduled_canceled: 'SCHEDULED_CANCELED',
       scheduled_live: 'SCHEDULED_LIVE',
-      scheduled_canceled: 'SCHEDULED_CANCELED'
+      scheduled_unpublished: 'SCHEDULED_UNPUBLISHED',
+      unpublished: 'UNPUBLISHED'
     });
   }
   static get StereoscopicMode (): Object {
     return Object.freeze({
-      mono: 'MONO',
       left_right: 'LEFT_RIGHT',
+      mono: 'MONO',
       top_bottom: 'TOP_BOTTOM'
     });
   }
   static get StreamType (): Object {
     return Object.freeze({
-      regular: 'REGULAR',
-      ambient: 'AMBIENT'
+      ambient: 'AMBIENT',
+      regular: 'REGULAR'
     });
   }
   static get EventStateFilter (): Object {
     return Object.freeze({
       canceled: 'canceled',
       draft: 'draft',
-      scheduled_draft_for_publication: 'scheduled_draft_for_publication',
-      published: 'published'
+      published: 'published',
+      scheduled_draft_for_publication: 'scheduled_draft_for_publication'
     });
   }
   static get TimeFilter (): Object {
     return Object.freeze({
-      upcoming: 'upcoming',
-      past: 'past'
+      past: 'past',
+      upcoming: 'upcoming'
     });
   }
   static get PromotableEventTypes (): Object {

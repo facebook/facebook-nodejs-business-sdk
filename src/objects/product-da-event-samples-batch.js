@@ -31,13 +31,13 @@ export default class ProductDaEventSamplesBatch extends AbstractCrudObject {
   }
   static get Event (): Object {
     return Object.freeze({
-      viewcontent: 'ViewContent',
       addtocart: 'AddToCart',
-      purchase: 'Purchase',
+      addtowishlist: 'AddToWishlist',
       initiatecheckout: 'InitiateCheckout',
-      search: 'Search',
       lead: 'Lead',
-      addtowishlist: 'AddToWishlist'
+      purchase: 'Purchase',
+      search: 'Search',
+      viewcontent: 'ViewContent'
     });
   }
 }

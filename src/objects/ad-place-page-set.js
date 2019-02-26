@@ -27,8 +27,8 @@ export default class AdPlacePageSet extends AbstractCrudObject {
 
   static get LocationTypes (): Object {
     return Object.freeze({
-      recent: 'recent',
-      home: 'home'
+      home: 'home',
+      recent: 'recent'
     });
   }
   static get TargetedAreaType (): Object {

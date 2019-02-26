@@ -118,25 +118,25 @@ export default class User extends AbstractCrudObject {
 
   static get Tasks (): Object {
     return Object.freeze({
-      manage: 'MANAGE',
-      create_content: 'CREATE_CONTENT',
-      moderate: 'MODERATE',
-      moderate_community: 'MODERATE_COMMUNITY',
-      manage_jobs: 'MANAGE_JOBS',
       advertise: 'ADVERTISE',
-      analyze: 'ANALYZE'
+      analyze: 'ANALYZE',
+      create_content: 'CREATE_CONTENT',
+      manage: 'MANAGE',
+      manage_jobs: 'MANAGE_JOBS',
+      moderate: 'MODERATE',
+      moderate_community: 'MODERATE_COMMUNITY'
     });
   }
   static get LocalNewsMegaphoneDismissStatus (): Object {
     return Object.freeze({
-      yes: 'YES',
-      no: 'NO'
+      no: 'NO',
+      yes: 'YES'
     });
   }
   static get LocalNewsSubscriptionStatus (): Object {
     return Object.freeze({
-      status_on: 'STATUS_ON',
-      status_off: 'STATUS_OFF'
+      status_off: 'STATUS_OFF',
+      status_on: 'STATUS_ON'
     });
   }
   static get ResumeType (): Object {
@@ -147,66 +147,66 @@ export default class User extends AbstractCrudObject {
   }
   static get Filtering (): Object {
     return Object.freeze({
+      ema: 'ema',
       groups: 'groups',
-      groups_social: 'groups_social',
-      ema: 'ema'
+      groups_social: 'groups_social'
     });
   }
   static get Type (): Object {
     return Object.freeze({
-      generic: 'generic',
-      content_update: 'content_update'
+      content_update: 'content_update',
+      generic: 'generic'
     });
   }
   static get ServiceType (): Object {
     return Object.freeze({
       aim: 'AIM',
-      gadu: 'GADU',
-      icq: 'ICQ',
-      gtalk: 'GTALK',
-      msn: 'MSN',
-      skype: 'SKYPE',
-      yahoo: 'YAHOO',
-      yahoo_jp: 'YAHOO_JP',
-      qq: 'QQ',
-      nateon: 'NATEON',
-      twitter: 'TWITTER',
-      hyves: 'HYVES',
-      orkut: 'ORKUT',
-      myspace: 'MYSPACE',
-      groupwise: 'GROUPWISE',
-      cyworld: 'CYWORLD',
-      mixi: 'MIXI',
-      qip: 'QIP',
-      rediff_bol: 'REDIFF_BOL',
-      vkontakte: 'VKONTAKTE',
-      ebuddy: 'EBUDDY',
-      mailru: 'MAILRU',
-      jabber: 'JABBER',
-      icloud: 'ICLOUD',
+      ask_fm: 'ASK_FM',
       bbm: 'BBM',
       bbm_ppid: 'BBM_PPID',
-      instagram: 'INSTAGRAM',
-      line: 'LINE',
-      wechat: 'WECHAT',
-      kakaotalk: 'KAKAOTALK',
-      others: 'OTHERS',
-      snapchat: 'SNAPCHAT',
-      tumblr: 'TUMBLR',
-      sound_cloud: 'SOUND_CLOUD',
-      linked_in: 'LINKED_IN',
-      pinterest: 'PINTEREST',
-      you_tube: 'YOU_TUBE',
-      medium: 'MEDIUM',
+      cyworld: 'CYWORLD',
+      ebuddy: 'EBUDDY',
       foursquare: 'FOURSQUARE',
-      spotify: 'SPOTIFY',
-      vimeo: 'VIMEO',
-      kik: 'KIK',
-      ask_fm: 'ASK_FM',
-      ok: 'OK',
+      gadu: 'GADU',
       github: 'GITHUB',
+      groupwise: 'GROUPWISE',
+      gtalk: 'GTALK',
+      hyves: 'HYVES',
+      icloud: 'ICLOUD',
+      icq: 'ICQ',
+      instagram: 'INSTAGRAM',
+      jabber: 'JABBER',
+      kakaotalk: 'KAKAOTALK',
+      kik: 'KIK',
+      line: 'LINE',
+      linked_in: 'LINKED_IN',
+      mailru: 'MAILRU',
+      medium: 'MEDIUM',
+      mixi: 'MIXI',
+      msn: 'MSN',
+      myspace: 'MYSPACE',
+      nateon: 'NATEON',
+      ok: 'OK',
+      orkut: 'ORKUT',
+      others: 'OTHERS',
+      pinterest: 'PINTEREST',
+      qip: 'QIP',
+      qq: 'QQ',
+      rediff_bol: 'REDIFF_BOL',
+      skype: 'SKYPE',
+      snapchat: 'SNAPCHAT',
+      sound_cloud: 'SOUND_CLOUD',
+      spotify: 'SPOTIFY',
+      tumblr: 'TUMBLR',
       twitch: 'TWITCH',
-      whatsapp: 'WHATSAPP'
+      twitter: 'TWITTER',
+      vimeo: 'VIMEO',
+      vkontakte: 'VKONTAKTE',
+      wechat: 'WECHAT',
+      whatsapp: 'WHATSAPP',
+      yahoo: 'YAHOO',
+      yahoo_jp: 'YAHOO_JP',
+      you_tube: 'YOU_TUBE'
     });
   }
 
@@ -845,24 +845,6 @@ export default class User extends AbstractCrudObject {
   createOpenGraphActionFeed (fields, params): AbstractObject {
     return this.createEdge(
       '/opengraphactionfeed',
-      fields,
-      params
-
-    );
-  }
-
-  createPaymentAccountEmail (fields, params): AbstractObject {
-    return this.createEdge(
-      '/payment_account_emails',
-      fields,
-      params
-
-    );
-  }
-
-  createPaymentAccountPhone (fields, params): AbstractObject {
-    return this.createEdge(
-      '/payment_account_phones',
       fields,
       params
 

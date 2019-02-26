@@ -32,21 +32,21 @@ export default class ExtendedCreditAllocationConfig extends AbstractCrudObject {
 
   static get LiabilityType (): Object {
     return Object.freeze({
+      msa: 'MSA',
       normal: 'Normal',
-      sequential: 'Sequential',
-      msa: 'MSA'
+      sequential: 'Sequential'
     });
   }
   static get PartitionType (): Object {
     return Object.freeze({
-      fixed: 'FIXED',
-      auth: 'AUTH'
+      auth: 'AUTH',
+      fixed: 'FIXED'
     });
   }
   static get SendBillTo (): Object {
     return Object.freeze({
-      agency: 'Agency',
-      advertiser: 'Advertiser'
+      advertiser: 'Advertiser',
+      agency: 'Agency'
     });
   }
 

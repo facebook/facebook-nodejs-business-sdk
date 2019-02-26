@@ -89,26 +89,26 @@ export default class PagePost extends AbstractCrudObject {
 
   static get BackdatedTimeGranularity (): Object {
     return Object.freeze({
-      year: 'year',
-      month: 'month',
       day: 'day',
       hour: 'hour',
       min: 'min',
-      none: 'none'
+      month: 'month',
+      none: 'none',
+      year: 'year'
     });
   }
   static get CheckinEntryPoint (): Object {
     return Object.freeze({
       branding_checkin: 'BRANDING_CHECKIN',
-      branding_status: 'BRANDING_STATUS',
+      branding_other: 'BRANDING_OTHER',
       branding_photo: 'BRANDING_PHOTO',
-      branding_other: 'BRANDING_OTHER'
+      branding_status: 'BRANDING_STATUS'
     });
   }
   static get Formatting (): Object {
     return Object.freeze({
-      plaintext: 'PLAINTEXT',
-      markdown: 'MARKDOWN'
+      markdown: 'MARKDOWN',
+      plaintext: 'PLAINTEXT'
     });
   }
   static get PlaceAttachmentSetting (): Object {
@@ -128,8 +128,8 @@ export default class PagePost extends AbstractCrudObject {
   }
   static get PostingToRedspace (): Object {
     return Object.freeze({
-      enabled: 'enabled',
-      disabled: 'disabled'
+      disabled: 'disabled',
+      enabled: 'enabled'
     });
   }
   static get TargetSurface (): Object {
@@ -140,11 +140,11 @@ export default class PagePost extends AbstractCrudObject {
   }
   static get UnpublishedContentType (): Object {
     return Object.freeze({
-      scheduled: 'SCHEDULED',
-      draft: 'DRAFT',
       ads_post: 'ADS_POST',
+      draft: 'DRAFT',
       inline_created: 'INLINE_CREATED',
-      published: 'PUBLISHED'
+      published: 'PUBLISHED',
+      scheduled: 'SCHEDULED'
     });
   }
   static get With (): Object {
@@ -160,9 +160,9 @@ export default class PagePost extends AbstractCrudObject {
   }
   static get TimelineVisibility (): Object {
     return Object.freeze({
+      forced_allow: 'forced_allow',
       hidden: 'hidden',
-      normal: 'normal',
-      forced_allow: 'forced_allow'
+      normal: 'normal'
     });
   }
 

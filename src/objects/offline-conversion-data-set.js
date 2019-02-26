@@ -47,23 +47,23 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
   static get PermittedRoles (): Object {
     return Object.freeze({
       admin: 'ADMIN',
-      uploader: 'UPLOADER',
-      advertiser: 'ADVERTISER'
+      advertiser: 'ADVERTISER',
+      uploader: 'UPLOADER'
     });
   }
   static get RelationshipType (): Object {
     return Object.freeze({
       ad_manager: 'AD_MANAGER',
-      audience_manager: 'AUDIENCE_MANAGER',
       agency: 'AGENCY',
+      audience_manager: 'AUDIENCE_MANAGER',
       other: 'OTHER'
     });
   }
   static get Role (): Object {
     return Object.freeze({
       admin: 'ADMIN',
-      uploader: 'UPLOADER',
-      advertiser: 'ADVERTISER'
+      advertiser: 'ADVERTISER',
+      uploader: 'UPLOADER'
     });
   }
 

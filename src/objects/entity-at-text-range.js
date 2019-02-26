@@ -27,11 +27,11 @@ export default class EntityAtTextRange extends AbstractCrudObject {
 
   static get Type (): Object {
     return Object.freeze({
-      user: 'user',
-      page: 'page',
+      application: 'application',
       event: 'event',
       group: 'group',
-      application: 'application'
+      page: 'page',
+      user: 'user'
     });
   }
 }

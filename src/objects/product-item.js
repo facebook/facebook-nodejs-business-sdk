@@ -87,21 +87,21 @@ export default class ProductItem extends AbstractCrudObject {
   }
   static get Availability (): Object {
     return Object.freeze({
-      in_stock: 'in stock',
-      out_of_stock: 'out of stock',
-      preorder: 'preorder',
       available_for_order: 'available for order',
       discontinued: 'discontinued',
-      pending: 'pending'
+      in_stock: 'in stock',
+      out_of_stock: 'out of stock',
+      pending: 'pending',
+      preorder: 'preorder'
     });
   }
   static get Condition (): Object {
     return Object.freeze({
-      new: 'new',
-      refurbished: 'refurbished',
-      used: 'used',
       cpo: 'cpo',
-      open_box_new: 'open_box_new'
+      new: 'new',
+      open_box_new: 'open_box_new',
+      refurbished: 'refurbished',
+      used: 'used'
     });
   }
   static get Gender (): Object {
@@ -113,24 +113,24 @@ export default class ProductItem extends AbstractCrudObject {
   }
   static get ReviewStatus (): Object {
     return Object.freeze({
-      pending: 'pending',
-      rejected: 'rejected',
       approved: 'approved',
-      outdated: 'outdated'
+      outdated: 'outdated',
+      pending: 'pending',
+      rejected: 'rejected'
     });
   }
   static get ShippingWeightUnit (): Object {
     return Object.freeze({
       g: 'g',
       kg: 'kg',
-      oz: 'oz',
-      lb: 'lb'
+      lb: 'lb',
+      oz: 'oz'
     });
   }
   static get Visibility (): Object {
     return Object.freeze({
-      staging: 'staging',
-      published: 'published'
+      published: 'published',
+      staging: 'staging'
     });
   }
 

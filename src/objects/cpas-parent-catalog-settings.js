@@ -24,13 +24,13 @@ export default class CPASParentCatalogSettings extends AbstractCrudObject {
 
   static get AttributionWindows (): Object {
     return Object.freeze({
-      x1d_view: 'X1D_VIEW',
-      x7d_view: 'X7D_VIEW',
-      x28d_view: 'X28D_VIEW',
+      default: 'DEFAULT',
       x1d_click: 'X1D_CLICK',
-      x7d_click: 'X7D_CLICK',
+      x1d_view: 'X1D_VIEW',
       x28d_click: 'X28D_CLICK',
-      default: 'DEFAULT'
+      x28d_view: 'X28D_VIEW',
+      x7d_click: 'X7D_CLICK',
+      x7d_view: 'X7D_VIEW'
     });
   }
 

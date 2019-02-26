@@ -16,8 +16,14 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class MeasurementUploadEvent extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
+      aggregation_level: 'aggregation_level',
+      conversion_end_date: 'conversion_end_date',
+      conversion_start_date: 'conversion_start_date',
+      event_status: 'event_status',
       group: 'group',
       id: 'id',
+      lookback_window: 'lookback_window',
+      match_universe: 'match_universe',
       partner: 'partner',
       upload_end_time: 'upload_end_time',
       upload_start_time: 'upload_start_time',
@@ -26,16 +32,48 @@ export default class MeasurementUploadEvent extends AbstractCrudObject {
     });
   }
 
+  static get AggregationLevel (): Object {
+    return Object.freeze({
+      daily: 'DAILY',
+      none: 'NONE',
+      weekly: 'WEEKLY'
+    });
+  }
+  static get EventStatus (): Object {
+    return Object.freeze({
+      cancelcompleted: 'CANCELCOMPLETED',
+      canceled: 'CANCELED',
+      completed: 'COMPLETED',
+      failed: 'FAILED',
+      started: 'STARTED',
+      uploaded: 'UPLOADED'
+    });
+  }
   static get Group (): Object {
     return Object.freeze({
-      sunday: 'SUNDAY',
-      monday: 'MONDAY'
+      monday: 'MONDAY',
+      sunday: 'SUNDAY'
+    });
+  }
+  static get LookbackWindow (): Object {
+    return Object.freeze({
+      days30: 'DAYS30',
+      days45: 'DAYS45',
+      days60: 'DAYS60',
+      days90: 'DAYS90'
+    });
+  }
+  static get MatchUniverse (): Object {
+    return Object.freeze({
+      full: 'FULL',
+      pii: 'PII',
+      pixel: 'PIXEL'
     });
   }
   static get Version (): Object {
     return Object.freeze({
-      weekly: 'WEEKLY',
-      evaluation: 'EVALUATION'
+      evaluation: 'EVALUATION',
+      weekly: 'WEEKLY'
     });
   }
 

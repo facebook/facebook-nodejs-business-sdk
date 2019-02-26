@@ -56,28 +56,28 @@ export default class LiveVideo extends AbstractCrudObject {
 
   static get BroadcastStatus (): Object {
     return Object.freeze({
-      unpublished: 'UNPUBLISHED',
       live: 'LIVE',
       live_stopped: 'LIVE_STOPPED',
       processing: 'PROCESSING',
-      vod: 'VOD',
-      scheduled_unpublished: 'SCHEDULED_UNPUBLISHED',
-      scheduled_live: 'SCHEDULED_LIVE',
+      scheduled_canceled: 'SCHEDULED_CANCELED',
       scheduled_expired: 'SCHEDULED_EXPIRED',
-      scheduled_canceled: 'SCHEDULED_CANCELED'
+      scheduled_live: 'SCHEDULED_LIVE',
+      scheduled_unpublished: 'SCHEDULED_UNPUBLISHED',
+      unpublished: 'UNPUBLISHED',
+      vod: 'VOD'
     });
   }
   static get Projection (): Object {
     return Object.freeze({
-      equirectangular: 'EQUIRECTANGULAR',
       cubemap: 'CUBEMAP',
+      equirectangular: 'EQUIRECTANGULAR',
       half_equirectangular: 'HALF_EQUIRECTANGULAR'
     });
   }
   static get Source (): Object {
     return Object.freeze({
-      target: 'target',
-      owner: 'owner'
+      owner: 'owner',
+      target: 'target'
     });
   }
   static get SpatialAudioFormat (): Object {
@@ -87,33 +87,33 @@ export default class LiveVideo extends AbstractCrudObject {
   }
   static get Status (): Object {
     return Object.freeze({
-      unpublished: 'UNPUBLISHED',
       live_now: 'LIVE_NOW',
-      scheduled_unpublished: 'SCHEDULED_UNPUBLISHED',
+      scheduled_canceled: 'SCHEDULED_CANCELED',
       scheduled_live: 'SCHEDULED_LIVE',
-      scheduled_canceled: 'SCHEDULED_CANCELED'
+      scheduled_unpublished: 'SCHEDULED_UNPUBLISHED',
+      unpublished: 'UNPUBLISHED'
     });
   }
   static get StereoscopicMode (): Object {
     return Object.freeze({
-      mono: 'MONO',
       left_right: 'LEFT_RIGHT',
+      mono: 'MONO',
       top_bottom: 'TOP_BOTTOM'
     });
   }
   static get StreamType (): Object {
     return Object.freeze({
-      regular: 'REGULAR',
-      ambient: 'AMBIENT'
+      ambient: 'AMBIENT',
+      regular: 'REGULAR'
     });
   }
   static get LiveCommentModerationSetting (): Object {
     return Object.freeze({
-      follower: 'FOLLOWER',
-      slow: 'SLOW',
       discussion: 'DISCUSSION',
-      restricted: 'RESTRICTED',
+      follower: 'FOLLOWER',
       protected_mode: 'PROTECTED_MODE',
+      restricted: 'RESTRICTED',
+      slow: 'SLOW',
       supporter: 'SUPPORTER'
     });
   }

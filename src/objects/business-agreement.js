@@ -25,8 +25,8 @@ export default class BusinessAgreement extends AbstractCrudObject {
     return Object.freeze({
       approve: 'APPROVE',
       decline: 'DECLINE',
-      in_progress: 'IN_PROGRESS',
-      expired: 'EXPIRED'
+      expired: 'EXPIRED',
+      in_progress: 'IN_PROGRESS'
     });
   }
 

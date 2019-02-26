@@ -32,32 +32,32 @@ export default class AdCreativeVideoDataCustomOverlaySpec extends AbstractCrudOb
 
   static get BackgroundOpacity (): Object {
     return Object.freeze({
-      solid: 'solid',
-      half: 'half'
+      half: 'half',
+      solid: 'solid'
     });
   }
   static get Option (): Object {
     return Object.freeze({
       bank_transfer: 'bank_transfer',
       boleto: 'boleto',
-      discount_with_boleto: 'discount_with_boleto',
       cash_on_delivery: 'cash_on_delivery',
-      home_delivery: 'home_delivery',
+      discount_with_boleto: 'discount_with_boleto',
+      fast_delivery: 'fast_delivery',
       free_shipping: 'free_shipping',
+      home_delivery: 'home_delivery',
       inventory: 'inventory',
-      pay_on_arrival: 'pay_on_arrival',
       pay_at_hotel: 'pay_at_hotel',
-      fast_delivery: 'fast_delivery'
+      pay_on_arrival: 'pay_on_arrival'
     });
   }
   static get Position (): Object {
     return Object.freeze({
-      top_left: 'top_left',
-      top_center: 'top_center',
-      top_right: 'top_right',
-      middle_left: 'middle_left',
       middle_center: 'middle_center',
-      middle_right: 'middle_right'
+      middle_left: 'middle_left',
+      middle_right: 'middle_right',
+      top_center: 'top_center',
+      top_left: 'top_left',
+      top_right: 'top_right'
     });
   }
   static get Template (): Object {

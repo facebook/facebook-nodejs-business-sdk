@@ -35,15 +35,15 @@ export default class AdStudyObjective extends AbstractCrudObject {
 
   static get Type (): Object {
     return Object.freeze({
-      sales: 'SALES',
-      nonsales: 'NONSALES',
-      mae: 'MAE',
-      telco: 'TELCO',
-      ftl: 'FTL',
-      mai: 'MAI',
-      partner: 'PARTNER',
+      brand: 'BRAND',
       brandlift: 'BRANDLIFT',
-      brand: 'BRAND'
+      ftl: 'FTL',
+      mae: 'MAE',
+      mai: 'MAI',
+      nonsales: 'NONSALES',
+      partner: 'PARTNER',
+      sales: 'SALES',
+      telco: 'TELCO'
     });
   }
 

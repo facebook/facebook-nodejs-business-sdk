@@ -31,21 +31,21 @@ export default class ProductFeedSchedule extends AbstractCrudObject {
 
   static get DayOfWeek (): Object {
     return Object.freeze({
-      sunday: 'SUNDAY',
-      monday: 'MONDAY',
-      tuesday: 'TUESDAY',
-      wednesday: 'WEDNESDAY',
-      thursday: 'THURSDAY',
       friday: 'FRIDAY',
-      saturday: 'SATURDAY'
+      monday: 'MONDAY',
+      saturday: 'SATURDAY',
+      sunday: 'SUNDAY',
+      thursday: 'THURSDAY',
+      tuesday: 'TUESDAY',
+      wednesday: 'WEDNESDAY'
     });
   }
   static get Interval (): Object {
     return Object.freeze({
-      hourly: 'HOURLY',
       daily: 'DAILY',
-      weekly: 'WEEKLY',
-      monthly: 'MONTHLY'
+      hourly: 'HOURLY',
+      monthly: 'MONTHLY',
+      weekly: 'WEEKLY'
     });
   }
 }

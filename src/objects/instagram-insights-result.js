@@ -27,29 +27,29 @@ export default class InstagramInsightsResult extends AbstractCrudObject {
 
   static get Metric (): Object {
     return Object.freeze({
-      impressions: 'impressions',
-      reach: 'reach',
+      carousel_album_engagement: 'carousel_album_engagement',
       carousel_album_impressions: 'carousel_album_impressions',
       carousel_album_reach: 'carousel_album_reach',
-      carousel_album_engagement: 'carousel_album_engagement',
       carousel_album_saved: 'carousel_album_saved',
       carousel_album_video_views: 'carousel_album_video_views',
-      taps_forward: 'taps_forward',
-      taps_back: 'taps_back',
-      exits: 'exits',
-      replies: 'replies',
       engagement: 'engagement',
+      exits: 'exits',
+      impressions: 'impressions',
+      reach: 'reach',
+      replies: 'replies',
       saved: 'saved',
+      taps_back: 'taps_back',
+      taps_forward: 'taps_forward',
       video_views: 'video_views'
     });
   }
   static get Period (): Object {
     return Object.freeze({
       day: 'day',
-      week: 'week',
       days_28: 'days_28',
+      lifetime: 'lifetime',
       month: 'month',
-      lifetime: 'lifetime'
+      week: 'week'
     });
   }
 }

@@ -31,9 +31,9 @@ export default class VideoPoll extends AbstractCrudObject {
     return Object.freeze({
       attach_to_video: 'ATTACH_TO_VIDEO',
       close: 'CLOSE',
-      show_voting: 'SHOW_VOTING',
+      delete_poll: 'DELETE_POLL',
       show_results: 'SHOW_RESULTS',
-      delete_poll: 'DELETE_POLL'
+      show_voting: 'SHOW_VOTING'
     });
   }
 

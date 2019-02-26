@@ -34,7 +34,6 @@ export default class InstagramUser extends AbstractCrudObject {
 
   static get Role (): Object {
     return Object.freeze({
-      manager: 'MANAGER',
       analyst: 'ANALYST'
     });
   }

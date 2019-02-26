@@ -63,6 +63,90 @@ export default class Vehicle extends AbstractCrudObject {
     });
   }
 
+  static get Availability (): Object {
+    return Object.freeze({
+      available: 'AVAILABLE',
+      not_available: 'NOT_AVAILABLE'
+    });
+  }
+  static get BodyStyle (): Object {
+    return Object.freeze({
+      convertible: 'CONVERTIBLE',
+      coupe: 'COUPE',
+      crossover: 'CROSSOVER',
+      hatchback: 'HATCHBACK',
+      minivan: 'MINIVAN',
+      none: 'NONE',
+      other: 'OTHER',
+      sedan: 'SEDAN',
+      suv: 'SUV',
+      truck: 'TRUCK',
+      van: 'VAN',
+      wagon: 'WAGON'
+    });
+  }
+  static get Condition (): Object {
+    return Object.freeze({
+      excellent: 'EXCELLENT',
+      fair: 'FAIR',
+      good: 'GOOD',
+      none: 'NONE',
+      other: 'OTHER',
+      poor: 'POOR'
+    });
+  }
+  static get Drivetrain (): Object {
+    return Object.freeze({
+      awd: 'AWD',
+      four_wd: 'FOUR_WD',
+      fwd: 'FWD',
+      none: 'NONE',
+      other: 'OTHER',
+      rwd: 'RWD',
+      two_wd: 'TWO_WD'
+    });
+  }
+  static get FuelType (): Object {
+    return Object.freeze({
+      diesel: 'DIESEL',
+      electric: 'ELECTRIC',
+      flex: 'FLEX',
+      gasoline: 'GASOLINE',
+      hybrid: 'HYBRID',
+      none: 'NONE',
+      other: 'OTHER',
+      petrol: 'PETROL',
+      plugin_hybrid: 'PLUGIN_HYBRID'
+    });
+  }
+  static get StateOfVehicle (): Object {
+    return Object.freeze({
+      cpo: 'CPO',
+      new: 'NEW',
+      used: 'USED'
+    });
+  }
+  static get Transmission (): Object {
+    return Object.freeze({
+      automatic: 'AUTOMATIC',
+      manual: 'MANUAL',
+      none: 'NONE',
+      other: 'OTHER'
+    });
+  }
+  static get VehicleType (): Object {
+    return Object.freeze({
+      boat: 'BOAT',
+      car_truck: 'CAR_TRUCK',
+      commercial: 'COMMERCIAL',
+      motorcycle: 'MOTORCYCLE',
+      other: 'OTHER',
+      powersport: 'POWERSPORT',
+      rv_camper: 'RV_CAMPER',
+      trailer: 'TRAILER'
+    });
+  }
+
   get (fields, params): Vehicle {
     return this.read(
       fields,

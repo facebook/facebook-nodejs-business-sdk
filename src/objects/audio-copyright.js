@@ -33,8 +33,8 @@ export default class AudioCopyright extends AbstractCrudObject {
 
   static get UpdateSource (): Object {
     return Object.freeze({
-      edit_reference_dialog: 'edit_reference_dialog',
       ddex: 'ddex',
+      edit_reference_dialog: 'edit_reference_dialog',
       reference_conflict_dialog: 'reference_conflict_dialog'
     });
   }

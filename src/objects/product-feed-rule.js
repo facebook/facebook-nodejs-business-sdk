@@ -26,11 +26,11 @@ export default class ProductFeedRule extends AbstractCrudObject {
 
   static get RuleType (): Object {
     return Object.freeze({
-      mapping_rule: 'mapping_rule',
-      value_mapping_rule: 'value_mapping_rule',
-      letter_case_rule: 'letter_case_rule',
       fallback_rule: 'fallback_rule',
-      regex_replace_rule: 'regex_replace_rule'
+      letter_case_rule: 'letter_case_rule',
+      mapping_rule: 'mapping_rule',
+      regex_replace_rule: 'regex_replace_rule',
+      value_mapping_rule: 'value_mapping_rule'
     });
   }
 

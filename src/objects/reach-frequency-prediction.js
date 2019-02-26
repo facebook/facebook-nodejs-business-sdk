@@ -108,45 +108,46 @@ export default class ReachFrequencyPrediction extends AbstractCrudObject {
 
   static get Action (): Object {
     return Object.freeze({
+      cancel: 'cancel',
       quote: 'quote',
-      reserve: 'reserve',
-      cancel: 'cancel'
+      reserve: 'reserve'
     });
   }
   static get BuyingType (): Object {
     return Object.freeze({
       auction: 'AUCTION',
-      fixed_cpm: 'FIXED_CPM',
-      reserved: 'RESERVED',
-      reachblock: 'REACHBLOCK',
       deprecated_reach_block: 'DEPRECATED_REACH_BLOCK',
+      fixed_cpm: 'FIXED_CPM',
+      mixed: 'MIXED',
+      reachblock: 'REACHBLOCK',
       research_poll: 'RESEARCH_POLL',
-      mixed: 'MIXED'
+      reserved: 'RESERVED'
     });
   }
   static get InstreamPackages (): Object {
     return Object.freeze({
+      beauty: 'BEAUTY',
+      entertainment: 'ENTERTAINMENT',
+      food: 'FOOD',
       normal: 'NORMAL',
       premium: 'PREMIUM',
-      sports: 'SPORTS',
-      entertainment: 'ENTERTAINMENT',
-      beauty: 'BEAUTY',
       regular_animals_pets: 'REGULAR_ANIMALS_PETS',
       regular_food: 'REGULAR_FOOD',
       regular_games: 'REGULAR_GAMES',
       regular_politics: 'REGULAR_POLITICS',
       regular_sports: 'REGULAR_SPORTS',
       regular_style: 'REGULAR_STYLE',
-      regular_tv_movies: 'REGULAR_TV_MOVIES'
+      regular_tv_movies: 'REGULAR_TV_MOVIES',
+      sports: 'SPORTS'
     });
   }
   static get Status (): Object {
     return Object.freeze({
-      expired: 'EXPIRED',
-      draft: 'DRAFT',
-      pending: 'PENDING',
       active: 'ACTIVE',
-      completed: 'COMPLETED'
+      completed: 'COMPLETED',
+      draft: 'DRAFT',
+      expired: 'EXPIRED',
+      pending: 'PENDING'
     });
   }
 

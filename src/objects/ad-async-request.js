@@ -31,28 +31,28 @@ export default class AdAsyncRequest extends AbstractCrudObject {
 
   static get Status (): Object {
     return Object.freeze({
+      canceled: 'CANCELED',
+      canceled_dependency: 'CANCELED_DEPENDENCY',
+      error: 'ERROR',
+      error_conflicts: 'ERROR_CONFLICTS',
+      error_dependency: 'ERROR_DEPENDENCY',
       initial: 'INITIAL',
       in_progress: 'IN_PROGRESS',
-      success: 'SUCCESS',
-      error: 'ERROR',
-      canceled: 'CANCELED',
       pending_dependency: 'PENDING_DEPENDENCY',
-      canceled_dependency: 'CANCELED_DEPENDENCY',
-      error_dependency: 'ERROR_DEPENDENCY',
-      error_conflicts: 'ERROR_CONFLICTS'
+      success: 'SUCCESS'
     });
   }
   static get Statuses (): Object {
     return Object.freeze({
+      canceled: 'CANCELED',
+      canceled_dependency: 'CANCELED_DEPENDENCY',
+      error: 'ERROR',
+      error_conflicts: 'ERROR_CONFLICTS',
+      error_dependency: 'ERROR_DEPENDENCY',
       initial: 'INITIAL',
       in_progress: 'IN_PROGRESS',
-      success: 'SUCCESS',
-      error: 'ERROR',
-      canceled: 'CANCELED',
       pending_dependency: 'PENDING_DEPENDENCY',
-      canceled_dependency: 'CANCELED_DEPENDENCY',
-      error_dependency: 'ERROR_DEPENDENCY',
-      error_conflicts: 'ERROR_CONFLICTS'
+      success: 'SUCCESS'
     });
   }
 

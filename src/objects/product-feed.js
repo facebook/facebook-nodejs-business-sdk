@@ -50,27 +50,27 @@ export default class ProductFeed extends AbstractCrudObject {
       autodetect: 'AUTODETECT',
       bar: 'BAR',
       comma: 'COMMA',
+      semicolon: 'SEMICOLON',
       tab: 'TAB',
-      tilde: 'TILDE',
-      semicolon: 'SEMICOLON'
+      tilde: 'TILDE'
     });
   }
   static get QuotedFieldsMode (): Object {
     return Object.freeze({
       autodetect: 'AUTODETECT',
-      on: 'ON',
-      off: 'OFF'
+      off: 'OFF',
+      on: 'ON'
     });
   }
   static get Encoding (): Object {
     return Object.freeze({
       autodetect: 'AUTODETECT',
       latin1: 'LATIN1',
-      utf8: 'UTF8',
-      utf16le: 'UTF16LE',
       utf16be: 'UTF16BE',
+      utf16le: 'UTF16LE',
+      utf32be: 'UTF32BE',
       utf32le: 'UTF32LE',
-      utf32be: 'UTF32BE'
+      utf8: 'UTF8'
     });
   }
   static get FeedType (): Object {
@@ -85,8 +85,8 @@ export default class ProductFeed extends AbstractCrudObject {
       market: 'MARKET',
       media_title: 'MEDIA_TITLE',
       products: 'PRODUCTS',
-      vehicle_offer: 'VEHICLE_OFFER',
-      vehicles: 'VEHICLES'
+      vehicles: 'VEHICLES',
+      vehicle_offer: 'VEHICLE_OFFER'
     });
   }
 
