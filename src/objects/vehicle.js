@@ -153,4 +153,10 @@ export default class Vehicle extends AbstractCrudObject {
       params
     );
   }
+
+  update (fields, params): Vehicle {
+    return super.update(
+      params
+    );
+  }
 }

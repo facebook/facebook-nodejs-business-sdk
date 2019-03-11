@@ -21,4 +21,66 @@ export default class AdNetworkAnalyticsSyncQueryResult extends AbstractCrudObjec
       id: 'id'
     });
   }
+
+  static get AggregationPeriod (): Object {
+    return Object.freeze({
+      day: 'DAY',
+      total: 'TOTAL'
+    });
+  }
+  static get Breakdowns (): Object {
+    return Object.freeze({
+      age: 'AGE',
+      app: 'APP',
+      clicked_view_tag: 'CLICKED_VIEW_TAG',
+      country: 'COUNTRY',
+      deal: 'DEAL',
+      deal_ad: 'DEAL_AD',
+      deal_page: 'DEAL_PAGE',
+      delivery_method: 'DELIVERY_METHOD',
+      display_format: 'DISPLAY_FORMAT',
+      fail_reason: 'FAIL_REASON',
+      gender: 'GENDER',
+      placement: 'PLACEMENT',
+      platform: 'PLATFORM',
+      property: 'PROPERTY',
+      sdk_version: 'SDK_VERSION'
+    });
+  }
+  static get Metrics (): Object {
+    return Object.freeze({
+      fb_ad_network_bidding_bid_rate: 'FB_AD_NETWORK_BIDDING_BID_RATE',
+      fb_ad_network_bidding_request: 'FB_AD_NETWORK_BIDDING_REQUEST',
+      fb_ad_network_bidding_response: 'FB_AD_NETWORK_BIDDING_RESPONSE',
+      fb_ad_network_bidding_revenue: 'FB_AD_NETWORK_BIDDING_REVENUE',
+      fb_ad_network_bidding_win_rate: 'FB_AD_NETWORK_BIDDING_WIN_RATE',
+      fb_ad_network_click: 'FB_AD_NETWORK_CLICK',
+      fb_ad_network_cpm: 'FB_AD_NETWORK_CPM',
+      fb_ad_network_ctr: 'FB_AD_NETWORK_CTR',
+      fb_ad_network_filled_request: 'FB_AD_NETWORK_FILLED_REQUEST',
+      fb_ad_network_fill_rate: 'FB_AD_NETWORK_FILL_RATE',
+      fb_ad_network_imp: 'FB_AD_NETWORK_IMP',
+      fb_ad_network_request: 'FB_AD_NETWORK_REQUEST',
+      fb_ad_network_revenue: 'FB_AD_NETWORK_REVENUE',
+      fb_ad_network_show_rate: 'FB_AD_NETWORK_SHOW_RATE',
+      fb_ad_network_video_guarantee_revenue: 'FB_AD_NETWORK_VIDEO_GUARANTEE_REVENUE',
+      fb_ad_network_video_mrc: 'FB_AD_NETWORK_VIDEO_MRC',
+      fb_ad_network_video_mrc_rate: 'FB_AD_NETWORK_VIDEO_MRC_RATE',
+      fb_ad_network_video_view: 'FB_AD_NETWORK_VIDEO_VIEW',
+      fb_ad_network_video_view_rate: 'FB_AD_NETWORK_VIDEO_VIEW_RATE'
+    });
+  }
+  static get OrderingColumn (): Object {
+    return Object.freeze({
+      metric: 'METRIC',
+      time: 'TIME',
+      value: 'VALUE'
+    });
+  }
+  static get OrderingType (): Object {
+    return Object.freeze({
+      ascending: 'ASCENDING',
+      descending: 'DESCENDING'
+    });
+  }
 }

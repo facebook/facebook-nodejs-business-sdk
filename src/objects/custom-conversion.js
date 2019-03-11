@@ -32,6 +32,7 @@ export default class CustomConversion extends AbstractCrudObject {
       first_fired_time: 'first_fired_time',
       id: 'id',
       is_archived: 'is_archived',
+      is_unavailable: 'is_unavailable',
       last_fired_time: 'last_fired_time',
       name: 'name',
       offline_conversion_data_set: 'offline_conversion_data_set',

@@ -31,6 +31,7 @@ export default class AdsPixelStatsResult extends AbstractCrudObject {
       device_type: 'device_type',
       event: 'event',
       event_detection_method: 'event_detection_method',
+      event_processing_results: 'event_processing_results',
       event_source: 'event_source',
       event_total_counts: 'event_total_counts',
       event_value_count: 'event_value_count',

@@ -33,15 +33,14 @@ let fields, params;
 fields = [
 ];
 params = {
-  'name' : 'My First Adset',
-  'lifetime_budget' : '20000',
-  'start_time' : '2019-03-04T04:35:37-0800',
-  'end_time' : '2019-03-14T04:35:37-0700',
-  'campaign_id' : '<adCampaignLinkClicksID>',
-  'bid_amount' : '500',
+  'name' : 'My First AdSet',
+  'daily_budget' : '10000',
+  'bid_amount' : '300',
   'billing_event' : 'IMPRESSIONS',
-  'optimization_goal' : 'POST_ENGAGEMENT',
-  'targeting' : {'geo_locations':{'countries':['US'],'regions':[{'key':'4081'}],'cities':[{'key':777934,'radius':10,'distance_unit':'mile'}]},'genders':[1],'age_max':24,'age_min':20,'behaviors':[{'id':6002714895372,'name':'All travelers'}],'life_events':[{'id':6002714398172,'name':'Newlywed (1 year)'}],'home_ownership':[{'id':6006371327132,'name':'Renters'}],'publisher_platforms':['facebook'],'device_platforms':['desktop']},
+  'optimization_goal' : 'REACH',
+  'campaign_id' : '<adCampaignLinkClicksID>',
+  'promoted_object' : {'page_id':'<pageID>'},
+  'targeting' : {'geo_locations':{'countries':['US'],'regions':[{'key':'4081'}],'cities':[{'key':777934,'radius':10,'distance_unit':'mile'}]},'genders':[1],'age_max':24,'age_min':20,'publisher_platforms':['facebook','audience_network'],'device_platforms':['mobile'],'flexible_spec':[{'interests':[{'id':'<adsInterestID>','name':'<adsInterestName>'}]}]},
   'status' : 'PAUSED',
 };
 const adsets = (new AdAccount(id)).createAdSet(

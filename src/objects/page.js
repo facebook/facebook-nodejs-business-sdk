@@ -42,7 +42,6 @@ import LeadGenContextCard from './lead-gen-context-card';
 import LeadGenDataDraft from './lead-gen-data-draft';
 import LeadgenForm from './leadgen-form';
 import LeadGenLegalContent from './lead-gen-legal-content';
-import LeadGenQualifier from './lead-gen-qualifier';
 import LiveEncoder from './live-encoder';
 import LiveVideo from './live-video';
 import MediaFingerprint from './media-fingerprint';
@@ -331,7 +330,10 @@ export default class Page extends AbstractCrudObject {
       manage: 'MANAGE',
       manage_jobs: 'MANAGE_JOBS',
       moderate: 'MODERATE',
-      moderate_community: 'MODERATE_COMMUNITY'
+      moderate_community: 'MODERATE_COMMUNITY',
+      pages_messaging: 'PAGES_MESSAGING',
+      pages_messaging_subscriptions: 'PAGES_MESSAGING_SUBSCRIPTIONS',
+      read_page_mailboxes: 'READ_PAGE_MAILBOXES'
     });
   }
   static get Tasks (): Object {
@@ -342,7 +344,10 @@ export default class Page extends AbstractCrudObject {
       manage: 'MANAGE',
       manage_jobs: 'MANAGE_JOBS',
       moderate: 'MODERATE',
-      moderate_community: 'MODERATE_COMMUNITY'
+      moderate_community: 'MODERATE_COMMUNITY',
+      pages_messaging: 'PAGES_MESSAGING',
+      pages_messaging_subscriptions: 'PAGES_MESSAGING_SUBSCRIPTIONS',
+      read_page_mailboxes: 'READ_PAGE_MAILBOXES'
     });
   }
   static get MessagingType (): Object {
@@ -1198,16 +1203,6 @@ export default class Page extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/leadgen_legal_content'
-    );
-  }
-
-  getLeadGenQualifiers (fields, params, fetchFirstPage = true): LeadGenQualifier {
-    return this.getEdge(
-      LeadGenQualifier,
-      fields,
-      params,
-      fetchFirstPage,
-      '/leadgen_qualifiers'
     );
   }
 

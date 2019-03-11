@@ -54,6 +54,7 @@ export default class AdStudy extends AbstractCrudObject {
   }
   static get Type (): Object {
     return Object.freeze({
+      continuous_lift_config: 'CONTINUOUS_LIFT_CONFIG',
       lift: 'LIFT',
       split_test: 'SPLIT_TEST'
     });

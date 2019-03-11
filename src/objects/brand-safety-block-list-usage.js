@@ -9,18 +9,19 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * LeadGenQualifier
+ * BrandSafetyBlockListUsage
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class LeadGenQualifier extends AbstractCrudObject {
+export default class BrandSafetyBlockListUsage extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      category: 'category',
-      field_key: 'field_key',
-      id: 'id',
-      label: 'label',
-      question: 'question'
+      current_usage: 'current_usage',
+      new_usage: 'new_usage',
+      platform: 'platform',
+      position: 'position',
+      threshold: 'threshold',
+      id: 'id'
     });
   }
 }

@@ -149,6 +149,7 @@ export { default as AudioCopyright } from './../src/objects/audio-copyright';
 export { default as AutomotiveModel } from './../src/objects/automotive-model';
 export { default as BilledAmountDetails } from './../src/objects/billed-amount-details';
 export { default as BrandAudience } from './../src/objects/brand-audience';
+export { default as BrandSafetyBlockListUsage } from './../src/objects/brand-safety-block-list-usage';
 export { default as BroadTargetingCategories } from './../src/objects/broad-targeting-categories';
 export { default as Business } from './../src/objects/business';
 export { default as BusinessActivityLogEvent } from './../src/objects/business-activity-log-event';
@@ -157,6 +158,7 @@ export { default as BusinessAdvertisableApplicationsResult } from './../src/obje
 export { default as BusinessAgreement } from './../src/objects/business-agreement';
 export { default as BusinessApplicationRequest } from './../src/objects/business-application-request';
 export { default as BusinessAssetSharingAgreement } from './../src/objects/business-asset-sharing-agreement';
+export { default as BusinessCreditCardLegacy } from './../src/objects/business-credit-card-legacy';
 export { default as BusinessMatchedSearchApplicationsEdgeData } from './../src/objects/business-matched-search-applications-edge-data';
 export { default as BusinessOwnedObjectOnBehalfOfRequest } from './../src/objects/business-owned-object-on-behalf-of-request';
 export { default as BusinessPageRequest } from './../src/objects/business-page-request';
@@ -258,7 +260,6 @@ export { default as LeadGenDataDraft } from './../src/objects/lead-gen-data-draf
 export { default as LeadGenDraftQuestion } from './../src/objects/lead-gen-draft-question';
 export { default as LeadGenFormPreviewDetails } from './../src/objects/lead-gen-form-preview-details';
 export { default as LeadGenLegalContent } from './../src/objects/lead-gen-legal-content';
-export { default as LeadGenQualifier } from './../src/objects/lead-gen-qualifier';
 export { default as LeadGenQuestion } from './../src/objects/lead-gen-question';
 export { default as LeadGenQuestionOption } from './../src/objects/lead-gen-question-option';
 export { default as LegacyBusinessAdAccountRequest } from './../src/objects/legacy-business-ad-account-request';
@@ -408,6 +409,7 @@ export { default as TargetingProductAudienceSpec } from './../src/objects/target
 export { default as TargetingProductAudienceSubSpec } from './../src/objects/targeting-product-audience-sub-spec';
 export { default as TargetingProspectingAudience } from './../src/objects/targeting-prospecting-audience';
 export { default as TargetingSentenceLine } from './../src/objects/targeting-sentence-line';
+export { default as ThirdPartyMeasurementReportDataset } from './../src/objects/third-party-measurement-report-dataset';
 export { default as ThreadSetting } from './../src/objects/thread-setting';
 export { default as TimezoneOffset } from './../src/objects/timezone-offset';
 export { default as TrackingAndConversionWithDefaults } from './../src/objects/tracking-and-conversion-with-defaults';

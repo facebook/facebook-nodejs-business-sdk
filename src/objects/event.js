@@ -12,6 +12,7 @@ import Profile from './profile';
 import User from './user';
 import NullNode from './null-node';
 import Comment from './comment';
+import LiveVideo from './live-video';
 import Photo from './photo';
 import AdVideo from './ad-video';
 
@@ -64,40 +65,6 @@ export default class Event extends AbstractCrudObject {
       public: 'public'
     });
   }
-  static get Projection (): Object {
-    return Object.freeze({
-      cubemap: 'CUBEMAP',
-      equirectangular: 'EQUIRECTANGULAR',
-      half_equirectangular: 'HALF_EQUIRECTANGULAR'
-    });
-  }
-  static get SpatialAudioFormat (): Object {
-    return Object.freeze({
-      ambix_4: 'ambiX_4'
-    });
-  }
-  static get Status (): Object {
-    return Object.freeze({
-      live_now: 'LIVE_NOW',
-      scheduled_canceled: 'SCHEDULED_CANCELED',
-      scheduled_live: 'SCHEDULED_LIVE',
-      scheduled_unpublished: 'SCHEDULED_UNPUBLISHED',
-      unpublished: 'UNPUBLISHED'
-    });
-  }
-  static get StereoscopicMode (): Object {
-    return Object.freeze({
-      left_right: 'LEFT_RIGHT',
-      mono: 'MONO',
-      top_bottom: 'TOP_BOTTOM'
-    });
-  }
-  static get StreamType (): Object {
-    return Object.freeze({
-      ambient: 'AMBIENT',
-      regular: 'REGULAR'
-    });
-  }
   static get EventStateFilter (): Object {
     return Object.freeze({
       canceled: 'canceled',
@@ -140,15 +107,6 @@ export default class Event extends AbstractCrudObject {
     );
   }
 
-  createAttending (fields, params): Event {
-    return this.createEdge(
-      '/attending',
-      fields,
-      params,
-      Event
-    );
-  }
-
   getComments (fields, params, fetchFirstPage = true): NullNode {
     return this.getEdge(
       NullNode,
@@ -175,15 +133,6 @@ export default class Event extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/declined'
-    );
-  }
-
-  createDeclined (fields, params): Event {
-    return this.createEdge(
-      '/declined',
-      fields,
-      params,
-      Event
     );
   }
 
@@ -226,12 +175,12 @@ export default class Event extends AbstractCrudObject {
     );
   }
 
-  createLiveVideo (fields, params): Event {
+  createLiveVideo (fields, params): LiveVideo {
     return this.createEdge(
       '/live_videos',
       fields,
       params,
-      Event
+      LiveVideo
     );
   }
 
@@ -242,15 +191,6 @@ export default class Event extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/maybe'
-    );
-  }
-
-  createMaybe (fields, params): Event {
-    return this.createEdge(
-      '/maybe',
-      fields,
-      params,
-      Event
     );
   }
 

@@ -25,6 +25,7 @@ export default class Permission extends AbstractCrudObject {
   static get Status (): Object {
     return Object.freeze({
       declined: 'declined',
+      expired: 'expired',
       granted: 'granted'
     });
   }

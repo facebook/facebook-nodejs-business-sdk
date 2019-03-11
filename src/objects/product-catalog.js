@@ -89,7 +89,6 @@ export default class ProductCatalog extends AbstractCrudObject {
       auto_market: 'AUTO_MARKET',
       destination: 'DESTINATION',
       flight: 'FLIGHT',
-      geo_based_item: 'GEO_BASED_ITEM',
       home_listing: 'HOME_LISTING',
       home_service_provider: 'HOME_SERVICE_PROVIDER',
       home_service_review: 'HOME_SERVICE_REVIEW',
