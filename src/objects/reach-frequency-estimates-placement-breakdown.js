@@ -27,8 +27,7 @@ export default class ReachFrequencyEstimatesPlacementBreakdown extends AbstractC
       instream_videos: 'instream_videos',
       ios: 'ios',
       msite: 'msite',
-      suggested_videos: 'suggested_videos',
-      id: 'id'
+      suggested_videos: 'suggested_videos'
     });
   }
 }

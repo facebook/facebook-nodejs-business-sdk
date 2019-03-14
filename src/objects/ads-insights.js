@@ -152,8 +152,7 @@ export default class AdsInsights extends AbstractCrudObject {
       video_time_watched_actions: 'video_time_watched_actions',
       website_ctr: 'website_ctr',
       website_purchase_roas: 'website_purchase_roas',
-      wish_bid: 'wish_bid',
-      id: 'id'
+      wish_bid: 'wish_bid'
     });
   }
 

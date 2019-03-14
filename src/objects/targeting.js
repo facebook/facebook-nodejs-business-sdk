@@ -105,8 +105,7 @@ export default class Targeting extends AbstractCrudObject {
       wireless_carrier: 'wireless_carrier',
       work_employers: 'work_employers',
       work_positions: 'work_positions',
-      zips: 'zips',
-      id: 'id'
+      zips: 'zips'
     });
   }
 

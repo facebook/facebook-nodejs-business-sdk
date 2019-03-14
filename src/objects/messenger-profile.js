@@ -23,8 +23,7 @@ export default class MessengerProfile extends AbstractCrudObject {
       payment_settings: 'payment_settings',
       persistent_menu: 'persistent_menu',
       target_audience: 'target_audience',
-      whitelisted_domains: 'whitelisted_domains',
-      id: 'id'
+      whitelisted_domains: 'whitelisted_domains'
     });
   }
 }

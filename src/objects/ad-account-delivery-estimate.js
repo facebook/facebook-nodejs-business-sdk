@@ -19,8 +19,7 @@ export default class AdAccountDeliveryEstimate extends AbstractCrudObject {
       daily_outcomes_curve: 'daily_outcomes_curve',
       estimate_dau: 'estimate_dau',
       estimate_mau: 'estimate_mau',
-      estimate_ready: 'estimate_ready',
-      id: 'id'
+      estimate_ready: 'estimate_ready'
     });
   }
 

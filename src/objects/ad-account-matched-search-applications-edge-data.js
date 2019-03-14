@@ -22,8 +22,7 @@ export default class AdAccountMatchedSearchApplicationsEdgeData extends Abstract
       search_source_store: 'search_source_store',
       store: 'store',
       unique_id: 'unique_id',
-      url: 'url',
-      id: 'id'
+      url: 'url'
     });
   }
 

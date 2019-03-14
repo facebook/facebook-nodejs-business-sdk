@@ -18,8 +18,7 @@ export default class AdCreativeCollectionThumbnailInfo extends AbstractCrudObjec
     return Object.freeze({
       element_child_index: 'element_child_index',
       element_crops: 'element_crops',
-      element_id: 'element_id',
-      id: 'id'
+      element_id: 'element_id'
     });
   }
 }

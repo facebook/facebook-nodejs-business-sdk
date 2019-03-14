@@ -23,8 +23,7 @@ export default class AdRuleHistory extends AbstractCrudObject {
       is_manual: 'is_manual',
       results: 'results',
       schedule_spec: 'schedule_spec',
-      timestamp: 'timestamp',
-      id: 'id'
+      timestamp: 'timestamp'
     });
   }
 

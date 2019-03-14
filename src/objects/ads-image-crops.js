@@ -22,8 +22,7 @@ export default class AdsImageCrops extends AbstractCrudObject {
       value_400x150: '400x150',
       value_400x500: '400x500',
       value_600x360: '600x360',
-      value_90x160: '90x160',
-      id: 'id'
+      value_90x160: '90x160'
     });
   }
 }

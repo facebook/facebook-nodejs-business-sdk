@@ -16,8 +16,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class AdCreativePortraitCustomizations extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      specifications: 'specifications',
-      id: 'id'
+      specifications: 'specifications'
     });
   }
 }

@@ -17,8 +17,7 @@ export default class ReachFrequencyAdFormat extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       details: 'details',
-      type: 'type',
-      id: 'id'
+      type: 'type'
     });
   }
 }

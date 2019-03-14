@@ -19,8 +19,7 @@ export default class CustomConversionActivities extends AbstractCrudObject {
       app_id: 'app_id',
       data: 'data',
       event_type: 'event_type',
-      timestamp: 'timestamp',
-      id: 'id'
+      timestamp: 'timestamp'
     });
   }
 

@@ -21,8 +21,7 @@ export default class DynamicPostChildAttachment extends AbstractCrudObject {
       link: 'link',
       place_id: 'place_id',
       product_id: 'product_id',
-      title: 'title',
-      id: 'id'
+      title: 'title'
     });
   }
 }

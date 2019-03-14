@@ -17,8 +17,7 @@ export default class AdRuleExecutionSpec extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       execution_options: 'execution_options',
-      execution_type: 'execution_type',
-      id: 'id'
+      execution_type: 'execution_type'
     });
   }
 

@@ -22,8 +22,7 @@ export default class Engagement extends AbstractCrudObject {
       count_string_without_like: 'count_string_without_like',
       social_sentence: 'social_sentence',
       social_sentence_with_like: 'social_sentence_with_like',
-      social_sentence_without_like: 'social_sentence_without_like',
-      id: 'id'
+      social_sentence_without_like: 'social_sentence_without_like'
     });
   }
 }

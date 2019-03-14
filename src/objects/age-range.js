@@ -17,8 +17,7 @@ export default class AgeRange extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       max: 'max',
-      min: 'min',
-      id: 'id'
+      min: 'min'
     });
   }
 }

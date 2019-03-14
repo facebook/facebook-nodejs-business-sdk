@@ -19,8 +19,7 @@ export default class AdRuleTrigger extends AbstractCrudObject {
       field: 'field',
       operator: 'operator',
       type: 'type',
-      value: 'value',
-      id: 'id'
+      value: 'value'
     });
   }
 

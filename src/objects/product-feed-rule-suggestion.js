@@ -18,8 +18,7 @@ export default class ProductFeedRuleSuggestion extends AbstractCrudObject {
     return Object.freeze({
       attribute: 'attribute',
       params: 'params',
-      type: 'type',
-      id: 'id'
+      type: 'type'
     });
   }
 }

@@ -18,8 +18,7 @@ export default class AdRuleFilters extends AbstractCrudObject {
     return Object.freeze({
       field: 'field',
       operator: 'operator',
-      value: 'value',
-      id: 'id'
+      value: 'value'
     });
   }
 

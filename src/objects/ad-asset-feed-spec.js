@@ -29,8 +29,7 @@ export default class AdAssetFeedSpec extends AbstractCrudObject {
       link_urls: 'link_urls',
       optimization_type: 'optimization_type',
       titles: 'titles',
-      videos: 'videos',
-      id: 'id'
+      videos: 'videos'
     });
   }
 

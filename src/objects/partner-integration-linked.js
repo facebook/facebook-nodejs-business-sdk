@@ -77,6 +77,7 @@ export default class PartnerIntegrationLinked extends AbstractCrudObject {
       shopify: 'shopify',
       shopify_online: 'shopify_online',
       shopline: 'shopline',
+      singular: 'singular',
       sirclo: 'sirclo',
       squarespace: 'squarespace',
       storeden: 'storeden',

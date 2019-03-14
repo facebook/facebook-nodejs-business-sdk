@@ -18,8 +18,7 @@ export default class CanvasCollectionThumbnail extends AbstractCrudObject {
     return Object.freeze({
       element_child_index: 'element_child_index',
       element_id: 'element_id',
-      photo: 'photo',
-      id: 'id'
+      photo: 'photo'
     });
   }
 }

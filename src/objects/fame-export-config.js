@@ -19,8 +19,7 @@ export default class FAMEExportConfig extends AbstractCrudObject {
       can_edit: 'can_edit',
       column_id: 'column_id',
       display_name: 'display_name',
-      format: 'format',
-      id: 'id'
+      format: 'format'
     });
   }
 }

@@ -25,8 +25,7 @@ export default class ProductCatalogUserPermissions extends AbstractCrudObject {
       status: 'status',
       updated_by: 'updated_by',
       updated_time: 'updated_time',
-      user: 'user',
-      id: 'id'
+      user: 'user'
     });
   }
 }

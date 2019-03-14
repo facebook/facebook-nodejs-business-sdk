@@ -29,8 +29,7 @@ export default class TargetingGeoLocationCustomLocation extends AbstractCrudObje
       name: 'name',
       primary_city_id: 'primary_city_id',
       radius: 'radius',
-      region_id: 'region_id',
-      id: 'id'
+      region_id: 'region_id'
     });
   }
 }

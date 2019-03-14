@@ -22,8 +22,7 @@ export default class AdCreativeTemplateURLSpec extends AbstractCrudObject {
       ipad: 'ipad',
       iphone: 'iphone',
       web: 'web',
-      windows_phone: 'windows_phone',
-      id: 'id'
+      windows_phone: 'windows_phone'
     });
   }
 }

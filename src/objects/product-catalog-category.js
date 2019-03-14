@@ -22,8 +22,7 @@ export default class ProductCatalogCategory extends AbstractCrudObject {
       image_url: 'image_url',
       name: 'name',
       num_items: 'num_items',
-      tokens: 'tokens',
-      id: 'id'
+      tokens: 'tokens'
     });
   }
 

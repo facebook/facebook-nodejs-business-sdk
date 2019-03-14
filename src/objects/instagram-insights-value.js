@@ -17,8 +17,7 @@ export default class InstagramInsightsValue extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       end_time: 'end_time',
-      value: 'value',
-      id: 'id'
+      value: 'value'
     });
   }
 }

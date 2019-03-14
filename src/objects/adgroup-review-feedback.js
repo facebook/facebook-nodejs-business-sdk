@@ -17,8 +17,7 @@ export default class AdgroupReviewFeedback extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       global: 'global',
-      placement_specific: 'placement_specific',
-      id: 'id'
+      placement_specific: 'placement_specific'
     });
   }
 }

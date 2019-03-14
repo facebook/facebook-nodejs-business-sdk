@@ -21,8 +21,7 @@ export default class ReachFrequencyCurveUpperConfidenceRange extends AbstractCru
       reach: 'reach',
       reach_upper: 'reach_upper',
       uniq_video_views_2s_upper: 'uniq_video_views_2s_upper',
-      video_views_2s_upper: 'video_views_2s_upper',
-      id: 'id'
+      video_views_2s_upper: 'video_views_2s_upper'
     });
   }
 }

@@ -20,8 +20,7 @@ export default class BusinessSettingLogsData extends AbstractCrudObject {
       event_object: 'event_object',
       event_time: 'event_time',
       event_type: 'event_type',
-      extra_data: 'extra_data',
-      id: 'id'
+      extra_data: 'extra_data'
     });
   }
 }

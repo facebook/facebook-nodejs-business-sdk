@@ -20,8 +20,7 @@ export default class TimezoneOffset extends AbstractCrudObject {
       isdst: 'isdst',
       offset: 'offset',
       time: 'time',
-      ts: 'ts',
-      id: 'id'
+      ts: 'ts'
     });
   }
 }

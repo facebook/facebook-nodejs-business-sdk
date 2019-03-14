@@ -19,8 +19,7 @@ export default class UserPaymentMobilePricepoints extends AbstractCrudObject {
       mobile_country: 'mobile_country',
       phone_number_last4: 'phone_number_last4',
       pricepoints: 'pricepoints',
-      user_currency: 'user_currency',
-      id: 'id'
+      user_currency: 'user_currency'
     });
   }
 }

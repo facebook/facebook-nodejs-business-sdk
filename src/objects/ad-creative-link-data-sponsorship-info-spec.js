@@ -17,8 +17,7 @@ export default class AdCreativeLinkDataSponsorshipInfoSpec extends AbstractCrudO
   static get Fields () {
     return Object.freeze({
       sponsor_image_url: 'sponsor_image_url',
-      sponsor_name: 'sponsor_name',
-      id: 'id'
+      sponsor_name: 'sponsor_name'
     });
   }
 }

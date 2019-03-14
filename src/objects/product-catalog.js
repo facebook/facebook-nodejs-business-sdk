@@ -82,28 +82,6 @@ export default class ProductCatalog extends AbstractCrudObject {
       google: 'google'
     });
   }
-  static get ItemType (): Object {
-    return Object.freeze({
-      auto: 'AUTO',
-      automotive_model: 'AUTOMOTIVE_MODEL',
-      auto_market: 'AUTO_MARKET',
-      destination: 'DESTINATION',
-      flight: 'FLIGHT',
-      home_listing: 'HOME_LISTING',
-      home_service_provider: 'HOME_SERVICE_PROVIDER',
-      home_service_review: 'HOME_SERVICE_REVIEW',
-      hotel: 'HOTEL',
-      hotel_room: 'HOTEL_ROOM',
-      media_title: 'MEDIA_TITLE',
-      other_test_dynamic_item: 'OTHER_TEST_DYNAMIC_ITEM',
-      product_group: 'PRODUCT_GROUP',
-      product_item: 'PRODUCT_ITEM',
-      store_product_item: 'STORE_PRODUCT_ITEM',
-      test_dynamic_item: 'TEST_DYNAMIC_ITEM',
-      vehicle: 'VEHICLE',
-      vehicle_offer: 'VEHICLE_OFFER'
-    });
-  }
   static get Role (): Object {
     return Object.freeze({
       admin: 'ADMIN',

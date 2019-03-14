@@ -18,8 +18,7 @@ export default class AdsOptimalDeliveryGrowthOpportunity extends AbstractCrudObj
     return Object.freeze({
       child_metadata: 'child_metadata',
       metadata: 'metadata',
-      optimization_type: 'optimization_type',
-      id: 'id'
+      optimization_type: 'optimization_type'
     });
   }
 }

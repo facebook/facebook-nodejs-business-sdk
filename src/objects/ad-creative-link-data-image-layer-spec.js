@@ -28,8 +28,7 @@ export default class AdCreativeLinkDataImageLayerSpec extends AbstractCrudObject
       scale: 'scale',
       shape_color: 'shape_color',
       text_color: 'text_color',
-      text_font: 'text_font',
-      id: 'id'
+      text_font: 'text_font'
     });
   }
 

@@ -16,8 +16,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class AdDynamicCreative extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      preview_url: 'preview_url',
-      id: 'id'
+      preview_url: 'preview_url'
     });
   }
 }

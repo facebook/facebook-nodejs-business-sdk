@@ -24,8 +24,7 @@ export default class ProductFeedSchedule extends AbstractCrudObject {
       minute: 'minute',
       timezone: 'timezone',
       url: 'url',
-      username: 'username',
-      id: 'id'
+      username: 'username'
     });
   }
 

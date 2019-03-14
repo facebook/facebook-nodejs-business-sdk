@@ -19,8 +19,7 @@ export default class InstantArticleInsightsQueryResult extends AbstractCrudObjec
       breakdowns: 'breakdowns',
       name: 'name',
       time: 'time',
-      value: 'value',
-      id: 'id'
+      value: 'value'
     });
   }
 

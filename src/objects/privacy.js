@@ -21,8 +21,7 @@ export default class Privacy extends AbstractCrudObject {
       description: 'description',
       friends: 'friends',
       networks: 'networks',
-      value: 'value',
-      id: 'id'
+      value: 'value'
     });
   }
 }

@@ -17,8 +17,7 @@ export default class BusinessProductCatalogTOS extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       accepted: 'accepted',
-      content: 'content',
-      id: 'id'
+      content: 'content'
     });
   }
 }

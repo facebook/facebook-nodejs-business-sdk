@@ -18,8 +18,7 @@ export default class VideoCopyrightSegment extends AbstractCrudObject {
     return Object.freeze({
       duration_in_sec: 'duration_in_sec',
       media_type: 'media_type',
-      start_time_in_sec: 'start_time_in_sec',
-      id: 'id'
+      start_time_in_sec: 'start_time_in_sec'
     });
   }
 }

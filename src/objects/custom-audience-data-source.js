@@ -18,8 +18,7 @@ export default class CustomAudienceDataSource extends AbstractCrudObject {
     return Object.freeze({
       creation_params: 'creation_params',
       sub_type: 'sub_type',
-      type: 'type',
-      id: 'id'
+      type: 'type'
     });
   }
 

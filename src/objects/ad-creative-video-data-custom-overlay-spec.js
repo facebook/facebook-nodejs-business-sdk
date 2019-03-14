@@ -25,8 +25,7 @@ export default class AdCreativeVideoDataCustomOverlaySpec extends AbstractCrudOb
       position: 'position',
       start: 'start',
       template: 'template',
-      text_color: 'text_color',
-      id: 'id'
+      text_color: 'text_color'
     });
   }
 

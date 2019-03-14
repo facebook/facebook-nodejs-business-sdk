@@ -16,8 +16,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class AdAccountTrackingData extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      tracking_specs: 'tracking_specs',
-      id: 'id'
+      tracking_specs: 'tracking_specs'
     });
   }
 }

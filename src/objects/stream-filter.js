@@ -18,8 +18,7 @@ export default class StreamFilter extends AbstractCrudObject {
     return Object.freeze({
       filter_key: 'filter_key',
       name: 'name',
-      type: 'type',
-      id: 'id'
+      type: 'type'
     });
   }
 }

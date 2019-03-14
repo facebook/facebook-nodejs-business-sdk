@@ -24,8 +24,7 @@ export default class ProfilePictureSource extends AbstractCrudObject {
       right: 'right',
       top: 'top',
       url: 'url',
-      width: 'width',
-      id: 'id'
+      width: 'width'
     });
   }
 

@@ -17,8 +17,7 @@ export default class StreamingReaction extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       count: 'count',
-      reaction_type: 'reaction_type',
-      id: 'id'
+      reaction_type: 'reaction_type'
     });
   }
 

@@ -34,8 +34,7 @@ export default class BusinessActivityLogEvent extends AbstractCrudObject {
       target_business_name: 'target_business_name',
       target_business_object_id: 'target_business_object_id',
       target_business_object_name: 'target_business_object_name',
-      target_business_object_type: 'target_business_object_type',
-      id: 'id'
+      target_business_object_type: 'target_business_object_type'
     });
   }
 }

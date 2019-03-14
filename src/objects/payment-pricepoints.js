@@ -16,8 +16,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class PaymentPricepoints extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      mobile: 'mobile',
-      id: 'id'
+      mobile: 'mobile'
     });
   }
 }

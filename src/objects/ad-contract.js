@@ -57,8 +57,7 @@ export default class AdContract extends AbstractCrudObject {
       thirdparty_url: 'thirdparty_url',
       vat_country: 'vat_country',
       version: 'version',
-      vertical: 'vertical',
-      id: 'id'
+      vertical: 'vertical'
     });
   }
 }

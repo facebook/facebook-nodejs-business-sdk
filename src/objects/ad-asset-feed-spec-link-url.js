@@ -21,8 +21,7 @@ export default class AdAssetFeedSpecLinkURL extends AbstractCrudObject {
       deeplink_url: 'deeplink_url',
       display_url: 'display_url',
       url_tags: 'url_tags',
-      website_url: 'website_url',
-      id: 'id'
+      website_url: 'website_url'
     });
   }
 }

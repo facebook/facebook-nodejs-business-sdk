@@ -19,8 +19,7 @@ export default class ClientTransparencyStatus extends AbstractCrudObject {
       grace_period_expiration_date: 'grace_period_expiration_date',
       has_owning_business: 'has_owning_business',
       is_satisfied: 'is_satisfied',
-      owning_business_requirements: 'owning_business_requirements',
-      id: 'id'
+      owning_business_requirements: 'owning_business_requirements'
     });
   }
 }

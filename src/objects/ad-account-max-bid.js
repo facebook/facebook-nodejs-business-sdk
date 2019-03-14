@@ -16,8 +16,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class AdAccountMaxBid extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      max_bid: 'max_bid',
-      id: 'id'
+      max_bid: 'max_bid'
     });
   }
 }

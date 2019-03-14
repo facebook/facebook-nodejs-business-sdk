@@ -32,8 +32,7 @@ export default class AdPromotedObject extends AbstractCrudObject {
       product_catalog_id: 'product_catalog_id',
       product_item_id: 'product_item_id',
       product_set_id: 'product_set_id',
-      retention_days: 'retention_days',
-      id: 'id'
+      retention_days: 'retention_days'
     });
   }
 

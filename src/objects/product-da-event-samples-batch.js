@@ -18,8 +18,7 @@ export default class ProductDaEventSamplesBatch extends AbstractCrudObject {
     return Object.freeze({
       samples: 'samples',
       time_start: 'time_start',
-      time_stop: 'time_stop',
-      id: 'id'
+      time_stop: 'time_stop'
     });
   }
 

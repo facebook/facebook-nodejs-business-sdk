@@ -17,8 +17,7 @@ export default class PageSettings extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       setting: 'setting',
-      value: 'value',
-      id: 'id'
+      value: 'value'
     });
   }
 }

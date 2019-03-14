@@ -20,8 +20,7 @@ export default class TargetingGeoLocationGeoEntities extends AbstractCrudObject 
       key: 'key',
       name: 'name',
       region: 'region',
-      region_id: 'region_id',
-      id: 'id'
+      region_id: 'region_id'
     });
   }
 }

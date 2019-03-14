@@ -17,8 +17,7 @@ export default class Permission extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       permission: 'permission',
-      status: 'status',
-      id: 'id'
+      status: 'status'
     });
   }
 

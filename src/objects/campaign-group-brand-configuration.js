@@ -18,8 +18,7 @@ export default class CampaignGroupBrandConfiguration extends AbstractCrudObject 
     return Object.freeze({
       brand_product_name: 'brand_product_name',
       locale: 'locale',
-      vertical: 'vertical',
-      id: 'id'
+      vertical: 'vertical'
     });
   }
 }

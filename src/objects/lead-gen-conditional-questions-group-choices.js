@@ -18,8 +18,7 @@ export default class LeadGenConditionalQuestionsGroupChoices extends AbstractCru
     return Object.freeze({
       customized_token: 'customized_token',
       next_question_choices: 'next_question_choices',
-      value: 'value',
-      id: 'id'
+      value: 'value'
     });
   }
 }

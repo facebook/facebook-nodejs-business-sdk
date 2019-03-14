@@ -512,16 +512,6 @@ export default class Business extends AbstractCrudObject {
       fields,
       params,
       fetchFirstPage,
-      '/credit_cards'
-    );
-  }
-
-  getCreditCards (fields, params, fetchFirstPage = true): BusinessCreditCardLegacy {
-    return this.getEdge(
-      BusinessCreditCardLegacy,
-      fields,
-      params,
-      fetchFirstPage,
       '/creditcards'
     );
   }

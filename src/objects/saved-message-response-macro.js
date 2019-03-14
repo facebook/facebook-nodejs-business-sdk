@@ -18,8 +18,7 @@ export default class SavedMessageResponseMacro extends AbstractCrudObject {
     return Object.freeze({
       length: 'length',
       macro: 'macro',
-      offset: 'offset',
-      id: 'id'
+      offset: 'offset'
     });
   }
 }

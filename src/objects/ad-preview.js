@@ -16,8 +16,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class AdPreview extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      body: 'body',
-      id: 'id'
+      body: 'body'
     });
   }
 

@@ -17,8 +17,7 @@ export default class AdAccountDefaultObjective extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       default_objective_for_user: 'default_objective_for_user',
-      objective_for_level: 'objective_for_level',
-      id: 'id'
+      objective_for_level: 'objective_for_level'
     });
   }
 

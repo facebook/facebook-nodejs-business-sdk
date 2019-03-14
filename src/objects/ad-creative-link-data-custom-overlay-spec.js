@@ -23,8 +23,7 @@ export default class AdCreativeLinkDataCustomOverlaySpec extends AbstractCrudObj
       position: 'position',
       render_with_icon: 'render_with_icon',
       template: 'template',
-      text_color: 'text_color',
-      id: 'id'
+      text_color: 'text_color'
     });
   }
 

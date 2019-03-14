@@ -50,8 +50,7 @@ export default class AdCreativeLinkData extends AbstractCrudObject {
       show_multiple_images: 'show_multiple_images',
       sponsorship_info: 'sponsorship_info',
       static_fallback_spec: 'static_fallback_spec',
-      use_flexible_image_aspect_ratio: 'use_flexible_image_aspect_ratio',
-      id: 'id'
+      use_flexible_image_aspect_ratio: 'use_flexible_image_aspect_ratio'
     });
   }
 

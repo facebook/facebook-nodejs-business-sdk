@@ -20,8 +20,7 @@ export default class CustomAudiencesharedAccountInfo extends AbstractCrudObject 
       account_name: 'account_name',
       business_id: 'business_id',
       business_name: 'business_name',
-      sharing_status: 'sharing_status',
-      id: 'id'
+      sharing_status: 'sharing_status'
     });
   }
 }

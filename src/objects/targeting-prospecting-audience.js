@@ -16,8 +16,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class TargetingProspectingAudience extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      sources: 'sources',
-      id: 'id'
+      sources: 'sources'
     });
   }
 }

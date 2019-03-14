@@ -17,8 +17,7 @@ export default class AdCreativeLinkDataCallToAction extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       type: 'type',
-      value: 'value',
-      id: 'id'
+      value: 'value'
     });
   }
 

@@ -26,8 +26,7 @@ export default class ProductEventStat extends AbstractCrudObject {
       total_unmatched_content_ids: 'total_unmatched_content_ids',
       unique_content_ids_matched_other_catalogs: 'unique_content_ids_matched_other_catalogs',
       unique_matched_content_ids: 'unique_matched_content_ids',
-      unique_unmatched_content_ids: 'unique_unmatched_content_ids',
-      id: 'id'
+      unique_unmatched_content_ids: 'unique_unmatched_content_ids'
     });
   }
 

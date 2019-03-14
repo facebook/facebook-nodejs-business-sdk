@@ -18,8 +18,7 @@ export default class AdPlacePageSetMetadata extends AbstractCrudObject {
     return Object.freeze({
       audience: 'audience',
       extra_data: 'extra_data',
-      fixed_radius: 'fixed_radius',
-      id: 'id'
+      fixed_radius: 'fixed_radius'
     });
   }
 }

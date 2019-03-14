@@ -35,8 +35,7 @@ export default class TargetingGeoLocation extends AbstractCrudObject {
       small_geo_areas: 'small_geo_areas',
       subcities: 'subcities',
       subneighborhoods: 'subneighborhoods',
-      zips: 'zips',
-      id: 'id'
+      zips: 'zips'
     });
   }
 }

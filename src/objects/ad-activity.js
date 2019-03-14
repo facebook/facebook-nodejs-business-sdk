@@ -27,8 +27,7 @@ export default class AdActivity extends AbstractCrudObject {
       object_id: 'object_id',
       object_name: 'object_name',
       object_type: 'object_type',
-      translated_event_type: 'translated_event_type',
-      id: 'id'
+      translated_event_type: 'translated_event_type'
     });
   }
 

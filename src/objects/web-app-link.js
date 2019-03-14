@@ -17,8 +17,7 @@ export default class WebAppLink extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       should_fallback: 'should_fallback',
-      url: 'url',
-      id: 'id'
+      url: 'url'
     });
   }
 }

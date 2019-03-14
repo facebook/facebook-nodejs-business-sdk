@@ -18,8 +18,7 @@ export default class SplitTestWinner extends AbstractCrudObject {
     return Object.freeze({
       ad_object_level: 'ad_object_level',
       confidences: 'confidences',
-      winner_ad_object_id: 'winner_ad_object_id',
-      id: 'id'
+      winner_ad_object_id: 'winner_ad_object_id'
     });
   }
 }

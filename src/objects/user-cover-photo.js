@@ -18,8 +18,7 @@ export default class UserCoverPhoto extends AbstractCrudObject {
     return Object.freeze({
       offset_x: 'offset_x',
       offset_y: 'offset_y',
-      source: 'source',
-      id: 'id'
+      source: 'source'
     });
   }
 }
