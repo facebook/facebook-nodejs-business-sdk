@@ -10,6 +10,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import PageAdminNote from './page-admin-note';
 import User from './user';
+import AdsPost from './ads-post';
 import Business from './business';
 import Album from './album';
 import WithAsset3D from './with-asset3-d';
@@ -574,6 +575,16 @@ export default class Page extends AbstractCrudObject {
       fields,
       params,
       Page
+    );
+  }
+
+  getAdsPosts (fields, params, fetchFirstPage = true): AdsPost {
+    return this.getEdge(
+      AdsPost,
+      fields,
+      params,
+      fetchFirstPage,
+      '/ads_posts'
     );
   }
 
@@ -1401,6 +1412,15 @@ export default class Page extends AbstractCrudObject {
   createMessengerProfile (fields, params): Page {
     return this.createEdge(
       '/messenger_profile',
+      fields,
+      params,
+      Page
+    );
+  }
+
+  createMessengerThreadSetting (fields, params): Page {
+    return this.createEdge(
+      '/messenger_thread_settings',
       fields,
       params,
       Page

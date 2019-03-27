@@ -7,15 +7,15 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import ShadowIGComment from './shadow-ig-comment';
+import IGComment from './ig-comment';
 import InstagramInsightsResult from './instagram-insights-result';
 
 /**
- * ShadowIGMedia
+ * IGMedia
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class ShadowIGMedia extends AbstractCrudObject {
+export default class IGMedia extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       caption: 'caption',
@@ -35,9 +35,9 @@ export default class ShadowIGMedia extends AbstractCrudObject {
     });
   }
 
-  getChildren (fields, params, fetchFirstPage = true): ShadowIGMedia {
+  getChildren (fields, params, fetchFirstPage = true): IGMedia {
     return this.getEdge(
-      ShadowIGMedia,
+      IGMedia,
       fields,
       params,
       fetchFirstPage,
@@ -45,9 +45,9 @@ export default class ShadowIGMedia extends AbstractCrudObject {
     );
   }
 
-  getComments (fields, params, fetchFirstPage = true): ShadowIGComment {
+  getComments (fields, params, fetchFirstPage = true): IGComment {
     return this.getEdge(
-      ShadowIGComment,
+      IGComment,
       fields,
       params,
       fetchFirstPage,
@@ -55,12 +55,12 @@ export default class ShadowIGMedia extends AbstractCrudObject {
     );
   }
 
-  createComment (fields, params): ShadowIGComment {
+  createComment (fields, params): IGComment {
     return this.createEdge(
       '/comments',
       fields,
       params,
-      ShadowIGComment
+      IGComment
     );
   }
 
@@ -74,14 +74,14 @@ export default class ShadowIGMedia extends AbstractCrudObject {
     );
   }
 
-  get (fields, params): ShadowIGMedia {
+  get (fields, params): IGMedia {
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): ShadowIGMedia {
+  update (fields, params): IGMedia {
     return super.update(
       params
     );

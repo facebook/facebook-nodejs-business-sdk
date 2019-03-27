@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
 
 /**
  * LiveEncoder
@@ -30,9 +31,41 @@ export default class LiveEncoder extends AbstractCrudObject {
     });
   }
 
+  static get Status (): Object {
+    return Object.freeze({
+      capture: 'CAPTURE',
+      live: 'LIVE',
+      none: 'NONE',
+      preview: 'PREVIEW',
+      ready: 'READY',
+      register: 'REGISTER'
+    });
+  }
+
+  createTelemetry (fields, params): LiveEncoder {
+    return this.createEdge(
+      '/telemetry',
+      fields,
+      params,
+      LiveEncoder
+    );
+  }
+
+  delete (fields, params): AbstractObject {
+    return super.delete(
+      params
+    );
+  }
+
   get (fields, params): LiveEncoder {
     return this.read(
       fields,
+      params
+    );
+  }
+
+  update (fields, params): LiveEncoder {
+    return super.update(
       params
     );
   }

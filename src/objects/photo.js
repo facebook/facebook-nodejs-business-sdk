@@ -24,6 +24,8 @@ export default class Photo extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       album: 'album',
+      alt_text: 'alt_text',
+      alt_text_custom: 'alt_text_custom',
       backdated_time: 'backdated_time',
       backdated_time_granularity: 'backdated_time_granularity',
       can_backdate: 'can_backdate',

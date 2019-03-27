@@ -10,11 +10,11 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 
 /**
- * ShadowIGComment
+ * IGComment
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class ShadowIGComment extends AbstractCrudObject {
+export default class IGComment extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       hidden: 'hidden',
@@ -28,9 +28,9 @@ export default class ShadowIGComment extends AbstractCrudObject {
     });
   }
 
-  getReplies (fields, params, fetchFirstPage = true): ShadowIGComment {
+  getReplies (fields, params, fetchFirstPage = true): IGComment {
     return this.getEdge(
-      ShadowIGComment,
+      IGComment,
       fields,
       params,
       fetchFirstPage,
@@ -38,12 +38,12 @@ export default class ShadowIGComment extends AbstractCrudObject {
     );
   }
 
-  createReply (fields, params): ShadowIGComment {
+  createReply (fields, params): IGComment {
     return this.createEdge(
       '/replies',
       fields,
       params,
-      ShadowIGComment
+      IGComment
     );
   }
 
@@ -53,14 +53,14 @@ export default class ShadowIGComment extends AbstractCrudObject {
     );
   }
 
-  get (fields, params): ShadowIGComment {
+  get (fields, params): IGComment {
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): ShadowIGComment {
+  update (fields, params): IGComment {
     return super.update(
       params
     );

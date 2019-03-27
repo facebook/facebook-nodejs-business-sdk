@@ -81,6 +81,7 @@ export default class AdActivity extends AbstractCrudObject {
       update_ad_labels: 'update_ad_labels',
       update_ad_run_status: 'update_ad_run_status',
       update_ad_run_status_to_be_set_after_review: 'update_ad_run_status_to_be_set_after_review',
+      update_ad_set_ad_keywords: 'update_ad_set_ad_keywords',
       update_ad_set_bid_adjustments: 'update_ad_set_bid_adjustments',
       update_ad_set_bid_strategy: 'update_ad_set_bid_strategy',
       update_ad_set_bidding: 'update_ad_set_bidding',
@@ -93,8 +94,12 @@ export default class AdActivity extends AbstractCrudObject {
       update_ad_targets_spec: 'update_ad_targets_spec',
       update_adgroup_stop_delivery: 'update_adgroup_stop_delivery',
       update_audience: 'update_audience',
+      update_campaign_ad_scheduling: 'update_campaign_ad_scheduling',
       update_campaign_budget: 'update_campaign_budget',
+      update_campaign_delivery_type: 'update_campaign_delivery_type',
       update_campaign_duration: 'update_campaign_duration',
+      update_campaign_group_ad_scheduling: 'update_campaign_group_ad_scheduling',
+      update_campaign_group_delivery_type: 'update_campaign_group_delivery_type',
       update_campaign_group_spend_cap: 'update_campaign_group_spend_cap',
       update_campaign_name: 'update_campaign_name',
       update_campaign_run_status: 'update_campaign_run_status'
@@ -104,6 +109,7 @@ export default class AdActivity extends AbstractCrudObject {
     return Object.freeze({
       account: 'ACCOUNT',
       ad: 'AD',
+      ad_keywords: 'AD_KEYWORDS',
       ad_set: 'AD_SET',
       audience: 'AUDIENCE',
       bid: 'BID',

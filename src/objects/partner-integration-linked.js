@@ -40,6 +40,7 @@ export default class PartnerIntegrationLinked extends AbstractCrudObject {
       backer_founder: 'backer_founder',
       bandzoogle: 'bandzoogle',
       big_commerce: 'big_commerce',
+      branch: 'branch',
       cart_3d: 'cart_3d',
       default: 'default',
       drupal: 'drupal',

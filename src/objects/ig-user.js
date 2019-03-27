@@ -9,14 +9,14 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import InstagramInsightsResult from './instagram-insights-result';
-import ShadowIGMedia from './shadow-ig-media';
+import IGMedia from './ig-media';
 
 /**
- * ShadowIGUser
+ * IGUser
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class ShadowIGUser extends AbstractCrudObject {
+export default class IGUser extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       biography: 'biography',
@@ -54,9 +54,9 @@ export default class ShadowIGUser extends AbstractCrudObject {
     );
   }
 
-  getMedia (fields, params, fetchFirstPage = true): ShadowIGMedia {
+  getMedia (fields, params, fetchFirstPage = true): IGMedia {
     return this.getEdge(
-      ShadowIGMedia,
+      IGMedia,
       fields,
       params,
       fetchFirstPage,
@@ -64,21 +64,21 @@ export default class ShadowIGUser extends AbstractCrudObject {
     );
   }
 
-  createMedia (fields, params): ShadowIGMedia {
+  createMedia (fields, params): IGMedia {
     return this.createEdge(
       '/media',
       fields,
       params,
-      ShadowIGMedia
+      IGMedia
     );
   }
 
-  createMediaPublish (fields, params): ShadowIGMedia {
+  createMediaPublish (fields, params): IGMedia {
     return this.createEdge(
       '/media_publish',
       fields,
       params,
-      ShadowIGMedia
+      IGMedia
     );
   }
 
@@ -92,9 +92,9 @@ export default class ShadowIGUser extends AbstractCrudObject {
     );
   }
 
-  getStories (fields, params, fetchFirstPage = true): ShadowIGMedia {
+  getStories (fields, params, fetchFirstPage = true): IGMedia {
     return this.getEdge(
-      ShadowIGMedia,
+      IGMedia,
       fields,
       params,
       fetchFirstPage,
@@ -102,9 +102,9 @@ export default class ShadowIGUser extends AbstractCrudObject {
     );
   }
 
-  getTags (fields, params, fetchFirstPage = true): ShadowIGMedia {
+  getTags (fields, params, fetchFirstPage = true): IGMedia {
     return this.getEdge(
-      ShadowIGMedia,
+      IGMedia,
       fields,
       params,
       fetchFirstPage,
@@ -112,7 +112,7 @@ export default class ShadowIGUser extends AbstractCrudObject {
     );
   }
 
-  get (fields, params): ShadowIGUser {
+  get (fields, params): IGUser {
     return this.read(
       fields,
       params

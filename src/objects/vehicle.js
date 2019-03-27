@@ -79,6 +79,7 @@ export default class Vehicle extends AbstractCrudObject {
       none: 'NONE',
       other: 'OTHER',
       sedan: 'SEDAN',
+      small_car: 'SMALL_CAR',
       suv: 'SUV',
       truck: 'TRUCK',
       van: 'VAN',

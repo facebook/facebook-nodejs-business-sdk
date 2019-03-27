@@ -32,7 +32,6 @@ import ReachFrequencyPrediction from './reach-frequency-prediction';
 import BusinessAssetSharingAgreement from './business-asset-sharing-agreement';
 import BusinessAgreement from './business-agreement';
 import InstagramUser from './instagram-user';
-import BusinessMatchedSearchApplicationsEdgeData from './business-matched-search-applications-edge-data';
 import MeasurementReport from './measurement-report';
 import OfflineConversionDataSet from './offline-conversion-data-set';
 import OfflineTermsOfService from './offline-terms-of-service';
@@ -141,6 +140,20 @@ export default class Business extends AbstractCrudObject {
       insights_analyst: 'INSIGHTS_ANALYST',
       manager: 'MANAGER',
       moderator: 'MODERATOR'
+    });
+  }
+  static get PagePermittedTasks (): Object {
+    return Object.freeze({
+      advertise: 'ADVERTISE',
+      analyze: 'ANALYZE',
+      create_content: 'CREATE_CONTENT',
+      manage: 'MANAGE',
+      manage_jobs: 'MANAGE_JOBS',
+      moderate: 'MODERATE',
+      moderate_community: 'MODERATE_COMMUNITY',
+      pages_messaging: 'PAGES_MESSAGING',
+      pages_messaging_subscriptions: 'PAGES_MESSAGING_SUBSCRIPTIONS',
+      read_page_mailboxes: 'READ_PAGE_MAILBOXES'
     });
   }
   static get Role (): Object {
@@ -637,16 +650,6 @@ export default class Business extends AbstractCrudObject {
       fields,
       params,
       Business
-    );
-  }
-
-  getMatchedSearchApplications (fields, params, fetchFirstPage = true): BusinessMatchedSearchApplicationsEdgeData {
-    return this.getEdge(
-      BusinessMatchedSearchApplicationsEdgeData,
-      fields,
-      params,
-      fetchFirstPage,
-      '/matched_search_applications'
     );
   }
 

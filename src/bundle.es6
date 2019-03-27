@@ -127,6 +127,7 @@ export { default as AdsOptimalDeliveryGrowthOpportunity } from './../src/objects
 export { default as AdsPixel } from './../src/objects/ads-pixel';
 export { default as AdsPixelStats } from './../src/objects/ads-pixel-stats';
 export { default as AdsPixelStatsResult } from './../src/objects/ads-pixel-stats-result';
+export { default as AdsPost } from './../src/objects/ads-post';
 export { default as AdsTALHealthCheckError } from './../src/objects/ads-tal-health-check-error';
 export { default as AgeRange } from './../src/objects/age-range';
 export { default as AgencyClientDeclaration } from './../src/objects/agency-client-declaration';
@@ -159,7 +160,6 @@ export { default as BusinessAgreement } from './../src/objects/business-agreemen
 export { default as BusinessApplicationRequest } from './../src/objects/business-application-request';
 export { default as BusinessAssetSharingAgreement } from './../src/objects/business-asset-sharing-agreement';
 export { default as BusinessCreditCardLegacy } from './../src/objects/business-credit-card-legacy';
-export { default as BusinessMatchedSearchApplicationsEdgeData } from './../src/objects/business-matched-search-applications-edge-data';
 export { default as BusinessOwnedObjectOnBehalfOfRequest } from './../src/objects/business-owned-object-on-behalf-of-request';
 export { default as BusinessPageRequest } from './../src/objects/business-page-request';
 export { default as BusinessProductCatalogTOS } from './../src/objects/business-product-catalog-tos';
@@ -210,6 +210,7 @@ export { default as DestinationCatalogSettings } from './../src/objects/destinat
 export { default as DirectDeal } from './../src/objects/direct-deal';
 export { default as DogNotificationSettings } from './../src/objects/dog-notification-settings';
 export { default as Domain } from './../src/objects/domain';
+export { default as DynamicContentSet } from './../src/objects/dynamic-content-set';
 export { default as DynamicItemDisplayBundle } from './../src/objects/dynamic-item-display-bundle';
 export { default as DynamicItemDisplayBundleFolder } from './../src/objects/dynamic-item-display-bundle-folder';
 export { default as DynamicPostChildAttachment } from './../src/objects/dynamic-post-child-attachment';
@@ -381,9 +382,6 @@ export { default as SavedMessageResponse } from './../src/objects/saved-message-
 export { default as SavedMessageResponseMacro } from './../src/objects/saved-message-response-macro';
 export { default as ScreenName } from './../src/objects/screen-name';
 export { default as SecuritySettings } from './../src/objects/security-settings';
-export { default as ShadowIGComment } from './../src/objects/shadow-ig-comment';
-export { default as ShadowIGMedia } from './../src/objects/shadow-ig-media';
-export { default as ShadowIGUser } from './../src/objects/shadow-ig-user';
 export { default as SplitTestConfig } from './../src/objects/split-test-config';
 export { default as SplitTestWinner } from './../src/objects/split-test-winner';
 export { default as Status } from './../src/objects/status';
@@ -454,3 +452,6 @@ export { default as Lead } from './../src/objects/lead';
 export { default as LeadgenForm } from './../src/objects/leadgen-form';
 export { default as AdVideo } from './../src/objects/ad-video';
 export { default as NullNode } from './../src/objects/null-node';
+export { default as IGUser } from './../src/objects/ig-user';
+export { default as IGComment } from './../src/objects/ig-comment';
+export { default as IGMedia } from './../src/objects/ig-media';
