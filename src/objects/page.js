@@ -10,7 +10,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import PageAdminNote from './page-admin-note';
 import User from './user';
-import AdsPost from './ads-post';
+import PagePost from './page-post';
 import Business from './business';
 import Album from './album';
 import WithAsset3D from './with-asset3-d';
@@ -30,7 +30,6 @@ import PageUserMessageThreadLabel from './page-user-message-thread-label';
 import Event from './event';
 import ExpirablePost from './expirable-post';
 import AdVideo from './ad-video';
-import PagePost from './page-post';
 import VideoCopyright from './video-copyright';
 import InsightsResult from './insights-result';
 import PageInsightsAsyncExportRun from './page-insights-async-export-run';
@@ -334,7 +333,8 @@ export default class Page extends AbstractCrudObject {
       moderate_community: 'MODERATE_COMMUNITY',
       pages_messaging: 'PAGES_MESSAGING',
       pages_messaging_subscriptions: 'PAGES_MESSAGING_SUBSCRIPTIONS',
-      read_page_mailboxes: 'READ_PAGE_MAILBOXES'
+      read_page_mailboxes: 'READ_PAGE_MAILBOXES',
+      view_monetization_insights: 'VIEW_MONETIZATION_INSIGHTS'
     });
   }
   static get Tasks (): Object {
@@ -348,7 +348,8 @@ export default class Page extends AbstractCrudObject {
       moderate_community: 'MODERATE_COMMUNITY',
       pages_messaging: 'PAGES_MESSAGING',
       pages_messaging_subscriptions: 'PAGES_MESSAGING_SUBSCRIPTIONS',
-      read_page_mailboxes: 'READ_PAGE_MAILBOXES'
+      read_page_mailboxes: 'READ_PAGE_MAILBOXES',
+      view_monetization_insights: 'VIEW_MONETIZATION_INSIGHTS'
     });
   }
   static get MessagingType (): Object {
@@ -455,6 +456,7 @@ export default class Page extends AbstractCrudObject {
       messaging_account_linking: 'messaging_account_linking',
       messaging_appointments: 'messaging_appointments',
       messaging_checkout_updates: 'messaging_checkout_updates',
+      messaging_direct_sends: 'messaging_direct_sends',
       messaging_game_plays: 'messaging_game_plays',
       messaging_handovers: 'messaging_handovers',
       messaging_optins: 'messaging_optins',
@@ -578,9 +580,9 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  getAdsPosts (fields, params, fetchFirstPage = true): AdsPost {
+  getAdsPosts (fields, params, fetchFirstPage = true): PagePost {
     return this.getEdge(
-      AdsPost,
+      PagePost,
       fields,
       params,
       fetchFirstPage,
@@ -1412,15 +1414,6 @@ export default class Page extends AbstractCrudObject {
   createMessengerProfile (fields, params): Page {
     return this.createEdge(
       '/messenger_profile',
-      fields,
-      params,
-      Page
-    );
-  }
-
-  createMessengerThreadSetting (fields, params): Page {
-    return this.createEdge(
-      '/messenger_thread_settings',
       fields,
       params,
       Page

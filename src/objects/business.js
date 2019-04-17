@@ -40,7 +40,6 @@ import PartnerIntegrationLinked from './partner-integration-linked';
 import BusinessAdAccountRequest from './business-ad-account-request';
 import BusinessApplicationRequest from './business-application-request';
 import BusinessPageRequest from './business-page-request';
-import LegacyBusinessAdAccountRequest from './legacy-business-ad-account-request';
 import BusinessRoleRequest from './business-role-request';
 import ProfilePictureSource from './profile-picture-source';
 import AudiencePermission from './audience-permission';
@@ -153,7 +152,8 @@ export default class Business extends AbstractCrudObject {
       moderate_community: 'MODERATE_COMMUNITY',
       pages_messaging: 'PAGES_MESSAGING',
       pages_messaging_subscriptions: 'PAGES_MESSAGING_SUBSCRIPTIONS',
-      read_page_mailboxes: 'READ_PAGE_MAILBOXES'
+      read_page_mailboxes: 'READ_PAGE_MAILBOXES',
+      view_monetization_insights: 'VIEW_MONETIZATION_INSIGHTS'
     });
   }
   static get Role (): Object {
@@ -937,9 +937,9 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  getPendingOwnedAdAccounts (fields, params, fetchFirstPage = true): LegacyBusinessAdAccountRequest {
+  getPendingOwnedAdAccounts (fields, params, fetchFirstPage = true): BusinessAdAccountRequest {
     return this.getEdge(
-      LegacyBusinessAdAccountRequest,
+      BusinessAdAccountRequest,
       fields,
       params,
       fetchFirstPage,

@@ -93,7 +93,8 @@ export default class Vehicle extends AbstractCrudObject {
       good: 'GOOD',
       none: 'NONE',
       other: 'OTHER',
-      poor: 'POOR'
+      poor: 'POOR',
+      very_good: 'VERY_GOOD'
     });
   }
   static get Drivetrain (): Object {

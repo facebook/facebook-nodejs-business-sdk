@@ -23,8 +23,7 @@ export default class OwnedDomain extends AbstractCrudObject {
 
   static get PermittedRoles (): Object {
     return Object.freeze({
-      admin: 'ADMIN',
-      webmaster_developer: 'WEBMASTER_DEVELOPER'
+      admin: 'ADMIN'
     });
   }
 

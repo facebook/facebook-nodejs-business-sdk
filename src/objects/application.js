@@ -204,15 +204,6 @@ export default class Application extends AbstractCrudObject {
     });
   }
 
-  createLocalServiceBookingTest (fields, params): AbstractObject {
-    return this.createEdge(
-      '/LocalServiceBookingTest',
-      fields,
-      params
-
-    );
-  }
-
   deleteAccounts (params): AbstractObject {
     return super.deleteEdge(
       '/accounts',
@@ -532,25 +523,6 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  getFoodDrinkOrders (fields, params, fetchFirstPage = true): AbstractObject {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/food_drink_orders'
-    );
-  }
-
-  createFoodDrinkOrder (fields, params): AbstractObject {
-    return this.createEdge(
-      '/food_drink_orders',
-      fields,
-      params
-
-    );
-  }
-
   getFullAppIndexingInfos (fields, params, fetchFirstPage = true): AbstractObject {
     return this.getEdge(
       AbstractObject,
@@ -623,25 +595,6 @@ export default class Application extends AbstractCrudObject {
       fields,
       params,
       Application
-    );
-  }
-
-  getLocalServiceBookingConfig (fields, params, fetchFirstPage = true): AbstractObject {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/local_service_booking_config'
-    );
-  }
-
-  createLocalServiceBookingConfig (fields, params): AbstractObject {
-    return this.createEdge(
-      '/local_service_booking_config',
-      fields,
-      params
-
     );
   }
 

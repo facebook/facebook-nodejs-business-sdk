@@ -25,7 +25,6 @@ import UnifiedThread from './unified-thread';
 import PageUserMessageThreadLabel from './page-user-message-thread-label';
 import Domain from './domain';
 import Event from './event';
-import FavoriteRequest from './favorite-request';
 import FriendList from './friend-list';
 import Group from './group';
 import UserIDForApp from './user-id-for-app';
@@ -127,7 +126,8 @@ export default class User extends AbstractCrudObject {
       moderate_community: 'MODERATE_COMMUNITY',
       pages_messaging: 'PAGES_MESSAGING',
       pages_messaging_subscriptions: 'PAGES_MESSAGING_SUBSCRIPTIONS',
-      read_page_mailboxes: 'READ_PAGE_MAILBOXES'
+      read_page_mailboxes: 'READ_PAGE_MAILBOXES',
+      view_monetization_insights: 'VIEW_MONETIZATION_INSIGHTS'
     });
   }
   static get LocalNewsMegaphoneDismissStatus (): Object {
@@ -526,9 +526,9 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  getFavoriteRequests (fields, params, fetchFirstPage = true): FavoriteRequest {
+  getFavoriteRequests (fields, params, fetchFirstPage = true): AbstractObject {
     return this.getEdge(
-      FavoriteRequest,
+      AbstractObject,
       fields,
       params,
       fetchFirstPage,
@@ -536,12 +536,12 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  createFavoriteRequest (fields, params): FavoriteRequest {
+  createFavoriteRequest (fields, params): AbstractObject {
     return this.createEdge(
       '/favorite_requests',
       fields,
-      params,
-      FavoriteRequest
+      params
+
     );
   }
 

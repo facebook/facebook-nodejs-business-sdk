@@ -9,16 +9,16 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * LegacyBusinessAdAccountRequest
+ * AdCreativeOptimizationSpec
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class LegacyBusinessAdAccountRequest extends AbstractCrudObject {
+export default class AdCreativeOptimizationSpec extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      ad_account: 'ad_account',
-      id: 'id',
-      permitted_roles: 'permitted_roles'
+      bodies: 'bodies',
+      descriptions: 'descriptions',
+      titles: 'titles'
     });
   }
 }

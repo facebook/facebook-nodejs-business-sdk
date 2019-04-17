@@ -52,7 +52,6 @@ export default class ReachFrequencyPrediction extends AbstractCrudObject {
       frequency_distribution: 'frequency_distribution',
       frequency_distribution_map: 'frequency_distribution_map',
       frequency_distribution_map_agg: 'frequency_distribution_map_agg',
-      full_view_ratio_00: 'full_view_ratio_00',
       grp_audience_size: 'grp_audience_size',
       grp_avg_probability_map: 'grp_avg_probability_map',
       grp_country_audience_size: 'grp_country_audience_size',

@@ -59,6 +59,7 @@ export default class PartnerIntegrationLinked extends AbstractCrudObject {
       joomla: 'joomla',
       jumpseller: 'jumpseller',
       kajabi: 'kajabi',
+      kochava: 'kochava',
       kraftly: 'kraftly',
       m_particle: 'm_particle',
       magento: 'magento',

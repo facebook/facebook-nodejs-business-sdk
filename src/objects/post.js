@@ -47,6 +47,7 @@ export default class Post extends AbstractCrudObject {
       id: 'id',
       instagram_eligibility: 'instagram_eligibility',
       is_app_share: 'is_app_share',
+      is_eligible_for_promotion: 'is_eligible_for_promotion',
       is_expired: 'is_expired',
       is_hidden: 'is_hidden',
       is_instagram_eligible: 'is_instagram_eligible',

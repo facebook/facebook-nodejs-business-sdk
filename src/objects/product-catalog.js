@@ -9,6 +9,7 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Business from './business';
+import AssignedUser from './assigned-user';
 import AutomotiveModel from './automotive-model';
 import DynamicItemDisplayBundleFolder from './dynamic-item-display-bundle-folder';
 import DynamicItemDisplayBundle from './dynamic-item-display-bundle';
@@ -73,8 +74,14 @@ export default class ProductCatalog extends AbstractCrudObject {
   }
   static get PermittedTasks (): Object {
     return Object.freeze({
-      admin: 'ADMIN',
-      advertiser: 'ADVERTISER'
+      advertise: 'ADVERTISE',
+      manage: 'MANAGE'
+    });
+  }
+  static get Tasks (): Object {
+    return Object.freeze({
+      advertise: 'ADVERTISE',
+      manage: 'MANAGE'
     });
   }
   static get Standard (): Object {
@@ -109,6 +116,32 @@ export default class ProductCatalog extends AbstractCrudObject {
   createAgency (fields, params): ProductCatalog {
     return this.createEdge(
       '/agencies',
+      fields,
+      params,
+      ProductCatalog
+    );
+  }
+
+  deleteAssignedUsers (params): AbstractObject {
+    return super.deleteEdge(
+      '/assigned_users',
+      params
+    );
+  }
+
+  getAssignedUsers (fields, params, fetchFirstPage = true): AssignedUser {
+    return this.getEdge(
+      AssignedUser,
+      fields,
+      params,
+      fetchFirstPage,
+      '/assigned_users'
+    );
+  }
+
+  createAssignedUser (fields, params): ProductCatalog {
+    return this.createEdge(
+      '/assigned_users',
       fields,
       params,
       ProductCatalog
