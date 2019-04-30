@@ -64,6 +64,7 @@ export default class AdSet extends AbstractCrudObject {
       lifetime_spend_cap: 'lifetime_spend_cap',
       name: 'name',
       optimization_goal: 'optimization_goal',
+      optimization_sub_event: 'optimization_sub_event',
       pacing_type: 'pacing_type',
       promoted_object: 'promoted_object',
       recommendations: 'recommendations',
@@ -206,6 +207,20 @@ export default class AdSet extends AbstractCrudObject {
       extended_exploration: 'EXTENDED_EXPLORATION',
       limited_exploration: 'LIMITED_EXPLORATION',
       none_exploration: 'NONE_EXPLORATION'
+    });
+  }
+  static get OptimizationSubEvent (): Object {
+    return Object.freeze({
+      none: 'NONE',
+      travel_intent: 'TRAVEL_INTENT',
+      travel_intent_bucket_01: 'TRAVEL_INTENT_BUCKET_01',
+      travel_intent_bucket_02: 'TRAVEL_INTENT_BUCKET_02',
+      travel_intent_bucket_03: 'TRAVEL_INTENT_BUCKET_03',
+      travel_intent_bucket_04: 'TRAVEL_INTENT_BUCKET_04',
+      travel_intent_bucket_05: 'TRAVEL_INTENT_BUCKET_05',
+      travel_intent_no_destination_intent: 'TRAVEL_INTENT_NO_DESTINATION_INTENT',
+      trip_consideration: 'TRIP_CONSIDERATION',
+      video_sound_on: 'VIDEO_SOUND_ON'
     });
   }
   static get Operator (): Object {

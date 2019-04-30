@@ -29,7 +29,6 @@ import ProductGroup from './product-group';
 import ProductSet from './product-set';
 import ProductCatalogProductSetsBatch from './product-catalog-product-sets-batch';
 import ProductItem from './product-item';
-import ProductCatalogUserPermissions from './product-catalog-user-permissions';
 import Vehicle from './vehicle';
 import AdVideo from './ad-video';
 
@@ -87,12 +86,6 @@ export default class ProductCatalog extends AbstractCrudObject {
   static get Standard (): Object {
     return Object.freeze({
       google: 'google'
-    });
-  }
-  static get Role (): Object {
-    return Object.freeze({
-      admin: 'ADMIN',
-      advertiser: 'ADVERTISER'
     });
   }
 
@@ -495,32 +488,6 @@ export default class ProductCatalog extends AbstractCrudObject {
       fields,
       params,
       ProductItem
-    );
-  }
-
-  deleteUserPermissions (params): AbstractObject {
-    return super.deleteEdge(
-      '/userpermissions',
-      params
-    );
-  }
-
-  getUserPermissions (fields, params, fetchFirstPage = true): ProductCatalogUserPermissions {
-    return this.getEdge(
-      ProductCatalogUserPermissions,
-      fields,
-      params,
-      fetchFirstPage,
-      '/userpermissions'
-    );
-  }
-
-  createUserPermission (fields, params): ProductCatalog {
-    return this.createEdge(
-      '/userpermissions',
-      fields,
-      params,
-      ProductCatalog
     );
   }
 

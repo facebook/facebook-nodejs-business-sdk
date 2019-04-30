@@ -9,21 +9,28 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * AdAccountContextualTargeting
+ * AdPlacement
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class AdAccountContextualTargeting extends AbstractCrudObject {
+export default class AdPlacement extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      description: 'description',
-      enabled_in_ui: 'enabled_in_ui',
+      bundle_id: 'bundle_id',
+      display_format: 'display_format',
+      external_placement_id: 'external_placement_id',
+      google_display_format: 'google_display_format',
       id: 'id',
-      key: 'key',
       name: 'name',
-      parent: 'parent',
-      path: 'path',
-      type: 'type'
+      platform: 'platform',
+      status: 'status'
     });
+  }
+
+  get (fields, params): AdPlacement {
+    return this.read(
+      fields,
+      params
+    );
   }
 }

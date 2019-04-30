@@ -35,15 +35,6 @@ export default class IGUser extends AbstractCrudObject {
     });
   }
 
-  createMention (fields, params): AbstractObject {
-    return this.createEdge(
-      '/Mentions',
-      fields,
-      params
-
-    );
-  }
-
   getInsights (fields, params, fetchFirstPage = true): InstagramInsightsResult {
     return this.getEdge(
       InstagramInsightsResult,
@@ -79,6 +70,15 @@ export default class IGUser extends AbstractCrudObject {
       fields,
       params,
       IGMedia
+    );
+  }
+
+  createMention (fields, params): AbstractObject {
+    return this.createEdge(
+      '/mentions',
+      fields,
+      params
+
     );
   }
 

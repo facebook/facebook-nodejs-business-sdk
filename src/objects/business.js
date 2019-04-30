@@ -16,6 +16,7 @@ import AdNetworkAnalyticsAsyncQueryResult from './ad-network-analytics-async-que
 import AdsPixel from './ads-pixel';
 import BusinessAdvertisableApplicationsResult from './business-advertisable-applications-result';
 import Page from './page';
+import AdPlacement from './ad-placement';
 import OracleTransaction from './oracle-transaction';
 import BusinessUser from './business-user';
 import BusinessProject from './business-project';
@@ -24,7 +25,6 @@ import BusinessProductCatalogTOS from './business-product-catalog-tos';
 import CustomConversion from './custom-conversion';
 import Application from './application';
 import ProductCatalog from './product-catalog';
-import BusinessCreditCardLegacy from './business-credit-card-legacy';
 import DirectDeal from './direct-deal';
 import EventSourceGroup from './event-source-group';
 import ExtendedCredit from './extended-credit';
@@ -130,15 +130,6 @@ export default class Business extends AbstractCrudObject {
       agency: 'AGENCY',
       app_developer: 'APP_DEVELOPER',
       publisher: 'PUBLISHER'
-    });
-  }
-  static get PagePermittedRoles (): Object {
-    return Object.freeze({
-      advertiser: 'ADVERTISER',
-      content_creator: 'CONTENT_CREATOR',
-      insights_analyst: 'INSIGHTS_ANALYST',
-      manager: 'MANAGER',
-      moderator: 'MODERATOR'
     });
   }
   static get PagePermittedTasks (): Object {
@@ -311,6 +302,16 @@ export default class Business extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/agency_pages'
+    );
+  }
+
+  getAnPlacements (fields, params, fetchFirstPage = true): AdPlacement {
+    return this.getEdge(
+      AdPlacement,
+      fields,
+      params,
+      fetchFirstPage,
+      '/an_placements'
     );
   }
 
@@ -516,16 +517,6 @@ export default class Business extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/clients'
-    );
-  }
-
-  getCreditCards (fields, params, fetchFirstPage = true): BusinessCreditCardLegacy {
-    return this.getEdge(
-      BusinessCreditCardLegacy,
-      fields,
-      params,
-      fetchFirstPage,
-      '/creditcards'
     );
   }
 

@@ -26,7 +26,6 @@ export default class AdCreativeLinkData extends AbstractCrudObject {
       caption: 'caption',
       child_attachments: 'child_attachments',
       collection_thumbnails: 'collection_thumbnails',
-      custom_overlay_spec: 'custom_overlay_spec',
       customization_rules_spec: 'customization_rules_spec',
       description: 'description',
       event_id: 'event_id',
@@ -48,7 +47,6 @@ export default class AdCreativeLinkData extends AbstractCrudObject {
       preferred_image_tags: 'preferred_image_tags',
       retailer_item_ids: 'retailer_item_ids',
       show_multiple_images: 'show_multiple_images',
-      sponsorship_info: 'sponsorship_info',
       static_fallback_spec: 'static_fallback_spec',
       use_flexible_image_aspect_ratio: 'use_flexible_image_aspect_ratio'
     });

@@ -555,6 +555,15 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
+  createAdminStickySetting (fields, params): Page {
+    return this.createEdge(
+      '/admin_sticky_settings',
+      fields,
+      params,
+      Page
+    );
+  }
+
   deleteAdmins (params): AbstractObject {
     return super.deleteEdge(
       '/admins',
@@ -568,15 +577,6 @@ export default class Page extends AbstractCrudObject {
       fields,
       params,
       User
-    );
-  }
-
-  createAdminStickySetting (fields, params): Page {
-    return this.createEdge(
-      '/adminstickysettings',
-      fields,
-      params,
-      Page
     );
   }
 
@@ -1607,16 +1607,6 @@ export default class Page extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/product_catalogs'
-    );
-  }
-
-  getPromotablePosts (fields, params, fetchFirstPage = true): PagePost {
-    return this.getEdge(
-      PagePost,
-      fields,
-      params,
-      fetchFirstPage,
-      '/promotable_posts'
     );
   }
 

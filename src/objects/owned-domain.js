@@ -21,15 +21,9 @@ export default class OwnedDomain extends AbstractCrudObject {
     });
   }
 
-  static get PermittedRoles (): Object {
-    return Object.freeze({
-      admin: 'ADMIN'
-    });
-  }
-
   createAgency (fields, params): OwnedDomain {
     return this.createEdge(
-      '/Agencies',
+      '/agencies',
       fields,
       params,
       OwnedDomain

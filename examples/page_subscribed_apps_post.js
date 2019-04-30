@@ -9,13 +9,12 @@
 
  'use strict';
 const bizSdk = require('facebook-nodejs-business-sdk');
-const AdAccount = bizSdk.AdAccount;
-const AdSet = bizSdk.AdSet;
+const Page = bizSdk.Page;
 
 const access_token = '<ACCESS_TOKEN>';
 const app_secret = '<APP_SECRET>';
 const app_id = '<APP_ID>';
-const id = '<AD_ACCOUNT_ID>';
+const id = '<PAGE_ID>';
 const api = bizSdk.FacebookAdsApi.init(access_token);
 const showDebugingInfo = true; // Setting this to true shows more debugging info.
 if (showDebugingInfo) {
@@ -33,19 +32,10 @@ let fields, params;
 fields = [
 ];
 params = {
-  'name' : 'My First Adset',
-  'daily_budget' : '2000',
-  'start_time' : '2019-04-29T08:47:49-0700',
-  'end_time' : '2019-05-06T08:47:49-0700',
-  'campaign_id' : '<adCampaignLinkClicksID>',
-  'bid_amount' : '100',
-  'billing_event' : 'LINK_CLICKS',
-  'optimization_goal' : 'LINK_CLICKS',
-  'targeting' : {'geo_locations':{'countries':['US']}},
-  'status' : 'PAUSED',
+  'subscribed_fields' : 'leadgen',
 };
-const adsets = (new AdAccount(id)).createAdSet(
+const subscribed_apps = (new Page(id)).createSubscribedApp(
   fields,
   params
 );
-logApiCallResult('adsets api call complete.', adsets);
+logApiCallResult('subscribed_apps api call complete.', subscribed_apps);

@@ -46,7 +46,21 @@ export default class Group extends AbstractCrudObject {
     });
   }
 
-  static get GroupType (): Object {
+  static get JoinSetting (): Object {
+    return Object.freeze({
+      admin_only: 'ADMIN_ONLY',
+      anyone: 'ANYONE',
+      none: 'NONE'
+    });
+  }
+  static get PostPermissions (): Object {
+    return Object.freeze({
+      admin_only: 'ADMIN_ONLY',
+      anyone: 'ANYONE',
+      none: 'NONE'
+    });
+  }
+  static get Purpose (): Object {
     return Object.freeze({
       casual: 'CASUAL',
       close_friends: 'CLOSE_FRIENDS',
@@ -94,21 +108,7 @@ export default class Group extends AbstractCrudObject {
       work_teamwork: 'WORK_TEAMWORK'
     });
   }
-  static get JoinSetting (): Object {
-    return Object.freeze({
-      admin_only: 'ADMIN_ONLY',
-      anyone: 'ANYONE',
-      none: 'NONE'
-    });
-  }
-  static get PostPermissions (): Object {
-    return Object.freeze({
-      admin_only: 'ADMIN_ONLY',
-      anyone: 'ANYONE',
-      none: 'NONE'
-    });
-  }
-  static get Purpose (): Object {
+  static get GroupType (): Object {
     return Object.freeze({
       casual: 'CASUAL',
       close_friends: 'CLOSE_FRIENDS',

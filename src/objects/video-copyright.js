@@ -20,6 +20,7 @@ export default class VideoCopyright extends AbstractCrudObject {
       content_category: 'content_category',
       copyright_content_id: 'copyright_content_id',
       creator: 'creator',
+      excluded_ownership_segments: 'excluded_ownership_segments',
       id: 'id',
       in_conflict: 'in_conflict',
       monitoring_status: 'monitoring_status',

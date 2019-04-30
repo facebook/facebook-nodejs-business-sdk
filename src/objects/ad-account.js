@@ -37,12 +37,10 @@ import BroadTargetingCategories from './broad-targeting-categories';
 import BusinessActivityLogEvent from './business-activity-log-event';
 import BusinessProject from './business-project';
 import BusinessSettingLogsData from './business-setting-logs-data';
-import AdAccountContextualTargeting from './ad-account-contextual-targeting';
 import CustomAudience from './custom-audience';
 import CustomAudiencesTOS from './custom-audiences-tos';
 import CustomConversion from './custom-conversion';
 import AdAccountDeliveryEstimate from './ad-account-delivery-estimate';
-import DirectDeal from './direct-deal';
 import AdPreview from './ad-preview';
 import AdsInsights from './ads-insights';
 import InstagramUser from './instagram-user';
@@ -98,7 +96,6 @@ export default class AdAccount extends AbstractCrudObject {
       capabilities: 'capabilities',
       created_time: 'created_time',
       currency: 'currency',
-      direct_deals_tos_accepted: 'direct_deals_tos_accepted',
       disable_reason: 'disable_reason',
       end_advertiser: 'end_advertiser',
       end_advertiser_name: 'end_advertiser_name',
@@ -251,6 +248,7 @@ export default class AdAccount extends AbstractCrudObject {
       measurement: 'MEASUREMENT',
       offline_conversion: 'OFFLINE_CONVERSION',
       partner: 'PARTNER',
+      regulated_categories_audience: 'REGULATED_CATEGORIES_AUDIENCE',
       study_rule_audience: 'STUDY_RULE_AUDIENCE',
       video: 'VIDEO',
       website: 'WEBSITE'
@@ -863,25 +861,6 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getContextualTargetingBrowse (fields, params, fetchFirstPage = true): AdAccountContextualTargeting {
-    return this.getEdge(
-      AdAccountContextualTargeting,
-      fields,
-      params,
-      fetchFirstPage,
-      '/contextual_targeting_browse'
-    );
-  }
-
-  createCoupon (fields, params): AdAccount {
-    return this.createEdge(
-      '/coupons',
-      fields,
-      params,
-      AdAccount
-    );
-  }
-
   getCustomAudiences (fields, params, fetchFirstPage = true): CustomAudience {
     return this.getEdge(
       CustomAudience,
@@ -908,6 +887,15 @@ export default class AdAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/customaudiencestos'
+    );
+  }
+
+  createCustomAudiencesTo (fields, params): AdAccount {
+    return this.createEdge(
+      '/customaudiencestos',
+      fields,
+      params,
+      AdAccount
     );
   }
 
@@ -956,25 +944,6 @@ export default class AdAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/deprecatedtargetingadsets'
-    );
-  }
-
-  getDirectDeals (fields, params, fetchFirstPage = true): DirectDeal {
-    return this.getEdge(
-      DirectDeal,
-      fields,
-      params,
-      fetchFirstPage,
-      '/direct_deals'
-    );
-  }
-
-  createDirectDealsTo (fields, params): AdAccount {
-    return this.createEdge(
-      '/direct_deals_tos',
-      fields,
-      params,
-      AdAccount
     );
   }
 
@@ -1043,15 +1012,6 @@ export default class AdAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/leadgen_forms'
-    );
-  }
-
-  createLocationCluster (fields, params): AdAccount {
-    return this.createEdge(
-      '/locationclusters',
-      fields,
-      params,
-      AdAccount
     );
   }
 
@@ -1379,22 +1339,6 @@ export default class AdAccount extends AbstractCrudObject {
       fields,
       params,
       AdAccount
-    );
-  }
-
-  deleteUserMatch (params): AbstractObject {
-    return super.deleteEdge(
-      '/usermatch',
-      params
-    );
-  }
-
-  createUserMatch (fields, params): AbstractObject {
-    return this.createEdge(
-      '/usermatch',
-      fields,
-      params
-
     );
   }
 

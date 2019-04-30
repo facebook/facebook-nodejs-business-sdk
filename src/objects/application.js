@@ -195,6 +195,18 @@ export default class Application extends AbstractCrudObject {
       lower_is_better: 'LOWER_IS_BETTER'
     });
   }
+  static get LoggingSource (): Object {
+    return Object.freeze({
+      messenger_bot: 'MESSENGER_BOT'
+    });
+  }
+  static get LoggingTarget (): Object {
+    return Object.freeze({
+      app: 'APP',
+      app_and_page: 'APP_AND_PAGE',
+      page: 'PAGE'
+    });
+  }
   static get Role (): Object {
     return Object.freeze({
       administrators: 'administrators',
@@ -693,6 +705,15 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
+  createPageActivity (fields, params): Application {
+    return this.createEdge(
+      '/page_activities',
+      fields,
+      params,
+      Application
+    );
+  }
+
   deletePaymentCurrencies (params): AbstractObject {
     return super.deleteEdge(
       '/payment_currencies',
@@ -703,32 +724,6 @@ export default class Application extends AbstractCrudObject {
   createPaymentCurrency (fields, params): Application {
     return this.createEdge(
       '/payment_currencies',
-      fields,
-      params,
-      Application
-    );
-  }
-
-  deletePaymentsTestUsers (params): AbstractObject {
-    return super.deleteEdge(
-      '/payments_test_users',
-      params
-    );
-  }
-
-  getPaymentsTestUsers (fields, params, fetchFirstPage = true): User {
-    return this.getEdge(
-      User,
-      fields,
-      params,
-      fetchFirstPage,
-      '/payments_test_users'
-    );
-  }
-
-  createPaymentsTestUser (fields, params): Application {
-    return this.createEdge(
-      '/payments_test_users',
       fields,
       params,
       Application
@@ -812,7 +807,7 @@ export default class Application extends AbstractCrudObject {
 
   createStagingResource (fields, params): Application {
     return this.createEdge(
-      '/stagingresources',
+      '/staging_resources',
       fields,
       params,
       Application

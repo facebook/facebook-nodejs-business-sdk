@@ -33,15 +33,15 @@ let fields, params;
 fields = [
 ];
 params = {
-  'name' : 'My First Adset',
-  'daily_budget' : '2000',
-  'start_time' : '2019-04-29T08:47:49-0700',
-  'end_time' : '2019-05-06T08:47:49-0700',
+  'name' : 'My First AdSet',
+  'lifetime_budget' : '20000',
+  'start_time' : '2019-05-06T08:44:23-0700',
+  'end_time' : '2019-05-13T08:44:23-0700',
   'campaign_id' : '<adCampaignLinkClicksID>',
-  'bid_amount' : '100',
-  'billing_event' : 'LINK_CLICKS',
-  'optimization_goal' : 'LINK_CLICKS',
-  'targeting' : {'geo_locations':{'countries':['US']}},
+  'bid_amount' : '500',
+  'billing_event' : 'IMPRESSIONS',
+  'optimization_goal' : 'POST_ENGAGEMENT',
+  'targeting' : {'age_min':20,'age_max':24,'behaviors':[{'id':6002714895372,'name':'All travelers'}],'genders':[1],'geo_locations':{'countries':['US'],'regions':[{'key':'4081'}],'cities':[{'key':'777934','radius':10,'distance_unit':'mile'}]},'home_ownership':[{'id':6006371327132,'name':'Renters'}],'interests':[{'id':'<adsInterestID>','name':'<adsInterestName>'}],'life_events':[{'id':6002714398172,'name':'Newlywed (1 year)'}],'publisher_platforms':['facebook','audience_network']},
   'status' : 'PAUSED',
 };
 const adsets = (new AdAccount(id)).createAdSet(

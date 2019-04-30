@@ -213,15 +213,6 @@ export default class User extends AbstractCrudObject {
     });
   }
 
-  createPaymentCurrency (fields, params): User {
-    return this.createEdge(
-      '/PaymentCurrencies',
-      fields,
-      params,
-      User
-    );
-  }
-
   createAccessToken (fields, params): User {
     return this.createEdge(
       '/access_tokens',
@@ -602,18 +593,18 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  createGamesStat (fields, params): AbstractObject {
+  createGamesAchieve (fields, params): AbstractObject {
     return this.createEdge(
-      '/games_stats',
+      '/games.achieves',
       fields,
       params
 
     );
   }
 
-  createGamesAchieve (fields, params): AbstractObject {
+  createGamesStat (fields, params): AbstractObject {
     return this.createEdge(
-      '/gamesachieves',
+      '/games_stats',
       fields,
       params
 
@@ -854,6 +845,15 @@ export default class User extends AbstractCrudObject {
     );
   }
 
+  createPaymentCurrency (fields, params): User {
+    return this.createEdge(
+      '/payment_currencies',
+      fields,
+      params,
+      User
+    );
+  }
+
   deletePermissions (params): AbstractObject {
     return super.deleteEdge(
       '/permissions',
@@ -987,7 +987,7 @@ export default class User extends AbstractCrudObject {
 
   createStagingResource (fields, params): User {
     return this.createEdge(
-      '/stagingresources',
+      '/staging_resources',
       fields,
       params,
       User

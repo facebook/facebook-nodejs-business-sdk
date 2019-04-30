@@ -14,7 +14,6 @@ export { default as Ad } from './../src/objects/ad';
 export { default as AdAccount } from './../src/objects/ad-account';
 export { default as AdAccountActivity } from './../src/objects/ad-account-activity';
 export { default as AdAccountAdRulesHistory } from './../src/objects/ad-account-ad-rules-history';
-export { default as AdAccountContextualTargeting } from './../src/objects/ad-account-contextual-targeting';
 export { default as AdAccountCreationRequest } from './../src/objects/ad-account-creation-request';
 export { default as AdAccountDefaultDestination } from './../src/objects/ad-account-default-destination';
 export { default as AdAccountDefaultObjective } from './../src/objects/ad-account-default-objective';
@@ -62,7 +61,6 @@ export { default as AdCreativeLinkDataAppLinkSpec } from './../src/objects/ad-cr
 export { default as AdCreativeLinkDataCallToAction } from './../src/objects/ad-creative-link-data-call-to-action';
 export { default as AdCreativeLinkDataCallToActionValue } from './../src/objects/ad-creative-link-data-call-to-action-value';
 export { default as AdCreativeLinkDataChildAttachment } from './../src/objects/ad-creative-link-data-child-attachment';
-export { default as AdCreativeLinkDataCustomOverlaySpec } from './../src/objects/ad-creative-link-data-custom-overlay-spec';
 export { default as AdCreativeLinkDataImageLayerSpec } from './../src/objects/ad-creative-link-data-image-layer-spec';
 export { default as AdCreativeLinkDataImageOverlaySpec } from './../src/objects/ad-creative-link-data-image-overlay-spec';
 export { default as AdCreativeLinkDataSponsorshipInfoSpec } from './../src/objects/ad-creative-link-data-sponsorship-info-spec';
@@ -79,7 +77,6 @@ export { default as AdCreativeStaticFallbackSpec } from './../src/objects/ad-cre
 export { default as AdCreativeTemplateURLSpec } from './../src/objects/ad-creative-template-url-spec';
 export { default as AdCreativeTextData } from './../src/objects/ad-creative-text-data';
 export { default as AdCreativeVideoData } from './../src/objects/ad-creative-video-data';
-export { default as AdCreativeVideoDataCustomOverlaySpec } from './../src/objects/ad-creative-video-data-custom-overlay-spec';
 export { default as AdCustomizationRuleSpec } from './../src/objects/ad-customization-rule-spec';
 export { default as AdDynamicCreative } from './../src/objects/ad-dynamic-creative';
 export { default as AdEntityTargetSpend } from './../src/objects/ad-entity-target-spend';
@@ -92,6 +89,7 @@ export { default as AdNetworkAnalyticsAsyncQueryResult } from './../src/objects/
 export { default as AdNetworkAnalyticsSyncQueryResult } from './../src/objects/ad-network-analytics-sync-query-result';
 export { default as AdPlacePageSet } from './../src/objects/ad-place-page-set';
 export { default as AdPlacePageSetMetadata } from './../src/objects/ad-place-page-set-metadata';
+export { default as AdPlacement } from './../src/objects/ad-placement';
 export { default as AdPreview } from './../src/objects/ad-preview';
 export { default as AdPromotedObject } from './../src/objects/ad-promoted-object';
 export { default as AdRecommendation } from './../src/objects/ad-recommendation';
@@ -111,7 +109,6 @@ export { default as AdRuleScheduleSpec } from './../src/objects/ad-rule-schedule
 export { default as AdRuleTrigger } from './../src/objects/ad-rule-trigger';
 export { default as AdSet } from './../src/objects/ad-set';
 export { default as AdStudy } from './../src/objects/ad-study';
-export { default as AdStudyAdsAssetUserPermissions } from './../src/objects/ad-study-ads-asset-user-permissions';
 export { default as AdStudyCell } from './../src/objects/ad-study-cell';
 export { default as AdStudyObjective } from './../src/objects/ad-study-objective';
 export { default as AdStudyObjectiveID } from './../src/objects/ad-study-objective-id';
@@ -162,7 +159,6 @@ export { default as BusinessAdvertisableApplicationsResult } from './../src/obje
 export { default as BusinessAgreement } from './../src/objects/business-agreement';
 export { default as BusinessApplicationRequest } from './../src/objects/business-application-request';
 export { default as BusinessAssetSharingAgreement } from './../src/objects/business-asset-sharing-agreement';
-export { default as BusinessCreditCardLegacy } from './../src/objects/business-credit-card-legacy';
 export { default as BusinessOwnedObjectOnBehalfOfRequest } from './../src/objects/business-owned-object-on-behalf-of-request';
 export { default as BusinessPageRequest } from './../src/objects/business-page-request';
 export { default as BusinessProductCatalogTOS } from './../src/objects/business-product-catalog-tos';
@@ -346,7 +342,6 @@ export { default as ProductCatalogImageSettings } from './../src/objects/product
 export { default as ProductCatalogImageSettingsOperation } from './../src/objects/product-catalog-image-settings-operation';
 export { default as ProductCatalogPricingVariablesBatch } from './../src/objects/product-catalog-pricing-variables-batch';
 export { default as ProductCatalogProductSetsBatch } from './../src/objects/product-catalog-product-sets-batch';
-export { default as ProductCatalogUserPermissions } from './../src/objects/product-catalog-user-permissions';
 export { default as ProductDaEventSamplesBatch } from './../src/objects/product-da-event-samples-batch';
 export { default as ProductEventStat } from './../src/objects/product-event-stat';
 export { default as ProductFeed } from './../src/objects/product-feed';
@@ -435,6 +430,7 @@ export { default as UserPaymentMethodsInfo } from './../src/objects/user-payment
 export { default as UserPaymentMobilePricepoints } from './../src/objects/user-payment-mobile-pricepoints';
 export { default as UserPaymentModulesOptions } from './../src/objects/user-payment-modules-options';
 export { default as UserTaggableFriend } from './../src/objects/user-taggable-friend';
+export { default as ValueBasedEligibleSource } from './../src/objects/value-based-eligible-source';
 export { default as VaultDeletedImage } from './../src/objects/vault-deleted-image';
 export { default as Vehicle } from './../src/objects/vehicle';
 export { default as VideoCopyright } from './../src/objects/video-copyright';
