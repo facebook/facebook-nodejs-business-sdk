@@ -7,7 +7,6 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import AbstractObject from './../abstract-object';
 
 /**
  * VideoCopyrightRule
@@ -33,12 +32,6 @@ export default class VideoCopyrightRule extends AbstractCrudObject {
       rules_selector: 'RULES_SELECTOR',
       rules_tab: 'RULES_TAB'
     });
-  }
-
-  delete (fields, params): AbstractObject {
-    return super.delete(
-      params
-    );
   }
 
   get (fields, params): VideoCopyrightRule {

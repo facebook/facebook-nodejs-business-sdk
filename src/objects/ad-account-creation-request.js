@@ -7,7 +7,6 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import AbstractObject from './../abstract-object';
 import AdAccount from './ad-account';
 
 /**
@@ -203,22 +202,6 @@ export default class AdAccountCreationRequest extends AbstractCrudObject {
       travel: 'TRAVEL'
     });
   }
-  static get Status (): Object {
-    return Object.freeze({
-      appeal_approved: 'APPEAL_APPROVED',
-      appeal_disapproved: 'APPEAL_DISAPPROVED',
-      appeal_pending: 'APPEAL_PENDING',
-      appeal_under_review: 'APPEAL_UNDER_REVIEW',
-      approved: 'APPROVED',
-      auto_approved: 'AUTO_APPROVED',
-      auto_disapproved: 'AUTO_DISAPPROVED',
-      cancelled: 'CANCELLED',
-      disapproved: 'DISAPPROVED',
-      pending: 'PENDING',
-      requested_change: 'REQUESTED_CHANGE',
-      under_review: 'UNDER_REVIEW'
-    });
-  }
 
   getAdAccounts (fields, params, fetchFirstPage = true): AdAccount {
     return this.getEdge(
@@ -227,21 +210,6 @@ export default class AdAccountCreationRequest extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/adaccounts'
-    );
-  }
-
-  createVietnam (fields, params): AdAccountCreationRequest {
-    return this.createEdge(
-      '/vietnam',
-      fields,
-      params,
-      AdAccountCreationRequest
-    );
-  }
-
-  delete (fields, params): AbstractObject {
-    return super.delete(
-      params
     );
   }
 

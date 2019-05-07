@@ -7,7 +7,6 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import AbstractObject from './../abstract-object';
 import ExtendedCreditInvoiceGroup from './extended-credit-invoice-group';
 import ExtendedCreditAllocationConfig from './extended-credit-allocation-config';
 
@@ -37,16 +36,6 @@ export default class ExtendedCredit extends AbstractCrudObject {
       receiving_credit_allocation_config: 'receiving_credit_allocation_config',
       send_bill_to_biz_name: 'send_bill_to_biz_name'
     });
-  }
-
-  getExtendedCreditEmails (fields, params, fetchFirstPage = true): AbstractObject {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/extended_credit_emails'
-    );
   }
 
   getExtendedCreditInvoiceGroups (fields, params, fetchFirstPage = true): ExtendedCreditInvoiceGroup {

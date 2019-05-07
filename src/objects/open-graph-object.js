@@ -7,9 +7,6 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import Comment from './comment';
-import Profile from './profile';
-import Photo from './photo';
 import ProfilePictureSource from './profile-picture-source';
 
 /**
@@ -45,53 +42,6 @@ export default class OpenGraphObject extends AbstractCrudObject {
     });
   }
 
-  getComments (fields, params, fetchFirstPage = true): Comment {
-    return this.getEdge(
-      Comment,
-      fields,
-      params,
-      fetchFirstPage,
-      '/comments'
-    );
-  }
-
-  createComment (fields, params): Comment {
-    return this.createEdge(
-      '/comments',
-      fields,
-      params,
-      Comment
-    );
-  }
-
-  getLikes (fields, params, fetchFirstPage = true): Profile {
-    return this.getEdge(
-      Profile,
-      fields,
-      params,
-      fetchFirstPage,
-      '/likes'
-    );
-  }
-
-  createLike (fields, params): OpenGraphObject {
-    return this.createEdge(
-      '/likes',
-      fields,
-      params,
-      OpenGraphObject
-    );
-  }
-
-  createPhoto (fields, params): Photo {
-    return this.createEdge(
-      '/photos',
-      fields,
-      params,
-      Photo
-    );
-  }
-
   getPicture (fields, params, fetchFirstPage = true): ProfilePictureSource {
     return this.getEdge(
       ProfilePictureSource,
@@ -102,25 +52,9 @@ export default class OpenGraphObject extends AbstractCrudObject {
     );
   }
 
-  getReactions (fields, params, fetchFirstPage = true): Profile {
-    return this.getEdge(
-      Profile,
-      fields,
-      params,
-      fetchFirstPage,
-      '/reactions'
-    );
-  }
-
   get (fields, params): OpenGraphObject {
     return this.read(
       fields,
-      params
-    );
-  }
-
-  update (fields, params): OpenGraphObject {
-    return super.update(
       params
     );
   }

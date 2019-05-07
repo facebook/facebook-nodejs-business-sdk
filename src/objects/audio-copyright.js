@@ -21,7 +21,6 @@ export default class AudioCopyright extends AbstractCrudObject {
       id: 'id',
       in_conflict: 'in_conflict',
       isrc: 'isrc',
-      match_rule: 'match_rule',
       ownership_countries: 'ownership_countries',
       reference_file_status: 'reference_file_status',
       ridge_monitoring_status: 'ridge_monitoring_status',
@@ -31,23 +30,9 @@ export default class AudioCopyright extends AbstractCrudObject {
     });
   }
 
-  static get UpdateSource (): Object {
-    return Object.freeze({
-      ddex: 'ddex',
-      edit_reference_dialog: 'edit_reference_dialog',
-      reference_conflict_dialog: 'reference_conflict_dialog'
-    });
-  }
-
   get (fields, params): AudioCopyright {
     return this.read(
       fields,
-      params
-    );
-  }
-
-  update (fields, params): AudioCopyright {
-    return super.update(
       params
     );
   }

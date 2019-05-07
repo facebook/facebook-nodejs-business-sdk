@@ -140,15 +140,6 @@ export default class ReachFrequencyPrediction extends AbstractCrudObject {
       sports: 'SPORTS'
     });
   }
-  static get Status (): Object {
-    return Object.freeze({
-      active: 'ACTIVE',
-      completed: 'COMPLETED',
-      draft: 'DRAFT',
-      expired: 'EXPIRED',
-      pending: 'PENDING'
-    });
-  }
 
   get (fields, params): ReachFrequencyPrediction {
     return this.read(

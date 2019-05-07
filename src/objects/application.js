@@ -8,19 +8,15 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
-import OpenGraphObject from './open-graph-object';
 import AdNetworkAnalyticsSyncQueryResult from './ad-network-analytics-sync-query-result';
 import AdNetworkAnalyticsAsyncQueryResult from './ad-network-analytics-async-query-result';
 import Business from './business';
 import Group from './group';
-import CustomAudience from './custom-audience';
 import AdAccount from './ad-account';
 import User from './user';
 import DACheck from './da-check';
-import DirectDeal from './direct-deal';
 import Event from './event';
-import Photo from './photo';
-import ProfilePictureSource from './profile-picture-source';
+import OpenGraphObject from './open-graph-object';
 
 /**
  * Application
@@ -61,7 +57,6 @@ export default class Application extends AbstractCrudObject {
       company: 'company',
       configured_ios_sso: 'configured_ios_sso',
       contact_email: 'contact_email',
-      context: 'context',
       created_time: 'created_time',
       creator_uid: 'creator_uid',
       daily_active_users: 'daily_active_users',
@@ -207,14 +202,6 @@ export default class Application extends AbstractCrudObject {
       page: 'PAGE'
     });
   }
-  static get Role (): Object {
-    return Object.freeze({
-      administrators: 'administrators',
-      developers: 'developers',
-      insights_users: 'insights users',
-      testers: 'testers'
-    });
-  }
 
   deleteAccounts (params): AbstractObject {
     return super.deleteEdge(
@@ -239,16 +226,6 @@ export default class Application extends AbstractCrudObject {
       fields,
       params
 
-    );
-  }
-
-  getAchievements (fields, params, fetchFirstPage = true): OpenGraphObject {
-    return this.getEdge(
-      OpenGraphObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/achievements'
     );
   }
 
@@ -300,16 +277,6 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  getAndroidDialogConfigs (fields, params, fetchFirstPage = true): AbstractObject {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/android_dialog_configs'
-    );
-  }
-
   getAppEventTypes (fields, params, fetchFirstPage = true): AbstractObject {
     return this.getEdge(
       AbstractObject,
@@ -335,16 +302,6 @@ export default class Application extends AbstractCrudObject {
       fields,
       params,
       Application
-    );
-  }
-
-  getAppInsights (fields, params, fetchFirstPage = true): AbstractObject {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/app_insights'
     );
   }
 
@@ -386,16 +343,6 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  getAudiences (fields, params, fetchFirstPage = true): CustomAudience {
-    return this.getEdge(
-      CustomAudience,
-      fields,
-      params,
-      fetchFirstPage,
-      '/audiences'
-    );
-  }
-
   deleteAuthorizedAdAccounts (params): AbstractObject {
     return super.deleteEdge(
       '/authorized_adaccounts',
@@ -422,13 +369,6 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  deleteBanned (params): AbstractObject {
-    return super.deleteEdge(
-      '/banned',
-      params
-    );
-  }
-
   getBanned (fields, params, fetchFirstPage = true): User {
     return this.getEdge(
       User,
@@ -436,15 +376,6 @@ export default class Application extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/banned'
-    );
-  }
-
-  createBanned (fields, params): User {
-    return this.createEdge(
-      '/banned',
-      fields,
-      params,
-      User
     );
   }
 
@@ -485,16 +416,6 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  getConnections (fields, params, fetchFirstPage = true): AbstractObject {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/connections'
-    );
-  }
-
   getCustomAudienceThirdPartyId (fields, params, fetchFirstPage = true): AbstractObject {
     return this.getEdge(
       AbstractObject,
@@ -512,16 +433,6 @@ export default class Application extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/da_checks'
-    );
-  }
-
-  getDirectDeals (fields, params, fetchFirstPage = true): DirectDeal {
-    return this.getEdge(
-      DirectDeal,
-      fields,
-      params,
-      fetchFirstPage,
-      '/direct_deals'
     );
   }
 
@@ -551,16 +462,6 @@ export default class Application extends AbstractCrudObject {
       fields,
       params
 
-    );
-  }
-
-  getInsightsEventLabels (fields, params, fetchFirstPage = true): AbstractObject {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/insights_event_labels'
     );
   }
 
@@ -610,15 +511,6 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  createMachine (fields, params): AbstractObject {
-    return this.createEdge(
-      '/machines',
-      fields,
-      params
-
-    );
-  }
-
   createMmpAuditing (fields, params): AbstractObject {
     return this.createEdge(
       '/mmp_auditing',
@@ -648,16 +540,6 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  getObjectTypes (fields, params, fetchFirstPage = true): AbstractObject {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/object_types'
-    );
-  }
-
   getObjects (fields, params, fetchFirstPage = true): OpenGraphObject {
     return this.getEdge(
       OpenGraphObject,
@@ -683,16 +565,6 @@ export default class Application extends AbstractCrudObject {
       fields,
       params
 
-    );
-  }
-
-  getOzoneRelease (fields, params, fetchFirstPage = true): AbstractObject {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/ozone_release'
     );
   }
 
@@ -740,25 +612,6 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  createPhoto (fields, params): Photo {
-    return this.createEdge(
-      '/photos',
-      fields,
-      params,
-      Photo
-    );
-  }
-
-  getPicture (fields, params, fetchFirstPage = true): ProfilePictureSource {
-    return this.getEdge(
-      ProfilePictureSource,
-      fields,
-      params,
-      fetchFirstPage,
-      '/picture'
-    );
-  }
-
   getProducts (fields, params, fetchFirstPage = true): AbstractObject {
     return this.getEdge(
       AbstractObject,
@@ -779,13 +632,6 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  deleteRoles (params): AbstractObject {
-    return super.deleteEdge(
-      '/roles',
-      params
-    );
-  }
-
   getRoles (fields, params, fetchFirstPage = true): AbstractObject {
     return this.getEdge(
       AbstractObject,
@@ -793,15 +639,6 @@ export default class Application extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/roles'
-    );
-  }
-
-  createRole (fields, params): Application {
-    return this.createEdge(
-      '/roles',
-      fields,
-      params,
-      Application
     );
   }
 
@@ -874,15 +711,6 @@ export default class Application extends AbstractCrudObject {
       fields,
       params,
       Application
-    );
-  }
-
-  createUpload (fields, params): AbstractObject {
-    return this.createEdge(
-      '/uploads',
-      fields,
-      params
-
     );
   }
 

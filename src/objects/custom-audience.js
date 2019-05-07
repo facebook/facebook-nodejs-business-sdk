@@ -148,13 +148,6 @@ export default class CustomAudience extends AbstractCrudObject {
     );
   }
 
-  deleteCapabilities (params): AbstractObject {
-    return super.deleteEdge(
-      '/capabilities',
-      params
-    );
-  }
-
   createCapability (fields, params): AbstractObject {
     return this.createEdge(
       '/capabilities',

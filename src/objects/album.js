@@ -7,7 +7,6 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import AbstractObject from './../abstract-object';
 import Comment from './comment';
 import Profile from './profile';
 import Photo from './photo';
@@ -64,13 +63,6 @@ export default class Album extends AbstractCrudObject {
       fields,
       params,
       Comment
-    );
-  }
-
-  deleteLikes (params): AbstractObject {
-    return super.deleteEdge(
-      '/likes',
-      params
     );
   }
 

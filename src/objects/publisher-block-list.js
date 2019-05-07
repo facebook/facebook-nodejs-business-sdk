@@ -30,7 +30,7 @@ export default class PublisherBlockList extends AbstractCrudObject {
     });
   }
 
-  getPageDAppPublishers (fields, params, fetchFirstPage = true): AbstractObject {
+  getPagedAppPublishers (fields, params, fetchFirstPage = true): AbstractObject {
     return this.getEdge(
       AbstractObject,
       fields,
@@ -40,7 +40,7 @@ export default class PublisherBlockList extends AbstractCrudObject {
     );
   }
 
-  getPageDWebPublishers (fields, params, fetchFirstPage = true): AbstractObject {
+  getPagedWebPublishers (fields, params, fetchFirstPage = true): AbstractObject {
     return this.getEdge(
       AbstractObject,
       fields,

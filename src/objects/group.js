@@ -226,15 +226,6 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  createDoc (fields, params): AbstractObject {
-    return this.createEdge(
-      '/docs',
-      fields,
-      params
-
-    );
-  }
-
   getEvents (fields, params, fetchFirstPage = true): Event {
     return this.getEdge(
       Event,
@@ -248,15 +239,6 @@ export default class Group extends AbstractCrudObject {
   createFeed (fields, params): AbstractObject {
     return this.createEdge(
       '/feed',
-      fields,
-      params
-
-    );
-  }
-
-  createGroupThread (fields, params): AbstractObject {
-    return this.createEdge(
-      '/group_threads',
       fields,
       params
 
@@ -311,22 +293,6 @@ export default class Group extends AbstractCrudObject {
   createMember (fields, params): Group {
     return this.createEdge(
       '/members',
-      fields,
-      params,
-      Group
-    );
-  }
-
-  deleteModerators (params): AbstractObject {
-    return super.deleteEdge(
-      '/moderators',
-      params
-    );
-  }
-
-  createModerator (fields, params): Group {
-    return this.createEdge(
-      '/moderators',
       fields,
       params,
       Group

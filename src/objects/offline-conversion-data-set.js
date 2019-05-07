@@ -12,7 +12,6 @@ import AdAccount from './ad-account';
 import Business from './business';
 import CustomAudience from './custom-audience';
 import CustomConversion from './custom-conversion';
-import DACheck from './da-check';
 
 /**
  * OfflineConversionDataSet
@@ -58,30 +57,6 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
       audience_manager: 'AUDIENCE_MANAGER',
       other: 'OTHER'
     });
-  }
-  static get Role (): Object {
-    return Object.freeze({
-      admin: 'ADMIN',
-      advertiser: 'ADVERTISER',
-      uploader: 'UPLOADER'
-    });
-  }
-
-  getActivities (fields, params, fetchFirstPage = true): AbstractObject {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/activities'
-    );
-  }
-
-  deleteAdAccounts (params): AbstractObject {
-    return super.deleteEdge(
-      '/adaccounts',
-      params
-    );
   }
 
   getAdAccounts (fields, params, fetchFirstPage = true): AdAccount {
@@ -149,16 +124,6 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
     );
   }
 
-  getDaChecks (fields, params, fetchFirstPage = true): DACheck {
-    return this.getEdge(
-      DACheck,
-      fields,
-      params,
-      fetchFirstPage,
-      '/da_checks'
-    );
-  }
-
   createEvent (fields, params): AbstractObject {
     return this.createEdge(
       '/events',
@@ -194,39 +159,6 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
       fields,
       params
 
-    );
-  }
-
-  deleteUserPermissions (params): AbstractObject {
-    return super.deleteEdge(
-      '/userpermissions',
-      params
-    );
-  }
-
-  getUserPermissions (fields, params, fetchFirstPage = true): AbstractObject {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/userpermissions'
-    );
-  }
-
-  createUserPermission (fields, params): OfflineConversionDataSet {
-    return this.createEdge(
-      '/userpermissions',
-      fields,
-      params,
-      OfflineConversionDataSet
-    );
-  }
-
-  deleteUsers (params): AbstractObject {
-    return super.deleteEdge(
-      '/users',
-      params
     );
   }
 

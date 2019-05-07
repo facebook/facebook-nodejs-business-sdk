@@ -40,10 +40,4 @@ export default class Flight extends AbstractCrudObject {
       params
     );
   }
-
-  update (fields, params): Flight {
-    return super.update(
-      params
-    );
-  }
 }

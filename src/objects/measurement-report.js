@@ -7,7 +7,6 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import AbstractObject from './../abstract-object';
 
 /**
  * MeasurementReport
@@ -35,12 +34,6 @@ export default class MeasurementReport extends AbstractCrudObject {
       third_party_mta_report: 'third_party_mta_report',
       video_metrics_report: 'video_metrics_report'
     });
-  }
-
-  delete (fields, params): AbstractObject {
-    return super.delete(
-      params
-    );
   }
 
   get (fields, params): MeasurementReport {

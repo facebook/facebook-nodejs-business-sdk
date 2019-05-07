@@ -8,7 +8,6 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AdAccount from './ad-account';
-import AdMonetizationProperty from './ad-monetization-property';
 import Page from './page';
 import ProductCatalog from './product-catalog';
 import User from './user';
@@ -47,16 +46,6 @@ export default class SystemUser extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/assigned_ad_accounts'
-    );
-  }
-
-  getAssignedMonetizationProperties (fields, params, fetchFirstPage = true): AdMonetizationProperty {
-    return this.getEdge(
-      AdMonetizationProperty,
-      fields,
-      params,
-      fetchFirstPage,
-      '/assigned_monetization_properties'
     );
   }
 

@@ -9,7 +9,6 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Business from './business';
-import AssignedUser from './assigned-user';
 import AdAccount from './ad-account';
 
 /**
@@ -32,12 +31,6 @@ export default class InstagramUser extends AbstractCrudObject {
     });
   }
 
-  static get Role (): Object {
-    return Object.freeze({
-      analyst: 'ANALYST'
-    });
-  }
-
   deleteAgencies (params): AbstractObject {
     return super.deleteEdge(
       '/agencies',
@@ -52,41 +45,6 @@ export default class InstagramUser extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/agencies'
-    );
-  }
-
-  createAgency (fields, params): InstagramUser {
-    return this.createEdge(
-      '/agencies',
-      fields,
-      params,
-      InstagramUser
-    );
-  }
-
-  deleteAssignedUsers (params): AbstractObject {
-    return super.deleteEdge(
-      '/assigned_users',
-      params
-    );
-  }
-
-  getAssignedUsers (fields, params, fetchFirstPage = true): AssignedUser {
-    return this.getEdge(
-      AssignedUser,
-      fields,
-      params,
-      fetchFirstPage,
-      '/assigned_users'
-    );
-  }
-
-  createAssignedUser (fields, params): InstagramUser {
-    return this.createEdge(
-      '/assigned_users',
-      fields,
-      params,
-      InstagramUser
     );
   }
 
@@ -110,15 +68,6 @@ export default class InstagramUser extends AbstractCrudObject {
   createAuthorizedAdAccount (fields, params): InstagramUser {
     return this.createEdge(
       '/authorized_adaccounts',
-      fields,
-      params,
-      InstagramUser
-    );
-  }
-
-  createUserPermission (fields, params): InstagramUser {
-    return this.createEdge(
-      '/userpermissions',
       fields,
       params,
       InstagramUser

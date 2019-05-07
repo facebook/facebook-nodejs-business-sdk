@@ -31,16 +31,6 @@ export default class OpenGraphContext extends AbstractCrudObject {
     );
   }
 
-  getFriendsWhoLike (fields, params, fetchFirstPage = true): User {
-    return this.getEdge(
-      User,
-      fields,
-      params,
-      fetchFirstPage,
-      '/friends_who_like'
-    );
-  }
-
   getMusicListenFriends (fields, params, fetchFirstPage = true): User {
     return this.getEdge(
       User,

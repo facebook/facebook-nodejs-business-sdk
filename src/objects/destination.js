@@ -38,10 +38,4 @@ export default class Destination extends AbstractCrudObject {
       params
     );
   }
-
-  update (fields, params): Destination {
-    return super.update(
-      params
-    );
-  }
 }

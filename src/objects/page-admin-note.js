@@ -7,7 +7,6 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import AbstractObject from './../abstract-object';
 
 /**
  * PageAdminNote
@@ -22,12 +21,6 @@ export default class PageAdminNote extends AbstractCrudObject {
       id: 'id',
       user: 'user'
     });
-  }
-
-  delete (fields, params): AbstractObject {
-    return super.delete(
-      params
-    );
   }
 
   get (fields, params): PageAdminNote {

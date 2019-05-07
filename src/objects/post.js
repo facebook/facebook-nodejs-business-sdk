@@ -12,9 +12,7 @@ import Comment from './comment';
 import RTBDynamicPost from './rtb-dynamic-post';
 import InsightsResult from './insights-result';
 import Profile from './profile';
-import Photo from './photo';
 import User from './user';
-import Page from './page';
 
 /**
  * Post
@@ -150,16 +148,6 @@ export default class Post extends AbstractCrudObject {
     );
   }
 
-  getEditActions (fields, params, fetchFirstPage = true): AbstractObject {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/edit_actions'
-    );
-  }
-
   getInsights (fields, params, fetchFirstPage = true): InsightsResult {
     return this.getEdge(
       InsightsResult,
@@ -193,15 +181,6 @@ export default class Post extends AbstractCrudObject {
       fields,
       params,
       Post
-    );
-  }
-
-  createPhoto (fields, params): Photo {
-    return this.createEdge(
-      '/photos',
-      fields,
-      params,
-      Photo
     );
   }
 
@@ -244,16 +223,6 @@ export default class Post extends AbstractCrudObject {
     );
   }
 
-  getSponsorTags (fields, params, fetchFirstPage = true): Page {
-    return this.getEdge(
-      Page,
-      fields,
-      params,
-      fetchFirstPage,
-      '/sponsor_tags'
-    );
-  }
-
   getTo (fields, params, fetchFirstPage = true): Profile {
     return this.getEdge(
       Profile,
@@ -261,16 +230,6 @@ export default class Post extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/to'
-    );
-  }
-
-  getWithTags (fields, params, fetchFirstPage = true): Profile {
-    return this.getEdge(
-      Profile,
-      fields,
-      params,
-      fetchFirstPage,
-      '/with_tags'
     );
   }
 

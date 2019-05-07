@@ -12,8 +12,6 @@ import User from './user';
 import Comment from './comment';
 import Page from './page';
 import LiveVideoError from './live-video-error';
-import VideoGameShow from './video-game-show';
-import LiveWithGuestSession from './live-with-guest-session';
 import Profile from './profile';
 import VideoPoll from './video-poll';
 
@@ -165,44 +163,6 @@ export default class LiveVideo extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/errors'
-    );
-  }
-
-  getGameShows (fields, params, fetchFirstPage = true): VideoGameShow {
-    return this.getEdge(
-      VideoGameShow,
-      fields,
-      params,
-      fetchFirstPage,
-      '/game_shows'
-    );
-  }
-
-  getGuestSessions (fields, params, fetchFirstPage = true): LiveWithGuestSession {
-    return this.getEdge(
-      LiveWithGuestSession,
-      fields,
-      params,
-      fetchFirstPage,
-      '/guest_sessions'
-    );
-  }
-
-  createGuestSession (fields, params): LiveWithGuestSession {
-    return this.createEdge(
-      '/guest_sessions',
-      fields,
-      params,
-      LiveWithGuestSession
-    );
-  }
-
-  createInputStream (fields, params): LiveVideo {
-    return this.createEdge(
-      '/input_streams',
-      fields,
-      params,
-      LiveVideo
     );
   }
 

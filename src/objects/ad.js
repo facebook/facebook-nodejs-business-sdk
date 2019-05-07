@@ -238,15 +238,6 @@ export default class Ad extends AbstractCrudObject {
     );
   }
 
-  createLead (fields, params): Lead {
-    return this.createEdge(
-      '/leads',
-      fields,
-      params,
-      Lead
-    );
-  }
-
   getPreviews (fields, params, fetchFirstPage = true): AdPreview {
     return this.getEdge(
       AdPreview,
@@ -264,13 +255,6 @@ export default class Ad extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/targetingsentencelines'
-    );
-  }
-
-  deleteTrackingTag (params): AbstractObject {
-    return super.deleteEdge(
-      '/trackingtag',
-      params
     );
   }
 

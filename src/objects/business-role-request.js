@@ -43,14 +43,6 @@ export default class BusinessRoleRequest extends AbstractCrudObject {
       finance_editor: 'FINANCE_EDITOR'
     });
   }
-  static get Status (): Object {
-    return Object.freeze({
-      accepted: 'ACCEPTED',
-      declined: 'DECLINED',
-      expired: 'EXPIRED',
-      pending: 'PENDING'
-    });
-  }
 
   delete (fields, params): AbstractObject {
     return super.delete(

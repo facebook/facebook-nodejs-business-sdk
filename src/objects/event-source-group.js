@@ -25,10 +25,10 @@ export default class EventSourceGroup extends AbstractCrudObject {
     });
   }
 
-  static get Role (): Object {
+  static get Tasks (): Object {
     return Object.freeze({
-      analyst: 'ANALYST',
-      limited_analyst: 'LIMITED_ANALYST'
+      analyze: 'ANALYZE',
+      analyze_with_limitations: 'ANALYZE_WITH_LIMITATIONS'
     });
   }
 

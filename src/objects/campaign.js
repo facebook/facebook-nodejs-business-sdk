@@ -8,7 +8,6 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
-import AdStudy from './ad-study';
 import AdRule from './ad-rule';
 import Ad from './ad';
 import AdSet from './ad-set';
@@ -154,16 +153,6 @@ export default class Campaign extends AbstractCrudObject {
       inherited_from_source: 'INHERITED_FROM_SOURCE',
       paused: 'PAUSED'
     });
-  }
-
-  getAdStudies (fields, params, fetchFirstPage = true): AdStudy {
-    return this.getEdge(
-      AdStudy,
-      fields,
-      params,
-      fetchFirstPage,
-      '/ad_studies'
-    );
   }
 
   deleteAdLabels (params): AbstractObject {

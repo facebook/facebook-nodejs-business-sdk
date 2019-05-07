@@ -11,37 +11,26 @@ import AbstractObject from './../abstract-object';
 import Page from './page';
 import AdStudy from './ad-study';
 import AdAccount from './ad-account';
-import AdContract from './ad-contract';
 import Album from './album';
 import AppRequestFormerRecipient from './app-request-former-recipient';
 import AppRequest from './app-request';
-import WithAsset3D from './with-asset3-d';
-import AdMonetizationProperty from './ad-monetization-property';
 import ProductCatalog from './product-catalog';
-import BusinessActivityLogEvent from './business-activity-log-event';
 import BusinessUser from './business-user';
 import Business from './business';
 import UnifiedThread from './unified-thread';
-import PageUserMessageThreadLabel from './page-user-message-thread-label';
-import Domain from './domain';
 import Event from './event';
 import FriendList from './friend-list';
 import Group from './group';
 import UserIDForApp from './user-id-for-app';
 import UserIDForPage from './user-id-for-page';
-import UserInvitableFriend from './user-invitable-friend';
 import LiveEncoder from './live-encoder';
 import LiveVideo from './live-video';
-import OpenGraphObject from './open-graph-object';
 import Permission from './permission';
 import Photo from './photo';
 import ProfilePictureSource from './profile-picture-source';
+import Domain from './domain';
 import RequestHistory from './request-history';
-import Canvas from './canvas';
-import PlatformSessionKey from './platform-session-key';
-import StreamFilter from './stream-filter';
 import UserTaggableFriend from './user-taggable-friend';
-import PlaceTag from './place-tag';
 import AdVideo from './ad-video';
 
 /**
@@ -58,7 +47,6 @@ export default class User extends AbstractCrudObject {
       age_range: 'age_range',
       birthday: 'birthday',
       can_review_measurement_request: 'can_review_measurement_request',
-      context: 'context',
       cover: 'cover',
       currency: 'currency',
       devices: 'devices',
@@ -248,16 +236,6 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  getAchievements (fields, params, fetchFirstPage = true): AbstractObject {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/achievements'
-    );
-  }
-
   createAchievement (fields, params): AbstractObject {
     return this.createEdge(
       '/achievements',
@@ -277,15 +255,6 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  createAdStudy (fields, params): AdStudy {
-    return this.createEdge(
-      '/ad_studies',
-      fields,
-      params,
-      AdStudy
-    );
-  }
-
   getAdAccounts (fields, params, fetchFirstPage = true): AdAccount {
     return this.getEdge(
       AdAccount,
@@ -296,16 +265,6 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  getAdContracts (fields, params, fetchFirstPage = true): AdContract {
-    return this.getEdge(
-      AdContract,
-      fields,
-      params,
-      fetchFirstPage,
-      '/adcontracts'
-    );
-  }
-
   getAlbums (fields, params, fetchFirstPage = true): Album {
     return this.getEdge(
       Album,
@@ -313,15 +272,6 @@ export default class User extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/albums'
-    );
-  }
-
-  createAlbum (fields, params): Album {
-    return this.createEdge(
-      '/albums',
-      fields,
-      params,
-      Album
     );
   }
 
@@ -354,25 +304,6 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  getAsset3Ds (fields, params, fetchFirstPage = true): WithAsset3D {
-    return this.getEdge(
-      WithAsset3D,
-      fields,
-      params,
-      fetchFirstPage,
-      '/asset3ds'
-    );
-  }
-
-  createAsset3D (fields, params): WithAsset3D {
-    return this.createEdge(
-      '/asset3ds',
-      fields,
-      params,
-      WithAsset3D
-    );
-  }
-
   getAssignedAdAccounts (fields, params, fetchFirstPage = true): AdAccount {
     return this.getEdge(
       AdAccount,
@@ -380,16 +311,6 @@ export default class User extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/assigned_ad_accounts'
-    );
-  }
-
-  getAssignedMonetizationProperties (fields, params, fetchFirstPage = true): AdMonetizationProperty {
-    return this.getEdge(
-      AdMonetizationProperty,
-      fields,
-      params,
-      fetchFirstPage,
-      '/assigned_monetization_properties'
     );
   }
 
@@ -420,23 +341,6 @@ export default class User extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/books'
-    );
-  }
-
-  deleteBulkContacts (params): AbstractObject {
-    return super.deleteEdge(
-      '/bulkcontacts',
-      params
-    );
-  }
-
-  getBusinessActivities (fields, params, fetchFirstPage = true): BusinessActivityLogEvent {
-    return this.getEdge(
-      BusinessActivityLogEvent,
-      fields,
-      params,
-      fetchFirstPage,
-      '/business_activities'
     );
   }
 
@@ -477,26 +381,6 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  getCustomLabels (fields, params, fetchFirstPage = true): PageUserMessageThreadLabel {
-    return this.getEdge(
-      PageUserMessageThreadLabel,
-      fields,
-      params,
-      fetchFirstPage,
-      '/custom_labels'
-    );
-  }
-
-  getDomains (fields, params, fetchFirstPage = true): Domain {
-    return this.getEdge(
-      Domain,
-      fields,
-      params,
-      fetchFirstPage,
-      '/domains'
-    );
-  }
-
   getEvents (fields, params, fetchFirstPage = true): Event {
     return this.getEdge(
       Event,
@@ -524,15 +408,6 @@ export default class User extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/favorite_requests'
-    );
-  }
-
-  createFavoriteRequest (fields, params): AbstractObject {
-    return this.createEdge(
-      '/favorite_requests',
-      fields,
-      params
-
     );
   }
 
@@ -660,23 +535,6 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  getInvitableFriends (fields, params, fetchFirstPage = true): UserInvitableFriend {
-    return this.getEdge(
-      UserInvitableFriend,
-      fields,
-      params,
-      fetchFirstPage,
-      '/invitable_friends'
-    );
-  }
-
-  deleteLikes (params): AbstractObject {
-    return super.deleteEdge(
-      '/likes',
-      params
-    );
-  }
-
   getLikes (fields, params, fetchFirstPage = true): Page {
     return this.getEdge(
       Page,
@@ -684,15 +542,6 @@ export default class User extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/likes'
-    );
-  }
-
-  createLike (fields, params): User {
-    return this.createEdge(
-      '/likes',
-      fields,
-      params,
-      User
     );
   }
 
@@ -734,39 +583,12 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  createLoggedOutPushSetNonce (fields, params): User {
-    return this.createEdge(
-      '/loggedoutpushsetnonces',
-      fields,
-      params,
-      User
-    );
-  }
-
-  createLogInApprovalsKey (fields, params): AbstractObject {
-    return this.createEdge(
-      '/loginapprovalskeys',
-      fields,
-      params
-
-    );
-  }
-
   createMfsAccountPinReset (fields, params): User {
     return this.createEdge(
       '/mfs_account_pin_reset',
       fields,
       params,
       User
-    );
-  }
-
-  createMomentsLinkInvite (fields, params): AbstractObject {
-    return this.createEdge(
-      '/moments_link_invite',
-      fields,
-      params
-
     );
   }
 
@@ -814,34 +636,6 @@ export default class User extends AbstractCrudObject {
       fields,
       params,
       User
-    );
-  }
-
-  getObjects (fields, params, fetchFirstPage = true): OpenGraphObject {
-    return this.getEdge(
-      OpenGraphObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/objects'
-    );
-  }
-
-  createObject (fields, params): OpenGraphObject {
-    return this.createEdge(
-      '/objects',
-      fields,
-      params,
-      OpenGraphObject
-    );
-  }
-
-  createOpenGraphActionFeed (fields, params): AbstractObject {
-    return this.createEdge(
-      '/opengraphactionfeed',
-      fields,
-      params
-
     );
   }
 
@@ -949,39 +743,12 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  getRichMediaDocuments (fields, params, fetchFirstPage = true): Canvas {
-    return this.getEdge(
-      Canvas,
-      fields,
-      params,
-      fetchFirstPage,
-      '/rich_media_documents'
-    );
-  }
-
-  deleteScreenNames (params): AbstractObject {
-    return super.deleteEdge(
-      '/screennames',
-      params
-    );
-  }
-
   createScreenName (fields, params): User {
     return this.createEdge(
       '/screennames',
       fields,
       params,
       User
-    );
-  }
-
-  getSessionKeys (fields, params, fetchFirstPage = true): PlatformSessionKey {
-    return this.getEdge(
-      PlatformSessionKey,
-      fields,
-      params,
-      fetchFirstPage,
-      '/session_keys'
     );
   }
 
@@ -994,25 +761,6 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  getStreamFilters (fields, params, fetchFirstPage = true): StreamFilter {
-    return this.getEdge(
-      StreamFilter,
-      fields,
-      params,
-      fetchFirstPage,
-      '/stream_filters'
-    );
-  }
-
-  createSubscription (fields, params): AbstractObject {
-    return this.createEdge(
-      '/subscriptions',
-      fields,
-      params
-
-    );
-  }
-
   getTaggableFriends (fields, params, fetchFirstPage = true): UserTaggableFriend {
     return this.getEdge(
       UserTaggableFriend,
@@ -1020,16 +768,6 @@ export default class User extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/taggable_friends'
-    );
-  }
-
-  getTaggedPlaces (fields, params, fetchFirstPage = true): PlaceTag {
-    return this.getEdge(
-      PlaceTag,
-      fields,
-      params,
-      fetchFirstPage,
-      '/tagged_places'
     );
   }
 
@@ -1050,16 +788,6 @@ export default class User extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/threads'
-    );
-  }
-
-  getVideoBroadcasts (fields, params, fetchFirstPage = true): LiveVideo {
-    return this.getEdge(
-      LiveVideo,
-      fields,
-      params,
-      fetchFirstPage,
-      '/video_broadcasts'
     );
   }
 

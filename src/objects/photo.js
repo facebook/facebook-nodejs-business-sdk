@@ -12,7 +12,6 @@ import Comment from './comment';
 import InsightsResult from './insights-result';
 import Profile from './profile';
 import Post from './post';
-import Page from './page';
 import TaggableSubject from './taggable-subject';
 
 /**
@@ -79,29 +78,6 @@ export default class Photo extends AbstractCrudObject {
       uploaded: 'uploaded'
     });
   }
-  static get CheckinEntryPoint (): Object {
-    return Object.freeze({
-      branding_checkin: 'BRANDING_CHECKIN',
-      branding_other: 'BRANDING_OTHER',
-      branding_photo: 'BRANDING_PHOTO',
-      branding_status: 'BRANDING_STATUS'
-    });
-  }
-  static get Formatting (): Object {
-    return Object.freeze({
-      markdown: 'MARKDOWN',
-      plaintext: 'PLAINTEXT'
-    });
-  }
-  static get PostSurfacesBlacklist (): Object {
-    return Object.freeze({
-      value_1: '1',
-      value_2: '2',
-      value_3: '3',
-      value_4: '4',
-      value_5: '5'
-    });
-  }
 
   getComments (fields, params, fetchFirstPage = true): Comment {
     return this.getEdge(
@@ -122,15 +98,6 @@ export default class Photo extends AbstractCrudObject {
     );
   }
 
-  createDismissTagSuggestion (fields, params): Photo {
-    return this.createEdge(
-      '/dismisstagsuggestion',
-      fields,
-      params,
-      Photo
-    );
-  }
-
   getInsights (fields, params, fetchFirstPage = true): InsightsResult {
     return this.getEdge(
       InsightsResult,
@@ -138,13 +105,6 @@ export default class Photo extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/insights'
-    );
-  }
-
-  deleteLikes (params): AbstractObject {
-    return super.deleteEdge(
-      '/likes',
-      params
     );
   }
 
@@ -161,15 +121,6 @@ export default class Photo extends AbstractCrudObject {
   createLike (fields, params): Photo {
     return this.createEdge(
       '/likes',
-      fields,
-      params,
-      Photo
-    );
-  }
-
-  createPhoto (fields, params): Photo {
-    return this.createEdge(
-      '/photos',
       fields,
       params,
       Photo
@@ -196,16 +147,6 @@ export default class Photo extends AbstractCrudObject {
     );
   }
 
-  getSponsorTags (fields, params, fetchFirstPage = true): Page {
-    return this.getEdge(
-      Page,
-      fields,
-      params,
-      fetchFirstPage,
-      '/sponsor_tags'
-    );
-  }
-
   getTags (fields, params, fetchFirstPage = true): TaggableSubject {
     return this.getEdge(
       TaggableSubject,
@@ -213,15 +154,6 @@ export default class Photo extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/tags'
-    );
-  }
-
-  createTag (fields, params): Photo {
-    return this.createEdge(
-      '/tags',
-      fields,
-      params,
-      Photo
     );
   }
 
@@ -234,12 +166,6 @@ export default class Photo extends AbstractCrudObject {
   get (fields, params): Photo {
     return this.read(
       fields,
-      params
-    );
-  }
-
-  update (fields, params): Photo {
-    return super.update(
       params
     );
   }

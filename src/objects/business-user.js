@@ -9,10 +9,8 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import AdAccount from './ad-account';
-import AdMonetizationProperty from './ad-monetization-property';
 import Page from './page';
 import ProductCatalog from './product-catalog';
-import BusinessSettingLogsData from './business-setting-logs-data';
 
 /**
  * BusinessUser
@@ -58,16 +56,6 @@ export default class BusinessUser extends AbstractCrudObject {
     );
   }
 
-  getAssignedMonetizationProperties (fields, params, fetchFirstPage = true): AdMonetizationProperty {
-    return this.getEdge(
-      AdMonetizationProperty,
-      fields,
-      params,
-      fetchFirstPage,
-      '/assigned_monetization_properties'
-    );
-  }
-
   getAssignedPages (fields, params, fetchFirstPage = true): Page {
     return this.getEdge(
       Page,
@@ -85,16 +73,6 @@ export default class BusinessUser extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/assigned_product_catalogs'
-    );
-  }
-
-  getBusinessSettingLogs (fields, params, fetchFirstPage = true): BusinessSettingLogsData {
-    return this.getEdge(
-      BusinessSettingLogsData,
-      fields,
-      params,
-      fetchFirstPage,
-      '/businesssettinglogs'
     );
   }
 

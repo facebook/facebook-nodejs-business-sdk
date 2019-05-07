@@ -52,6 +52,7 @@ export default class ProductEventStat extends AbstractCrudObject {
       lead: 'Lead',
       purchase: 'Purchase',
       search: 'Search',
+      subscribe: 'Subscribe',
       viewcontent: 'ViewContent'
     });
   }

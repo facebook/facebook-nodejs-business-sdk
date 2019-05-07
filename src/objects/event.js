@@ -9,12 +9,9 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Profile from './profile';
-import User from './user';
 import NullNode from './null-node';
-import Comment from './comment';
 import LiveVideo from './live-video';
 import Photo from './photo';
-import AdVideo from './ad-video';
 
 /**
  * Event
@@ -97,16 +94,6 @@ export default class Event extends AbstractCrudObject {
     );
   }
 
-  getAttending (fields, params, fetchFirstPage = true): User {
-    return this.getEdge(
-      User,
-      fields,
-      params,
-      fetchFirstPage,
-      '/attending'
-    );
-  }
-
   getComments (fields, params, fetchFirstPage = true): NullNode {
     return this.getEdge(
       NullNode,
@@ -114,25 +101,6 @@ export default class Event extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/comments'
-    );
-  }
-
-  createComment (fields, params): Comment {
-    return this.createEdge(
-      '/comments',
-      fields,
-      params,
-      Comment
-    );
-  }
-
-  getDeclined (fields, params, fetchFirstPage = true): User {
-    return this.getEdge(
-      User,
-      fields,
-      params,
-      fetchFirstPage,
-      '/declined'
     );
   }
 
@@ -155,16 +123,6 @@ export default class Event extends AbstractCrudObject {
     );
   }
 
-  getInterested (fields, params, fetchFirstPage = true): User {
-    return this.getEdge(
-      User,
-      fields,
-      params,
-      fetchFirstPage,
-      '/interested'
-    );
-  }
-
   getLiveVideos (fields, params, fetchFirstPage = true): NullNode {
     return this.getEdge(
       NullNode,
@@ -181,26 +139,6 @@ export default class Event extends AbstractCrudObject {
       fields,
       params,
       LiveVideo
-    );
-  }
-
-  getMaybe (fields, params, fetchFirstPage = true): User {
-    return this.getEdge(
-      User,
-      fields,
-      params,
-      fetchFirstPage,
-      '/maybe'
-    );
-  }
-
-  getNoreply (fields, params, fetchFirstPage = true): User {
-    return this.getEdge(
-      User,
-      fields,
-      params,
-      fetchFirstPage,
-      '/noreply'
     );
   }
 
@@ -260,15 +198,6 @@ export default class Event extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/videos'
-    );
-  }
-
-  createVideo (fields, params): AdVideo {
-    return this.createEdge(
-      '/videos',
-      fields,
-      params,
-      AdVideo
     );
   }
 

@@ -20,23 +20,17 @@ import AdPlacement from './ad-placement';
 import OracleTransaction from './oracle-transaction';
 import BusinessUser from './business-user';
 import BusinessProject from './business-project';
-import BusinessSettingLogsData from './business-setting-logs-data';
-import BusinessProductCatalogTOS from './business-product-catalog-tos';
 import CustomConversion from './custom-conversion';
 import Application from './application';
 import ProductCatalog from './product-catalog';
 import DirectDeal from './direct-deal';
 import EventSourceGroup from './event-source-group';
 import ExtendedCredit from './extended-credit';
-import ReachFrequencyPrediction from './reach-frequency-prediction';
-import BusinessAssetSharingAgreement from './business-asset-sharing-agreement';
 import BusinessAgreement from './business-agreement';
 import InstagramUser from './instagram-user';
 import MeasurementReport from './measurement-report';
 import OfflineConversionDataSet from './offline-conversion-data-set';
 import OfflineTermsOfService from './offline-terms-of-service';
-import OwnedDomain from './owned-domain';
-import PartnerIntegrationLinked from './partner-integration-linked';
 import BusinessAdAccountRequest from './business-ad-account-request';
 import BusinessApplicationRequest from './business-application-request';
 import BusinessPageRequest from './business-page-request';
@@ -191,16 +185,6 @@ export default class Business extends AbstractCrudObject {
       fields,
       params,
       AdAccount
-    );
-  }
-
-  getAdAccountCreationRequests (fields, params, fetchFirstPage = true): AdAccountCreationRequest {
-    return this.getEdge(
-      AdAccountCreationRequest,
-      fields,
-      params,
-      fetchFirstPage,
-      '/adaccountcreationrequests'
     );
   }
 
@@ -388,26 +372,6 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  getBusinessSettingLogs (fields, params, fetchFirstPage = true): BusinessSettingLogsData {
-    return this.getEdge(
-      BusinessSettingLogsData,
-      fields,
-      params,
-      fetchFirstPage,
-      '/businesssettinglogs'
-    );
-  }
-
-  getCatalogSegmentProducerTos (fields, params, fetchFirstPage = true): BusinessProductCatalogTOS {
-    return this.getEdge(
-      BusinessProductCatalogTOS,
-      fields,
-      params,
-      fetchFirstPage,
-      '/catalog_segment_producer_tos'
-    );
-  }
-
   createCatalogSegmentProducerTo (fields, params): Business {
     return this.createEdge(
       '/catalog_segment_producer_tos',
@@ -588,19 +552,9 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  getGrpPlans (fields, params, fetchFirstPage = true): ReachFrequencyPrediction {
+  getInitiatedAudienceSharingRequests (fields, params, fetchFirstPage = true): AbstractObject {
     return this.getEdge(
-      ReachFrequencyPrediction,
-      fields,
-      params,
-      fetchFirstPage,
-      '/grp_plans'
-    );
-  }
-
-  getInitiatedAudienceSharingRequests (fields, params, fetchFirstPage = true): BusinessAssetSharingAgreement {
-    return this.getEdge(
-      BusinessAssetSharingAgreement,
+      AbstractObject,
       fields,
       params,
       fetchFirstPage,
@@ -651,15 +605,6 @@ export default class Business extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/measurement_reports'
-    );
-  }
-
-  createMeasurementReport (fields, params): MeasurementReport {
-    return this.createEdge(
-      '/measurement_reports',
-      fields,
-      params,
-      MeasurementReport
     );
   }
 
@@ -756,19 +701,9 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  getOwnedCustomConversions (fields, params, fetchFirstPage = true): CustomConversion {
+  getOwnedDomains (fields, params, fetchFirstPage = true): AbstractObject {
     return this.getEdge(
-      CustomConversion,
-      fields,
-      params,
-      fetchFirstPage,
-      '/owned_custom_conversions'
-    );
-  }
-
-  getOwnedDomains (fields, params, fetchFirstPage = true): OwnedDomain {
-    return this.getEdge(
-      OwnedDomain,
+      AbstractObject,
       fields,
       params,
       fetchFirstPage,
@@ -776,12 +711,12 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createOwnedDomain (fields, params): OwnedDomain {
+  createOwnedDomain (fields, params): AbstractObject {
     return this.createEdge(
       '/owned_domains',
       fields,
-      params,
-      OwnedDomain
+      params
+
     );
   }
 
@@ -847,34 +782,6 @@ export default class Business extends AbstractCrudObject {
     return super.deleteEdge(
       '/pages',
       params
-    );
-  }
-
-  getPartnerIntegrations (fields, params, fetchFirstPage = true): PartnerIntegrationLinked {
-    return this.getEdge(
-      PartnerIntegrationLinked,
-      fields,
-      params,
-      fetchFirstPage,
-      '/partner_integrations'
-    );
-  }
-
-  createPartnerIntegration (fields, params): PartnerIntegrationLinked {
-    return this.createEdge(
-      '/partner_integrations',
-      fields,
-      params,
-      PartnerIntegrationLinked
-    );
-  }
-
-  createPartnerAdAccount (fields, params): AbstractObject {
-    return this.createEdge(
-      '/partneradaccount',
-      fields,
-      params
-
     );
   }
 
@@ -988,9 +895,9 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  getReceivedAudienceSharingRequests (fields, params, fetchFirstPage = true): BusinessAssetSharingAgreement {
+  getReceivedAudienceSharingRequests (fields, params, fetchFirstPage = true): AbstractObject {
     return this.getEdge(
-      BusinessAssetSharingAgreement,
+      AbstractObject,
       fields,
       params,
       fetchFirstPage,
@@ -1047,15 +954,6 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createSpacoDataSetCollection (fields, params): AbstractObject {
-    return this.createEdge(
-      '/spaco_dataset_collections',
-      fields,
-      params
-
-    );
-  }
-
   getSystemUsers (fields, params, fetchFirstPage = true): SystemUser {
     return this.getEdge(
       SystemUser,
@@ -1094,16 +992,6 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  getUploadEvent (fields, params, fetchFirstPage = true): MeasurementUploadEvent {
-    return this.getEdge(
-      MeasurementUploadEvent,
-      fields,
-      params,
-      fetchFirstPage,
-      '/upload_event'
-    );
-  }
-
   createUploadEvent (fields, params): MeasurementUploadEvent {
     return this.createEdge(
       '/upload_event',
@@ -1120,16 +1008,6 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  getUserInvitations (fields, params, fetchFirstPage = true): BusinessRoleRequest {
-    return this.getEdge(
-      BusinessRoleRequest,
-      fields,
-      params,
-      fetchFirstPage,
-      '/user_invitations'
-    );
-  }
-
   deleteUserPermissions (params): AbstractObject {
     return super.deleteEdge(
       '/userpermissions',
@@ -1143,15 +1021,6 @@ export default class Business extends AbstractCrudObject {
       fields,
       params,
       Business
-    );
-  }
-
-  createVietnamAdAccountCreationRequest (fields, params): AdAccountCreationRequest {
-    return this.createEdge(
-      '/vietnamadaccountcreationrequests',
-      fields,
-      params,
-      AdAccountCreationRequest
     );
   }
 

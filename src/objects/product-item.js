@@ -8,7 +8,6 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
-import Comment from './comment';
 import ProductSet from './product-set';
 
 /**
@@ -132,15 +131,6 @@ export default class ProductItem extends AbstractCrudObject {
       published: 'published',
       staging: 'staging'
     });
-  }
-
-  createComment (fields, params): Comment {
-    return this.createEdge(
-      '/comments',
-      fields,
-      params,
-      Comment
-    );
   }
 
   getProductSets (fields, params, fetchFirstPage = true): ProductSet {

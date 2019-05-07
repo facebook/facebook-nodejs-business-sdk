@@ -7,7 +7,6 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import AbstractObject from './../abstract-object';
 
 /**
  * Lead
@@ -34,12 +33,6 @@ export default class Lead extends AbstractCrudObject {
       post: 'post',
       retailer_item_id: 'retailer_item_id'
     });
-  }
-
-  delete (fields, params): AbstractObject {
-    return super.delete(
-      params
-    );
   }
 
   get (fields, params): Lead {

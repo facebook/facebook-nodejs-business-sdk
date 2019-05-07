@@ -7,7 +7,6 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import AbstractObject from './../abstract-object';
 
 /**
  * PageCallToAction
@@ -105,21 +104,9 @@ export default class PageCallToAction extends AbstractCrudObject {
     });
   }
 
-  delete (fields, params): AbstractObject {
-    return super.delete(
-      params
-    );
-  }
-
   get (fields, params): PageCallToAction {
     return this.read(
       fields,
-      params
-    );
-  }
-
-  update (fields, params): PageCallToAction {
-    return super.update(
       params
     );
   }

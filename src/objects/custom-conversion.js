@@ -8,8 +8,6 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
-import CustomConversionActivities from './custom-conversion-activities';
-import AdAccount from './ad-account';
 import CustomConversionStatsResult from './custom-conversion-stats-result';
 
 /**
@@ -66,39 +64,10 @@ export default class CustomConversion extends AbstractCrudObject {
     });
   }
 
-  getActivities (fields, params, fetchFirstPage = true): CustomConversionActivities {
-    return this.getEdge(
-      CustomConversionActivities,
-      fields,
-      params,
-      fetchFirstPage,
-      '/activities'
-    );
-  }
-
   deleteAdAccounts (params): AbstractObject {
     return super.deleteEdge(
       '/adaccounts',
       params
-    );
-  }
-
-  getAdAccounts (fields, params, fetchFirstPage = true): AdAccount {
-    return this.getEdge(
-      AdAccount,
-      fields,
-      params,
-      fetchFirstPage,
-      '/adaccounts'
-    );
-  }
-
-  createAdAccount (fields, params): CustomConversion {
-    return this.createEdge(
-      '/adaccounts',
-      fields,
-      params,
-      CustomConversion
     );
   }
 

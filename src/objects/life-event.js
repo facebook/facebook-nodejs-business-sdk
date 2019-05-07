@@ -7,7 +7,6 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import AbstractObject from './../abstract-object';
 import Comment from './comment';
 import Profile from './profile';
 import Photo from './photo';
@@ -43,15 +42,6 @@ export default class LifeEvent extends AbstractCrudObject {
     );
   }
 
-  createComment (fields, params): Comment {
-    return this.createEdge(
-      '/comments',
-      fields,
-      params,
-      Comment
-    );
-  }
-
   getLikes (fields, params, fetchFirstPage = true): Profile {
     return this.getEdge(
       Profile,
@@ -82,21 +72,9 @@ export default class LifeEvent extends AbstractCrudObject {
     );
   }
 
-  delete (fields, params): AbstractObject {
-    return super.delete(
-      params
-    );
-  }
-
   get (fields, params): LifeEvent {
     return this.read(
       fields,
-      params
-    );
-  }
-
-  update (fields, params): LifeEvent {
-    return super.update(
       params
     );
   }

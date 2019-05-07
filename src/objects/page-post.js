@@ -14,7 +14,6 @@ import InsightsResult from './insights-result';
 import Profile from './profile';
 import User from './user';
 import Post from './post';
-import Page from './page';
 
 /**
  * PagePost
@@ -199,16 +198,6 @@ export default class PagePost extends AbstractCrudObject {
     );
   }
 
-  getEditActions (fields, params, fetchFirstPage = true): AbstractObject {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/edit_actions'
-    );
-  }
-
   getInsights (fields, params, fetchFirstPage = true): InsightsResult {
     return this.getEdge(
       InsightsResult,
@@ -245,15 +234,6 @@ export default class PagePost extends AbstractCrudObject {
     );
   }
 
-  createPromotion (fields, params): AbstractObject {
-    return this.createEdge(
-      '/promotions',
-      fields,
-      params
-
-    );
-  }
-
   getReactions (fields, params, fetchFirstPage = true): Profile {
     return this.getEdge(
       Profile,
@@ -284,16 +264,6 @@ export default class PagePost extends AbstractCrudObject {
     );
   }
 
-  getSponsorTags (fields, params, fetchFirstPage = true): Page {
-    return this.getEdge(
-      Page,
-      fields,
-      params,
-      fetchFirstPage,
-      '/sponsor_tags'
-    );
-  }
-
   getTo (fields, params, fetchFirstPage = true): Profile {
     return this.getEdge(
       Profile,
@@ -301,16 +271,6 @@ export default class PagePost extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/to'
-    );
-  }
-
-  getWithTags (fields, params, fetchFirstPage = true): Profile {
-    return this.getEdge(
-      Profile,
-      fields,
-      params,
-      fetchFirstPage,
-      '/with_tags'
     );
   }
 
