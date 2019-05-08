@@ -55,18 +55,18 @@ export default class Http {
             resolve(response);
           } else {
             reject(
-              new Error({
+              {
                 body: response,
                 status: request.status
-              })
+              }
             );
           }
         } catch (e) {
           reject(
-            new Error({
+            {
               body: request.responseText,
               status: request.status
-            })
+            }
           );
         }
       };
