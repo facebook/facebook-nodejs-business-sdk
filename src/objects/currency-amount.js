@@ -19,7 +19,8 @@ export default class CurrencyAmount extends AbstractCrudObject {
       amount: 'amount',
       amount_in_hundredths: 'amount_in_hundredths',
       currency: 'currency',
-      offsetted_amount: 'offsetted_amount'
+      offsetted_amount: 'offsetted_amount',
     });
   }
+
 }

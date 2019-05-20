@@ -41,7 +41,8 @@ export default class AdsActionStats extends AbstractCrudObject {
       inline: 'inline',
       interactive_component_sticker_id: 'interactive_component_sticker_id',
       interactive_component_sticker_response: 'interactive_component_sticker_response',
-      value: 'value'
+      value: 'value',
     });
   }
+
 }

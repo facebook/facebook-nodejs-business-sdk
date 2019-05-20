@@ -56,7 +56,7 @@ export default class CustomAudience extends AbstractCrudObject {
       subtype: 'subtype',
       time_content_updated: 'time_content_updated',
       time_created: 'time_created',
-      time_updated: 'time_updated'
+      time_updated: 'time_updated',
     });
   }
 
@@ -69,7 +69,7 @@ export default class CustomAudience extends AbstractCrudObject {
       product: 'PRODUCT',
       travel: 'TRAVEL',
       vehicle: 'VEHICLE',
-      vehicle_offer: 'VEHICLE_OFFER'
+      vehicle_offer: 'VEHICLE_OFFER',
     });
   }
   static get ContentType (): Object {
@@ -82,14 +82,14 @@ export default class CustomAudience extends AbstractCrudObject {
       media_title: 'MEDIA_TITLE',
       product: 'PRODUCT',
       vehicle: 'VEHICLE',
-      vehicle_offer: 'VEHICLE_OFFER'
+      vehicle_offer: 'VEHICLE_OFFER',
     });
   }
   static get CustomerFileSource (): Object {
     return Object.freeze({
       both_user_and_partner_provided: 'BOTH_USER_AND_PARTNER_PROVIDED',
       partner_provided_only: 'PARTNER_PROVIDED_ONLY',
-      user_provided_only: 'USER_PROVIDED_ONLY'
+      user_provided_only: 'USER_PROVIDED_ONLY',
     });
   }
   static get Subtype (): Object {
@@ -108,7 +108,7 @@ export default class CustomAudience extends AbstractCrudObject {
       regulated_categories_audience: 'REGULATED_CATEGORIES_AUDIENCE',
       study_rule_audience: 'STUDY_RULE_AUDIENCE',
       video: 'VIDEO',
-      website: 'WEBSITE'
+      website: 'WEBSITE',
     });
   }
 
@@ -152,8 +152,8 @@ export default class CustomAudience extends AbstractCrudObject {
     return this.createEdge(
       '/capabilities',
       fields,
-      params
-
+      params,
+      
     );
   }
 
@@ -161,8 +161,8 @@ export default class CustomAudience extends AbstractCrudObject {
     return this.createEdge(
       '/data',
       fields,
-      params
-
+      params,
+      
     );
   }
 

@@ -25,7 +25,8 @@ export default class Tab extends AbstractCrudObject {
       is_permanent: 'is_permanent',
       link: 'link',
       name: 'name',
-      position: 'position'
+      position: 'position',
     });
   }
+
 }

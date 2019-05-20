@@ -22,7 +22,7 @@ export default class VideoCopyrightRule extends AbstractCrudObject {
       creator: 'creator',
       id: 'id',
       is_in_migration: 'is_in_migration',
-      name: 'name'
+      name: 'name',
     });
   }
 
@@ -30,7 +30,7 @@ export default class VideoCopyrightRule extends AbstractCrudObject {
     return Object.freeze({
       match_settings_dialog: 'MATCH_SETTINGS_DIALOG',
       rules_selector: 'RULES_SELECTOR',
-      rules_tab: 'RULES_TAB'
+      rules_tab: 'RULES_TAB',
     });
   }
 

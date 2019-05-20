@@ -22,7 +22,7 @@ export default class AdAccountMatchedSearchApplicationsEdgeData extends Abstract
       search_source_store: 'search_source_store',
       store: 'store',
       unique_id: 'unique_id',
-      url: 'url'
+      url: 'url',
     });
   }
 
@@ -39,7 +39,7 @@ export default class AdAccountMatchedSearchApplicationsEdgeData extends Abstract
       itunes_ipad: 'ITUNES_IPAD',
       roku_store: 'ROKU_STORE',
       windows_10_store: 'WINDOWS_10_STORE',
-      windows_store: 'WINDOWS_STORE'
+      windows_store: 'WINDOWS_STORE',
     });
   }
 }

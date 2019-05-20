@@ -23,9 +23,10 @@ export default class InstagramComment extends AbstractCrudObject {
       instagram_comment_id: 'instagram_comment_id',
       instagram_user: 'instagram_user',
       mentioned_instagram_users: 'mentioned_instagram_users',
-      message: 'message'
+      message: 'message',
     });
   }
+
 
   delete (fields, params): AbstractObject {
     return super.delete(

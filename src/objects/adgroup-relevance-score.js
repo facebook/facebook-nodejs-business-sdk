@@ -19,7 +19,8 @@ export default class AdgroupRelevanceScore extends AbstractCrudObject {
       negative_feedback: 'negative_feedback',
       positive_feedback: 'positive_feedback',
       score: 'score',
-      status: 'status'
+      status: 'status',
     });
   }
+
 }

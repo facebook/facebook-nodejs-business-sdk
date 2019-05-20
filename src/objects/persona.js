@@ -19,9 +19,10 @@ export default class Persona extends AbstractCrudObject {
     return Object.freeze({
       id: 'id',
       name: 'name',
-      profile_picture_url: 'profile_picture_url'
+      profile_picture_url: 'profile_picture_url',
     });
   }
+
 
   delete (fields, params): AbstractObject {
     return super.delete(

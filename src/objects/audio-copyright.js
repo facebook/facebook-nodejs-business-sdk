@@ -26,9 +26,10 @@ export default class AudioCopyright extends AbstractCrudObject {
       ridge_monitoring_status: 'ridge_monitoring_status',
       update_time: 'update_time',
       whitelisted_fb_users: 'whitelisted_fb_users',
-      whitelisted_ig_users: 'whitelisted_ig_users'
+      whitelisted_ig_users: 'whitelisted_ig_users',
     });
   }
+
 
   get (fields, params): AudioCopyright {
     return this.read(

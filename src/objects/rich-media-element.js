@@ -18,7 +18,8 @@ export default class RichMediaElement extends AbstractCrudObject {
     return Object.freeze({
       element: 'element',
       element_type: 'element_type',
-      name: 'name'
+      name: 'name',
     });
   }
+
 }

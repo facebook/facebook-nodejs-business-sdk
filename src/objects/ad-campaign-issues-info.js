@@ -19,7 +19,8 @@ export default class AdCampaignIssuesInfo extends AbstractCrudObject {
       error_code: 'error_code',
       error_message: 'error_message',
       error_summary: 'error_summary',
-      level: 'level'
+      level: 'level',
     });
   }
+
 }

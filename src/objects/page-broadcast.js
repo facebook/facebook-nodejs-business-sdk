@@ -19,7 +19,13 @@ export default class PageBroadcast extends AbstractCrudObject {
     return Object.freeze({
       id: 'id',
       scheduled_time: 'scheduled_time',
-      status: 'status'
+      status: 'status',
+    });
+  }
+
+  static get Operation (): Object {
+    return Object.freeze({
+      cancel: 'CANCEL',
     });
   }
 
@@ -36,6 +42,12 @@ export default class PageBroadcast extends AbstractCrudObject {
   get (fields, params): PageBroadcast {
     return this.read(
       fields,
+      params
+    );
+  }
+
+  update (fields, params): PageBroadcast {
+    return super.update(
       params
     );
   }

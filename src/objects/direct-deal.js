@@ -40,7 +40,7 @@ export default class DirectDeal extends AbstractCrudObject {
       status: 'status',
       targeting: 'targeting',
       third_party_ids: 'third_party_ids',
-      third_party_integrated_deal: 'third_party_integrated_deal'
+      third_party_integrated_deal: 'third_party_integrated_deal',
     });
   }
 
@@ -52,7 +52,7 @@ export default class DirectDeal extends AbstractCrudObject {
       value_3: '3',
       value_4: '4',
       value_5: '5',
-      value_6: '6'
+      value_6: '6',
     });
   }
 

@@ -17,9 +17,10 @@ import User from './user';
 export default class OpenGraphContext extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      id: 'id'
+      id: 'id',
     });
   }
+
 
   getFriendsTaggedAt (fields, params, fetchFirstPage = true): User {
     return this.getEdge(

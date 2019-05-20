@@ -22,7 +22,7 @@ export default class ProductCatalogCategory extends AbstractCrudObject {
       image_url: 'image_url',
       name: 'name',
       num_items: 'num_items',
-      tokens: 'tokens'
+      tokens: 'tokens',
     });
   }
 
@@ -30,7 +30,7 @@ export default class ProductCatalogCategory extends AbstractCrudObject {
     return Object.freeze({
       brand: 'BRAND',
       category: 'CATEGORY',
-      product_type: 'PRODUCT_TYPE'
+      product_type: 'PRODUCT_TYPE',
     });
   }
 }

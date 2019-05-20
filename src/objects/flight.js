@@ -30,9 +30,10 @@ export default class Flight extends AbstractCrudObject {
       origin_city: 'origin_city',
       price: 'price',
       sanitized_images: 'sanitized_images',
-      url: 'url'
+      url: 'url',
     });
   }
+
 
   get (fields, params): Flight {
     return this.read(

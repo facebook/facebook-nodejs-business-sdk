@@ -23,9 +23,10 @@ export default class AdPlacement extends AbstractCrudObject {
       id: 'id',
       name: 'name',
       platform: 'platform',
-      status: 'status'
+      status: 'status',
     });
   }
+
 
   get (fields, params): AdPlacement {
     return this.read(

@@ -25,9 +25,10 @@ export default class BusinessProject extends AbstractCrudObject {
       created_time: 'created_time',
       creator: 'creator',
       id: 'id',
-      name: 'name'
+      name: 'name',
     });
   }
+
 
   deleteAdAccounts (params): AbstractObject {
     return super.deleteEdge(

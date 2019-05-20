@@ -18,7 +18,8 @@ export default class ReachEstimate extends AbstractCrudObject {
     return Object.freeze({
       estimate_ready: 'estimate_ready',
       unsupported: 'unsupported',
-      users: 'users'
+      users: 'users',
     });
   }
+
 }

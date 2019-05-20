@@ -18,7 +18,8 @@ export default class ReachFrequencyDayPart extends AbstractCrudObject {
     return Object.freeze({
       days: 'days',
       end_minute: 'end_minute',
-      start_minute: 'start_minute'
+      start_minute: 'start_minute',
     });
   }
+
 }

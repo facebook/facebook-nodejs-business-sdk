@@ -58,9 +58,10 @@ export default class HomeListing extends AbstractCrudObject {
       property_type: 'property_type',
       sanitized_images: 'sanitized_images',
       url: 'url',
-      year_built: 'year_built'
+      year_built: 'year_built',
     });
   }
+
 
   delete (fields, params): AbstractObject {
     return super.delete(

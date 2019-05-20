@@ -19,7 +19,8 @@ export default class BusinessAdvertisableApplicationsResult extends AbstractCrud
       has_insight_permission: 'has_insight_permission',
       id: 'id',
       name: 'name',
-      photo_url: 'photo_url'
+      photo_url: 'photo_url',
     });
   }
+
 }

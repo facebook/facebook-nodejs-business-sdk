@@ -19,9 +19,10 @@ export default class DynamicPriceConfigByDate extends AbstractCrudObject {
       checkin_date: 'checkin_date',
       prices: 'prices',
       prices_pretty: 'prices_pretty',
-      id: 'id'
+      id: 'id',
     });
   }
+
 
   get (fields, params): DynamicPriceConfigByDate {
     return this.read(

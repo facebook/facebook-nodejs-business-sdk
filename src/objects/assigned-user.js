@@ -19,7 +19,8 @@ export default class AssignedUser extends AbstractCrudObject {
       business: 'business',
       id: 'id',
       name: 'name',
-      user_type: 'user_type'
+      user_type: 'user_type',
     });
   }
+
 }

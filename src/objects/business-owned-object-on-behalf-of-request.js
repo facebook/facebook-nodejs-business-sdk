@@ -21,7 +21,7 @@ export default class BusinessOwnedObjectOnBehalfOfRequest extends AbstractCrudOb
       id: 'id',
       receiving_business: 'receiving_business',
       requesting_business: 'requesting_business',
-      status: 'status'
+      status: 'status',
     });
   }
 
@@ -30,7 +30,7 @@ export default class BusinessOwnedObjectOnBehalfOfRequest extends AbstractCrudOb
       approve: 'APPROVE',
       decline: 'DECLINE',
       expired: 'EXPIRED',
-      in_progress: 'IN_PROGRESS'
+      in_progress: 'IN_PROGRESS',
     });
   }
 

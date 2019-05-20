@@ -17,9 +17,10 @@ export default class DestinationCatalogSettings extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       generate_items_from_pages: 'generate_items_from_pages',
-      id: 'id'
+      id: 'id',
     });
   }
+
 
   get (fields, params): DestinationCatalogSettings {
     return this.read(

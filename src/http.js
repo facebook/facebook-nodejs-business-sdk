@@ -23,12 +23,12 @@ export default class Http {
    * @param   {Object}  [data]
    * @return  {Promise}
    */
-  static request (
+  static request(
     method: string,
     url: string,
     data: Object,
     files: Object,
-    useMultipartFormData: Boolean
+    useMultipartFormData: Boolean,
   ): Promise<*> {
     if (typeof window !== 'undefined' && window.XMLHttpRequest) {
       return Http.xmlHttpRequest(method, url, data);
@@ -43,11 +43,11 @@ export default class Http {
    * @param   {Object}  [data]
    * @return  {Promise}
    */
-  static xmlHttpRequest (method, url, data): Promise<*> {
+  static xmlHttpRequest(method, url, data): Promise<*> {
     return new Promise((resolve, reject) => {
       const request = new window.XMLHttpRequest();
       request.open(method, url);
-      request.onload = function () {
+      request.onload = function() {
         try {
           const response = JSON.parse(request.response);
 
@@ -57,16 +57,16 @@ export default class Http {
             reject(
               new Error({
                 body: response,
-                status: request.status
-              })
+                status: request.status,
+              }),
             );
           }
         } catch (e) {
           reject(
             new Error({
               body: request.responseText,
-              status: request.status
-            })
+              status: request.status,
+            }),
           );
         }
       };
@@ -89,19 +89,19 @@ export default class Http {
    *   multipart/form-data.
    * @return  {Promise}
    */
-  static requestPromise (
+  static requestPromise(
     method: string,
     url: string,
     data: Object,
     files: Object,
-    useMultipartFormData: Boolean = false
+    useMultipartFormData: Boolean = false,
   ): Promise<*> {
     const options = {
       method: method,
       uri: url,
       json: !useMultipartFormData,
       headers: {'User-Agent': `fbbizsdk-nodejs-${Api.VERSION}`},
-      body: Object
+      body: Object,
     };
     // Prevent null or undefined input
     // because it can be merged with the files argument later

@@ -17,7 +17,8 @@ export default class BusinessApplicationRequest extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       application: 'application',
-      id: 'id'
+      id: 'id',
     });
   }
+
 }

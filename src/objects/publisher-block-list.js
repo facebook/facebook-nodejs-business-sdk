@@ -26,9 +26,10 @@ export default class PublisherBlockList extends AbstractCrudObject {
       last_update_user: 'last_update_user',
       name: 'name',
       owner_ad_account_id: 'owner_ad_account_id',
-      web_publishers: 'web_publishers'
+      web_publishers: 'web_publishers',
     });
   }
+
 
   getPagedAppPublishers (fields, params, fetchFirstPage = true): AbstractObject {
     return this.getEdge(

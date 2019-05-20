@@ -17,7 +17,8 @@ export default class AdCampaignDeliveryStatsUnsupportedReasons extends AbstractC
   static get Fields () {
     return Object.freeze({
       reason_data: 'reason_data',
-      reason_type: 'reason_type'
+      reason_type: 'reason_type',
     });
   }
+
 }

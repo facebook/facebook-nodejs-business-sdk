@@ -31,9 +31,10 @@ export default class UnifiedThread extends AbstractCrudObject {
       subject: 'subject',
       unread_count: 'unread_count',
       updated_time: 'updated_time',
-      wallpaper: 'wallpaper'
+      wallpaper: 'wallpaper',
     });
   }
+
 
   getMessages (fields, params, fetchFirstPage = true): AbstractObject {
     return this.getEdge(
@@ -49,8 +50,8 @@ export default class UnifiedThread extends AbstractCrudObject {
     return this.createEdge(
       '/messages',
       fields,
-      params
-
+      params,
+      
     );
   }
 

@@ -21,7 +21,7 @@ export default class InstagramInsightsResult extends AbstractCrudObject {
       name: 'name',
       period: 'period',
       title: 'title',
-      values: 'values'
+      values: 'values',
     });
   }
 
@@ -40,7 +40,7 @@ export default class InstagramInsightsResult extends AbstractCrudObject {
       saved: 'saved',
       taps_back: 'taps_back',
       taps_forward: 'taps_forward',
-      video_views: 'video_views'
+      video_views: 'video_views',
     });
   }
   static get Period (): Object {
@@ -49,7 +49,7 @@ export default class InstagramInsightsResult extends AbstractCrudObject {
       days_28: 'days_28',
       lifetime: 'lifetime',
       month: 'month',
-      week: 'week'
+      week: 'week',
     });
   }
 }

@@ -125,7 +125,7 @@ export default class AdAccount extends AbstractCrudObject {
       timezone_offset_hours_utc: 'timezone_offset_hours_utc',
       tos_accepted: 'tos_accepted',
       user_role: 'user_role',
-      user_tos_accepted: 'user_tos_accepted'
+      user_tos_accepted: 'user_tos_accepted',
     });
   }
 
@@ -184,21 +184,21 @@ export default class AdAccount extends AbstractCrudObject {
       usd: 'USD',
       uyu: 'UYU',
       vnd: 'VND',
-      zar: 'ZAR'
+      zar: 'ZAR',
     });
   }
   static get PermittedTasks (): Object {
     return Object.freeze({
       advertise: 'ADVERTISE',
       analyze: 'ANALYZE',
-      manage: 'MANAGE'
+      manage: 'MANAGE',
     });
   }
   static get Tasks (): Object {
     return Object.freeze({
       advertise: 'ADVERTISE',
       analyze: 'ANALYZE',
-      manage: 'MANAGE'
+      manage: 'MANAGE',
     });
   }
   static get ClaimObjective (): Object {
@@ -210,7 +210,7 @@ export default class AdAccount extends AbstractCrudObject {
       product: 'PRODUCT',
       travel: 'TRAVEL',
       vehicle: 'VEHICLE',
-      vehicle_offer: 'VEHICLE_OFFER'
+      vehicle_offer: 'VEHICLE_OFFER',
     });
   }
   static get ContentType (): Object {
@@ -223,7 +223,7 @@ export default class AdAccount extends AbstractCrudObject {
       media_title: 'MEDIA_TITLE',
       product: 'PRODUCT',
       vehicle: 'VEHICLE',
-      vehicle_offer: 'VEHICLE_OFFER'
+      vehicle_offer: 'VEHICLE_OFFER',
     });
   }
   static get Subtype (): Object {
@@ -242,7 +242,7 @@ export default class AdAccount extends AbstractCrudObject {
       regulated_categories_audience: 'REGULATED_CATEGORIES_AUDIENCE',
       study_rule_audience: 'STUDY_RULE_AUDIENCE',
       video: 'VIDEO',
-      website: 'WEBSITE'
+      website: 'WEBSITE',
     });
   }
 
@@ -419,8 +419,8 @@ export default class AdAccount extends AbstractCrudObject {
     return this.createEdge(
       '/adreportschedules',
       fields,
-      params
-
+      params,
+      
     );
   }
 
@@ -583,6 +583,13 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
+  deleteAdVideos (params): AbstractObject {
+    return super.deleteEdge(
+      '/advideos',
+      params
+    );
+  }
+
   getAdVideos (fields, params, fetchFirstPage = true): AdVideo {
     return this.getEdge(
       AdVideo,
@@ -706,8 +713,8 @@ export default class AdAccount extends AbstractCrudObject {
     return this.createEdge(
       '/audiencereplace',
       fields,
-      params
-
+      params,
+      
     );
   }
 
@@ -715,8 +722,8 @@ export default class AdAccount extends AbstractCrudObject {
     return this.createEdge(
       '/batchreplace',
       fields,
-      params
-
+      params,
+      
     );
   }
 
@@ -724,8 +731,8 @@ export default class AdAccount extends AbstractCrudObject {
     return this.createEdge(
       '/batchupload',
       fields,
-      params
-
+      params,
+      
     );
   }
 
@@ -742,8 +749,8 @@ export default class AdAccount extends AbstractCrudObject {
     return this.createEdge(
       '/brand_audiences',
       fields,
-      params
-
+      params,
+      
     );
   }
 
@@ -1002,8 +1009,8 @@ export default class AdAccount extends AbstractCrudObject {
     return this.createEdge(
       '/partnerrequests',
       fields,
-      params
-
+      params,
+      
     );
   }
 
@@ -1098,8 +1105,8 @@ export default class AdAccount extends AbstractCrudObject {
     return this.createEdge(
       '/sponsored_message_ads',
       fields,
-      params
-
+      params,
+      
     );
   }
 

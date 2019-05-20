@@ -16,7 +16,8 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class SecuritySettings extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      secure_browsing: 'secure_browsing'
+      secure_browsing: 'secure_browsing',
     });
   }
+
 }

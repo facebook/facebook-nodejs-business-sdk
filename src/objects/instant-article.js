@@ -26,9 +26,10 @@ export default class InstantArticle extends AbstractCrudObject {
       photos: 'photos',
       publish_status: 'publish_status',
       published: 'published',
-      videos: 'videos'
+      videos: 'videos',
     });
   }
+
 
   getInsights (fields, params, fetchFirstPage = true): InstantArticleInsightsQueryResult {
     return this.getEdge(

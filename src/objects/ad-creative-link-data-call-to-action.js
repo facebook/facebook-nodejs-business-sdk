@@ -17,7 +17,7 @@ export default class AdCreativeLinkDataCallToAction extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       type: 'type',
-      value: 'value'
+      value: 'value',
     });
   }
 
@@ -75,7 +75,7 @@ export default class AdCreativeLinkDataCallToAction extends AbstractCrudObject {
       watch_more: 'WATCH_MORE',
       watch_video: 'WATCH_VIDEO',
       whatsapp_message: 'WHATSAPP_MESSAGE',
-      woodhenge_support: 'WOODHENGE_SUPPORT'
+      woodhenge_support: 'WOODHENGE_SUPPORT',
     });
   }
 }

@@ -35,21 +35,21 @@ export default class AdStudy extends AbstractCrudObject {
       start_time: 'start_time',
       type: 'type',
       updated_by: 'updated_by',
-      updated_time: 'updated_time'
+      updated_time: 'updated_time',
     });
   }
 
   static get AudienceType (): Object {
     return Object.freeze({
       most_responsive: 'MOST_RESPONSIVE',
-      not_most_responsive: 'NOT_MOST_RESPONSIVE'
+      not_most_responsive: 'NOT_MOST_RESPONSIVE',
     });
   }
   static get Type (): Object {
     return Object.freeze({
       continuous_lift_config: 'CONTINUOUS_LIFT_CONFIG',
       lift: 'LIFT',
-      split_test: 'SPLIT_TEST'
+      split_test: 'SPLIT_TEST',
     });
   }
 

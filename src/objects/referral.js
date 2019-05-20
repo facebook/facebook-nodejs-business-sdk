@@ -27,9 +27,10 @@ export default class Referral extends AbstractCrudObject {
       promotion_text: 'promotion_text',
       receiver_benefits_text: 'receiver_benefits_text',
       referral_link_uri: 'referral_link_uri',
-      sender_benefits_text: 'sender_benefits_text'
+      sender_benefits_text: 'sender_benefits_text',
     });
   }
+
 
   delete (fields, params): AbstractObject {
     return super.delete(

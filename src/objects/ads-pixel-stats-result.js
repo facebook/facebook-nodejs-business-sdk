@@ -18,7 +18,7 @@ export default class AdsPixelStatsResult extends AbstractCrudObject {
     return Object.freeze({
       aggregation: 'aggregation',
       data: 'data',
-      start_time: 'start_time'
+      start_time: 'start_time',
     });
   }
 
@@ -40,7 +40,7 @@ export default class AdsPixelStatsResult extends AbstractCrudObject {
       pii_lift: 'pii_lift',
       pixel_fire: 'pixel_fire',
       url: 'url',
-      url_by_rule: 'url_by_rule'
+      url_by_rule: 'url_by_rule',
     });
   }
 }

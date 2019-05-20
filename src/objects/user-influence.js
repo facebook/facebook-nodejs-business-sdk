@@ -18,7 +18,8 @@ export default class UserInfluence extends AbstractCrudObject {
     return Object.freeze({
       trust: 'trust',
       trust_code: 'trust_code',
-      version: 'version'
+      version: 'version',
     });
   }
+
 }

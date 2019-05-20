@@ -20,7 +20,7 @@ export default class ProductFeedRule extends AbstractCrudObject {
       attribute: 'attribute',
       id: 'id',
       params: 'params',
-      rule_type: 'rule_type'
+      rule_type: 'rule_type',
     });
   }
 
@@ -30,7 +30,7 @@ export default class ProductFeedRule extends AbstractCrudObject {
       letter_case_rule: 'letter_case_rule',
       mapping_rule: 'mapping_rule',
       regex_replace_rule: 'regex_replace_rule',
-      value_mapping_rule: 'value_mapping_rule'
+      value_mapping_rule: 'value_mapping_rule',
     });
   }
 

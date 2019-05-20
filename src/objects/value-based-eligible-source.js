@@ -18,7 +18,8 @@ export default class ValueBasedEligibleSource extends AbstractCrudObject {
     return Object.freeze({
       id: 'id',
       title: 'title',
-      type: 'type'
+      type: 'type',
     });
   }
+
 }

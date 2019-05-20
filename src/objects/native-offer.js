@@ -41,7 +41,7 @@ export default class NativeOffer extends AbstractCrudObject {
       unique_codes: 'unique_codes',
       unique_codes_file_code_type: 'unique_codes_file_code_type',
       unique_codes_file_name: 'unique_codes_file_name',
-      unique_codes_file_upload_status: 'unique_codes_file_upload_status'
+      unique_codes_file_upload_status: 'unique_codes_file_upload_status',
     });
   }
 
@@ -59,14 +59,14 @@ export default class NativeOffer extends AbstractCrudObject {
       pdf417: 'PDF417',
       qr: 'QR',
       upc_a: 'UPC_A',
-      upc_e: 'UPC_E'
+      upc_e: 'UPC_E',
     });
   }
   static get LocationType (): Object {
     return Object.freeze({
       both: 'both',
       offline: 'offline',
-      online: 'online'
+      online: 'online',
     });
   }
 

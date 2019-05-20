@@ -23,7 +23,8 @@ export default class Recommendation extends AbstractCrudObject {
       rating: 'rating',
       recommendation_type: 'recommendation_type',
       review_text: 'review_text',
-      reviewer: 'reviewer'
+      reviewer: 'reviewer',
     });
   }
+
 }

@@ -25,9 +25,10 @@ export default class AdLabel extends AbstractCrudObject {
       created_time: 'created_time',
       id: 'id',
       name: 'name',
-      updated_time: 'updated_time'
+      updated_time: 'updated_time',
     });
   }
+
 
   getAdCreatives (fields, params, fetchFirstPage = true): AdCreative {
     return this.getEdge(

@@ -24,7 +24,7 @@ export default class MediaFingerprint extends AbstractCrudObject {
       id: 'id',
       metadata: 'metadata',
       title: 'title',
-      universal_content_id: 'universal_content_id'
+      universal_content_id: 'universal_content_id',
     });
   }
 
@@ -34,7 +34,7 @@ export default class MediaFingerprint extends AbstractCrudObject {
       episode: 'EPISODE',
       movie: 'MOVIE',
       other: 'OTHER',
-      songtrack: 'SONGTRACK'
+      songtrack: 'SONGTRACK',
     });
   }
 

@@ -25,7 +25,8 @@ export default class PageRestaurantServices extends AbstractCrudObject {
       reserve: 'reserve',
       takeout: 'takeout',
       waiter: 'waiter',
-      walkins: 'walkins'
+      walkins: 'walkins',
     });
   }
+
 }

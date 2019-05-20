@@ -19,7 +19,8 @@ export default class UserPaymentModulesOptions extends AbstractCrudObject {
       account_id: 'account_id',
       available_payment_options: 'available_payment_options',
       country: 'country',
-      currency: 'currency'
+      currency: 'currency',
     });
   }
+
 }

@@ -22,9 +22,10 @@ export default class DynamicItemDisplayBundleFolder extends AbstractCrudObject {
       name: 'name',
       product_catalog: 'product_catalog',
       product_set: 'product_set',
-      valid_labels: 'valid_labels'
+      valid_labels: 'valid_labels',
     });
   }
+
 
   deleteBundles (params): AbstractObject {
     return super.deleteEdge(

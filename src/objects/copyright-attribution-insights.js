@@ -20,7 +20,8 @@ export default class CopyrightAttributionInsights extends AbstractCrudObject {
       l7_attribution_page_view_delta: 'l7_attribution_page_view_delta',
       l7_attribution_video_view: 'l7_attribution_video_view',
       l7_attribution_video_view_delta: 'l7_attribution_video_view_delta',
-      metrics_ending_date: 'metrics_ending_date'
+      metrics_ending_date: 'metrics_ending_date',
     });
   }
+
 }

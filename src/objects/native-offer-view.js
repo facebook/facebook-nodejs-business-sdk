@@ -19,9 +19,10 @@ export default class NativeOfferView extends AbstractCrudObject {
     return Object.freeze({
       id: 'id',
       offer: 'offer',
-      save_count: 'save_count'
+      save_count: 'save_count',
     });
   }
+
 
   getPhotos (fields, params, fetchFirstPage = true): Photo {
     return this.getEdge(

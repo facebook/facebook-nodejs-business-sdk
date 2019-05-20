@@ -28,9 +28,10 @@ export default class SavedAudience extends AbstractCrudObject {
       sentence_lines: 'sentence_lines',
       targeting: 'targeting',
       time_created: 'time_created',
-      time_updated: 'time_updated'
+      time_updated: 'time_updated',
     });
   }
+
 
   getAdSets (fields, params, fetchFirstPage = true): AdSet {
     return this.getEdge(

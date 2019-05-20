@@ -38,7 +38,7 @@ export default class AdCampaignGroupActivity extends AbstractCrudObject {
       spend_cap_old: 'spend_cap_old',
       time_created: 'time_created',
       time_updated_new: 'time_updated_new',
-      time_updated_old: 'time_updated_old'
+      time_updated_old: 'time_updated_old',
     });
   }
 
@@ -61,7 +61,7 @@ export default class AdCampaignGroupActivity extends AbstractCrudObject {
       post_engagement: 'POST_ENGAGEMENT',
       product_catalog_sales: 'PRODUCT_CATALOG_SALES',
       video_views: 'VIDEO_VIEWS',
-      website_conversions: 'WEBSITE_CONVERSIONS'
+      website_conversions: 'WEBSITE_CONVERSIONS',
     });
   }
   static get ObjectiveOld (): Object {
@@ -83,7 +83,7 @@ export default class AdCampaignGroupActivity extends AbstractCrudObject {
       post_engagement: 'POST_ENGAGEMENT',
       product_catalog_sales: 'PRODUCT_CATALOG_SALES',
       video_views: 'VIDEO_VIEWS',
-      website_conversions: 'WEBSITE_CONVERSIONS'
+      website_conversions: 'WEBSITE_CONVERSIONS',
     });
   }
 

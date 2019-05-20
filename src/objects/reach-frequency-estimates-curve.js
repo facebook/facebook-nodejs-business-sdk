@@ -24,7 +24,8 @@ export default class ReachFrequencyEstimatesCurve extends AbstractCrudObject {
       num_points: 'num_points',
       raw_impression: 'raw_impression',
       raw_reach: 'raw_reach',
-      reach: 'reach'
+      reach: 'reach',
     });
   }
+
 }

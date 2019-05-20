@@ -18,7 +18,8 @@ export default class AdBidAdjustments extends AbstractCrudObject {
     return Object.freeze({
       age_range: 'age_range',
       page_types: 'page_types',
-      user_groups: 'user_groups'
+      user_groups: 'user_groups',
     });
   }
+
 }

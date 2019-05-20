@@ -20,20 +20,20 @@ export default class ThirdPartyMeasurementReportDataset extends AbstractCrudObje
       id: 'id',
       partner: 'partner',
       product: 'product',
-      schema: 'schema'
+      schema: 'schema',
     });
   }
 
   static get Category (): Object {
     return Object.freeze({
-      mta: 'MTA'
+      mta: 'MTA',
     });
   }
   static get Product (): Object {
     return Object.freeze({
       custom: 'CUSTOM',
       mta: 'MTA',
-      viewability: 'VIEWABILITY'
+      viewability: 'VIEWABILITY',
     });
   }
 

@@ -17,9 +17,10 @@ export default class ReadOnlyAnalyticsUserPropertyConfig extends AbstractCrudObj
   static get Fields () {
     return Object.freeze({
       active_properties: 'active_properties',
-      id: 'id'
+      id: 'id',
     });
   }
+
 
   get (fields, params): ReadOnlyAnalyticsUserPropertyConfig {
     return this.read(

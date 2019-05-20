@@ -19,7 +19,8 @@ export default class Currency extends AbstractCrudObject {
       currency_offset: 'currency_offset',
       usd_exchange: 'usd_exchange',
       usd_exchange_inverse: 'usd_exchange_inverse',
-      user_currency: 'user_currency'
+      user_currency: 'user_currency',
     });
   }
+
 }

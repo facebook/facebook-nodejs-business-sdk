@@ -17,7 +17,8 @@ export default class AppRequestFormerRecipient extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       id: 'id',
-      recipient_id: 'recipient_id'
+      recipient_id: 'recipient_id',
     });
   }
+
 }

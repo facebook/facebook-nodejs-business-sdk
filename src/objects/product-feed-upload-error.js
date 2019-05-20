@@ -24,7 +24,7 @@ export default class ProductFeedUploadError extends AbstractCrudObject {
       id: 'id',
       severity: 'severity',
       summary: 'summary',
-      total_count: 'total_count'
+      total_count: 'total_count',
     });
   }
 
@@ -32,13 +32,13 @@ export default class ProductFeedUploadError extends AbstractCrudObject {
     return Object.freeze({
       dynamic_ads: 'Dynamic Ads',
       marketplace: 'Marketplace',
-      us_marketplace: 'US Marketplace'
+      us_marketplace: 'US Marketplace',
     });
   }
   static get Severity (): Object {
     return Object.freeze({
       fatal: 'fatal',
-      warning: 'warning'
+      warning: 'warning',
     });
   }
 

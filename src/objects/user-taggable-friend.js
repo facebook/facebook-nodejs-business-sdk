@@ -21,9 +21,10 @@ export default class UserTaggableFriend extends AbstractCrudObject {
       id: 'id',
       last_name: 'last_name',
       middle_name: 'middle_name',
-      name: 'name'
+      name: 'name',
     });
   }
+
 
   getPicture (fields, params, fetchFirstPage = true): ProfilePictureSource {
     return this.getEdge(

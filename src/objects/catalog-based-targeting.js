@@ -16,7 +16,8 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class CatalogBasedTargeting extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      geo_targeting_type: 'geo_targeting_type'
+      geo_targeting_type: 'geo_targeting_type',
     });
   }
+
 }

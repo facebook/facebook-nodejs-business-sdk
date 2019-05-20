@@ -18,9 +18,10 @@ export default class ExternalEventSource extends AbstractCrudObject {
     return Object.freeze({
       id: 'id',
       name: 'name',
-      source_type: 'source_type'
+      source_type: 'source_type',
     });
   }
+
 
   get (fields, params): ExternalEventSource {
     return this.read(

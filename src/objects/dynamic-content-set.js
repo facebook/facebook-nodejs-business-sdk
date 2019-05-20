@@ -18,9 +18,10 @@ export default class DynamicContentSet extends AbstractCrudObject {
     return Object.freeze({
       business_id: 'business_id',
       id: 'id',
-      name: 'name'
+      name: 'name',
     });
   }
+
 
   get (fields, params): DynamicContentSet {
     return this.read(

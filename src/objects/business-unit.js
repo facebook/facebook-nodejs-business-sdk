@@ -19,9 +19,10 @@ export default class BusinessUnit extends AbstractCrudObject {
       business: 'business',
       creation_time: 'creation_time',
       id: 'id',
-      name: 'name'
+      name: 'name',
     });
   }
+
 
   get (fields, params): BusinessUnit {
     return this.read(

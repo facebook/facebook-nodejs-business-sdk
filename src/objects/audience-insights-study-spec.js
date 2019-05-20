@@ -23,7 +23,8 @@ export default class AudienceInsightsStudySpec extends AbstractCrudObject {
       excluded_rules: 'excluded_rules',
       included_rules: 'included_rules',
       start_time: 'start_time',
-      status: 'status'
+      status: 'status',
     });
   }
+
 }

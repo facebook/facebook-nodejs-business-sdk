@@ -18,4 +18,5 @@ export default class NullNode extends AbstractCrudObject {
     return Object.freeze({
     });
   }
+
 }

@@ -24,7 +24,7 @@ export default class ProfilePictureSource extends AbstractCrudObject {
       right: 'right',
       top: 'top',
       url: 'url',
-      width: 'width'
+      width: 'width',
     });
   }
 
@@ -32,7 +32,7 @@ export default class ProfilePictureSource extends AbstractCrudObject {
     return Object.freeze({
       album: 'album',
       small: 'small',
-      thumbnail: 'thumbnail'
+      thumbnail: 'thumbnail',
     });
   }
 }

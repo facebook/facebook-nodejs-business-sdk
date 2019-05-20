@@ -31,9 +31,10 @@ export default class IGUser extends AbstractCrudObject {
       name: 'name',
       profile_picture_url: 'profile_picture_url',
       username: 'username',
-      website: 'website'
+      website: 'website',
     });
   }
+
 
   getInsights (fields, params, fetchFirstPage = true): InstagramInsightsResult {
     return this.getEdge(
@@ -77,8 +78,8 @@ export default class IGUser extends AbstractCrudObject {
     return this.createEdge(
       '/mentions',
       fields,
-      params
-
+      params,
+      
     );
   }
 

@@ -37,7 +37,7 @@
     "babel-preset-stage-2": "^6.24.1",
     "babelrc-rollup": "^3.0.0",
     "chai": "~3.5.0"
-},
+  },
   "main": "./dist/iife.js",
   "license": "Platform License"
 }

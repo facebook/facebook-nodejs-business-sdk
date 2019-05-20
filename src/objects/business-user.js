@@ -32,7 +32,7 @@ export default class BusinessUser extends AbstractCrudObject {
       pending_email: 'pending_email',
       role: 'role',
       title: 'title',
-      two_fac_status: 'two_fac_status'
+      two_fac_status: 'two_fac_status',
     });
   }
 
@@ -42,7 +42,7 @@ export default class BusinessUser extends AbstractCrudObject {
       ads_rights_reviewer: 'ADS_RIGHTS_REVIEWER',
       employee: 'EMPLOYEE',
       finance_analyst: 'FINANCE_ANALYST',
-      finance_editor: 'FINANCE_EDITOR'
+      finance_editor: 'FINANCE_EDITOR',
     });
   }
 

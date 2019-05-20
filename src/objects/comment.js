@@ -38,7 +38,7 @@ export default class Comment extends AbstractCrudObject {
       object: 'object',
       parent: 'parent',
       permalink_url: 'permalink_url',
-      user_likes: 'user_likes'
+      user_likes: 'user_likes',
     });
   }
 
@@ -50,25 +50,25 @@ export default class Comment extends AbstractCrudObject {
       graphql_multiple_value_hack_do_not_use: 'GRAPHQL_MULTIPLE_VALUE_HACK_DO_NOT_USE',
       owner_or_commenter: 'OWNER_OR_COMMENTER',
       side_conversation: 'SIDE_CONVERSATION',
-      side_conversation_and_post_owner: 'SIDE_CONVERSATION_AND_POST_OWNER'
+      side_conversation_and_post_owner: 'SIDE_CONVERSATION_AND_POST_OWNER',
     });
   }
   static get Filter (): Object {
     return Object.freeze({
       stream: 'stream',
-      toplevel: 'toplevel'
+      toplevel: 'toplevel',
     });
   }
   static get LiveFilter (): Object {
     return Object.freeze({
       filter_low_quality: 'filter_low_quality',
-      no_filter: 'no_filter'
+      no_filter: 'no_filter',
     });
   }
   static get Order (): Object {
     return Object.freeze({
       chronological: 'chronological',
-      reverse_chronological: 'reverse_chronological'
+      reverse_chronological: 'reverse_chronological',
     });
   }
 

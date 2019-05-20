@@ -27,9 +27,10 @@ export default class MusicVideoCopyright extends AbstractCrudObject {
       update_time: 'update_time',
       video_asset: 'video_asset',
       whitelisted_fb_users: 'whitelisted_fb_users',
-      whitelisted_ig_users: 'whitelisted_ig_users'
+      whitelisted_ig_users: 'whitelisted_ig_users',
     });
   }
+
 
   get (fields, params): MusicVideoCopyright {
     return this.read(

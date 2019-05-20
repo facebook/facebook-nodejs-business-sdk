@@ -29,9 +29,10 @@ export default class ProductSet extends AbstractCrudObject {
       id: 'id',
       name: 'name',
       product_catalog: 'product_catalog',
-      product_count: 'product_count'
+      product_count: 'product_count',
     });
   }
+
 
   getAutomotiveModels (fields, params, fetchFirstPage = true): AutomotiveModel {
     return this.getEdge(

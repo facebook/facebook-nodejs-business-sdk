@@ -18,7 +18,8 @@ export default class AdCreativeLinkDataTemplateVideoSpec extends AbstractCrudObj
     return Object.freeze({
       categorization_criteria: 'categorization_criteria',
       customization: 'customization',
-      template_id: 'template_id'
+      template_id: 'template_id',
     });
   }
+
 }

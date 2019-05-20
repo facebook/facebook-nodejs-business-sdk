@@ -27,7 +27,7 @@ export default class Profile extends AbstractCrudObject {
       pic_small: 'pic_small',
       pic_square: 'pic_square',
       profile_type: 'profile_type',
-      username: 'username'
+      username: 'username',
     });
   }
 
@@ -37,7 +37,7 @@ export default class Profile extends AbstractCrudObject {
       event: 'event',
       group: 'group',
       page: 'page',
-      user: 'user'
+      user: 'user',
     });
   }
   static get Type (): Object {
@@ -50,7 +50,7 @@ export default class Profile extends AbstractCrudObject {
       pride: 'PRIDE',
       sad: 'SAD',
       thankful: 'THANKFUL',
-      wow: 'WOW'
+      wow: 'WOW',
     });
   }
 

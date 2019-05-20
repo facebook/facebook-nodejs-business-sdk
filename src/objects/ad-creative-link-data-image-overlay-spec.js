@@ -23,20 +23,20 @@ export default class AdCreativeLinkDataImageOverlaySpec extends AbstractCrudObje
       text_font: 'text_font',
       text_template_tags: 'text_template_tags',
       text_type: 'text_type',
-      theme_color: 'theme_color'
+      theme_color: 'theme_color',
     });
   }
 
   static get CustomTextType (): Object {
     return Object.freeze({
-      free_shipping: 'free_shipping'
+      free_shipping: 'free_shipping',
     });
   }
   static get OverlayTemplate (): Object {
     return Object.freeze({
       circle_with_text: 'circle_with_text',
       pill_with_text: 'pill_with_text',
-      triangle_with_text: 'triangle_with_text'
+      triangle_with_text: 'triangle_with_text',
     });
   }
   static get Position (): Object {
@@ -44,7 +44,7 @@ export default class AdCreativeLinkDataImageOverlaySpec extends AbstractCrudObje
       bottom_left: 'bottom_left',
       bottom_right: 'bottom_right',
       top_left: 'top_left',
-      top_right: 'top_right'
+      top_right: 'top_right',
     });
   }
   static get TextFont (): Object {
@@ -58,7 +58,7 @@ export default class AdCreativeLinkDataImageOverlaySpec extends AbstractCrudObje
       open_sans_condensed_bold: 'open_sans_condensed_bold',
       pt_serif_bold: 'pt_serif_bold',
       roboto_condensed_regular: 'roboto_condensed_regular',
-      roboto_medium: 'roboto_medium'
+      roboto_medium: 'roboto_medium',
     });
   }
   static get TextType (): Object {
@@ -68,7 +68,7 @@ export default class AdCreativeLinkDataImageOverlaySpec extends AbstractCrudObje
       from_price: 'from_price',
       percentage_off: 'percentage_off',
       price: 'price',
-      strikethrough_price: 'strikethrough_price'
+      strikethrough_price: 'strikethrough_price',
     });
   }
   static get ThemeColor (): Object {
@@ -88,7 +88,7 @@ export default class AdCreativeLinkDataImageOverlaySpec extends AbstractCrudObje
       background_ffffff_text_755dde: 'background_ffffff_text_755dde',
       background_ffffff_text_c91b00: 'background_ffffff_text_c91b00',
       background_ffffff_text_f23474: 'background_ffffff_text_f23474',
-      background_ffffff_text_f78400: 'background_ffffff_text_f78400'
+      background_ffffff_text_f78400: 'background_ffffff_text_f78400',
     });
   }
 }

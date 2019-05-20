@@ -23,7 +23,7 @@ export default class VideoPoll extends AbstractCrudObject {
       question: 'question',
       show_gradient: 'show_gradient',
       show_results: 'show_results',
-      status: 'status'
+      status: 'status',
     });
   }
 
@@ -33,7 +33,7 @@ export default class VideoPoll extends AbstractCrudObject {
       close: 'CLOSE',
       delete_poll: 'DELETE_POLL',
       show_results: 'SHOW_RESULTS',
-      show_voting: 'SHOW_VOTING'
+      show_voting: 'SHOW_VOTING',
     });
   }
 

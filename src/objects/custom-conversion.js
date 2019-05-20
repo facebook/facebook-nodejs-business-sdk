@@ -36,7 +36,7 @@ export default class CustomConversion extends AbstractCrudObject {
       offline_conversion_data_set: 'offline_conversion_data_set',
       pixel: 'pixel',
       retention_days: 'retention_days',
-      rule: 'rule'
+      rule: 'rule',
     });
   }
 
@@ -60,7 +60,7 @@ export default class CustomConversion extends AbstractCrudObject {
       search: 'SEARCH',
       start_trial: 'START_TRIAL',
       submit_application: 'SUBMIT_APPLICATION',
-      subscribe: 'SUBSCRIBE'
+      subscribe: 'SUBSCRIBE',
     });
   }
 

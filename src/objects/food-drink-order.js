@@ -24,7 +24,7 @@ export default class FoodDrinkOrder extends AbstractCrudObject {
       note: 'note',
       order_details: 'order_details',
       state: 'state',
-      update_time: 'update_time'
+      update_time: 'update_time',
     });
   }
 
@@ -37,7 +37,7 @@ export default class FoodDrinkOrder extends AbstractCrudObject {
       on_delivery: 'ON_DELIVERY',
       pending: 'PENDING',
       ready_for_pickup: 'READY_FOR_PICKUP',
-      serving: 'SERVING'
+      serving: 'SERVING',
     });
   }
 

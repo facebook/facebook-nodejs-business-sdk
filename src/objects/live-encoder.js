@@ -27,7 +27,7 @@ export default class LiveEncoder extends AbstractCrudObject {
       model: 'model',
       name: 'name',
       status: 'status',
-      version: 'version'
+      version: 'version',
     });
   }
 
@@ -38,7 +38,7 @@ export default class LiveEncoder extends AbstractCrudObject {
       none: 'NONE',
       preview: 'PREVIEW',
       ready: 'READY',
-      register: 'REGISTER'
+      register: 'REGISTER',
     });
   }
 

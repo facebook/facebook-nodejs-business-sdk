@@ -22,7 +22,8 @@ export default class UserPaymentMethodsInfo extends AbstractCrudObject {
       available_payment_methods_details: 'available_payment_methods_details',
       country: 'country',
       currency: 'currency',
-      existing_payment_methods: 'existing_payment_methods'
+      existing_payment_methods: 'existing_payment_methods',
     });
   }
+
 }

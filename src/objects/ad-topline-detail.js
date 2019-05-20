@@ -30,9 +30,10 @@ export default class AdToplineDetail extends AbstractCrudObject {
       targets: 'targets',
       time_created: 'time_created',
       time_updated: 'time_updated',
-      topline_id: 'topline_id'
+      topline_id: 'topline_id',
     });
   }
+
 
   get (fields, params): AdToplineDetail {
     return this.read(

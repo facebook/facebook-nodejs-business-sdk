@@ -24,9 +24,10 @@ export default class PageInsightsAsyncExportRun extends AbstractCrudObject {
       report_end_date: 'report_end_date',
       report_start_date: 'report_start_date',
       sorters: 'sorters',
-      status: 'status'
+      status: 'status',
     });
   }
+
 
   get (fields, params): PageInsightsAsyncExportRun {
     return this.read(

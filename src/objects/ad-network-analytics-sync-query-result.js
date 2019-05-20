@@ -17,14 +17,14 @@ export default class AdNetworkAnalyticsSyncQueryResult extends AbstractCrudObjec
   static get Fields () {
     return Object.freeze({
       query_id: 'query_id',
-      results: 'results'
+      results: 'results',
     });
   }
 
   static get AggregationPeriod (): Object {
     return Object.freeze({
       day: 'DAY',
-      total: 'TOTAL'
+      total: 'TOTAL',
     });
   }
   static get Breakdowns (): Object {
@@ -44,7 +44,7 @@ export default class AdNetworkAnalyticsSyncQueryResult extends AbstractCrudObjec
       placement_name: 'PLACEMENT_NAME',
       platform: 'PLATFORM',
       property: 'PROPERTY',
-      sdk_version: 'SDK_VERSION'
+      sdk_version: 'SDK_VERSION',
     });
   }
   static get Metrics (): Object {
@@ -67,20 +67,20 @@ export default class AdNetworkAnalyticsSyncQueryResult extends AbstractCrudObjec
       fb_ad_network_video_mrc: 'FB_AD_NETWORK_VIDEO_MRC',
       fb_ad_network_video_mrc_rate: 'FB_AD_NETWORK_VIDEO_MRC_RATE',
       fb_ad_network_video_view: 'FB_AD_NETWORK_VIDEO_VIEW',
-      fb_ad_network_video_view_rate: 'FB_AD_NETWORK_VIDEO_VIEW_RATE'
+      fb_ad_network_video_view_rate: 'FB_AD_NETWORK_VIDEO_VIEW_RATE',
     });
   }
   static get OrderingColumn (): Object {
     return Object.freeze({
       metric: 'METRIC',
       time: 'TIME',
-      value: 'VALUE'
+      value: 'VALUE',
     });
   }
   static get OrderingType (): Object {
     return Object.freeze({
       ascending: 'ASCENDING',
-      descending: 'DESCENDING'
+      descending: 'DESCENDING',
     });
   }
 }

@@ -52,7 +52,7 @@ export default class Campaign extends AbstractCrudObject {
       status: 'status',
       stop_time: 'stop_time',
       topline_id: 'topline_id',
-      updated_time: 'updated_time'
+      updated_time: 'updated_time',
     });
   }
 
@@ -60,7 +60,7 @@ export default class Campaign extends AbstractCrudObject {
     return Object.freeze({
       lowest_cost_without_cap: 'LOWEST_COST_WITHOUT_CAP',
       lowest_cost_with_bid_cap: 'LOWEST_COST_WITH_BID_CAP',
-      target_cost: 'TARGET_COST'
+      target_cost: 'TARGET_COST',
     });
   }
   static get ConfiguredStatus (): Object {
@@ -68,22 +68,15 @@ export default class Campaign extends AbstractCrudObject {
       active: 'ACTIVE',
       archived: 'ARCHIVED',
       deleted: 'DELETED',
-      paused: 'PAUSED'
+      paused: 'PAUSED',
     });
   }
   static get EffectiveStatus (): Object {
     return Object.freeze({
       active: 'ACTIVE',
-      adset_paused: 'ADSET_PAUSED',
       archived: 'ARCHIVED',
-      campaign_paused: 'CAMPAIGN_PAUSED',
       deleted: 'DELETED',
-      disapproved: 'DISAPPROVED',
       paused: 'PAUSED',
-      pending_billing_info: 'PENDING_BILLING_INFO',
-      pending_review: 'PENDING_REVIEW',
-      preapproved: 'PREAPPROVED',
-      with_issues: 'WITH_ISSUES'
     });
   }
   static get Status (): Object {
@@ -91,7 +84,7 @@ export default class Campaign extends AbstractCrudObject {
       active: 'ACTIVE',
       archived: 'ARCHIVED',
       deleted: 'DELETED',
-      paused: 'PAUSED'
+      paused: 'PAUSED',
     });
   }
   static get DatePreset (): Object {
@@ -114,13 +107,13 @@ export default class Campaign extends AbstractCrudObject {
       this_week_sun_today: 'this_week_sun_today',
       this_year: 'this_year',
       today: 'today',
-      yesterday: 'yesterday'
+      yesterday: 'yesterday',
     });
   }
   static get ExecutionOptions (): Object {
     return Object.freeze({
       include_recommendations: 'include_recommendations',
-      validate_only: 'validate_only'
+      validate_only: 'validate_only',
     });
   }
   static get Objective (): Object {
@@ -138,20 +131,20 @@ export default class Campaign extends AbstractCrudObject {
       post_engagement: 'POST_ENGAGEMENT',
       product_catalog_sales: 'PRODUCT_CATALOG_SALES',
       reach: 'REACH',
-      video_views: 'VIDEO_VIEWS'
+      video_views: 'VIDEO_VIEWS',
     });
   }
   static get Operator (): Object {
     return Object.freeze({
       all: 'ALL',
-      any: 'ANY'
+      any: 'ANY',
     });
   }
   static get StatusOption (): Object {
     return Object.freeze({
       active: 'ACTIVE',
       inherited_from_source: 'INHERITED_FROM_SOURCE',
-      paused: 'PAUSED'
+      paused: 'PAUSED',
     });
   }
 

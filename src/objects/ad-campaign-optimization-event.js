@@ -18,7 +18,8 @@ export default class AdCampaignOptimizationEvent extends AbstractCrudObject {
     return Object.freeze({
       custom_conversion_id: 'custom_conversion_id',
       event_sequence: 'event_sequence',
-      event_type: 'event_type'
+      event_type: 'event_type',
     });
   }
+
 }

@@ -30,9 +30,10 @@ export default class Link extends AbstractCrudObject {
       multi_share_optimized: 'multi_share_optimized',
       name: 'name',
       privacy: 'privacy',
-      via: 'via'
+      via: 'via',
     });
   }
+
 
   createComment (fields, params): Comment {
     return this.createEdge(

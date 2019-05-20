@@ -22,9 +22,10 @@ export default class PageSavedFilter extends AbstractCrudObject {
       page_id: 'page_id',
       section: 'section',
       time_created: 'time_created',
-      time_updated: 'time_updated'
+      time_updated: 'time_updated',
     });
   }
+
 
   get (fields, params): PageSavedFilter {
     return this.read(

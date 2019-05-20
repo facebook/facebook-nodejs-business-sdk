@@ -16,7 +16,8 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class AdCreativeDegreesOfFreedomSpec extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      degrees_of_freedom_type: 'degrees_of_freedom_type'
+      degrees_of_freedom_type: 'degrees_of_freedom_type',
     });
   }
+
 }

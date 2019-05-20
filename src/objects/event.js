@@ -50,7 +50,7 @@ export default class Event extends AbstractCrudObject {
       ticketing_terms_uri: 'ticketing_terms_uri',
       timezone: 'timezone',
       type: 'type',
-      updated_time: 'updated_time'
+      updated_time: 'updated_time',
     });
   }
 
@@ -59,7 +59,7 @@ export default class Event extends AbstractCrudObject {
       community: 'community',
       group: 'group',
       private: 'private',
-      public: 'public'
+      public: 'public',
     });
   }
   static get EventStateFilter (): Object {
@@ -67,20 +67,20 @@ export default class Event extends AbstractCrudObject {
       canceled: 'canceled',
       draft: 'draft',
       published: 'published',
-      scheduled_draft_for_publication: 'scheduled_draft_for_publication'
+      scheduled_draft_for_publication: 'scheduled_draft_for_publication',
     });
   }
   static get TimeFilter (): Object {
     return Object.freeze({
       past: 'past',
-      upcoming: 'upcoming'
+      upcoming: 'upcoming',
     });
   }
   static get PromotableEventTypes (): Object {
     return Object.freeze({
       offsite_ticket: 'OFFSITE_TICKET',
       onsite_ticket: 'ONSITE_TICKET',
-      rsvp: 'RSVP'
+      rsvp: 'RSVP',
     });
   }
 
@@ -118,8 +118,8 @@ export default class Event extends AbstractCrudObject {
     return this.createEdge(
       '/feed',
       fields,
-      params
-
+      params,
+      
     );
   }
 

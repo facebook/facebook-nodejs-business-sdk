@@ -19,9 +19,10 @@ export default class Place extends AbstractCrudObject {
       id: 'id',
       location: 'location',
       name: 'name',
-      overall_rating: 'overall_rating'
+      overall_rating: 'overall_rating',
     });
   }
+
 
   get (fields, params): Place {
     return this.read(

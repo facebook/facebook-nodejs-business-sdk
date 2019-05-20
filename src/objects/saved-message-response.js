@@ -21,9 +21,10 @@ export default class SavedMessageResponse extends AbstractCrudObject {
       image: 'image',
       is_enabled: 'is_enabled',
       message: 'message',
-      title: 'title'
+      title: 'title',
     });
   }
+
 
   get (fields, params): SavedMessageResponse {
     return this.read(

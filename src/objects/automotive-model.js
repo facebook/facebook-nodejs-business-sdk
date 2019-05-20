@@ -41,9 +41,10 @@ export default class AutomotiveModel extends AbstractCrudObject {
       transmission: 'transmission',
       trim: 'trim',
       url: 'url',
-      year: 'year'
+      year: 'year',
     });
   }
+
 
   get (fields, params): AutomotiveModel {
     return this.read(

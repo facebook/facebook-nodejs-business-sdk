@@ -17,7 +17,8 @@ export default class AdAsyncRequestSetNotificationResult extends AbstractCrudObj
   static get Fields () {
     return Object.freeze({
       response: 'response',
-      status: 'status'
+      status: 'status',
     });
   }
+
 }

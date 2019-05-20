@@ -21,7 +21,8 @@ export default class DACheck extends AbstractCrudObject {
       key: 'key',
       result: 'result',
       title: 'title',
-      user_message: 'user_message'
+      user_message: 'user_message',
     });
   }
+
 }

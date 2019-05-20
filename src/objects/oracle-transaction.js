@@ -33,14 +33,14 @@ export default class OracleTransaction extends AbstractCrudObject {
       liability_type: 'liability_type',
       payment_status: 'payment_status',
       payment_term: 'payment_term',
-      type: 'type'
+      type: 'type',
     });
   }
 
   static get Type (): Object {
     return Object.freeze({
       cm: 'CM',
-      inv: 'INV'
+      inv: 'INV',
     });
   }
 

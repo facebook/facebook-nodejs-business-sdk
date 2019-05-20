@@ -25,9 +25,10 @@ export default class VideoList extends AbstractCrudObject {
       season_number: 'season_number',
       thumbnail: 'thumbnail',
       title: 'title',
-      videos_count: 'videos_count'
+      videos_count: 'videos_count',
     });
   }
+
 
   getVideos (fields, params, fetchFirstPage = true): AdVideo {
     return this.getEdge(

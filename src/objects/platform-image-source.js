@@ -18,7 +18,8 @@ export default class PlatformImageSource extends AbstractCrudObject {
     return Object.freeze({
       height: 'height',
       source: 'source',
-      width: 'width'
+      width: 'width',
     });
   }
+
 }

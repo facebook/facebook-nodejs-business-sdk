@@ -36,14 +36,14 @@ export default class AdsPixel extends AbstractCrudObject {
       last_fired_time: 'last_fired_time',
       name: 'name',
       owner_ad_account: 'owner_ad_account',
-      owner_business: 'owner_business'
+      owner_business: 'owner_business',
     });
   }
 
   static get SortBy (): Object {
     return Object.freeze({
       last_fired_time: 'LAST_FIRED_TIME',
-      name: 'NAME'
+      name: 'NAME',
     });
   }
   static get AutomaticMatchingFields (): Object {
@@ -55,27 +55,27 @@ export default class AdsPixel extends AbstractCrudObject {
       ln: 'ln',
       ph: 'ph',
       st: 'st',
-      zp: 'zp'
+      zp: 'zp',
     });
   }
   static get DataUseSetting (): Object {
     return Object.freeze({
       advertising_and_analytics: 'ADVERTISING_AND_ANALYTICS',
       analytics_only: 'ANALYTICS_ONLY',
-      empty: 'EMPTY'
+      empty: 'EMPTY',
     });
   }
   static get FirstPartyCookieStatus (): Object {
     return Object.freeze({
       empty: 'EMPTY',
       first_party_cookie_disabled: 'FIRST_PARTY_COOKIE_DISABLED',
-      first_party_cookie_enabled: 'FIRST_PARTY_COOKIE_ENABLED'
+      first_party_cookie_enabled: 'FIRST_PARTY_COOKIE_ENABLED',
     });
   }
   static get Tasks (): Object {
     return Object.freeze({
       analyze: 'ANALYZE',
-      edit: 'EDIT'
+      edit: 'EDIT',
     });
   }
 

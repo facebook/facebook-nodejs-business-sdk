@@ -30,7 +30,7 @@ export default class BusinessRoleRequest extends AbstractCrudObject {
       role: 'role',
       status: 'status',
       updated_by: 'updated_by',
-      updated_time: 'updated_time'
+      updated_time: 'updated_time',
     });
   }
 
@@ -40,7 +40,7 @@ export default class BusinessRoleRequest extends AbstractCrudObject {
       ads_rights_reviewer: 'ADS_RIGHTS_REVIEWER',
       employee: 'EMPLOYEE',
       finance_analyst: 'FINANCE_ANALYST',
-      finance_editor: 'FINANCE_EDITOR'
+      finance_editor: 'FINANCE_EDITOR',
     });
   }
 

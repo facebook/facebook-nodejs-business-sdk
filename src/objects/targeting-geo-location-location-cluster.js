@@ -16,7 +16,8 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class TargetingGeoLocationLocationCluster extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      key: 'key'
+      key: 'key',
     });
   }
+
 }

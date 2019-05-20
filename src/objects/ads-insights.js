@@ -150,7 +150,7 @@ export default class AdsInsights extends AbstractCrudObject {
       video_time_watched_actions: 'video_time_watched_actions',
       website_ctr: 'website_ctr',
       website_purchase_roas: 'website_purchase_roas',
-      wish_bid: 'wish_bid'
+      wish_bid: 'wish_bid',
     });
   }
 
@@ -162,7 +162,7 @@ export default class AdsInsights extends AbstractCrudObject {
       value_28d_view: '28d_view',
       value_7d_click: '7d_click',
       value_7d_view: '7d_view',
-      default: 'default'
+      default: 'default',
     });
   }
   static get ActionBreakdowns (): Object {
@@ -176,13 +176,13 @@ export default class AdsInsights extends AbstractCrudObject {
       action_target_id: 'action_target_id',
       action_type: 'action_type',
       action_video_sound: 'action_video_sound',
-      action_video_type: 'action_video_type'
+      action_video_type: 'action_video_type',
     });
   }
   static get ActionReportTime (): Object {
     return Object.freeze({
       conversion: 'conversion',
-      impression: 'impression'
+      impression: 'impression',
     });
   }
   static get Breakdowns (): Object {
@@ -208,7 +208,7 @@ export default class AdsInsights extends AbstractCrudObject {
       publisher_platform: 'publisher_platform',
       region: 'region',
       title_asset: 'title_asset',
-      video_asset: 'video_asset'
+      video_asset: 'video_asset',
     });
   }
   static get DatePreset (): Object {
@@ -231,7 +231,7 @@ export default class AdsInsights extends AbstractCrudObject {
       this_week_sun_today: 'this_week_sun_today',
       this_year: 'this_year',
       today: 'today',
-      yesterday: 'yesterday'
+      yesterday: 'yesterday',
     });
   }
   static get Level (): Object {
@@ -239,7 +239,7 @@ export default class AdsInsights extends AbstractCrudObject {
       account: 'account',
       ad: 'ad',
       adset: 'adset',
-      campaign: 'campaign'
+      campaign: 'campaign',
     });
   }
   static get SummaryActionBreakdowns (): Object {
@@ -253,7 +253,7 @@ export default class AdsInsights extends AbstractCrudObject {
       action_target_id: 'action_target_id',
       action_type: 'action_type',
       action_video_sound: 'action_video_sound',
-      action_video_type: 'action_video_type'
+      action_video_type: 'action_video_type',
     });
   }
 }

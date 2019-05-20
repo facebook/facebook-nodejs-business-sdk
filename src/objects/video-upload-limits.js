@@ -17,7 +17,8 @@ export default class VideoUploadLimits extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       length: 'length',
-      size: 'size'
+      size: 'size',
     });
   }
+
 }

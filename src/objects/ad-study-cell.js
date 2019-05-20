@@ -24,7 +24,7 @@ export default class AdStudyCell extends AbstractCrudObject {
       control_percentage: 'control_percentage',
       id: 'id',
       name: 'name',
-      treatment_percentage: 'treatment_percentage'
+      treatment_percentage: 'treatment_percentage',
     });
   }
 
@@ -47,7 +47,7 @@ export default class AdStudyCell extends AbstractCrudObject {
       reach: 'REACH',
       tv_commercial: 'TV_COMMERCIAL',
       tv_facebook: 'TV_FACEBOOK',
-      video_view_optimization: 'VIDEO_VIEW_OPTIMIZATION'
+      video_view_optimization: 'VIDEO_VIEW_OPTIMIZATION',
     });
   }
 

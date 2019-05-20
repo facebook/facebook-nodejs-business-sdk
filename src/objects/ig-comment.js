@@ -24,9 +24,10 @@ export default class IGComment extends AbstractCrudObject {
       text: 'text',
       timestamp: 'timestamp',
       user: 'user',
-      username: 'username'
+      username: 'username',
     });
   }
+
 
   getReplies (fields, params, fetchFirstPage = true): IGComment {
     return this.getEdge(

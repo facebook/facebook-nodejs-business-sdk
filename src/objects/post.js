@@ -81,7 +81,7 @@ export default class Post extends AbstractCrudObject {
       updated_time: 'updated_time',
       via: 'via',
       video_buying_eligibility: 'video_buying_eligibility',
-      width: 'width'
+      width: 'width',
     });
   }
 
@@ -92,20 +92,20 @@ export default class Post extends AbstractCrudObject {
       min: 'min',
       month: 'month',
       none: 'none',
-      year: 'year'
+      year: 'year',
     });
   }
   static get FeedStoryVisibility (): Object {
     return Object.freeze({
       hidden: 'hidden',
-      visible: 'visible'
+      visible: 'visible',
     });
   }
   static get TimelineVisibility (): Object {
     return Object.freeze({
       forced_allow: 'forced_allow',
       hidden: 'hidden',
-      normal: 'normal'
+      normal: 'normal',
     });
   }
 
@@ -188,8 +188,8 @@ export default class Post extends AbstractCrudObject {
     return this.createEdge(
       '/promotions',
       fields,
-      params
-
+      params,
+      
     );
   }
 

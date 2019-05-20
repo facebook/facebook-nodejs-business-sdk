@@ -19,7 +19,7 @@ export default class AsyncRequest extends AbstractCrudObject {
       id: 'id',
       result: 'result',
       status: 'status',
-      type: 'type'
+      type: 'type',
     });
   }
 
@@ -28,14 +28,14 @@ export default class AsyncRequest extends AbstractCrudObject {
       error: 'ERROR',
       executing: 'EXECUTING',
       finished: 'FINISHED',
-      initialized: 'INITIALIZED'
+      initialized: 'INITIALIZED',
     });
   }
   static get Type (): Object {
     return Object.freeze({
       async_adgroup_creation: 'ASYNC_ADGROUP_CREATION',
       batch_api: 'BATCH_API',
-      drafts: 'DRAFTS'
+      drafts: 'DRAFTS',
     });
   }
 }

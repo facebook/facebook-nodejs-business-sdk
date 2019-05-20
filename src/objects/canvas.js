@@ -25,9 +25,10 @@ export default class Canvas extends AbstractCrudObject {
       last_editor: 'last_editor',
       name: 'name',
       owner: 'owner',
-      update_time: 'update_time'
+      update_time: 'update_time',
     });
   }
+
 
   get (fields, params): Canvas {
     return this.read(

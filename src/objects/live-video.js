@@ -48,7 +48,7 @@ export default class LiveVideo extends AbstractCrudObject {
       targeting: 'targeting',
       title: 'title',
       total_views: 'total_views',
-      video: 'video'
+      video: 'video',
     });
   }
 
@@ -56,12 +56,12 @@ export default class LiveVideo extends AbstractCrudObject {
     return Object.freeze({
       cubemap: 'CUBEMAP',
       equirectangular: 'EQUIRECTANGULAR',
-      half_equirectangular: 'HALF_EQUIRECTANGULAR'
+      half_equirectangular: 'HALF_EQUIRECTANGULAR',
     });
   }
   static get SpatialAudioFormat (): Object {
     return Object.freeze({
-      ambix_4: 'ambiX_4'
+      ambix_4: 'ambiX_4',
     });
   }
   static get Status (): Object {
@@ -70,20 +70,20 @@ export default class LiveVideo extends AbstractCrudObject {
       scheduled_canceled: 'SCHEDULED_CANCELED',
       scheduled_live: 'SCHEDULED_LIVE',
       scheduled_unpublished: 'SCHEDULED_UNPUBLISHED',
-      unpublished: 'UNPUBLISHED'
+      unpublished: 'UNPUBLISHED',
     });
   }
   static get StereoscopicMode (): Object {
     return Object.freeze({
       left_right: 'LEFT_RIGHT',
       mono: 'MONO',
-      top_bottom: 'TOP_BOTTOM'
+      top_bottom: 'TOP_BOTTOM',
     });
   }
   static get StreamType (): Object {
     return Object.freeze({
       ambient: 'AMBIENT',
-      regular: 'REGULAR'
+      regular: 'REGULAR',
     });
   }
   static get BroadcastStatus (): Object {
@@ -96,13 +96,13 @@ export default class LiveVideo extends AbstractCrudObject {
       scheduled_live: 'SCHEDULED_LIVE',
       scheduled_unpublished: 'SCHEDULED_UNPUBLISHED',
       unpublished: 'UNPUBLISHED',
-      vod: 'VOD'
+      vod: 'VOD',
     });
   }
   static get Source (): Object {
     return Object.freeze({
       owner: 'owner',
-      target: 'target'
+      target: 'target',
     });
   }
   static get LiveCommentModerationSetting (): Object {
@@ -112,7 +112,7 @@ export default class LiveVideo extends AbstractCrudObject {
       protected_mode: 'PROTECTED_MODE',
       restricted: 'RESTRICTED',
       slow: 'SLOW',
-      supporter: 'SUPPORTER'
+      supporter: 'SUPPORTER',
     });
   }
 

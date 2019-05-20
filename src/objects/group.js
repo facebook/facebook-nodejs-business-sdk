@@ -42,7 +42,7 @@ export default class Group extends AbstractCrudObject {
       purpose: 'purpose',
       subdomain: 'subdomain',
       updated_time: 'updated_time',
-      venue: 'venue'
+      venue: 'venue',
     });
   }
 
@@ -50,14 +50,14 @@ export default class Group extends AbstractCrudObject {
     return Object.freeze({
       admin_only: 'ADMIN_ONLY',
       anyone: 'ANYONE',
-      none: 'NONE'
+      none: 'NONE',
     });
   }
   static get PostPermissions (): Object {
     return Object.freeze({
       admin_only: 'ADMIN_ONLY',
       anyone: 'ANYONE',
-      none: 'NONE'
+      none: 'NONE',
     });
   }
   static get Purpose (): Object {
@@ -103,9 +103,10 @@ export default class Group extends AbstractCrudObject {
       work_learning: 'WORK_LEARNING',
       work_mentorship: 'WORK_MENTORSHIP',
       work_multi_company: 'WORK_MULTI_COMPANY',
+      work_recruiting: 'WORK_RECRUITING',
       work_social: 'WORK_SOCIAL',
       work_team: 'WORK_TEAM',
-      work_teamwork: 'WORK_TEAMWORK'
+      work_teamwork: 'WORK_TEAMWORK',
     });
   }
   static get GroupType (): Object {
@@ -151,9 +152,10 @@ export default class Group extends AbstractCrudObject {
       work_learning: 'WORK_LEARNING',
       work_mentorship: 'WORK_MENTORSHIP',
       work_multi_company: 'WORK_MULTI_COMPANY',
+      work_recruiting: 'WORK_RECRUITING',
       work_social: 'WORK_SOCIAL',
       work_team: 'WORK_TEAM',
-      work_teamwork: 'WORK_TEAMWORK'
+      work_teamwork: 'WORK_TEAMWORK',
     });
   }
   static get SuggestionCategory (): Object {
@@ -177,7 +179,7 @@ export default class Group extends AbstractCrudObject {
       workplace: 'WORKPLACE',
       workplace_1_1: 'WORKPLACE_1_1',
       workplace_manager: 'WORKPLACE_MANAGER',
-      work_generic: 'WORK_GENERIC'
+      work_generic: 'WORK_GENERIC',
     });
   }
 
@@ -240,8 +242,8 @@ export default class Group extends AbstractCrudObject {
     return this.createEdge(
       '/feed',
       fields,
-      params
-
+      params,
+      
     );
   }
 
@@ -303,8 +305,8 @@ export default class Group extends AbstractCrudObject {
     return this.createEdge(
       '/opengraphactionfeed',
       fields,
-      params
-
+      params,
+      
     );
   }
 

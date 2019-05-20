@@ -19,7 +19,8 @@ export default class AdKeywords extends AbstractCrudObject {
       brands: 'brands',
       product_categories: 'product_categories',
       product_names: 'product_names',
-      search_terms: 'search_terms'
+      search_terms: 'search_terms',
     });
   }
+
 }

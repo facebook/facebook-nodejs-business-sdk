@@ -25,7 +25,7 @@ export default class AdAsyncRequest extends AbstractCrudObject {
       scope_object_id: 'scope_object_id',
       status: 'status',
       type: 'type',
-      updated_time: 'updated_time'
+      updated_time: 'updated_time',
     });
   }
 
@@ -39,7 +39,7 @@ export default class AdAsyncRequest extends AbstractCrudObject {
       initial: 'INITIAL',
       in_progress: 'IN_PROGRESS',
       pending_dependency: 'PENDING_DEPENDENCY',
-      success: 'SUCCESS'
+      success: 'SUCCESS',
     });
   }
 

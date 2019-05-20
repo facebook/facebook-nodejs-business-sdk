@@ -31,9 +31,10 @@ export default class EventTour extends AbstractCrudObject {
       scheduled_publish_timestamp: 'scheduled_publish_timestamp',
       start_time: 'start_time',
       ticketing_uri: 'ticketing_uri',
-      video: 'video'
+      video: 'video',
     });
   }
+
 
   getEvents (fields, params, fetchFirstPage = true): Event {
     return this.getEdge(

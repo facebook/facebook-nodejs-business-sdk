@@ -28,9 +28,10 @@ export default class HotelRoom extends AbstractCrudObject {
       name: 'name',
       room_id: 'room_id',
       sale_price: 'sale_price',
-      url: 'url'
+      url: 'url',
     });
   }
+
 
   getPricingVariables (fields, params, fetchFirstPage = true): DynamicPriceConfigByDate {
     return this.getEdge(

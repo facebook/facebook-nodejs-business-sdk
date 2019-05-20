@@ -23,9 +23,10 @@ export default class ExtendedCreditInvoiceGroup extends AbstractCrudObject {
       email: 'email',
       emails: 'emails',
       id: 'id',
-      name: 'name'
+      name: 'name',
     });
   }
+
 
   deleteAdAccounts (params): AbstractObject {
     return super.deleteEdge(

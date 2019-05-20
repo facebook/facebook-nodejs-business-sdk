@@ -104,7 +104,7 @@ export default class Targeting extends AbstractCrudObject {
       wireless_carrier: 'wireless_carrier',
       work_employers: 'work_employers',
       work_positions: 'work_positions',
-      zips: 'zips'
+      zips: 'zips',
     });
   }
 
@@ -112,14 +112,14 @@ export default class Targeting extends AbstractCrudObject {
     return Object.freeze({
       connected_tv: 'connected_tv',
       desktop: 'desktop',
-      mobile: 'mobile'
+      mobile: 'mobile',
     });
   }
   static get EffectiveDevicePlatforms (): Object {
     return Object.freeze({
       connected_tv: 'connected_tv',
       desktop: 'desktop',
-      mobile: 'mobile'
+      mobile: 'mobile',
     });
   }
 }

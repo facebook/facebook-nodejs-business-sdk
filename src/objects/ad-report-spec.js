@@ -34,7 +34,7 @@ export default class AdReportSpec extends AbstractCrudObject {
       sort_dir: 'sort_dir',
       time_increment: 'time_increment',
       time_interval: 'time_interval',
-      time_ranges: 'time_ranges'
+      time_ranges: 'time_ranges',
     });
   }
 
@@ -53,14 +53,14 @@ export default class AdReportSpec extends AbstractCrudObject {
       action_video_sound: 'action_video_sound',
       action_video_type: 'action_video_type',
       interactive_component_sticker_id: 'interactive_component_sticker_id',
-      interactive_component_sticker_response: 'interactive_component_sticker_response'
+      interactive_component_sticker_response: 'interactive_component_sticker_response',
     });
   }
   static get CreationSource (): Object {
     return Object.freeze({
       adsexceladdin: 'adsExcelAddin',
       adsmanagerreporting: 'adsManagerReporting',
-      newadsmanager: 'newAdsManager'
+      newadsmanager: 'newAdsManager',
     });
   }
   static get DatePreset (): Object {
@@ -83,7 +83,7 @@ export default class AdReportSpec extends AbstractCrudObject {
       this_week_sun_today: 'this_week_sun_today',
       this_year: 'this_year',
       today: 'today',
-      yesterday: 'yesterday'
+      yesterday: 'yesterday',
     });
   }
   static get Format (): Object {
@@ -91,7 +91,7 @@ export default class AdReportSpec extends AbstractCrudObject {
       csv: 'CSV',
       json: 'JSON',
       xls: 'XLS',
-      xlsx: 'XLSX'
+      xlsx: 'XLSX',
     });
   }
 

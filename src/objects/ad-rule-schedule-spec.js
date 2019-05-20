@@ -17,7 +17,8 @@ export default class AdRuleScheduleSpec extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       schedule: 'schedule',
-      schedule_type: 'schedule_type'
+      schedule_type: 'schedule_type',
     });
   }
+
 }

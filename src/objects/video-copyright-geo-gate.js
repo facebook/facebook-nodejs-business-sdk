@@ -17,7 +17,8 @@ export default class VideoCopyrightGeoGate extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       excluded_countries: 'excluded_countries',
-      included_countries: 'included_countries'
+      included_countries: 'included_countries',
     });
   }
+
 }

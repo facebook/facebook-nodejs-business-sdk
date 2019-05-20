@@ -43,9 +43,10 @@ export default class Album extends AbstractCrudObject {
       privacy: 'privacy',
       type: 'type',
       updated_time: 'updated_time',
-      video_count: 'video_count'
+      video_count: 'video_count',
     });
   }
+
 
   getComments (fields, params, fetchFirstPage = true): Comment {
     return this.getEdge(

@@ -18,9 +18,10 @@ export default class PlayableContent extends AbstractCrudObject {
     return Object.freeze({
       id: 'id',
       name: 'name',
-      owner: 'owner'
+      owner: 'owner',
     });
   }
+
 
   get (fields, params): PlayableContent {
     return this.read(

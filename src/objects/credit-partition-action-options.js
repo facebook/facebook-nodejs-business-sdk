@@ -18,7 +18,8 @@ export default class CreditPartitionActionOptions extends AbstractCrudObject {
     return Object.freeze({
       liability_type: 'liability_type',
       partition_type: 'partition_type',
-      send_bill_to: 'send_bill_to'
+      send_bill_to: 'send_bill_to',
     });
   }
+
 }

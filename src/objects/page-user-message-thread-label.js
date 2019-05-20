@@ -18,9 +18,10 @@ export default class PageUserMessageThreadLabel extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       id: 'id',
-      name: 'name'
+      name: 'name',
     });
   }
+
 
   deleteLabel (params): AbstractObject {
     return super.deleteEdge(

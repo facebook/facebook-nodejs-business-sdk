@@ -16,7 +16,8 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class AtlasURL extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      url: 'url'
+      url: 'url',
     });
   }
+
 }

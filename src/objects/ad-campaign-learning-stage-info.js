@@ -21,7 +21,8 @@ export default class AdCampaignLearningStageInfo extends AbstractCrudObject {
       exit_reason: 'exit_reason',
       last_sig_edit_ts: 'last_sig_edit_ts',
       status: 'status',
-      types: 'types'
+      types: 'types',
     });
   }
+
 }

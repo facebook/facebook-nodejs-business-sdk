@@ -23,9 +23,10 @@ export default class PageAboutStory extends AbstractCrudObject {
       id: 'id',
       is_published: 'is_published',
       page_id: 'page_id',
-      title: 'title'
+      title: 'title',
     });
   }
+
 
   delete (fields, params): AbstractObject {
     return super.delete(

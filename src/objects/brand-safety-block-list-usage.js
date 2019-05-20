@@ -20,7 +20,8 @@ export default class BrandSafetyBlockListUsage extends AbstractCrudObject {
       new_usage: 'new_usage',
       platform: 'platform',
       position: 'position',
-      threshold: 'threshold'
+      threshold: 'threshold',
     });
   }
+
 }

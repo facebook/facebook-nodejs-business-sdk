@@ -21,14 +21,14 @@ export default class EventSourceGroup extends AbstractCrudObject {
       business: 'business',
       event_sources: 'event_sources',
       id: 'id',
-      name: 'name'
+      name: 'name',
     });
   }
 
   static get Tasks (): Object {
     return Object.freeze({
       analyze: 'ANALYZE',
-      analyze_with_limitations: 'ANALYZE_WITH_LIMITATIONS'
+      analyze_with_limitations: 'ANALYZE_WITH_LIMITATIONS',
     });
   }
 

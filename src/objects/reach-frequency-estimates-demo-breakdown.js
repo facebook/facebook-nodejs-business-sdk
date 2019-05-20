@@ -17,7 +17,8 @@ export default class ReachFrequencyEstimatesDemoBreakdown extends AbstractCrudOb
   static get Fields () {
     return Object.freeze({
       female: 'female',
-      male: 'male'
+      male: 'male',
     });
   }
+
 }

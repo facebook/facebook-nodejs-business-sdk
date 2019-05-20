@@ -18,7 +18,8 @@ export default class AdAccountRecommendedCamapaignBudget extends AbstractCrudObj
     return Object.freeze({
       daily: 'daily',
       lifetime: 'lifetime',
-      objective: 'objective'
+      objective: 'objective',
     });
   }
+
 }

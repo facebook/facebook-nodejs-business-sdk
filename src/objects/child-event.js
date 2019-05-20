@@ -19,7 +19,8 @@ export default class ChildEvent extends AbstractCrudObject {
       end_time: 'end_time',
       id: 'id',
       start_time: 'start_time',
-      ticket_uri: 'ticket_uri'
+      ticket_uri: 'ticket_uri',
     });
   }
+
 }

@@ -22,9 +22,10 @@ export default class URL extends AbstractCrudObject {
       id: 'id',
       instant_article: 'instant_article',
       og_object: 'og_object',
-      ownership_permissions: 'ownership_permissions'
+      ownership_permissions: 'ownership_permissions',
     });
   }
+
 
   get (fields, params): URL {
     return this.read(

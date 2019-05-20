@@ -21,7 +21,7 @@ export default class EntityAtTextRange extends AbstractCrudObject {
       name: 'name',
       object: 'object',
       offset: 'offset',
-      type: 'type'
+      type: 'type',
     });
   }
 
@@ -31,7 +31,7 @@ export default class EntityAtTextRange extends AbstractCrudObject {
       event: 'event',
       group: 'group',
       page: 'page',
-      user: 'user'
+      user: 'user',
     });
   }
 }

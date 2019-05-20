@@ -19,7 +19,8 @@ export default class PageCategory extends AbstractCrudObject {
       api_enum: 'api_enum',
       fb_page_categories: 'fb_page_categories',
       id: 'id',
-      name: 'name'
+      name: 'name',
     });
   }
+
 }

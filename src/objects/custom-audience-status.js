@@ -17,7 +17,8 @@ export default class CustomAudienceStatus extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       code: 'code',
-      description: 'description'
+      description: 'description',
     });
   }
+
 }

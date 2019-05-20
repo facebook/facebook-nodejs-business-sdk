@@ -76,7 +76,7 @@ export default class PagePost extends AbstractCrudObject {
       updated_time: 'updated_time',
       via: 'via',
       video_buying_eligibility: 'video_buying_eligibility',
-      width: 'width'
+      width: 'width',
     });
   }
 
@@ -87,7 +87,7 @@ export default class PagePost extends AbstractCrudObject {
       min: 'min',
       month: 'month',
       none: 'none',
-      year: 'year'
+      year: 'year',
     });
   }
   static get CheckinEntryPoint (): Object {
@@ -95,19 +95,19 @@ export default class PagePost extends AbstractCrudObject {
       branding_checkin: 'BRANDING_CHECKIN',
       branding_other: 'BRANDING_OTHER',
       branding_photo: 'BRANDING_PHOTO',
-      branding_status: 'BRANDING_STATUS'
+      branding_status: 'BRANDING_STATUS',
     });
   }
   static get Formatting (): Object {
     return Object.freeze({
       markdown: 'MARKDOWN',
-      plaintext: 'PLAINTEXT'
+      plaintext: 'PLAINTEXT',
     });
   }
   static get PlaceAttachmentSetting (): Object {
     return Object.freeze({
       value_1: '1',
-      value_2: '2'
+      value_2: '2',
     });
   }
   static get PostSurfacesBlacklist (): Object {
@@ -116,19 +116,19 @@ export default class PagePost extends AbstractCrudObject {
       value_2: '2',
       value_3: '3',
       value_4: '4',
-      value_5: '5'
+      value_5: '5',
     });
   }
   static get PostingToRedspace (): Object {
     return Object.freeze({
       disabled: 'disabled',
-      enabled: 'enabled'
+      enabled: 'enabled',
     });
   }
   static get TargetSurface (): Object {
     return Object.freeze({
       story: 'STORY',
-      timeline: 'TIMELINE'
+      timeline: 'TIMELINE',
     });
   }
   static get UnpublishedContentType (): Object {
@@ -137,25 +137,25 @@ export default class PagePost extends AbstractCrudObject {
       draft: 'DRAFT',
       inline_created: 'INLINE_CREATED',
       published: 'PUBLISHED',
-      scheduled: 'SCHEDULED'
+      scheduled: 'SCHEDULED',
     });
   }
   static get With (): Object {
     return Object.freeze({
-      location: 'LOCATION'
+      location: 'LOCATION',
     });
   }
   static get FeedStoryVisibility (): Object {
     return Object.freeze({
       hidden: 'hidden',
-      visible: 'visible'
+      visible: 'visible',
     });
   }
   static get TimelineVisibility (): Object {
     return Object.freeze({
       forced_allow: 'forced_allow',
       hidden: 'hidden',
-      normal: 'normal'
+      normal: 'normal',
     });
   }
 

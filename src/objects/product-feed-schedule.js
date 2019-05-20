@@ -24,7 +24,7 @@ export default class ProductFeedSchedule extends AbstractCrudObject {
       minute: 'minute',
       timezone: 'timezone',
       url: 'url',
-      username: 'username'
+      username: 'username',
     });
   }
 
@@ -36,7 +36,7 @@ export default class ProductFeedSchedule extends AbstractCrudObject {
       sunday: 'SUNDAY',
       thursday: 'THURSDAY',
       tuesday: 'TUESDAY',
-      wednesday: 'WEDNESDAY'
+      wednesday: 'WEDNESDAY',
     });
   }
   static get Interval (): Object {
@@ -44,7 +44,7 @@ export default class ProductFeedSchedule extends AbstractCrudObject {
       daily: 'DAILY',
       hourly: 'HOURLY',
       monthly: 'MONTHLY',
-      weekly: 'WEEKLY'
+      weekly: 'WEEKLY',
     });
   }
 }

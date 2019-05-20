@@ -78,7 +78,7 @@ export default class AdSet extends AbstractCrudObject {
       time_based_ad_rotation_id_blocks: 'time_based_ad_rotation_id_blocks',
       time_based_ad_rotation_intervals: 'time_based_ad_rotation_intervals',
       updated_time: 'updated_time',
-      use_new_app_click: 'use_new_app_click'
+      use_new_app_click: 'use_new_app_click',
     });
   }
 
@@ -86,7 +86,7 @@ export default class AdSet extends AbstractCrudObject {
     return Object.freeze({
       lowest_cost_without_cap: 'LOWEST_COST_WITHOUT_CAP',
       lowest_cost_with_bid_cap: 'LOWEST_COST_WITH_BID_CAP',
-      target_cost: 'TARGET_COST'
+      target_cost: 'TARGET_COST',
     });
   }
   static get BillingEvent (): Object {
@@ -100,7 +100,7 @@ export default class AdSet extends AbstractCrudObject {
       page_likes: 'PAGE_LIKES',
       post_engagement: 'POST_ENGAGEMENT',
       thruplay: 'THRUPLAY',
-      video_views: 'VIDEO_VIEWS'
+      video_views: 'VIDEO_VIEWS',
     });
   }
   static get ConfiguredStatus (): Object {
@@ -108,22 +108,15 @@ export default class AdSet extends AbstractCrudObject {
       active: 'ACTIVE',
       archived: 'ARCHIVED',
       deleted: 'DELETED',
-      paused: 'PAUSED'
+      paused: 'PAUSED',
     });
   }
   static get EffectiveStatus (): Object {
     return Object.freeze({
       active: 'ACTIVE',
-      adset_paused: 'ADSET_PAUSED',
       archived: 'ARCHIVED',
-      campaign_paused: 'CAMPAIGN_PAUSED',
       deleted: 'DELETED',
-      disapproved: 'DISAPPROVED',
       paused: 'PAUSED',
-      pending_billing_info: 'PENDING_BILLING_INFO',
-      pending_review: 'PENDING_REVIEW',
-      preapproved: 'PREAPPROVED',
-      with_issues: 'WITH_ISSUES'
     });
   }
   static get OptimizationGoal (): Object {
@@ -152,7 +145,7 @@ export default class AdSet extends AbstractCrudObject {
       thruplay: 'THRUPLAY',
       two_second_continuous_video_views: 'TWO_SECOND_CONTINUOUS_VIDEO_VIEWS',
       value: 'VALUE',
-      video_views: 'VIDEO_VIEWS'
+      video_views: 'VIDEO_VIEWS',
     });
   }
   static get Status (): Object {
@@ -160,7 +153,7 @@ export default class AdSet extends AbstractCrudObject {
       active: 'ACTIVE',
       archived: 'ARCHIVED',
       deleted: 'DELETED',
-      paused: 'PAUSED'
+      paused: 'PAUSED',
     });
   }
   static get DatePreset (): Object {
@@ -183,7 +176,7 @@ export default class AdSet extends AbstractCrudObject {
       this_week_sun_today: 'this_week_sun_today',
       this_year: 'this_year',
       today: 'today',
-      yesterday: 'yesterday'
+      yesterday: 'yesterday',
     });
   }
   static get DestinationType (): Object {
@@ -192,20 +185,20 @@ export default class AdSet extends AbstractCrudObject {
       applinks_automatic: 'APPLINKS_AUTOMATIC',
       messenger: 'MESSENGER',
       undefined: 'UNDEFINED',
-      website: 'WEBSITE'
+      website: 'WEBSITE',
     });
   }
   static get ExecutionOptions (): Object {
     return Object.freeze({
       include_recommendations: 'include_recommendations',
-      validate_only: 'validate_only'
+      validate_only: 'validate_only',
     });
   }
   static get FullFunnelExplorationMode (): Object {
     return Object.freeze({
       extended_exploration: 'EXTENDED_EXPLORATION',
       limited_exploration: 'LIMITED_EXPLORATION',
-      none_exploration: 'NONE_EXPLORATION'
+      none_exploration: 'NONE_EXPLORATION',
     });
   }
   static get OptimizationSubEvent (): Object {
@@ -219,20 +212,20 @@ export default class AdSet extends AbstractCrudObject {
       travel_intent_bucket_05: 'TRAVEL_INTENT_BUCKET_05',
       travel_intent_no_destination_intent: 'TRAVEL_INTENT_NO_DESTINATION_INTENT',
       trip_consideration: 'TRIP_CONSIDERATION',
-      video_sound_on: 'VIDEO_SOUND_ON'
+      video_sound_on: 'VIDEO_SOUND_ON',
     });
   }
   static get Operator (): Object {
     return Object.freeze({
       all: 'ALL',
-      any: 'ANY'
+      any: 'ANY',
     });
   }
   static get StatusOption (): Object {
     return Object.freeze({
       active: 'ACTIVE',
       inherited_from_source: 'INHERITED_FROM_SOURCE',
-      paused: 'PAUSED'
+      paused: 'PAUSED',
     });
   }
 

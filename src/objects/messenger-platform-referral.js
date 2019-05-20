@@ -20,9 +20,10 @@ export default class MessengerPlatformReferral extends AbstractCrudObject {
       id: 'id',
       ref: 'ref',
       source: 'source',
-      type: 'type'
+      type: 'type',
     });
   }
+
 
   get (fields, params): MessengerPlatformReferral {
     return this.read(

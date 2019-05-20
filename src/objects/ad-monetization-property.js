@@ -18,9 +18,10 @@ import AdNetworkAnalyticsAsyncQueryResult from './ad-network-analytics-async-que
 export default class AdMonetizationProperty extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      id: 'id'
+      id: 'id',
     });
   }
+
 
   getAdNetworkAnalytics (fields, params, fetchFirstPage = true): AdNetworkAnalyticsSyncQueryResult {
     return this.getEdge(

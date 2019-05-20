@@ -18,7 +18,8 @@ export default class AdAccountPromotableObjects extends AbstractCrudObject {
     return Object.freeze({
       promotable_app_ids: 'promotable_app_ids',
       promotable_page_ids: 'promotable_page_ids',
-      promotable_urls: 'promotable_urls'
+      promotable_urls: 'promotable_urls',
     });
   }
+
 }

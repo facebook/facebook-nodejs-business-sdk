@@ -17,7 +17,7 @@ import path from 'path';
 class VideoUploader {
   _session: VideoUploadSession;
 
-  constructor () {
+  constructor() {
     this._session = null;
   }
 
@@ -27,7 +27,7 @@ class VideoUploader {
    * @param {Boolean} [waitForEncoding] Whether to wait until encoding
    *   is finished
    **/
-  upload (video: AdVideo, waitForEncoding: Boolean): Object {
+  upload(video: AdVideo, waitForEncoding: Boolean): Object {
     // Check there is no existing session
     if (this._session) {
       throw Error('There is already an upload session for this video uploader');
@@ -61,7 +61,7 @@ class VideoUploadSession {
   _video: AdVideo;
   _waitForEncoding: Boolean;
 
-  constructor (video: AdVideo, waitForEncoding: Boolean = false) {
+  constructor(video: AdVideo, waitForEncoding: Boolean = false) {
     this._video = video;
     this._api = video.getApi();
 
@@ -79,18 +79,18 @@ class VideoUploadSession {
     this._startRequestManager = new VideoUploadStartRequestManager(this._api);
     // Setup transfer request manager
     this._transferRequestManager = new VideoUploadTransferRequestManager(
-      this._api
+      this._api,
     );
     // Setup finish request manager
     this._finishRequestManager = new VideoUploadFinishRequestManager(this._api);
   }
 
-  async start (): Object {
+  async start(): Object {
     let videoId;
 
     // Run start request manager
     const startResponse = await this._startRequestManager.sendRequest(
-      this.getStartRequestContext()
+      this.getStartRequestContext(),
     );
     this._startOffset = parseInt(startResponse['start_offset']);
     this._endOffset = parseInt(startResponse['end_offset']);
@@ -98,11 +98,11 @@ class VideoUploadSession {
     videoId = startResponse['video_id'];
     // Run transfer request manager
     await this._transferRequestManager.sendRequest(
-      this.getTransferRequestContext()
+      this.getTransferRequestContext(),
     );
     // Run finish request manager
     const finishResponse = await this._finishRequestManager.sendRequest(
-      this.getFinishRequestContext()
+      this.getFinishRequestContext(),
     );
     // Populate the video info
     const body = finishResponse;
@@ -112,7 +112,7 @@ class VideoUploadSession {
     return body;
   }
 
-  getStartRequestContext (): VideoUploadRequestContext {
+  getStartRequestContext(): VideoUploadRequestContext {
     const context = new VideoUploadRequestContext();
 
     if (this._filePath) {
@@ -124,7 +124,7 @@ class VideoUploadSession {
     return context;
   }
 
-  getTransferRequestContext (): VideoUploadRequestContext {
+  getTransferRequestContext(): VideoUploadRequestContext {
     const context = new VideoUploadRequestContext();
 
     context.sessionId = this._sessionId;
@@ -142,7 +142,7 @@ class VideoUploadSession {
     return context;
   }
 
-  getFinishRequestContext (): VideoUploadRequestContext {
+  getFinishRequestContext(): VideoUploadRequestContext {
     const context = new VideoUploadRequestContext();
 
     context.sessionId = this._sessionId;
@@ -162,14 +162,14 @@ class VideoUploadSession {
 class VideoUploadRequestManager {
   _api: FacebookAdsApi;
 
-  constructor (api: FacebookAdsApi) {
+  constructor(api: FacebookAdsApi) {
     this._api = api;
 
     // Check subclass method implementation
     if (this.sendRequest === undefined) {
       throw new TypeError(
         'Class extending VideoUploadRequestManager must implement ' +
-          'sendRequest method'
+          'sendRequest method',
       );
     }
 
@@ -177,7 +177,7 @@ class VideoUploadRequestManager {
     if (this.getParamsFromContext === undefined) {
       throw new TypeError(
         'Class extending VideoUploadRequestManager must implement ' +
-          'getParamsFromContext method'
+          'getParamsFromContext method',
       );
     }
   }
@@ -187,7 +187,7 @@ class VideoUploadStartRequestManager extends VideoUploadRequestManager {
   /**
    * Send start request with the given context
    **/
-  async sendRequest (context: VideoUploadRequestContext): Object {
+  async sendRequest(context: VideoUploadRequestContext): Object {
     // Init a VideoUploadRequest and send the request
     const request = new VideoUploadRequest(this._api);
     request.setParams(this.getParamsFromContext(context));
@@ -197,10 +197,10 @@ class VideoUploadStartRequestManager extends VideoUploadRequestManager {
     return response;
   }
 
-  getParamsFromContext (context: VideoUploadRequestContext): Object {
+  getParamsFromContext(context: VideoUploadRequestContext): Object {
     return {
       file_size: context.fileSize,
-      upload_phase: 'start'
+      upload_phase: 'start',
     };
   }
 }
@@ -212,7 +212,7 @@ class VideoUploadTransferRequestManager extends VideoUploadRequestManager {
   /**
    * Send transfer request with the given context
    **/
-  async sendRequest (context: VideoUploadRequestContext): Object {
+  async sendRequest(context: VideoUploadRequestContext): Object {
     // Init a VideoUploadRequest
     const request = new VideoUploadRequest(this._api);
     this._startOffset = context.startOffset;
@@ -232,8 +232,8 @@ class VideoUploadTransferRequestManager extends VideoUploadRequestManager {
       request.setParams(this.getParamsFromContext(context), {
         video_file_chunk: fs.createReadStream(context.filePath, {
           start: context.startOffset,
-          end: context.endOffset - 1
-        })
+          end: context.endOffset - 1,
+        }),
       });
       // Send the request
       try {
@@ -255,12 +255,12 @@ class VideoUploadTransferRequestManager extends VideoUploadRequestManager {
     return response;
   }
 
-  getParamsFromContext (context: VideoUploadRequestContext): Object {
+  getParamsFromContext(context: VideoUploadRequestContext): Object {
     return {
       upload_phase: 'transfer',
       start_offset: context.startOffset,
       upload_session_id: context.sessionId,
-      video_file_chunk: context.videoFileChunk
+      video_file_chunk: context.videoFileChunk,
     };
   }
 }
@@ -269,7 +269,7 @@ class VideoUploadFinishRequestManager extends VideoUploadRequestManager {
   /**
    * Send transfer request with the given context
    **/
-  async sendRequest (context: VideoUploadRequestContext): Object {
+  async sendRequest(context: VideoUploadRequestContext): Object {
     // Init a VideoUploadRequest
     const request = new VideoUploadRequest(this._api);
 
@@ -282,11 +282,11 @@ class VideoUploadFinishRequestManager extends VideoUploadRequestManager {
     return response;
   }
 
-  getParamsFromContext (context: VideoUploadRequestContext): Object {
+  getParamsFromContext(context: VideoUploadRequestContext): Object {
     return {
       upload_phase: 'finish',
       upload_session_id: context.sessionId,
-      title: context.fileName
+      title: context.fileName,
     };
   }
 }
@@ -305,74 +305,74 @@ class VideoUploadRequestContext {
   _endOffset: Number;
   _slideshowSpec: SlideshowSpec;
 
-  get accountId (): String {
+  get accountId(): String {
     return this._accountId;
   }
 
-  set accountId (accountId: String) {
+  set accountId(accountId: String) {
     this._accountId = accountId;
   }
 
-  get fileName (): String {
+  get fileName(): String {
     return this._fileName;
   }
 
-  set fileName (fileName: String) {
+  set fileName(fileName: String) {
     this._fileName = fileName;
   }
 
-  get filePath (): String {
+  get filePath(): String {
     return this._filePath;
   }
 
-  set filePath (filePath: String) {
+  set filePath(filePath: String) {
     this._filePath = filePath;
   }
 
-  get fileSize (): Number {
+  get fileSize(): Number {
     return this._fileSize;
   }
 
-  set fileSize (fileSize: Number) {
+  set fileSize(fileSize: Number) {
     this._fileSize = fileSize;
   }
-  get name (): String {
+  get name(): String {
     return this._name;
   }
 
-  set name (name: String) {
+  set name(name: String) {
     this._name = name;
   }
 
-  get sessionId (): String {
+  get sessionId(): String {
     return this._sessionId;
   }
 
-  set sessionId (sessionId: String) {
+  set sessionId(sessionId: String) {
     this._sessionId = sessionId;
   }
 
-  get startOffset (): Number {
+  get startOffset(): Number {
     return this._startOffset;
   }
 
-  set startOffset (startOffset: Number) {
+  set startOffset(startOffset: Number) {
     this._startOffset = startOffset;
   }
 
-  get endOffset (): Number {
+  get endOffset(): Number {
     return this._endOffset;
   }
 
-  set endOffset (endOffset: Number) {
+  set endOffset(endOffset: Number) {
     this._endOffset = endOffset;
   }
 
-  get slideshowSpec (): SlideshowSpec {
+  get slideshowSpec(): SlideshowSpec {
     return this._slideshowSpec;
   }
 
-  set slideshowSpec (slideshowSpec: SlideshowSpec) {
+  set slideshowSpec(slideshowSpec: SlideshowSpec) {
     this._slideshowSpec = slideshowSpec;
   }
 }
@@ -382,7 +382,7 @@ class VideoUploadRequest {
   _files: Object;
   _api: FacebookAdsApi;
 
-  constructor (api: FacebookAdsApi) {
+  constructor(api: FacebookAdsApi) {
     this._params = null;
     this._files = null;
     this._api = api;
@@ -391,7 +391,7 @@ class VideoUploadRequest {
   /**
    * Send the current request
    **/
-  send (path: String | Array<String>): Object {
+  send(path: String | Array<String>): Object {
     return new Promise((resolve, reject) => {
       this._api
         .call(
@@ -400,29 +400,29 @@ class VideoUploadRequest {
           this._params,
           this._files,
           true, // use multipart/form-data
-          FacebookAdsApi.GRAPH_VIDEO // override graph.facebook.com
+          FacebookAdsApi.GRAPH_VIDEO, // override graph.facebook.com
         )
         .then(response => resolve(JSON.parse(response)))
         .catch(error => reject(error));
     });
   }
 
-  setParams (params: Object, files: Object = null) {
+  setParams(params: Object, files: Object = null) {
     this._params = params;
     this._files = files;
   }
 }
 
-function sleep (ms) {
+function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 class VideoEncodingStatusChecker {
-  static async waitUntilReady (
+  static async waitUntilReady(
     api: FacebookAdsApi,
     videoId: Number,
     interval: Number,
-    timeout: Number
+    timeout: Number,
   ) {
     const startTime = new Date().getTime();
     let status = null;
@@ -445,9 +445,11 @@ class VideoEncodingStatusChecker {
     if (status !== 'ready') {
       throw Error(`Video encoding status ${status}`);
     }
+
+    return;
   }
 
-  static getStatus (api: FacebookAdsApi, videoId: Number) {
+  static getStatus(api: FacebookAdsApi, videoId: Number) {
     const result = api.call('GET', [parseInt(videoId)], {fields: 'status'});
 
     return result['status'];

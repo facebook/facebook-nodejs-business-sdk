@@ -10,7 +10,6 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import AdNetworkAnalyticsSyncQueryResult from './ad-network-analytics-sync-query-result';
 import AdNetworkAnalyticsAsyncQueryResult from './ad-network-analytics-async-query-result';
-import Business from './business';
 import Group from './group';
 import AdAccount from './ad-account';
 import User from './user';
@@ -103,6 +102,7 @@ export default class Application extends AbstractCrudObject {
       property_id: 'property_id',
       real_time_mode_devices: 'real_time_mode_devices',
       restrictions: 'restrictions',
+      restrictive_data_filter_rules: 'restrictive_data_filter_rules',
       sdk_update_message: 'sdk_update_message',
       seamless_login: 'seamless_login',
       secure_canvas_url: 'secure_canvas_url',
@@ -122,7 +122,7 @@ export default class Application extends AbstractCrudObject {
       user_support_email: 'user_support_email',
       user_support_url: 'user_support_url',
       website_url: 'website_url',
-      weekly_active_users: 'weekly_active_users'
+      weekly_active_users: 'weekly_active_users',
     });
   }
 
@@ -138,7 +138,7 @@ export default class Application extends AbstractCrudObject {
       mobile_web: 'MOBILE_WEB',
       supplementary_images: 'SUPPLEMENTARY_IMAGES',
       web: 'WEB',
-      windows: 'WINDOWS'
+      windows: 'WINDOWS',
     });
   }
   static get AnPlatforms (): Object {
@@ -148,58 +148,58 @@ export default class Application extends AbstractCrudObject {
       instant_articles: 'INSTANT_ARTICLES',
       ios: 'IOS',
       mobile_web: 'MOBILE_WEB',
-      unknown: 'UNKNOWN'
+      unknown: 'UNKNOWN',
     });
   }
   static get Platform (): Object {
     return Object.freeze({
       android: 'ANDROID',
-      ios: 'IOS'
+      ios: 'IOS',
     });
   }
   static get RequestType (): Object {
     return Object.freeze({
       app_indexing: 'APP_INDEXING',
       button_sampling: 'BUTTON_SAMPLING',
-      plugin: 'PLUGIN'
+      plugin: 'PLUGIN',
     });
   }
   static get MutationMethod (): Object {
     return Object.freeze({
       add: 'ADD',
       delete: 'DELETE',
-      replace: 'REPLACE'
+      replace: 'REPLACE',
     });
   }
   static get PostMethod (): Object {
     return Object.freeze({
       codeless: 'CODELESS',
-      eymt: 'EYMT'
+      eymt: 'EYMT',
     });
   }
   static get ScoreType (): Object {
     return Object.freeze({
       custom: 'CUSTOM',
       numeric: 'NUMERIC',
-      time: 'TIME'
+      time: 'TIME',
     });
   }
   static get SortOrder (): Object {
     return Object.freeze({
       higher_is_better: 'HIGHER_IS_BETTER',
-      lower_is_better: 'LOWER_IS_BETTER'
+      lower_is_better: 'LOWER_IS_BETTER',
     });
   }
   static get LoggingSource (): Object {
     return Object.freeze({
-      messenger_bot: 'MESSENGER_BOT'
+      messenger_bot: 'MESSENGER_BOT',
     });
   }
   static get LoggingTarget (): Object {
     return Object.freeze({
       app: 'APP',
       app_and_page: 'APP_AND_PAGE',
-      page: 'PAGE'
+      page: 'PAGE',
     });
   }
 
@@ -224,8 +224,8 @@ export default class Application extends AbstractCrudObject {
     return this.createEdge(
       '/accounts',
       fields,
-      params
-
+      params,
+      
     );
   }
 
@@ -233,8 +233,8 @@ export default class Application extends AbstractCrudObject {
     return this.createEdge(
       '/activities',
       fields,
-      params
-
+      params,
+      
     );
   }
 
@@ -264,16 +264,6 @@ export default class Application extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/adnetworkanalytics_results'
-    );
-  }
-
-  getAgencies (fields, params, fetchFirstPage = true): Business {
-    return this.getEdge(
-      Business,
-      fields,
-      params,
-      fetchFirstPage,
-      '/agencies'
     );
   }
 
@@ -343,13 +333,6 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  deleteAuthorizedAdAccounts (params): AbstractObject {
-    return super.deleteEdge(
-      '/authorized_adaccounts',
-      params
-    );
-  }
-
   getAuthorizedAdAccounts (fields, params, fetchFirstPage = true): AdAccount {
     return this.getEdge(
       AdAccount,
@@ -357,15 +340,6 @@ export default class Application extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/authorized_adaccounts'
-    );
-  }
-
-  createAuthorizedAdAccount (fields, params): Application {
-    return this.createEdge(
-      '/authorized_adaccounts',
-      fields,
-      params,
-      Application
     );
   }
 
@@ -460,8 +434,8 @@ export default class Application extends AbstractCrudObject {
     return this.createEdge(
       '/full_app_indexing_infos',
       fields,
-      params
-
+      params,
+      
     );
   }
 
@@ -515,8 +489,8 @@ export default class Application extends AbstractCrudObject {
     return this.createEdge(
       '/mmp_auditing',
       fields,
-      params
-
+      params,
+      
     );
   }
 
@@ -563,8 +537,8 @@ export default class Application extends AbstractCrudObject {
     return this.createEdge(
       '/occludespopups',
       fields,
-      params
-
+      params,
+      
     );
   }
 
@@ -572,8 +546,8 @@ export default class Application extends AbstractCrudObject {
     return this.createEdge(
       '/ozone_release',
       fields,
-      params
-
+      params,
+      
     );
   }
 
@@ -700,8 +674,8 @@ export default class Application extends AbstractCrudObject {
     return this.createEdge(
       '/subscriptions',
       fields,
-      params
-
+      params,
+      
     );
   }
 
@@ -718,8 +692,8 @@ export default class Application extends AbstractCrudObject {
     return this.createEdge(
       '/user_properties',
       fields,
-      params
-
+      params,
+      
     );
   }
 

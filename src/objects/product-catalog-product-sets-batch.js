@@ -19,7 +19,8 @@ export default class ProductCatalogProductSetsBatch extends AbstractCrudObject {
       errors: 'errors',
       errors_total_count: 'errors_total_count',
       handle: 'handle',
-      status: 'status'
+      status: 'status',
     });
   }
+
 }

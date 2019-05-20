@@ -71,7 +71,7 @@ export default class AdCampaignActivity extends AbstractCrudObject {
       targeting_expansion_new: 'targeting_expansion_new',
       targeting_expansion_old: 'targeting_expansion_old',
       updated_time_new: 'updated_time_new',
-      updated_time_old: 'updated_time_old'
+      updated_time_old: 'updated_time_old',
     });
   }
 
@@ -79,14 +79,14 @@ export default class AdCampaignActivity extends AbstractCrudObject {
     return Object.freeze({
       lowest_cost_without_cap: 'LOWEST_COST_WITHOUT_CAP',
       lowest_cost_with_bid_cap: 'LOWEST_COST_WITH_BID_CAP',
-      target_cost: 'TARGET_COST'
+      target_cost: 'TARGET_COST',
     });
   }
   static get BidStrategyOld (): Object {
     return Object.freeze({
       lowest_cost_without_cap: 'LOWEST_COST_WITHOUT_CAP',
       lowest_cost_with_bid_cap: 'LOWEST_COST_WITH_BID_CAP',
-      target_cost: 'TARGET_COST'
+      target_cost: 'TARGET_COST',
     });
   }
   static get BillingEventNew (): Object {
@@ -100,7 +100,7 @@ export default class AdCampaignActivity extends AbstractCrudObject {
       page_likes: 'PAGE_LIKES',
       post_engagement: 'POST_ENGAGEMENT',
       thruplay: 'THRUPLAY',
-      video_views: 'VIDEO_VIEWS'
+      video_views: 'VIDEO_VIEWS',
     });
   }
   static get BillingEventOld (): Object {
@@ -114,7 +114,7 @@ export default class AdCampaignActivity extends AbstractCrudObject {
       page_likes: 'PAGE_LIKES',
       post_engagement: 'POST_ENGAGEMENT',
       thruplay: 'THRUPLAY',
-      video_views: 'VIDEO_VIEWS'
+      video_views: 'VIDEO_VIEWS',
     });
   }
   static get OptimizationGoalNew (): Object {
@@ -143,7 +143,7 @@ export default class AdCampaignActivity extends AbstractCrudObject {
       thruplay: 'THRUPLAY',
       two_second_continuous_video_views: 'TWO_SECOND_CONTINUOUS_VIDEO_VIEWS',
       value: 'VALUE',
-      video_views: 'VIDEO_VIEWS'
+      video_views: 'VIDEO_VIEWS',
     });
   }
   static get OptimizationGoalOld (): Object {
@@ -172,7 +172,7 @@ export default class AdCampaignActivity extends AbstractCrudObject {
       thruplay: 'THRUPLAY',
       two_second_continuous_video_views: 'TWO_SECOND_CONTINUOUS_VIDEO_VIEWS',
       value: 'VALUE',
-      video_views: 'VIDEO_VIEWS'
+      video_views: 'VIDEO_VIEWS',
     });
   }
 

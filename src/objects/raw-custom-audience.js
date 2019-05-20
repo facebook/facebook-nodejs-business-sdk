@@ -17,7 +17,8 @@ export default class RawCustomAudience extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       id: 'id',
-      name: 'name'
+      name: 'name',
     });
   }
+
 }

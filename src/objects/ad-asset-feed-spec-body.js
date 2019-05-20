@@ -18,7 +18,8 @@ export default class AdAssetFeedSpecBody extends AbstractCrudObject {
     return Object.freeze({
       adlabels: 'adlabels',
       text: 'text',
-      url_tags: 'url_tags'
+      url_tags: 'url_tags',
     });
   }
+
 }

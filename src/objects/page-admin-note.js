@@ -19,9 +19,10 @@ export default class PageAdminNote extends AbstractCrudObject {
       body: 'body',
       from: 'from',
       id: 'id',
-      user: 'user'
+      user: 'user',
     });
   }
+
 
   get (fields, params): PageAdminNote {
     return this.read(

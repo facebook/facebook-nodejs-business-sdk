@@ -20,9 +20,10 @@ export default class LiveVideoError extends AbstractCrudObject {
       error_code: 'error_code',
       error_message: 'error_message',
       error_type: 'error_type',
-      id: 'id'
+      id: 'id',
     });
   }
+
 
   get (fields, params): LiveVideoError {
     return this.read(

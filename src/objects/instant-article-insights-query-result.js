@@ -19,7 +19,7 @@ export default class InstantArticleInsightsQueryResult extends AbstractCrudObjec
       breakdowns: 'breakdowns',
       name: 'name',
       time: 'time',
-      value: 'value'
+      value: 'value',
     });
   }
 
@@ -33,7 +33,7 @@ export default class InstantArticleInsightsQueryResult extends AbstractCrudObjec
       is_shared_by_ia_owner: 'is_shared_by_ia_owner',
       no_breakdown: 'no_breakdown',
       platform: 'platform',
-      region: 'region'
+      region: 'region',
     });
   }
   static get Period (): Object {
@@ -42,7 +42,7 @@ export default class InstantArticleInsightsQueryResult extends AbstractCrudObjec
       days_28: 'days_28',
       lifetime: 'lifetime',
       month: 'month',
-      week: 'week'
+      week: 'week',
     });
   }
 }

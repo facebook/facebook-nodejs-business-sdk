@@ -48,7 +48,7 @@ export default class Photo extends AbstractCrudObject {
       target: 'target',
       updated_time: 'updated_time',
       webp_images: 'webp_images',
-      width: 'width'
+      width: 'width',
     });
   }
 
@@ -59,7 +59,7 @@ export default class Photo extends AbstractCrudObject {
       min: 'min',
       month: 'month',
       none: 'none',
-      year: 'year'
+      year: 'year',
     });
   }
   static get UnpublishedContentType (): Object {
@@ -68,14 +68,14 @@ export default class Photo extends AbstractCrudObject {
       draft: 'DRAFT',
       inline_created: 'INLINE_CREATED',
       published: 'PUBLISHED',
-      scheduled: 'SCHEDULED'
+      scheduled: 'SCHEDULED',
     });
   }
   static get Type (): Object {
     return Object.freeze({
       profile: 'profile',
       tagged: 'tagged',
-      uploaded: 'uploaded'
+      uploaded: 'uploaded',
     });
   }
 

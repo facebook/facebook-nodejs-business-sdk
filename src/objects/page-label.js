@@ -20,9 +20,10 @@ export default class PageLabel extends AbstractCrudObject {
       creator_id: 'creator_id',
       from: 'from',
       id: 'id',
-      name: 'name'
+      name: 'name',
     });
   }
+
 
   get (fields, params): PageLabel {
     return this.read(

@@ -22,7 +22,8 @@ export default class CanvasAdSettings extends AbstractCrudObject {
       lead_gen_form_id: 'lead_gen_form_id',
       leads_count: 'leads_count',
       product_set_id: 'product_set_id',
-      use_retailer_item_ids: 'use_retailer_item_ids'
+      use_retailer_item_ids: 'use_retailer_item_ids',
     });
   }
+
 }

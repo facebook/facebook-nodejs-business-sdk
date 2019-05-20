@@ -56,7 +56,7 @@ export default class Ad extends AbstractCrudObject {
       targeting: 'targeting',
       tracking_and_conversion_with_defaults: 'tracking_and_conversion_with_defaults',
       tracking_specs: 'tracking_specs',
-      updated_time: 'updated_time'
+      updated_time: 'updated_time',
     });
   }
 
@@ -66,7 +66,7 @@ export default class Ad extends AbstractCrudObject {
       cpa: 'CPA',
       cpc: 'CPC',
       cpm: 'CPM',
-      multi_premium: 'MULTI_PREMIUM'
+      multi_premium: 'MULTI_PREMIUM',
     });
   }
   static get ConfiguredStatus (): Object {
@@ -74,7 +74,7 @@ export default class Ad extends AbstractCrudObject {
       active: 'ACTIVE',
       archived: 'ARCHIVED',
       deleted: 'DELETED',
-      paused: 'PAUSED'
+      paused: 'PAUSED',
     });
   }
   static get EffectiveStatus (): Object {
@@ -89,7 +89,7 @@ export default class Ad extends AbstractCrudObject {
       pending_billing_info: 'PENDING_BILLING_INFO',
       pending_review: 'PENDING_REVIEW',
       preapproved: 'PREAPPROVED',
-      with_issues: 'WITH_ISSUES'
+      with_issues: 'WITH_ISSUES',
     });
   }
   static get Status (): Object {
@@ -97,7 +97,7 @@ export default class Ad extends AbstractCrudObject {
       active: 'ACTIVE',
       archived: 'ARCHIVED',
       deleted: 'DELETED',
-      paused: 'PAUSED'
+      paused: 'PAUSED',
     });
   }
   static get DatePreset (): Object {
@@ -120,27 +120,27 @@ export default class Ad extends AbstractCrudObject {
       this_week_sun_today: 'this_week_sun_today',
       this_year: 'this_year',
       today: 'today',
-      yesterday: 'yesterday'
+      yesterday: 'yesterday',
     });
   }
   static get ExecutionOptions (): Object {
     return Object.freeze({
       include_recommendations: 'include_recommendations',
       synchronous_ad_review: 'synchronous_ad_review',
-      validate_only: 'validate_only'
+      validate_only: 'validate_only',
     });
   }
   static get Operator (): Object {
     return Object.freeze({
       all: 'ALL',
-      any: 'ANY'
+      any: 'ANY',
     });
   }
   static get StatusOption (): Object {
     return Object.freeze({
       active: 'ACTIVE',
       inherited_from_source: 'INHERITED_FROM_SOURCE',
-      paused: 'PAUSED'
+      paused: 'PAUSED',
     });
   }
 
@@ -262,8 +262,8 @@ export default class Ad extends AbstractCrudObject {
     return this.createEdge(
       '/trackingtag',
       fields,
-      params
-
+      params,
+      
     );
   }
 

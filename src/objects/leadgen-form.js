@@ -44,7 +44,7 @@ export default class LeadgenForm extends AbstractCrudObject {
       questions: 'questions',
       status: 'status',
       tcpa_compliance: 'tcpa_compliance',
-      tracking_parameters: 'tracking_parameters'
+      tracking_parameters: 'tracking_parameters',
     });
   }
 
@@ -53,7 +53,7 @@ export default class LeadgenForm extends AbstractCrudObject {
       active: 'ACTIVE',
       archived: 'ARCHIVED',
       deleted: 'DELETED',
-      draft: 'DRAFT'
+      draft: 'DRAFT',
     });
   }
   static get Locale (): Object {
@@ -88,7 +88,7 @@ export default class LeadgenForm extends AbstractCrudObject {
       vi_vn: 'VI_VN',
       zh_cn: 'ZH_CN',
       zh_hk: 'ZH_HK',
-      zh_tw: 'ZH_TW'
+      zh_tw: 'ZH_TW',
     });
   }
 

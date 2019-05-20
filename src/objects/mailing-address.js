@@ -23,9 +23,10 @@ export default class MailingAddress extends AbstractCrudObject {
       postal_code: 'postal_code',
       region: 'region',
       street1: 'street1',
-      street2: 'street2'
+      street2: 'street2',
     });
   }
+
 
   get (fields, params): MailingAddress {
     return this.read(

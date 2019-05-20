@@ -23,7 +23,8 @@ export default class AdCustomizationRuleSpec extends AbstractCrudObject {
       message: 'message',
       name: 'name',
       priority: 'priority',
-      template_url_spec: 'template_url_spec'
+      template_url_spec: 'template_url_spec',
     });
   }
+
 }

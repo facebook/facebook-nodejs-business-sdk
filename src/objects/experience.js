@@ -20,7 +20,8 @@ export default class Experience extends AbstractCrudObject {
       from: 'from',
       id: 'id',
       name: 'name',
-      with: 'with'
+      with: 'with',
     });
   }
+
 }

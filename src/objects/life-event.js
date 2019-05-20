@@ -28,9 +28,10 @@ export default class LifeEvent extends AbstractCrudObject {
       is_hidden: 'is_hidden',
       start_time: 'start_time',
       title: 'title',
-      updated_time: 'updated_time'
+      updated_time: 'updated_time',
     });
   }
+
 
   getComments (fields, params, fetchFirstPage = true): Comment {
     return this.getEdge(

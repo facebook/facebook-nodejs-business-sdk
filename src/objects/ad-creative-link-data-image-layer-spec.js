@@ -28,7 +28,7 @@ export default class AdCreativeLinkDataImageLayerSpec extends AbstractCrudObject
       scale: 'scale',
       shape_color: 'shape_color',
       text_color: 'text_color',
-      text_font: 'text_font'
+      text_font: 'text_font',
     });
   }
 
@@ -36,24 +36,24 @@ export default class AdCreativeLinkDataImageLayerSpec extends AbstractCrudObject
     return Object.freeze({
       lighten: 'lighten',
       multiply: 'multiply',
-      normal: 'normal'
+      normal: 'normal',
     });
   }
   static get FrameSource (): Object {
     return Object.freeze({
-      custom: 'custom'
+      custom: 'custom',
     });
   }
   static get ImageSource (): Object {
     return Object.freeze({
-      catalog: 'catalog'
+      catalog: 'catalog',
     });
   }
   static get LayerType (): Object {
     return Object.freeze({
       frame_overlay: 'frame_overlay',
       image: 'image',
-      text_overlay: 'text_overlay'
+      text_overlay: 'text_overlay',
     });
   }
   static get OverlayPosition (): Object {
@@ -66,7 +66,7 @@ export default class AdCreativeLinkDataImageLayerSpec extends AbstractCrudObject
       right: 'right',
       top: 'top',
       top_left: 'top_left',
-      top_right: 'top_right'
+      top_right: 'top_right',
     });
   }
   static get OverlayShape (): Object {
@@ -75,7 +75,7 @@ export default class AdCreativeLinkDataImageLayerSpec extends AbstractCrudObject
       none: 'none',
       pill: 'pill',
       rectangle: 'rectangle',
-      triangle: 'triangle'
+      triangle: 'triangle',
     });
   }
   static get TextFont (): Object {
@@ -88,7 +88,7 @@ export default class AdCreativeLinkDataImageLayerSpec extends AbstractCrudObject
       open_sans_condensed_bold: 'open_sans_condensed_bold',
       pt_serif_bold: 'pt_serif_bold',
       roboto_condensed_regular: 'roboto_condensed_regular',
-      roboto_medium: 'roboto_medium'
+      roboto_medium: 'roboto_medium',
     });
   }
 }

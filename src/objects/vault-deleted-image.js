@@ -20,9 +20,10 @@ export default class VaultDeletedImage extends AbstractCrudObject {
       date_taken: 'date_taken',
       id: 'id',
       owner: 'owner',
-      remote_id: 'remote_id'
+      remote_id: 'remote_id',
     });
   }
+
 
   get (fields, params): VaultDeletedImage {
     return this.read(

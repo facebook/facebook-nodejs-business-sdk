@@ -15,13 +15,13 @@ import AdNetworkAnalyticsSyncQueryResult from './ad-network-analytics-sync-query
 import AdNetworkAnalyticsAsyncQueryResult from './ad-network-analytics-async-query-result';
 import AdsPixel from './ads-pixel';
 import BusinessAdvertisableApplicationsResult from './business-advertisable-applications-result';
-import Page from './page';
 import AdPlacement from './ad-placement';
 import OracleTransaction from './oracle-transaction';
 import BusinessUser from './business-user';
 import BusinessProject from './business-project';
 import CustomConversion from './custom-conversion';
 import Application from './application';
+import Page from './page';
 import ProductCatalog from './product-catalog';
 import DirectDeal from './direct-deal';
 import EventSourceGroup from './event-source-group';
@@ -68,7 +68,7 @@ export default class Business extends AbstractCrudObject {
       updated_time: 'updated_time',
       verification_status: 'verification_status',
       vertical: 'vertical',
-      vertical_id: 'vertical_id'
+      vertical_id: 'vertical_id',
     });
   }
 
@@ -76,7 +76,7 @@ export default class Business extends AbstractCrudObject {
     return Object.freeze({
       admin_required: 'admin_required',
       all_required: 'all_required',
-      none: 'none'
+      none: 'none',
     });
   }
   static get Vertical (): Object {
@@ -102,20 +102,14 @@ export default class Business extends AbstractCrudObject {
       retail: 'RETAIL',
       technology: 'TECHNOLOGY',
       telecom: 'TELECOM',
-      travel: 'TRAVEL'
-    });
-  }
-  static get AccessType (): Object {
-    return Object.freeze({
-      agency: 'AGENCY',
-      owner: 'OWNER'
+      travel: 'TRAVEL',
     });
   }
   static get PermittedTasks (): Object {
     return Object.freeze({
       advertise: 'ADVERTISE',
       analyze: 'ANALYZE',
-      manage: 'MANAGE'
+      manage: 'MANAGE',
     });
   }
   static get SurveyBusinessType (): Object {
@@ -123,7 +117,7 @@ export default class Business extends AbstractCrudObject {
       advertiser: 'ADVERTISER',
       agency: 'AGENCY',
       app_developer: 'APP_DEVELOPER',
-      publisher: 'PUBLISHER'
+      publisher: 'PUBLISHER',
     });
   }
   static get PagePermittedTasks (): Object {
@@ -138,16 +132,7 @@ export default class Business extends AbstractCrudObject {
       pages_messaging: 'PAGES_MESSAGING',
       pages_messaging_subscriptions: 'PAGES_MESSAGING_SUBSCRIPTIONS',
       read_page_mailboxes: 'READ_PAGE_MAILBOXES',
-      view_monetization_insights: 'VIEW_MONETIZATION_INSIGHTS'
-    });
-  }
-  static get Role (): Object {
-    return Object.freeze({
-      admin: 'ADMIN',
-      ads_rights_reviewer: 'ADS_RIGHTS_REVIEWER',
-      employee: 'EMPLOYEE',
-      finance_analyst: 'FINANCE_ANALYST',
-      finance_editor: 'FINANCE_EDITOR'
+      view_monetization_insights: 'VIEW_MONETIZATION_INSIGHTS',
     });
   }
 
@@ -279,16 +264,6 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  getAgencyPages (fields, params, fetchFirstPage = true): Page {
-    return this.getEdge(
-      Page,
-      fields,
-      params,
-      fetchFirstPage,
-      '/agency_pages'
-    );
-  }
-
   getAnPlacements (fields, params, fetchFirstPage = true): AdPlacement {
     return this.getEdge(
       AdPlacement,
@@ -296,22 +271,6 @@ export default class Business extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/an_placements'
-    );
-  }
-
-  deleteApps (params): AbstractObject {
-    return super.deleteEdge(
-      '/apps',
-      params
-    );
-  }
-
-  createApp (fields, params): Business {
-    return this.createEdge(
-      '/apps',
-      fields,
-      params,
-      Business
     );
   }
 
@@ -715,8 +674,8 @@ export default class Business extends AbstractCrudObject {
     return this.createEdge(
       '/owned_domains',
       fields,
-      params
-
+      params,
+      
     );
   }
 
@@ -998,29 +957,6 @@ export default class Business extends AbstractCrudObject {
       fields,
       params,
       MeasurementUploadEvent
-    );
-  }
-
-  deleteUserInvitations (params): AbstractObject {
-    return super.deleteEdge(
-      '/user_invitations',
-      params
-    );
-  }
-
-  deleteUserPermissions (params): AbstractObject {
-    return super.deleteEdge(
-      '/userpermissions',
-      params
-    );
-  }
-
-  createUserPermission (fields, params): Business {
-    return this.createEdge(
-      '/userpermissions',
-      fields,
-      params,
-      Business
     );
   }
 

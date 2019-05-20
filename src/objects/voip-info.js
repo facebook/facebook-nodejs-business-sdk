@@ -22,7 +22,8 @@ export default class VoipInfo extends AbstractCrudObject {
       is_callable_webrtc: 'is_callable_webrtc',
       is_pushable: 'is_pushable',
       reason_code: 'reason_code',
-      reason_description: 'reason_description'
+      reason_description: 'reason_description',
     });
   }
+
 }

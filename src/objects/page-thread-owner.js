@@ -16,7 +16,8 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class PageThreadOwner extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      thread_owner: 'thread_owner'
+      thread_owner: 'thread_owner',
     });
   }
+
 }

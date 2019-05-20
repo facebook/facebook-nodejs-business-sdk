@@ -21,9 +21,10 @@ export default class PageUpcomingChange extends AbstractCrudObject {
       id: 'id',
       page: 'page',
       proposal: 'proposal',
-      timer_status: 'timer_status'
+      timer_status: 'timer_status',
     });
   }
+
 
   get (fields, params): PageUpcomingChange {
     return this.read(

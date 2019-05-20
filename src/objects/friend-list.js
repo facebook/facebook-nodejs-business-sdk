@@ -19,9 +19,10 @@ export default class FriendList extends AbstractCrudObject {
       id: 'id',
       list_type: 'list_type',
       name: 'name',
-      owner: 'owner'
+      owner: 'owner',
     });
   }
+
 
   get (fields, params): FriendList {
     return this.read(

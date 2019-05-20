@@ -25,7 +25,7 @@ export default class SystemUser extends AbstractCrudObject {
       finance_permission: 'finance_permission',
       id: 'id',
       ip_permission: 'ip_permission',
-      name: 'name'
+      name: 'name',
     });
   }
 
@@ -35,7 +35,7 @@ export default class SystemUser extends AbstractCrudObject {
       ads_rights_reviewer: 'ADS_RIGHTS_REVIEWER',
       employee: 'EMPLOYEE',
       finance_analyst: 'FINANCE_ANALYST',
-      finance_editor: 'FINANCE_EDITOR'
+      finance_editor: 'FINANCE_EDITOR',
     });
   }
 

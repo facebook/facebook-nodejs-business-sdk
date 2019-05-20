@@ -18,7 +18,7 @@ export default class CustomConversionStatsResult extends AbstractCrudObject {
     return Object.freeze({
       aggregation: 'aggregation',
       data: 'data',
-      timestamp: 'timestamp'
+      timestamp: 'timestamp',
     });
   }
 
@@ -31,7 +31,7 @@ export default class CustomConversionStatsResult extends AbstractCrudObject {
       unmatched_count: 'unmatched_count',
       unmatched_usd_amount: 'unmatched_usd_amount',
       url: 'url',
-      usd_amount: 'usd_amount'
+      usd_amount: 'usd_amount',
     });
   }
 }

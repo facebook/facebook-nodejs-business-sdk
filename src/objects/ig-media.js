@@ -31,9 +31,10 @@ export default class IGMedia extends AbstractCrudObject {
       shortcode: 'shortcode',
       thumbnail_url: 'thumbnail_url',
       timestamp: 'timestamp',
-      username: 'username'
+      username: 'username',
     });
   }
+
 
   getChildren (fields, params, fetchFirstPage = true): IGMedia {
     return this.getEdge(

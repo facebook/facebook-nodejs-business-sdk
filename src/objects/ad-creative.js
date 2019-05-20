@@ -70,7 +70,7 @@ export default class AdCreative extends AbstractCrudObject {
       title: 'title',
       url_tags: 'url_tags',
       use_page_actor_override: 'use_page_actor_override',
-      video_id: 'video_id'
+      video_id: 'video_id',
     });
   }
 
@@ -78,7 +78,7 @@ export default class AdCreative extends AbstractCrudObject {
     return Object.freeze({
       deeplink_with_appstore_fallback: 'deeplink_with_appstore_fallback',
       deeplink_with_web_fallback: 'deeplink_with_web_fallback',
-      web_only: 'web_only'
+      web_only: 'web_only',
     });
   }
   static get CallToActionType (): Object {
@@ -135,7 +135,7 @@ export default class AdCreative extends AbstractCrudObject {
       watch_more: 'WATCH_MORE',
       watch_video: 'WATCH_VIDEO',
       whatsapp_message: 'WHATSAPP_MESSAGE',
-      woodhenge_support: 'WOODHENGE_SUPPORT'
+      woodhenge_support: 'WOODHENGE_SUPPORT',
     });
   }
   static get ObjectType (): Object {
@@ -150,26 +150,26 @@ export default class AdCreative extends AbstractCrudObject {
       share: 'SHARE',
       status: 'STATUS',
       store_item: 'STORE_ITEM',
-      video: 'VIDEO'
+      video: 'VIDEO',
     });
   }
   static get Status (): Object {
     return Object.freeze({
       active: 'ACTIVE',
-      deleted: 'DELETED'
+      deleted: 'DELETED',
     });
   }
   static get AuthorizationCategory (): Object {
     return Object.freeze({
       none: 'NONE',
-      political: 'POLITICAL'
+      political: 'POLITICAL',
     });
   }
   static get CategorizationCriteria (): Object {
     return Object.freeze({
       brand: 'brand',
       category: 'category',
-      product_type: 'product_type'
+      product_type: 'product_type',
     });
   }
   static get CategoryMediaSource (): Object {
@@ -177,19 +177,19 @@ export default class AdCreative extends AbstractCrudObject {
       category: 'CATEGORY',
       mixed: 'MIXED',
       products_collage: 'PRODUCTS_COLLAGE',
-      products_slideshow: 'PRODUCTS_SLIDESHOW'
+      products_slideshow: 'PRODUCTS_SLIDESHOW',
     });
   }
   static get DynamicAdVoice (): Object {
     return Object.freeze({
       dynamic: 'DYNAMIC',
-      story_owner: 'STORY_OWNER'
+      story_owner: 'STORY_OWNER',
     });
   }
   static get Operator (): Object {
     return Object.freeze({
       all: 'ALL',
-      any: 'ANY'
+      any: 'ANY',
     });
   }
 

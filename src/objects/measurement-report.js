@@ -21,7 +21,7 @@ export default class MeasurementReport extends AbstractCrudObject {
       metadata: 'metadata',
       report_type: 'report_type',
       status: 'status',
-      upload_urls: 'upload_urls'
+      upload_urls: 'upload_urls',
     });
   }
 
@@ -32,7 +32,7 @@ export default class MeasurementReport extends AbstractCrudObject {
       multi_channel_report: 'multi_channel_report',
       partner_lift_study_report: 'partner_lift_study_report',
       third_party_mta_report: 'third_party_mta_report',
-      video_metrics_report: 'video_metrics_report'
+      video_metrics_report: 'video_metrics_report',
     });
   }
 

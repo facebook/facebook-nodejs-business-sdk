@@ -39,7 +39,7 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
       matched_entries: 'matched_entries',
       name: 'name',
       usage: 'usage',
-      valid_entries: 'valid_entries'
+      valid_entries: 'valid_entries',
     });
   }
 
@@ -47,7 +47,7 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
     return Object.freeze({
       admin: 'ADMIN',
       advertiser: 'ADVERTISER',
-      uploader: 'UPLOADER'
+      uploader: 'UPLOADER',
     });
   }
   static get RelationshipType (): Object {
@@ -55,7 +55,7 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
       ad_manager: 'AD_MANAGER',
       agency: 'AGENCY',
       audience_manager: 'AUDIENCE_MANAGER',
-      other: 'OTHER'
+      other: 'OTHER',
     });
   }
 
@@ -128,8 +128,8 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
     return this.createEdge(
       '/events',
       fields,
-      params
-
+      params,
+      
     );
   }
 
@@ -157,8 +157,8 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
     return this.createEdge(
       '/uploads',
       fields,
-      params
-
+      params,
+      
     );
   }
 

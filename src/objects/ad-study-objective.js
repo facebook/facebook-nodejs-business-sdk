@@ -29,7 +29,7 @@ export default class AdStudyObjective extends AbstractCrudObject {
       last_updated_results: 'last_updated_results',
       name: 'name',
       results: 'results',
-      type: 'type'
+      type: 'type',
     });
   }
 
@@ -43,7 +43,7 @@ export default class AdStudyObjective extends AbstractCrudObject {
       nonsales: 'NONSALES',
       partner: 'PARTNER',
       sales: 'SALES',
-      telco: 'TELCO'
+      telco: 'TELCO',
     });
   }
 

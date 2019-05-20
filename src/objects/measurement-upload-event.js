@@ -25,7 +25,7 @@ export default class MeasurementUploadEvent extends AbstractCrudObject {
       match_universe: 'match_universe',
       partner: 'partner',
       timezone: 'timezone',
-      upload_tag: 'upload_tag'
+      upload_tag: 'upload_tag',
     });
   }
 
@@ -33,7 +33,7 @@ export default class MeasurementUploadEvent extends AbstractCrudObject {
     return Object.freeze({
       daily: 'DAILY',
       none: 'NONE',
-      weekly: 'WEEKLY'
+      weekly: 'WEEKLY',
     });
   }
   static get EventStatus (): Object {
@@ -43,7 +43,7 @@ export default class MeasurementUploadEvent extends AbstractCrudObject {
       completed: 'COMPLETED',
       failed: 'FAILED',
       started: 'STARTED',
-      uploaded: 'UPLOADED'
+      uploaded: 'UPLOADED',
     });
   }
   static get LookbackWindow (): Object {
@@ -51,14 +51,14 @@ export default class MeasurementUploadEvent extends AbstractCrudObject {
       days30: 'DAYS30',
       days45: 'DAYS45',
       days60: 'DAYS60',
-      days90: 'DAYS90'
+      days90: 'DAYS90',
     });
   }
   static get MatchUniverse (): Object {
     return Object.freeze({
       full: 'FULL',
       pii: 'PII',
-      pixel: 'PIXEL'
+      pixel: 'PIXEL',
     });
   }
   static get Timezone (): Object {
@@ -208,7 +208,7 @@ export default class MeasurementUploadEvent extends AbstractCrudObject {
       tz_pacific_auckland: 'TZ_PACIFIC_AUCKLAND',
       tz_pacific_easter: 'TZ_PACIFIC_EASTER',
       tz_pacific_galapagos: 'TZ_PACIFIC_GALAPAGOS',
-      tz_pacific_honolulu: 'TZ_PACIFIC_HONOLULU'
+      tz_pacific_honolulu: 'TZ_PACIFIC_HONOLULU',
     });
   }
 

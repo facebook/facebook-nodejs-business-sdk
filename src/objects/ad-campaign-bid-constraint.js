@@ -16,7 +16,8 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class AdCampaignBidConstraint extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      roas_average_floor: 'roas_average_floor'
+      roas_average_floor: 'roas_average_floor',
     });
   }
+
 }

@@ -28,7 +28,8 @@ export default class CopyrightReferenceContainer extends AbstractCrudObject {
       thumbnail_url: 'thumbnail_url',
       title: 'title',
       universal_content_id: 'universal_content_id',
-      writer_names: 'writer_names'
+      writer_names: 'writer_names',
     });
   }
+
 }

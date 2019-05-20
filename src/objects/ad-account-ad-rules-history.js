@@ -24,7 +24,7 @@ export default class AdAccountAdRulesHistory extends AbstractCrudObject {
       results: 'results',
       rule_id: 'rule_id',
       schedule_spec: 'schedule_spec',
-      timestamp: 'timestamp'
+      timestamp: 'timestamp',
     });
   }
 
@@ -40,13 +40,13 @@ export default class AdAccountAdRulesHistory extends AbstractCrudObject {
       message_sent: 'MESSAGE_SENT',
       not_changed: 'NOT_CHANGED',
       paused: 'PAUSED',
-      unpaused: 'UNPAUSED'
+      unpaused: 'UNPAUSED',
     });
   }
   static get EvaluationType (): Object {
     return Object.freeze({
       schedule: 'SCHEDULE',
-      trigger: 'TRIGGER'
+      trigger: 'TRIGGER',
     });
   }
 }

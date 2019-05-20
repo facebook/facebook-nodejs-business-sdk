@@ -18,7 +18,8 @@ export default class AdStudyObjectiveID extends AbstractCrudObject {
     return Object.freeze({
       event_names: 'event_names',
       id: 'id',
-      type: 'type'
+      type: 'type',
     });
   }
+
 }

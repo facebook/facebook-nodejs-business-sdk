@@ -17,7 +17,7 @@ export default class BusinessAgreement extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       id: 'id',
-      request_status: 'request_status'
+      request_status: 'request_status',
     });
   }
 
@@ -26,7 +26,7 @@ export default class BusinessAgreement extends AbstractCrudObject {
       approve: 'APPROVE',
       decline: 'DECLINE',
       expired: 'EXPIRED',
-      in_progress: 'IN_PROGRESS'
+      in_progress: 'IN_PROGRESS',
     });
   }
 

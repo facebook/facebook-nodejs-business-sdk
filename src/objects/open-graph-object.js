@@ -38,9 +38,10 @@ export default class OpenGraphObject extends AbstractCrudObject {
       title: 'title',
       type: 'type',
       updated_time: 'updated_time',
-      video: 'video'
+      video: 'video',
     });
   }
+
 
   getPicture (fields, params, fetchFirstPage = true): ProfilePictureSource {
     return this.getEdge(

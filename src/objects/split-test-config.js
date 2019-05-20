@@ -22,9 +22,10 @@ export default class SplitTestConfig extends AbstractCrudObject {
       splits: 'splits',
       start_time: 'start_time',
       test_variable: 'test_variable',
-      id: 'id'
+      id: 'id',
     });
   }
+
 
   get (fields, params): SplitTestConfig {
     return this.read(

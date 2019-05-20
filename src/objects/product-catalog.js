@@ -48,7 +48,7 @@ export default class ProductCatalog extends AbstractCrudObject {
       name: 'name',
       product_count: 'product_count',
       qualified_product_count: 'qualified_product_count',
-      vertical: 'vertical'
+      vertical: 'vertical',
     });
   }
 
@@ -59,30 +59,30 @@ export default class ProductCatalog extends AbstractCrudObject {
       flights: 'flights',
       home_listings: 'home_listings',
       hotels: 'hotels',
-      vehicles: 'vehicles'
+      vehicles: 'vehicles',
     });
   }
   static get PermittedRoles (): Object {
     return Object.freeze({
       admin: 'ADMIN',
-      advertiser: 'ADVERTISER'
+      advertiser: 'ADVERTISER',
     });
   }
   static get PermittedTasks (): Object {
     return Object.freeze({
       advertise: 'ADVERTISE',
-      manage: 'MANAGE'
+      manage: 'MANAGE',
     });
   }
   static get Tasks (): Object {
     return Object.freeze({
       advertise: 'ADVERTISE',
-      manage: 'MANAGE'
+      manage: 'MANAGE',
     });
   }
   static get Standard (): Object {
     return Object.freeze({
-      google: 'google'
+      google: 'google',
     });
   }
 

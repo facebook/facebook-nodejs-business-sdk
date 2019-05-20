@@ -99,7 +99,7 @@ export default class User extends AbstractCrudObject {
       video_upload_limits: 'video_upload_limits',
       viewer_can_send_gift: 'viewer_can_send_gift',
       website: 'website',
-      work: 'work'
+      work: 'work',
     });
   }
 
@@ -115,38 +115,38 @@ export default class User extends AbstractCrudObject {
       pages_messaging: 'PAGES_MESSAGING',
       pages_messaging_subscriptions: 'PAGES_MESSAGING_SUBSCRIPTIONS',
       read_page_mailboxes: 'READ_PAGE_MAILBOXES',
-      view_monetization_insights: 'VIEW_MONETIZATION_INSIGHTS'
+      view_monetization_insights: 'VIEW_MONETIZATION_INSIGHTS',
     });
   }
   static get LocalNewsMegaphoneDismissStatus (): Object {
     return Object.freeze({
       no: 'NO',
-      yes: 'YES'
+      yes: 'YES',
     });
   }
   static get LocalNewsSubscriptionStatus (): Object {
     return Object.freeze({
       status_off: 'STATUS_OFF',
-      status_on: 'STATUS_ON'
+      status_on: 'STATUS_ON',
     });
   }
   static get ResumeType (): Object {
     return Object.freeze({
       bot_action: 'BOT_ACTION',
-      native: 'NATIVE'
+      native: 'NATIVE',
     });
   }
   static get Filtering (): Object {
     return Object.freeze({
       ema: 'ema',
       groups: 'groups',
-      groups_social: 'groups_social'
+      groups_social: 'groups_social',
     });
   }
   static get Type (): Object {
     return Object.freeze({
       content_update: 'content_update',
-      generic: 'generic'
+      generic: 'generic',
     });
   }
   static get ServiceType (): Object {
@@ -197,7 +197,7 @@ export default class User extends AbstractCrudObject {
       whatsapp: 'WHATSAPP',
       yahoo: 'YAHOO',
       yahoo_jp: 'YAHOO_JP',
-      you_tube: 'YOU_TUBE'
+      you_tube: 'YOU_TUBE',
     });
   }
 
@@ -240,8 +240,8 @@ export default class User extends AbstractCrudObject {
     return this.createEdge(
       '/achievements',
       fields,
-      params
-
+      params,
+      
     );
   }
 
@@ -415,8 +415,8 @@ export default class User extends AbstractCrudObject {
     return this.createEdge(
       '/feed',
       fields,
-      params
-
+      params,
+      
     );
   }
 
@@ -444,8 +444,8 @@ export default class User extends AbstractCrudObject {
     return this.createEdge(
       '/game_items',
       fields,
-      params
-
+      params,
+      
     );
   }
 
@@ -453,8 +453,8 @@ export default class User extends AbstractCrudObject {
     return this.createEdge(
       '/game_times',
       fields,
-      params
-
+      params,
+      
     );
   }
 
@@ -472,8 +472,8 @@ export default class User extends AbstractCrudObject {
     return this.createEdge(
       '/games.achieves',
       fields,
-      params
-
+      params,
+      
     );
   }
 
@@ -481,8 +481,8 @@ export default class User extends AbstractCrudObject {
     return this.createEdge(
       '/games_stats',
       fields,
-      params
-
+      params,
+      
     );
   }
 
@@ -490,8 +490,8 @@ export default class User extends AbstractCrudObject {
     return this.createEdge(
       '/gamesplays',
       fields,
-      params
-
+      params,
+      
     );
   }
 
@@ -708,8 +708,8 @@ export default class User extends AbstractCrudObject {
     return this.createEdge(
       '/places',
       fields,
-      params
-
+      params,
+      
     );
   }
 

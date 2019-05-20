@@ -48,14 +48,14 @@ export default class AdCreativeLinkData extends AbstractCrudObject {
       retailer_item_ids: 'retailer_item_ids',
       show_multiple_images: 'show_multiple_images',
       static_fallback_spec: 'static_fallback_spec',
-      use_flexible_image_aspect_ratio: 'use_flexible_image_aspect_ratio'
+      use_flexible_image_aspect_ratio: 'use_flexible_image_aspect_ratio',
     });
   }
 
   static get AttachmentStyle (): Object {
     return Object.freeze({
       default: 'default',
-      link: 'link'
+      link: 'link',
     });
   }
   static get FormatOption (): Object {
@@ -63,7 +63,7 @@ export default class AdCreativeLinkData extends AbstractCrudObject {
       carousel_images_multi_items: 'carousel_images_multi_items',
       carousel_images_single_item: 'carousel_images_single_item',
       carousel_slideshows: 'carousel_slideshows',
-      single_image: 'single_image'
+      single_image: 'single_image',
     });
   }
 }

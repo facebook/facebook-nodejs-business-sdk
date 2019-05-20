@@ -24,9 +24,10 @@ export default class DynamicItemDisplayBundle extends AbstractCrudObject {
       name: 'name',
       product_set: 'product_set',
       text_tokens: 'text_tokens',
-      url: 'url'
+      url: 'url',
     });
   }
+
 
   getBundleFolders (fields, params, fetchFirstPage = true): DynamicItemDisplayBundleFolder {
     return this.getEdge(

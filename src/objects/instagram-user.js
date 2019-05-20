@@ -27,9 +27,10 @@ export default class InstagramUser extends AbstractCrudObject {
       is_published: 'is_published',
       media_count: 'media_count',
       profile_pic: 'profile_pic',
-      username: 'username'
+      username: 'username',
     });
   }
+
 
   deleteAgencies (params): AbstractObject {
     return super.deleteEdge(

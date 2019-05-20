@@ -23,7 +23,8 @@ export default class CustomAudienceSession extends AbstractCrudObject {
       progress: 'progress',
       session_id: 'session_id',
       stage: 'stage',
-      start_time: 'start_time'
+      start_time: 'start_time',
     });
   }
+
 }

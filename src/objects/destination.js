@@ -28,9 +28,10 @@ export default class Destination extends AbstractCrudObject {
       price_change: 'price_change',
       sanitized_images: 'sanitized_images',
       types: 'types',
-      url: 'url'
+      url: 'url',
     });
   }
+
 
   get (fields, params): Destination {
     return this.read(

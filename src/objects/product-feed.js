@@ -41,7 +41,7 @@ export default class ProductFeed extends AbstractCrudObject {
       qualified_product_count: 'qualified_product_count',
       quoted_fields_mode: 'quoted_fields_mode',
       schedule: 'schedule',
-      update_schedule: 'update_schedule'
+      update_schedule: 'update_schedule',
     });
   }
 
@@ -52,14 +52,14 @@ export default class ProductFeed extends AbstractCrudObject {
       comma: 'COMMA',
       semicolon: 'SEMICOLON',
       tab: 'TAB',
-      tilde: 'TILDE'
+      tilde: 'TILDE',
     });
   }
   static get QuotedFieldsMode (): Object {
     return Object.freeze({
       autodetect: 'AUTODETECT',
       off: 'OFF',
-      on: 'ON'
+      on: 'ON',
     });
   }
   static get Encoding (): Object {
@@ -70,7 +70,7 @@ export default class ProductFeed extends AbstractCrudObject {
       utf16le: 'UTF16LE',
       utf32be: 'UTF32BE',
       utf32le: 'UTF32LE',
-      utf8: 'UTF8'
+      utf8: 'UTF8',
     });
   }
   static get FeedType (): Object {
@@ -86,7 +86,13 @@ export default class ProductFeed extends AbstractCrudObject {
       media_title: 'MEDIA_TITLE',
       products: 'PRODUCTS',
       vehicles: 'VEHICLES',
-      vehicle_offer: 'VEHICLE_OFFER'
+      vehicle_offer: 'VEHICLE_OFFER',
+    });
+  }
+  static get OverrideType (): Object {
+    return Object.freeze({
+      country: 'COUNTRY',
+      language: 'LANGUAGE',
     });
   }
 

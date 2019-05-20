@@ -18,7 +18,7 @@ export default class CustomAudienceDataSource extends AbstractCrudObject {
     return Object.freeze({
       creation_params: 'creation_params',
       sub_type: 'sub_type',
-      type: 'type'
+      type: 'type',
     });
   }
 
@@ -75,7 +75,7 @@ export default class CustomAudienceDataSource extends AbstractCrudObject {
       video_event_users: 'VIDEO_EVENT_USERS',
       web_pixel_combination_events: 'WEB_PIXEL_COMBINATION_EVENTS',
       web_pixel_hits: 'WEB_PIXEL_HITS',
-      web_pixel_hits_custom_audience_users: 'WEB_PIXEL_HITS_CUSTOM_AUDIENCE_USERS'
+      web_pixel_hits_custom_audience_users: 'WEB_PIXEL_HITS_CUSTOM_AUDIENCE_USERS',
     });
   }
   static get Type (): Object {
@@ -87,7 +87,7 @@ export default class CustomAudienceDataSource extends AbstractCrudObject {
       household_audience: 'HOUSEHOLD_AUDIENCE',
       seed_based: 'SEED_BASED',
       third_party_imported: 'THIRD_PARTY_IMPORTED',
-      unknown: 'UNKNOWN'
+      unknown: 'UNKNOWN',
     });
   }
 }

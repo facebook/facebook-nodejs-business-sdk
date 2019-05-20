@@ -200,7 +200,7 @@ export default class Page extends AbstractCrudObject {
       website: 'website',
       were_here_count: 'were_here_count',
       whatsapp_number: 'whatsapp_number',
-      written_by: 'written_by'
+      written_by: 'written_by',
     });
   }
 
@@ -208,7 +208,7 @@ export default class Page extends AbstractCrudObject {
     return Object.freeze({
       casual: 'Casual',
       dressy: 'Dressy',
-      unspecified: 'Unspecified'
+      unspecified: 'Unspecified',
     });
   }
   static get FoodStyles (): Object {
@@ -269,14 +269,14 @@ export default class Page extends AbstractCrudObject {
       turkish: 'Turkish',
       vegan: 'Vegan',
       vegetarian: 'Vegetarian',
-      vietnamese: 'Vietnamese'
+      vietnamese: 'Vietnamese',
     });
   }
   static get Setting (): Object {
     return Object.freeze({
       email_notif: 'EMAIL_NOTIF',
       mobile_notif: 'MOBILE_NOTIF',
-      post_as_self: 'POST_AS_SELF'
+      post_as_self: 'POST_AS_SELF',
     });
   }
   static get PermittedTasks (): Object {
@@ -291,7 +291,7 @@ export default class Page extends AbstractCrudObject {
       pages_messaging: 'PAGES_MESSAGING',
       pages_messaging_subscriptions: 'PAGES_MESSAGING_SUBSCRIPTIONS',
       read_page_mailboxes: 'READ_PAGE_MAILBOXES',
-      view_monetization_insights: 'VIEW_MONETIZATION_INSIGHTS'
+      view_monetization_insights: 'VIEW_MONETIZATION_INSIGHTS',
     });
   }
   static get Tasks (): Object {
@@ -306,40 +306,40 @@ export default class Page extends AbstractCrudObject {
       pages_messaging: 'PAGES_MESSAGING',
       pages_messaging_subscriptions: 'PAGES_MESSAGING_SUBSCRIPTIONS',
       read_page_mailboxes: 'READ_PAGE_MAILBOXES',
-      view_monetization_insights: 'VIEW_MONETIZATION_INSIGHTS'
+      view_monetization_insights: 'VIEW_MONETIZATION_INSIGHTS',
     });
   }
   static get MessagingType (): Object {
     return Object.freeze({
       message_tag: 'MESSAGE_TAG',
       response: 'RESPONSE',
-      update: 'UPDATE'
+      update: 'UPDATE',
     });
   }
   static get NotificationType (): Object {
     return Object.freeze({
       no_push: 'NO_PUSH',
       regular: 'REGULAR',
-      silent_push: 'SILENT_PUSH'
+      silent_push: 'SILENT_PUSH',
     });
   }
   static get PublishStatus (): Object {
     return Object.freeze({
       draft: 'DRAFT',
-      live: 'LIVE'
+      live: 'LIVE',
     });
   }
   static get SenderAction (): Object {
     return Object.freeze({
       mark_seen: 'MARK_SEEN',
       typing_off: 'TYPING_OFF',
-      typing_on: 'TYPING_ON'
+      typing_on: 'TYPING_ON',
     });
   }
   static get Type (): Object {
     return Object.freeze({
       ref: 'REF',
-      standard: 'STANDARD'
+      standard: 'STANDARD',
     });
   }
   static get Model (): Object {
@@ -366,7 +366,7 @@ export default class Page extends AbstractCrudObject {
       romanian: 'ROMANIAN',
       spanish: 'SPANISH',
       swedish: 'SWEDISH',
-      vietnamese: 'VIETNAMESE'
+      vietnamese: 'VIETNAMESE',
     });
   }
   static get SubscribedFields (): Object {
@@ -437,19 +437,19 @@ export default class Page extends AbstractCrudObject {
       registration: 'registration',
       standby: 'standby',
       videos: 'videos',
-      website: 'website'
+      website: 'website',
     });
   }
   static get DomainActionType (): Object {
     return Object.freeze({
       add: 'ADD',
-      remove: 'REMOVE'
+      remove: 'REMOVE',
     });
   }
   static get PaymentDevModeAction (): Object {
     return Object.freeze({
       add: 'ADD',
-      remove: 'REMOVE'
+      remove: 'REMOVE',
     });
   }
   static get SettingType (): Object {
@@ -458,13 +458,13 @@ export default class Page extends AbstractCrudObject {
       call_to_actions: 'CALL_TO_ACTIONS',
       domain_whitelisting: 'DOMAIN_WHITELISTING',
       greeting: 'GREETING',
-      payment: 'PAYMENT'
+      payment: 'PAYMENT',
     });
   }
   static get ThreadState (): Object {
     return Object.freeze({
       existing_thread: 'EXISTING_THREAD',
-      new_thread: 'NEW_THREAD'
+      new_thread: 'NEW_THREAD',
     });
   }
 
@@ -615,8 +615,8 @@ export default class Page extends AbstractCrudObject {
     return this.createEdge(
       '/blocked',
       fields,
-      params
-
+      params,
+      
     );
   }
 
@@ -661,8 +661,8 @@ export default class Page extends AbstractCrudObject {
     return this.createEdge(
       '/canvas_elements',
       fields,
-      params
-
+      params,
+      
     );
   }
 
@@ -725,8 +725,8 @@ export default class Page extends AbstractCrudObject {
     return this.createEdge(
       '/copyright_manual_claims',
       fields,
-      params
-
+      params,
+      
     );
   }
 
@@ -741,8 +741,8 @@ export default class Page extends AbstractCrudObject {
     return this.createEdge(
       '/copyright_whitelisted_ig_partners',
       fields,
-      params
-
+      params,
+      
     );
   }
 
@@ -966,6 +966,15 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
+  createLocation (fields, params): Page {
+    return this.createEdge(
+      '/locations',
+      fields,
+      params,
+      Page
+    );
+  }
+
   createMediaFingerprint (fields, params): MediaFingerprint {
     return this.createEdge(
       '/media_fingerprints',
@@ -979,8 +988,8 @@ export default class Page extends AbstractCrudObject {
     return this.createEdge(
       '/message_attachments',
       fields,
-      params
-
+      params,
+      
     );
   }
 
@@ -1193,8 +1202,8 @@ export default class Page extends AbstractCrudObject {
     return this.createEdge(
       '/promotions',
       fields,
-      params
-
+      params,
+      
     );
   }
 

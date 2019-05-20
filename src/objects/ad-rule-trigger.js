@@ -19,7 +19,7 @@ export default class AdRuleTrigger extends AbstractCrudObject {
       field: 'field',
       operator: 'operator',
       type: 'type',
-      value: 'value'
+      value: 'value',
     });
   }
 
@@ -37,7 +37,7 @@ export default class AdRuleTrigger extends AbstractCrudObject {
       not_contain: 'NOT_CONTAIN',
       not_equal: 'NOT_EQUAL',
       not_in: 'NOT_IN',
-      not_in_range: 'NOT_IN_RANGE'
+      not_in_range: 'NOT_IN_RANGE',
     });
   }
   static get Type (): Object {
@@ -46,7 +46,7 @@ export default class AdRuleTrigger extends AbstractCrudObject {
       metadata_creation: 'METADATA_CREATION',
       metadata_update: 'METADATA_UPDATE',
       stats_change: 'STATS_CHANGE',
-      stats_milestone: 'STATS_MILESTONE'
+      stats_milestone: 'STATS_MILESTONE',
     });
   }
 }

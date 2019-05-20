@@ -22,13 +22,13 @@ export default class InsightsResult extends AbstractCrudObject {
       name: 'name',
       period: 'period',
       title: 'title',
-      values: 'values'
+      values: 'values',
     });
   }
 
   static get Metric (): Object {
     return Object.freeze({
-      messages_sent: 'messages_sent'
+      messages_sent: 'messages_sent',
     });
   }
   static get DatePreset (): Object {
@@ -51,7 +51,7 @@ export default class InsightsResult extends AbstractCrudObject {
       this_week_sun_today: 'this_week_sun_today',
       this_year: 'this_year',
       today: 'today',
-      yesterday: 'yesterday'
+      yesterday: 'yesterday',
     });
   }
   static get Period (): Object {
@@ -60,7 +60,7 @@ export default class InsightsResult extends AbstractCrudObject {
       days_28: 'days_28',
       lifetime: 'lifetime',
       month: 'month',
-      week: 'week'
+      week: 'week',
     });
   }
 }

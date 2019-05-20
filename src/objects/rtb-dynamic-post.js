@@ -27,9 +27,10 @@ export default class RTBDynamicPost extends AbstractCrudObject {
       owner_id: 'owner_id',
       place_id: 'place_id',
       product_id: 'product_id',
-      title: 'title'
+      title: 'title',
     });
   }
+
 
   getInstagramComments (fields, params, fetchFirstPage = true): InstagramComment {
     return this.getEdge(

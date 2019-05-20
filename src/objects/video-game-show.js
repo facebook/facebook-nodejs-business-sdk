@@ -21,14 +21,14 @@ export default class VideoGameShow extends AbstractCrudObject {
       game_status: 'game_status',
       game_type: 'game_type',
       id: 'id',
-      start_time: 'start_time'
+      start_time: 'start_time',
     });
   }
 
   static get Action (): Object {
     return Object.freeze({
       end_game: 'END_GAME',
-      start_game: 'START_GAME'
+      start_game: 'START_GAME',
     });
   }
 
@@ -46,8 +46,8 @@ export default class VideoGameShow extends AbstractCrudObject {
     return this.createEdge(
       '/questions',
       fields,
-      params
-
+      params,
+      
     );
   }
 

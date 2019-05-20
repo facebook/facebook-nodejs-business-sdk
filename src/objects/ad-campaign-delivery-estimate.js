@@ -19,7 +19,7 @@ export default class AdCampaignDeliveryEstimate extends AbstractCrudObject {
       daily_outcomes_curve: 'daily_outcomes_curve',
       estimate_dau: 'estimate_dau',
       estimate_mau: 'estimate_mau',
-      estimate_ready: 'estimate_ready'
+      estimate_ready: 'estimate_ready',
     });
   }
 
@@ -49,7 +49,7 @@ export default class AdCampaignDeliveryEstimate extends AbstractCrudObject {
       thruplay: 'THRUPLAY',
       two_second_continuous_video_views: 'TWO_SECOND_CONTINUOUS_VIDEO_VIEWS',
       value: 'VALUE',
-      video_views: 'VIDEO_VIEWS'
+      video_views: 'VIDEO_VIEWS',
     });
   }
 }

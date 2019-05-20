@@ -18,7 +18,8 @@ export default class AdCreativeOptimizationSpec extends AbstractCrudObject {
     return Object.freeze({
       bodies: 'bodies',
       descriptions: 'descriptions',
-      titles: 'titles'
+      titles: 'titles',
     });
   }
+
 }

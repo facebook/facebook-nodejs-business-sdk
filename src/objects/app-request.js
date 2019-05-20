@@ -25,9 +25,10 @@ export default class AppRequest extends AbstractCrudObject {
       id: 'id',
       message: 'message',
       object: 'object',
-      to: 'to'
+      to: 'to',
     });
   }
+
 
   delete (fields, params): AbstractObject {
     return super.delete(

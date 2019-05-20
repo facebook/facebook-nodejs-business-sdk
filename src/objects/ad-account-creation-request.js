@@ -50,7 +50,7 @@ export default class AdAccountCreationRequest extends AbstractCrudObject {
       status: 'status',
       subvertical: 'subvertical',
       time_created: 'time_created',
-      vertical: 'vertical'
+      vertical: 'vertical',
     });
   }
 
@@ -175,7 +175,7 @@ export default class AdAccountCreationRequest extends AbstractCrudObject {
       truck_and_moving: 'TRUCK_AND_MOVING',
       utilities_and_energy_equipment_and_services: 'UTILITIES_AND_ENERGY_EQUIPMENT_AND_SERVICES',
       water_and_soft_drink_and_baverage: 'WATER_AND_SOFT_DRINK_AND_BAVERAGE',
-      wireless_services: 'WIRELESS_SERVICES'
+      wireless_services: 'WIRELESS_SERVICES',
     });
   }
   static get Vertical (): Object {
@@ -199,7 +199,7 @@ export default class AdAccountCreationRequest extends AbstractCrudObject {
       retail: 'RETAIL',
       technology: 'TECHNOLOGY',
       telecom: 'TELECOM',
-      travel: 'TRAVEL'
+      travel: 'TRAVEL',
     });
   }
 
