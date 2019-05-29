@@ -514,16 +514,6 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  getObjects (fields, params, fetchFirstPage = true): OpenGraphObject {
-    return this.getEdge(
-      OpenGraphObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/objects'
-    );
-  }
-
   createObject (fields, params): OpenGraphObject {
     return this.createEdge(
       '/objects',
@@ -685,6 +675,15 @@ export default class Application extends AbstractCrudObject {
       fields,
       params,
       Application
+    );
+  }
+
+  createUpload (fields, params): AbstractObject {
+    return this.createEdge(
+      '/uploads',
+      fields,
+      params,
+      
     );
   }
 

@@ -9,21 +9,21 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * Recommendation
+ * InvoiceCampaign
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class Recommendation extends AbstractCrudObject {
+export default class InvoiceCampaign extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      created_time: 'created_time',
-      has_rating: 'has_rating',
-      has_review: 'has_review',
-      open_graph_story: 'open_graph_story',
-      rating: 'rating',
-      recommendation_type: 'recommendation_type',
-      review_text: 'review_text',
-      reviewer: 'reviewer',
+      ad_account_id: 'ad_account_id',
+      billed_amount_details: 'billed_amount_details',
+      campaign_id: 'campaign_id',
+      campaign_name: 'campaign_name',
+      clicks: 'clicks',
+      conversions: 'conversions',
+      impressions: 'impressions',
+      tags: 'tags',
     });
   }
 

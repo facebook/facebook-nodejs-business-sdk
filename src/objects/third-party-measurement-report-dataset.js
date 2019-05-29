@@ -43,4 +43,10 @@ export default class ThirdPartyMeasurementReportDataset extends AbstractCrudObje
       params
     );
   }
+
+  update (fields, params): ThirdPartyMeasurementReportDataset {
+    return super.update(
+      params
+    );
+  }
 }

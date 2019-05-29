@@ -236,6 +236,7 @@ export { default as InstagramInsightsValue } from './../src/objects/instagram-in
 export { default as InstagramUser } from './../src/objects/instagram-user';
 export { default as InstantArticle } from './../src/objects/instant-article';
 export { default as InstantArticleInsightsQueryResult } from './../src/objects/instant-article-insights-query-result';
+export { default as InvoiceCampaign } from './../src/objects/invoice-campaign';
 export { default as IosAppLink } from './../src/objects/ios-app-link';
 export { default as IterativeSplitTestConfig } from './../src/objects/iterative-split-test-config';
 export { default as KeyValue } from './../src/objects/key-value';
@@ -259,7 +260,6 @@ export { default as LiveVideoTargeting } from './../src/objects/live-video-targe
 export { default as Location } from './../src/objects/location';
 export { default as LookalikeSpec } from './../src/objects/lookalike-spec';
 export { default as MailingAddress } from './../src/objects/mailing-address';
-export { default as MeasurementReport } from './../src/objects/measurement-report';
 export { default as MeasurementUploadEvent } from './../src/objects/measurement-upload-event';
 export { default as MediaFingerprint } from './../src/objects/media-fingerprint';
 export { default as MessagingFeatureReview } from './../src/objects/messaging-feature-review';
@@ -348,7 +348,6 @@ export { default as ReachFrequencyEstimatesPlacementBreakdown } from './../src/o
 export { default as ReachFrequencyPrediction } from './../src/objects/reach-frequency-prediction';
 export { default as ReachFrequencySpec } from './../src/objects/reach-frequency-spec';
 export { default as ReadOnlyAnalyticsUserPropertyConfig } from './../src/objects/read-only-analytics-user-property-config';
-export { default as Recommendation } from './../src/objects/recommendation';
 export { default as Referral } from './../src/objects/referral';
 export { default as RequestHistory } from './../src/objects/request-history';
 export { default as RevSharePolicy } from './../src/objects/rev-share-policy';
@@ -410,5 +409,6 @@ export { default as VideoThumbnail } from './../src/objects/video-thumbnail';
 export { default as VideoUploadLimits } from './../src/objects/video-upload-limits';
 export { default as VoipInfo } from './../src/objects/voip-info';
 export { default as WebAppLink } from './../src/objects/web-app-link';
+export { default as WhatsAppBusinessAccount } from './../src/objects/whats-app-business-account';
 export { default as WindowsAppLink } from './../src/objects/windows-app-link';
 export { default as WindowsPhoneAppLink } from './../src/objects/windows-phone-app-link';

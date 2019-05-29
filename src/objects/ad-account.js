@@ -10,18 +10,17 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import AdActivity from './ad-activity';
 import AdPlacePageSet from './ad-place-page-set';
+import AdSet from './ad-set';
 import AdStudy from './ad-study';
 import AdContract from './ad-contract';
 import AdCreative from './ad-creative';
 import AdImage from './ad-image';
 import AdLabel from './ad-label';
 import PlayableContent from './playable-content';
-import AdReportRun from './ad-report-run';
 import AdReportSpec from './ad-report-spec';
 import AdAccountAdRulesHistory from './ad-account-ad-rules-history';
 import AdRule from './ad-rule';
 import Ad from './ad';
-import AdSet from './ad-set';
 import AdsPixel from './ads-pixel';
 import AdToplineDetail from './ad-topline-detail';
 import AdTopline from './ad-topline';
@@ -40,6 +39,7 @@ import CustomConversion from './custom-conversion';
 import AdAccountDeliveryEstimate from './ad-account-delivery-estimate';
 import AdPreview from './ad-preview';
 import AdsInsights from './ads-insights';
+import AdReportRun from './ad-report-run';
 import InstagramUser from './instagram-user';
 import LeadgenForm from './leadgen-form';
 import AdAccountMatchedSearchApplicationsEdgeData from './ad-account-matched-search-applications-edge-data';
@@ -275,6 +275,15 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
+  createAdSet (fields, params): AdSet {
+    return this.createEdge(
+      '/ad_sets',
+      fields,
+      params,
+      AdSet
+    );
+  }
+
   getAdStudies (fields, params, fetchFirstPage = true): AdStudy {
     return this.getEdge(
       AdStudy,
@@ -395,16 +404,6 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getAdReportRuns (fields, params, fetchFirstPage = true): AdReportRun {
-    return this.getEdge(
-      AdReportRun,
-      fields,
-      params,
-      fetchFirstPage,
-      '/adreportruns'
-    );
-  }
-
   getAdReportSchedules (fields, params, fetchFirstPage = true): AbstractObject {
     return this.getEdge(
       AbstractObject,
@@ -512,15 +511,6 @@ export default class AdAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/adsets'
-    );
-  }
-
-  createAdSet (fields, params): AdSet {
-    return this.createEdge(
-      '/adsets',
-      fields,
-      params,
-      AdSet
     );
   }
 

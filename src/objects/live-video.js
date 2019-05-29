@@ -8,7 +8,6 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
-import User from './user';
 import Comment from './comment';
 import Page from './page';
 import LiveVideoError from './live-video-error';
@@ -114,16 +113,6 @@ export default class LiveVideo extends AbstractCrudObject {
       slow: 'SLOW',
       supporter: 'SUPPORTER',
     });
-  }
-
-  getBlockedUsers (fields, params, fetchFirstPage = true): User {
-    return this.getEdge(
-      User,
-      fields,
-      params,
-      fetchFirstPage,
-      '/blocked_users'
-    );
   }
 
   getComments (fields, params, fetchFirstPage = true): Comment {

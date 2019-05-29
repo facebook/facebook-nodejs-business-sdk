@@ -39,17 +39,17 @@ export default class AdStudy extends AbstractCrudObject {
     });
   }
 
-  static get AudienceType (): Object {
-    return Object.freeze({
-      most_responsive: 'MOST_RESPONSIVE',
-      not_most_responsive: 'NOT_MOST_RESPONSIVE',
-    });
-  }
   static get Type (): Object {
     return Object.freeze({
       continuous_lift_config: 'CONTINUOUS_LIFT_CONFIG',
       lift: 'LIFT',
       split_test: 'SPLIT_TEST',
+    });
+  }
+  static get AudienceType (): Object {
+    return Object.freeze({
+      most_responsive: 'MOST_RESPONSIVE',
+      not_most_responsive: 'NOT_MOST_RESPONSIVE',
     });
   }
 

@@ -17,7 +17,6 @@ import AppRequest from './app-request';
 import ProductCatalog from './product-catalog';
 import BusinessUser from './business-user';
 import Business from './business';
-import UnifiedThread from './unified-thread';
 import Event from './event';
 import FriendList from './friend-list';
 import Group from './group';
@@ -31,6 +30,7 @@ import ProfilePictureSource from './profile-picture-source';
 import Domain from './domain';
 import RequestHistory from './request-history';
 import UserTaggableFriend from './user-taggable-friend';
+import UnifiedThread from './unified-thread';
 import AdVideo from './ad-video';
 
 /**
@@ -110,6 +110,7 @@ export default class User extends AbstractCrudObject {
       create_content: 'CREATE_CONTENT',
       manage: 'MANAGE',
       manage_jobs: 'MANAGE_JOBS',
+      manage_leads: 'MANAGE_LEADS',
       moderate: 'MODERATE',
       moderate_community: 'MODERATE_COMMUNITY',
       pages_messaging: 'PAGES_MESSAGING',
@@ -371,16 +372,6 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  getConversations (fields, params, fetchFirstPage = true): UnifiedThread {
-    return this.getEdge(
-      UnifiedThread,
-      fields,
-      params,
-      fetchFirstPage,
-      '/conversations'
-    );
-  }
-
   getEvents (fields, params, fetchFirstPage = true): Event {
     return this.getEdge(
       Event,
@@ -398,16 +389,6 @@ export default class User extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/family'
-    );
-  }
-
-  getFavoriteRequests (fields, params, fetchFirstPage = true): AbstractObject {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/favorite_requests'
     );
   }
 

@@ -71,6 +71,14 @@ export default class AdAccountTargetingUnified extends AbstractCrudObject {
       work_positions: 'work_positions',
     });
   }
+  static get RegulatedCategories (): Object {
+    return Object.freeze({
+      employment: 'EMPLOYMENT',
+      financing: 'FINANCING',
+      housing: 'HOUSING',
+      none: 'NONE',
+    });
+  }
   static get WhitelistedTypes (): Object {
     return Object.freeze({
       adgroup_id: 'adgroup_id',

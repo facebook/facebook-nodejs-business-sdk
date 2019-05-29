@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import InvoiceCampaign from './invoice-campaign';
 import AtlasURL from './atlas-url';
 
 /**
@@ -37,11 +38,15 @@ export default class OracleTransaction extends AbstractCrudObject {
     });
   }
 
-  static get Type (): Object {
-    return Object.freeze({
-      cm: 'CM',
-      inv: 'INV',
-    });
+
+  getCampaigns (fields, params, fetchFirstPage = true): InvoiceCampaign {
+    return this.getEdge(
+      InvoiceCampaign,
+      fields,
+      params,
+      fetchFirstPage,
+      '/campaigns'
+    );
   }
 
   getData (fields, params, fetchFirstPage = true): AtlasURL {

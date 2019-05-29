@@ -20,7 +20,6 @@ export default class OpenGraphObject extends AbstractCrudObject {
       admins: 'admins',
       application: 'application',
       audio: 'audio',
-      context: 'context',
       created_time: 'created_time',
       description: 'description',
       determiner: 'determiner',

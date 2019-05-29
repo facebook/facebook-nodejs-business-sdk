@@ -16,7 +16,6 @@ import AdNetworkAnalyticsAsyncQueryResult from './ad-network-analytics-async-que
 import AdsPixel from './ads-pixel';
 import BusinessAdvertisableApplicationsResult from './business-advertisable-applications-result';
 import AdPlacement from './ad-placement';
-import OracleTransaction from './oracle-transaction';
 import BusinessUser from './business-user';
 import BusinessProject from './business-project';
 import CustomConversion from './custom-conversion';
@@ -28,7 +27,6 @@ import EventSourceGroup from './event-source-group';
 import ExtendedCredit from './extended-credit';
 import BusinessAgreement from './business-agreement';
 import InstagramUser from './instagram-user';
-import MeasurementReport from './measurement-report';
 import OfflineConversionDataSet from './offline-conversion-data-set';
 import OfflineTermsOfService from './offline-terms-of-service';
 import BusinessAdAccountRequest from './business-ad-account-request';
@@ -127,6 +125,7 @@ export default class Business extends AbstractCrudObject {
       create_content: 'CREATE_CONTENT',
       manage: 'MANAGE',
       manage_jobs: 'MANAGE_JOBS',
+      manage_leads: 'MANAGE_LEADS',
       moderate: 'MODERATE',
       moderate_community: 'MODERATE_COMMUNITY',
       pages_messaging: 'PAGES_MESSAGING',
@@ -142,6 +141,13 @@ export default class Business extends AbstractCrudObject {
       fields,
       params,
       Business
+    );
+  }
+
+  deleteAdAccounts (params): AbstractObject {
+    return super.deleteEdge(
+      '/ad_accounts',
+      params
     );
   }
 
@@ -179,13 +185,6 @@ export default class Business extends AbstractCrudObject {
       fields,
       params,
       AdAccountCreationRequest
-    );
-  }
-
-  deleteAdAccounts (params): AbstractObject {
-    return super.deleteEdge(
-      '/adaccounts',
-      params
     );
   }
 
@@ -280,16 +279,6 @@ export default class Business extends AbstractCrudObject {
       fields,
       params,
       Business
-    );
-  }
-
-  getBusinessInvoices (fields, params, fetchFirstPage = true): OracleTransaction {
-    return this.getEdge(
-      OracleTransaction,
-      fields,
-      params,
-      fetchFirstPage,
-      '/business_invoices'
     );
   }
 
@@ -511,16 +500,6 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  getInitiatedAudienceSharingRequests (fields, params, fetchFirstPage = true): AbstractObject {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/initiated_audience_sharing_requests'
-    );
-  }
-
   getInitiatedSharingAgreements (fields, params, fetchFirstPage = true): BusinessAgreement {
     return this.getEdge(
       BusinessAgreement,
@@ -554,16 +533,6 @@ export default class Business extends AbstractCrudObject {
       fields,
       params,
       Business
-    );
-  }
-
-  getMeasurementReports (fields, params, fetchFirstPage = true): MeasurementReport {
-    return this.getEdge(
-      MeasurementReport,
-      fields,
-      params,
-      fetchFirstPage,
-      '/measurement_reports'
     );
   }
 
@@ -657,16 +626,6 @@ export default class Business extends AbstractCrudObject {
       fields,
       params,
       Business
-    );
-  }
-
-  getOwnedDomains (fields, params, fetchFirstPage = true): AbstractObject {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/owned_domains'
     );
   }
 
@@ -851,16 +810,6 @@ export default class Business extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/received_audience_permissions'
-    );
-  }
-
-  getReceivedAudienceSharingRequests (fields, params, fetchFirstPage = true): AbstractObject {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/received_audience_sharing_requests'
     );
   }
 

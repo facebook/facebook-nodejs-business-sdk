@@ -8,7 +8,6 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
-import PageAdminNote from './page-admin-note';
 import User from './user';
 import PagePost from './page-post';
 import Business from './business';
@@ -40,14 +39,12 @@ import NativeOffer from './native-offer';
 import Persona from './persona';
 import Photo from './photo';
 import ProfilePictureSource from './profile-picture-source';
-import Recommendation from './recommendation';
 import RTBDynamicPost from './rtb-dynamic-post';
 import Application from './application';
 import PageSettings from './page-settings';
 import Tab from './tab';
 import PageThreadOwner from './page-thread-owner';
 import EventTour from './event-tour';
-import VideoCopyrightRule from './video-copyright-rule';
 import VideoCopyright from './video-copyright';
 import VideoList from './video-list';
 
@@ -286,6 +283,7 @@ export default class Page extends AbstractCrudObject {
       create_content: 'CREATE_CONTENT',
       manage: 'MANAGE',
       manage_jobs: 'MANAGE_JOBS',
+      manage_leads: 'MANAGE_LEADS',
       moderate: 'MODERATE',
       moderate_community: 'MODERATE_COMMUNITY',
       pages_messaging: 'PAGES_MESSAGING',
@@ -301,6 +299,7 @@ export default class Page extends AbstractCrudObject {
       create_content: 'CREATE_CONTENT',
       manage: 'MANAGE',
       manage_jobs: 'MANAGE_JOBS',
+      manage_leads: 'MANAGE_LEADS',
       moderate: 'MODERATE',
       moderate_community: 'MODERATE_COMMUNITY',
       pages_messaging: 'PAGES_MESSAGING',
@@ -466,16 +465,6 @@ export default class Page extends AbstractCrudObject {
       existing_thread: 'EXISTING_THREAD',
       new_thread: 'NEW_THREAD',
     });
-  }
-
-  getAdminNotes (fields, params, fetchFirstPage = true): PageAdminNote {
-    return this.getEdge(
-      PageAdminNote,
-      fields,
-      params,
-      fetchFirstPage,
-      '/admin_notes'
-    );
   }
 
   createAdminSetting (fields, params): Page {
@@ -756,6 +745,16 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
+  getCustomLabels (fields, params, fetchFirstPage = true): PageUserMessageThreadLabel {
+    return this.getEdge(
+      PageUserMessageThreadLabel,
+      fields,
+      params,
+      fetchFirstPage,
+      '/custom_labels'
+    );
+  }
+
   createCustomLabel (fields, params): PageUserMessageThreadLabel {
     return this.createEdge(
       '/custom_labels',
@@ -963,15 +962,6 @@ export default class Page extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/locations'
-    );
-  }
-
-  createLocation (fields, params): Page {
-    return this.createEdge(
-      '/locations',
-      fields,
-      params,
-      Page
     );
   }
 
@@ -1217,16 +1207,6 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  getRatings (fields, params, fetchFirstPage = true): Recommendation {
-    return this.getEdge(
-      Recommendation,
-      fields,
-      params,
-      fetchFirstPage,
-      '/ratings'
-    );
-  }
-
   createRequestThreadControl (fields, params): Page {
     return this.createEdge(
       '/request_thread_control',
@@ -1364,16 +1344,6 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  getThreadSettings (fields, params, fetchFirstPage = true): AbstractObject {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/thread_settings'
-    );
-  }
-
   createThreadSetting (fields, params): Page {
     return this.createEdge(
       '/thread_settings',
@@ -1409,16 +1379,6 @@ export default class Page extends AbstractCrudObject {
       fields,
       params,
       Page
-    );
-  }
-
-  getVideoCopyrightRules (fields, params, fetchFirstPage = true): VideoCopyrightRule {
-    return this.getEdge(
-      VideoCopyrightRule,
-      fields,
-      params,
-      fetchFirstPage,
-      '/video_copyright_rules'
     );
   }
 
