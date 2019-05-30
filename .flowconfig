@@ -1,0 +1,16 @@
+[ignore]
+.*node_modules.*
+.*dist.*
+.*src/objects/.*
+.*docs/.*
+.*examples/.*
+.*video-uploader.*
+[include]
+
+[libs]
+
+[lints]
+
+[options]
+
+[strict]

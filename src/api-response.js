@@ -14,7 +14,7 @@ import {FacebookRequestError} from './exceptions';
  * Encapsulates an http response from Facebook's Graph API.
  */
 class APIResponse {
-  _body: string;
+  _body: Object;
   _httpStatus: string;
   _headers: Object;
   _call: Object;

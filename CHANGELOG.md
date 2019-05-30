@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 
 ## Unreleased
+### Added
+- Add .flowconfig
+
+## v3.3.3
+
+## v3.3.2
 
 ## v3.3.1
 ### Changed

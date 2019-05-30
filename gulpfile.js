@@ -52,7 +52,7 @@ function roll(format, entry, name, entry_dir, dest_dir) {
             ],
             exclude: ['node_modules/**', '**/*.json'],
           },
-        }),
+        })
       ),
       nodeResolve({
         skip: ['chai'],

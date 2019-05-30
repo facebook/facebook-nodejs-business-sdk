@@ -88,6 +88,15 @@ class APIRequest {
   }
 
   /**
+   * Getter function for API fileparams
+   * @return {Object} Object containing API fileParams
+   */
+  get fileParams(): Object {
+    // Deep cloning when object value is not a function
+    return JSON.parse(JSON.stringify(this._fileParams));
+  }
+
+  /**
    * @param {string} filePath Path to file attached to the request
    * @return {APIReqeust} APIRequest instance
    */

@@ -16,8 +16,8 @@ import APIResponse from './api-response';
  */
 class FacebookAdsApiBatch {
   _api: FacebookAdsApi;
-  _files: Array<string>;
-  _batch: Array<string>;
+  _files: Array<Object>;
+  _batch: Array<Object>;
   _successCallbacks: Array<Function>;
   _failureCallbacks: Array<Function>;
   _requests: Array<APIRequest>;
@@ -78,13 +78,9 @@ class FacebookAdsApiBatch {
   ) {
     // Construct a relaitveUrl from relateivePath by assuming that
     // relativePath can only be a string or an array of strings
-    const relativeUrl =
+    var relativeUrl =
       typeof relativePath === 'string' ? relativePath : relativePath.join('/');
-    // A Call object that will be used in a batch request
-    const call = {
-      method: method,
-      relative_url: relativeUrl,
-    };
+
 
     // Contruct key-value pairs from params for GET querystring or POST body
     if (params != null) {
@@ -99,26 +95,37 @@ class FacebookAdsApiBatch {
       }
 
       if (method === 'GET') {
-        call['relative_url'] += '?' + keyVals.join('&');
+        relativeUrl += '?' + keyVals.join('&');
       } else {
-        call['body'] = keyVals.join('&');
+        var body = keyVals.join('&');
       }
 
       if (params && params['name']) {
-        call['name'] = params['name'];
+        var name = params['name'];
       }
     }
 
     // Handle attached files
     if (files != null) {
-      call['attachedFiles'] = Object.keys(files).join(',');
+      var attachedFiles = Object.keys(files).join(',');
     }
+
+    // A Call object that will be used in a batch request
+    const call = {
+      method: method,
+      relative_url: relativeUrl,
+      body: body,
+      nam: name,
+      attachedFiles: attachedFiles,
+    };
 
     this._batch.push(call);
     this._files.push(files);
     this._successCallbacks.push(successCallback);
     this._failureCallbacks.push(failureCallback);
-    this._requests.push(request);
+    if (request !== undefined) {
+        this._requests.push(request);
+    }
 
     return call;
   }
@@ -207,7 +214,7 @@ class FacebookAdsApiBatch {
         // Create and return new batch if we need to retry
         if (retryIndices.length > 0) {
           // Create a new batch from retry indices in the current batch
-          const newBatch = new FacebookAdsApiBatch(this.api);
+          const newBatch = new FacebookAdsApiBatch(this._api);
 
           for (let index of retryIndices) {
             newBatch._files.push(this._files[index]);

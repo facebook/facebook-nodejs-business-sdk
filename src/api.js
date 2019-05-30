@@ -80,8 +80,8 @@ export default class FacebookAdsApi {
     path: string | Array<string> | String,
     params: Object = {},
     files: Object = {},
-    useMultipartFormData: Boolean = false,
-    urlOverride: string,
+    useMultipartFormData: boolean = false,
+    urlOverride: string = '',
   ): Promise<*> {
     let url: any;
     let data: Object = {};

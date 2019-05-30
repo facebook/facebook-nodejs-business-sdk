@@ -12,7 +12,7 @@
  */
 import FacebookAdsApi from './api';
 import Utils from './utils';
-export default class Cursor extends Array {
+export default class Cursor extends Array<Object> {
   sourceObject: Object;
   _api: FacebookAdsApi;
   _targetClass: Object;
