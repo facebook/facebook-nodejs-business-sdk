@@ -15,7 +15,7 @@ import path from 'path';
  * Video uploader that can upload videos to adaccount
  **/
 class VideoUploader {
-  _session: VideoUploadSession;
+  _session: ?VideoUploadSession;
 
   constructor() {
     this._session = null;
@@ -27,7 +27,7 @@ class VideoUploader {
    * @param {Boolean} [waitForEncoding] Whether to wait until encoding
    *   is finished
    **/
-  upload(video: AdVideo, waitForEncoding: Boolean): Object {
+  upload(video: AdVideo, waitForEncoding: boolean): Object {
     // Check there is no existing session
     if (this._session) {
       throw Error('There is already an upload session for this video uploader');
@@ -42,26 +42,26 @@ class VideoUploader {
 }
 
 type SlideshowSpec = {
-  images_urls: Array<String>,
-  duration_ms: Number,
-  transition_ms: Number,
+  images_urls: Array<string>,
+  duration_ms: number,
+  transition_ms: number,
 };
 
 class VideoUploadSession {
-  _accountId: String;
+  _accountId: string;
   _api: FacebookAdsApi;
-  _endOffset: Number;
-  _filePath: String;
-  _sessionId: String;
-  _slideshowSpec: SlideshowSpec;
-  _startOffset: Number;
+  _endOffset: number;
+  _filePath: ?string;
+  _sessionId: string;
+  _slideshowSpec: ?SlideshowSpec;
+  _startOffset: number;
   _startRequestManager: VideoUploadStartRequestManager;
   _transferRequestManager: VideoUploadTransferRequestManager;
   _finishRequestManager: VideoUploadFinishRequestManager;
   _video: AdVideo;
-  _waitForEncoding: Boolean;
+  _waitForEncoding: boolean;
 
-  constructor(video: AdVideo, waitForEncoding: Boolean = false) {
+  constructor(video: AdVideo, waitForEncoding: boolean = false) {
     this._video = video;
     this._api = video.getApi();
 
@@ -70,7 +70,7 @@ class VideoUploadSession {
       this._slideshowSpec = null;
     } else if (video[AdVideo.Fields.slideshow_spec]) {
       this._slideshowSpec = video[AdVideo.Fields.slideshow_spec];
-      this._filepath = null;
+      this._filePath = null;
     }
 
     this._accountId = video.getParentId();
@@ -164,22 +164,20 @@ class VideoUploadRequestManager {
 
   constructor(api: FacebookAdsApi) {
     this._api = api;
+  }
 
-    // Check subclass method implementation
-    if (this.sendRequest === undefined) {
-      throw new TypeError(
-        'Class extending VideoUploadRequestManager must implement ' +
-          'sendRequest method',
-      );
-    }
+  sendRequest(context: VideoUploadRequestContext): Object {
+    throw new TypeError(
+      'Class extending VideoUploadRequestManager must implement ' +
+        'sendRequest method',
+    );
+  }
 
-    // Check subclass method implementation
-    if (this.getParamsFromContext === undefined) {
-      throw new TypeError(
-        'Class extending VideoUploadRequestManager must implement ' +
-          'getParamsFromContext method',
-      );
-    }
+  getParamsFromContext(context: VideoUploadRequestContext): Object {
+    throw new TypeError(
+      'Class extending VideoUploadRequestManager must implement ' +
+        'getParamsFromContext method',
+    );
   }
 }
 
@@ -206,8 +204,8 @@ class VideoUploadStartRequestManager extends VideoUploadRequestManager {
 }
 
 class VideoUploadTransferRequestManager extends VideoUploadRequestManager {
-  _startOffset: Number;
-  _endOffset: Number;
+  _startOffset: number;
+  _endOffset: number;
 
   /**
    * Send transfer request with the given context
@@ -246,11 +244,11 @@ class VideoUploadTransferRequestManager extends VideoUploadRequestManager {
           numRetry = Math.max(numRetry - 1, 0);
           continue;
         }
-        fs.close(videoFileDescriptor);
+        fs.close(videoFileDescriptor, err => {});
         throw error;
       }
     }
-    fs.close(videoFileDescriptor);
+    fs.close(videoFileDescriptor, err => {});
 
     return response;
   }
@@ -295,76 +293,77 @@ class VideoUploadFinishRequestManager extends VideoUploadRequestManager {
  * Upload request context that contains the param data
  **/
 class VideoUploadRequestContext {
-  _accountId: String;
-  _fileName: String;
-  _filePath: String;
-  _fileSize: Number;
-  _name: String;
-  _sessionId: String;
-  _startOffset: Number;
-  _endOffset: Number;
+  _accountId: string;
+  _fileName: string;
+  _filePath: string;
+  _fileSize: number;
+  _name: string;
+  _sessionId: string;
+  _startOffset: number;
+  _endOffset: number;
   _slideshowSpec: SlideshowSpec;
+  _videoFileChunk: string;
 
-  get accountId(): String {
+  get accountId(): string {
     return this._accountId;
   }
 
-  set accountId(accountId: String) {
+  set accountId(accountId: string) {
     this._accountId = accountId;
   }
 
-  get fileName(): String {
+  get fileName(): string {
     return this._fileName;
   }
 
-  set fileName(fileName: String) {
+  set fileName(fileName: string) {
     this._fileName = fileName;
   }
 
-  get filePath(): String {
+  get filePath(): string {
     return this._filePath;
   }
 
-  set filePath(filePath: String) {
+  set filePath(filePath: string) {
     this._filePath = filePath;
   }
 
-  get fileSize(): Number {
+  get fileSize(): number {
     return this._fileSize;
   }
 
-  set fileSize(fileSize: Number) {
+  set fileSize(fileSize: number) {
     this._fileSize = fileSize;
   }
-  get name(): String {
+  get name(): string {
     return this._name;
   }
 
-  set name(name: String) {
+  set name(name: string) {
     this._name = name;
   }
 
-  get sessionId(): String {
+  get sessionId(): string {
     return this._sessionId;
   }
 
-  set sessionId(sessionId: String) {
+  set sessionId(sessionId: string) {
     this._sessionId = sessionId;
   }
 
-  get startOffset(): Number {
+  get startOffset(): number {
     return this._startOffset;
   }
 
-  set startOffset(startOffset: Number) {
+  set startOffset(startOffset: number) {
     this._startOffset = startOffset;
   }
 
-  get endOffset(): Number {
+  get endOffset(): number {
     return this._endOffset;
   }
 
-  set endOffset(endOffset: Number) {
+  set endOffset(endOffset: number) {
     this._endOffset = endOffset;
   }
 
@@ -374,6 +373,14 @@ class VideoUploadRequestContext {
 
   set slideshowSpec(slideshowSpec: SlideshowSpec) {
     this._slideshowSpec = slideshowSpec;
+  }
+
+  get videoFileChunk(): string {
+    return this._videoFileChunk;
+  }
+
+  set videoFileChunk(videoFileChunk: string) {
+    this._videoFileChunk = videoFileChunk;
   }
 }
 
@@ -391,7 +398,7 @@ class VideoUploadRequest {
   /**
    * Send the current request
    **/
-  send(path: String | Array<String>): Object {
+  send(path: string | Array<string>): Object {
     return new Promise((resolve, reject) => {
       this._api
         .call(
@@ -420,9 +427,9 @@ function sleep(ms) {
 class VideoEncodingStatusChecker {
   static async waitUntilReady(
     api: FacebookAdsApi,
-    videoId: Number,
-    interval: Number,
-    timeout: Number,
+    videoId: number,
+    interval: number,
+    timeout: number,
   ) {
     const startTime = new Date().getTime();
     let status = null;
@@ -443,15 +450,16 @@ class VideoEncodingStatusChecker {
     }
 
     if (status !== 'ready') {
+      status = status == null ? '' : status;
       throw Error(`Video encoding status ${status}`);
     }
 
     return;
   }
 
-  static getStatus(api: FacebookAdsApi, videoId: Number) {
-    const result = api.call('GET', [parseInt(videoId)], {fields: 'status'});
-
+  static getStatus(api: FacebookAdsApi, videoId: number) {
+    const result = api.call('GET', [videoId.toString()], {fields: 'status'});
+    // $FlowFixMe
     return result['status'];
   }
 }

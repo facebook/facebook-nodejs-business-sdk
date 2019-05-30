@@ -4,7 +4,7 @@
 .*src/objects/.*
 .*docs/.*
 .*examples/.*
-.*video-uploader.*
+
 [include]
 
 [libs]
