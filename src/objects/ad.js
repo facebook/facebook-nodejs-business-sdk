@@ -144,7 +144,8 @@ export default class Ad extends AbstractCrudObject {
     });
   }
 
-  getAdCreatives (fields, params, fetchFirstPage = true): AdCreative {
+  getAdCreatives (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdCreative {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AdCreative,
       fields,
@@ -154,14 +155,16 @@ export default class Ad extends AbstractCrudObject {
     );
   }
 
-  deleteAdLabels (params): AbstractObject {
+  deleteAdLabels (params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.deleteEdge(
       '/adlabels',
       params
     );
   }
 
-  createAdLabel (fields, params): Ad {
+  createAdLabel (fields: Array<string>, params: Object = {}): Ad {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/adlabels',
       fields,
@@ -170,7 +173,8 @@ export default class Ad extends AbstractCrudObject {
     );
   }
 
-  getAdRulesGoverned (fields, params, fetchFirstPage = true): AdRule {
+  getAdRulesGoverned (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdRule {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AdRule,
       fields,
@@ -180,7 +184,8 @@ export default class Ad extends AbstractCrudObject {
     );
   }
 
-  getCopies (fields, params, fetchFirstPage = true): Ad {
+  getCopies (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Ad {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       Ad,
       fields,
@@ -190,7 +195,8 @@ export default class Ad extends AbstractCrudObject {
     );
   }
 
-  createCopy (fields, params): Ad {
+  createCopy (fields: Array<string>, params: Object = {}): Ad {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/copies',
       fields,
@@ -199,7 +205,8 @@ export default class Ad extends AbstractCrudObject {
     );
   }
 
-  getInsights (fields, params, fetchFirstPage = true): AdsInsights {
+  getInsights (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdsInsights {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AdsInsights,
       fields,
@@ -209,7 +216,8 @@ export default class Ad extends AbstractCrudObject {
     );
   }
 
-  getInsightsAsync (fields, params): AdReportRun {
+  getInsightsAsync (fields: Array<string>, params: Object = {}): AdReportRun {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/insights',
       fields,
@@ -218,7 +226,8 @@ export default class Ad extends AbstractCrudObject {
     );
   }
 
-  getKeywordStats (fields, params, fetchFirstPage = true): AdKeywordStats {
+  getKeywordStats (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdKeywordStats {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AdKeywordStats,
       fields,
@@ -228,7 +237,8 @@ export default class Ad extends AbstractCrudObject {
     );
   }
 
-  getLeads (fields, params, fetchFirstPage = true): Lead {
+  getLeads (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Lead {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       Lead,
       fields,
@@ -238,7 +248,8 @@ export default class Ad extends AbstractCrudObject {
     );
   }
 
-  getPreviews (fields, params, fetchFirstPage = true): AdPreview {
+  getPreviews (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdPreview {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AdPreview,
       fields,
@@ -248,7 +259,8 @@ export default class Ad extends AbstractCrudObject {
     );
   }
 
-  getTargetingSentenceLines (fields, params, fetchFirstPage = true): TargetingSentenceLine {
+  getTargetingSentenceLines (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): TargetingSentenceLine {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       TargetingSentenceLine,
       fields,
@@ -258,7 +270,8 @@ export default class Ad extends AbstractCrudObject {
     );
   }
 
-  createTrackingTag (fields, params): AbstractObject {
+  createTrackingTag (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/trackingtag',
       fields,
@@ -267,20 +280,26 @@ export default class Ad extends AbstractCrudObject {
     );
   }
 
-  delete (fields, params): AbstractObject {
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.delete(
       params
     );
   }
 
-  get (fields, params): Ad {
+  
+  get (fields: Array<string>, params: Object = {}): Ad {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): Ad {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): Ad {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

@@ -212,14 +212,18 @@ export default class MeasurementUploadEvent extends AbstractCrudObject {
     });
   }
 
-  get (fields, params): MeasurementUploadEvent {
+  
+  get (fields: Array<string>, params: Object = {}): MeasurementUploadEvent {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): MeasurementUploadEvent {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): MeasurementUploadEvent {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

@@ -31,7 +31,8 @@ export default class InstantArticle extends AbstractCrudObject {
   }
 
 
-  getInsights (fields, params, fetchFirstPage = true): InstantArticleInsightsQueryResult {
+  getInsights (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): InstantArticleInsightsQueryResult {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       InstantArticleInsightsQueryResult,
       fields,
@@ -41,13 +42,17 @@ export default class InstantArticle extends AbstractCrudObject {
     );
   }
 
-  delete (fields, params): AbstractObject {
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.delete(
       params
     );
   }
 
-  get (fields, params): InstantArticle {
+  
+  get (fields: Array<string>, params: Object = {}): InstantArticle {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

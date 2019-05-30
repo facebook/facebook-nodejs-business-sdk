@@ -32,7 +32,8 @@ export default class RTBDynamicPost extends AbstractCrudObject {
   }
 
 
-  getInstagramComments (fields, params, fetchFirstPage = true): InstagramComment {
+  getInstagramComments (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): InstagramComment {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       InstagramComment,
       fields,
@@ -42,7 +43,9 @@ export default class RTBDynamicPost extends AbstractCrudObject {
     );
   }
 
-  get (fields, params): RTBDynamicPost {
+  
+  get (fields: Array<string>, params: Object = {}): RTBDynamicPost {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

@@ -25,7 +25,9 @@ export default class LiveVideoError extends AbstractCrudObject {
   }
 
 
-  get (fields, params): LiveVideoError {
+  
+  get (fields: Array<string>, params: Object = {}): LiveVideoError {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

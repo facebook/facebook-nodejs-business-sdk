@@ -53,7 +53,8 @@ export default class AdStudy extends AbstractCrudObject {
     });
   }
 
-  getCells (fields, params, fetchFirstPage = true): AdStudyCell {
+  getCells (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdStudyCell {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AdStudyCell,
       fields,
@@ -63,7 +64,8 @@ export default class AdStudy extends AbstractCrudObject {
     );
   }
 
-  createCustomAudience (fields, params): AdStudy {
+  createCustomAudience (fields: Array<string>, params: Object = {}): AdStudy {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/customaudiences',
       fields,
@@ -72,7 +74,8 @@ export default class AdStudy extends AbstractCrudObject {
     );
   }
 
-  getHealthCheckErrors (fields, params, fetchFirstPage = true): AdsTALHealthCheckError {
+  getHealthCheckErrors (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdsTALHealthCheckError {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AdsTALHealthCheckError,
       fields,
@@ -82,7 +85,8 @@ export default class AdStudy extends AbstractCrudObject {
     );
   }
 
-  getObjectives (fields, params, fetchFirstPage = true): AdStudyObjective {
+  getObjectives (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdStudyObjective {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AdStudyObjective,
       fields,
@@ -92,7 +96,8 @@ export default class AdStudy extends AbstractCrudObject {
     );
   }
 
-  createObjective (fields, params): AdStudyObjective {
+  createObjective (fields: Array<string>, params: Object = {}): AdStudyObjective {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/objectives',
       fields,
@@ -101,7 +106,8 @@ export default class AdStudy extends AbstractCrudObject {
     );
   }
 
-  getViewers (fields, params, fetchFirstPage = true): User {
+  getViewers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): User {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       User,
       fields,
@@ -111,20 +117,26 @@ export default class AdStudy extends AbstractCrudObject {
     );
   }
 
-  delete (fields, params): AbstractObject {
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.delete(
       params
     );
   }
 
-  get (fields, params): AdStudy {
+  
+  get (fields: Array<string>, params: Object = {}): AdStudy {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): AdStudy {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): AdStudy {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

@@ -33,7 +33,8 @@ export default class LifeEvent extends AbstractCrudObject {
   }
 
 
-  getComments (fields, params, fetchFirstPage = true): Comment {
+  getComments (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Comment {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       Comment,
       fields,
@@ -43,7 +44,8 @@ export default class LifeEvent extends AbstractCrudObject {
     );
   }
 
-  getLikes (fields, params, fetchFirstPage = true): Profile {
+  getLikes (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Profile {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       Profile,
       fields,
@@ -53,7 +55,8 @@ export default class LifeEvent extends AbstractCrudObject {
     );
   }
 
-  getPhotos (fields, params, fetchFirstPage = true): Photo {
+  getPhotos (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Photo {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       Photo,
       fields,
@@ -63,7 +66,8 @@ export default class LifeEvent extends AbstractCrudObject {
     );
   }
 
-  getSharedPosts (fields, params, fetchFirstPage = true): Post {
+  getSharedPosts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Post {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       Post,
       fields,
@@ -73,7 +77,9 @@ export default class LifeEvent extends AbstractCrudObject {
     );
   }
 
-  get (fields, params): LifeEvent {
+  
+  get (fields: Array<string>, params: Object = {}): LifeEvent {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

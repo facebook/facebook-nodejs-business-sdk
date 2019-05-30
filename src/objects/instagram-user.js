@@ -32,14 +32,16 @@ export default class InstagramUser extends AbstractCrudObject {
   }
 
 
-  deleteAgencies (params): AbstractObject {
+  deleteAgencies (params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.deleteEdge(
       '/agencies',
       params
     );
   }
 
-  getAgencies (fields, params, fetchFirstPage = true): Business {
+  getAgencies (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Business {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       Business,
       fields,
@@ -49,14 +51,16 @@ export default class InstagramUser extends AbstractCrudObject {
     );
   }
 
-  deleteAuthorizedAdAccounts (params): AbstractObject {
+  deleteAuthorizedAdAccounts (params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.deleteEdge(
       '/authorized_adaccounts',
       params
     );
   }
 
-  getAuthorizedAdAccounts (fields, params, fetchFirstPage = true): AdAccount {
+  getAuthorizedAdAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdAccount {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AdAccount,
       fields,
@@ -66,7 +70,8 @@ export default class InstagramUser extends AbstractCrudObject {
     );
   }
 
-  createAuthorizedAdAccount (fields, params): InstagramUser {
+  createAuthorizedAdAccount (fields: Array<string>, params: Object = {}): InstagramUser {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/authorized_adaccounts',
       fields,
@@ -75,7 +80,9 @@ export default class InstagramUser extends AbstractCrudObject {
     );
   }
 
-  get (fields, params): InstagramUser {
+  
+  get (fields: Array<string>, params: Object = {}): InstagramUser {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

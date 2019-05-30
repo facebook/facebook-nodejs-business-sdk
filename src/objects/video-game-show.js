@@ -32,7 +32,8 @@ export default class VideoGameShow extends AbstractCrudObject {
     });
   }
 
-  getQuestions (fields, params, fetchFirstPage = true): AbstractObject {
+  getQuestions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AbstractObject,
       fields,
@@ -42,7 +43,8 @@ export default class VideoGameShow extends AbstractCrudObject {
     );
   }
 
-  createQuestion (fields, params): AbstractObject {
+  createQuestion (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/questions',
       fields,
@@ -51,14 +53,18 @@ export default class VideoGameShow extends AbstractCrudObject {
     );
   }
 
-  get (fields, params): VideoGameShow {
+  
+  get (fields: Array<string>, params: Object = {}): VideoGameShow {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): VideoGameShow {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): VideoGameShow {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

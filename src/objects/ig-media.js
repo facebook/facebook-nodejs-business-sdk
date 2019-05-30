@@ -36,7 +36,8 @@ export default class IGMedia extends AbstractCrudObject {
   }
 
 
-  getChildren (fields, params, fetchFirstPage = true): IGMedia {
+  getChildren (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): IGMedia {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       IGMedia,
       fields,
@@ -46,7 +47,8 @@ export default class IGMedia extends AbstractCrudObject {
     );
   }
 
-  getComments (fields, params, fetchFirstPage = true): IGComment {
+  getComments (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): IGComment {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       IGComment,
       fields,
@@ -56,7 +58,8 @@ export default class IGMedia extends AbstractCrudObject {
     );
   }
 
-  createComment (fields, params): IGComment {
+  createComment (fields: Array<string>, params: Object = {}): IGComment {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/comments',
       fields,
@@ -65,7 +68,8 @@ export default class IGMedia extends AbstractCrudObject {
     );
   }
 
-  getInsights (fields, params, fetchFirstPage = true): InstagramInsightsResult {
+  getInsights (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): InstagramInsightsResult {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       InstagramInsightsResult,
       fields,
@@ -75,14 +79,18 @@ export default class IGMedia extends AbstractCrudObject {
     );
   }
 
-  get (fields, params): IGMedia {
+  
+  get (fields: Array<string>, params: Object = {}): IGMedia {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): IGMedia {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): IGMedia {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

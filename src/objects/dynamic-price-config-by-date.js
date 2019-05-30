@@ -24,7 +24,9 @@ export default class DynamicPriceConfigByDate extends AbstractCrudObject {
   }
 
 
-  get (fields, params): DynamicPriceConfigByDate {
+  
+  get (fields: Array<string>, params: Object = {}): DynamicPriceConfigByDate {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

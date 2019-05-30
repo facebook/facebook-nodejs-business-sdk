@@ -46,7 +46,8 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
     });
   }
 
-  getAssignedUsers (fields, params, fetchFirstPage = true): AssignedUser {
+  getAssignedUsers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AssignedUser {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AssignedUser,
       fields,
@@ -56,14 +57,16 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
     );
   }
 
-  deleteMessageTemplates (params): AbstractObject {
+  deleteMessageTemplates (params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.deleteEdge(
       '/message_templates',
       params
     );
   }
 
-  getMessageTemplates (fields, params, fetchFirstPage = true): AbstractObject {
+  getMessageTemplates (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AbstractObject,
       fields,
@@ -73,7 +76,8 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
     );
   }
 
-  createMessageTemplate (fields, params): WhatsAppBusinessAccount {
+  createMessageTemplate (fields: Array<string>, params: Object = {}): WhatsAppBusinessAccount {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/message_templates',
       fields,
@@ -82,7 +86,8 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
     );
   }
 
-  getPhoneNumbers (fields, params, fetchFirstPage = true): AbstractObject {
+  getPhoneNumbers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AbstractObject,
       fields,
@@ -92,7 +97,9 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
     );
   }
 
-  get (fields, params): WhatsAppBusinessAccount {
+  
+  get (fields: Array<string>, params: Object = {}): WhatsAppBusinessAccount {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

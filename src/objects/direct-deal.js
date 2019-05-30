@@ -56,7 +56,8 @@ export default class DirectDeal extends AbstractCrudObject {
     });
   }
 
-  getApplications (fields, params, fetchFirstPage = true): Application {
+  getApplications (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Application {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       Application,
       fields,
@@ -66,7 +67,9 @@ export default class DirectDeal extends AbstractCrudObject {
     );
   }
 
-  get (fields, params): DirectDeal {
+  
+  get (fields: Array<string>, params: Object = {}): DirectDeal {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

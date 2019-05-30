@@ -36,7 +36,8 @@ export default class UnifiedThread extends AbstractCrudObject {
   }
 
 
-  getMessages (fields, params, fetchFirstPage = true): AbstractObject {
+  getMessages (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AbstractObject,
       fields,
@@ -46,7 +47,8 @@ export default class UnifiedThread extends AbstractCrudObject {
     );
   }
 
-  createMessage (fields, params): AbstractObject {
+  createMessage (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/messages',
       fields,
@@ -55,7 +57,9 @@ export default class UnifiedThread extends AbstractCrudObject {
     );
   }
 
-  get (fields, params): UnifiedThread {
+  
+  get (fields: Array<string>, params: Object = {}): UnifiedThread {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

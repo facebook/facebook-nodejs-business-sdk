@@ -24,7 +24,9 @@ export default class PageAdminNote extends AbstractCrudObject {
   }
 
 
-  get (fields, params): PageAdminNote {
+  
+  get (fields: Array<string>, params: Object = {}): PageAdminNote {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

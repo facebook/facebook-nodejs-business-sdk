@@ -72,7 +72,8 @@ export default class Comment extends AbstractCrudObject {
     });
   }
 
-  getComments (fields, params, fetchFirstPage = true): Comment {
+  getComments (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Comment {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       Comment,
       fields,
@@ -82,14 +83,16 @@ export default class Comment extends AbstractCrudObject {
     );
   }
 
-  deleteLikes (params): AbstractObject {
+  deleteLikes (params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.deleteEdge(
       '/likes',
       params
     );
   }
 
-  getLikes (fields, params, fetchFirstPage = true): Profile {
+  getLikes (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Profile {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       Profile,
       fields,
@@ -99,7 +102,8 @@ export default class Comment extends AbstractCrudObject {
     );
   }
 
-  createLike (fields, params): Comment {
+  createLike (fields: Array<string>, params: Object = {}): Comment {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/likes',
       fields,
@@ -108,7 +112,8 @@ export default class Comment extends AbstractCrudObject {
     );
   }
 
-  getReactions (fields, params, fetchFirstPage = true): Profile {
+  getReactions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Profile {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       Profile,
       fields,
@@ -118,20 +123,26 @@ export default class Comment extends AbstractCrudObject {
     );
   }
 
-  delete (fields, params): AbstractObject {
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.delete(
       params
     );
   }
 
-  get (fields, params): Comment {
+  
+  get (fields: Array<string>, params: Object = {}): Comment {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): Comment {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): Comment {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

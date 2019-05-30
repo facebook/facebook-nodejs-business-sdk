@@ -23,7 +23,8 @@ export default class AdMonetizationProperty extends AbstractCrudObject {
   }
 
 
-  getAdNetworkAnalytics (fields, params, fetchFirstPage = true): AdNetworkAnalyticsSyncQueryResult {
+  getAdNetworkAnalytics (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdNetworkAnalyticsSyncQueryResult {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AdNetworkAnalyticsSyncQueryResult,
       fields,
@@ -33,7 +34,8 @@ export default class AdMonetizationProperty extends AbstractCrudObject {
     );
   }
 
-  createAdNetworkAnalytic (fields, params): AdMonetizationProperty {
+  createAdNetworkAnalytic (fields: Array<string>, params: Object = {}): AdMonetizationProperty {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/adnetworkanalytics',
       fields,
@@ -42,7 +44,8 @@ export default class AdMonetizationProperty extends AbstractCrudObject {
     );
   }
 
-  getAdNetworkAnalyticsResults (fields, params, fetchFirstPage = true): AdNetworkAnalyticsAsyncQueryResult {
+  getAdNetworkAnalyticsResults (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdNetworkAnalyticsAsyncQueryResult {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AdNetworkAnalyticsAsyncQueryResult,
       fields,
@@ -52,7 +55,9 @@ export default class AdMonetizationProperty extends AbstractCrudObject {
     );
   }
 
-  get (fields, params): AdMonetizationProperty {
+  
+  get (fields: Array<string>, params: Object = {}): AdMonetizationProperty {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

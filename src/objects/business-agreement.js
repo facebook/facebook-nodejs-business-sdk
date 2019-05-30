@@ -30,14 +30,18 @@ export default class BusinessAgreement extends AbstractCrudObject {
     });
   }
 
-  get (fields, params): BusinessAgreement {
+  
+  get (fields: Array<string>, params: Object = {}): BusinessAgreement {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): BusinessAgreement {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): BusinessAgreement {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

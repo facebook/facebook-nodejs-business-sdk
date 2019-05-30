@@ -29,7 +29,8 @@ export default class DynamicItemDisplayBundle extends AbstractCrudObject {
   }
 
 
-  getBundleFolders (fields, params, fetchFirstPage = true): DynamicItemDisplayBundleFolder {
+  getBundleFolders (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): DynamicItemDisplayBundleFolder {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       DynamicItemDisplayBundleFolder,
       fields,
@@ -39,20 +40,26 @@ export default class DynamicItemDisplayBundle extends AbstractCrudObject {
     );
   }
 
-  delete (fields, params): AbstractObject {
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.delete(
       params
     );
   }
 
-  get (fields, params): DynamicItemDisplayBundle {
+  
+  get (fields: Array<string>, params: Object = {}): DynamicItemDisplayBundle {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): DynamicItemDisplayBundle {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): DynamicItemDisplayBundle {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

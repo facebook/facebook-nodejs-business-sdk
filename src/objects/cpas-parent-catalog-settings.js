@@ -34,14 +34,18 @@ export default class CPASParentCatalogSettings extends AbstractCrudObject {
     });
   }
 
-  get (fields, params): CPASParentCatalogSettings {
+  
+  get (fields: Array<string>, params: Object = {}): CPASParentCatalogSettings {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): CPASParentCatalogSettings {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): CPASParentCatalogSettings {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

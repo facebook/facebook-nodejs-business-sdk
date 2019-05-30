@@ -53,7 +53,9 @@ export default class AdAccountActivity extends AbstractCrudObject {
   }
 
 
-  get (fields, params): AdAccountActivity {
+  
+  get (fields: Array<string>, params: Object = {}): AdAccountActivity {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

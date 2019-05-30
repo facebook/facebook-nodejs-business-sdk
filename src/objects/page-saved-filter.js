@@ -27,7 +27,9 @@ export default class PageSavedFilter extends AbstractCrudObject {
   }
 
 
-  get (fields, params): PageSavedFilter {
+  
+  get (fields: Array<string>, params: Object = {}): PageSavedFilter {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

@@ -28,7 +28,9 @@ export default class PlaceTopic extends AbstractCrudObject {
   }
 
 
-  get (fields, params): PlaceTopic {
+  
+  get (fields: Array<string>, params: Object = {}): PlaceTopic {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

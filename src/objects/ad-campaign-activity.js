@@ -176,7 +176,9 @@ export default class AdCampaignActivity extends AbstractCrudObject {
     });
   }
 
-  get (fields, params): AdCampaignActivity {
+  
+  get (fields: Array<string>, params: Object = {}): AdCampaignActivity {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

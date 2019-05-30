@@ -36,7 +36,8 @@ export default class IGUser extends AbstractCrudObject {
   }
 
 
-  getInsights (fields, params, fetchFirstPage = true): InstagramInsightsResult {
+  getInsights (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): InstagramInsightsResult {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       InstagramInsightsResult,
       fields,
@@ -46,7 +47,8 @@ export default class IGUser extends AbstractCrudObject {
     );
   }
 
-  getMedia (fields, params, fetchFirstPage = true): IGMedia {
+  getMedia (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): IGMedia {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       IGMedia,
       fields,
@@ -56,7 +58,8 @@ export default class IGUser extends AbstractCrudObject {
     );
   }
 
-  createMedia (fields, params): IGMedia {
+  createMedia (fields: Array<string>, params: Object = {}): IGMedia {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/media',
       fields,
@@ -65,7 +68,8 @@ export default class IGUser extends AbstractCrudObject {
     );
   }
 
-  createMediaPublish (fields, params): IGMedia {
+  createMediaPublish (fields: Array<string>, params: Object = {}): IGMedia {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/media_publish',
       fields,
@@ -74,7 +78,8 @@ export default class IGUser extends AbstractCrudObject {
     );
   }
 
-  createMention (fields, params): AbstractObject {
+  createMention (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/mentions',
       fields,
@@ -83,7 +88,8 @@ export default class IGUser extends AbstractCrudObject {
     );
   }
 
-  getRecentlySearchedHashtags (fields, params, fetchFirstPage = true): AbstractObject {
+  getRecentlySearchedHashtags (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AbstractObject,
       fields,
@@ -93,7 +99,8 @@ export default class IGUser extends AbstractCrudObject {
     );
   }
 
-  getStories (fields, params, fetchFirstPage = true): IGMedia {
+  getStories (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): IGMedia {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       IGMedia,
       fields,
@@ -103,7 +110,8 @@ export default class IGUser extends AbstractCrudObject {
     );
   }
 
-  getTags (fields, params, fetchFirstPage = true): IGMedia {
+  getTags (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): IGMedia {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       IGMedia,
       fields,
@@ -113,7 +121,9 @@ export default class IGUser extends AbstractCrudObject {
     );
   }
 
-  get (fields, params): IGUser {
+  
+  get (fields: Array<string>, params: Object = {}): IGUser {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

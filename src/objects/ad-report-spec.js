@@ -95,20 +95,26 @@ export default class AdReportSpec extends AbstractCrudObject {
     });
   }
 
-  delete (fields, params): AbstractObject {
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.delete(
       params
     );
   }
 
-  get (fields, params): AdReportSpec {
+  
+  get (fields: Array<string>, params: Object = {}): AdReportSpec {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): AdReportSpec {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): AdReportSpec {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

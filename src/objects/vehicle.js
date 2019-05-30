@@ -149,14 +149,18 @@ export default class Vehicle extends AbstractCrudObject {
     });
   }
 
-  get (fields, params): Vehicle {
+  
+  get (fields: Array<string>, params: Object = {}): Vehicle {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): Vehicle {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): Vehicle {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

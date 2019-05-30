@@ -46,7 +46,8 @@ export default class BusinessUser extends AbstractCrudObject {
     });
   }
 
-  getAssignedAdAccounts (fields, params, fetchFirstPage = true): AdAccount {
+  getAssignedAdAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdAccount {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AdAccount,
       fields,
@@ -56,7 +57,8 @@ export default class BusinessUser extends AbstractCrudObject {
     );
   }
 
-  getAssignedPages (fields, params, fetchFirstPage = true): Page {
+  getAssignedPages (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Page {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       Page,
       fields,
@@ -66,7 +68,8 @@ export default class BusinessUser extends AbstractCrudObject {
     );
   }
 
-  getAssignedProductCatalogs (fields, params, fetchFirstPage = true): ProductCatalog {
+  getAssignedProductCatalogs (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): ProductCatalog {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       ProductCatalog,
       fields,
@@ -76,20 +79,26 @@ export default class BusinessUser extends AbstractCrudObject {
     );
   }
 
-  delete (fields, params): AbstractObject {
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.delete(
       params
     );
   }
 
-  get (fields, params): BusinessUser {
+  
+  get (fields: Array<string>, params: Object = {}): BusinessUser {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): BusinessUser {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): BusinessUser {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

@@ -51,7 +51,8 @@ export default class AdStudyCell extends AbstractCrudObject {
     });
   }
 
-  getAdAccounts (fields, params, fetchFirstPage = true): AdAccount {
+  getAdAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdAccount {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AdAccount,
       fields,
@@ -61,7 +62,8 @@ export default class AdStudyCell extends AbstractCrudObject {
     );
   }
 
-  getAdSets (fields, params, fetchFirstPage = true): AdSet {
+  getAdSets (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdSet {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AdSet,
       fields,
@@ -71,7 +73,8 @@ export default class AdStudyCell extends AbstractCrudObject {
     );
   }
 
-  getCampaigns (fields, params, fetchFirstPage = true): Campaign {
+  getCampaigns (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Campaign {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       Campaign,
       fields,
@@ -81,20 +84,26 @@ export default class AdStudyCell extends AbstractCrudObject {
     );
   }
 
-  delete (fields, params): AbstractObject {
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.delete(
       params
     );
   }
 
-  get (fields, params): AdStudyCell {
+  
+  get (fields: Array<string>, params: Object = {}): AdStudyCell {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): AdStudyCell {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): AdStudyCell {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

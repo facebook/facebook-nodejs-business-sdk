@@ -36,7 +36,9 @@ export default class Lead extends AbstractCrudObject {
   }
 
 
-  get (fields, params): Lead {
+  
+  get (fields: Array<string>, params: Object = {}): Lead {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

@@ -148,14 +148,16 @@ export default class Campaign extends AbstractCrudObject {
     });
   }
 
-  deleteAdLabels (params): AbstractObject {
+  deleteAdLabels (params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.deleteEdge(
       '/adlabels',
       params
     );
   }
 
-  createAdLabel (fields, params): Campaign {
+  createAdLabel (fields: Array<string>, params: Object = {}): Campaign {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/adlabels',
       fields,
@@ -164,7 +166,8 @@ export default class Campaign extends AbstractCrudObject {
     );
   }
 
-  getAdRulesGoverned (fields, params, fetchFirstPage = true): AdRule {
+  getAdRulesGoverned (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdRule {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AdRule,
       fields,
@@ -174,7 +177,8 @@ export default class Campaign extends AbstractCrudObject {
     );
   }
 
-  getAds (fields, params, fetchFirstPage = true): Ad {
+  getAds (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Ad {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       Ad,
       fields,
@@ -184,7 +188,8 @@ export default class Campaign extends AbstractCrudObject {
     );
   }
 
-  getAdSets (fields, params, fetchFirstPage = true): AdSet {
+  getAdSets (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdSet {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AdSet,
       fields,
@@ -194,7 +199,8 @@ export default class Campaign extends AbstractCrudObject {
     );
   }
 
-  getCopies (fields, params, fetchFirstPage = true): Campaign {
+  getCopies (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Campaign {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       Campaign,
       fields,
@@ -204,7 +210,8 @@ export default class Campaign extends AbstractCrudObject {
     );
   }
 
-  createCopy (fields, params): Campaign {
+  createCopy (fields: Array<string>, params: Object = {}): Campaign {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/copies',
       fields,
@@ -213,7 +220,8 @@ export default class Campaign extends AbstractCrudObject {
     );
   }
 
-  getInsights (fields, params, fetchFirstPage = true): AdsInsights {
+  getInsights (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdsInsights {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AdsInsights,
       fields,
@@ -223,7 +231,8 @@ export default class Campaign extends AbstractCrudObject {
     );
   }
 
-  getInsightsAsync (fields, params): AdReportRun {
+  getInsightsAsync (fields: Array<string>, params: Object = {}): AdReportRun {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/insights',
       fields,
@@ -232,20 +241,26 @@ export default class Campaign extends AbstractCrudObject {
     );
   }
 
-  delete (fields, params): AbstractObject {
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.delete(
       params
     );
   }
 
-  get (fields, params): Campaign {
+  
+  get (fields: Array<string>, params: Object = {}): Campaign {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): Campaign {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): Campaign {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

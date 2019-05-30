@@ -37,14 +37,18 @@ export default class ThirdPartyMeasurementReportDataset extends AbstractCrudObje
     });
   }
 
-  get (fields, params): ThirdPartyMeasurementReportDataset {
+  
+  get (fields: Array<string>, params: Object = {}): ThirdPartyMeasurementReportDataset {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): ThirdPartyMeasurementReportDataset {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): ThirdPartyMeasurementReportDataset {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

@@ -33,7 +33,9 @@ export default class Destination extends AbstractCrudObject {
   }
 
 
-  get (fields, params): Destination {
+  
+  get (fields: Array<string>, params: Object = {}): Destination {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

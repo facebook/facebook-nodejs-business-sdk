@@ -24,7 +24,9 @@ export default class FriendList extends AbstractCrudObject {
   }
 
 
-  get (fields, params): FriendList {
+  
+  get (fields: Array<string>, params: Object = {}): FriendList {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

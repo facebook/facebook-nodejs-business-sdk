@@ -30,13 +30,17 @@ export default class AppRequest extends AbstractCrudObject {
   }
 
 
-  delete (fields, params): AbstractObject {
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.delete(
       params
     );
   }
 
-  get (fields, params): AppRequest {
+  
+  get (fields: Array<string>, params: Object = {}): AppRequest {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

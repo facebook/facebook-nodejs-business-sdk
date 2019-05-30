@@ -41,14 +41,18 @@ export default class FoodDrinkOrder extends AbstractCrudObject {
     });
   }
 
-  get (fields, params): FoodDrinkOrder {
+  
+  get (fields: Array<string>, params: Object = {}): FoodDrinkOrder {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): FoodDrinkOrder {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): FoodDrinkOrder {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

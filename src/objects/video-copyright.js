@@ -50,14 +50,18 @@ export default class VideoCopyright extends AbstractCrudObject {
     });
   }
 
-  get (fields, params): VideoCopyright {
+  
+  get (fields: Array<string>, params: Object = {}): VideoCopyright {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): VideoCopyright {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): VideoCopyright {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

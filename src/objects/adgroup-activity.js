@@ -116,7 +116,9 @@ export default class AdgroupActivity extends AbstractCrudObject {
     });
   }
 
-  get (fields, params): AdgroupActivity {
+  
+  get (fields: Array<string>, params: Object = {}): AdgroupActivity {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

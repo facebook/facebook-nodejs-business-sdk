@@ -42,7 +42,8 @@ export default class ProductFeedUpload extends AbstractCrudObject {
     });
   }
 
-  createErrorReport (fields, params): ProductFeedUpload {
+  createErrorReport (fields: Array<string>, params: Object = {}): ProductFeedUpload {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/error_report',
       fields,
@@ -51,7 +52,8 @@ export default class ProductFeedUpload extends AbstractCrudObject {
     );
   }
 
-  getErrors (fields, params, fetchFirstPage = true): ProductFeedUploadError {
+  getErrors (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): ProductFeedUploadError {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       ProductFeedUploadError,
       fields,
@@ -61,7 +63,9 @@ export default class ProductFeedUpload extends AbstractCrudObject {
     );
   }
 
-  get (fields, params): ProductFeedUpload {
+  
+  get (fields: Array<string>, params: Object = {}): ProductFeedUpload {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

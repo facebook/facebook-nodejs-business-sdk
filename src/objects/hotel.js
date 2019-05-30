@@ -40,7 +40,8 @@ export default class Hotel extends AbstractCrudObject {
   }
 
 
-  getHotelRooms (fields, params, fetchFirstPage = true): HotelRoom {
+  getHotelRooms (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): HotelRoom {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       HotelRoom,
       fields,
@@ -50,20 +51,26 @@ export default class Hotel extends AbstractCrudObject {
     );
   }
 
-  delete (fields, params): AbstractObject {
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.delete(
       params
     );
   }
 
-  get (fields, params): Hotel {
+  
+  get (fields: Array<string>, params: Object = {}): Hotel {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): Hotel {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): Hotel {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

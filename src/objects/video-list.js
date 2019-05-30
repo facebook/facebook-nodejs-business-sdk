@@ -30,7 +30,8 @@ export default class VideoList extends AbstractCrudObject {
   }
 
 
-  getVideos (fields, params, fetchFirstPage = true): AdVideo {
+  getVideos (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdVideo {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AdVideo,
       fields,
@@ -40,7 +41,9 @@ export default class VideoList extends AbstractCrudObject {
     );
   }
 
-  get (fields, params): VideoList {
+  
+  get (fields: Array<string>, params: Object = {}): VideoList {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

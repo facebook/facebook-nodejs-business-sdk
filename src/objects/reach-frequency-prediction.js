@@ -141,7 +141,9 @@ export default class ReachFrequencyPrediction extends AbstractCrudObject {
     });
   }
 
-  get (fields, params): ReachFrequencyPrediction {
+  
+  get (fields: Array<string>, params: Object = {}): ReachFrequencyPrediction {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

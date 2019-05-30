@@ -84,7 +84,8 @@ export default class Event extends AbstractCrudObject {
     });
   }
 
-  getAdmins (fields, params, fetchFirstPage = true): Profile {
+  getAdmins (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Profile {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       Profile,
       fields,
@@ -94,7 +95,8 @@ export default class Event extends AbstractCrudObject {
     );
   }
 
-  getComments (fields, params, fetchFirstPage = true): NullNode {
+  getComments (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): NullNode {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       NullNode,
       fields,
@@ -104,7 +106,8 @@ export default class Event extends AbstractCrudObject {
     );
   }
 
-  getFeed (fields, params, fetchFirstPage = true): NullNode {
+  getFeed (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): NullNode {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       NullNode,
       fields,
@@ -114,7 +117,8 @@ export default class Event extends AbstractCrudObject {
     );
   }
 
-  createFeed (fields, params): AbstractObject {
+  createFeed (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/feed',
       fields,
@@ -123,7 +127,8 @@ export default class Event extends AbstractCrudObject {
     );
   }
 
-  getLiveVideos (fields, params, fetchFirstPage = true): NullNode {
+  getLiveVideos (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): NullNode {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       NullNode,
       fields,
@@ -133,7 +138,8 @@ export default class Event extends AbstractCrudObject {
     );
   }
 
-  createLiveVideo (fields, params): LiveVideo {
+  createLiveVideo (fields: Array<string>, params: Object = {}): LiveVideo {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/live_videos',
       fields,
@@ -142,7 +148,8 @@ export default class Event extends AbstractCrudObject {
     );
   }
 
-  getPhotos (fields, params, fetchFirstPage = true): NullNode {
+  getPhotos (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): NullNode {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       NullNode,
       fields,
@@ -152,7 +159,8 @@ export default class Event extends AbstractCrudObject {
     );
   }
 
-  createPhoto (fields, params): Photo {
+  createPhoto (fields: Array<string>, params: Object = {}): Photo {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/photos',
       fields,
@@ -161,7 +169,8 @@ export default class Event extends AbstractCrudObject {
     );
   }
 
-  getPicture (fields, params, fetchFirstPage = true): NullNode {
+  getPicture (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): NullNode {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       NullNode,
       fields,
@@ -171,7 +180,8 @@ export default class Event extends AbstractCrudObject {
     );
   }
 
-  getPosts (fields, params, fetchFirstPage = true): NullNode {
+  getPosts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): NullNode {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       NullNode,
       fields,
@@ -181,7 +191,8 @@ export default class Event extends AbstractCrudObject {
     );
   }
 
-  getRoles (fields, params, fetchFirstPage = true): Profile {
+  getRoles (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Profile {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       Profile,
       fields,
@@ -191,7 +202,8 @@ export default class Event extends AbstractCrudObject {
     );
   }
 
-  getVideos (fields, params, fetchFirstPage = true): NullNode {
+  getVideos (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): NullNode {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       NullNode,
       fields,
@@ -201,7 +213,9 @@ export default class Event extends AbstractCrudObject {
     );
   }
 
-  get (fields, params): Event {
+  
+  get (fields: Array<string>, params: Object = {}): Event {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

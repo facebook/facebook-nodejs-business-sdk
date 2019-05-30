@@ -31,7 +31,9 @@ export default class AudioCopyright extends AbstractCrudObject {
   }
 
 
-  get (fields, params): AudioCopyright {
+  
+  get (fields: Array<string>, params: Object = {}): AudioCopyright {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

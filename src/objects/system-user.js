@@ -39,7 +39,8 @@ export default class SystemUser extends AbstractCrudObject {
     });
   }
 
-  getAssignedAdAccounts (fields, params, fetchFirstPage = true): AdAccount {
+  getAssignedAdAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdAccount {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AdAccount,
       fields,
@@ -49,7 +50,8 @@ export default class SystemUser extends AbstractCrudObject {
     );
   }
 
-  getAssignedPages (fields, params, fetchFirstPage = true): Page {
+  getAssignedPages (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Page {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       Page,
       fields,
@@ -59,7 +61,8 @@ export default class SystemUser extends AbstractCrudObject {
     );
   }
 
-  getAssignedProductCatalogs (fields, params, fetchFirstPage = true): ProductCatalog {
+  getAssignedProductCatalogs (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): ProductCatalog {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       ProductCatalog,
       fields,
@@ -69,7 +72,8 @@ export default class SystemUser extends AbstractCrudObject {
     );
   }
 
-  getUpdatedBy (fields, params, fetchFirstPage = true): User {
+  getUpdatedBy (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): User {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       User,
       fields,
@@ -79,7 +83,9 @@ export default class SystemUser extends AbstractCrudObject {
     );
   }
 
-  get (fields, params): SystemUser {
+  
+  get (fields: Array<string>, params: Object = {}): SystemUser {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

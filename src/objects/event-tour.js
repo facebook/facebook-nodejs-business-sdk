@@ -36,7 +36,8 @@ export default class EventTour extends AbstractCrudObject {
   }
 
 
-  getEvents (fields, params, fetchFirstPage = true): Event {
+  getEvents (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Event {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       Event,
       fields,
@@ -46,7 +47,8 @@ export default class EventTour extends AbstractCrudObject {
     );
   }
 
-  getPages (fields, params, fetchFirstPage = true): Page {
+  getPages (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Page {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       Page,
       fields,
@@ -56,7 +58,9 @@ export default class EventTour extends AbstractCrudObject {
     );
   }
 
-  get (fields, params): EventTour {
+  
+  get (fields: Array<string>, params: Object = {}): EventTour {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

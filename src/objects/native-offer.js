@@ -70,7 +70,8 @@ export default class NativeOffer extends AbstractCrudObject {
     });
   }
 
-  createNativeOfferView (fields, params): NativeOffer {
+  createNativeOfferView (fields: Array<string>, params: Object = {}): NativeOffer {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/nativeofferviews',
       fields,
@@ -79,7 +80,9 @@ export default class NativeOffer extends AbstractCrudObject {
     );
   }
 
-  get (fields, params): NativeOffer {
+  
+  get (fields: Array<string>, params: Object = {}): NativeOffer {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

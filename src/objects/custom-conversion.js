@@ -64,14 +64,16 @@ export default class CustomConversion extends AbstractCrudObject {
     });
   }
 
-  deleteAdAccounts (params): AbstractObject {
+  deleteAdAccounts (params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.deleteEdge(
       '/adaccounts',
       params
     );
   }
 
-  getStats (fields, params, fetchFirstPage = true): CustomConversionStatsResult {
+  getStats (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): CustomConversionStatsResult {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       CustomConversionStatsResult,
       fields,
@@ -81,20 +83,26 @@ export default class CustomConversion extends AbstractCrudObject {
     );
   }
 
-  delete (fields, params): AbstractObject {
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.delete(
       params
     );
   }
 
-  get (fields, params): CustomConversion {
+  
+  get (fields: Array<string>, params: Object = {}): CustomConversion {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): CustomConversion {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): CustomConversion {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

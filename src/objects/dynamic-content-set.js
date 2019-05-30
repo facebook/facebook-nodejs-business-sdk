@@ -23,7 +23,9 @@ export default class DynamicContentSet extends AbstractCrudObject {
   }
 
 
-  get (fields, params): DynamicContentSet {
+  
+  get (fields: Array<string>, params: Object = {}): DynamicContentSet {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

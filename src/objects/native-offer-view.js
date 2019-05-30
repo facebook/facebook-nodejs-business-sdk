@@ -24,7 +24,8 @@ export default class NativeOfferView extends AbstractCrudObject {
   }
 
 
-  getPhotos (fields, params, fetchFirstPage = true): Photo {
+  getPhotos (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Photo {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       Photo,
       fields,
@@ -34,7 +35,8 @@ export default class NativeOfferView extends AbstractCrudObject {
     );
   }
 
-  createPhoto (fields, params): NativeOfferView {
+  createPhoto (fields: Array<string>, params: Object = {}): NativeOfferView {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/photos',
       fields,
@@ -43,7 +45,8 @@ export default class NativeOfferView extends AbstractCrudObject {
     );
   }
 
-  createVideo (fields, params): NativeOfferView {
+  createVideo (fields: Array<string>, params: Object = {}): NativeOfferView {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/videos',
       fields,
@@ -52,14 +55,18 @@ export default class NativeOfferView extends AbstractCrudObject {
     );
   }
 
-  get (fields, params): NativeOfferView {
+  
+  get (fields: Array<string>, params: Object = {}): NativeOfferView {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): NativeOfferView {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): NativeOfferView {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

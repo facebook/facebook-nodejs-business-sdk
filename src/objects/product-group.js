@@ -26,7 +26,8 @@ export default class ProductGroup extends AbstractCrudObject {
   }
 
 
-  getProducts (fields, params, fetchFirstPage = true): ProductItem {
+  getProducts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): ProductItem {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       ProductItem,
       fields,
@@ -36,7 +37,8 @@ export default class ProductGroup extends AbstractCrudObject {
     );
   }
 
-  createProduct (fields, params): ProductItem {
+  createProduct (fields: Array<string>, params: Object = {}): ProductItem {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/products',
       fields,
@@ -45,20 +47,26 @@ export default class ProductGroup extends AbstractCrudObject {
     );
   }
 
-  delete (fields, params): AbstractObject {
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.delete(
       params
     );
   }
 
-  get (fields, params): ProductGroup {
+  
+  get (fields: Array<string>, params: Object = {}): ProductGroup {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): ProductGroup {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): ProductGroup {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

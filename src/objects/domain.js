@@ -23,7 +23,9 @@ export default class Domain extends AbstractCrudObject {
   }
 
 
-  get (fields, params): Domain {
+  
+  get (fields: Array<string>, params: Object = {}): Domain {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

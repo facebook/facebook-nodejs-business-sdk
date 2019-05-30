@@ -54,7 +54,8 @@ export default class Profile extends AbstractCrudObject {
     });
   }
 
-  getPicture (fields, params, fetchFirstPage = true): ProfilePictureSource {
+  getPicture (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): ProfilePictureSource {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       ProfilePictureSource,
       fields,
@@ -64,7 +65,9 @@ export default class Profile extends AbstractCrudObject {
     );
   }
 
-  get (fields, params): Profile {
+  
+  get (fields: Array<string>, params: Object = {}): Profile {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

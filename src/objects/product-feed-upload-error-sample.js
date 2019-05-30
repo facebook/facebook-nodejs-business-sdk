@@ -23,7 +23,9 @@ export default class ProductFeedUploadErrorSample extends AbstractCrudObject {
   }
 
 
-  get (fields, params): ProductFeedUploadErrorSample {
+  
+  get (fields: Array<string>, params: Object = {}): ProductFeedUploadErrorSample {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

@@ -29,7 +29,9 @@ export default class AppLinks extends AbstractCrudObject {
   }
 
 
-  get (fields, params): AppLinks {
+  
+  get (fields: Array<string>, params: Object = {}): AppLinks {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

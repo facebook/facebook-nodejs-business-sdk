@@ -33,7 +33,8 @@ export default class SavedAudience extends AbstractCrudObject {
   }
 
 
-  getAdSets (fields, params, fetchFirstPage = true): AdSet {
+  getAdSets (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdSet {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AdSet,
       fields,
@@ -43,13 +44,17 @@ export default class SavedAudience extends AbstractCrudObject {
     );
   }
 
-  delete (fields, params): AbstractObject {
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.delete(
       params
     );
   }
 
-  get (fields, params): SavedAudience {
+  
+  get (fields: Array<string>, params: Object = {}): SavedAudience {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

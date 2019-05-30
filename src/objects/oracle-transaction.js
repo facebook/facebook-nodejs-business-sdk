@@ -39,7 +39,8 @@ export default class OracleTransaction extends AbstractCrudObject {
   }
 
 
-  getCampaigns (fields, params, fetchFirstPage = true): InvoiceCampaign {
+  getCampaigns (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): InvoiceCampaign {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       InvoiceCampaign,
       fields,
@@ -49,7 +50,8 @@ export default class OracleTransaction extends AbstractCrudObject {
     );
   }
 
-  getData (fields, params, fetchFirstPage = true): AtlasURL {
+  getData (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AtlasURL {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AtlasURL,
       fields,
@@ -59,7 +61,9 @@ export default class OracleTransaction extends AbstractCrudObject {
     );
   }
 
-  get (fields, params): OracleTransaction {
+  
+  get (fields: Array<string>, params: Object = {}): OracleTransaction {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

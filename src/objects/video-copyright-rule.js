@@ -27,7 +27,9 @@ export default class VideoCopyrightRule extends AbstractCrudObject {
   }
 
 
-  get (fields, params): VideoCopyrightRule {
+  
+  get (fields: Array<string>, params: Object = {}): VideoCopyrightRule {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

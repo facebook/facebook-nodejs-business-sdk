@@ -29,7 +29,9 @@ export default class PageInsightsAsyncExportRun extends AbstractCrudObject {
   }
 
 
-  get (fields, params): PageInsightsAsyncExportRun {
+  
+  get (fields: Array<string>, params: Object = {}): PageInsightsAsyncExportRun {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

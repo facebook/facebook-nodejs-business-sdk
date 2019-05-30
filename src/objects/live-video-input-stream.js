@@ -29,7 +29,9 @@ export default class LiveVideoInputStream extends AbstractCrudObject {
   }
 
 
-  get (fields, params): LiveVideoInputStream {
+  
+  get (fields: Array<string>, params: Object = {}): LiveVideoInputStream {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

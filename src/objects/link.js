@@ -35,7 +35,8 @@ export default class Link extends AbstractCrudObject {
   }
 
 
-  createComment (fields, params): Comment {
+  createComment (fields: Array<string>, params: Object = {}): Comment {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/comments',
       fields,
@@ -44,7 +45,8 @@ export default class Link extends AbstractCrudObject {
     );
   }
 
-  getSharedPosts (fields, params, fetchFirstPage = true): Post {
+  getSharedPosts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Post {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       Post,
       fields,
@@ -54,13 +56,17 @@ export default class Link extends AbstractCrudObject {
     );
   }
 
-  delete (fields, params): AbstractObject {
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.delete(
       params
     );
   }
 
-  get (fields, params): Link {
+  
+  get (fields: Array<string>, params: Object = {}): Link {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

@@ -25,7 +25,9 @@ export default class PageLabel extends AbstractCrudObject {
   }
 
 
-  get (fields, params): PageLabel {
+  
+  get (fields: Array<string>, params: Object = {}): PageLabel {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

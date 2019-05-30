@@ -1,10 +1,9 @@
 [ignore]
 .*node_modules.*
 .*dist.*
-.*src/objects/.*
 .*docs/.*
 .*examples/.*
-
+.*objects/ad-video.js
 [include]
 
 [libs]

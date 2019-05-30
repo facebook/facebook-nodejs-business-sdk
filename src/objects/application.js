@@ -203,14 +203,16 @@ export default class Application extends AbstractCrudObject {
     });
   }
 
-  deleteAccounts (params): AbstractObject {
+  deleteAccounts (params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.deleteEdge(
       '/accounts',
       params
     );
   }
 
-  getAccounts (fields, params, fetchFirstPage = true): AbstractObject {
+  getAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AbstractObject,
       fields,
@@ -220,7 +222,8 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  createAccount (fields, params): AbstractObject {
+  createAccount (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/accounts',
       fields,
@@ -229,7 +232,8 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  createActivity (fields, params): AbstractObject {
+  createActivity (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/activities',
       fields,
@@ -238,7 +242,8 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  getAdNetworkAnalytics (fields, params, fetchFirstPage = true): AdNetworkAnalyticsSyncQueryResult {
+  getAdNetworkAnalytics (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdNetworkAnalyticsSyncQueryResult {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AdNetworkAnalyticsSyncQueryResult,
       fields,
@@ -248,7 +253,8 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  createAdNetworkAnalytic (fields, params): Application {
+  createAdNetworkAnalytic (fields: Array<string>, params: Object = {}): Application {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/adnetworkanalytics',
       fields,
@@ -257,7 +263,8 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  getAdNetworkAnalyticsResults (fields, params, fetchFirstPage = true): AdNetworkAnalyticsAsyncQueryResult {
+  getAdNetworkAnalyticsResults (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdNetworkAnalyticsAsyncQueryResult {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AdNetworkAnalyticsAsyncQueryResult,
       fields,
@@ -267,7 +274,8 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  getAppEventTypes (fields, params, fetchFirstPage = true): AbstractObject {
+  getAppEventTypes (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AbstractObject,
       fields,
@@ -277,7 +285,8 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  createAppIndexing (fields, params): Application {
+  createAppIndexing (fields: Array<string>, params: Object = {}): Application {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/app_indexing',
       fields,
@@ -286,7 +295,8 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  createAppIndexingSession (fields, params): Application {
+  createAppIndexingSession (fields: Array<string>, params: Object = {}): Application {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/app_indexing_session',
       fields,
@@ -295,7 +305,8 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  getAppInstalledGroups (fields, params, fetchFirstPage = true): Group {
+  getAppInstalledGroups (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Group {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       Group,
       fields,
@@ -305,7 +316,8 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  createAppPushDeviceToken (fields, params): Application {
+  createAppPushDeviceToken (fields: Array<string>, params: Object = {}): Application {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/app_push_device_token',
       fields,
@@ -314,7 +326,8 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  getAppAssets (fields, params, fetchFirstPage = true): AbstractObject {
+  getAppAssets (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AbstractObject,
       fields,
@@ -324,7 +337,8 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  createAsset (fields, params): Application {
+  createAsset (fields: Array<string>, params: Object = {}): Application {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/assets',
       fields,
@@ -333,7 +347,8 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  getAuthorizedAdAccounts (fields, params, fetchFirstPage = true): AdAccount {
+  getAuthorizedAdAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdAccount {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AdAccount,
       fields,
@@ -343,7 +358,8 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  getBanned (fields, params, fetchFirstPage = true): User {
+  getBanned (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): User {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       User,
       fields,
@@ -353,7 +369,8 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  getButtonAutoDetectionDeviceSelection (fields, params, fetchFirstPage = true): AbstractObject {
+  getButtonAutoDetectionDeviceSelection (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AbstractObject,
       fields,
@@ -363,7 +380,8 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  createButtonIndexing (fields, params): Application {
+  createButtonIndexing (fields: Array<string>, params: Object = {}): Application {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/button_indexing',
       fields,
@@ -372,7 +390,8 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  createCodelessEventBinding (fields, params): Application {
+  createCodelessEventBinding (fields: Array<string>, params: Object = {}): Application {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/codeless_event_bindings',
       fields,
@@ -381,7 +400,8 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  createCodelessEventMapping (fields, params): Application {
+  createCodelessEventMapping (fields: Array<string>, params: Object = {}): Application {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/codeless_event_mappings',
       fields,
@@ -390,7 +410,8 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  getCustomAudienceThirdPartyId (fields, params, fetchFirstPage = true): AbstractObject {
+  getCustomAudienceThirdPartyId (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AbstractObject,
       fields,
@@ -400,7 +421,8 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  getDaChecks (fields, params, fetchFirstPage = true): DACheck {
+  getDaChecks (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): DACheck {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       DACheck,
       fields,
@@ -410,7 +432,8 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  getEvents (fields, params, fetchFirstPage = true): Event {
+  getEvents (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Event {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       Event,
       fields,
@@ -420,7 +443,8 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  getFullAppIndexingInfos (fields, params, fetchFirstPage = true): AbstractObject {
+  getFullAppIndexingInfos (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AbstractObject,
       fields,
@@ -430,7 +454,8 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  createFullAppIndexingInfo (fields, params): AbstractObject {
+  createFullAppIndexingInfo (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/full_app_indexing_infos',
       fields,
@@ -439,7 +464,8 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  getIosDialogConfigs (fields, params, fetchFirstPage = true): AbstractObject {
+  getIosDialogConfigs (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AbstractObject,
       fields,
@@ -449,7 +475,8 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  createLeaderboardsCreate (fields, params): Application {
+  createLeaderboardsCreate (fields: Array<string>, params: Object = {}): Application {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/leaderboards_create',
       fields,
@@ -458,7 +485,8 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  createLeaderboardsDeleteEntry (fields, params): Application {
+  createLeaderboardsDeleteEntry (fields: Array<string>, params: Object = {}): Application {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/leaderboards_delete_entry',
       fields,
@@ -467,7 +495,8 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  createLeaderboardsReset (fields, params): Application {
+  createLeaderboardsReset (fields: Array<string>, params: Object = {}): Application {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/leaderboards_reset',
       fields,
@@ -476,7 +505,8 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  createLeaderboardsSetScore (fields, params): Application {
+  createLeaderboardsSetScore (fields: Array<string>, params: Object = {}): Application {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/leaderboards_set_score',
       fields,
@@ -485,7 +515,8 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  createMmpAuditing (fields, params): AbstractObject {
+  createMmpAuditing (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/mmp_auditing',
       fields,
@@ -494,7 +525,8 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  getMobileSdkGk (fields, params, fetchFirstPage = true): AbstractObject {
+  getMobileSdkGk (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AbstractObject,
       fields,
@@ -504,7 +536,8 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  getMoodsForApplication (fields, params, fetchFirstPage = true): AbstractObject {
+  getMoodsForApplication (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AbstractObject,
       fields,
@@ -514,7 +547,8 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  createObject (fields, params): OpenGraphObject {
+  createObject (fields: Array<string>, params: Object = {}): OpenGraphObject {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/objects',
       fields,
@@ -523,7 +557,8 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  createOccludesPopup (fields, params): AbstractObject {
+  createOccludesPopup (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/occludespopups',
       fields,
@@ -532,7 +567,8 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  createOzoneRelease (fields, params): AbstractObject {
+  createOzoneRelease (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/ozone_release',
       fields,
@@ -541,7 +577,8 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  createPageActivity (fields, params): Application {
+  createPageActivity (fields: Array<string>, params: Object = {}): Application {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/page_activities',
       fields,
@@ -550,14 +587,16 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  deletePaymentCurrencies (params): AbstractObject {
+  deletePaymentCurrencies (params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.deleteEdge(
       '/payment_currencies',
       params
     );
   }
 
-  createPaymentCurrency (fields, params): Application {
+  createPaymentCurrency (fields: Array<string>, params: Object = {}): Application {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/payment_currencies',
       fields,
@@ -566,7 +605,8 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  getPermissions (fields, params, fetchFirstPage = true): AbstractObject {
+  getPermissions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AbstractObject,
       fields,
@@ -576,7 +616,8 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  getProducts (fields, params, fetchFirstPage = true): AbstractObject {
+  getProducts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AbstractObject,
       fields,
@@ -586,7 +627,8 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  getPurchases (fields, params, fetchFirstPage = true): AbstractObject {
+  getPurchases (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AbstractObject,
       fields,
@@ -596,7 +638,8 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  getRoles (fields, params, fetchFirstPage = true): AbstractObject {
+  getRoles (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AbstractObject,
       fields,
@@ -606,7 +649,8 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  createStagingResource (fields, params): Application {
+  createStagingResource (fields: Array<string>, params: Object = {}): Application {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/staging_resources',
       fields,
@@ -615,7 +659,8 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  getSubscribedDomains (fields, params, fetchFirstPage = true): AbstractObject {
+  getSubscribedDomains (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AbstractObject,
       fields,
@@ -625,7 +670,8 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  createSubscribedDomain (fields, params): Application {
+  createSubscribedDomain (fields: Array<string>, params: Object = {}): Application {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/subscribed_domains',
       fields,
@@ -634,7 +680,8 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  getSubscribedDomainsPhishing (fields, params, fetchFirstPage = true): AbstractObject {
+  getSubscribedDomainsPhishing (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AbstractObject,
       fields,
@@ -644,7 +691,8 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  createSubscribedDomainsPhishing (fields, params): Application {
+  createSubscribedDomainsPhishing (fields: Array<string>, params: Object = {}): Application {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/subscribed_domains_phishing',
       fields,
@@ -653,14 +701,16 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  deleteSubscriptions (params): AbstractObject {
+  deleteSubscriptions (params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.deleteEdge(
       '/subscriptions',
       params
     );
   }
 
-  createSubscription (fields, params): AbstractObject {
+  createSubscription (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/subscriptions',
       fields,
@@ -669,7 +719,8 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  createSubscriptionsSample (fields, params): Application {
+  createSubscriptionsSample (fields: Array<string>, params: Object = {}): Application {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/subscriptions_sample',
       fields,
@@ -678,7 +729,8 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  createUpload (fields, params): AbstractObject {
+  createUpload (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/uploads',
       fields,
@@ -687,7 +739,8 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  createUserProperty (fields, params): AbstractObject {
+  createUserProperty (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/user_properties',
       fields,
@@ -696,14 +749,18 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  get (fields, params): Application {
+  
+  get (fields: Array<string>, params: Object = {}): Application {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): Application {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): Application {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

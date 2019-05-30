@@ -115,7 +115,8 @@ export default class LiveVideo extends AbstractCrudObject {
     });
   }
 
-  getComments (fields, params, fetchFirstPage = true): Comment {
+  getComments (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Comment {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       Comment,
       fields,
@@ -125,7 +126,8 @@ export default class LiveVideo extends AbstractCrudObject {
     );
   }
 
-  getCrosspostSharedPages (fields, params, fetchFirstPage = true): Page {
+  getCrosspostSharedPages (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Page {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       Page,
       fields,
@@ -135,7 +137,8 @@ export default class LiveVideo extends AbstractCrudObject {
     );
   }
 
-  getCrosspostedBroadcasts (fields, params, fetchFirstPage = true): LiveVideo {
+  getCrosspostedBroadcasts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): LiveVideo {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       LiveVideo,
       fields,
@@ -145,7 +148,8 @@ export default class LiveVideo extends AbstractCrudObject {
     );
   }
 
-  getErrors (fields, params, fetchFirstPage = true): LiveVideoError {
+  getErrors (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): LiveVideoError {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       LiveVideoError,
       fields,
@@ -155,7 +159,8 @@ export default class LiveVideo extends AbstractCrudObject {
     );
   }
 
-  getLikes (fields, params, fetchFirstPage = true): Profile {
+  getLikes (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Profile {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       Profile,
       fields,
@@ -165,7 +170,8 @@ export default class LiveVideo extends AbstractCrudObject {
     );
   }
 
-  getPolls (fields, params, fetchFirstPage = true): VideoPoll {
+  getPolls (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): VideoPoll {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       VideoPoll,
       fields,
@@ -175,7 +181,8 @@ export default class LiveVideo extends AbstractCrudObject {
     );
   }
 
-  createPoll (fields, params): VideoPoll {
+  createPoll (fields: Array<string>, params: Object = {}): VideoPoll {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/polls',
       fields,
@@ -184,7 +191,8 @@ export default class LiveVideo extends AbstractCrudObject {
     );
   }
 
-  getReactions (fields, params, fetchFirstPage = true): Profile {
+  getReactions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Profile {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       Profile,
       fields,
@@ -194,20 +202,26 @@ export default class LiveVideo extends AbstractCrudObject {
     );
   }
 
-  delete (fields, params): AbstractObject {
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.delete(
       params
     );
   }
 
-  get (fields, params): LiveVideo {
+  
+  get (fields: Array<string>, params: Object = {}): LiveVideo {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): LiveVideo {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): LiveVideo {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

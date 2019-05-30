@@ -112,14 +112,16 @@ export default class CustomAudience extends AbstractCrudObject {
     });
   }
 
-  deleteAdAccounts (params): AbstractObject {
+  deleteAdAccounts (params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.deleteEdge(
       '/adaccounts',
       params
     );
   }
 
-  getAdAccounts (fields, params, fetchFirstPage = true): AdAccount {
+  getAdAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdAccount {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AdAccount,
       fields,
@@ -129,7 +131,8 @@ export default class CustomAudience extends AbstractCrudObject {
     );
   }
 
-  createAdAccount (fields, params): CustomAudience {
+  createAdAccount (fields: Array<string>, params: Object = {}): CustomAudience {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/adaccounts',
       fields,
@@ -138,7 +141,8 @@ export default class CustomAudience extends AbstractCrudObject {
     );
   }
 
-  getAds (fields, params, fetchFirstPage = true): Ad {
+  getAds (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Ad {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       Ad,
       fields,
@@ -148,7 +152,8 @@ export default class CustomAudience extends AbstractCrudObject {
     );
   }
 
-  createCapability (fields, params): AbstractObject {
+  createCapability (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/capabilities',
       fields,
@@ -157,7 +162,8 @@ export default class CustomAudience extends AbstractCrudObject {
     );
   }
 
-  createDatum (fields, params): AbstractObject {
+  createDatum (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/data',
       fields,
@@ -166,7 +172,8 @@ export default class CustomAudience extends AbstractCrudObject {
     );
   }
 
-  getPrefills (fields, params, fetchFirstPage = true): CustomAudiencePrefillState {
+  getPrefills (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): CustomAudiencePrefillState {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       CustomAudiencePrefillState,
       fields,
@@ -176,7 +183,8 @@ export default class CustomAudience extends AbstractCrudObject {
     );
   }
 
-  getSessions (fields, params, fetchFirstPage = true): CustomAudienceSession {
+  getSessions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): CustomAudienceSession {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       CustomAudienceSession,
       fields,
@@ -186,7 +194,8 @@ export default class CustomAudience extends AbstractCrudObject {
     );
   }
 
-  getSharedAccountInfo (fields, params, fetchFirstPage = true): CustomAudiencesharedAccountInfo {
+  getSharedAccountInfo (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): CustomAudiencesharedAccountInfo {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       CustomAudiencesharedAccountInfo,
       fields,
@@ -196,14 +205,16 @@ export default class CustomAudience extends AbstractCrudObject {
     );
   }
 
-  deleteUpload (params): AbstractObject {
+  deleteUpload (params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.deleteEdge(
       '/upload',
       params
     );
   }
 
-  createUpload (fields, params): CustomAudience {
+  createUpload (fields: Array<string>, params: Object = {}): CustomAudience {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/upload',
       fields,
@@ -212,14 +223,16 @@ export default class CustomAudience extends AbstractCrudObject {
     );
   }
 
-  deleteUsers (params): AbstractObject {
+  deleteUsers (params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.deleteEdge(
       '/users',
       params
     );
   }
 
-  createUser (fields, params): CustomAudience {
+  createUser (fields: Array<string>, params: Object = {}): CustomAudience {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/users',
       fields,
@@ -228,20 +241,26 @@ export default class CustomAudience extends AbstractCrudObject {
     );
   }
 
-  delete (fields, params): AbstractObject {
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.delete(
       params
     );
   }
 
-  get (fields, params): CustomAudience {
+  
+  get (fields: Array<string>, params: Object = {}): CustomAudience {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): CustomAudience {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): CustomAudience {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

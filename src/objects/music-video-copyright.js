@@ -32,7 +32,9 @@ export default class MusicVideoCopyright extends AbstractCrudObject {
   }
 
 
-  get (fields, params): MusicVideoCopyright {
+  
+  get (fields: Array<string>, params: Object = {}): MusicVideoCopyright {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

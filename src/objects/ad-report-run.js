@@ -35,7 +35,8 @@ export default class AdReportRun extends AbstractCrudObject {
   }
 
 
-  getInsights (fields, params, fetchFirstPage = true): AdsInsights {
+  getInsights (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdsInsights {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AdsInsights,
       fields,
@@ -45,7 +46,8 @@ export default class AdReportRun extends AbstractCrudObject {
     );
   }
 
-  createRetry (fields, params): AdReportRun {
+  createRetry (fields: Array<string>, params: Object = {}): AdReportRun {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/retry',
       fields,
@@ -54,20 +56,26 @@ export default class AdReportRun extends AbstractCrudObject {
     );
   }
 
-  delete (fields, params): AbstractObject {
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.delete(
       params
     );
   }
 
-  get (fields, params): AdReportRun {
+  
+  get (fields: Array<string>, params: Object = {}): AdReportRun {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): AdReportRun {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): AdReportRun {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

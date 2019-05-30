@@ -42,7 +42,8 @@ export default class LiveEncoder extends AbstractCrudObject {
     });
   }
 
-  createTelemetry (fields, params): LiveEncoder {
+  createTelemetry (fields: Array<string>, params: Object = {}): LiveEncoder {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/telemetry',
       fields,
@@ -51,20 +52,26 @@ export default class LiveEncoder extends AbstractCrudObject {
     );
   }
 
-  delete (fields, params): AbstractObject {
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.delete(
       params
     );
   }
 
-  get (fields, params): LiveEncoder {
+  
+  get (fields: Array<string>, params: Object = {}): LiveEncoder {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): LiveEncoder {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): LiveEncoder {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

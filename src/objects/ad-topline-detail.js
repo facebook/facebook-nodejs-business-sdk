@@ -35,7 +35,9 @@ export default class AdToplineDetail extends AbstractCrudObject {
   }
 
 
-  get (fields, params): AdToplineDetail {
+  
+  get (fields: Array<string>, params: Object = {}): AdToplineDetail {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

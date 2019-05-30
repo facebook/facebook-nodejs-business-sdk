@@ -29,7 +29,8 @@ export default class PageBroadcast extends AbstractCrudObject {
     });
   }
 
-  getInsights (fields, params, fetchFirstPage = true): InsightsResult {
+  getInsights (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): InsightsResult {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       InsightsResult,
       fields,
@@ -39,14 +40,18 @@ export default class PageBroadcast extends AbstractCrudObject {
     );
   }
 
-  get (fields, params): PageBroadcast {
+  
+  get (fields: Array<string>, params: Object = {}): PageBroadcast {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): PageBroadcast {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): PageBroadcast {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

@@ -28,7 +28,9 @@ export default class MailingAddress extends AbstractCrudObject {
   }
 
 
-  get (fields, params): MailingAddress {
+  
+  get (fields: Array<string>, params: Object = {}): MailingAddress {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

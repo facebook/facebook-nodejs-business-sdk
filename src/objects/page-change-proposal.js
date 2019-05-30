@@ -26,14 +26,18 @@ export default class PageChangeProposal extends AbstractCrudObject {
   }
 
 
-  get (fields, params): PageChangeProposal {
+  
+  get (fields: Array<string>, params: Object = {}): PageChangeProposal {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): PageChangeProposal {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): PageChangeProposal {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

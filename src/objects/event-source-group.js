@@ -32,7 +32,8 @@ export default class EventSourceGroup extends AbstractCrudObject {
     });
   }
 
-  getSharedAccounts (fields, params, fetchFirstPage = true): AdAccount {
+  getSharedAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdAccount {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AdAccount,
       fields,
@@ -42,7 +43,8 @@ export default class EventSourceGroup extends AbstractCrudObject {
     );
   }
 
-  createSharedAccount (fields, params): EventSourceGroup {
+  createSharedAccount (fields: Array<string>, params: Object = {}): EventSourceGroup {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/shared_accounts',
       fields,
@@ -51,14 +53,16 @@ export default class EventSourceGroup extends AbstractCrudObject {
     );
   }
 
-  deleteUserPermissions (params): AbstractObject {
+  deleteUserPermissions (params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.deleteEdge(
       '/userpermissions',
       params
     );
   }
 
-  getUserPermissions (fields, params, fetchFirstPage = true): AbstractObject {
+  getUserPermissions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AbstractObject,
       fields,
@@ -68,7 +72,8 @@ export default class EventSourceGroup extends AbstractCrudObject {
     );
   }
 
-  createUserPermission (fields, params): EventSourceGroup {
+  createUserPermission (fields: Array<string>, params: Object = {}): EventSourceGroup {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/userpermissions',
       fields,
@@ -77,14 +82,18 @@ export default class EventSourceGroup extends AbstractCrudObject {
     );
   }
 
-  get (fields, params): EventSourceGroup {
+  
+  get (fields: Array<string>, params: Object = {}): EventSourceGroup {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): EventSourceGroup {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): EventSourceGroup {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

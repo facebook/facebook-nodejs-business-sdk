@@ -34,20 +34,26 @@ export default class ProductFeedRule extends AbstractCrudObject {
     });
   }
 
-  delete (fields, params): AbstractObject {
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.delete(
       params
     );
   }
 
-  get (fields, params): ProductFeedRule {
+  
+  get (fields: Array<string>, params: Object = {}): ProductFeedRule {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): ProductFeedRule {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): ProductFeedRule {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

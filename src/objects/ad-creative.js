@@ -193,14 +193,16 @@ export default class AdCreative extends AbstractCrudObject {
     });
   }
 
-  deleteAdLabels (params): AbstractObject {
+  deleteAdLabels (params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.deleteEdge(
       '/adlabels',
       params
     );
   }
 
-  createAdLabel (fields, params): AdCreative {
+  createAdLabel (fields: Array<string>, params: Object = {}): AdCreative {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/adlabels',
       fields,
@@ -209,7 +211,8 @@ export default class AdCreative extends AbstractCrudObject {
     );
   }
 
-  getPreviews (fields, params, fetchFirstPage = true): AdPreview {
+  getPreviews (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdPreview {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AdPreview,
       fields,
@@ -219,20 +222,26 @@ export default class AdCreative extends AbstractCrudObject {
     );
   }
 
-  delete (fields, params): AbstractObject {
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.delete(
       params
     );
   }
 
-  get (fields, params): AdCreative {
+  
+  get (fields: Array<string>, params: Object = {}): AdCreative {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): AdCreative {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): AdCreative {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

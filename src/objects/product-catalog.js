@@ -86,14 +86,16 @@ export default class ProductCatalog extends AbstractCrudObject {
     });
   }
 
-  deleteAgencies (params): AbstractObject {
+  deleteAgencies (params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.deleteEdge(
       '/agencies',
       params
     );
   }
 
-  getAgencies (fields, params, fetchFirstPage = true): Business {
+  getAgencies (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Business {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       Business,
       fields,
@@ -103,7 +105,8 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  createAgency (fields, params): ProductCatalog {
+  createAgency (fields: Array<string>, params: Object = {}): ProductCatalog {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/agencies',
       fields,
@@ -112,14 +115,16 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  deleteAssignedUsers (params): AbstractObject {
+  deleteAssignedUsers (params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.deleteEdge(
       '/assigned_users',
       params
     );
   }
 
-  getAssignedUsers (fields, params, fetchFirstPage = true): AssignedUser {
+  getAssignedUsers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AssignedUser {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AssignedUser,
       fields,
@@ -129,7 +134,8 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  createAssignedUser (fields, params): ProductCatalog {
+  createAssignedUser (fields: Array<string>, params: Object = {}): ProductCatalog {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/assigned_users',
       fields,
@@ -138,7 +144,8 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  getAutomotiveModels (fields, params, fetchFirstPage = true): AutomotiveModel {
+  getAutomotiveModels (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AutomotiveModel {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AutomotiveModel,
       fields,
@@ -148,7 +155,8 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  createBatch (fields, params): ProductCatalog {
+  createBatch (fields: Array<string>, params: Object = {}): ProductCatalog {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/batch',
       fields,
@@ -157,7 +165,8 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  createBundleFolder (fields, params): DynamicItemDisplayBundleFolder {
+  createBundleFolder (fields: Array<string>, params: Object = {}): DynamicItemDisplayBundleFolder {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/bundle_folders',
       fields,
@@ -166,7 +175,8 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  createBundle (fields, params): DynamicItemDisplayBundle {
+  createBundle (fields: Array<string>, params: Object = {}): DynamicItemDisplayBundle {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/bundles',
       fields,
@@ -175,7 +185,8 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  getCategories (fields, params, fetchFirstPage = true): ProductCatalogCategory {
+  getCategories (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): ProductCatalogCategory {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       ProductCatalogCategory,
       fields,
@@ -185,7 +196,8 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  createCategory (fields, params): ProductCatalogCategory {
+  createCategory (fields: Array<string>, params: Object = {}): ProductCatalogCategory {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/categories',
       fields,
@@ -194,7 +206,8 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  getCheckBatchRequestStatus (fields, params, fetchFirstPage = true): CheckBatchRequestStatus {
+  getCheckBatchRequestStatus (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): CheckBatchRequestStatus {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       CheckBatchRequestStatus,
       fields,
@@ -204,7 +217,8 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  getDestinations (fields, params, fetchFirstPage = true): Destination {
+  getDestinations (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Destination {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       Destination,
       fields,
@@ -214,7 +228,8 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  getEventStats (fields, params, fetchFirstPage = true): ProductEventStat {
+  getEventStats (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): ProductEventStat {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       ProductEventStat,
       fields,
@@ -224,14 +239,16 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  deleteExternalEventSources (params): AbstractObject {
+  deleteExternalEventSources (params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.deleteEdge(
       '/external_event_sources',
       params
     );
   }
 
-  getExternalEventSources (fields, params, fetchFirstPage = true): ExternalEventSource {
+  getExternalEventSources (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): ExternalEventSource {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       ExternalEventSource,
       fields,
@@ -241,7 +258,8 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  createExternalEventSource (fields, params): ProductCatalog {
+  createExternalEventSource (fields: Array<string>, params: Object = {}): ProductCatalog {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/external_event_sources',
       fields,
@@ -250,7 +268,8 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  getFlights (fields, params, fetchFirstPage = true): Flight {
+  getFlights (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Flight {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       Flight,
       fields,
@@ -260,7 +279,8 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  getHomeListings (fields, params, fetchFirstPage = true): HomeListing {
+  getHomeListings (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): HomeListing {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       HomeListing,
       fields,
@@ -270,7 +290,8 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  createHomeListing (fields, params): HomeListing {
+  createHomeListing (fields: Array<string>, params: Object = {}): HomeListing {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/home_listings',
       fields,
@@ -279,7 +300,8 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  getHotelRoomsBatch (fields, params, fetchFirstPage = true): ProductCatalogHotelRoomsBatch {
+  getHotelRoomsBatch (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): ProductCatalogHotelRoomsBatch {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       ProductCatalogHotelRoomsBatch,
       fields,
@@ -289,7 +311,8 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  createHotelRoomsBatch (fields, params): ProductCatalog {
+  createHotelRoomsBatch (fields: Array<string>, params: Object = {}): ProductCatalog {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/hotel_rooms_batch',
       fields,
@@ -298,7 +321,8 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  getHotels (fields, params, fetchFirstPage = true): Hotel {
+  getHotels (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Hotel {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       Hotel,
       fields,
@@ -308,7 +332,8 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  createHotel (fields, params): Hotel {
+  createHotel (fields: Array<string>, params: Object = {}): Hotel {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/hotels',
       fields,
@@ -317,7 +342,8 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  createItemsBatch (fields, params): ProductCatalog {
+  createItemsBatch (fields: Array<string>, params: Object = {}): ProductCatalog {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/items_batch',
       fields,
@@ -326,7 +352,8 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  getPricingVariablesBatch (fields, params, fetchFirstPage = true): ProductCatalogPricingVariablesBatch {
+  getPricingVariablesBatch (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): ProductCatalogPricingVariablesBatch {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       ProductCatalogPricingVariablesBatch,
       fields,
@@ -336,7 +363,8 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  createPricingVariablesBatch (fields, params): ProductCatalog {
+  createPricingVariablesBatch (fields: Array<string>, params: Object = {}): ProductCatalog {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/pricing_variables_batch',
       fields,
@@ -345,7 +373,8 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  getProductFeeds (fields, params, fetchFirstPage = true): ProductFeed {
+  getProductFeeds (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): ProductFeed {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       ProductFeed,
       fields,
@@ -355,7 +384,8 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  createProductFeed (fields, params): ProductFeed {
+  createProductFeed (fields: Array<string>, params: Object = {}): ProductFeed {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/product_feeds',
       fields,
@@ -364,7 +394,8 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  getProductGroups (fields, params, fetchFirstPage = true): ProductGroup {
+  getProductGroups (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): ProductGroup {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       ProductGroup,
       fields,
@@ -374,7 +405,8 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  createProductGroup (fields, params): ProductGroup {
+  createProductGroup (fields: Array<string>, params: Object = {}): ProductGroup {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/product_groups',
       fields,
@@ -383,7 +415,8 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  getProductSets (fields, params, fetchFirstPage = true): ProductSet {
+  getProductSets (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): ProductSet {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       ProductSet,
       fields,
@@ -393,7 +426,8 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  createProductSet (fields, params): ProductSet {
+  createProductSet (fields: Array<string>, params: Object = {}): ProductSet {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/product_sets',
       fields,
@@ -402,7 +436,8 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  getProductSetsBatch (fields, params, fetchFirstPage = true): ProductCatalogProductSetsBatch {
+  getProductSetsBatch (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): ProductCatalogProductSetsBatch {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       ProductCatalogProductSetsBatch,
       fields,
@@ -412,7 +447,8 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  createProductSetsBatch (fields, params): ProductCatalog {
+  createProductSetsBatch (fields: Array<string>, params: Object = {}): ProductCatalog {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/product_sets_batch',
       fields,
@@ -421,7 +457,8 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  getProducts (fields, params, fetchFirstPage = true): ProductItem {
+  getProducts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): ProductItem {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       ProductItem,
       fields,
@@ -431,7 +468,8 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  createProduct (fields, params): ProductItem {
+  createProduct (fields: Array<string>, params: Object = {}): ProductItem {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/products',
       fields,
@@ -440,7 +478,8 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  getVehicles (fields, params, fetchFirstPage = true): Vehicle {
+  getVehicles (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Vehicle {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       Vehicle,
       fields,
@@ -450,7 +489,8 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  createVehicle (fields, params): Vehicle {
+  createVehicle (fields: Array<string>, params: Object = {}): Vehicle {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/vehicles',
       fields,
@@ -459,20 +499,26 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  delete (fields, params): AbstractObject {
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.delete(
       params
     );
   }
 
-  get (fields, params): ProductCatalog {
+  
+  get (fields: Array<string>, params: Object = {}): ProductCatalog {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): ProductCatalog {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): ProductCatalog {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

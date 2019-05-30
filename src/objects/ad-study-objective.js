@@ -47,7 +47,8 @@ export default class AdStudyObjective extends AbstractCrudObject {
     });
   }
 
-  getAdPlacePageSets (fields, params, fetchFirstPage = true): AdPlacePageSet {
+  getAdPlacePageSets (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdPlacePageSet {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AdPlacePageSet,
       fields,
@@ -57,7 +58,8 @@ export default class AdStudyObjective extends AbstractCrudObject {
     );
   }
 
-  getAdsPixels (fields, params, fetchFirstPage = true): AdsPixel {
+  getAdsPixels (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdsPixel {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AdsPixel,
       fields,
@@ -67,7 +69,8 @@ export default class AdStudyObjective extends AbstractCrudObject {
     );
   }
 
-  getApplications (fields, params, fetchFirstPage = true): Application {
+  getApplications (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Application {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       Application,
       fields,
@@ -77,7 +80,8 @@ export default class AdStudyObjective extends AbstractCrudObject {
     );
   }
 
-  getCustomConversions (fields, params, fetchFirstPage = true): CustomConversion {
+  getCustomConversions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): CustomConversion {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       CustomConversion,
       fields,
@@ -87,7 +91,8 @@ export default class AdStudyObjective extends AbstractCrudObject {
     );
   }
 
-  getOfflineConversionDataSets (fields, params, fetchFirstPage = true): OfflineConversionDataSet {
+  getOfflineConversionDataSets (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): OfflineConversionDataSet {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       OfflineConversionDataSet,
       fields,
@@ -97,7 +102,8 @@ export default class AdStudyObjective extends AbstractCrudObject {
     );
   }
 
-  getOffsitePixels (fields, params, fetchFirstPage = true): OffsitePixel {
+  getOffsitePixels (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): OffsitePixel {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       OffsitePixel,
       fields,
@@ -107,20 +113,26 @@ export default class AdStudyObjective extends AbstractCrudObject {
     );
   }
 
-  delete (fields, params): AbstractObject {
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.delete(
       params
     );
   }
 
-  get (fields, params): AdStudyObjective {
+  
+  get (fields: Array<string>, params: Object = {}): AdStudyObjective {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): AdStudyObjective {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): AdStudyObjective {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

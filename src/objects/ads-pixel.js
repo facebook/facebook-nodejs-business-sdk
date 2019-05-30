@@ -79,14 +79,16 @@ export default class AdsPixel extends AbstractCrudObject {
     });
   }
 
-  deleteAssignedUsers (params): AbstractObject {
+  deleteAssignedUsers (params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.deleteEdge(
       '/assigned_users',
       params
     );
   }
 
-  getAssignedUsers (fields, params, fetchFirstPage = true): AssignedUser {
+  getAssignedUsers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AssignedUser {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AssignedUser,
       fields,
@@ -96,7 +98,8 @@ export default class AdsPixel extends AbstractCrudObject {
     );
   }
 
-  createAssignedUser (fields, params): AdsPixel {
+  createAssignedUser (fields: Array<string>, params: Object = {}): AdsPixel {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/assigned_users',
       fields,
@@ -105,7 +108,8 @@ export default class AdsPixel extends AbstractCrudObject {
     );
   }
 
-  getAudiences (fields, params, fetchFirstPage = true): CustomAudience {
+  getAudiences (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): CustomAudience {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       CustomAudience,
       fields,
@@ -115,7 +119,8 @@ export default class AdsPixel extends AbstractCrudObject {
     );
   }
 
-  getDaChecks (fields, params, fetchFirstPage = true): DACheck {
+  getDaChecks (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): DACheck {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       DACheck,
       fields,
@@ -125,14 +130,16 @@ export default class AdsPixel extends AbstractCrudObject {
     );
   }
 
-  deleteSharedAccounts (params): AbstractObject {
+  deleteSharedAccounts (params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.deleteEdge(
       '/shared_accounts',
       params
     );
   }
 
-  getSharedAccounts (fields, params, fetchFirstPage = true): AdAccount {
+  getSharedAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdAccount {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AdAccount,
       fields,
@@ -142,7 +149,8 @@ export default class AdsPixel extends AbstractCrudObject {
     );
   }
 
-  createSharedAccount (fields, params): AdsPixel {
+  createSharedAccount (fields: Array<string>, params: Object = {}): AdsPixel {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/shared_accounts',
       fields,
@@ -151,7 +159,8 @@ export default class AdsPixel extends AbstractCrudObject {
     );
   }
 
-  getSharedAgencies (fields, params, fetchFirstPage = true): Business {
+  getSharedAgencies (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Business {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       Business,
       fields,
@@ -161,7 +170,8 @@ export default class AdsPixel extends AbstractCrudObject {
     );
   }
 
-  getStats (fields, params, fetchFirstPage = true): AdsPixelStatsResult {
+  getStats (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdsPixelStatsResult {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AdsPixelStatsResult,
       fields,
@@ -171,14 +181,18 @@ export default class AdsPixel extends AbstractCrudObject {
     );
   }
 
-  get (fields, params): AdsPixel {
+  
+  get (fields: Array<string>, params: Object = {}): AdsPixel {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): AdsPixel {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): AdsPixel {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

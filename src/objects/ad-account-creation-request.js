@@ -203,7 +203,8 @@ export default class AdAccountCreationRequest extends AbstractCrudObject {
     });
   }
 
-  getAdAccounts (fields, params, fetchFirstPage = true): AdAccount {
+  getAdAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdAccount {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AdAccount,
       fields,
@@ -213,14 +214,18 @@ export default class AdAccountCreationRequest extends AbstractCrudObject {
     );
   }
 
-  get (fields, params): AdAccountCreationRequest {
+  
+  get (fields: Array<string>, params: Object = {}): AdAccountCreationRequest {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): AdAccountCreationRequest {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): AdAccountCreationRequest {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

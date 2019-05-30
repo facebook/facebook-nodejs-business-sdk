@@ -22,7 +22,8 @@ export default class OpenGraphContext extends AbstractCrudObject {
   }
 
 
-  getFriendsTaggedAt (fields, params, fetchFirstPage = true): User {
+  getFriendsTaggedAt (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): User {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       User,
       fields,
@@ -32,7 +33,8 @@ export default class OpenGraphContext extends AbstractCrudObject {
     );
   }
 
-  getMusicListenFriends (fields, params, fetchFirstPage = true): User {
+  getMusicListenFriends (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): User {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       User,
       fields,
@@ -42,7 +44,8 @@ export default class OpenGraphContext extends AbstractCrudObject {
     );
   }
 
-  getVideoWatchFriends (fields, params, fetchFirstPage = true): User {
+  getVideoWatchFriends (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): User {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       User,
       fields,
@@ -52,7 +55,9 @@ export default class OpenGraphContext extends AbstractCrudObject {
     );
   }
 
-  get (fields, params): OpenGraphContext {
+  
+  get (fields: Array<string>, params: Object = {}): OpenGraphContext {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

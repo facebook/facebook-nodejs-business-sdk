@@ -46,7 +46,9 @@ export default class AutomotiveModel extends AbstractCrudObject {
   }
 
 
-  get (fields, params): AutomotiveModel {
+  
+  get (fields: Array<string>, params: Object = {}): AutomotiveModel {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

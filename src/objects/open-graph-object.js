@@ -42,7 +42,8 @@ export default class OpenGraphObject extends AbstractCrudObject {
   }
 
 
-  getPicture (fields, params, fetchFirstPage = true): ProfilePictureSource {
+  getPicture (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): ProfilePictureSource {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       ProfilePictureSource,
       fields,
@@ -52,7 +53,9 @@ export default class OpenGraphObject extends AbstractCrudObject {
     );
   }
 
-  get (fields, params): OpenGraphObject {
+  
+  get (fields: Array<string>, params: Object = {}): OpenGraphObject {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

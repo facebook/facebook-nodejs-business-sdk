@@ -28,7 +28,9 @@ export default class AdPlacement extends AbstractCrudObject {
   }
 
 
-  get (fields, params): AdPlacement {
+  
+  get (fields: Array<string>, params: Object = {}): AdPlacement {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

@@ -31,7 +31,8 @@ export default class PublisherBlockList extends AbstractCrudObject {
   }
 
 
-  getPagedAppPublishers (fields, params, fetchFirstPage = true): AbstractObject {
+  getPagedAppPublishers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AbstractObject,
       fields,
@@ -41,7 +42,8 @@ export default class PublisherBlockList extends AbstractCrudObject {
     );
   }
 
-  getPagedWebPublishers (fields, params, fetchFirstPage = true): AbstractObject {
+  getPagedWebPublishers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AbstractObject,
       fields,
@@ -51,20 +53,26 @@ export default class PublisherBlockList extends AbstractCrudObject {
     );
   }
 
-  delete (fields, params): AbstractObject {
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.delete(
       params
     );
   }
 
-  get (fields, params): PublisherBlockList {
+  
+  get (fields: Array<string>, params: Object = {}): PublisherBlockList {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): PublisherBlockList {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): PublisherBlockList {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

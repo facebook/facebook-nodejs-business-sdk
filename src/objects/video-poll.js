@@ -37,7 +37,8 @@ export default class VideoPoll extends AbstractCrudObject {
     });
   }
 
-  getPollOptions (fields, params, fetchFirstPage = true): AbstractObject {
+  getPollOptions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AbstractObject,
       fields,
@@ -47,14 +48,18 @@ export default class VideoPoll extends AbstractCrudObject {
     );
   }
 
-  get (fields, params): VideoPoll {
+  
+  get (fields: Array<string>, params: Object = {}): VideoPoll {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): VideoPoll {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): VideoPoll {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

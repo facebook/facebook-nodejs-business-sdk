@@ -24,13 +24,17 @@ export default class Persona extends AbstractCrudObject {
   }
 
 
-  delete (fields, params): AbstractObject {
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.delete(
       params
     );
   }
 
-  get (fields, params): Persona {
+  
+  get (fields: Array<string>, params: Object = {}): Persona {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

@@ -22,7 +22,9 @@ export default class ReadOnlyAnalyticsUserPropertyConfig extends AbstractCrudObj
   }
 
 
-  get (fields, params): ReadOnlyAnalyticsUserPropertyConfig {
+  
+  get (fields: Array<string>, params: Object = {}): ReadOnlyAnalyticsUserPropertyConfig {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

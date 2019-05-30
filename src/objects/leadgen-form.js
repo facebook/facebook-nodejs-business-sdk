@@ -92,7 +92,8 @@ export default class LeadgenForm extends AbstractCrudObject {
     });
   }
 
-  getLeads (fields, params, fetchFirstPage = true): Lead {
+  getLeads (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Lead {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       Lead,
       fields,
@@ -102,7 +103,8 @@ export default class LeadgenForm extends AbstractCrudObject {
     );
   }
 
-  getTestLeads (fields, params, fetchFirstPage = true): Lead {
+  getTestLeads (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Lead {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       Lead,
       fields,
@@ -112,7 +114,8 @@ export default class LeadgenForm extends AbstractCrudObject {
     );
   }
 
-  createTestLead (fields, params): Lead {
+  createTestLead (fields: Array<string>, params: Object = {}): Lead {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/test_leads',
       fields,
@@ -121,20 +124,26 @@ export default class LeadgenForm extends AbstractCrudObject {
     );
   }
 
-  delete (fields, params): AbstractObject {
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.delete(
       params
     );
   }
 
-  get (fields, params): LeadgenForm {
+  
+  get (fields: Array<string>, params: Object = {}): LeadgenForm {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): LeadgenForm {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): LeadgenForm {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

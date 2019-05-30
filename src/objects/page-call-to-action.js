@@ -104,7 +104,9 @@ export default class PageCallToAction extends AbstractCrudObject {
     });
   }
 
-  get (fields, params): PageCallToAction {
+  
+  get (fields: Array<string>, params: Object = {}): PageCallToAction {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

@@ -27,14 +27,18 @@ export default class URL extends AbstractCrudObject {
   }
 
 
-  get (fields, params): URL {
+  
+  get (fields: Array<string>, params: Object = {}): URL {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): URL {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): URL {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

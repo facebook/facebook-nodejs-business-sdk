@@ -26,14 +26,18 @@ export default class PageUpcomingChange extends AbstractCrudObject {
   }
 
 
-  get (fields, params): PageUpcomingChange {
+  
+  get (fields: Array<string>, params: Object = {}): PageUpcomingChange {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): PageUpcomingChange {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): PageUpcomingChange {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

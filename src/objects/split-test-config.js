@@ -27,7 +27,9 @@ export default class SplitTestConfig extends AbstractCrudObject {
   }
 
 
-  get (fields, params): SplitTestConfig {
+  
+  get (fields: Array<string>, params: Object = {}): SplitTestConfig {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

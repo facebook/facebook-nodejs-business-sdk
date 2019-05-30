@@ -23,7 +23,9 @@ export default class OfflineTermsOfService extends AbstractCrudObject {
   }
 
 
-  get (fields, params): OfflineTermsOfService {
+  
+  get (fields: Array<string>, params: Object = {}): OfflineTermsOfService {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

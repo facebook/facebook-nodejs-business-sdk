@@ -39,7 +39,8 @@ export default class ExtendedCredit extends AbstractCrudObject {
   }
 
 
-  getExtendedCreditInvoiceGroups (fields, params, fetchFirstPage = true): ExtendedCreditInvoiceGroup {
+  getExtendedCreditInvoiceGroups (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): ExtendedCreditInvoiceGroup {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       ExtendedCreditInvoiceGroup,
       fields,
@@ -49,7 +50,8 @@ export default class ExtendedCredit extends AbstractCrudObject {
     );
   }
 
-  createExtendedCreditInvoiceGroup (fields, params): ExtendedCreditInvoiceGroup {
+  createExtendedCreditInvoiceGroup (fields: Array<string>, params: Object = {}): ExtendedCreditInvoiceGroup {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/extended_credit_invoice_groups',
       fields,
@@ -58,7 +60,8 @@ export default class ExtendedCredit extends AbstractCrudObject {
     );
   }
 
-  getOwningCreditAllocationConfigs (fields, params, fetchFirstPage = true): ExtendedCreditAllocationConfig {
+  getOwningCreditAllocationConfigs (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): ExtendedCreditAllocationConfig {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       ExtendedCreditAllocationConfig,
       fields,
@@ -68,7 +71,8 @@ export default class ExtendedCredit extends AbstractCrudObject {
     );
   }
 
-  createOwningCreditAllocationConfig (fields, params): ExtendedCreditAllocationConfig {
+  createOwningCreditAllocationConfig (fields: Array<string>, params: Object = {}): ExtendedCreditAllocationConfig {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/owning_credit_allocation_configs',
       fields,
@@ -77,7 +81,9 @@ export default class ExtendedCredit extends AbstractCrudObject {
     );
   }
 
-  get (fields, params): ExtendedCredit {
+  
+  get (fields: Array<string>, params: Object = {}): ExtendedCredit {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

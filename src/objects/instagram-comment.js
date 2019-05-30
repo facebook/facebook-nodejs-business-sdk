@@ -28,20 +28,26 @@ export default class InstagramComment extends AbstractCrudObject {
   }
 
 
-  delete (fields, params): AbstractObject {
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.delete(
       params
     );
   }
 
-  get (fields, params): InstagramComment {
+  
+  get (fields: Array<string>, params: Object = {}): InstagramComment {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): InstagramComment {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): InstagramComment {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

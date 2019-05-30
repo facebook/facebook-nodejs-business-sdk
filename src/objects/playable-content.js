@@ -23,7 +23,9 @@ export default class PlayableContent extends AbstractCrudObject {
   }
 
 
-  get (fields, params): PlayableContent {
+  
+  get (fields: Array<string>, params: Object = {}): PlayableContent {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

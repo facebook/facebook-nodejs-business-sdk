@@ -159,7 +159,8 @@ export default class PagePost extends AbstractCrudObject {
     });
   }
 
-  getAttachments (fields, params, fetchFirstPage = true): AbstractObject {
+  getAttachments (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AbstractObject,
       fields,
@@ -169,7 +170,8 @@ export default class PagePost extends AbstractCrudObject {
     );
   }
 
-  getComments (fields, params, fetchFirstPage = true): Comment {
+  getComments (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Comment {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       Comment,
       fields,
@@ -179,7 +181,8 @@ export default class PagePost extends AbstractCrudObject {
     );
   }
 
-  createComment (fields, params): Comment {
+  createComment (fields: Array<string>, params: Object = {}): Comment {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/comments',
       fields,
@@ -188,7 +191,8 @@ export default class PagePost extends AbstractCrudObject {
     );
   }
 
-  getDynamicPosts (fields, params, fetchFirstPage = true): RTBDynamicPost {
+  getDynamicPosts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): RTBDynamicPost {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       RTBDynamicPost,
       fields,
@@ -198,7 +202,8 @@ export default class PagePost extends AbstractCrudObject {
     );
   }
 
-  getInsights (fields, params, fetchFirstPage = true): InsightsResult {
+  getInsights (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): InsightsResult {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       InsightsResult,
       fields,
@@ -208,14 +213,16 @@ export default class PagePost extends AbstractCrudObject {
     );
   }
 
-  deleteLikes (params): AbstractObject {
+  deleteLikes (params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.deleteEdge(
       '/likes',
       params
     );
   }
 
-  getLikes (fields, params, fetchFirstPage = true): Profile {
+  getLikes (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Profile {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       Profile,
       fields,
@@ -225,7 +232,8 @@ export default class PagePost extends AbstractCrudObject {
     );
   }
 
-  createLike (fields, params): PagePost {
+  createLike (fields: Array<string>, params: Object = {}): PagePost {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/likes',
       fields,
@@ -234,7 +242,8 @@ export default class PagePost extends AbstractCrudObject {
     );
   }
 
-  getReactions (fields, params, fetchFirstPage = true): Profile {
+  getReactions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Profile {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       Profile,
       fields,
@@ -244,7 +253,8 @@ export default class PagePost extends AbstractCrudObject {
     );
   }
 
-  getSeen (fields, params, fetchFirstPage = true): User {
+  getSeen (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): User {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       User,
       fields,
@@ -254,7 +264,8 @@ export default class PagePost extends AbstractCrudObject {
     );
   }
 
-  getSharedPosts (fields, params, fetchFirstPage = true): Post {
+  getSharedPosts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Post {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       Post,
       fields,
@@ -264,7 +275,8 @@ export default class PagePost extends AbstractCrudObject {
     );
   }
 
-  getTo (fields, params, fetchFirstPage = true): Profile {
+  getTo (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Profile {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       Profile,
       fields,
@@ -274,20 +286,26 @@ export default class PagePost extends AbstractCrudObject {
     );
   }
 
-  delete (fields, params): AbstractObject {
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.delete(
       params
     );
   }
 
-  get (fields, params): PagePost {
+  
+  get (fields: Array<string>, params: Object = {}): PagePost {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): PagePost {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): PagePost {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

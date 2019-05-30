@@ -133,7 +133,8 @@ export default class ProductItem extends AbstractCrudObject {
     });
   }
 
-  getProductSets (fields, params, fetchFirstPage = true): ProductSet {
+  getProductSets (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): ProductSet {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       ProductSet,
       fields,
@@ -143,20 +144,26 @@ export default class ProductItem extends AbstractCrudObject {
     );
   }
 
-  delete (fields, params): AbstractObject {
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.delete(
       params
     );
   }
 
-  get (fields, params): ProductItem {
+  
+  get (fields: Array<string>, params: Object = {}): ProductItem {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): ProductItem {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): ProductItem {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

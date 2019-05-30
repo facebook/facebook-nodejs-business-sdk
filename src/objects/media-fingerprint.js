@@ -38,14 +38,18 @@ export default class MediaFingerprint extends AbstractCrudObject {
     });
   }
 
-  get (fields, params): MediaFingerprint {
+  
+  get (fields: Array<string>, params: Object = {}): MediaFingerprint {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): MediaFingerprint {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): MediaFingerprint {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

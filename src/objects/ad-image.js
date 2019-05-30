@@ -42,7 +42,9 @@ export default class AdImage extends AbstractCrudObject {
     });
   }
 
-  get (fields, params): AdImage {
+  
+  get (fields: Array<string>, params: Object = {}): AdImage {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

@@ -26,7 +26,9 @@ export default class OffsitePixel extends AbstractCrudObject {
   }
 
 
-  get (fields, params): OffsitePixel {
+  
+  get (fields: Array<string>, params: Object = {}): OffsitePixel {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

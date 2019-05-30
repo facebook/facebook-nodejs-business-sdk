@@ -30,14 +30,16 @@ export default class BusinessProject extends AbstractCrudObject {
   }
 
 
-  deleteAdAccounts (params): AbstractObject {
+  deleteAdAccounts (params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.deleteEdge(
       '/adaccounts',
       params
     );
   }
 
-  getAdAccounts (fields, params, fetchFirstPage = true): AdAccount {
+  getAdAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdAccount {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AdAccount,
       fields,
@@ -47,7 +49,8 @@ export default class BusinessProject extends AbstractCrudObject {
     );
   }
 
-  createAdAccount (fields, params): BusinessProject {
+  createAdAccount (fields: Array<string>, params: Object = {}): BusinessProject {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/adaccounts',
       fields,
@@ -56,14 +59,16 @@ export default class BusinessProject extends AbstractCrudObject {
     );
   }
 
-  deleteApps (params): AbstractObject {
+  deleteApps (params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.deleteEdge(
       '/apps',
       params
     );
   }
 
-  getApps (fields, params, fetchFirstPage = true): Application {
+  getApps (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Application {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       Application,
       fields,
@@ -73,7 +78,8 @@ export default class BusinessProject extends AbstractCrudObject {
     );
   }
 
-  createApp (fields, params): BusinessProject {
+  createApp (fields: Array<string>, params: Object = {}): BusinessProject {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/apps',
       fields,
@@ -82,14 +88,16 @@ export default class BusinessProject extends AbstractCrudObject {
     );
   }
 
-  deleteAssets (params): AbstractObject {
+  deleteAssets (params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.deleteEdge(
       '/assets',
       params
     );
   }
 
-  createAsset (fields, params): BusinessProject {
+  createAsset (fields: Array<string>, params: Object = {}): BusinessProject {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/assets',
       fields,
@@ -98,14 +106,16 @@ export default class BusinessProject extends AbstractCrudObject {
     );
   }
 
-  deletePages (params): AbstractObject {
+  deletePages (params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.deleteEdge(
       '/pages',
       params
     );
   }
 
-  getPages (fields, params, fetchFirstPage = true): Page {
+  getPages (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Page {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       Page,
       fields,
@@ -115,7 +125,8 @@ export default class BusinessProject extends AbstractCrudObject {
     );
   }
 
-  createPage (fields, params): BusinessProject {
+  createPage (fields: Array<string>, params: Object = {}): BusinessProject {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/pages',
       fields,
@@ -124,14 +135,16 @@ export default class BusinessProject extends AbstractCrudObject {
     );
   }
 
-  deleteProductCatalogs (params): AbstractObject {
+  deleteProductCatalogs (params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.deleteEdge(
       '/product_catalogs',
       params
     );
   }
 
-  getProductCatalogs (fields, params, fetchFirstPage = true): ProductCatalog {
+  getProductCatalogs (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): ProductCatalog {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       ProductCatalog,
       fields,
@@ -141,7 +154,8 @@ export default class BusinessProject extends AbstractCrudObject {
     );
   }
 
-  createProductCatalog (fields, params): BusinessProject {
+  createProductCatalog (fields: Array<string>, params: Object = {}): BusinessProject {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/product_catalogs',
       fields,
@@ -150,20 +164,26 @@ export default class BusinessProject extends AbstractCrudObject {
     );
   }
 
-  delete (fields, params): AbstractObject {
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.delete(
       params
     );
   }
 
-  get (fields, params): BusinessProject {
+  
+  get (fields: Array<string>, params: Object = {}): BusinessProject {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): BusinessProject {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): BusinessProject {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

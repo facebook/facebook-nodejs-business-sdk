@@ -23,7 +23,9 @@ export default class ExternalEventSource extends AbstractCrudObject {
   }
 
 
-  get (fields, params): ExternalEventSource {
+  
+  get (fields: Array<string>, params: Object = {}): ExternalEventSource {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

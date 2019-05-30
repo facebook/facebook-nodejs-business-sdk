@@ -39,14 +39,18 @@ export default class AdPlacePageSet extends AbstractCrudObject {
     });
   }
 
-  get (fields, params): AdPlacePageSet {
+  
+  get (fields: Array<string>, params: Object = {}): AdPlacePageSet {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): AdPlacePageSet {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): AdPlacePageSet {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

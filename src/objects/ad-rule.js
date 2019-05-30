@@ -39,7 +39,8 @@ export default class AdRule extends AbstractCrudObject {
     });
   }
 
-  createExecute (fields, params): AbstractObject {
+  createExecute (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/execute',
       fields,
@@ -48,7 +49,8 @@ export default class AdRule extends AbstractCrudObject {
     );
   }
 
-  getHistory (fields, params, fetchFirstPage = true): AdRuleHistory {
+  getHistory (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdRuleHistory {
+    // $FlowFixMe : Support Generic Types
     return this.getEdge(
       AdRuleHistory,
       fields,
@@ -58,7 +60,8 @@ export default class AdRule extends AbstractCrudObject {
     );
   }
 
-  createPreview (fields, params): AdRule {
+  createPreview (fields: Array<string>, params: Object = {}): AdRule {
+    // $FlowFixMe : Support Generic Types
     return this.createEdge(
       '/preview',
       fields,
@@ -67,20 +70,26 @@ export default class AdRule extends AbstractCrudObject {
     );
   }
 
-  delete (fields, params): AbstractObject {
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.delete(
       params
     );
   }
 
-  get (fields, params): AdRule {
+  
+  get (fields: Array<string>, params: Object = {}): AdRule {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): AdRule {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): AdRule {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );
