@@ -46,7 +46,7 @@
     "babelrc-rollup": "^3.0.0",
     "chai": "~3.5.0",
     "eslint": "^3.19.0",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.1",
     "gulp-filenames": "~4.0.0",
     "gulp-load-plugins": "~1.3.0",
     "gulp-open": "~2.0.0",
