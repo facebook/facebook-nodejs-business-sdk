@@ -2,5 +2,6 @@ language: node_js
 sudo: false
 
 
-before_install: npm run flow
+#before_install: npm install --save flow-bin
 install: npm install
+script: npm run flow
