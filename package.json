@@ -31,6 +31,7 @@
   },
   "dependencies": {
     "mixwith": "~0.1.1",
+    "natives": "^1.1.6",
     "request": "^2.81.0",
     "request-promise": "~4.1.1"
   },
