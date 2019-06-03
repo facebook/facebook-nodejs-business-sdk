@@ -68,7 +68,8 @@
   },
   "scripts": {
     "prepublish": "gulp dist",
-    "start": "semistandard --fix"
+    "start": "semistandard --fix",
+    "flow": "flow"
   },
   "main": "./dist/cjs.js",
   "license": "Platform License",
