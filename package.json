@@ -33,7 +33,8 @@
     "mixwith": "~0.1.1",
     "natives": "^1.1.6",
     "request": "^2.81.0",
-    "request-promise": "~4.1.1"
+    "request-promise": "~4.1.1",
+    "flow-bin": "^0.100.0"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
