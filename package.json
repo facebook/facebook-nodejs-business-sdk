@@ -58,7 +58,7 @@
     "rollup-plugin-node-resolve": "~2.0.0",
     "rollup-stream": "~1.14.0",
     "vinyl-buffer": "~1.0.0",
-    "vinyl-source-stream": "~1.1.0",
+    "vinyl-source-stream": "~2.0.0",
     "babel-eslint": "^7.2.3",
     "babel-plugin-async-to-promises": "^1.0.5",
     "eslint-plugin-flowtype": "^2.34.0",
