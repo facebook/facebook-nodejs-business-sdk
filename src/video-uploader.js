@@ -65,11 +65,11 @@ class VideoUploadSession {
     this._video = video;
     this._api = video.getApi();
 
-    if (video[AdVideo.Fields.filepath]) {
-      this._filePath = video[AdVideo.Fields.filepath];
+    if (video.filepath) {
+      this._filePath = video.filepath;
       this._slideshowSpec = null;
-    } else if (video[AdVideo.Fields.slideshow_spec]) {
-      this._slideshowSpec = video[AdVideo.Fields.slideshow_spec];
+    } else if (video.slideshow_spec) {
+      this._slideshowSpec = video.slideshow_spec;
       this._filePath = null;
     }
 
@@ -465,3 +465,4 @@ class VideoEncodingStatusChecker {
 }
 
 export {VideoUploader, VideoUploadRequest, VideoEncodingStatusChecker};
+export type {SlideshowSpec};

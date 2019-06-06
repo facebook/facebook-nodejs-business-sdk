@@ -18,6 +18,7 @@ import {
   VideoUploadRequest,
   VideoEncodingStatusChecker,
 } from '../video-uploader';
+import type {SlideshowSpec} from "../video-uploader"
 
 /**
  * AdVideo
@@ -33,6 +34,16 @@ export default class AdVideo extends AbstractCrudObject {
     });
   }
 
+
+  get filepath(): string {
+    return this.filepath;
+  }
+
+  get slideshow_spec(): ?SlideshowSpec {
+    return this.slideshow_spec;
+  }
+
+
   /**
    * Uploads filepath and creates the AdVideo object from it.
    * It requires 'filepath' property to be defined.
@@ -43,26 +54,22 @@ export default class AdVideo extends AbstractCrudObject {
     successHandler: Function,
   ) {
     let response = null;
-
-    if (this[AdVideo.Fields.slideshow_spec]) {
+    var spec = this.slideshow_spec;
+    if (spec) {
       const request = new VideoUploadRequest(this.getApi());
 
       request.setParams({
         'slideshow_spec[images_urls]': JSON.stringify(
-          this[AdVideo.Fields.slideshow_spec]['images_urls'],
+          spec['images_urls'],
         ),
-        'slideshow_spec[duration_ms]': this[AdVideo.Fields.slideshow_spec][
-          'duration_ms'
-        ],
-        'slideshow_spec[transition_ms]': this[AdVideo.Fields.slideshow_spec][
-          'transition_ms'
-        ],
+        'slideshow_spec[duration_ms]': spec['duration_ms'],
+        'slideshow_spec[transition_ms]': spec['transition_ms'],
       });
       response = request.send([this.getParentId(), 'advideos']);
-    } else if (this[AdVideo.Fields.filepath]) {
+    } else if (this.filepath) {
       const videoUploader = new VideoUploader();
 
-      response = videoUploader.upload(this);
+      response = videoUploader.upload(this, true);
     } else {
       throw Error(
         'AdVideo requires a filepath or slideshow_spec to be defined.',
@@ -74,14 +81,14 @@ export default class AdVideo extends AbstractCrudObject {
     return response;
   }
 
-  waitUntilEncodingReady(interval: Number = 30, timeout: Number = 600) {
-    if (!this['id']) {
+  waitUntilEncodingReady(interval: number = 30, timeout: number = 600) {
+    if (!this.id) {
       throw Error('Invalid Video ID');
     }
 
     VideoEncodingStatusChecker.waitUntilReady(
       this.getApi(),
-      this['id'],
+      parseInt(this.id),
       interval,
       timeout,
     );
@@ -91,6 +98,6 @@ export default class AdVideo extends AbstractCrudObject {
    *  Returns all the thumbnails associated with the ad video
    */
   getThumbnails(fields: Object, params: Object): Cursor {
-    return this.getEdge(VideoThumbnail, fields, params, 'thumbnails');
+    return this.getEdge(VideoThumbnail, fields, params, true, 'thumbnails');
   }
 }

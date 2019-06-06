@@ -3,7 +3,6 @@
 .*dist.*
 .*docs/.*
 .*examples/.*
-.*objects/ad-video.js
 [include]
 
 [libs]
