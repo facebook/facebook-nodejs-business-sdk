@@ -1,0 +1,10 @@
+language: node_js
+sudo: false
+
+branches:
+  only:
+    - master
+
+install: npm install
+
+script: npm run flow
