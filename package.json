@@ -65,10 +65,10 @@
     "rollup-stream": "~1.14.0",
     "semistandard": "^11.0.0",
     "vinyl-buffer": "~1.0.0",
-    "vinyl-source-stream": "~1.1.0"
+    "vinyl-source-stream": "~2.0.0"
   },
   "scripts": {
-    "prepublishOnly": "gulp dist",
+    "prepublish": "gulp dist",
     "start": "semistandard --fix",
     "flow": "flow"
   },

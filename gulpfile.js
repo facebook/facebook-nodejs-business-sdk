@@ -79,11 +79,12 @@ function roll(format, entry, name, entry_dir, dest_dir) {
     .pipe(gulp.dest(dest_dir));
 }
 
-gulp.task('dist', function() {
+gulp.task('dist', function(done) {
   roll('amd', 'bundle.es6');
   roll('cjs', 'bundle.es6');
   roll('umd', 'bundle.es6');
   roll('iife', 'bundle.es6');
   roll('es', 'bundle.es6');
   roll('cjs', 'globals.es6', 'globals');
+  done();
 });
