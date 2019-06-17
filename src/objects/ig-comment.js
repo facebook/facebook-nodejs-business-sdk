@@ -8,6 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 
 /**
  * IGComment
@@ -29,8 +30,7 @@ export default class IGComment extends AbstractCrudObject {
   }
 
 
-  getReplies (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): IGComment {
-    // $FlowFixMe : Support Generic Types
+  getReplies (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       IGComment,
       fields,

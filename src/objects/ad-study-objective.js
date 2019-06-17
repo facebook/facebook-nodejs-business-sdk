@@ -8,6 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 import AdPlacePageSet from './ad-place-page-set';
 import AdsPixel from './ads-pixel';
 import Application from './application';
@@ -47,8 +48,7 @@ export default class AdStudyObjective extends AbstractCrudObject {
     });
   }
 
-  getAdPlacePageSets (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdPlacePageSet {
-    // $FlowFixMe : Support Generic Types
+  getAdPlacePageSets (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdPlacePageSet,
       fields,
@@ -58,8 +58,7 @@ export default class AdStudyObjective extends AbstractCrudObject {
     );
   }
 
-  getAdsPixels (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdsPixel {
-    // $FlowFixMe : Support Generic Types
+  getAdsPixels (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdsPixel,
       fields,
@@ -69,8 +68,7 @@ export default class AdStudyObjective extends AbstractCrudObject {
     );
   }
 
-  getApplications (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Application {
-    // $FlowFixMe : Support Generic Types
+  getApplications (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Application,
       fields,
@@ -80,8 +78,7 @@ export default class AdStudyObjective extends AbstractCrudObject {
     );
   }
 
-  getCustomConversions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): CustomConversion {
-    // $FlowFixMe : Support Generic Types
+  getCustomConversions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       CustomConversion,
       fields,
@@ -91,8 +88,7 @@ export default class AdStudyObjective extends AbstractCrudObject {
     );
   }
 
-  getOfflineConversionDataSets (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): OfflineConversionDataSet {
-    // $FlowFixMe : Support Generic Types
+  getOfflineConversionDataSets (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       OfflineConversionDataSet,
       fields,
@@ -102,8 +98,7 @@ export default class AdStudyObjective extends AbstractCrudObject {
     );
   }
 
-  getOffsitePixels (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): OffsitePixel {
-    // $FlowFixMe : Support Generic Types
+  getOffsitePixels (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       OffsitePixel,
       fields,

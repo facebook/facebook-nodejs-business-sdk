@@ -8,6 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 import DynamicPriceConfigByDate from './dynamic-price-config-by-date';
 
 /**
@@ -33,8 +34,7 @@ export default class HotelRoom extends AbstractCrudObject {
   }
 
 
-  getPricingVariables (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): DynamicPriceConfigByDate {
-    // $FlowFixMe : Support Generic Types
+  getPricingVariables (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       DynamicPriceConfigByDate,
       fields,

@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import Cursor from './../cursor';
 import AdVideo from './ad-video';
 
 /**
@@ -30,8 +31,7 @@ export default class VideoList extends AbstractCrudObject {
   }
 
 
-  getVideos (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdVideo {
-    // $FlowFixMe : Support Generic Types
+  getVideos (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdVideo,
       fields,

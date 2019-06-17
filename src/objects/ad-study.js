@@ -8,6 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 import AdStudyCell from './ad-study-cell';
 import AdsTALHealthCheckError from './ads-tal-health-check-error';
 import AdStudyObjective from './ad-study-objective';
@@ -53,8 +54,7 @@ export default class AdStudy extends AbstractCrudObject {
     });
   }
 
-  getCells (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdStudyCell {
-    // $FlowFixMe : Support Generic Types
+  getCells (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdStudyCell,
       fields,
@@ -74,8 +74,7 @@ export default class AdStudy extends AbstractCrudObject {
     );
   }
 
-  getHealthCheckErrors (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdsTALHealthCheckError {
-    // $FlowFixMe : Support Generic Types
+  getHealthCheckErrors (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdsTALHealthCheckError,
       fields,
@@ -85,8 +84,7 @@ export default class AdStudy extends AbstractCrudObject {
     );
   }
 
-  getObjectives (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdStudyObjective {
-    // $FlowFixMe : Support Generic Types
+  getObjectives (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdStudyObjective,
       fields,
@@ -106,8 +104,7 @@ export default class AdStudy extends AbstractCrudObject {
     );
   }
 
-  getViewers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): User {
-    // $FlowFixMe : Support Generic Types
+  getViewers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       User,
       fields,

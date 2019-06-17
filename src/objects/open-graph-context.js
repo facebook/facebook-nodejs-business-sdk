@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import Cursor from './../cursor';
 import User from './user';
 
 /**
@@ -22,8 +23,7 @@ export default class OpenGraphContext extends AbstractCrudObject {
   }
 
 
-  getFriendsTaggedAt (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): User {
-    // $FlowFixMe : Support Generic Types
+  getFriendsTaggedAt (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       User,
       fields,
@@ -33,8 +33,7 @@ export default class OpenGraphContext extends AbstractCrudObject {
     );
   }
 
-  getMusicListenFriends (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): User {
-    // $FlowFixMe : Support Generic Types
+  getMusicListenFriends (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       User,
       fields,
@@ -44,8 +43,7 @@ export default class OpenGraphContext extends AbstractCrudObject {
     );
   }
 
-  getVideoWatchFriends (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): User {
-    // $FlowFixMe : Support Generic Types
+  getVideoWatchFriends (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       User,
       fields,

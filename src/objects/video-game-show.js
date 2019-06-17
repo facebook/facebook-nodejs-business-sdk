@@ -8,6 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 
 /**
  * VideoGameShow
@@ -32,8 +33,7 @@ export default class VideoGameShow extends AbstractCrudObject {
     });
   }
 
-  getQuestions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  getQuestions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AbstractObject,
       fields,

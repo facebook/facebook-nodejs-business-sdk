@@ -8,6 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 import DynamicItemDisplayBundleFolder from './dynamic-item-display-bundle-folder';
 
 /**
@@ -29,8 +30,7 @@ export default class DynamicItemDisplayBundle extends AbstractCrudObject {
   }
 
 
-  getBundleFolders (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): DynamicItemDisplayBundleFolder {
-    // $FlowFixMe : Support Generic Types
+  getBundleFolders (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       DynamicItemDisplayBundleFolder,
       fields,

@@ -8,6 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 import Album from './album';
 import Event from './event';
 import LiveVideo from './live-video';
@@ -201,8 +202,7 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  getAlbums (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Album {
-    // $FlowFixMe : Support Generic Types
+  getAlbums (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Album,
       fields,
@@ -222,8 +222,7 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  getDocs (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  getDocs (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AbstractObject,
       fields,
@@ -233,8 +232,7 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  getEvents (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Event {
-    // $FlowFixMe : Support Generic Types
+  getEvents (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Event,
       fields,
@@ -254,8 +252,7 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  getGroups (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Group {
-    // $FlowFixMe : Support Generic Types
+  getGroups (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Group,
       fields,
@@ -275,8 +272,7 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  getLiveVideos (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): LiveVideo {
-    // $FlowFixMe : Support Generic Types
+  getLiveVideos (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       LiveVideo,
       fields,
@@ -324,8 +320,7 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  getOptedInMembers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): User {
-    // $FlowFixMe : Support Generic Types
+  getOptedInMembers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       User,
       fields,
@@ -345,8 +340,7 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  getPicture (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): ProfilePictureSource {
-    // $FlowFixMe : Support Generic Types
+  getPicture (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       ProfilePictureSource,
       fields,
@@ -356,8 +350,7 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  getVideos (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdVideo {
-    // $FlowFixMe : Support Generic Types
+  getVideos (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdVideo,
       fields,

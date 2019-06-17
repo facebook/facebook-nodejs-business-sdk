@@ -8,6 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 import AdPreview from './ad-preview';
 
 /**
@@ -211,8 +212,7 @@ export default class AdCreative extends AbstractCrudObject {
     );
   }
 
-  getPreviews (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdPreview {
-    // $FlowFixMe : Support Generic Types
+  getPreviews (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdPreview,
       fields,

@@ -8,6 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 import Lead from './lead';
 
 /**
@@ -92,8 +93,7 @@ export default class LeadgenForm extends AbstractCrudObject {
     });
   }
 
-  getLeads (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Lead {
-    // $FlowFixMe : Support Generic Types
+  getLeads (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Lead,
       fields,
@@ -103,8 +103,7 @@ export default class LeadgenForm extends AbstractCrudObject {
     );
   }
 
-  getTestLeads (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Lead {
-    // $FlowFixMe : Support Generic Types
+  getTestLeads (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Lead,
       fields,

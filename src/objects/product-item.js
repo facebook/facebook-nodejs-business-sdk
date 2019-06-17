@@ -8,6 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 import ProductSet from './product-set';
 
 /**
@@ -133,8 +134,7 @@ export default class ProductItem extends AbstractCrudObject {
     });
   }
 
-  getProductSets (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): ProductSet {
-    // $FlowFixMe : Support Generic Types
+  getProductSets (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       ProductSet,
       fields,

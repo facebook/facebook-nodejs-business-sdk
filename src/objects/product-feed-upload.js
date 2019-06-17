@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import Cursor from './../cursor';
 import ProductFeedUploadError from './product-feed-upload-error';
 
 /**
@@ -52,8 +53,7 @@ export default class ProductFeedUpload extends AbstractCrudObject {
     );
   }
 
-  getErrors (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): ProductFeedUploadError {
-    // $FlowFixMe : Support Generic Types
+  getErrors (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       ProductFeedUploadError,
       fields,

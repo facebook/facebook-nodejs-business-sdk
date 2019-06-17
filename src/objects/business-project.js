@@ -8,6 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 import AdAccount from './ad-account';
 import Application from './application';
 import Page from './page';
@@ -38,8 +39,7 @@ export default class BusinessProject extends AbstractCrudObject {
     );
   }
 
-  getAdAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdAccount {
-    // $FlowFixMe : Support Generic Types
+  getAdAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdAccount,
       fields,
@@ -67,8 +67,7 @@ export default class BusinessProject extends AbstractCrudObject {
     );
   }
 
-  getApps (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Application {
-    // $FlowFixMe : Support Generic Types
+  getApps (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Application,
       fields,
@@ -114,8 +113,7 @@ export default class BusinessProject extends AbstractCrudObject {
     );
   }
 
-  getPages (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Page {
-    // $FlowFixMe : Support Generic Types
+  getPages (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Page,
       fields,
@@ -143,8 +141,7 @@ export default class BusinessProject extends AbstractCrudObject {
     );
   }
 
-  getProductCatalogs (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): ProductCatalog {
-    // $FlowFixMe : Support Generic Types
+  getProductCatalogs (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       ProductCatalog,
       fields,

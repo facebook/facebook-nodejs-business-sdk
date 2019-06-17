@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import Cursor from './../cursor';
 import Photo from './photo';
 
 /**
@@ -24,8 +25,7 @@ export default class NativeOfferView extends AbstractCrudObject {
   }
 
 
-  getPhotos (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Photo {
-    // $FlowFixMe : Support Generic Types
+  getPhotos (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Photo,
       fields,

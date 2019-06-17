@@ -8,6 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 import ProductItem from './product-item';
 
 /**
@@ -26,8 +27,7 @@ export default class ProductGroup extends AbstractCrudObject {
   }
 
 
-  getProducts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): ProductItem {
-    // $FlowFixMe : Support Generic Types
+  getProducts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       ProductItem,
       fields,

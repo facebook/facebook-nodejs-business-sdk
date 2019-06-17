@@ -8,6 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 import Comment from './comment';
 import Page from './page';
 import LiveVideoError from './live-video-error';
@@ -115,8 +116,7 @@ export default class LiveVideo extends AbstractCrudObject {
     });
   }
 
-  getComments (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Comment {
-    // $FlowFixMe : Support Generic Types
+  getComments (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Comment,
       fields,
@@ -126,8 +126,7 @@ export default class LiveVideo extends AbstractCrudObject {
     );
   }
 
-  getCrosspostSharedPages (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Page {
-    // $FlowFixMe : Support Generic Types
+  getCrosspostSharedPages (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Page,
       fields,
@@ -137,8 +136,7 @@ export default class LiveVideo extends AbstractCrudObject {
     );
   }
 
-  getCrosspostedBroadcasts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): LiveVideo {
-    // $FlowFixMe : Support Generic Types
+  getCrosspostedBroadcasts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       LiveVideo,
       fields,
@@ -148,8 +146,7 @@ export default class LiveVideo extends AbstractCrudObject {
     );
   }
 
-  getErrors (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): LiveVideoError {
-    // $FlowFixMe : Support Generic Types
+  getErrors (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       LiveVideoError,
       fields,
@@ -159,8 +156,7 @@ export default class LiveVideo extends AbstractCrudObject {
     );
   }
 
-  getLikes (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Profile {
-    // $FlowFixMe : Support Generic Types
+  getLikes (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Profile,
       fields,
@@ -170,8 +166,7 @@ export default class LiveVideo extends AbstractCrudObject {
     );
   }
 
-  getPolls (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): VideoPoll {
-    // $FlowFixMe : Support Generic Types
+  getPolls (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       VideoPoll,
       fields,
@@ -191,8 +186,7 @@ export default class LiveVideo extends AbstractCrudObject {
     );
   }
 
-  getReactions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Profile {
-    // $FlowFixMe : Support Generic Types
+  getReactions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Profile,
       fields,

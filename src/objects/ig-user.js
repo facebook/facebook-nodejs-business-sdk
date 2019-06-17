@@ -8,6 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 import InstagramInsightsResult from './instagram-insights-result';
 import IGMedia from './ig-media';
 
@@ -36,8 +37,7 @@ export default class IGUser extends AbstractCrudObject {
   }
 
 
-  getInsights (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): InstagramInsightsResult {
-    // $FlowFixMe : Support Generic Types
+  getInsights (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       InstagramInsightsResult,
       fields,
@@ -47,8 +47,7 @@ export default class IGUser extends AbstractCrudObject {
     );
   }
 
-  getMedia (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): IGMedia {
-    // $FlowFixMe : Support Generic Types
+  getMedia (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       IGMedia,
       fields,
@@ -88,8 +87,7 @@ export default class IGUser extends AbstractCrudObject {
     );
   }
 
-  getRecentlySearchedHashtags (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  getRecentlySearchedHashtags (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AbstractObject,
       fields,
@@ -99,8 +97,7 @@ export default class IGUser extends AbstractCrudObject {
     );
   }
 
-  getStories (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): IGMedia {
-    // $FlowFixMe : Support Generic Types
+  getStories (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       IGMedia,
       fields,
@@ -110,8 +107,7 @@ export default class IGUser extends AbstractCrudObject {
     );
   }
 
-  getTags (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): IGMedia {
-    // $FlowFixMe : Support Generic Types
+  getTags (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       IGMedia,
       fields,

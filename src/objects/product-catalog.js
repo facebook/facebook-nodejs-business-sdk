@@ -8,6 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 import Business from './business';
 import AssignedUser from './assigned-user';
 import AutomotiveModel from './automotive-model';
@@ -94,8 +95,7 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  getAgencies (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Business {
-    // $FlowFixMe : Support Generic Types
+  getAgencies (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Business,
       fields,
@@ -123,8 +123,7 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  getAssignedUsers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AssignedUser {
-    // $FlowFixMe : Support Generic Types
+  getAssignedUsers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AssignedUser,
       fields,
@@ -144,8 +143,7 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  getAutomotiveModels (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AutomotiveModel {
-    // $FlowFixMe : Support Generic Types
+  getAutomotiveModels (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AutomotiveModel,
       fields,
@@ -185,8 +183,7 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  getCategories (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): ProductCatalogCategory {
-    // $FlowFixMe : Support Generic Types
+  getCategories (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       ProductCatalogCategory,
       fields,
@@ -206,8 +203,7 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  getCheckBatchRequestStatus (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): CheckBatchRequestStatus {
-    // $FlowFixMe : Support Generic Types
+  getCheckBatchRequestStatus (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       CheckBatchRequestStatus,
       fields,
@@ -217,8 +213,7 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  getDestinations (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Destination {
-    // $FlowFixMe : Support Generic Types
+  getDestinations (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Destination,
       fields,
@@ -228,8 +223,7 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  getEventStats (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): ProductEventStat {
-    // $FlowFixMe : Support Generic Types
+  getEventStats (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       ProductEventStat,
       fields,
@@ -247,8 +241,7 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  getExternalEventSources (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): ExternalEventSource {
-    // $FlowFixMe : Support Generic Types
+  getExternalEventSources (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       ExternalEventSource,
       fields,
@@ -268,8 +261,7 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  getFlights (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Flight {
-    // $FlowFixMe : Support Generic Types
+  getFlights (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Flight,
       fields,
@@ -279,8 +271,7 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  getHomeListings (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): HomeListing {
-    // $FlowFixMe : Support Generic Types
+  getHomeListings (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       HomeListing,
       fields,
@@ -300,8 +291,7 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  getHotelRoomsBatch (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): ProductCatalogHotelRoomsBatch {
-    // $FlowFixMe : Support Generic Types
+  getHotelRoomsBatch (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       ProductCatalogHotelRoomsBatch,
       fields,
@@ -321,8 +311,7 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  getHotels (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Hotel {
-    // $FlowFixMe : Support Generic Types
+  getHotels (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Hotel,
       fields,
@@ -352,8 +341,7 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  getPricingVariablesBatch (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): ProductCatalogPricingVariablesBatch {
-    // $FlowFixMe : Support Generic Types
+  getPricingVariablesBatch (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       ProductCatalogPricingVariablesBatch,
       fields,
@@ -373,8 +361,7 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  getProductFeeds (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): ProductFeed {
-    // $FlowFixMe : Support Generic Types
+  getProductFeeds (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       ProductFeed,
       fields,
@@ -394,8 +381,7 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  getProductGroups (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): ProductGroup {
-    // $FlowFixMe : Support Generic Types
+  getProductGroups (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       ProductGroup,
       fields,
@@ -415,8 +401,7 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  getProductSets (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): ProductSet {
-    // $FlowFixMe : Support Generic Types
+  getProductSets (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       ProductSet,
       fields,
@@ -436,8 +421,7 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  getProductSetsBatch (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): ProductCatalogProductSetsBatch {
-    // $FlowFixMe : Support Generic Types
+  getProductSetsBatch (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       ProductCatalogProductSetsBatch,
       fields,
@@ -457,8 +441,7 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  getProducts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): ProductItem {
-    // $FlowFixMe : Support Generic Types
+  getProducts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       ProductItem,
       fields,
@@ -478,8 +461,7 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  getVehicles (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Vehicle {
-    // $FlowFixMe : Support Generic Types
+  getVehicles (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Vehicle,
       fields,

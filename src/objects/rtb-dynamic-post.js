@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import Cursor from './../cursor';
 import InstagramComment from './instagram-comment';
 
 /**
@@ -32,8 +33,7 @@ export default class RTBDynamicPost extends AbstractCrudObject {
   }
 
 
-  getInstagramComments (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): InstagramComment {
-    // $FlowFixMe : Support Generic Types
+  getInstagramComments (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       InstagramComment,
       fields,

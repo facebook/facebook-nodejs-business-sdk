@@ -8,6 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 
 /**
  * PublisherBlockList
@@ -31,8 +32,7 @@ export default class PublisherBlockList extends AbstractCrudObject {
   }
 
 
-  getPagedAppPublishers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  getPagedAppPublishers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AbstractObject,
       fields,
@@ -42,8 +42,7 @@ export default class PublisherBlockList extends AbstractCrudObject {
     );
   }
 
-  getPagedWebPublishers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  getPagedWebPublishers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AbstractObject,
       fields,

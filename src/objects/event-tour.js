@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import Cursor from './../cursor';
 import Event from './event';
 import Page from './page';
 
@@ -36,8 +37,7 @@ export default class EventTour extends AbstractCrudObject {
   }
 
 
-  getEvents (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Event {
-    // $FlowFixMe : Support Generic Types
+  getEvents (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Event,
       fields,
@@ -47,8 +47,7 @@ export default class EventTour extends AbstractCrudObject {
     );
   }
 
-  getPages (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Page {
-    // $FlowFixMe : Support Generic Types
+  getPages (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Page,
       fields,

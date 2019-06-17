@@ -8,6 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 import InstantArticleInsightsQueryResult from './instant-article-insights-query-result';
 
 /**
@@ -31,8 +32,7 @@ export default class InstantArticle extends AbstractCrudObject {
   }
 
 
-  getInsights (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): InstantArticleInsightsQueryResult {
-    // $FlowFixMe : Support Generic Types
+  getInsights (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       InstantArticleInsightsQueryResult,
       fields,

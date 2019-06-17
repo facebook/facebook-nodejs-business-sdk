@@ -8,6 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 import AdAccount from './ad-account';
 import Ad from './ad';
 import CustomAudiencePrefillState from './custom-audience-prefill-state';
@@ -120,8 +121,7 @@ export default class CustomAudience extends AbstractCrudObject {
     );
   }
 
-  getAdAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdAccount {
-    // $FlowFixMe : Support Generic Types
+  getAdAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdAccount,
       fields,
@@ -141,8 +141,7 @@ export default class CustomAudience extends AbstractCrudObject {
     );
   }
 
-  getAds (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Ad {
-    // $FlowFixMe : Support Generic Types
+  getAds (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Ad,
       fields,
@@ -172,8 +171,7 @@ export default class CustomAudience extends AbstractCrudObject {
     );
   }
 
-  getPrefills (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): CustomAudiencePrefillState {
-    // $FlowFixMe : Support Generic Types
+  getPrefills (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       CustomAudiencePrefillState,
       fields,
@@ -183,8 +181,7 @@ export default class CustomAudience extends AbstractCrudObject {
     );
   }
 
-  getSessions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): CustomAudienceSession {
-    // $FlowFixMe : Support Generic Types
+  getSessions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       CustomAudienceSession,
       fields,
@@ -194,8 +191,7 @@ export default class CustomAudience extends AbstractCrudObject {
     );
   }
 
-  getSharedAccountInfo (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): CustomAudiencesharedAccountInfo {
-    // $FlowFixMe : Support Generic Types
+  getSharedAccountInfo (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       CustomAudiencesharedAccountInfo,
       fields,

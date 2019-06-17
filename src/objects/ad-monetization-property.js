@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import Cursor from './../cursor';
 import AdNetworkAnalyticsSyncQueryResult from './ad-network-analytics-sync-query-result';
 import AdNetworkAnalyticsAsyncQueryResult from './ad-network-analytics-async-query-result';
 
@@ -23,8 +24,7 @@ export default class AdMonetizationProperty extends AbstractCrudObject {
   }
 
 
-  getAdNetworkAnalytics (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdNetworkAnalyticsSyncQueryResult {
-    // $FlowFixMe : Support Generic Types
+  getAdNetworkAnalytics (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdNetworkAnalyticsSyncQueryResult,
       fields,
@@ -44,8 +44,7 @@ export default class AdMonetizationProperty extends AbstractCrudObject {
     );
   }
 
-  getAdNetworkAnalyticsResults (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdNetworkAnalyticsAsyncQueryResult {
-    // $FlowFixMe : Support Generic Types
+  getAdNetworkAnalyticsResults (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdNetworkAnalyticsAsyncQueryResult,
       fields,

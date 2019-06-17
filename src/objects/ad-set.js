@@ -8,6 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 import AdActivity from './ad-activity';
 import AdStudy from './ad-study';
 import AdCreative from './ad-creative';
@@ -229,8 +230,7 @@ export default class AdSet extends AbstractCrudObject {
     });
   }
 
-  getActivities (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdActivity {
-    // $FlowFixMe : Support Generic Types
+  getActivities (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdActivity,
       fields,
@@ -240,8 +240,7 @@ export default class AdSet extends AbstractCrudObject {
     );
   }
 
-  getAdStudies (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdStudy {
-    // $FlowFixMe : Support Generic Types
+  getAdStudies (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdStudy,
       fields,
@@ -251,8 +250,7 @@ export default class AdSet extends AbstractCrudObject {
     );
   }
 
-  getAdCreatives (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdCreative {
-    // $FlowFixMe : Support Generic Types
+  getAdCreatives (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdCreative,
       fields,
@@ -280,8 +278,7 @@ export default class AdSet extends AbstractCrudObject {
     );
   }
 
-  getAdRulesGoverned (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdRule {
-    // $FlowFixMe : Support Generic Types
+  getAdRulesGoverned (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdRule,
       fields,
@@ -291,8 +288,7 @@ export default class AdSet extends AbstractCrudObject {
     );
   }
 
-  getAds (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Ad {
-    // $FlowFixMe : Support Generic Types
+  getAds (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Ad,
       fields,
@@ -312,8 +308,7 @@ export default class AdSet extends AbstractCrudObject {
     );
   }
 
-  getDeliveryEstimate (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdCampaignDeliveryEstimate {
-    // $FlowFixMe : Support Generic Types
+  getDeliveryEstimate (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdCampaignDeliveryEstimate,
       fields,
@@ -323,8 +318,7 @@ export default class AdSet extends AbstractCrudObject {
     );
   }
 
-  getInsights (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdsInsights {
-    // $FlowFixMe : Support Generic Types
+  getInsights (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdsInsights,
       fields,
@@ -344,8 +338,7 @@ export default class AdSet extends AbstractCrudObject {
     );
   }
 
-  getTargetingSentenceLines (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): TargetingSentenceLine {
-    // $FlowFixMe : Support Generic Types
+  getTargetingSentenceLines (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       TargetingSentenceLine,
       fields,

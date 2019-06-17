@@ -8,6 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 import AdAccount from './ad-account';
 
 /**
@@ -32,8 +33,7 @@ export default class EventSourceGroup extends AbstractCrudObject {
     });
   }
 
-  getSharedAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdAccount {
-    // $FlowFixMe : Support Generic Types
+  getSharedAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdAccount,
       fields,
@@ -61,8 +61,7 @@ export default class EventSourceGroup extends AbstractCrudObject {
     );
   }
 
-  getUserPermissions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  getUserPermissions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AbstractObject,
       fields,

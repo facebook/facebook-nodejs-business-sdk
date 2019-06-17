@@ -8,6 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 import Comment from './comment';
 import InsightsResult from './insights-result';
 import Profile from './profile';
@@ -79,8 +80,7 @@ export default class Photo extends AbstractCrudObject {
     });
   }
 
-  getComments (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Comment {
-    // $FlowFixMe : Support Generic Types
+  getComments (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Comment,
       fields,
@@ -100,8 +100,7 @@ export default class Photo extends AbstractCrudObject {
     );
   }
 
-  getInsights (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): InsightsResult {
-    // $FlowFixMe : Support Generic Types
+  getInsights (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       InsightsResult,
       fields,
@@ -111,8 +110,7 @@ export default class Photo extends AbstractCrudObject {
     );
   }
 
-  getLikes (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Profile {
-    // $FlowFixMe : Support Generic Types
+  getLikes (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Profile,
       fields,
@@ -132,8 +130,7 @@ export default class Photo extends AbstractCrudObject {
     );
   }
 
-  getReactions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Profile {
-    // $FlowFixMe : Support Generic Types
+  getReactions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Profile,
       fields,
@@ -143,8 +140,7 @@ export default class Photo extends AbstractCrudObject {
     );
   }
 
-  getSharedPosts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Post {
-    // $FlowFixMe : Support Generic Types
+  getSharedPosts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Post,
       fields,
@@ -154,8 +150,7 @@ export default class Photo extends AbstractCrudObject {
     );
   }
 
-  getTags (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): TaggableSubject {
-    // $FlowFixMe : Support Generic Types
+  getTags (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       TaggableSubject,
       fields,

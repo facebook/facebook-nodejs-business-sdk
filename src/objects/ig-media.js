@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import Cursor from './../cursor';
 import IGComment from './ig-comment';
 import InstagramInsightsResult from './instagram-insights-result';
 
@@ -36,8 +37,7 @@ export default class IGMedia extends AbstractCrudObject {
   }
 
 
-  getChildren (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): IGMedia {
-    // $FlowFixMe : Support Generic Types
+  getChildren (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       IGMedia,
       fields,
@@ -47,8 +47,7 @@ export default class IGMedia extends AbstractCrudObject {
     );
   }
 
-  getComments (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): IGComment {
-    // $FlowFixMe : Support Generic Types
+  getComments (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       IGComment,
       fields,
@@ -68,8 +67,7 @@ export default class IGMedia extends AbstractCrudObject {
     );
   }
 
-  getInsights (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): InstagramInsightsResult {
-    // $FlowFixMe : Support Generic Types
+  getInsights (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       InstagramInsightsResult,
       fields,

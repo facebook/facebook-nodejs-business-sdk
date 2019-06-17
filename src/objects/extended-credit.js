@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import Cursor from './../cursor';
 import ExtendedCreditInvoiceGroup from './extended-credit-invoice-group';
 import ExtendedCreditAllocationConfig from './extended-credit-allocation-config';
 
@@ -39,8 +40,7 @@ export default class ExtendedCredit extends AbstractCrudObject {
   }
 
 
-  getExtendedCreditInvoiceGroups (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): ExtendedCreditInvoiceGroup {
-    // $FlowFixMe : Support Generic Types
+  getExtendedCreditInvoiceGroups (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       ExtendedCreditInvoiceGroup,
       fields,
@@ -60,8 +60,7 @@ export default class ExtendedCredit extends AbstractCrudObject {
     );
   }
 
-  getOwningCreditAllocationConfigs (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): ExtendedCreditAllocationConfig {
-    // $FlowFixMe : Support Generic Types
+  getOwningCreditAllocationConfigs (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       ExtendedCreditAllocationConfig,
       fields,

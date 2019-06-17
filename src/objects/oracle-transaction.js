@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import Cursor from './../cursor';
 import InvoiceCampaign from './invoice-campaign';
 import AtlasURL from './atlas-url';
 
@@ -39,8 +40,7 @@ export default class OracleTransaction extends AbstractCrudObject {
   }
 
 
-  getCampaigns (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): InvoiceCampaign {
-    // $FlowFixMe : Support Generic Types
+  getCampaigns (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       InvoiceCampaign,
       fields,
@@ -50,8 +50,7 @@ export default class OracleTransaction extends AbstractCrudObject {
     );
   }
 
-  getData (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AtlasURL {
-    // $FlowFixMe : Support Generic Types
+  getData (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AtlasURL,
       fields,

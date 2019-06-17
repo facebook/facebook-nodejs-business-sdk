@@ -8,6 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 import AdAccount from './ad-account';
 import Business from './business';
 import CustomAudience from './custom-audience';
@@ -59,8 +60,7 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
     });
   }
 
-  getAdAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdAccount {
-    // $FlowFixMe : Support Generic Types
+  getAdAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdAccount,
       fields,
@@ -88,8 +88,7 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
     );
   }
 
-  getAgencies (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Business {
-    // $FlowFixMe : Support Generic Types
+  getAgencies (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Business,
       fields,
@@ -109,8 +108,7 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
     );
   }
 
-  getAudiences (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): CustomAudience {
-    // $FlowFixMe : Support Generic Types
+  getAudiences (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       CustomAudience,
       fields,
@@ -120,8 +118,7 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
     );
   }
 
-  getCustomConversions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): CustomConversion {
-    // $FlowFixMe : Support Generic Types
+  getCustomConversions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       CustomConversion,
       fields,
@@ -141,8 +138,7 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
     );
   }
 
-  getStats (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  getStats (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AbstractObject,
       fields,
@@ -152,8 +148,7 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
     );
   }
 
-  getUploads (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  getUploads (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AbstractObject,
       fields,

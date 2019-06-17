@@ -8,6 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 import HotelRoom from './hotel-room';
 
 /**
@@ -40,8 +41,7 @@ export default class Hotel extends AbstractCrudObject {
   }
 
 
-  getHotelRooms (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): HotelRoom {
-    // $FlowFixMe : Support Generic Types
+  getHotelRooms (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       HotelRoom,
       fields,

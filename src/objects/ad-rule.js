@@ -8,6 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 import AdRuleHistory from './ad-rule-history';
 
 /**
@@ -49,8 +50,7 @@ export default class AdRule extends AbstractCrudObject {
     );
   }
 
-  getHistory (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdRuleHistory {
-    // $FlowFixMe : Support Generic Types
+  getHistory (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdRuleHistory,
       fields,

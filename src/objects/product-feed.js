@@ -8,6 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 import AutomotiveModel from './automotive-model';
 import Destination from './destination';
 import Flight from './flight';
@@ -96,8 +97,7 @@ export default class ProductFeed extends AbstractCrudObject {
     });
   }
 
-  getAutomotiveModels (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AutomotiveModel {
-    // $FlowFixMe : Support Generic Types
+  getAutomotiveModels (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AutomotiveModel,
       fields,
@@ -107,8 +107,7 @@ export default class ProductFeed extends AbstractCrudObject {
     );
   }
 
-  getDestinations (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Destination {
-    // $FlowFixMe : Support Generic Types
+  getDestinations (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Destination,
       fields,
@@ -118,8 +117,7 @@ export default class ProductFeed extends AbstractCrudObject {
     );
   }
 
-  getFlights (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Flight {
-    // $FlowFixMe : Support Generic Types
+  getFlights (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Flight,
       fields,
@@ -129,8 +127,7 @@ export default class ProductFeed extends AbstractCrudObject {
     );
   }
 
-  getHomeListings (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): HomeListing {
-    // $FlowFixMe : Support Generic Types
+  getHomeListings (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       HomeListing,
       fields,
@@ -140,8 +137,7 @@ export default class ProductFeed extends AbstractCrudObject {
     );
   }
 
-  getHotels (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Hotel {
-    // $FlowFixMe : Support Generic Types
+  getHotels (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Hotel,
       fields,
@@ -151,8 +147,7 @@ export default class ProductFeed extends AbstractCrudObject {
     );
   }
 
-  getProducts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): ProductItem {
-    // $FlowFixMe : Support Generic Types
+  getProducts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       ProductItem,
       fields,
@@ -162,8 +157,7 @@ export default class ProductFeed extends AbstractCrudObject {
     );
   }
 
-  getRules (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): ProductFeedRule {
-    // $FlowFixMe : Support Generic Types
+  getRules (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       ProductFeedRule,
       fields,
@@ -183,8 +177,7 @@ export default class ProductFeed extends AbstractCrudObject {
     );
   }
 
-  getUploads (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): ProductFeedUpload {
-    // $FlowFixMe : Support Generic Types
+  getUploads (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       ProductFeedUpload,
       fields,
@@ -204,8 +197,7 @@ export default class ProductFeed extends AbstractCrudObject {
     );
   }
 
-  getVehicles (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Vehicle {
-    // $FlowFixMe : Support Generic Types
+  getVehicles (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Vehicle,
       fields,

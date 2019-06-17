@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import Cursor from './../cursor';
 import ProductFeedUploadErrorSample from './product-feed-upload-error-sample';
 import ProductFeedRuleSuggestion from './product-feed-rule-suggestion';
 
@@ -42,8 +43,7 @@ export default class ProductFeedUploadError extends AbstractCrudObject {
     });
   }
 
-  getSamples (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): ProductFeedUploadErrorSample {
-    // $FlowFixMe : Support Generic Types
+  getSamples (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       ProductFeedUploadErrorSample,
       fields,
@@ -53,8 +53,7 @@ export default class ProductFeedUploadError extends AbstractCrudObject {
     );
   }
 
-  getSuggestedRules (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): ProductFeedRuleSuggestion {
-    // $FlowFixMe : Support Generic Types
+  getSuggestedRules (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       ProductFeedRuleSuggestion,
       fields,

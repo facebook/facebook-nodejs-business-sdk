@@ -8,6 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 import AdCreative from './ad-creative';
 import Ad from './ad';
 import AdSet from './ad-set';
@@ -30,8 +31,7 @@ export default class AdLabel extends AbstractCrudObject {
   }
 
 
-  getAdCreatives (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdCreative {
-    // $FlowFixMe : Support Generic Types
+  getAdCreatives (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdCreative,
       fields,
@@ -41,8 +41,7 @@ export default class AdLabel extends AbstractCrudObject {
     );
   }
 
-  getAds (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Ad {
-    // $FlowFixMe : Support Generic Types
+  getAds (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Ad,
       fields,
@@ -52,8 +51,7 @@ export default class AdLabel extends AbstractCrudObject {
     );
   }
 
-  getAdSets (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdSet {
-    // $FlowFixMe : Support Generic Types
+  getAdSets (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdSet,
       fields,
@@ -63,8 +61,7 @@ export default class AdLabel extends AbstractCrudObject {
     );
   }
 
-  getCampaigns (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Campaign {
-    // $FlowFixMe : Support Generic Types
+  getCampaigns (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Campaign,
       fields,

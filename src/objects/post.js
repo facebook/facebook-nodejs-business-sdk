@@ -8,6 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 import Comment from './comment';
 import RTBDynamicPost from './rtb-dynamic-post';
 import InsightsResult from './insights-result';
@@ -109,8 +110,7 @@ export default class Post extends AbstractCrudObject {
     });
   }
 
-  getAttachments (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  getAttachments (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AbstractObject,
       fields,
@@ -120,8 +120,7 @@ export default class Post extends AbstractCrudObject {
     );
   }
 
-  getComments (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Comment {
-    // $FlowFixMe : Support Generic Types
+  getComments (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Comment,
       fields,
@@ -141,8 +140,7 @@ export default class Post extends AbstractCrudObject {
     );
   }
 
-  getDynamicPosts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): RTBDynamicPost {
-    // $FlowFixMe : Support Generic Types
+  getDynamicPosts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       RTBDynamicPost,
       fields,
@@ -152,8 +150,7 @@ export default class Post extends AbstractCrudObject {
     );
   }
 
-  getInsights (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): InsightsResult {
-    // $FlowFixMe : Support Generic Types
+  getInsights (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       InsightsResult,
       fields,
@@ -171,8 +168,7 @@ export default class Post extends AbstractCrudObject {
     );
   }
 
-  getLikes (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Profile {
-    // $FlowFixMe : Support Generic Types
+  getLikes (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Profile,
       fields,
@@ -202,8 +198,7 @@ export default class Post extends AbstractCrudObject {
     );
   }
 
-  getReactions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Profile {
-    // $FlowFixMe : Support Generic Types
+  getReactions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Profile,
       fields,
@@ -213,8 +208,7 @@ export default class Post extends AbstractCrudObject {
     );
   }
 
-  getSeen (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): User {
-    // $FlowFixMe : Support Generic Types
+  getSeen (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       User,
       fields,
@@ -224,8 +218,7 @@ export default class Post extends AbstractCrudObject {
     );
   }
 
-  getSharedPosts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Post {
-    // $FlowFixMe : Support Generic Types
+  getSharedPosts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Post,
       fields,
@@ -235,8 +228,7 @@ export default class Post extends AbstractCrudObject {
     );
   }
 
-  getTo (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Profile {
-    // $FlowFixMe : Support Generic Types
+  getTo (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Profile,
       fields,

@@ -8,6 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 import AdAsyncRequest from './ad-async-request';
 
 /**
@@ -51,8 +52,7 @@ export default class AdAsyncRequestSet extends AbstractCrudObject {
     });
   }
 
-  getRequests (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AdAsyncRequest {
-    // $FlowFixMe : Support Generic Types
+  getRequests (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdAsyncRequest,
       fields,

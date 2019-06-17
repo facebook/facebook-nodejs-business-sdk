@@ -217,7 +217,7 @@ export class AbstractCrudObject extends AbstractObject {
     params: Object = {},
     fetchFirstPage: boolean = true,
     endpoint: ?string,
-  ): Cursor {
+  ): Cursor | Promise<*> {
     if (params == null) {
       params = {};
     }

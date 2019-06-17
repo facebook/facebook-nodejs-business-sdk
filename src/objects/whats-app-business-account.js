@@ -8,6 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 import AssignedUser from './assigned-user';
 
 /**
@@ -46,8 +47,7 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
     });
   }
 
-  getAssignedUsers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AssignedUser {
-    // $FlowFixMe : Support Generic Types
+  getAssignedUsers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AssignedUser,
       fields,
@@ -65,8 +65,7 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
     );
   }
 
-  getMessageTemplates (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  getMessageTemplates (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AbstractObject,
       fields,
@@ -86,8 +85,7 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
     );
   }
 
-  getPhoneNumbers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  getPhoneNumbers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AbstractObject,
       fields,
