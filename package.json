@@ -31,6 +31,7 @@
   },
   "dependencies": {
     "mixwith": "~0.1.1",
+    "natives": "^1.1.6",
     "request": "^2.88.0",
     "request-promise": "~4.1.1"
   },
@@ -49,7 +50,7 @@
     "eslint": "^3.19.0",
     "eslint-plugin-flowtype": "^2.50.3",
     "flow-bin": "^0.101.0",
-    "gulp": "^4.0.2",
+    "gulp": "^4.0.1",
     "gulp-cli": "^2.2.0",
     "gulp-filenames": "~4.0.0",
     "gulp-flowtype": "^1.0.0",
