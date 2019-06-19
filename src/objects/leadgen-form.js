@@ -113,8 +113,7 @@ export default class LeadgenForm extends AbstractCrudObject {
     );
   }
 
-  createTestLead (fields: Array<string>, params: Object = {}): Lead {
-    // $FlowFixMe : Support Generic Types
+  createTestLead (fields: Array<string>, params: Object = {}): Promise<Lead> {
     return this.createEdge(
       '/test_leads',
       fields,

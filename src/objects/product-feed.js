@@ -167,8 +167,7 @@ export default class ProductFeed extends AbstractCrudObject {
     );
   }
 
-  createRule (fields: Array<string>, params: Object = {}): ProductFeedRule {
-    // $FlowFixMe : Support Generic Types
+  createRule (fields: Array<string>, params: Object = {}): Promise<ProductFeedRule> {
     return this.createEdge(
       '/rules',
       fields,
@@ -187,8 +186,7 @@ export default class ProductFeed extends AbstractCrudObject {
     );
   }
 
-  createUpload (fields: Array<string>, params: Object = {}): ProductFeedUpload {
-    // $FlowFixMe : Support Generic Types
+  createUpload (fields: Array<string>, params: Object = {}): Promise<ProductFeedUpload> {
     return this.createEdge(
       '/uploads',
       fields,

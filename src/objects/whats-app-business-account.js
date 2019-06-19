@@ -74,8 +74,7 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
     );
   }
 
-  createMessageTemplate (fields: Array<string>, params: Object = {}): WhatsAppBusinessAccount {
-    // $FlowFixMe : Support Generic Types
+  createMessageTemplate (fields: Array<string>, params: Object = {}): Promise<WhatsAppBusinessAccount> {
     return this.createEdge(
       '/message_templates',
       fields,

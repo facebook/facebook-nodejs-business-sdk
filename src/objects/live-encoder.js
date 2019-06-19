@@ -42,8 +42,7 @@ export default class LiveEncoder extends AbstractCrudObject {
     });
   }
 
-  createTelemetry (fields: Array<string>, params: Object = {}): LiveEncoder {
-    // $FlowFixMe : Support Generic Types
+  createTelemetry (fields: Array<string>, params: Object = {}): Promise<LiveEncoder> {
     return this.createEdge(
       '/telemetry',
       fields,

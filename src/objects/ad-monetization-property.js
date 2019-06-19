@@ -34,8 +34,7 @@ export default class AdMonetizationProperty extends AbstractCrudObject {
     );
   }
 
-  createAdNetworkAnalytic (fields: Array<string>, params: Object = {}): AdMonetizationProperty {
-    // $FlowFixMe : Support Generic Types
+  createAdNetworkAnalytic (fields: Array<string>, params: Object = {}): Promise<AdMonetizationProperty> {
     return this.createEdge(
       '/adnetworkanalytics',
       fields,

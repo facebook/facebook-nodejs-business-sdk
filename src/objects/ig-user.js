@@ -57,8 +57,7 @@ export default class IGUser extends AbstractCrudObject {
     );
   }
 
-  createMedia (fields: Array<string>, params: Object = {}): IGMedia {
-    // $FlowFixMe : Support Generic Types
+  createMedia (fields: Array<string>, params: Object = {}): Promise<IGMedia> {
     return this.createEdge(
       '/media',
       fields,
@@ -67,8 +66,7 @@ export default class IGUser extends AbstractCrudObject {
     );
   }
 
-  createMediaPublish (fields: Array<string>, params: Object = {}): IGMedia {
-    // $FlowFixMe : Support Generic Types
+  createMediaPublish (fields: Array<string>, params: Object = {}): Promise<IGMedia> {
     return this.createEdge(
       '/media_publish',
       fields,
@@ -77,8 +75,7 @@ export default class IGUser extends AbstractCrudObject {
     );
   }
 
-  createMention (fields: Array<string>, params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  createMention (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/mentions',
       fields,

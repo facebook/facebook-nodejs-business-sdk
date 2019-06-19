@@ -43,8 +43,7 @@ export default class EventSourceGroup extends AbstractCrudObject {
     );
   }
 
-  createSharedAccount (fields: Array<string>, params: Object = {}): EventSourceGroup {
-    // $FlowFixMe : Support Generic Types
+  createSharedAccount (fields: Array<string>, params: Object = {}): Promise<EventSourceGroup> {
     return this.createEdge(
       '/shared_accounts',
       fields,
@@ -70,8 +69,7 @@ export default class EventSourceGroup extends AbstractCrudObject {
     );
   }
 
-  createUserPermission (fields: Array<string>, params: Object = {}): EventSourceGroup {
-    // $FlowFixMe : Support Generic Types
+  createUserPermission (fields: Array<string>, params: Object = {}): Promise<EventSourceGroup> {
     return this.createEdge(
       '/userpermissions',
       fields,

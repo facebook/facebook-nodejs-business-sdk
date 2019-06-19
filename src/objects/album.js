@@ -59,8 +59,7 @@ export default class Album extends AbstractCrudObject {
     );
   }
 
-  createComment (fields: Array<string>, params: Object = {}): Comment {
-    // $FlowFixMe : Support Generic Types
+  createComment (fields: Array<string>, params: Object = {}): Promise<Comment> {
     return this.createEdge(
       '/comments',
       fields,
@@ -79,8 +78,7 @@ export default class Album extends AbstractCrudObject {
     );
   }
 
-  createLike (fields: Array<string>, params: Object = {}): Album {
-    // $FlowFixMe : Support Generic Types
+  createLike (fields: Array<string>, params: Object = {}): Promise<Album> {
     return this.createEdge(
       '/likes',
       fields,
@@ -99,8 +97,7 @@ export default class Album extends AbstractCrudObject {
     );
   }
 
-  createPhoto (fields: Array<string>, params: Object = {}): Photo {
-    // $FlowFixMe : Support Generic Types
+  createPhoto (fields: Array<string>, params: Object = {}): Promise<Photo> {
     return this.createEdge(
       '/photos',
       fields,

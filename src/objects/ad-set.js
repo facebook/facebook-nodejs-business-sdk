@@ -267,8 +267,7 @@ export default class AdSet extends AbstractCrudObject {
     );
   }
 
-  createAdLabel (fields: Array<string>, params: Object = {}): AdSet {
-    // $FlowFixMe : Support Generic Types
+  createAdLabel (fields: Array<string>, params: Object = {}): Promise<AdSet> {
     return this.createEdge(
       '/adlabels',
       fields,
@@ -297,8 +296,7 @@ export default class AdSet extends AbstractCrudObject {
     );
   }
 
-  createCopy (fields: Array<string>, params: Object = {}): AdSet {
-    // $FlowFixMe : Support Generic Types
+  createCopy (fields: Array<string>, params: Object = {}): Promise<AdSet> {
     return this.createEdge(
       '/copies',
       fields,
@@ -327,8 +325,7 @@ export default class AdSet extends AbstractCrudObject {
     );
   }
 
-  getInsightsAsync (fields: Array<string>, params: Object = {}): AdReportRun {
-    // $FlowFixMe : Support Generic Types
+  getInsightsAsync (fields: Array<string>, params: Object = {}): Promise<AdReportRun> {
     return this.createEdge(
       '/insights',
       fields,

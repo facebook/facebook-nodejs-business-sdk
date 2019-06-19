@@ -30,8 +30,7 @@ export default class PageUserMessageThreadLabel extends AbstractCrudObject {
     );
   }
 
-  createLabel (fields: Array<string>, params: Object = {}): PageUserMessageThreadLabel {
-    // $FlowFixMe : Support Generic Types
+  createLabel (fields: Array<string>, params: Object = {}): Promise<PageUserMessageThreadLabel> {
     return this.createEdge(
       '/label',
       fields,

@@ -136,8 +136,7 @@ export default class Business extends AbstractCrudObject {
     });
   }
 
-  createAccessToken (fields: Array<string>, params: Object = {}): Business {
-    // $FlowFixMe : Support Generic Types
+  createAccessToken (fields: Array<string>, params: Object = {}): Promise<Business> {
     return this.createEdge(
       '/access_token',
       fields,
@@ -163,8 +162,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createAdStudy (fields: Array<string>, params: Object = {}): AdStudy {
-    // $FlowFixMe : Support Generic Types
+  createAdStudy (fields: Array<string>, params: Object = {}): Promise<AdStudy> {
     return this.createEdge(
       '/ad_studies',
       fields,
@@ -173,8 +171,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createAdAccount (fields: Array<string>, params: Object = {}): AdAccount {
-    // $FlowFixMe : Support Generic Types
+  createAdAccount (fields: Array<string>, params: Object = {}): Promise<AdAccount> {
     return this.createEdge(
       '/adaccount',
       fields,
@@ -183,8 +180,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createAdAccountCreationRequest (fields: Array<string>, params: Object = {}): AdAccountCreationRequest {
-    // $FlowFixMe : Support Generic Types
+  createAdAccountCreationRequest (fields: Array<string>, params: Object = {}): Promise<AdAccountCreationRequest> {
     return this.createEdge(
       '/adaccountcreationrequests',
       fields,
@@ -203,8 +199,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createAdNetworkAnalytic (fields: Array<string>, params: Object = {}): Business {
-    // $FlowFixMe : Support Generic Types
+  createAdNetworkAnalytic (fields: Array<string>, params: Object = {}): Promise<Business> {
     return this.createEdge(
       '/adnetworkanalytics',
       fields,
@@ -233,8 +228,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createAdsPixel (fields: Array<string>, params: Object = {}): AdsPixel {
-    // $FlowFixMe : Support Generic Types
+  createAdsPixel (fields: Array<string>, params: Object = {}): Promise<AdsPixel> {
     return this.createEdge(
       '/adspixels',
       fields,
@@ -280,8 +274,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createBlockListDraft (fields: Array<string>, params: Object = {}): Business {
-    // $FlowFixMe : Support Generic Types
+  createBlockListDraft (fields: Array<string>, params: Object = {}): Promise<Business> {
     return this.createEdge(
       '/block_list_drafts',
       fields,
@@ -300,8 +293,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createBusinessUser (fields: Array<string>, params: Object = {}): BusinessUser {
-    // $FlowFixMe : Support Generic Types
+  createBusinessUser (fields: Array<string>, params: Object = {}): Promise<BusinessUser> {
     return this.createEdge(
       '/business_users',
       fields,
@@ -320,8 +312,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createBusinessProject (fields: Array<string>, params: Object = {}): BusinessProject {
-    // $FlowFixMe : Support Generic Types
+  createBusinessProject (fields: Array<string>, params: Object = {}): Promise<BusinessProject> {
     return this.createEdge(
       '/businessprojects',
       fields,
@@ -330,8 +321,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createCatalogSegmentProducerTo (fields: Array<string>, params: Object = {}): Business {
-    // $FlowFixMe : Support Generic Types
+  createCatalogSegmentProducerTo (fields: Array<string>, params: Object = {}): Promise<Business> {
     return this.createEdge(
       '/catalog_segment_producer_tos',
       fields,
@@ -340,8 +330,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createClaimCustomConversion (fields: Array<string>, params: Object = {}): CustomConversion {
-    // $FlowFixMe : Support Generic Types
+  createClaimCustomConversion (fields: Array<string>, params: Object = {}): Promise<CustomConversion> {
     return this.createEdge(
       '/claim_custom_conversions',
       fields,
@@ -360,8 +349,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createClientAdAccount (fields: Array<string>, params: Object = {}): Business {
-    // $FlowFixMe : Support Generic Types
+  createClientAdAccount (fields: Array<string>, params: Object = {}): Promise<Business> {
     return this.createEdge(
       '/client_ad_accounts',
       fields,
@@ -380,8 +368,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createClientApp (fields: Array<string>, params: Object = {}): Business {
-    // $FlowFixMe : Support Generic Types
+  createClientApp (fields: Array<string>, params: Object = {}): Promise<Business> {
     return this.createEdge(
       '/client_apps',
       fields,
@@ -400,8 +387,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createClientPage (fields: Array<string>, params: Object = {}): Business {
-    // $FlowFixMe : Support Generic Types
+  createClientPage (fields: Array<string>, params: Object = {}): Promise<Business> {
     return this.createEdge(
       '/client_pages',
       fields,
@@ -457,8 +443,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createCustomConversion (fields: Array<string>, params: Object = {}): CustomConversion {
-    // $FlowFixMe : Support Generic Types
+  createCustomConversion (fields: Array<string>, params: Object = {}): Promise<CustomConversion> {
     return this.createEdge(
       '/customconversions',
       fields,
@@ -497,8 +482,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createEventSourceGroup (fields: Array<string>, params: Object = {}): EventSourceGroup {
-    // $FlowFixMe : Support Generic Types
+  createEventSourceGroup (fields: Array<string>, params: Object = {}): Promise<EventSourceGroup> {
     return this.createEdge(
       '/event_source_groups',
       fields,
@@ -544,8 +528,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createManagedBusiness (fields: Array<string>, params: Object = {}): Business {
-    // $FlowFixMe : Support Generic Types
+  createManagedBusiness (fields: Array<string>, params: Object = {}): Promise<Business> {
     return this.createEdge(
       '/managed_businesses',
       fields,
@@ -564,8 +547,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createOfflineConversionDataSet (fields: Array<string>, params: Object = {}): OfflineConversionDataSet {
-    // $FlowFixMe : Support Generic Types
+  createOfflineConversionDataSet (fields: Array<string>, params: Object = {}): Promise<OfflineConversionDataSet> {
     return this.createEdge(
       '/offline_conversion_data_sets',
       fields,
@@ -594,8 +576,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createOwnedAdAccount (fields: Array<string>, params: Object = {}): Business {
-    // $FlowFixMe : Support Generic Types
+  createOwnedAdAccount (fields: Array<string>, params: Object = {}): Promise<Business> {
     return this.createEdge(
       '/owned_ad_accounts',
       fields,
@@ -614,8 +595,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createOwnedApp (fields: Array<string>, params: Object = {}): Business {
-    // $FlowFixMe : Support Generic Types
+  createOwnedApp (fields: Array<string>, params: Object = {}): Promise<Business> {
     return this.createEdge(
       '/owned_apps',
       fields,
@@ -641,8 +621,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createOwnedBusiness (fields: Array<string>, params: Object = {}): Business {
-    // $FlowFixMe : Support Generic Types
+  createOwnedBusiness (fields: Array<string>, params: Object = {}): Promise<Business> {
     return this.createEdge(
       '/owned_businesses',
       fields,
@@ -651,8 +630,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createOwnedDomain (fields: Array<string>, params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  createOwnedDomain (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/owned_domains',
       fields,
@@ -681,8 +659,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createOwnedPage (fields: Array<string>, params: Object = {}): Business {
-    // $FlowFixMe : Support Generic Types
+  createOwnedPage (fields: Array<string>, params: Object = {}): Promise<Business> {
     return this.createEdge(
       '/owned_pages',
       fields,
@@ -711,8 +688,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createOwnedProductCatalog (fields: Array<string>, params: Object = {}): ProductCatalog {
-    // $FlowFixMe : Support Generic Types
+  createOwnedProductCatalog (fields: Array<string>, params: Object = {}): Promise<ProductCatalog> {
     return this.createEdge(
       '/owned_product_catalogs',
       fields,
@@ -868,8 +844,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createSentInprogressOnBehalfRequest (fields: Array<string>, params: Object = {}): BusinessOwnedObjectOnBehalfOfRequest {
-    // $FlowFixMe : Support Generic Types
+  createSentInprogressOnBehalfRequest (fields: Array<string>, params: Object = {}): Promise<BusinessOwnedObjectOnBehalfOfRequest> {
     return this.createEdge(
       '/sent_inprogress_onbehalf_requests',
       fields,
@@ -898,8 +873,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createSystemUser (fields: Array<string>, params: Object = {}): SystemUser {
-    // $FlowFixMe : Support Generic Types
+  createSystemUser (fields: Array<string>, params: Object = {}): Promise<SystemUser> {
     return this.createEdge(
       '/system_users',
       fields,
@@ -918,8 +892,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createThirdPartyMeasurementReportDataset (fields: Array<string>, params: Object = {}): ThirdPartyMeasurementReportDataset {
-    // $FlowFixMe : Support Generic Types
+  createThirdPartyMeasurementReportDataset (fields: Array<string>, params: Object = {}): Promise<ThirdPartyMeasurementReportDataset> {
     return this.createEdge(
       '/third_party_measurement_report_dataset',
       fields,
@@ -928,8 +901,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createUploadEvent (fields: Array<string>, params: Object = {}): MeasurementUploadEvent {
-    // $FlowFixMe : Support Generic Types
+  createUploadEvent (fields: Array<string>, params: Object = {}): Promise<MeasurementUploadEvent> {
     return this.createEdge(
       '/upload_event',
       fields,

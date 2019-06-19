@@ -70,8 +70,7 @@ export default class NativeOffer extends AbstractCrudObject {
     });
   }
 
-  createNativeOfferView (fields: Array<string>, params: Object = {}): NativeOffer {
-    // $FlowFixMe : Support Generic Types
+  createNativeOfferView (fields: Array<string>, params: Object = {}): Promise<NativeOffer> {
     return this.createEdge(
       '/nativeofferviews',
       fields,

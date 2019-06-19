@@ -97,8 +97,7 @@ export default class AdsPixel extends AbstractCrudObject {
     );
   }
 
-  createAssignedUser (fields: Array<string>, params: Object = {}): AdsPixel {
-    // $FlowFixMe : Support Generic Types
+  createAssignedUser (fields: Array<string>, params: Object = {}): Promise<AdsPixel> {
     return this.createEdge(
       '/assigned_users',
       fields,
@@ -144,8 +143,7 @@ export default class AdsPixel extends AbstractCrudObject {
     );
   }
 
-  createSharedAccount (fields: Array<string>, params: Object = {}): AdsPixel {
-    // $FlowFixMe : Support Generic Types
+  createSharedAccount (fields: Array<string>, params: Object = {}): Promise<AdsPixel> {
     return this.createEdge(
       '/shared_accounts',
       fields,

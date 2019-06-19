@@ -67,8 +67,7 @@ export default class InstagramUser extends AbstractCrudObject {
     );
   }
 
-  createAuthorizedAdAccount (fields: Array<string>, params: Object = {}): InstagramUser {
-    // $FlowFixMe : Support Generic Types
+  createAuthorizedAdAccount (fields: Array<string>, params: Object = {}): Promise<InstagramUser> {
     return this.createEdge(
       '/authorized_adaccounts',
       fields,

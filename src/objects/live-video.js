@@ -176,8 +176,7 @@ export default class LiveVideo extends AbstractCrudObject {
     );
   }
 
-  createPoll (fields: Array<string>, params: Object = {}): VideoPoll {
-    // $FlowFixMe : Support Generic Types
+  createPoll (fields: Array<string>, params: Object = {}): Promise<VideoPoll> {
     return this.createEdge(
       '/polls',
       fields,

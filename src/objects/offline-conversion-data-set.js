@@ -70,8 +70,7 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
     );
   }
 
-  createAdAccount (fields: Array<string>, params: Object = {}): OfflineConversionDataSet {
-    // $FlowFixMe : Support Generic Types
+  createAdAccount (fields: Array<string>, params: Object = {}): Promise<OfflineConversionDataSet> {
     return this.createEdge(
       '/adaccounts',
       fields,
@@ -97,8 +96,7 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
     );
   }
 
-  createAgency (fields: Array<string>, params: Object = {}): OfflineConversionDataSet {
-    // $FlowFixMe : Support Generic Types
+  createAgency (fields: Array<string>, params: Object = {}): Promise<OfflineConversionDataSet> {
     return this.createEdge(
       '/agencies',
       fields,
@@ -127,8 +125,7 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
     );
   }
 
-  createEvent (fields: Array<string>, params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  createEvent (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/events',
       fields,
@@ -157,8 +154,7 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
     );
   }
 
-  createUpload (fields: Array<string>, params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  createUpload (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/uploads',
       fields,
@@ -167,8 +163,7 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
     );
   }
 
-  createUser (fields: Array<string>, params: Object = {}): OfflineConversionDataSet {
-    // $FlowFixMe : Support Generic Types
+  createUser (fields: Array<string>, params: Object = {}): Promise<OfflineConversionDataSet> {
     return this.createEdge(
       '/users',
       fields,
@@ -177,8 +172,7 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
     );
   }
 
-  createValidate (fields: Array<string>, params: Object = {}): OfflineConversionDataSet {
-    // $FlowFixMe : Support Generic Types
+  createValidate (fields: Array<string>, params: Object = {}): Promise<OfflineConversionDataSet> {
     return this.createEdge(
       '/validate',
       fields,

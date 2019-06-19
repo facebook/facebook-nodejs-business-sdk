@@ -48,8 +48,7 @@ export default class BusinessProject extends AbstractCrudObject {
     );
   }
 
-  createAdAccount (fields: Array<string>, params: Object = {}): BusinessProject {
-    // $FlowFixMe : Support Generic Types
+  createAdAccount (fields: Array<string>, params: Object = {}): Promise<BusinessProject> {
     return this.createEdge(
       '/adaccounts',
       fields,
@@ -75,8 +74,7 @@ export default class BusinessProject extends AbstractCrudObject {
     );
   }
 
-  createApp (fields: Array<string>, params: Object = {}): BusinessProject {
-    // $FlowFixMe : Support Generic Types
+  createApp (fields: Array<string>, params: Object = {}): Promise<BusinessProject> {
     return this.createEdge(
       '/apps',
       fields,
@@ -92,8 +90,7 @@ export default class BusinessProject extends AbstractCrudObject {
     );
   }
 
-  createAsset (fields: Array<string>, params: Object = {}): BusinessProject {
-    // $FlowFixMe : Support Generic Types
+  createAsset (fields: Array<string>, params: Object = {}): Promise<BusinessProject> {
     return this.createEdge(
       '/assets',
       fields,
@@ -119,8 +116,7 @@ export default class BusinessProject extends AbstractCrudObject {
     );
   }
 
-  createPage (fields: Array<string>, params: Object = {}): BusinessProject {
-    // $FlowFixMe : Support Generic Types
+  createPage (fields: Array<string>, params: Object = {}): Promise<BusinessProject> {
     return this.createEdge(
       '/pages',
       fields,
@@ -146,8 +142,7 @@ export default class BusinessProject extends AbstractCrudObject {
     );
   }
 
-  createProductCatalog (fields: Array<string>, params: Object = {}): BusinessProject {
-    // $FlowFixMe : Support Generic Types
+  createProductCatalog (fields: Array<string>, params: Object = {}): Promise<BusinessProject> {
     return this.createEdge(
       '/product_catalogs',
       fields,

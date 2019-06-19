@@ -115,8 +115,7 @@ export default class Event extends AbstractCrudObject {
     );
   }
 
-  createFeed (fields: Array<string>, params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  createFeed (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/feed',
       fields,
@@ -135,8 +134,7 @@ export default class Event extends AbstractCrudObject {
     );
   }
 
-  createLiveVideo (fields: Array<string>, params: Object = {}): LiveVideo {
-    // $FlowFixMe : Support Generic Types
+  createLiveVideo (fields: Array<string>, params: Object = {}): Promise<LiveVideo> {
     return this.createEdge(
       '/live_videos',
       fields,
@@ -155,8 +153,7 @@ export default class Event extends AbstractCrudObject {
     );
   }
 
-  createPhoto (fields: Array<string>, params: Object = {}): Photo {
-    // $FlowFixMe : Support Generic Types
+  createPhoto (fields: Array<string>, params: Object = {}): Promise<Photo> {
     return this.createEdge(
       '/photos',
       fields,

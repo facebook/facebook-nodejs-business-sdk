@@ -130,8 +130,7 @@ export default class Post extends AbstractCrudObject {
     );
   }
 
-  createComment (fields: Array<string>, params: Object = {}): Comment {
-    // $FlowFixMe : Support Generic Types
+  createComment (fields: Array<string>, params: Object = {}): Promise<Comment> {
     return this.createEdge(
       '/comments',
       fields,
@@ -177,8 +176,7 @@ export default class Post extends AbstractCrudObject {
     );
   }
 
-  createLike (fields: Array<string>, params: Object = {}): Post {
-    // $FlowFixMe : Support Generic Types
+  createLike (fields: Array<string>, params: Object = {}): Promise<Post> {
     return this.createEdge(
       '/likes',
       fields,
@@ -187,8 +185,7 @@ export default class Post extends AbstractCrudObject {
     );
   }
 
-  createPromotion (fields: Array<string>, params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  createPromotion (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/promotions',
       fields,

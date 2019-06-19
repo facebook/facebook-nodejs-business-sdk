@@ -191,8 +191,7 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  createAdmin (fields: Array<string>, params: Object = {}): Group {
-    // $FlowFixMe : Support Generic Types
+  createAdmin (fields: Array<string>, params: Object = {}): Promise<Group> {
     return this.createEdge(
       '/admins',
       fields,
@@ -211,8 +210,7 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  createAlbum (fields: Array<string>, params: Object = {}): Album {
-    // $FlowFixMe : Support Generic Types
+  createAlbum (fields: Array<string>, params: Object = {}): Promise<Album> {
     return this.createEdge(
       '/albums',
       fields,
@@ -241,8 +239,7 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  createFeed (fields: Array<string>, params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  createFeed (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/feed',
       fields,
@@ -261,8 +258,7 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  createGroup (fields: Array<string>, params: Object = {}): Group {
-    // $FlowFixMe : Support Generic Types
+  createGroup (fields: Array<string>, params: Object = {}): Promise<Group> {
     return this.createEdge(
       '/groups',
       fields,
@@ -281,8 +277,7 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  createLiveVideo (fields: Array<string>, params: Object = {}): LiveVideo {
-    // $FlowFixMe : Support Generic Types
+  createLiveVideo (fields: Array<string>, params: Object = {}): Promise<LiveVideo> {
     return this.createEdge(
       '/live_videos',
       fields,
@@ -298,8 +293,7 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  createMember (fields: Array<string>, params: Object = {}): Group {
-    // $FlowFixMe : Support Generic Types
+  createMember (fields: Array<string>, params: Object = {}): Promise<Group> {
     return this.createEdge(
       '/members',
       fields,
@@ -308,8 +302,7 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  createOpenGraphActionFeed (fields: Array<string>, params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  createOpenGraphActionFeed (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/opengraphactionfeed',
       fields,
@@ -328,8 +321,7 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  createPhoto (fields: Array<string>, params: Object = {}): Photo {
-    // $FlowFixMe : Support Generic Types
+  createPhoto (fields: Array<string>, params: Object = {}): Promise<Photo> {
     return this.createEdge(
       '/photos',
       fields,
@@ -358,8 +350,7 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  createVideo (fields: Array<string>, params: Object = {}): AdVideo {
-    // $FlowFixMe : Support Generic Types
+  createVideo (fields: Array<string>, params: Object = {}): Promise<AdVideo> {
     return this.createEdge(
       '/videos',
       fields,

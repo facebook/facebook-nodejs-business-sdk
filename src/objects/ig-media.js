@@ -57,8 +57,7 @@ export default class IGMedia extends AbstractCrudObject {
     );
   }
 
-  createComment (fields: Array<string>, params: Object = {}): IGComment {
-    // $FlowFixMe : Support Generic Types
+  createComment (fields: Array<string>, params: Object = {}): Promise<IGComment> {
     return this.createEdge(
       '/comments',
       fields,

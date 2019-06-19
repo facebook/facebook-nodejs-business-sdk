@@ -267,8 +267,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createAdPlacePageSet (fields: Array<string>, params: Object = {}): AdPlacePageSet {
-    // $FlowFixMe : Support Generic Types
+  createAdPlacePageSet (fields: Array<string>, params: Object = {}): Promise<AdPlacePageSet> {
     return this.createEdge(
       '/ad_place_page_sets',
       fields,
@@ -277,8 +276,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createAdSet (fields: Array<string>, params: Object = {}): AdSet {
-    // $FlowFixMe : Support Generic Types
+  createAdSet (fields: Array<string>, params: Object = {}): Promise<AdSet> {
     return this.createEdge(
       '/ad_sets',
       fields,
@@ -317,8 +315,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createAdCreative (fields: Array<string>, params: Object = {}): AdCreative {
-    // $FlowFixMe : Support Generic Types
+  createAdCreative (fields: Array<string>, params: Object = {}): Promise<AdCreative> {
     return this.createEdge(
       '/adcreatives',
       fields,
@@ -354,8 +351,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createAdImage (fields: Array<string>, params: Object = {}): AdImage {
-    // $FlowFixMe : Support Generic Types
+  createAdImage (fields: Array<string>, params: Object = {}): Promise<AdImage> {
     return this.createEdge(
       '/adimages',
       fields,
@@ -374,8 +370,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createAdLabel (fields: Array<string>, params: Object = {}): AdLabel {
-    // $FlowFixMe : Support Generic Types
+  createAdLabel (fields: Array<string>, params: Object = {}): Promise<AdLabel> {
     return this.createEdge(
       '/adlabels',
       fields,
@@ -394,8 +389,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createAdPlayable (fields: Array<string>, params: Object = {}): PlayableContent {
-    // $FlowFixMe : Support Generic Types
+  createAdPlayable (fields: Array<string>, params: Object = {}): Promise<PlayableContent> {
     return this.createEdge(
       '/adplayables',
       fields,
@@ -421,8 +415,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createAdReportSchedule (fields: Array<string>, params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  createAdReportSchedule (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/adreportschedules',
       fields,
@@ -431,8 +424,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createAdReportSpec (fields: Array<string>, params: Object = {}): AdReportSpec {
-    // $FlowFixMe : Support Generic Types
+  createAdReportSpec (fields: Array<string>, params: Object = {}): Promise<AdReportSpec> {
     return this.createEdge(
       '/adreportspecs',
       fields,
@@ -461,8 +453,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createAdRulesLibrary (fields: Array<string>, params: Object = {}): AdRule {
-    // $FlowFixMe : Support Generic Types
+  createAdRulesLibrary (fields: Array<string>, params: Object = {}): Promise<AdRule> {
     return this.createEdge(
       '/adrules_library',
       fields,
@@ -488,8 +479,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createAd (fields: Array<string>, params: Object = {}): Ad {
-    // $FlowFixMe : Support Generic Types
+  createAd (fields: Array<string>, params: Object = {}): Promise<Ad> {
     return this.createEdge(
       '/ads',
       fields,
@@ -545,8 +535,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createAdsPixel (fields: Array<string>, params: Object = {}): AdsPixel {
-    // $FlowFixMe : Support Generic Types
+  createAdsPixel (fields: Array<string>, params: Object = {}): Promise<AdsPixel> {
     return this.createEdge(
       '/adspixels',
       fields,
@@ -602,8 +591,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createAdVideo (fields: Array<string>, params: Object = {}): AdVideo {
-    // $FlowFixMe : Support Generic Types
+  createAdVideo (fields: Array<string>, params: Object = {}): Promise<AdVideo> {
     return this.createEdge(
       '/advideos',
       fields,
@@ -629,8 +617,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createAgency (fields: Array<string>, params: Object = {}): AdAccount {
-    // $FlowFixMe : Support Generic Types
+  createAgency (fields: Array<string>, params: Object = {}): Promise<AdAccount> {
     return this.createEdge(
       '/agencies',
       fields,
@@ -666,8 +653,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createAssignedUser (fields: Array<string>, params: Object = {}): AdAccount {
-    // $FlowFixMe : Support Generic Types
+  createAssignedUser (fields: Array<string>, params: Object = {}): Promise<AdAccount> {
     return this.createEdge(
       '/assigned_users',
       fields,
@@ -676,8 +662,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createAsyncBatchRequest (fields: Array<string>, params: Object = {}): Campaign {
-    // $FlowFixMe : Support Generic Types
+  createAsyncBatchRequest (fields: Array<string>, params: Object = {}): Promise<Campaign> {
     return this.createEdge(
       '/async_batch_requests',
       fields,
@@ -706,8 +691,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createAsyncAdRequestSet (fields: Array<string>, params: Object = {}): AdAsyncRequestSet {
-    // $FlowFixMe : Support Generic Types
+  createAsyncAdRequestSet (fields: Array<string>, params: Object = {}): Promise<AdAsyncRequestSet> {
     return this.createEdge(
       '/asyncadrequestsets',
       fields,
@@ -716,8 +700,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createAudienceReplace (fields: Array<string>, params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  createAudienceReplace (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/audiencereplace',
       fields,
@@ -726,8 +709,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createBatchReplace (fields: Array<string>, params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  createBatchReplace (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/batchreplace',
       fields,
@@ -736,8 +718,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createBatchUpload (fields: Array<string>, params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  createBatchUpload (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/batchupload',
       fields,
@@ -746,8 +727,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createBlockListDraft (fields: Array<string>, params: Object = {}): AdAccount {
-    // $FlowFixMe : Support Generic Types
+  createBlockListDraft (fields: Array<string>, params: Object = {}): Promise<AdAccount> {
     return this.createEdge(
       '/block_list_drafts',
       fields,
@@ -756,8 +736,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createBrandAudience (fields: Array<string>, params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  createBrandAudience (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/brand_audiences',
       fields,
@@ -803,8 +782,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createCampaign (fields: Array<string>, params: Object = {}): Campaign {
-    // $FlowFixMe : Support Generic Types
+  createCampaign (fields: Array<string>, params: Object = {}): Promise<Campaign> {
     return this.createEdge(
       '/campaigns',
       fields,
@@ -833,8 +811,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createCustomAudience (fields: Array<string>, params: Object = {}): CustomAudience {
-    // $FlowFixMe : Support Generic Types
+  createCustomAudience (fields: Array<string>, params: Object = {}): Promise<CustomAudience> {
     return this.createEdge(
       '/customaudiences',
       fields,
@@ -853,8 +830,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createCustomAudiencesTo (fields: Array<string>, params: Object = {}): AdAccount {
-    // $FlowFixMe : Support Generic Types
+  createCustomAudiencesTo (fields: Array<string>, params: Object = {}): Promise<AdAccount> {
     return this.createEdge(
       '/customaudiencestos',
       fields,
@@ -873,8 +849,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createCustomConversion (fields: Array<string>, params: Object = {}): CustomConversion {
-    // $FlowFixMe : Support Generic Types
+  createCustomConversion (fields: Array<string>, params: Object = {}): Promise<CustomConversion> {
     return this.createEdge(
       '/customconversions',
       fields,
@@ -883,8 +858,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createDeactivate (fields: Array<string>, params: Object = {}): AdAccount {
-    // $FlowFixMe : Support Generic Types
+  createDeactivate (fields: Array<string>, params: Object = {}): Promise<AdAccount> {
     return this.createEdge(
       '/deactivate',
       fields,
@@ -943,8 +917,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getInsightsAsync (fields: Array<string>, params: Object = {}): AdReportRun {
-    // $FlowFixMe : Support Generic Types
+  getInsightsAsync (fields: Array<string>, params: Object = {}): Promise<AdReportRun> {
     return this.createEdge(
       '/insights',
       fields,
@@ -1023,8 +996,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createPartnerRequest (fields: Array<string>, params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  createPartnerRequest (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/partnerrequests',
       fields,
@@ -1033,8 +1005,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createProductAudience (fields: Array<string>, params: Object = {}): CustomAudience {
-    // $FlowFixMe : Support Generic Types
+  createProductAudience (fields: Array<string>, params: Object = {}): Promise<CustomAudience> {
     return this.createEdge(
       '/product_audiences',
       fields,
@@ -1063,8 +1034,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createPublisherBlockList (fields: Array<string>, params: Object = {}): PublisherBlockList {
-    // $FlowFixMe : Support Generic Types
+  createPublisherBlockList (fields: Array<string>, params: Object = {}): Promise<PublisherBlockList> {
     return this.createEdge(
       '/publisher_block_lists',
       fields,
@@ -1093,8 +1063,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createReachFrequencyPrediction (fields: Array<string>, params: Object = {}): ReachFrequencyPrediction {
-    // $FlowFixMe : Support Generic Types
+  createReachFrequencyPrediction (fields: Array<string>, params: Object = {}): Promise<ReachFrequencyPrediction> {
     return this.createEdge(
       '/reachfrequencypredictions',
       fields,
@@ -1123,8 +1092,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createSponsoredMessageAd (fields: Array<string>, params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  createSponsoredMessageAd (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/sponsored_message_ads',
       fields,
@@ -1200,8 +1168,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createTracking (fields: Array<string>, params: Object = {}): AdAccount {
-    // $FlowFixMe : Support Generic Types
+  createTracking (fields: Array<string>, params: Object = {}): Promise<AdAccount> {
     return this.createEdge(
       '/tracking',
       fields,
@@ -1227,8 +1194,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createUser (fields: Array<string>, params: Object = {}): AdAccount {
-    // $FlowFixMe : Support Generic Types
+  createUser (fields: Array<string>, params: Object = {}): Promise<AdAccount> {
     return this.createEdge(
       '/users',
       fields,

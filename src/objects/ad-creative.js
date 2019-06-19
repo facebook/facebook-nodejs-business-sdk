@@ -201,8 +201,7 @@ export default class AdCreative extends AbstractCrudObject {
     );
   }
 
-  createAdLabel (fields: Array<string>, params: Object = {}): AdCreative {
-    // $FlowFixMe : Support Generic Types
+  createAdLabel (fields: Array<string>, params: Object = {}): Promise<AdCreative> {
     return this.createEdge(
       '/adlabels',
       fields,

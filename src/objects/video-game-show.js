@@ -43,8 +43,7 @@ export default class VideoGameShow extends AbstractCrudObject {
     );
   }
 
-  createQuestion (fields: Array<string>, params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  createQuestion (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/questions',
       fields,

@@ -468,8 +468,7 @@ export default class Page extends AbstractCrudObject {
     });
   }
 
-  createAdminSetting (fields: Array<string>, params: Object = {}): Page {
-    // $FlowFixMe : Support Generic Types
+  createAdminSetting (fields: Array<string>, params: Object = {}): Promise<Page> {
     return this.createEdge(
       '/admin_settings',
       fields,
@@ -485,8 +484,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createAdmin (fields: Array<string>, params: Object = {}): User {
-    // $FlowFixMe : Support Generic Types
+  createAdmin (fields: Array<string>, params: Object = {}): Promise<User> {
     return this.createEdge(
       '/admins',
       fields,
@@ -522,8 +520,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createAgency (fields: Array<string>, params: Object = {}): Page {
-    // $FlowFixMe : Support Generic Types
+  createAgency (fields: Array<string>, params: Object = {}): Promise<Page> {
     return this.createEdge(
       '/agencies',
       fields,
@@ -542,8 +539,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createAlbum (fields: Array<string>, params: Object = {}): Album {
-    // $FlowFixMe : Support Generic Types
+  createAlbum (fields: Array<string>, params: Object = {}): Promise<Album> {
     return this.createEdge(
       '/albums',
       fields,
@@ -569,8 +565,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createAssignedUser (fields: Array<string>, params: Object = {}): Page {
-    // $FlowFixMe : Support Generic Types
+  createAssignedUser (fields: Array<string>, params: Object = {}): Promise<Page> {
     return this.createEdge(
       '/assigned_users',
       fields,
@@ -606,8 +601,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createBlocked (fields: Array<string>, params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  createBlocked (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/blocked',
       fields,
@@ -616,8 +610,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createBroadcastMessage (fields: Array<string>, params: Object = {}): Page {
-    // $FlowFixMe : Support Generic Types
+  createBroadcastMessage (fields: Array<string>, params: Object = {}): Promise<Page> {
     return this.createEdge(
       '/broadcast_messages',
       fields,
@@ -626,8 +619,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createBroadcastReachEstimation (fields: Array<string>, params: Object = {}): Page {
-    // $FlowFixMe : Support Generic Types
+  createBroadcastReachEstimation (fields: Array<string>, params: Object = {}): Promise<Page> {
     return this.createEdge(
       '/broadcast_reach_estimations',
       fields,
@@ -646,8 +638,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createCallToAction (fields: Array<string>, params: Object = {}): PageCallToAction {
-    // $FlowFixMe : Support Generic Types
+  createCallToAction (fields: Array<string>, params: Object = {}): Promise<PageCallToAction> {
     return this.createEdge(
       '/call_to_actions',
       fields,
@@ -656,8 +647,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createCanvasElement (fields: Array<string>, params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  createCanvasElement (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/canvas_elements',
       fields,
@@ -676,8 +666,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createCanvase (fields: Array<string>, params: Object = {}): Canvas {
-    // $FlowFixMe : Support Generic Types
+  createCanvase (fields: Array<string>, params: Object = {}): Promise<Canvas> {
     return this.createEdge(
       '/canvases',
       fields,
@@ -703,8 +692,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createClaimedUrl (fields: Array<string>, params: Object = {}): Page {
-    // $FlowFixMe : Support Generic Types
+  createClaimedUrl (fields: Array<string>, params: Object = {}): Promise<Page> {
     return this.createEdge(
       '/claimed_urls',
       fields,
@@ -723,8 +711,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createCopyrightManualClaim (fields: Array<string>, params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  createCopyrightManualClaim (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/copyright_manual_claims',
       fields,
@@ -740,8 +727,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createCopyrightWhitelistedIgPartner (fields: Array<string>, params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  createCopyrightWhitelistedIgPartner (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/copyright_whitelisted_ig_partners',
       fields,
@@ -770,8 +756,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createCustomLabel (fields: Array<string>, params: Object = {}): PageUserMessageThreadLabel {
-    // $FlowFixMe : Support Generic Types
+  createCustomLabel (fields: Array<string>, params: Object = {}): Promise<PageUserMessageThreadLabel> {
     return this.createEdge(
       '/custom_labels',
       fields,
@@ -800,8 +785,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createFeed (fields: Array<string>, params: Object = {}): PagePost {
-    // $FlowFixMe : Support Generic Types
+  createFeed (fields: Array<string>, params: Object = {}): Promise<PagePost> {
     return this.createEdge(
       '/feed',
       fields,
@@ -870,8 +854,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createInstantArticle (fields: Array<string>, params: Object = {}): InstantArticle {
-    // $FlowFixMe : Support Generic Types
+  createInstantArticle (fields: Array<string>, params: Object = {}): Promise<InstantArticle> {
     return this.createEdge(
       '/instant_articles',
       fields,
@@ -890,8 +873,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createInstantArticlesPublish (fields: Array<string>, params: Object = {}): Page {
-    // $FlowFixMe : Support Generic Types
+  createInstantArticlesPublish (fields: Array<string>, params: Object = {}): Promise<Page> {
     return this.createEdge(
       '/instant_articles_publish',
       fields,
@@ -910,8 +892,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createLeadGenForm (fields: Array<string>, params: Object = {}): LeadgenForm {
-    // $FlowFixMe : Support Generic Types
+  createLeadGenForm (fields: Array<string>, params: Object = {}): Promise<LeadgenForm> {
     return this.createEdge(
       '/leadgen_forms',
       fields,
@@ -940,8 +921,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createLiveEncoder (fields: Array<string>, params: Object = {}): LiveEncoder {
-    // $FlowFixMe : Support Generic Types
+  createLiveEncoder (fields: Array<string>, params: Object = {}): Promise<LiveEncoder> {
     return this.createEdge(
       '/live_encoders',
       fields,
@@ -960,8 +940,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createLiveVideo (fields: Array<string>, params: Object = {}): LiveVideo {
-    // $FlowFixMe : Support Generic Types
+  createLiveVideo (fields: Array<string>, params: Object = {}): Promise<LiveVideo> {
     return this.createEdge(
       '/live_videos',
       fields,
@@ -987,8 +966,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createMediaFingerprint (fields: Array<string>, params: Object = {}): MediaFingerprint {
-    // $FlowFixMe : Support Generic Types
+  createMediaFingerprint (fields: Array<string>, params: Object = {}): Promise<MediaFingerprint> {
     return this.createEdge(
       '/media_fingerprints',
       fields,
@@ -997,8 +975,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createMessageAttachment (fields: Array<string>, params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  createMessageAttachment (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/message_attachments',
       fields,
@@ -1007,8 +984,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createMessageCreative (fields: Array<string>, params: Object = {}): Page {
-    // $FlowFixMe : Support Generic Types
+  createMessageCreative (fields: Array<string>, params: Object = {}): Promise<Page> {
     return this.createEdge(
       '/message_creatives',
       fields,
@@ -1017,8 +993,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createMessage (fields: Array<string>, params: Object = {}): Page {
-    // $FlowFixMe : Support Generic Types
+  createMessage (fields: Array<string>, params: Object = {}): Promise<Page> {
     return this.createEdge(
       '/messages',
       fields,
@@ -1047,8 +1022,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createMessengerCode (fields: Array<string>, params: Object = {}): Page {
-    // $FlowFixMe : Support Generic Types
+  createMessengerCode (fields: Array<string>, params: Object = {}): Promise<Page> {
     return this.createEdge(
       '/messenger_codes',
       fields,
@@ -1074,8 +1048,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createMessengerProfile (fields: Array<string>, params: Object = {}): Page {
-    // $FlowFixMe : Support Generic Types
+  createMessengerProfile (fields: Array<string>, params: Object = {}): Promise<Page> {
     return this.createEdge(
       '/messenger_profile',
       fields,
@@ -1094,8 +1067,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createNativeOffer (fields: Array<string>, params: Object = {}): NativeOffer {
-    // $FlowFixMe : Support Generic Types
+  createNativeOffer (fields: Array<string>, params: Object = {}): Promise<NativeOffer> {
     return this.createEdge(
       '/nativeoffers',
       fields,
@@ -1104,8 +1076,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createNlpConfig (fields: Array<string>, params: Object = {}): Page {
-    // $FlowFixMe : Support Generic Types
+  createNlpConfig (fields: Array<string>, params: Object = {}): Promise<Page> {
     return this.createEdge(
       '/nlp_configs',
       fields,
@@ -1114,8 +1085,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createPageAboutStory (fields: Array<string>, params: Object = {}): Page {
-    // $FlowFixMe : Support Generic Types
+  createPageAboutStory (fields: Array<string>, params: Object = {}): Promise<Page> {
     return this.createEdge(
       '/page_about_story',
       fields,
@@ -1134,8 +1104,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createPageBackedInstagramAccount (fields: Array<string>, params: Object = {}): InstagramUser {
-    // $FlowFixMe : Support Generic Types
+  createPageBackedInstagramAccount (fields: Array<string>, params: Object = {}): Promise<InstagramUser> {
     return this.createEdge(
       '/page_backed_instagram_accounts',
       fields,
@@ -1144,8 +1113,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createPassThreadControl (fields: Array<string>, params: Object = {}): Page {
-    // $FlowFixMe : Support Generic Types
+  createPassThreadControl (fields: Array<string>, params: Object = {}): Promise<Page> {
     return this.createEdge(
       '/pass_thread_control',
       fields,
@@ -1164,8 +1132,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createPersona (fields: Array<string>, params: Object = {}): Persona {
-    // $FlowFixMe : Support Generic Types
+  createPersona (fields: Array<string>, params: Object = {}): Promise<Persona> {
     return this.createEdge(
       '/personas',
       fields,
@@ -1184,8 +1151,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createPhoto (fields: Array<string>, params: Object = {}): Photo {
-    // $FlowFixMe : Support Generic Types
+  createPhoto (fields: Array<string>, params: Object = {}): Promise<Photo> {
     return this.createEdge(
       '/photos',
       fields,
@@ -1204,8 +1170,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createPicture (fields: Array<string>, params: Object = {}): ProfilePictureSource {
-    // $FlowFixMe : Support Generic Types
+  createPicture (fields: Array<string>, params: Object = {}): Promise<ProfilePictureSource> {
     return this.createEdge(
       '/picture',
       fields,
@@ -1224,8 +1189,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createPromotion (fields: Array<string>, params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  createPromotion (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/promotions',
       fields,
@@ -1244,8 +1208,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createRequestThreadControl (fields: Array<string>, params: Object = {}): Page {
-    // $FlowFixMe : Support Generic Types
+  createRequestThreadControl (fields: Array<string>, params: Object = {}): Promise<Page> {
     return this.createEdge(
       '/request_thread_control',
       fields,
@@ -1294,8 +1257,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createSetting (fields: Array<string>, params: Object = {}): Page {
-    // $FlowFixMe : Support Generic Types
+  createSetting (fields: Array<string>, params: Object = {}): Promise<Page> {
     return this.createEdge(
       '/settings',
       fields,
@@ -1321,8 +1283,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createSubscribedApp (fields: Array<string>, params: Object = {}): Page {
-    // $FlowFixMe : Support Generic Types
+  createSubscribedApp (fields: Array<string>, params: Object = {}): Promise<Page> {
     return this.createEdge(
       '/subscribed_apps',
       fields,
@@ -1358,8 +1319,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createTakeThreadControl (fields: Array<string>, params: Object = {}): Page {
-    // $FlowFixMe : Support Generic Types
+  createTakeThreadControl (fields: Array<string>, params: Object = {}): Promise<Page> {
     return this.createEdge(
       '/take_thread_control',
       fields,
@@ -1385,8 +1345,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createThreadSetting (fields: Array<string>, params: Object = {}): Page {
-    // $FlowFixMe : Support Generic Types
+  createThreadSetting (fields: Array<string>, params: Object = {}): Promise<Page> {
     return this.createEdge(
       '/thread_settings',
       fields,
@@ -1415,8 +1374,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createUnlinkAccount (fields: Array<string>, params: Object = {}): Page {
-    // $FlowFixMe : Support Generic Types
+  createUnlinkAccount (fields: Array<string>, params: Object = {}): Promise<Page> {
     return this.createEdge(
       '/unlink_accounts',
       fields,
@@ -1425,8 +1383,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createVideoCopyright (fields: Array<string>, params: Object = {}): VideoCopyright {
-    // $FlowFixMe : Support Generic Types
+  createVideoCopyright (fields: Array<string>, params: Object = {}): Promise<VideoCopyright> {
     return this.createEdge(
       '/video_copyrights',
       fields,
@@ -1455,8 +1412,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createVideo (fields: Array<string>, params: Object = {}): AdVideo {
-    // $FlowFixMe : Support Generic Types
+  createVideo (fields: Array<string>, params: Object = {}): Promise<AdVideo> {
     return this.createEdge(
       '/videos',
       fields,

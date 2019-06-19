@@ -40,8 +40,7 @@ export default class AdRule extends AbstractCrudObject {
     });
   }
 
-  createExecute (fields: Array<string>, params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  createExecute (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/execute',
       fields,
@@ -60,8 +59,7 @@ export default class AdRule extends AbstractCrudObject {
     );
   }
 
-  createPreview (fields: Array<string>, params: Object = {}): AdRule {
-    // $FlowFixMe : Support Generic Types
+  createPreview (fields: Array<string>, params: Object = {}): Promise<AdRule> {
     return this.createEdge(
       '/preview',
       fields,

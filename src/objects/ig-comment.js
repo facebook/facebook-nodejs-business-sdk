@@ -40,8 +40,7 @@ export default class IGComment extends AbstractCrudObject {
     );
   }
 
-  createReply (fields: Array<string>, params: Object = {}): IGComment {
-    // $FlowFixMe : Support Generic Types
+  createReply (fields: Array<string>, params: Object = {}): Promise<IGComment> {
     return this.createEdge(
       '/replies',
       fields,

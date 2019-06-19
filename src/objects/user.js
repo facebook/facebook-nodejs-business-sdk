@@ -203,8 +203,7 @@ export default class User extends AbstractCrudObject {
     });
   }
 
-  createAccessToken (fields: Array<string>, params: Object = {}): User {
-    // $FlowFixMe : Support Generic Types
+  createAccessToken (fields: Array<string>, params: Object = {}): Promise<User> {
     return this.createEdge(
       '/access_tokens',
       fields,
@@ -230,8 +229,7 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  createAccount (fields: Array<string>, params: Object = {}): Page {
-    // $FlowFixMe : Support Generic Types
+  createAccount (fields: Array<string>, params: Object = {}): Promise<Page> {
     return this.createEdge(
       '/accounts',
       fields,
@@ -240,8 +238,7 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  createAchievement (fields: Array<string>, params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  createAchievement (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/achievements',
       fields,
@@ -280,8 +277,7 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  createApplication (fields: Array<string>, params: Object = {}): User {
-    // $FlowFixMe : Support Generic Types
+  createApplication (fields: Array<string>, params: Object = {}): Promise<User> {
     return this.createEdge(
       '/applications',
       fields,
@@ -397,8 +393,7 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  createFeed (fields: Array<string>, params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  createFeed (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/feed',
       fields,
@@ -427,8 +422,7 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  createGameItem (fields: Array<string>, params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  createGameItem (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/game_items',
       fields,
@@ -437,8 +431,7 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  createGameTime (fields: Array<string>, params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  createGameTime (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/game_times',
       fields,
@@ -457,8 +450,7 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  createGamesAchieve (fields: Array<string>, params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  createGamesAchieve (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/games.achieves',
       fields,
@@ -467,8 +459,7 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  createGamesStat (fields: Array<string>, params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  createGamesStat (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/games_stats',
       fields,
@@ -477,8 +468,7 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  createGamesPlay (fields: Array<string>, params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  createGamesPlay (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/gamesplays',
       fields,
@@ -547,8 +537,7 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  createLiveEncoder (fields: Array<string>, params: Object = {}): LiveEncoder {
-    // $FlowFixMe : Support Generic Types
+  createLiveEncoder (fields: Array<string>, params: Object = {}): Promise<LiveEncoder> {
     return this.createEdge(
       '/live_encoders',
       fields,
@@ -567,8 +556,7 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  createLiveVideo (fields: Array<string>, params: Object = {}): LiveVideo {
-    // $FlowFixMe : Support Generic Types
+  createLiveVideo (fields: Array<string>, params: Object = {}): Promise<LiveVideo> {
     return this.createEdge(
       '/live_videos',
       fields,
@@ -577,8 +565,7 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  createMfsAccountPinReset (fields: Array<string>, params: Object = {}): User {
-    // $FlowFixMe : Support Generic Types
+  createMfsAccountPinReset (fields: Array<string>, params: Object = {}): Promise<User> {
     return this.createEdge(
       '/mfs_account_pin_reset',
       fields,
@@ -587,8 +574,7 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  createMomentsLinkInviteConvert (fields: Array<string>, params: Object = {}): User {
-    // $FlowFixMe : Support Generic Types
+  createMomentsLinkInviteConvert (fields: Array<string>, params: Object = {}): Promise<User> {
     return this.createEdge(
       '/moments_link_invite_convert',
       fields,
@@ -597,8 +583,7 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  createMomentsUniversalLinkInvite (fields: Array<string>, params: Object = {}): User {
-    // $FlowFixMe : Support Generic Types
+  createMomentsUniversalLinkInvite (fields: Array<string>, params: Object = {}): Promise<User> {
     return this.createEdge(
       '/moments_universal_link_invite',
       fields,
@@ -627,8 +612,7 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  createNotification (fields: Array<string>, params: Object = {}): User {
-    // $FlowFixMe : Support Generic Types
+  createNotification (fields: Array<string>, params: Object = {}): Promise<User> {
     return this.createEdge(
       '/notifications',
       fields,
@@ -637,8 +621,7 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  createPaymentCurrency (fields: Array<string>, params: Object = {}): User {
-    // $FlowFixMe : Support Generic Types
+  createPaymentCurrency (fields: Array<string>, params: Object = {}): Promise<User> {
     return this.createEdge(
       '/payment_currencies',
       fields,
@@ -684,8 +667,7 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  createPhoto (fields: Array<string>, params: Object = {}): Photo {
-    // $FlowFixMe : Support Generic Types
+  createPhoto (fields: Array<string>, params: Object = {}): Promise<Photo> {
     return this.createEdge(
       '/photos',
       fields,
@@ -704,8 +686,7 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  createPlace (fields: Array<string>, params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  createPlace (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/places',
       fields,
@@ -744,8 +725,7 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  createScreenName (fields: Array<string>, params: Object = {}): User {
-    // $FlowFixMe : Support Generic Types
+  createScreenName (fields: Array<string>, params: Object = {}): Promise<User> {
     return this.createEdge(
       '/screennames',
       fields,
@@ -754,8 +734,7 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  createStagingResource (fields: Array<string>, params: Object = {}): User {
-    // $FlowFixMe : Support Generic Types
+  createStagingResource (fields: Array<string>, params: Object = {}): Promise<User> {
     return this.createEdge(
       '/staging_resources',
       fields,
@@ -804,8 +783,7 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  createVideo (fields: Array<string>, params: Object = {}): AdVideo {
-    // $FlowFixMe : Support Generic Types
+  createVideo (fields: Array<string>, params: Object = {}): Promise<AdVideo> {
     return this.createEdge(
       '/videos',
       fields,

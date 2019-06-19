@@ -34,8 +34,7 @@ export default class DynamicItemDisplayBundleFolder extends AbstractCrudObject {
     );
   }
 
-  createBundle (fields: Array<string>, params: Object = {}): DynamicItemDisplayBundleFolder {
-    // $FlowFixMe : Support Generic Types
+  createBundle (fields: Array<string>, params: Object = {}): Promise<DynamicItemDisplayBundleFolder> {
     return this.createEdge(
       '/bundles',
       fields,

@@ -64,8 +64,7 @@ export default class AdStudy extends AbstractCrudObject {
     );
   }
 
-  createCustomAudience (fields: Array<string>, params: Object = {}): AdStudy {
-    // $FlowFixMe : Support Generic Types
+  createCustomAudience (fields: Array<string>, params: Object = {}): Promise<AdStudy> {
     return this.createEdge(
       '/customaudiences',
       fields,
@@ -94,8 +93,7 @@ export default class AdStudy extends AbstractCrudObject {
     );
   }
 
-  createObjective (fields: Array<string>, params: Object = {}): AdStudyObjective {
-    // $FlowFixMe : Support Generic Types
+  createObjective (fields: Array<string>, params: Object = {}): Promise<AdStudyObjective> {
     return this.createEdge(
       '/objectives',
       fields,

@@ -130,8 +130,7 @@ export default class CustomAudience extends AbstractCrudObject {
     );
   }
 
-  createAdAccount (fields: Array<string>, params: Object = {}): CustomAudience {
-    // $FlowFixMe : Support Generic Types
+  createAdAccount (fields: Array<string>, params: Object = {}): Promise<CustomAudience> {
     return this.createEdge(
       '/adaccounts',
       fields,
@@ -150,8 +149,7 @@ export default class CustomAudience extends AbstractCrudObject {
     );
   }
 
-  createCapability (fields: Array<string>, params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  createCapability (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/capabilities',
       fields,
@@ -160,8 +158,7 @@ export default class CustomAudience extends AbstractCrudObject {
     );
   }
 
-  createDatum (fields: Array<string>, params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  createDatum (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/data',
       fields,
@@ -207,8 +204,7 @@ export default class CustomAudience extends AbstractCrudObject {
     );
   }
 
-  createUpload (fields: Array<string>, params: Object = {}): CustomAudience {
-    // $FlowFixMe : Support Generic Types
+  createUpload (fields: Array<string>, params: Object = {}): Promise<CustomAudience> {
     return this.createEdge(
       '/upload',
       fields,
@@ -224,8 +220,7 @@ export default class CustomAudience extends AbstractCrudObject {
     );
   }
 
-  createUser (fields: Array<string>, params: Object = {}): CustomAudience {
-    // $FlowFixMe : Support Generic Types
+  createUser (fields: Array<string>, params: Object = {}): Promise<CustomAudience> {
     return this.createEdge(
       '/users',
       fields,

@@ -100,8 +100,7 @@ export default class Comment extends AbstractCrudObject {
     );
   }
 
-  createLike (fields: Array<string>, params: Object = {}): Comment {
-    // $FlowFixMe : Support Generic Types
+  createLike (fields: Array<string>, params: Object = {}): Promise<Comment> {
     return this.createEdge(
       '/likes',
       fields,

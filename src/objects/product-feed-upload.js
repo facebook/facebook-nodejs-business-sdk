@@ -43,8 +43,7 @@ export default class ProductFeedUpload extends AbstractCrudObject {
     });
   }
 
-  createErrorReport (fields: Array<string>, params: Object = {}): ProductFeedUpload {
-    // $FlowFixMe : Support Generic Types
+  createErrorReport (fields: Array<string>, params: Object = {}): Promise<ProductFeedUpload> {
     return this.createEdge(
       '/error_report',
       fields,

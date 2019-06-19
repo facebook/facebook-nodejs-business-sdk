@@ -37,8 +37,7 @@ export default class ProductGroup extends AbstractCrudObject {
     );
   }
 
-  createProduct (fields: Array<string>, params: Object = {}): ProductItem {
-    // $FlowFixMe : Support Generic Types
+  createProduct (fields: Array<string>, params: Object = {}): Promise<ProductItem> {
     return this.createEdge(
       '/products',
       fields,

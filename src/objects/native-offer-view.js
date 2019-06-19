@@ -35,8 +35,7 @@ export default class NativeOfferView extends AbstractCrudObject {
     );
   }
 
-  createPhoto (fields: Array<string>, params: Object = {}): NativeOfferView {
-    // $FlowFixMe : Support Generic Types
+  createPhoto (fields: Array<string>, params: Object = {}): Promise<NativeOfferView> {
     return this.createEdge(
       '/photos',
       fields,
@@ -45,8 +44,7 @@ export default class NativeOfferView extends AbstractCrudObject {
     );
   }
 
-  createVideo (fields: Array<string>, params: Object = {}): NativeOfferView {
-    // $FlowFixMe : Support Generic Types
+  createVideo (fields: Array<string>, params: Object = {}): Promise<NativeOfferView> {
     return this.createEdge(
       '/videos',
       fields,

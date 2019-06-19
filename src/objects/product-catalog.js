@@ -104,8 +104,7 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  createAgency (fields: Array<string>, params: Object = {}): ProductCatalog {
-    // $FlowFixMe : Support Generic Types
+  createAgency (fields: Array<string>, params: Object = {}): Promise<ProductCatalog> {
     return this.createEdge(
       '/agencies',
       fields,
@@ -131,8 +130,7 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  createAssignedUser (fields: Array<string>, params: Object = {}): ProductCatalog {
-    // $FlowFixMe : Support Generic Types
+  createAssignedUser (fields: Array<string>, params: Object = {}): Promise<ProductCatalog> {
     return this.createEdge(
       '/assigned_users',
       fields,
@@ -151,8 +149,7 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  createBatch (fields: Array<string>, params: Object = {}): ProductCatalog {
-    // $FlowFixMe : Support Generic Types
+  createBatch (fields: Array<string>, params: Object = {}): Promise<ProductCatalog> {
     return this.createEdge(
       '/batch',
       fields,
@@ -161,8 +158,7 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  createBundleFolder (fields: Array<string>, params: Object = {}): DynamicItemDisplayBundleFolder {
-    // $FlowFixMe : Support Generic Types
+  createBundleFolder (fields: Array<string>, params: Object = {}): Promise<DynamicItemDisplayBundleFolder> {
     return this.createEdge(
       '/bundle_folders',
       fields,
@@ -171,8 +167,7 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  createBundle (fields: Array<string>, params: Object = {}): DynamicItemDisplayBundle {
-    // $FlowFixMe : Support Generic Types
+  createBundle (fields: Array<string>, params: Object = {}): Promise<DynamicItemDisplayBundle> {
     return this.createEdge(
       '/bundles',
       fields,
@@ -191,8 +186,7 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  createCategory (fields: Array<string>, params: Object = {}): ProductCatalogCategory {
-    // $FlowFixMe : Support Generic Types
+  createCategory (fields: Array<string>, params: Object = {}): Promise<ProductCatalogCategory> {
     return this.createEdge(
       '/categories',
       fields,
@@ -248,8 +242,7 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  createExternalEventSource (fields: Array<string>, params: Object = {}): ProductCatalog {
-    // $FlowFixMe : Support Generic Types
+  createExternalEventSource (fields: Array<string>, params: Object = {}): Promise<ProductCatalog> {
     return this.createEdge(
       '/external_event_sources',
       fields,
@@ -278,8 +271,7 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  createHomeListing (fields: Array<string>, params: Object = {}): HomeListing {
-    // $FlowFixMe : Support Generic Types
+  createHomeListing (fields: Array<string>, params: Object = {}): Promise<HomeListing> {
     return this.createEdge(
       '/home_listings',
       fields,
@@ -298,8 +290,7 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  createHotelRoomsBatch (fields: Array<string>, params: Object = {}): ProductCatalog {
-    // $FlowFixMe : Support Generic Types
+  createHotelRoomsBatch (fields: Array<string>, params: Object = {}): Promise<ProductCatalog> {
     return this.createEdge(
       '/hotel_rooms_batch',
       fields,
@@ -318,8 +309,7 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  createHotel (fields: Array<string>, params: Object = {}): Hotel {
-    // $FlowFixMe : Support Generic Types
+  createHotel (fields: Array<string>, params: Object = {}): Promise<Hotel> {
     return this.createEdge(
       '/hotels',
       fields,
@@ -328,8 +318,7 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  createItemsBatch (fields: Array<string>, params: Object = {}): ProductCatalog {
-    // $FlowFixMe : Support Generic Types
+  createItemsBatch (fields: Array<string>, params: Object = {}): Promise<ProductCatalog> {
     return this.createEdge(
       '/items_batch',
       fields,
@@ -348,8 +337,7 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  createPricingVariablesBatch (fields: Array<string>, params: Object = {}): ProductCatalog {
-    // $FlowFixMe : Support Generic Types
+  createPricingVariablesBatch (fields: Array<string>, params: Object = {}): Promise<ProductCatalog> {
     return this.createEdge(
       '/pricing_variables_batch',
       fields,
@@ -368,8 +356,7 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  createProductFeed (fields: Array<string>, params: Object = {}): ProductFeed {
-    // $FlowFixMe : Support Generic Types
+  createProductFeed (fields: Array<string>, params: Object = {}): Promise<ProductFeed> {
     return this.createEdge(
       '/product_feeds',
       fields,
@@ -388,8 +375,7 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  createProductGroup (fields: Array<string>, params: Object = {}): ProductGroup {
-    // $FlowFixMe : Support Generic Types
+  createProductGroup (fields: Array<string>, params: Object = {}): Promise<ProductGroup> {
     return this.createEdge(
       '/product_groups',
       fields,
@@ -408,8 +394,7 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  createProductSet (fields: Array<string>, params: Object = {}): ProductSet {
-    // $FlowFixMe : Support Generic Types
+  createProductSet (fields: Array<string>, params: Object = {}): Promise<ProductSet> {
     return this.createEdge(
       '/product_sets',
       fields,
@@ -428,8 +413,7 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  createProductSetsBatch (fields: Array<string>, params: Object = {}): ProductCatalog {
-    // $FlowFixMe : Support Generic Types
+  createProductSetsBatch (fields: Array<string>, params: Object = {}): Promise<ProductCatalog> {
     return this.createEdge(
       '/product_sets_batch',
       fields,
@@ -448,8 +432,7 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  createProduct (fields: Array<string>, params: Object = {}): ProductItem {
-    // $FlowFixMe : Support Generic Types
+  createProduct (fields: Array<string>, params: Object = {}): Promise<ProductItem> {
     return this.createEdge(
       '/products',
       fields,
@@ -468,8 +451,7 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  createVehicle (fields: Array<string>, params: Object = {}): Vehicle {
-    // $FlowFixMe : Support Generic Types
+  createVehicle (fields: Array<string>, params: Object = {}): Promise<Vehicle> {
     return this.createEdge(
       '/vehicles',
       fields,

@@ -36,8 +36,7 @@ export default class Link extends AbstractCrudObject {
   }
 
 
-  createComment (fields: Array<string>, params: Object = {}): Comment {
-    // $FlowFixMe : Support Generic Types
+  createComment (fields: Array<string>, params: Object = {}): Promise<Comment> {
     return this.createEdge(
       '/comments',
       fields,

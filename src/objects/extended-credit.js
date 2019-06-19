@@ -50,8 +50,7 @@ export default class ExtendedCredit extends AbstractCrudObject {
     );
   }
 
-  createExtendedCreditInvoiceGroup (fields: Array<string>, params: Object = {}): ExtendedCreditInvoiceGroup {
-    // $FlowFixMe : Support Generic Types
+  createExtendedCreditInvoiceGroup (fields: Array<string>, params: Object = {}): Promise<ExtendedCreditInvoiceGroup> {
     return this.createEdge(
       '/extended_credit_invoice_groups',
       fields,
@@ -70,8 +69,7 @@ export default class ExtendedCredit extends AbstractCrudObject {
     );
   }
 
-  createOwningCreditAllocationConfig (fields: Array<string>, params: Object = {}): ExtendedCreditAllocationConfig {
-    // $FlowFixMe : Support Generic Types
+  createOwningCreditAllocationConfig (fields: Array<string>, params: Object = {}): Promise<ExtendedCreditAllocationConfig> {
     return this.createEdge(
       '/owning_credit_allocation_configs',
       fields,
