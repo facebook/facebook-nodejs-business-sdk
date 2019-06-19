@@ -80,8 +80,7 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
     );
   }
 
-  deleteAgencies (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deleteAgencies (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/agencies',
       params

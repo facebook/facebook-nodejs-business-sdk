@@ -65,8 +65,7 @@ export default class CustomConversion extends AbstractCrudObject {
     });
   }
 
-  deleteAdAccounts (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deleteAdAccounts (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/adaccounts',
       params

@@ -149,8 +149,7 @@ export default class Campaign extends AbstractCrudObject {
     });
   }
 
-  deleteAdLabels (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deleteAdLabels (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/adlabels',
       params

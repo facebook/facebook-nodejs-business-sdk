@@ -33,8 +33,7 @@ export default class InstagramUser extends AbstractCrudObject {
   }
 
 
-  deleteAgencies (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deleteAgencies (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/agencies',
       params
@@ -51,8 +50,7 @@ export default class InstagramUser extends AbstractCrudObject {
     );
   }
 
-  deleteAuthorizedAdAccounts (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deleteAuthorizedAdAccounts (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/authorized_adaccounts',
       params

@@ -87,8 +87,7 @@ export default class ProductCatalog extends AbstractCrudObject {
     });
   }
 
-  deleteAgencies (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deleteAgencies (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/agencies',
       params
@@ -115,8 +114,7 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  deleteAssignedUsers (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deleteAssignedUsers (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/assigned_users',
       params
@@ -233,8 +231,7 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  deleteExternalEventSources (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deleteExternalEventSources (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/external_event_sources',
       params

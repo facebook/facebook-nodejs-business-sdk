@@ -213,8 +213,7 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  deleteAccessTokens (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deleteAccessTokens (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/accesstokens',
       params
@@ -361,8 +360,7 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  deleteBusinesses (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deleteBusinesses (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/businesses',
       params
@@ -649,8 +647,7 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  deletePermissions (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deletePermissions (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/permissions',
       params

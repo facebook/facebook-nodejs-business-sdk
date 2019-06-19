@@ -57,8 +57,7 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
     );
   }
 
-  deleteMessageTemplates (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deleteMessageTemplates (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/message_templates',
       params

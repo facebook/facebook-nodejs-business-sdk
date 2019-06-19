@@ -146,8 +146,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  deleteAdAccounts (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deleteAdAccounts (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/ad_accounts',
       params
@@ -254,8 +253,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  deleteAgencies (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deleteAgencies (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/agencies',
       params
@@ -432,8 +430,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  deleteClients (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deleteClients (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/clients',
       params
@@ -530,8 +527,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  deleteInstagramAccounts (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deleteInstagramAccounts (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/instagram_accounts',
       params
@@ -628,8 +624,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  deleteOwnedBusinesses (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deleteOwnedBusinesses (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/owned_businesses',
       params
@@ -726,8 +721,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  deletePages (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deletePages (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/pages',
       params

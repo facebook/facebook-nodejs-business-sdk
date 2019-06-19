@@ -478,8 +478,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  deleteAdmins (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deleteAdmins (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/admins',
       params
@@ -506,8 +505,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  deleteAgencies (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deleteAgencies (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/agencies',
       params
@@ -554,8 +552,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  deleteAssignedUsers (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deleteAssignedUsers (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/assigned_users',
       params
@@ -592,8 +589,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  deleteBlocked (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deleteBlocked (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/blocked',
       params
@@ -690,8 +686,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  deleteClaimedUrls (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deleteClaimedUrls (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/claimed_urls',
       params
@@ -738,8 +733,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  deleteCopyrightWhitelistedIgPartners (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deleteCopyrightWhitelistedIgPartners (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/copyright_whitelisted_ig_partners',
       params
@@ -976,8 +970,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  deleteLocations (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deleteLocations (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/locations',
       params
@@ -1064,8 +1057,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  deleteMessengerProfile (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deleteMessengerProfile (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/messenger_profile',
       params
@@ -1312,8 +1304,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  deleteSubscribedApps (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deleteSubscribedApps (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/subscribed_apps',
       params
@@ -1340,8 +1331,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  deleteTabs (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deleteTabs (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/tabs',
       params
@@ -1388,8 +1378,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  deleteThreadSettings (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deleteThreadSettings (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/thread_settings',
       params

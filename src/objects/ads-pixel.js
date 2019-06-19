@@ -80,8 +80,7 @@ export default class AdsPixel extends AbstractCrudObject {
     });
   }
 
-  deleteAssignedUsers (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deleteAssignedUsers (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/assigned_users',
       params
@@ -128,8 +127,7 @@ export default class AdsPixel extends AbstractCrudObject {
     );
   }
 
-  deleteSharedAccounts (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deleteSharedAccounts (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/shared_accounts',
       params

@@ -113,8 +113,7 @@ export default class CustomAudience extends AbstractCrudObject {
     });
   }
 
-  deleteAdAccounts (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deleteAdAccounts (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/adaccounts',
       params
@@ -201,8 +200,7 @@ export default class CustomAudience extends AbstractCrudObject {
     );
   }
 
-  deleteUpload (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deleteUpload (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/upload',
       params
@@ -219,8 +217,7 @@ export default class CustomAudience extends AbstractCrudObject {
     );
   }
 
-  deleteUsers (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deleteUsers (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/users',
       params

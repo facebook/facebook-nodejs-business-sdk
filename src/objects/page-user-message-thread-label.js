@@ -23,8 +23,7 @@ export default class PageUserMessageThreadLabel extends AbstractCrudObject {
   }
 
 
-  deleteLabel (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deleteLabel (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/label',
       params

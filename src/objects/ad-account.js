@@ -337,8 +337,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  deleteAdImages (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deleteAdImages (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/adimages',
       params
@@ -405,8 +404,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  deleteAdReportRuns (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deleteAdReportRuns (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/adreportruns',
       params
@@ -473,8 +471,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  deleteAds (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deleteAds (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/ads',
       params
@@ -511,8 +508,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  deleteAdSets (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deleteAdSets (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/adsets',
       params
@@ -589,8 +585,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  deleteAdVideos (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deleteAdVideos (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/advideos',
       params
@@ -617,8 +612,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  deleteAgencies (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deleteAgencies (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/agencies',
       params
@@ -655,8 +649,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  deleteAssignedUsers (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deleteAssignedUsers (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/assigned_users',
       params
@@ -793,8 +786,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  deleteCampaigns (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deleteCampaigns (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/campaigns',
       params
@@ -1191,8 +1183,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  deleteTracking (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deleteTracking (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/tracking',
       params
@@ -1219,8 +1210,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  deleteUsers (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deleteUsers (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/users',
       params
@@ -1247,8 +1237,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  deleteUsersOfAnyAudience (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deleteUsersOfAnyAudience (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/usersofanyaudience',
       params

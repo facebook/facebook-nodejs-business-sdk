@@ -53,8 +53,7 @@ export default class EventSourceGroup extends AbstractCrudObject {
     );
   }
 
-  deleteUserPermissions (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deleteUserPermissions (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/userpermissions',
       params

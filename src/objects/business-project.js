@@ -31,8 +31,7 @@ export default class BusinessProject extends AbstractCrudObject {
   }
 
 
-  deleteAdAccounts (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deleteAdAccounts (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/adaccounts',
       params
@@ -59,8 +58,7 @@ export default class BusinessProject extends AbstractCrudObject {
     );
   }
 
-  deleteApps (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deleteApps (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/apps',
       params
@@ -87,8 +85,7 @@ export default class BusinessProject extends AbstractCrudObject {
     );
   }
 
-  deleteAssets (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deleteAssets (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/assets',
       params
@@ -105,8 +102,7 @@ export default class BusinessProject extends AbstractCrudObject {
     );
   }
 
-  deletePages (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deletePages (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/pages',
       params
@@ -133,8 +129,7 @@ export default class BusinessProject extends AbstractCrudObject {
     );
   }
 
-  deleteProductCatalogs (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deleteProductCatalogs (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/product_catalogs',
       params

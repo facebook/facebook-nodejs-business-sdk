@@ -204,8 +204,7 @@ export default class Application extends AbstractCrudObject {
     });
   }
 
-  deleteAccounts (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deleteAccounts (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/accounts',
       params
@@ -572,8 +571,7 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  deletePaymentCurrencies (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deletePaymentCurrencies (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/payment_currencies',
       params
@@ -680,8 +678,7 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  deleteSubscriptions (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deleteSubscriptions (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/subscriptions',
       params

@@ -83,8 +83,7 @@ export default class Comment extends AbstractCrudObject {
     );
   }
 
-  deleteLikes (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deleteLikes (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/likes',
       params

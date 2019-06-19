@@ -27,8 +27,7 @@ export default class DynamicItemDisplayBundleFolder extends AbstractCrudObject {
   }
 
 
-  deleteBundles (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deleteBundles (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/bundles',
       params

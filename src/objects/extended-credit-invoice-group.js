@@ -29,8 +29,7 @@ export default class ExtendedCreditInvoiceGroup extends AbstractCrudObject {
   }
 
 
-  deleteAdAccounts (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deleteAdAccounts (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/ad_accounts',
       params

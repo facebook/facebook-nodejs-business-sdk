@@ -184,8 +184,7 @@ export default class Group extends AbstractCrudObject {
     });
   }
 
-  deleteAdmins (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deleteAdmins (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/admins',
       params
@@ -292,8 +291,7 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  deleteMembers (params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
+  deleteMembers (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/members',
       params
