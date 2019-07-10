@@ -10,9 +10,9 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import Profile from './profile';
-import NullNode from './null-node';
 import LiveVideo from './live-video';
 import Photo from './photo';
+import ProfilePictureSource from './profile-picture-source';
 
 /**
  * Event
@@ -95,26 +95,6 @@ export default class Event extends AbstractCrudObject {
     );
   }
 
-  getComments (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      NullNode,
-      fields,
-      params,
-      fetchFirstPage,
-      '/comments'
-    );
-  }
-
-  getFeed (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      NullNode,
-      fields,
-      params,
-      fetchFirstPage,
-      '/feed'
-    );
-  }
-
   createFeed (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/feed',
@@ -124,32 +104,12 @@ export default class Event extends AbstractCrudObject {
     );
   }
 
-  getLiveVideos (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      NullNode,
-      fields,
-      params,
-      fetchFirstPage,
-      '/live_videos'
-    );
-  }
-
   createLiveVideo (fields: Array<string>, params: Object = {}): Promise<LiveVideo> {
     return this.createEdge(
       '/live_videos',
       fields,
       params,
       LiveVideo
-    );
-  }
-
-  getPhotos (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      NullNode,
-      fields,
-      params,
-      fetchFirstPage,
-      '/photos'
     );
   }
 
@@ -164,21 +124,11 @@ export default class Event extends AbstractCrudObject {
 
   getPicture (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      NullNode,
+      ProfilePictureSource,
       fields,
       params,
       fetchFirstPage,
       '/picture'
-    );
-  }
-
-  getPosts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      NullNode,
-      fields,
-      params,
-      fetchFirstPage,
-      '/posts'
     );
   }
 
@@ -189,16 +139,6 @@ export default class Event extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/roles'
-    );
-  }
-
-  getVideos (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      NullNode,
-      fields,
-      params,
-      fetchFirstPage,
-      '/videos'
     );
   }
 

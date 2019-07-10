@@ -28,7 +28,6 @@ export default class AdSet extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       account_id: 'account_id',
-      ad_keywords: 'ad_keywords',
       adlabels: 'adlabels',
       adset_schedule: 'adset_schedule',
       asset_feed_id: 'asset_feed_id',
@@ -260,22 +259,6 @@ export default class AdSet extends AbstractCrudObject {
     );
   }
 
-  deleteAdLabels (params: Object = {}): Promise<*> {
-    return super.deleteEdge(
-      '/adlabels',
-      params
-    );
-  }
-
-  createAdLabel (fields: Array<string>, params: Object = {}): Promise<AdSet> {
-    return this.createEdge(
-      '/adlabels',
-      fields,
-      params,
-      AdSet
-    );
-  }
-
   getAdRulesGoverned (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdRule,
@@ -293,6 +276,16 @@ export default class AdSet extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/ads'
+    );
+  }
+
+  getCopies (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AdSet,
+      fields,
+      params,
+      fetchFirstPage,
+      '/copies'
     );
   }
 
@@ -331,6 +324,22 @@ export default class AdSet extends AbstractCrudObject {
       fields,
       params,
       AdReportRun
+    );
+  }
+
+  deleteLabels (params: Object = {}): Promise<*> {
+    return super.deleteEdge(
+      '/labels',
+      params
+    );
+  }
+
+  createLabel (fields: Array<string>, params: Object = {}): Promise<AdSet> {
+    return this.createEdge(
+      '/labels',
+      fields,
+      params,
+      AdSet
     );
   }
 

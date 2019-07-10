@@ -31,6 +31,23 @@ export default class LiveEncoder extends AbstractCrudObject {
     });
   }
 
+  static get CapAudioCodecs (): Object {
+    return Object.freeze({
+      aac: 'AAC',
+    });
+  }
+  static get CapStreamingProtocols (): Object {
+    return Object.freeze({
+      https_dash: 'HTTPS_DASH',
+      rtmps: 'RTMPS',
+      webrtc: 'WEBRTC',
+    });
+  }
+  static get CapVideoCodecs (): Object {
+    return Object.freeze({
+      h264: 'H264',
+    });
+  }
   static get Status (): Object {
     return Object.freeze({
       capture: 'CAPTURE',

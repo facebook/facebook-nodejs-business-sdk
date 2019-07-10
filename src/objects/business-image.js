@@ -9,36 +9,31 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
-import AdsInsights from './ads-insights';
 
 /**
- * AdReportRun
+ * BusinessImage
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class AdReportRun extends AbstractCrudObject {
+export default class BusinessImage extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      account_id: 'account_id',
-      async_percent_completion: 'async_percent_completion',
-      async_status: 'async_status',
-      date_start: 'date_start',
-      date_stop: 'date_stop',
-      emails: 'emails',
-      friendly_name: 'friendly_name',
+      business: 'business',
+      creation_time: 'creation_time',
+      hash: 'hash',
+      height: 'height',
       id: 'id',
-      is_bookmarked: 'is_bookmarked',
-      is_running: 'is_running',
-      schedule_id: 'schedule_id',
-      time_completed: 'time_completed',
-      time_ref: 'time_ref',
+      name: 'name',
+      url: 'url',
+      url_128: 'url_128',
+      width: 'width',
     });
   }
 
 
   getInsights (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      AdsInsights,
+      AbstractObject,
       fields,
       params,
       fetchFirstPage,
@@ -55,18 +50,10 @@ export default class AdReportRun extends AbstractCrudObject {
   }
 
   
-  get (fields: Array<string>, params: Object = {}): AdReportRun {
+  get (fields: Array<string>, params: Object = {}): BusinessImage {
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
-      params
-    );
-  }
-
-  // $FlowFixMe : Support Generic Types
-  update (fields: Array<string>, params: Object = {}): AdReportRun {
-    // $FlowFixMe : Support Generic Types
-    return super.update(
       params
     );
   }

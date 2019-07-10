@@ -33,6 +33,7 @@ export default class LeadgenForm extends AbstractCrudObject {
       is_optimized_for_quality: 'is_optimized_for_quality',
       leadgen_export_csv_url: 'leadgen_export_csv_url',
       leads_count: 'leads_count',
+      legal_content: 'legal_content',
       locale: 'locale',
       messenger_welcome_message: 'messenger_welcome_message',
       name: 'name',

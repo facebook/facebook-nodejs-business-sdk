@@ -21,6 +21,7 @@ export { default as AdAccountDeliveryEstimate } from './../src/objects/ad-accoun
 export { default as AdAccountMatchedSearchApplicationsEdgeData } from './../src/objects/ad-account-matched-search-applications-edge-data';
 export { default as AdAccountMaxBid } from './../src/objects/ad-account-max-bid';
 export { default as AdAccountPromotableObjects } from './../src/objects/ad-account-promotable-objects';
+export { default as AdAccountReachEstimate } from './../src/objects/ad-account-reach-estimate';
 export { default as AdAccountRecommendedCamapaignBudget } from './../src/objects/ad-account-recommended-camapaign-budget';
 export { default as AdAccountRoas } from './../src/objects/ad-account-roas';
 export { default as AdAccountTargetingUnified } from './../src/objects/ad-account-targeting-unified';
@@ -66,7 +67,6 @@ export { default as AdCreativeLinkDataImageOverlaySpec } from './../src/objects/
 export { default as AdCreativeLinkDataSponsorshipInfoSpec } from './../src/objects/ad-creative-link-data-sponsorship-info-spec';
 export { default as AdCreativeLinkDataTemplateVideoSpec } from './../src/objects/ad-creative-link-data-template-video-spec';
 export { default as AdCreativeObjectStorySpec } from './../src/objects/ad-creative-object-story-spec';
-export { default as AdCreativeOptimizationSpec } from './../src/objects/ad-creative-optimization-spec';
 export { default as AdCreativePhotoData } from './../src/objects/ad-creative-photo-data';
 export { default as AdCreativePlaceData } from './../src/objects/ad-creative-place-data';
 export { default as AdCreativePlatformCustomization } from './../src/objects/ad-creative-platform-customization';
@@ -154,6 +154,9 @@ export { default as BusinessAdAccountRequest } from './../src/objects/business-a
 export { default as BusinessAdvertisableApplicationsResult } from './../src/objects/business-advertisable-applications-result';
 export { default as BusinessAgreement } from './../src/objects/business-agreement';
 export { default as BusinessApplicationRequest } from './../src/objects/business-application-request';
+export { default as BusinessCreative } from './../src/objects/business-creative';
+export { default as BusinessCreativeFolder } from './../src/objects/business-creative-folder';
+export { default as BusinessImage } from './../src/objects/business-image';
 export { default as BusinessOwnedObjectOnBehalfOfRequest } from './../src/objects/business-owned-object-on-behalf-of-request';
 export { default as BusinessPageRequest } from './../src/objects/business-page-request';
 export { default as BusinessProject } from './../src/objects/business-project';
@@ -170,6 +173,7 @@ export { default as CatalogBasedTargeting } from './../src/objects/catalog-based
 export { default as CheckBatchRequestStatus } from './../src/objects/check-batch-request-status';
 export { default as ChildEvent } from './../src/objects/child-event';
 export { default as ClientTransparencyStatus } from './../src/objects/client-transparency-status';
+export { default as CollaborativeAdsShareSettings } from './../src/objects/collaborative-ads-share-settings';
 export { default as Comment } from './../src/objects/comment';
 export { default as CommerceSettings } from './../src/objects/commerce-settings';
 export { default as ConversionActionQuery } from './../src/objects/conversion-action-query';
@@ -271,7 +275,6 @@ export { default as MusicVideoCopyright } from './../src/objects/music-video-cop
 export { default as NativeOffer } from './../src/objects/native-offer';
 export { default as NativeOfferDiscount } from './../src/objects/native-offer-discount';
 export { default as NativeOfferView } from './../src/objects/native-offer-view';
-export { default as NullNode } from './../src/objects/null-node';
 export { default as OfflineConversionDataSet } from './../src/objects/offline-conversion-data-set';
 export { default as OfflineTermsOfService } from './../src/objects/offline-terms-of-service';
 export { default as OffsitePixel } from './../src/objects/offsite-pixel';
@@ -299,6 +302,7 @@ export { default as PageStartInfo } from './../src/objects/page-start-info';
 export { default as PageThreadOwner } from './../src/objects/page-thread-owner';
 export { default as PageUpcomingChange } from './../src/objects/page-upcoming-change';
 export { default as PageUserMessageThreadLabel } from './../src/objects/page-user-message-thread-label';
+export { default as PartnerStudy } from './../src/objects/partner-study';
 export { default as PaymentPricepoints } from './../src/objects/payment-pricepoints';
 export { default as Permission } from './../src/objects/permission';
 export { default as Persona } from './../src/objects/persona';
@@ -336,7 +340,6 @@ export { default as ProfilePictureSource } from './../src/objects/profile-pictur
 export { default as PublisherBlockList } from './../src/objects/publisher-block-list';
 export { default as RTBDynamicPost } from './../src/objects/rtb-dynamic-post';
 export { default as RawCustomAudience } from './../src/objects/raw-custom-audience';
-export { default as ReachEstimate } from './../src/objects/reach-estimate';
 export { default as ReachFrequencyActivity } from './../src/objects/reach-frequency-activity';
 export { default as ReachFrequencyAdFormat } from './../src/objects/reach-frequency-ad-format';
 export { default as ReachFrequencyCurveLowerConfidenceRange } from './../src/objects/reach-frequency-curve-lower-confidence-range';
@@ -369,6 +372,7 @@ export { default as TargetingGeoLocationCustomLocation } from './../src/objects/
 export { default as TargetingGeoLocationElectoralDistrict } from './../src/objects/targeting-geo-location-electoral-district';
 export { default as TargetingGeoLocationGeoEntities } from './../src/objects/targeting-geo-location-geo-entities';
 export { default as TargetingGeoLocationLocationCluster } from './../src/objects/targeting-geo-location-location-cluster';
+export { default as TargetingGeoLocationLocationExpansion } from './../src/objects/targeting-geo-location-location-expansion';
 export { default as TargetingGeoLocationMarket } from './../src/objects/targeting-geo-location-market';
 export { default as TargetingGeoLocationPlace } from './../src/objects/targeting-geo-location-place';
 export { default as TargetingGeoLocationPoliticalDistrict } from './../src/objects/targeting-geo-location-political-district';

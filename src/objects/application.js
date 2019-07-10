@@ -11,6 +11,7 @@ import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import AdNetworkAnalyticsSyncQueryResult from './ad-network-analytics-sync-query-result';
 import AdNetworkAnalyticsAsyncQueryResult from './ad-network-analytics-async-query-result';
+import Business from './business';
 import Group from './group';
 import AdAccount from './ad-account';
 import User from './user';
@@ -103,6 +104,7 @@ export default class Application extends AbstractCrudObject {
       property_id: 'property_id',
       real_time_mode_devices: 'real_time_mode_devices',
       restrictions: 'restrictions',
+      restrictive_data_filter_params: 'restrictive_data_filter_params',
       restrictive_data_filter_rules: 'restrictive_data_filter_rules',
       sdk_update_message: 'sdk_update_message',
       seamless_login: 'seamless_login',
@@ -265,6 +267,16 @@ export default class Application extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/adnetworkanalytics_results'
+    );
+  }
+
+  getAgencies (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      Business,
+      fields,
+      params,
+      fetchFirstPage,
+      '/agencies'
     );
   }
 

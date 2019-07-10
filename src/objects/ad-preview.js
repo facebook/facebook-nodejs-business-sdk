@@ -30,6 +30,7 @@ export default class AdPreview extends AbstractCrudObject {
       facebook_story_mobile: 'FACEBOOK_STORY_MOBILE',
       instagram_standard: 'INSTAGRAM_STANDARD',
       instagram_story: 'INSTAGRAM_STORY',
+      instant_article_recirculation_ad: 'INSTANT_ARTICLE_RECIRCULATION_AD',
       instant_article_standard: 'INSTANT_ARTICLE_STANDARD',
       instream_video_desktop: 'INSTREAM_VIDEO_DESKTOP',
       instream_video_mobile: 'INSTREAM_VIDEO_MOBILE',

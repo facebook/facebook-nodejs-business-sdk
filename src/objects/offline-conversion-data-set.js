@@ -34,6 +34,7 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
       id: 'id',
       is_mta_use: 'is_mta_use',
       is_restricted_use: 'is_restricted_use',
+      is_unavailable: 'is_unavailable',
       last_upload_app: 'last_upload_app',
       last_upload_app_changed_time: 'last_upload_app_changed_time',
       match_rate_approx: 'match_rate_approx',
@@ -76,13 +77,6 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
       fields,
       params,
       OfflineConversionDataSet
-    );
-  }
-
-  deleteAgencies (params: Object = {}): Promise<*> {
-    return super.deleteEdge(
-      '/agencies',
-      params
     );
   }
 

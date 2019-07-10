@@ -18,16 +18,19 @@ import AppRequest from './app-request';
 import ProductCatalog from './product-catalog';
 import BusinessUser from './business-user';
 import Business from './business';
+import PageUserMessageThreadLabel from './page-user-message-thread-label';
 import Event from './event';
 import FriendList from './friend-list';
 import Group from './group';
 import UserIDForApp from './user-id-for-app';
 import UserIDForPage from './user-id-for-page';
+import InsightsResult from './insights-result';
 import LiveEncoder from './live-encoder';
 import LiveVideo from './live-video';
 import Permission from './permission';
 import Photo from './photo';
 import ProfilePictureSource from './profile-picture-source';
+import Post from './post';
 import Domain from './domain';
 import RequestHistory from './request-history';
 import UserTaggableFriend from './user-taggable-friend';
@@ -46,6 +49,7 @@ export default class User extends AbstractCrudObject {
       address: 'address',
       admin_notes: 'admin_notes',
       age_range: 'age_range',
+      auth_method: 'auth_method',
       birthday: 'birthday',
       can_review_measurement_request: 'can_review_measurement_request',
       cover: 'cover',
@@ -53,7 +57,6 @@ export default class User extends AbstractCrudObject {
       devices: 'devices',
       education: 'education',
       email: 'email',
-      employee_number: 'employee_number',
       favorite_athletes: 'favorite_athletes',
       favorite_teams: 'favorite_teams',
       first_name: 'first_name',
@@ -104,22 +107,6 @@ export default class User extends AbstractCrudObject {
     });
   }
 
-  static get Tasks (): Object {
-    return Object.freeze({
-      advertise: 'ADVERTISE',
-      analyze: 'ANALYZE',
-      create_content: 'CREATE_CONTENT',
-      manage: 'MANAGE',
-      manage_jobs: 'MANAGE_JOBS',
-      manage_leads: 'MANAGE_LEADS',
-      moderate: 'MODERATE',
-      moderate_community: 'MODERATE_COMMUNITY',
-      pages_messaging: 'PAGES_MESSAGING',
-      pages_messaging_subscriptions: 'PAGES_MESSAGING_SUBSCRIPTIONS',
-      read_page_mailboxes: 'READ_PAGE_MAILBOXES',
-      view_monetization_insights: 'VIEW_MONETIZATION_INSIGHTS',
-    });
-  }
   static get LocalNewsMegaphoneDismissStatus (): Object {
     return Object.freeze({
       no: 'NO',
@@ -203,19 +190,19 @@ export default class User extends AbstractCrudObject {
     });
   }
 
+  deleteAccessTokens (params: Object = {}): Promise<*> {
+    return super.deleteEdge(
+      '/access_tokens',
+      params
+    );
+  }
+
   createAccessToken (fields: Array<string>, params: Object = {}): Promise<User> {
     return this.createEdge(
       '/access_tokens',
       fields,
       params,
       User
-    );
-  }
-
-  deleteAccessTokens (params: Object = {}): Promise<*> {
-    return super.deleteEdge(
-      '/accesstokens',
-      params
     );
   }
 
@@ -373,6 +360,16 @@ export default class User extends AbstractCrudObject {
     );
   }
 
+  getCustomLabels (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      PageUserMessageThreadLabel,
+      fields,
+      params,
+      fetchFirstPage,
+      '/custom_labels'
+    );
+  }
+
   getEvents (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Event,
@@ -452,7 +449,16 @@ export default class User extends AbstractCrudObject {
 
   createGamesAchieve (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
-      '/games.achieves',
+      '/games_achieves',
+      fields,
+      params,
+      
+    );
+  }
+
+  createGamesPlay (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+    return this.createEdge(
+      '/games_plays',
       fields,
       params,
       
@@ -462,15 +468,6 @@ export default class User extends AbstractCrudObject {
   createGamesStat (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/games_stats',
-      fields,
-      params,
-      
-    );
-  }
-
-  createGamesPlay (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
-    return this.createEdge(
-      '/gamesplays',
       fields,
       params,
       
@@ -514,6 +511,16 @@ export default class User extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/ids_for_pages'
+    );
+  }
+
+  getInsights (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      InsightsResult,
+      fields,
+      params,
+      fetchFirstPage,
+      '/insights'
     );
   }
 
@@ -574,24 +581,6 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  createMomentsLinkInviteConvert (fields: Array<string>, params: Object = {}): Promise<User> {
-    return this.createEdge(
-      '/moments_link_invite_convert',
-      fields,
-      params,
-      User
-    );
-  }
-
-  createMomentsUniversalLinkInvite (fields: Array<string>, params: Object = {}): Promise<User> {
-    return this.createEdge(
-      '/moments_universal_link_invite',
-      fields,
-      params,
-      User
-    );
-  }
-
   getMovies (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Page,
@@ -615,15 +604,6 @@ export default class User extends AbstractCrudObject {
   createNotification (fields: Array<string>, params: Object = {}): Promise<User> {
     return this.createEdge(
       '/notifications',
-      fields,
-      params,
-      User
-    );
-  }
-
-  createPaymentCurrency (fields: Array<string>, params: Object = {}): Promise<User> {
-    return this.createEdge(
-      '/payment_currencies',
       fields,
       params,
       User
@@ -692,6 +672,16 @@ export default class User extends AbstractCrudObject {
       fields,
       params,
       
+    );
+  }
+
+  getPosts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      Post,
+      fields,
+      params,
+      fetchFirstPage,
+      '/posts'
     );
   }
 

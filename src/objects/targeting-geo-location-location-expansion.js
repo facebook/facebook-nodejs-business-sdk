@@ -9,16 +9,14 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * AdCreativeOptimizationSpec
+ * TargetingGeoLocationLocationExpansion
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class AdCreativeOptimizationSpec extends AbstractCrudObject {
+export default class TargetingGeoLocationLocationExpansion extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      bodies: 'bodies',
-      descriptions: 'descriptions',
-      titles: 'titles',
+      allowed: 'allowed',
     });
   }
 

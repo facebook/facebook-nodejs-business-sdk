@@ -50,7 +50,7 @@ import OfflineConversionDataSet from './offline-conversion-data-set';
 import BusinessOwnedObjectOnBehalfOfRequest from './business-owned-object-on-behalf-of-request';
 import Page from './page';
 import PublisherBlockList from './publisher-block-list';
-import ReachEstimate from './reach-estimate';
+import AdAccountReachEstimate from './ad-account-reach-estimate';
 import ReachFrequencyPrediction from './reach-frequency-prediction';
 import AdAccountRoas from './ad-account-roas';
 import SavedAudience from './saved-audience';
@@ -91,6 +91,7 @@ export default class AdAccount extends AbstractCrudObject {
       disable_reason: 'disable_reason',
       end_advertiser: 'end_advertiser',
       end_advertiser_name: 'end_advertiser_name',
+      extended_credit_invoice_group: 'extended_credit_invoice_group',
       failed_delivery_checks: 'failed_delivery_checks',
       fb_entity: 'fb_entity',
       funding_source: 'funding_source',
@@ -192,6 +193,8 @@ export default class AdAccount extends AbstractCrudObject {
     return Object.freeze({
       advertise: 'ADVERTISE',
       analyze: 'ANALYZE',
+      creative: 'CREATIVE',
+      fb_employee_dso_advertise: 'FB_EMPLOYEE_DSO_ADVERTISE',
       manage: 'MANAGE',
     });
   }
@@ -199,6 +202,8 @@ export default class AdAccount extends AbstractCrudObject {
     return Object.freeze({
       advertise: 'ADVERTISE',
       analyze: 'ANALYZE',
+      creative: 'CREATIVE',
+      fb_employee_dso_advertise: 'FB_EMPLOYEE_DSO_ADVERTISE',
       manage: 'MANAGE',
     });
   }
@@ -273,6 +278,13 @@ export default class AdAccount extends AbstractCrudObject {
       fields,
       params,
       AdPlacePageSet
+    );
+  }
+
+  deleteAdSets (params: Object = {}): Promise<*> {
+    return super.deleteEdge(
+      '/ad_sets',
+      params
     );
   }
 
@@ -495,13 +507,6 @@ export default class AdAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/adsbylabels'
-    );
-  }
-
-  deleteAdSets (params: Object = {}): Promise<*> {
-    return super.deleteEdge(
-      '/adsets',
-      params
     );
   }
 
@@ -733,15 +738,6 @@ export default class AdAccount extends AbstractCrudObject {
       fields,
       params,
       AdAccount
-    );
-  }
-
-  createBrandAudience (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
-    return this.createEdge(
-      '/brand_audiences',
-      fields,
-      params,
-      
     );
   }
 
@@ -996,15 +992,6 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createPartnerRequest (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
-    return this.createEdge(
-      '/partnerrequests',
-      fields,
-      params,
-      
-    );
-  }
-
   createProductAudience (fields: Array<string>, params: Object = {}): Promise<CustomAudience> {
     return this.createEdge(
       '/product_audiences',
@@ -1045,7 +1032,7 @@ export default class AdAccount extends AbstractCrudObject {
 
   getReachEstimate (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      ReachEstimate,
+      AdAccountReachEstimate,
       fields,
       params,
       fetchFirstPage,
@@ -1177,13 +1164,6 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  deleteUsers (params: Object = {}): Promise<*> {
-    return super.deleteEdge(
-      '/users',
-      params
-    );
-  }
-
   getUsers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdAccountUser,
@@ -1191,15 +1171,6 @@ export default class AdAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/users'
-    );
-  }
-
-  createUser (fields: Array<string>, params: Object = {}): Promise<AdAccount> {
-    return this.createEdge(
-      '/users',
-      fields,
-      params,
-      AdAccount
     );
   }
 

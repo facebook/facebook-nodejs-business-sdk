@@ -28,13 +28,4 @@ export default class LeadGenQuestion extends AbstractCrudObject {
     });
   }
 
-
-  
-  get (fields: Array<string>, params: Object = {}): LeadGenQuestion {
-    // $FlowFixMe : Support Generic Types
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

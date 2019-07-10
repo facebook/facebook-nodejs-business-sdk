@@ -46,6 +46,15 @@ export default class ExtendedCreditInvoiceGroup extends AbstractCrudObject {
     );
   }
 
+  createAdAccount (fields: Array<string>, params: Object = {}): Promise<AdAccount> {
+    return this.createEdge(
+      '/ad_accounts',
+      fields,
+      params,
+      AdAccount
+    );
+  }
+
   // $FlowFixMe : Support Generic Types
   delete (fields: Array<string>, params: Object = {}): AbstractObject {
     // $FlowFixMe : Support Generic Types

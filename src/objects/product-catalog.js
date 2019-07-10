@@ -16,6 +16,7 @@ import DynamicItemDisplayBundleFolder from './dynamic-item-display-bundle-folder
 import DynamicItemDisplayBundle from './dynamic-item-display-bundle';
 import ProductCatalogCategory from './product-catalog-category';
 import CheckBatchRequestStatus from './check-batch-request-status';
+import CollaborativeAdsShareSettings from './collaborative-ads-share-settings';
 import Destination from './destination';
 import ProductEventStat from './product-event-stat';
 import ExternalEventSource from './external-event-source';
@@ -55,11 +56,14 @@ export default class ProductCatalog extends AbstractCrudObject {
 
   static get Vertical (): Object {
     return Object.freeze({
+      bookable: 'bookable',
       commerce: 'commerce',
       destinations: 'destinations',
       flights: 'flights',
       home_listings: 'home_listings',
       hotels: 'hotels',
+      ticketed_experiences: 'ticketed_experiences',
+      transactable_items: 'transactable_items',
       vehicles: 'vehicles',
     });
   }
@@ -202,6 +206,16 @@ export default class ProductCatalog extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/check_batch_request_status'
+    );
+  }
+
+  getCollaborativeAdsShareSettings (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      CollaborativeAdsShareSettings,
+      fields,
+      params,
+      fetchFirstPage,
+      '/collaborative_ads_share_settings'
     );
   }
 

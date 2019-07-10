@@ -38,6 +38,7 @@ export default class AdgroupPlacementSpecificReviewFeedback extends AbstractCrud
       profile: 'profile',
       seller: 'seller',
       shops: 'shops',
+      traffic_quality: 'traffic_quality',
       whatsapp: 'whatsapp',
     });
   }

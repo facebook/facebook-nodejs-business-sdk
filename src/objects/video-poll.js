@@ -28,6 +28,13 @@ export default class VideoPoll extends AbstractCrudObject {
     });
   }
 
+  static get Status (): Object {
+    return Object.freeze({
+      closed: 'closed',
+      results_open: 'results_open',
+      voting_open: 'voting_open',
+    });
+  }
   static get Action (): Object {
     return Object.freeze({
       attach_to_video: 'ATTACH_TO_VIDEO',

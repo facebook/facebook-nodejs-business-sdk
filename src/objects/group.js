@@ -304,7 +304,7 @@ export default class Group extends AbstractCrudObject {
 
   createOpenGraphActionFeed (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
-      '/opengraphactionfeed',
+      '/open_graph_action_feed',
       fields,
       params,
       

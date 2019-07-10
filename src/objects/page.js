@@ -9,7 +9,6 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
-import User from './user';
 import PagePost from './page-post';
 import Business from './business';
 import Album from './album';
@@ -379,6 +378,7 @@ export default class Page extends AbstractCrudObject {
       branded_camera: 'branded_camera',
       category: 'category',
       checkins: 'checkins',
+      commerce_order: 'commerce_order',
       company_overview: 'company_overview',
       conversations: 'conversations',
       culinary_team: 'culinary_team',
@@ -474,22 +474,6 @@ export default class Page extends AbstractCrudObject {
       fields,
       params,
       Page
-    );
-  }
-
-  deleteAdmins (params: Object = {}): Promise<*> {
-    return super.deleteEdge(
-      '/admins',
-      params
-    );
-  }
-
-  createAdmin (fields: Array<string>, params: Object = {}): Promise<User> {
-    return this.createEdge(
-      '/admins',
-      fields,
-      params,
-      User
     );
   }
 

@@ -9,13 +9,13 @@
 
  'use strict';
 const bizSdk = require('facebook-nodejs-business-sdk');
-const CustomAudience = bizSdk.CustomAudience;
-const AbstractObject = bizSdk.AbstractObject;
+const AdAccount = bizSdk.AdAccount;
+const Campaign = bizSdk.Campaign;
 
 const access_token = '<ACCESS_TOKEN>';
 const app_secret = '<APP_SECRET>';
 const app_id = '<APP_ID>';
-const id = '<CUSTOM_AUDIENCE_ID>';
+const id = '<AD_ACCOUNT_ID>';
 const api = bizSdk.FacebookAdsApi.init(access_token);
 const showDebugingInfo = true; // Setting this to true shows more debugging info.
 if (showDebugingInfo) {
@@ -33,9 +33,13 @@ let fields, params;
 fields = [
 ];
 params = {
+  'name' : 'Store Visits Campaign',
+  'objective' : 'STORE_VISITS',
+  'promoted_object' : {'page_id':'<pageID>'},
+  'status' : 'PAUSED',
 };
-const sample_code = (new CustomAudience(id)).delete(
+const campaigns = (new AdAccount(id)).createCampaign(
   fields,
   params
 );
-logApiCallResult('sample_code api call complete.', sample_code);
+logApiCallResult('campaigns api call complete.', campaigns);

@@ -7,7 +7,6 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import AdAccount from './ad-account';
 
@@ -26,12 +25,6 @@ export default class EventSourceGroup extends AbstractCrudObject {
     });
   }
 
-  static get Tasks (): Object {
-    return Object.freeze({
-      analyze: 'ANALYZE',
-      analyze_with_limitations: 'ANALYZE_WITH_LIMITATIONS',
-    });
-  }
 
   getSharedAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
@@ -46,32 +39,6 @@ export default class EventSourceGroup extends AbstractCrudObject {
   createSharedAccount (fields: Array<string>, params: Object = {}): Promise<EventSourceGroup> {
     return this.createEdge(
       '/shared_accounts',
-      fields,
-      params,
-      EventSourceGroup
-    );
-  }
-
-  deleteUserPermissions (params: Object = {}): Promise<*> {
-    return super.deleteEdge(
-      '/userpermissions',
-      params
-    );
-  }
-
-  getUserPermissions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/userpermissions'
-    );
-  }
-
-  createUserPermission (fields: Array<string>, params: Object = {}): Promise<EventSourceGroup> {
-    return this.createEdge(
-      '/userpermissions',
       fields,
       params,
       EventSourceGroup

@@ -109,6 +109,11 @@ export default class Post extends AbstractCrudObject {
       normal: 'normal',
     });
   }
+  static get With (): Object {
+    return Object.freeze({
+      location: 'LOCATION',
+    });
+  }
 
   getAttachments (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(

@@ -9,13 +9,13 @@
 
  'use strict';
 const bizSdk = require('facebook-nodejs-business-sdk');
-const CustomAudience = bizSdk.CustomAudience;
-const AbstractObject = bizSdk.AbstractObject;
+const AdAccount = bizSdk.AdAccount;
+const AdPreview = bizSdk.AdPreview;
 
 const access_token = '<ACCESS_TOKEN>';
 const app_secret = '<APP_SECRET>';
 const app_id = '<APP_ID>';
-const id = '<CUSTOM_AUDIENCE_ID>';
+const id = '<AD_ACCOUNT_ID>';
 const api = bizSdk.FacebookAdsApi.init(access_token);
 const showDebugingInfo = true; // Setting this to true shows more debugging info.
 if (showDebugingInfo) {
@@ -33,9 +33,11 @@ let fields, params;
 fields = [
 ];
 params = {
+  'creative' : {'instagram_actor_id':'<instagramActorID>','object_story_spec':{'link_data':{'call_to_action':{'type':'LEARN_MORE','value':{'link':'<url>'}},'caption':'www.example.com','image_hash':'<imageHash>','link':'<url>','message':'Message'},'page_id':'<pageID>'}},
+  'ad_format' : 'INSTAGRAM_STANDARD',
 };
-const sample_code = (new CustomAudience(id)).delete(
+const generatepreviewss = (new AdAccount(id)).getGeneratePreviews(
   fields,
   params
 );
-logApiCallResult('sample_code api call complete.', sample_code);
+logApiCallResult('generatepreviewss api call complete.', generatepreviewss);
