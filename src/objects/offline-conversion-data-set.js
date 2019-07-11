@@ -124,7 +124,7 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
       '/events',
       fields,
       params,
-      
+      AbstractObject
     );
   }
 
