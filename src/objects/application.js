@@ -82,7 +82,6 @@ export default class Application extends AbstractCrudObject {
       ios_supports_system_auth: 'ios_supports_system_auth',
       ipad_app_store_id: 'ipad_app_store_id',
       iphone_app_store_id: 'iphone_app_store_id',
-      is_viewer_admin: 'is_viewer_admin',
       latest_sdk_version: 'latest_sdk_version',
       link: 'link',
       logging_token: 'logging_token',

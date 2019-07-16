@@ -436,6 +436,7 @@ export default class Page extends AbstractCrudObject {
       ratings: 'ratings',
       registration: 'registration',
       standby: 'standby',
+      video_text_question_responses: 'video_text_question_responses',
       videos: 'videos',
       website: 'website',
     });

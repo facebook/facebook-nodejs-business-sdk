@@ -21,6 +21,7 @@ export default class LeadgenForm extends AbstractCrudObject {
     return Object.freeze({
       allow_organic_lead: 'allow_organic_lead',
       block_display_for_non_targeted_viewer: 'block_display_for_non_targeted_viewer',
+      context_card: 'context_card',
       created_time: 'created_time',
       creator: 'creator',
       creator_id: 'creator_id',
@@ -46,6 +47,7 @@ export default class LeadgenForm extends AbstractCrudObject {
       questions: 'questions',
       status: 'status',
       tcpa_compliance: 'tcpa_compliance',
+      thank_you_page: 'thank_you_page',
       tracking_parameters: 'tracking_parameters',
     });
   }

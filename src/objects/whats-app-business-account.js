@@ -27,6 +27,7 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
       message_template_namespace: 'message_template_namespace',
       name: 'name',
       on_behalf_of_business_info: 'on_behalf_of_business_info',
+      purchase_order_number: 'purchase_order_number',
       status: 'status',
       timezone_id: 'timezone_id',
     });

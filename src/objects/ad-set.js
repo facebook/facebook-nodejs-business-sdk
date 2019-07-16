@@ -117,6 +117,7 @@ export default class AdSet extends AbstractCrudObject {
       archived: 'ARCHIVED',
       deleted: 'DELETED',
       paused: 'PAUSED',
+      with_issues: 'WITH_ISSUES',
     });
   }
   static get OptimizationGoal (): Object {

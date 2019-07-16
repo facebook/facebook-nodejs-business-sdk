@@ -78,6 +78,7 @@ export default class Campaign extends AbstractCrudObject {
       archived: 'ARCHIVED',
       deleted: 'DELETED',
       paused: 'PAUSED',
+      with_issues: 'WITH_ISSUES',
     });
   }
   static get Status (): Object {

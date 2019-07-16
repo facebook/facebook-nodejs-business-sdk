@@ -136,6 +136,7 @@ export default class ReachFrequencyPrediction extends AbstractCrudObject {
       regular_sports: 'REGULAR_SPORTS',
       regular_style: 'REGULAR_STYLE',
       regular_tv_movies: 'REGULAR_TV_MOVIES',
+      spanish: 'SPANISH',
       sports: 'SPORTS',
     });
   }
