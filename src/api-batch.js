@@ -115,7 +115,7 @@ class FacebookAdsApiBatch {
       method: method,
       relative_url: relativeUrl,
       body: body,
-      nam: name,
+      name: name,
       attachedFiles: attachedFiles,
     };
 
