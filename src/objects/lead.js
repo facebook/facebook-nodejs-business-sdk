@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
 
 /**
  * Lead
@@ -37,6 +38,14 @@ export default class Lead extends AbstractCrudObject {
     });
   }
 
+
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
+    return super.delete(
+      params
+    );
+  }
 
   
   get (fields: Array<string>, params: Object = {}): Lead {

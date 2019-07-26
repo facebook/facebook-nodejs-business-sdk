@@ -25,7 +25,6 @@ import PartnerStudy from './partner-study';
 export default class AdStudyObjective extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      custom_attributes: 'custom_attributes',
       id: 'id',
       is_primary: 'is_primary',
       last_updated_results: 'last_updated_results',

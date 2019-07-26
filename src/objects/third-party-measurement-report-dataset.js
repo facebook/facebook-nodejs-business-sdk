@@ -24,18 +24,6 @@ export default class ThirdPartyMeasurementReportDataset extends AbstractCrudObje
     });
   }
 
-  static get Category (): Object {
-    return Object.freeze({
-      mta: 'MTA',
-    });
-  }
-  static get Product (): Object {
-    return Object.freeze({
-      custom: 'CUSTOM',
-      mta: 'MTA',
-      viewability: 'VIEWABILITY',
-    });
-  }
 
   
   get (fields: Array<string>, params: Object = {}): ThirdPartyMeasurementReportDataset {

@@ -21,7 +21,6 @@ export default class AdCreativeLinkData extends AbstractCrudObject {
       attachment_style: 'attachment_style',
       branded_content_shared_to_sponsor_status: 'branded_content_shared_to_sponsor_status',
       branded_content_sponsor_page_id: 'branded_content_sponsor_page_id',
-      branded_content_sponsor_relationship: 'branded_content_sponsor_relationship',
       call_to_action: 'call_to_action',
       caption: 'caption',
       child_attachments: 'child_attachments',

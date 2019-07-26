@@ -157,7 +157,6 @@ export default class AdsInsights extends AbstractCrudObject {
       impression_device: 'impression_device',
       impressions: 'impressions',
       impressions_auto_refresh: 'impressions_auto_refresh',
-      impressions_dummy: 'impressions_dummy',
       impressions_gross: 'impressions_gross',
       inline_link_click_ctr: 'inline_link_click_ctr',
       inline_link_clicks: 'inline_link_clicks',

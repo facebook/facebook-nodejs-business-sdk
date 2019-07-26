@@ -18,7 +18,6 @@ export default class AdCreativePhotoData extends AbstractCrudObject {
     return Object.freeze({
       branded_content_shared_to_sponsor_status: 'branded_content_shared_to_sponsor_status',
       branded_content_sponsor_page_id: 'branded_content_sponsor_page_id',
-      branded_content_sponsor_relationship: 'branded_content_sponsor_relationship',
       caption: 'caption',
       image_hash: 'image_hash',
       page_welcome_message: 'page_welcome_message',

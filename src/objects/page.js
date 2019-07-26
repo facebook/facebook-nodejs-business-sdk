@@ -9,11 +9,11 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
+import User from './user';
 import PagePost from './page-post';
 import Business from './business';
 import Album from './album';
 import AssignedUser from './assigned-user';
-import AudioCopyright from './audio-copyright';
 import Profile from './profile';
 import BusinessProject from './business-project';
 import PageCallToAction from './page-call-to-action';
@@ -39,6 +39,7 @@ import NativeOffer from './native-offer';
 import Persona from './persona';
 import Photo from './photo';
 import ProfilePictureSource from './profile-picture-source';
+import Recommendation from './recommendation';
 import RTBDynamicPost from './rtb-dynamic-post';
 import Application from './application';
 import PageSettings from './page-settings';
@@ -81,7 +82,6 @@ export default class Page extends AbstractCrudObject {
       company_overview: 'company_overview',
       connected_instagram_account: 'connected_instagram_account',
       contact_address: 'contact_address',
-      copyright_attribution_insights: 'copyright_attribution_insights',
       copyright_whitelisted_ig_partners: 'copyright_whitelisted_ig_partners',
       country_page_likes: 'country_page_likes',
       cover: 'cover',
@@ -269,13 +269,6 @@ export default class Page extends AbstractCrudObject {
       vietnamese: 'Vietnamese',
     });
   }
-  static get Setting (): Object {
-    return Object.freeze({
-      email_notif: 'EMAIL_NOTIF',
-      mobile_notif: 'MOBILE_NOTIF',
-      post_as_self: 'POST_AS_SELF',
-    });
-  }
   static get PermittedTasks (): Object {
     return Object.freeze({
       advertise: 'ADVERTISE',
@@ -288,6 +281,7 @@ export default class Page extends AbstractCrudObject {
       moderate_community: 'MODERATE_COMMUNITY',
       pages_messaging: 'PAGES_MESSAGING',
       pages_messaging_subscriptions: 'PAGES_MESSAGING_SUBSCRIPTIONS',
+      platform_manage_pages: 'PLATFORM_MANAGE_PAGES',
       read_page_mailboxes: 'READ_PAGE_MAILBOXES',
       view_monetization_insights: 'VIEW_MONETIZATION_INSIGHTS',
     });
@@ -304,6 +298,7 @@ export default class Page extends AbstractCrudObject {
       moderate_community: 'MODERATE_COMMUNITY',
       pages_messaging: 'PAGES_MESSAGING',
       pages_messaging_subscriptions: 'PAGES_MESSAGING_SUBSCRIPTIONS',
+      platform_manage_pages: 'PLATFORM_MANAGE_PAGES',
       read_page_mailboxes: 'READ_PAGE_MAILBOXES',
       view_monetization_insights: 'VIEW_MONETIZATION_INSIGHTS',
     });
@@ -469,12 +464,19 @@ export default class Page extends AbstractCrudObject {
     });
   }
 
-  createAdminSetting (fields: Array<string>, params: Object = {}): Promise<Page> {
+  deleteAdmins (params: Object = {}): Promise<*> {
+    return super.deleteEdge(
+      '/admins',
+      params
+    );
+  }
+
+  createAdmin (fields: Array<string>, params: Object = {}): Promise<User> {
     return this.createEdge(
-      '/admin_settings',
+      '/admins',
       fields,
       params,
-      Page
+      User
     );
   }
 
@@ -556,16 +558,6 @@ export default class Page extends AbstractCrudObject {
       fields,
       params,
       Page
-    );
-  }
-
-  getAudioMediaCopyrights (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AudioCopyright,
-      fields,
-      params,
-      fetchFirstPage,
-      '/audio_media_copyrights'
     );
   }
 
@@ -951,6 +943,15 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
+  createLocation (fields: Array<string>, params: Object = {}): Promise<Page> {
+    return this.createEdge(
+      '/locations',
+      fields,
+      params,
+      Page
+    );
+  }
+
   createMediaFingerprint (fields: Array<string>, params: Object = {}): Promise<MediaFingerprint> {
     return this.createEdge(
       '/media_fingerprints',
@@ -1190,6 +1191,16 @@ export default class Page extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/published_posts'
+    );
+  }
+
+  getRatings (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      Recommendation,
+      fields,
+      params,
+      fetchFirstPage,
+      '/ratings'
     );
   }
 

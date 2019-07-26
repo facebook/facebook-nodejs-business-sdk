@@ -526,6 +526,16 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
+  getObjects (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      OpenGraphObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/objects'
+    );
+  }
+
   createObject (fields: Array<string>, params: Object = {}): Promise<OpenGraphObject> {
     return this.createEdge(
       '/objects',

@@ -20,7 +20,6 @@ export default class PageUpcomingChange extends AbstractCrudObject {
       effective_time: 'effective_time',
       id: 'id',
       page: 'page',
-      proposal: 'proposal',
       timer_status: 'timer_status',
     });
   }

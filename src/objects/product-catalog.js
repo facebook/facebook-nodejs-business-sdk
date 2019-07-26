@@ -49,7 +49,6 @@ export default class ProductCatalog extends AbstractCrudObject {
       id: 'id',
       name: 'name',
       product_count: 'product_count',
-      qualified_product_count: 'qualified_product_count',
       vertical: 'vertical',
     });
   }

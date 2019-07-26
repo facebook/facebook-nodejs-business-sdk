@@ -17,10 +17,8 @@ export default class MediaFingerprint extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       duration_in_sec: 'duration_in_sec',
-      expiration_time: 'expiration_time',
       fingerprint_content_type: 'fingerprint_content_type',
       fingerprint_type: 'fingerprint_type',
-      fingerprint_validity: 'fingerprint_validity',
       id: 'id',
       metadata: 'metadata',
       title: 'title',

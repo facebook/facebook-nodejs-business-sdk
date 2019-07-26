@@ -47,12 +47,6 @@ export default class AdStudy extends AbstractCrudObject {
       split_test: 'SPLIT_TEST',
     });
   }
-  static get AudienceType (): Object {
-    return Object.freeze({
-      most_responsive: 'MOST_RESPONSIVE',
-      not_most_responsive: 'NOT_MOST_RESPONSIVE',
-    });
-  }
 
   getCells (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
@@ -61,15 +55,6 @@ export default class AdStudy extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/cells'
-    );
-  }
-
-  createCustomAudience (fields: Array<string>, params: Object = {}): Promise<AdStudy> {
-    return this.createEdge(
-      '/customaudiences',
-      fields,
-      params,
-      AdStudy
     );
   }
 

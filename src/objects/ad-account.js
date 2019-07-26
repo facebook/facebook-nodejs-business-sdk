@@ -18,7 +18,6 @@ import AdCreative from './ad-creative';
 import AdImage from './ad-image';
 import AdLabel from './ad-label';
 import PlayableContent from './playable-content';
-import AdReportSpec from './ad-report-spec';
 import AdAccountAdRulesHistory from './ad-account-ad-rules-history';
 import AdRule from './ad-rule';
 import Ad from './ad';
@@ -194,6 +193,7 @@ export default class AdAccount extends AbstractCrudObject {
       advertise: 'ADVERTISE',
       analyze: 'ANALYZE',
       creative: 'CREATIVE',
+      draft: 'DRAFT',
       fb_employee_dso_advertise: 'FB_EMPLOYEE_DSO_ADVERTISE',
       manage: 'MANAGE',
     });
@@ -203,6 +203,7 @@ export default class AdAccount extends AbstractCrudObject {
       advertise: 'ADVERTISE',
       analyze: 'ANALYZE',
       creative: 'CREATIVE',
+      draft: 'DRAFT',
       fb_employee_dso_advertise: 'FB_EMPLOYEE_DSO_ADVERTISE',
       manage: 'MANAGE',
     });
@@ -275,6 +276,15 @@ export default class AdAccount extends AbstractCrudObject {
   createAdPlacePageSet (fields: Array<string>, params: Object = {}): Promise<AdPlacePageSet> {
     return this.createEdge(
       '/ad_place_page_sets',
+      fields,
+      params,
+      AdPlacePageSet
+    );
+  }
+
+  createAdPlacePageSetsAsync (fields: Array<string>, params: Object = {}): Promise<AdPlacePageSet> {
+    return this.createEdge(
+      '/ad_place_page_sets_async',
       fields,
       params,
       AdPlacePageSet
@@ -433,15 +443,6 @@ export default class AdAccount extends AbstractCrudObject {
       fields,
       params,
       
-    );
-  }
-
-  createAdReportSpec (fields: Array<string>, params: Object = {}): Promise<AdReportSpec> {
-    return this.createEdge(
-      '/adreportspecs',
-      fields,
-      params,
-      AdReportSpec
     );
   }
 
@@ -1164,6 +1165,13 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
+  deleteUsers (params: Object = {}): Promise<*> {
+    return super.deleteEdge(
+      '/users',
+      params
+    );
+  }
+
   getUsers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdAccountUser,
@@ -1171,6 +1179,15 @@ export default class AdAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/users'
+    );
+  }
+
+  createUser (fields: Array<string>, params: Object = {}): Promise<AdAccount> {
+    return this.createEdge(
+      '/users',
+      fields,
+      params,
+      AdAccount
     );
   }
 

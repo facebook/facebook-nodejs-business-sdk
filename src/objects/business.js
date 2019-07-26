@@ -17,6 +17,7 @@ import AdNetworkAnalyticsAsyncQueryResult from './ad-network-analytics-async-que
 import AdsPixel from './ads-pixel';
 import BusinessAdvertisableApplicationsResult from './business-advertisable-applications-result';
 import AdPlacement from './ad-placement';
+import OracleTransaction from './oracle-transaction';
 import BusinessUser from './business-user';
 import BusinessProject from './business-project';
 import CustomConversion from './custom-conversion';
@@ -112,6 +113,7 @@ export default class Business extends AbstractCrudObject {
       advertise: 'ADVERTISE',
       analyze: 'ANALYZE',
       creative: 'CREATIVE',
+      draft: 'DRAFT',
       fb_employee_dso_advertise: 'FB_EMPLOYEE_DSO_ADVERTISE',
       manage: 'MANAGE',
     });
@@ -136,6 +138,7 @@ export default class Business extends AbstractCrudObject {
       moderate_community: 'MODERATE_COMMUNITY',
       pages_messaging: 'PAGES_MESSAGING',
       pages_messaging_subscriptions: 'PAGES_MESSAGING_SUBSCRIPTIONS',
+      platform_manage_pages: 'PLATFORM_MANAGE_PAGES',
       read_page_mailboxes: 'READ_PAGE_MAILBOXES',
       view_monetization_insights: 'VIEW_MONETIZATION_INSIGHTS',
     });
@@ -285,6 +288,16 @@ export default class Business extends AbstractCrudObject {
       fields,
       params,
       Business
+    );
+  }
+
+  getBusinessInvoices (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      OracleTransaction,
+      fields,
+      params,
+      fetchFirstPage,
+      '/business_invoices'
     );
   }
 
@@ -932,15 +945,6 @@ export default class Business extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/third_party_measurement_report_dataset'
-    );
-  }
-
-  createThirdPartyMeasurementReportDataset (fields: Array<string>, params: Object = {}): Promise<ThirdPartyMeasurementReportDataset> {
-    return this.createEdge(
-      '/third_party_measurement_report_dataset',
-      fields,
-      params,
-      ThirdPartyMeasurementReportDataset
     );
   }
 

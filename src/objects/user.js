@@ -18,6 +18,7 @@ import AppRequest from './app-request';
 import ProductCatalog from './product-catalog';
 import BusinessUser from './business-user';
 import Business from './business';
+import UnifiedThread from './unified-thread';
 import PageUserMessageThreadLabel from './page-user-message-thread-label';
 import Event from './event';
 import FriendList from './friend-list';
@@ -34,7 +35,6 @@ import Post from './post';
 import Domain from './domain';
 import RequestHistory from './request-history';
 import UserTaggableFriend from './user-taggable-friend';
-import UnifiedThread from './unified-thread';
 import AdVideo from './ad-video';
 
 /**
@@ -107,6 +107,23 @@ export default class User extends AbstractCrudObject {
     });
   }
 
+  static get Tasks (): Object {
+    return Object.freeze({
+      advertise: 'ADVERTISE',
+      analyze: 'ANALYZE',
+      create_content: 'CREATE_CONTENT',
+      manage: 'MANAGE',
+      manage_jobs: 'MANAGE_JOBS',
+      manage_leads: 'MANAGE_LEADS',
+      moderate: 'MODERATE',
+      moderate_community: 'MODERATE_COMMUNITY',
+      pages_messaging: 'PAGES_MESSAGING',
+      pages_messaging_subscriptions: 'PAGES_MESSAGING_SUBSCRIPTIONS',
+      platform_manage_pages: 'PLATFORM_MANAGE_PAGES',
+      read_page_mailboxes: 'READ_PAGE_MAILBOXES',
+      view_monetization_insights: 'VIEW_MONETIZATION_INSIGHTS',
+    });
+  }
   static get LocalNewsMegaphoneDismissStatus (): Object {
     return Object.freeze({
       no: 'NO',
@@ -360,6 +377,16 @@ export default class User extends AbstractCrudObject {
     );
   }
 
+  getConversations (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      UnifiedThread,
+      fields,
+      params,
+      fetchFirstPage,
+      '/conversations'
+    );
+  }
+
   getCustomLabels (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       PageUserMessageThreadLabel,
@@ -387,6 +414,16 @@ export default class User extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/family'
+    );
+  }
+
+  getFavoriteRequests (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/favorite_requests'
     );
   }
 

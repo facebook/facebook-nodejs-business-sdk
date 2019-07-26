@@ -177,7 +177,6 @@ export { default as CollaborativeAdsShareSettings } from './../src/objects/colla
 export { default as Comment } from './../src/objects/comment';
 export { default as CommerceSettings } from './../src/objects/commerce-settings';
 export { default as ConversionActionQuery } from './../src/objects/conversion-action-query';
-export { default as CopyrightAttributionInsights } from './../src/objects/copyright-attribution-insights';
 export { default as CopyrightReferenceContainer } from './../src/objects/copyright-reference-container';
 export { default as CoverPhoto } from './../src/objects/cover-photo';
 export { default as CreativeHistory } from './../src/objects/creative-history';
@@ -351,6 +350,7 @@ export { default as ReachFrequencyEstimatesPlacementBreakdown } from './../src/o
 export { default as ReachFrequencyPrediction } from './../src/objects/reach-frequency-prediction';
 export { default as ReachFrequencySpec } from './../src/objects/reach-frequency-spec';
 export { default as ReadOnlyAnalyticsUserPropertyConfig } from './../src/objects/read-only-analytics-user-property-config';
+export { default as Recommendation } from './../src/objects/recommendation';
 export { default as Referral } from './../src/objects/referral';
 export { default as RequestHistory } from './../src/objects/request-history';
 export { default as RevSharePolicy } from './../src/objects/rev-share-policy';

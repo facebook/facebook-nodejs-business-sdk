@@ -26,6 +26,7 @@ export default class Comment extends AbstractCrudObject {
       can_hide: 'can_hide',
       can_like: 'can_like',
       can_remove: 'can_remove',
+      can_reply_privately: 'can_reply_privately',
       comment_count: 'comment_count',
       created_time: 'created_time',
       from: 'from',
@@ -39,6 +40,7 @@ export default class Comment extends AbstractCrudObject {
       object: 'object',
       parent: 'parent',
       permalink_url: 'permalink_url',
+      private_reply_conversation: 'private_reply_conversation',
       user_likes: 'user_likes',
     });
   }
@@ -83,6 +85,15 @@ export default class Comment extends AbstractCrudObject {
     );
   }
 
+  createComment (fields: Array<string>, params: Object = {}): Promise<Comment> {
+    return this.createEdge(
+      '/comments',
+      fields,
+      params,
+      Comment
+    );
+  }
+
   deleteLikes (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/likes',
@@ -106,6 +117,15 @@ export default class Comment extends AbstractCrudObject {
       fields,
       params,
       Comment
+    );
+  }
+
+  createPrivateReply (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+    return this.createEdge(
+      '/private_replies',
+      fields,
+      params,
+      
     );
   }
 

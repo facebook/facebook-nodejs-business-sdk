@@ -158,15 +158,6 @@ export default class CustomAudience extends AbstractCrudObject {
     );
   }
 
-  createDatum (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
-    return this.createEdge(
-      '/data',
-      fields,
-      params,
-      
-    );
-  }
-
   getPrefills (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       CustomAudiencePrefillState,

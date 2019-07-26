@@ -55,6 +55,35 @@ export default class Event extends AbstractCrudObject {
     });
   }
 
+  static get Category (): Object {
+    return Object.freeze({
+      art_event: 'ART_EVENT',
+      book_event: 'BOOK_EVENT',
+      class_event: 'CLASS_EVENT',
+      comedy_event: 'COMEDY_EVENT',
+      conference_event: 'CONFERENCE_EVENT',
+      dance_event: 'DANCE_EVENT',
+      dining_event: 'DINING_EVENT',
+      family_event: 'FAMILY_EVENT',
+      festival_event: 'FESTIVAL_EVENT',
+      fitness: 'FITNESS',
+      food_tasting: 'FOOD_TASTING',
+      fundraiser: 'FUNDRAISER',
+      lecture: 'LECTURE',
+      meetup: 'MEETUP',
+      movie_event: 'MOVIE_EVENT',
+      music_event: 'MUSIC_EVENT',
+      neighborhood: 'NEIGHBORHOOD',
+      nightlife: 'NIGHTLIFE',
+      other: 'OTHER',
+      religious_event: 'RELIGIOUS_EVENT',
+      shopping: 'SHOPPING',
+      sports_event: 'SPORTS_EVENT',
+      theater_event: 'THEATER_EVENT',
+      volunteering: 'VOLUNTEERING',
+      workshop: 'WORKSHOP',
+    });
+  }
   static get Type (): Object {
     return Object.freeze({
       community: 'community',
