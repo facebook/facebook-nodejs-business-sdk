@@ -1165,13 +1165,6 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  deleteUsers (params: Object = {}): Promise<*> {
-    return super.deleteEdge(
-      '/users',
-      params
-    );
-  }
-
   getUsers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdAccountUser,
@@ -1179,15 +1172,6 @@ export default class AdAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/users'
-    );
-  }
-
-  createUser (fields: Array<string>, params: Object = {}): Promise<AdAccount> {
-    return this.createEdge(
-      '/users',
-      fields,
-      params,
-      AdAccount
     );
   }
 

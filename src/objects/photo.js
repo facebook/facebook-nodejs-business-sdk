@@ -13,6 +13,7 @@ import Comment from './comment';
 import InsightsResult from './insights-result';
 import Profile from './profile';
 import Post from './post';
+import Page from './page';
 import TaggableSubject from './taggable-subject';
 
 /**
@@ -145,6 +146,16 @@ export default class Photo extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/sharedposts'
+    );
+  }
+
+  getSponsorTags (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      Page,
+      fields,
+      params,
+      fetchFirstPage,
+      '/sponsor_tags'
     );
   }
 

@@ -307,6 +307,16 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
+  getAppInsights (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/app_insights'
+    );
+  }
+
   getAppInstalledGroups (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Group,

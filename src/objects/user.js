@@ -20,6 +20,7 @@ import BusinessUser from './business-user';
 import Business from './business';
 import UnifiedThread from './unified-thread';
 import PageUserMessageThreadLabel from './page-user-message-thread-label';
+import Domain from './domain';
 import Event from './event';
 import FriendList from './friend-list';
 import Group from './group';
@@ -32,8 +33,9 @@ import Permission from './permission';
 import Photo from './photo';
 import ProfilePictureSource from './profile-picture-source';
 import Post from './post';
-import Domain from './domain';
 import RequestHistory from './request-history';
+import Canvas from './canvas';
+import PlatformSessionKey from './platform-session-key';
 import UserTaggableFriend from './user-taggable-friend';
 import AdVideo from './ad-video';
 
@@ -107,23 +109,6 @@ export default class User extends AbstractCrudObject {
     });
   }
 
-  static get Tasks (): Object {
-    return Object.freeze({
-      advertise: 'ADVERTISE',
-      analyze: 'ANALYZE',
-      create_content: 'CREATE_CONTENT',
-      manage: 'MANAGE',
-      manage_jobs: 'MANAGE_JOBS',
-      manage_leads: 'MANAGE_LEADS',
-      moderate: 'MODERATE',
-      moderate_community: 'MODERATE_COMMUNITY',
-      pages_messaging: 'PAGES_MESSAGING',
-      pages_messaging_subscriptions: 'PAGES_MESSAGING_SUBSCRIPTIONS',
-      platform_manage_pages: 'PLATFORM_MANAGE_PAGES',
-      read_page_mailboxes: 'READ_PAGE_MAILBOXES',
-      view_monetization_insights: 'VIEW_MONETIZATION_INSIGHTS',
-    });
-  }
   static get LocalNewsMegaphoneDismissStatus (): Object {
     return Object.freeze({
       no: 'NO',
@@ -394,6 +379,16 @@ export default class User extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/custom_labels'
+    );
+  }
+
+  getDomains (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      Domain,
+      fields,
+      params,
+      fetchFirstPage,
+      '/domains'
     );
   }
 
@@ -752,12 +747,32 @@ export default class User extends AbstractCrudObject {
     );
   }
 
+  getRichMediaDocuments (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      Canvas,
+      fields,
+      params,
+      fetchFirstPage,
+      '/rich_media_documents'
+    );
+  }
+
   createScreenName (fields: Array<string>, params: Object = {}): Promise<User> {
     return this.createEdge(
       '/screennames',
       fields,
       params,
       User
+    );
+  }
+
+  getSessionKeys (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      PlatformSessionKey,
+      fields,
+      params,
+      fetchFirstPage,
+      '/session_keys'
     );
   }
 

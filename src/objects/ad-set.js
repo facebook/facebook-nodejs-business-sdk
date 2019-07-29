@@ -14,6 +14,7 @@ import AdStudy from './ad-study';
 import AdCreative from './ad-creative';
 import AdRule from './ad-rule';
 import Ad from './ad';
+import AdAsyncRequest from './ad-async-request';
 import AdCampaignDeliveryEstimate from './ad-campaign-delivery-estimate';
 import AdsInsights from './ads-insights';
 import AdReportRun from './ad-report-run';
@@ -32,7 +33,6 @@ export default class AdSet extends AbstractCrudObject {
       adset_schedule: 'adset_schedule',
       asset_feed_id: 'asset_feed_id',
       attribution_spec: 'attribution_spec',
-      best_creative: 'best_creative',
       bid_adjustments: 'bid_adjustments',
       bid_amount: 'bid_amount',
       bid_constraints: 'bid_constraints',
@@ -277,6 +277,16 @@ export default class AdSet extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/ads'
+    );
+  }
+
+  getAsyncAdRequests (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AdAsyncRequest,
+      fields,
+      params,
+      fetchFirstPage,
+      '/asyncadrequests'
     );
   }
 

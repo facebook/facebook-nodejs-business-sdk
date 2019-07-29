@@ -15,6 +15,7 @@ import InsightsResult from './insights-result';
 import Profile from './profile';
 import User from './user';
 import Post from './post';
+import Page from './page';
 
 /**
  * PagePost
@@ -199,6 +200,16 @@ export default class PagePost extends AbstractCrudObject {
     );
   }
 
+  getEditActions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/edit_actions'
+    );
+  }
+
   getInsights (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       InsightsResult,
@@ -274,6 +285,16 @@ export default class PagePost extends AbstractCrudObject {
     );
   }
 
+  getSponsorTags (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      Page,
+      fields,
+      params,
+      fetchFirstPage,
+      '/sponsor_tags'
+    );
+  }
+
   getTo (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Profile,
@@ -281,6 +302,16 @@ export default class PagePost extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/to'
+    );
+  }
+
+  getWithTags (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      Profile,
+      fields,
+      params,
+      fetchFirstPage,
+      '/with_tags'
     );
   }
 

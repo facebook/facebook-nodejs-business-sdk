@@ -40,6 +40,8 @@ export default class AdAsyncRequest extends AbstractCrudObject {
       in_progress: 'IN_PROGRESS',
       pending_dependency: 'PENDING_DEPENDENCY',
       success: 'SUCCESS',
+      user_canceled: 'USER_CANCELED',
+      user_canceled_dependency: 'USER_CANCELED_DEPENDENCY',
     });
   }
 

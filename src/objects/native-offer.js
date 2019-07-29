@@ -7,6 +7,8 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import Cursor from './../cursor';
+import NativeOfferView from './native-offer-view';
 
 /**
  * NativeOffer
@@ -76,6 +78,16 @@ export default class NativeOffer extends AbstractCrudObject {
       fields,
       params,
       NativeOffer
+    );
+  }
+
+  getViews (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      NativeOfferView,
+      fields,
+      params,
+      fetchFirstPage,
+      '/views'
     );
   }
 
