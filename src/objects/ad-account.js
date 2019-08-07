@@ -31,6 +31,7 @@ import AssignedUser from './assigned-user';
 import Campaign from './campaign';
 import AsyncRequest from './async-request';
 import AdAsyncRequestSet from './ad-async-request-set';
+import BrandAudience from './brand-audience';
 import BroadTargetingCategories from './broad-targeting-categories';
 import BusinessProject from './business-project';
 import CustomAudience from './custom-audience';
@@ -606,6 +607,16 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
+  getAffectedAdSets (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AdSet,
+      fields,
+      params,
+      fetchFirstPage,
+      '/affectedadsets'
+    );
+  }
+
   deleteAgencies (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/agencies',
@@ -739,6 +750,16 @@ export default class AdAccount extends AbstractCrudObject {
       fields,
       params,
       AdAccount
+    );
+  }
+
+  getBrandAudiences (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      BrandAudience,
+      fields,
+      params,
+      fetchFirstPage,
+      '/brand_audiences'
     );
   }
 
@@ -881,6 +902,15 @@ export default class AdAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/deprecatedtargetingadsets'
+    );
+  }
+
+  createEmailImport (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+    return this.createEdge(
+      '/emailimport',
+      fields,
+      params,
+      
     );
   }
 

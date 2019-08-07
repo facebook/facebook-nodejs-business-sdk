@@ -16,6 +16,8 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class BusinessAdvertisableApplicationsResult extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
+      are_app_events_unavailable: 'are_app_events_unavailable',
+      business: 'business',
       has_insight_permission: 'has_insight_permission',
       id: 'id',
       name: 'name',

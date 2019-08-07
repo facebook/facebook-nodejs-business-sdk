@@ -149,6 +149,13 @@ export default class CustomAudience extends AbstractCrudObject {
     );
   }
 
+  deleteCapabilities (params: Object = {}): Promise<*> {
+    return super.deleteEdge(
+      '/capabilities',
+      params
+    );
+  }
+
   createCapability (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/capabilities',

@@ -158,6 +158,8 @@ export default class AdCreative extends AbstractCrudObject {
     return Object.freeze({
       active: 'ACTIVE',
       deleted: 'DELETED',
+      in_process: 'IN_PROCESS',
+      with_issues: 'WITH_ISSUES',
     });
   }
   static get AuthorizationCategory (): Object {

@@ -116,6 +116,7 @@ export default class AdSet extends AbstractCrudObject {
       active: 'ACTIVE',
       archived: 'ARCHIVED',
       deleted: 'DELETED',
+      in_process: 'IN_PROCESS',
       paused: 'PAUSED',
       with_issues: 'WITH_ISSUES',
     });
@@ -161,6 +162,7 @@ export default class AdSet extends AbstractCrudObject {
     return Object.freeze({
       app: 'APP',
       applinks_automatic: 'APPLINKS_AUTOMATIC',
+      facebook: 'FACEBOOK',
       messenger: 'MESSENGER',
       undefined: 'UNDEFINED',
       website: 'WEBSITE',

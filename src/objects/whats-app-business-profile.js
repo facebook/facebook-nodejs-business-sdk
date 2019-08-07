@@ -9,22 +9,26 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * ReachFrequencyEstimatesCurve
+ * WhatsAppBusinessProfile
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class ReachFrequencyEstimatesCurve extends AbstractCrudObject {
+export default class WhatsAppBusinessProfile extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      budget: 'budget',
-      conversion: 'conversion',
-      impression: 'impression',
-      interpolated_reach: 'interpolated_reach',
-      num_points: 'num_points',
-      raw_impression: 'raw_impression',
-      raw_reach: 'raw_reach',
-      reach: 'reach',
+      id: 'id',
+      name_verification: 'name_verification',
+      verified_name: 'verified_name',
     });
   }
 
+
+  
+  get (fields: Array<string>, params: Object = {}): WhatsAppBusinessProfile {
+    // $FlowFixMe : Support Generic Types
+    return this.read(
+      fields,
+      params
+    );
+  }
 }

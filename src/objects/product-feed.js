@@ -91,6 +91,7 @@ export default class ProductFeed extends AbstractCrudObject {
   }
   static get OverrideType (): Object {
     return Object.freeze({
+      catalog_segment_customize_default: 'CATALOG_SEGMENT_CUSTOMIZE_DEFAULT',
       country: 'COUNTRY',
       language: 'LANGUAGE',
     });

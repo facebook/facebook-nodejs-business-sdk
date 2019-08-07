@@ -147,6 +147,7 @@ export { default as AudiencePermissionForActions } from './../src/objects/audien
 export { default as AudioCopyright } from './../src/objects/audio-copyright';
 export { default as AutomotiveModel } from './../src/objects/automotive-model';
 export { default as BilledAmountDetails } from './../src/objects/billed-amount-details';
+export { default as BrandAudience } from './../src/objects/brand-audience';
 export { default as BrandSafetyBlockListUsage } from './../src/objects/brand-safety-block-list-usage';
 export { default as BroadTargetingCategories } from './../src/objects/broad-targeting-categories';
 export { default as Business } from './../src/objects/business';
@@ -154,6 +155,7 @@ export { default as BusinessAdAccountRequest } from './../src/objects/business-a
 export { default as BusinessAdvertisableApplicationsResult } from './../src/objects/business-advertisable-applications-result';
 export { default as BusinessAgreement } from './../src/objects/business-agreement';
 export { default as BusinessApplicationRequest } from './../src/objects/business-application-request';
+export { default as BusinessAssetSharingAgreement } from './../src/objects/business-asset-sharing-agreement';
 export { default as BusinessCreative } from './../src/objects/business-creative';
 export { default as BusinessCreativeFolder } from './../src/objects/business-creative-folder';
 export { default as BusinessImage } from './../src/objects/business-image';
@@ -417,5 +419,6 @@ export { default as VideoUploadLimits } from './../src/objects/video-upload-limi
 export { default as VoipInfo } from './../src/objects/voip-info';
 export { default as WebAppLink } from './../src/objects/web-app-link';
 export { default as WhatsAppBusinessAccount } from './../src/objects/whats-app-business-account';
+export { default as WhatsAppBusinessProfile } from './../src/objects/whats-app-business-profile';
 export { default as WindowsAppLink } from './../src/objects/windows-app-link';
 export { default as WindowsPhoneAppLink } from './../src/objects/windows-phone-app-link';

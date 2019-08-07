@@ -71,6 +71,7 @@ export default class Photo extends AbstractCrudObject {
       inline_created: 'INLINE_CREATED',
       published: 'PUBLISHED',
       scheduled: 'SCHEDULED',
+      scheduled_recurring: 'SCHEDULED_RECURRING',
     });
   }
   static get Type (): Object {

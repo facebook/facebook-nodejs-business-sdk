@@ -39,6 +39,7 @@ import NativeOffer from './native-offer';
 import Persona from './persona';
 import Photo from './photo';
 import ProfilePictureSource from './profile-picture-source';
+import PlaceTopic from './place-topic';
 import ProductCatalog from './product-catalog';
 import Recommendation from './recommendation';
 import User from './user';
@@ -50,6 +51,7 @@ import VideoList from './video-list';
 import Tab from './tab';
 import PageThreadOwner from './page-thread-owner';
 import EventTour from './event-tour';
+import PageUpcomingChange from './page-upcoming-change';
 import VideoCopyright from './video-copyright';
 
 /**
@@ -581,6 +583,16 @@ export default class Page extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/businessprojects'
+    );
+  }
+
+  getCallToActions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      PageCallToAction,
+      fields,
+      params,
+      fetchFirstPage,
+      '/call_to_actions'
     );
   }
 
@@ -1164,6 +1176,16 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
+  getPlaceTopics (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      PlaceTopic,
+      fields,
+      params,
+      fetchFirstPage,
+      '/place_topics'
+    );
+  }
+
   getPosts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       PagePost,
@@ -1415,6 +1437,16 @@ export default class Page extends AbstractCrudObject {
       fields,
       params,
       Page
+    );
+  }
+
+  getUpcomingChanges (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      PageUpcomingChange,
+      fields,
+      params,
+      fetchFirstPage,
+      '/upcoming_changes'
     );
   }
 

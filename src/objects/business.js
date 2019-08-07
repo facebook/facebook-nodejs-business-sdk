@@ -29,6 +29,7 @@ import BusinessCreative from './business-creative';
 import DirectDeal from './direct-deal';
 import EventSourceGroup from './event-source-group';
 import ExtendedCredit from './extended-credit';
+import BusinessAssetSharingAgreement from './business-asset-sharing-agreement';
 import BusinessAgreement from './business-agreement';
 import InstagramUser from './instagram-user';
 import OfflineConversionDataSet from './offline-conversion-data-set';
@@ -557,6 +558,16 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
+  getInitiatedAudienceSharingRequests (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      BusinessAssetSharingAgreement,
+      fields,
+      params,
+      fetchFirstPage,
+      '/initiated_audience_sharing_requests'
+    );
+  }
+
   getInitiatedSharingAgreements (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       BusinessAgreement,
@@ -867,6 +878,16 @@ export default class Business extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/received_audience_permissions'
+    );
+  }
+
+  getReceivedAudienceSharingRequests (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      BusinessAssetSharingAgreement,
+      fields,
+      params,
+      fetchFirstPage,
+      '/received_audience_sharing_requests'
     );
   }
 

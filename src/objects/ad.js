@@ -88,6 +88,7 @@ export default class Ad extends AbstractCrudObject {
       campaign_paused: 'CAMPAIGN_PAUSED',
       deleted: 'DELETED',
       disapproved: 'DISAPPROVED',
+      in_process: 'IN_PROCESS',
       paused: 'PAUSED',
       pending_billing_info: 'PENDING_BILLING_INFO',
       pending_review: 'PENDING_REVIEW',

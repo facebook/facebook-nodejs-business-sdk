@@ -25,6 +25,7 @@ export default class AdRuleExecutionSpec extends AbstractCrudObject {
     return Object.freeze({
       change_bid: 'CHANGE_BID',
       change_budget: 'CHANGE_BUDGET',
+      change_campaign_budget: 'CHANGE_CAMPAIGN_BUDGET',
       notification: 'NOTIFICATION',
       pause: 'PAUSE',
       ping_endpoint: 'PING_ENDPOINT',

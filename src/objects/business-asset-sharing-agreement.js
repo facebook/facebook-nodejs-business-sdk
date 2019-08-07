@@ -9,25 +9,33 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * PageChangeProposal
+ * BusinessAssetSharingAgreement
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class PageChangeProposal extends AbstractCrudObject {
+export default class BusinessAssetSharingAgreement extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      acceptance_status: 'acceptance_status',
-      category: 'category',
-      current_value: 'current_value',
       id: 'id',
-      proposed_value: 'proposed_value',
-      upcoming_change_info: 'upcoming_change_info',
+      initiator: 'initiator',
+      recipient: 'recipient',
+      relationship_type: 'relationship_type',
+      request_status: 'request_status',
+      request_type: 'request_type',
     });
   }
 
+  static get RequestStatus (): Object {
+    return Object.freeze({
+      approve: 'APPROVE',
+      decline: 'DECLINE',
+      expired: 'EXPIRED',
+      in_progress: 'IN_PROGRESS',
+    });
+  }
 
   
-  get (fields: Array<string>, params: Object = {}): PageChangeProposal {
+  get (fields: Array<string>, params: Object = {}): BusinessAssetSharingAgreement {
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
@@ -36,7 +44,7 @@ export default class PageChangeProposal extends AbstractCrudObject {
   }
 
   // $FlowFixMe : Support Generic Types
-  update (fields: Array<string>, params: Object = {}): PageChangeProposal {
+  update (fields: Array<string>, params: Object = {}): BusinessAssetSharingAgreement {
     // $FlowFixMe : Support Generic Types
     return super.update(
       params
