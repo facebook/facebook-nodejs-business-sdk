@@ -17,7 +17,7 @@ export default class BusinessAgreement extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       id: 'id',
-      request_status: 'request_status'
+      request_status: 'request_status',
     });
   }
 
@@ -25,19 +25,23 @@ export default class BusinessAgreement extends AbstractCrudObject {
     return Object.freeze({
       approve: 'APPROVE',
       decline: 'DECLINE',
+      expired: 'EXPIRED',
       in_progress: 'IN_PROGRESS',
-      expired: 'EXPIRED'
     });
   }
 
-  get (fields, params): BusinessAgreement {
+  
+  get (fields: Array<string>, params: Object = {}): BusinessAgreement {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): BusinessAgreement {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): BusinessAgreement {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

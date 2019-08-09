@@ -21,14 +21,7 @@ export default class CustomAudiencesharedAccountInfo extends AbstractCrudObject 
       business_id: 'business_id',
       business_name: 'business_name',
       sharing_status: 'sharing_status',
-      id: 'id'
     });
   }
 
-  get (fields, params): CustomAudiencesharedAccountInfo {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

@@ -18,14 +18,7 @@ export default class UserDevice extends AbstractCrudObject {
     return Object.freeze({
       hardware: 'hardware',
       os: 'os',
-      id: 'id'
     });
   }
 
-  get (fields, params): UserDevice {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

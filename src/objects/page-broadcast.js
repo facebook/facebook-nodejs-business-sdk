@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import Cursor from './../cursor';
 import InsightsResult from './insights-result';
 
 /**
@@ -19,11 +20,17 @@ export default class PageBroadcast extends AbstractCrudObject {
     return Object.freeze({
       id: 'id',
       scheduled_time: 'scheduled_time',
-      status: 'status'
+      status: 'status',
     });
   }
 
-  getInsights (fields, params, fetchFirstPage = true): InsightsResult {
+  static get Operation (): Object {
+    return Object.freeze({
+      cancel: 'CANCEL',
+    });
+  }
+
+  getInsights (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       InsightsResult,
       fields,
@@ -33,9 +40,19 @@ export default class PageBroadcast extends AbstractCrudObject {
     );
   }
 
-  get (fields, params): PageBroadcast {
+  
+  get (fields: Array<string>, params: Object = {}): PageBroadcast {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
+      params
+    );
+  }
+
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): PageBroadcast {
+    // $FlowFixMe : Support Generic Types
+    return super.update(
       params
     );
   }

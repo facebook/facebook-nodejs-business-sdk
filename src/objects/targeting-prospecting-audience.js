@@ -17,14 +17,7 @@ export default class TargetingProspectingAudience extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       sources: 'sources',
-      id: 'id'
     });
   }
 
-  get (fields, params): TargetingProspectingAudience {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

@@ -8,8 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
-import AppPublisher from './app-publisher';
-import WebPublisher from './web-publisher';
+import Cursor from './../cursor';
 
 /**
  * PublisherBlockList
@@ -28,13 +27,14 @@ export default class PublisherBlockList extends AbstractCrudObject {
       last_update_user: 'last_update_user',
       name: 'name',
       owner_ad_account_id: 'owner_ad_account_id',
-      web_publishers: 'web_publishers'
+      web_publishers: 'web_publishers',
     });
   }
 
-  getPageDAppPublishers (fields, params, fetchFirstPage = true): AppPublisher {
+
+  getPagedAppPublishers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      AppPublisher,
+      AbstractObject,
       fields,
       params,
       fetchFirstPage,
@@ -42,9 +42,9 @@ export default class PublisherBlockList extends AbstractCrudObject {
     );
   }
 
-  getPageDWebPublishers (fields, params, fetchFirstPage = true): WebPublisher {
+  getPagedWebPublishers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      WebPublisher,
+      AbstractObject,
       fields,
       params,
       fetchFirstPage,
@@ -52,20 +52,26 @@ export default class PublisherBlockList extends AbstractCrudObject {
     );
   }
 
-  delete (fields, params): AbstractObject {
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.delete(
       params
     );
   }
 
-  get (fields, params): PublisherBlockList {
+  
+  get (fields: Array<string>, params: Object = {}): PublisherBlockList {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): PublisherBlockList {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): PublisherBlockList {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

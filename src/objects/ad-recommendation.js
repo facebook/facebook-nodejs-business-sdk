@@ -23,29 +23,21 @@ export default class AdRecommendation extends AbstractCrudObject {
       message: 'message',
       recommendation_data: 'recommendation_data',
       title: 'title',
-      id: 'id'
     });
   }
 
   static get Confidence (): Object {
     return Object.freeze({
       high: 'HIGH',
+      low: 'LOW',
       medium: 'MEDIUM',
-      low: 'LOW'
     });
   }
   static get Importance (): Object {
     return Object.freeze({
       high: 'HIGH',
+      low: 'LOW',
       medium: 'MEDIUM',
-      low: 'LOW'
     });
-  }
-
-  get (fields, params): AdRecommendation {
-    return this.read(
-      fields,
-      params
-    );
   }
 }

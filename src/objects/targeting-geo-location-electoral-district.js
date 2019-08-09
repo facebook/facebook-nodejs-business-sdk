@@ -20,14 +20,7 @@ export default class TargetingGeoLocationElectoralDistrict extends AbstractCrudO
       electoral_district: 'electoral_district',
       key: 'key',
       name: 'name',
-      id: 'id'
     });
   }
 
-  get (fields, params): TargetingGeoLocationElectoralDistrict {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

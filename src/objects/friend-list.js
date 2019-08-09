@@ -7,7 +7,6 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import AbstractObject from './../abstract-object';
 
 /**
  * FriendList
@@ -20,47 +19,16 @@ export default class FriendList extends AbstractCrudObject {
       id: 'id',
       list_type: 'list_type',
       name: 'name',
-      owner: 'owner'
+      owner: 'owner',
     });
   }
 
-  static get ListType (): Object {
-    return Object.freeze({
-      app_created: 'app_created'
-    });
-  }
 
-  deleteMembers (params): AbstractObject {
-    return super.deleteEdge(
-      '/members',
-      params
-    );
-  }
-
-  createMember (fields, params): FriendList {
-    return this.createEdge(
-      '/members',
-      fields,
-      params,
-      FriendList
-    );
-  }
-
-  delete (fields, params): AbstractObject {
-    return super.delete(
-      params
-    );
-  }
-
-  get (fields, params): FriendList {
+  
+  get (fields: Array<string>, params: Object = {}): FriendList {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
-      params
-    );
-  }
-
-  update (fields, params): FriendList {
-    return super.update(
       params
     );
   }

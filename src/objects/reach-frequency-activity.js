@@ -28,14 +28,7 @@ export default class ReachFrequencyActivity extends AbstractCrudObject {
       delivered_total_impression: 'delivered_total_impression',
       io_approved: 'io_approved',
       sf_link: 'sf_link',
-      id: 'id'
     });
   }
 
-  get (fields, params): ReachFrequencyActivity {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

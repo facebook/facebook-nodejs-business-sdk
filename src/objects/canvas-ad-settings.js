@@ -23,14 +23,7 @@ export default class CanvasAdSettings extends AbstractCrudObject {
       leads_count: 'leads_count',
       product_set_id: 'product_set_id',
       use_retailer_item_ids: 'use_retailer_item_ids',
-      id: 'id'
     });
   }
 
-  get (fields, params): CanvasAdSettings {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

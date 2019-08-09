@@ -20,14 +20,7 @@ export default class OutcomePredictionPoint extends AbstractCrudObject {
       impressions: 'impressions',
       reach: 'reach',
       spend: 'spend',
-      id: 'id'
     });
   }
 
-  get (fields, params): OutcomePredictionPoint {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

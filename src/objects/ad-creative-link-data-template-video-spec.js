@@ -19,14 +19,7 @@ export default class AdCreativeLinkDataTemplateVideoSpec extends AbstractCrudObj
       categorization_criteria: 'categorization_criteria',
       customization: 'customization',
       template_id: 'template_id',
-      id: 'id'
     });
   }
 
-  get (fields, params): AdCreativeLinkDataTemplateVideoSpec {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

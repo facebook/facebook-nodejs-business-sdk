@@ -17,14 +17,7 @@ export default class AtlasURL extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       url: 'url',
-      id: 'id'
     });
   }
 
-  get (fields, params): AtlasURL {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

@@ -8,6 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 import AdAccount from './ad-account';
 
 /**
@@ -23,18 +24,19 @@ export default class ExtendedCreditInvoiceGroup extends AbstractCrudObject {
       email: 'email',
       emails: 'emails',
       id: 'id',
-      name: 'name'
+      name: 'name',
     });
   }
 
-  deleteAdAccounts (params): AbstractObject {
+
+  deleteAdAccounts (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/ad_accounts',
       params
     );
   }
 
-  getAdAccounts (fields, params, fetchFirstPage = true): AdAccount {
+  getAdAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdAccount,
       fields,
@@ -44,20 +46,35 @@ export default class ExtendedCreditInvoiceGroup extends AbstractCrudObject {
     );
   }
 
-  delete (fields, params): AbstractObject {
+  createAdAccount (fields: Array<string>, params: Object = {}): Promise<AdAccount> {
+    return this.createEdge(
+      '/ad_accounts',
+      fields,
+      params,
+      AdAccount
+    );
+  }
+
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.delete(
       params
     );
   }
 
-  get (fields, params): ExtendedCreditInvoiceGroup {
+  
+  get (fields: Array<string>, params: Object = {}): ExtendedCreditInvoiceGroup {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): ExtendedCreditInvoiceGroup {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): ExtendedCreditInvoiceGroup {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

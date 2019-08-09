@@ -8,6 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 import AdSet from './ad-set';
 
 /**
@@ -21,7 +22,6 @@ export default class SavedAudience extends AbstractCrudObject {
       account: 'account',
       approximate_count: 'approximate_count',
       description: 'description',
-      expiry_time: 'expiry_time',
       id: 'id',
       name: 'name',
       permission_for_actions: 'permission_for_actions',
@@ -29,11 +29,12 @@ export default class SavedAudience extends AbstractCrudObject {
       sentence_lines: 'sentence_lines',
       targeting: 'targeting',
       time_created: 'time_created',
-      time_updated: 'time_updated'
+      time_updated: 'time_updated',
     });
   }
 
-  getAdSets (fields, params, fetchFirstPage = true): AdSet {
+
+  getAdSets (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdSet,
       fields,
@@ -43,13 +44,17 @@ export default class SavedAudience extends AbstractCrudObject {
     );
   }
 
-  delete (fields, params): AbstractObject {
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.delete(
       params
     );
   }
 
-  get (fields, params): SavedAudience {
+  
+  get (fields: Array<string>, params: Object = {}): SavedAudience {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

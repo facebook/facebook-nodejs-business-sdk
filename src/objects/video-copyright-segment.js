@@ -19,14 +19,7 @@ export default class VideoCopyrightSegment extends AbstractCrudObject {
       duration_in_sec: 'duration_in_sec',
       media_type: 'media_type',
       start_time_in_sec: 'start_time_in_sec',
-      id: 'id'
     });
   }
 
-  get (fields, params): VideoCopyrightSegment {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

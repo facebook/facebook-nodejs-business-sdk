@@ -18,14 +18,7 @@ export default class CommerceSettings extends AbstractCrudObject {
     return Object.freeze({
       inventory: 'inventory',
       total_inventory: 'total_inventory',
-      id: 'id'
     });
   }
 
-  get (fields, params): CommerceSettings {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

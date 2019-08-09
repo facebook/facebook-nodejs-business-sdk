@@ -23,11 +23,14 @@ export default class PlaceTopic extends AbstractCrudObject {
       name: 'name',
       parent_ids: 'parent_ids',
       plural_name: 'plural_name',
-      top_subtopic_names: 'top_subtopic_names'
+      top_subtopic_names: 'top_subtopic_names',
     });
   }
 
-  get (fields, params): PlaceTopic {
+
+  
+  get (fields: Array<string>, params: Object = {}): PlaceTopic {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

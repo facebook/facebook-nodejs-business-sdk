@@ -16,14 +16,8 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class PlatformSessionKey extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      id: 'id'
+      id: 'id',
     });
   }
 
-  get (fields, params): PlatformSessionKey {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

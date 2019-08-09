@@ -20,14 +20,7 @@ export default class AndroidAppLink extends AbstractCrudObject {
       class: 'class',
       package: 'package',
       url: 'url',
-      id: 'id'
     });
   }
 
-  get (fields, params): AndroidAppLink {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

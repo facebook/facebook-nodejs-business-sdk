@@ -7,8 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import AbstractObject from './../abstract-object';
-import Comment from './comment';
+import Cursor from './../cursor';
 import AdVideo from './ad-video';
 
 /**
@@ -27,27 +26,12 @@ export default class VideoList extends AbstractCrudObject {
       season_number: 'season_number',
       thumbnail: 'thumbnail',
       title: 'title',
-      videos_count: 'videos_count'
+      videos_count: 'videos_count',
     });
   }
 
-  createComment (fields, params): Comment {
-    return this.createEdge(
-      '/comments',
-      fields,
-      params,
-      Comment
-    );
-  }
 
-  deleteVideos (params): AbstractObject {
-    return super.deleteEdge(
-      '/videos',
-      params
-    );
-  }
-
-  getVideos (fields, params, fetchFirstPage = true): AdVideo {
+  getVideos (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdVideo,
       fields,
@@ -57,16 +41,9 @@ export default class VideoList extends AbstractCrudObject {
     );
   }
 
-  createVideo (fields, params): VideoList {
-    return this.createEdge(
-      '/videos',
-      fields,
-      params,
-      VideoList
-    );
-  }
-
-  get (fields, params): VideoList {
+  
+  get (fields: Array<string>, params: Object = {}): VideoList {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

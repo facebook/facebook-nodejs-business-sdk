@@ -20,14 +20,7 @@ export default class ClientTransparencyStatus extends AbstractCrudObject {
       has_owning_business: 'has_owning_business',
       is_satisfied: 'is_satisfied',
       owning_business_requirements: 'owning_business_requirements',
-      id: 'id'
     });
   }
 
-  get (fields, params): ClientTransparencyStatus {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

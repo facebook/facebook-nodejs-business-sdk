@@ -20,14 +20,7 @@ export default class BilledAmountDetails extends AbstractCrudObject {
       net_amount: 'net_amount',
       tax_amount: 'tax_amount',
       total_amount: 'total_amount',
-      id: 'id'
     });
   }
 
-  get (fields, params): BilledAmountDetails {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

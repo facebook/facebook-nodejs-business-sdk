@@ -19,14 +19,7 @@ export default class AdRuleSchedule extends AbstractCrudObject {
       days: 'days',
       end_minute: 'end_minute',
       start_minute: 'start_minute',
-      id: 'id'
     });
   }
 
-  get (fields, params): AdRuleSchedule {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

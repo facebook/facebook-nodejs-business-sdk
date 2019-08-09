@@ -21,12 +21,14 @@ export default class OffsitePixel extends AbstractCrudObject {
       js_pixel: 'js_pixel',
       last_firing_time: 'last_firing_time',
       name: 'name',
-      status: 'status',
-      tag: 'tag'
+      tag: 'tag',
     });
   }
 
-  get (fields, params): OffsitePixel {
+
+  
+  get (fields: Array<string>, params: Object = {}): OffsitePixel {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

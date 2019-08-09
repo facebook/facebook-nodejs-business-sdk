@@ -7,7 +7,6 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import AbstractObject from './../abstract-object';
 
 /**
  * PageInsightsAsyncExportRun
@@ -25,18 +24,14 @@ export default class PageInsightsAsyncExportRun extends AbstractCrudObject {
       report_end_date: 'report_end_date',
       report_start_date: 'report_start_date',
       sorters: 'sorters',
-      status: 'status'
+      status: 'status',
     });
   }
 
-  deleteInsightsExports (params): AbstractObject {
-    return super.deleteEdge(
-      '/insights_exports',
-      params
-    );
-  }
 
-  get (fields, params): PageInsightsAsyncExportRun {
+  
+  get (fields: Array<string>, params: Object = {}): PageInsightsAsyncExportRun {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

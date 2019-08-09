@@ -20,14 +20,7 @@ export default class AdRuleHistoryResultAction extends AbstractCrudObject {
       field: 'field',
       new_value: 'new_value',
       old_value: 'old_value',
-      id: 'id'
     });
   }
 
-  get (fields, params): AdRuleHistoryResultAction {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

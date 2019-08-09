@@ -20,14 +20,7 @@ export default class DayPart extends AbstractCrudObject {
       end_minute: 'end_minute',
       start_minute: 'start_minute',
       timezone_type: 'timezone_type',
-      id: 'id'
     });
   }
 
-  get (fields, params): DayPart {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

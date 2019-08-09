@@ -58,14 +58,7 @@ export default class AdContract extends AbstractCrudObject {
       vat_country: 'vat_country',
       version: 'version',
       vertical: 'vertical',
-      id: 'id'
     });
   }
 
-  get (fields, params): AdContract {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

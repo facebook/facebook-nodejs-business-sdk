@@ -26,14 +26,7 @@ export default class PageRestaurantServices extends AbstractCrudObject {
       takeout: 'takeout',
       waiter: 'waiter',
       walkins: 'walkins',
-      id: 'id'
     });
   }
 
-  get (fields, params): PageRestaurantServices {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

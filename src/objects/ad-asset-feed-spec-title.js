@@ -19,14 +19,7 @@ export default class AdAssetFeedSpecTitle extends AbstractCrudObject {
       adlabels: 'adlabels',
       text: 'text',
       url_tags: 'url_tags',
-      id: 'id'
     });
   }
 
-  get (fields, params): AdAssetFeedSpecTitle {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

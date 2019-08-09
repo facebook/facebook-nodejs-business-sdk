@@ -19,14 +19,7 @@ export default class PlatformImageSource extends AbstractCrudObject {
       height: 'height',
       source: 'source',
       width: 'width',
-      id: 'id'
     });
   }
 
-  get (fields, params): PlatformImageSource {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

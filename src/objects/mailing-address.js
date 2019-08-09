@@ -23,11 +23,14 @@ export default class MailingAddress extends AbstractCrudObject {
       postal_code: 'postal_code',
       region: 'region',
       street1: 'street1',
-      street2: 'street2'
+      street2: 'street2',
     });
   }
 
-  get (fields, params): MailingAddress {
+
+  
+  get (fields: Array<string>, params: Object = {}): MailingAddress {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

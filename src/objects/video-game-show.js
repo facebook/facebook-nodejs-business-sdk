@@ -8,6 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 
 /**
  * VideoGameShow
@@ -21,18 +22,18 @@ export default class VideoGameShow extends AbstractCrudObject {
       game_status: 'game_status',
       game_type: 'game_type',
       id: 'id',
-      start_time: 'start_time'
+      start_time: 'start_time',
     });
   }
 
   static get Action (): Object {
     return Object.freeze({
+      end_game: 'END_GAME',
       start_game: 'START_GAME',
-      end_game: 'END_GAME'
     });
   }
 
-  getQuestions (fields, params, fetchFirstPage = true): AbstractObject {
+  getQuestions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AbstractObject,
       fields,
@@ -42,23 +43,27 @@ export default class VideoGameShow extends AbstractCrudObject {
     );
   }
 
-  createQuestion (fields, params): AbstractObject {
+  createQuestion (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/questions',
       fields,
-      params
-
+      params,
+      
     );
   }
 
-  get (fields, params): VideoGameShow {
+  
+  get (fields: Array<string>, params: Object = {}): VideoGameShow {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): VideoGameShow {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): VideoGameShow {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

@@ -8,12 +8,11 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 import Profile from './profile';
-import User from './user';
-import NullNode from './null-node';
-import Comment from './comment';
+import LiveVideo from './live-video';
 import Photo from './photo';
-import AdVideo from './ad-video';
+import ProfilePictureSource from './profile-picture-source';
 
 /**
  * Event
@@ -25,7 +24,6 @@ export default class Event extends AbstractCrudObject {
     return Object.freeze({
       attending_count: 'attending_count',
       can_guests_invite: 'can_guests_invite',
-      can_viewer_post: 'can_viewer_post',
       category: 'category',
       cover: 'cover',
       declined_count: 'declined_count',
@@ -36,19 +34,15 @@ export default class Event extends AbstractCrudObject {
       guest_list_enabled: 'guest_list_enabled',
       id: 'id',
       interested_count: 'interested_count',
-      invited_count: 'invited_count',
       is_canceled: 'is_canceled',
-      is_date_only: 'is_date_only',
       is_draft: 'is_draft',
       is_page_owned: 'is_page_owned',
-      location: 'location',
       maybe_count: 'maybe_count',
       name: 'name',
       noreply_count: 'noreply_count',
       owner: 'owner',
       parent_group: 'parent_group',
       place: 'place',
-      privacy: 'privacy',
       scheduled_publish_time: 'scheduled_publish_time',
       start_time: 'start_time',
       ticket_uri: 'ticket_uri',
@@ -58,41 +52,69 @@ export default class Event extends AbstractCrudObject {
       timezone: 'timezone',
       type: 'type',
       updated_time: 'updated_time',
-      venue: 'venue'
     });
   }
 
+  static get Category (): Object {
+    return Object.freeze({
+      art_event: 'ART_EVENT',
+      book_event: 'BOOK_EVENT',
+      class_event: 'CLASS_EVENT',
+      comedy_event: 'COMEDY_EVENT',
+      conference_event: 'CONFERENCE_EVENT',
+      dance_event: 'DANCE_EVENT',
+      dining_event: 'DINING_EVENT',
+      family_event: 'FAMILY_EVENT',
+      festival_event: 'FESTIVAL_EVENT',
+      fitness: 'FITNESS',
+      food_tasting: 'FOOD_TASTING',
+      fundraiser: 'FUNDRAISER',
+      lecture: 'LECTURE',
+      meetup: 'MEETUP',
+      movie_event: 'MOVIE_EVENT',
+      music_event: 'MUSIC_EVENT',
+      neighborhood: 'NEIGHBORHOOD',
+      nightlife: 'NIGHTLIFE',
+      other: 'OTHER',
+      religious_event: 'RELIGIOUS_EVENT',
+      shopping: 'SHOPPING',
+      sports_event: 'SPORTS_EVENT',
+      theater_event: 'THEATER_EVENT',
+      volunteering: 'VOLUNTEERING',
+      workshop: 'WORKSHOP',
+    });
+  }
   static get Type (): Object {
     return Object.freeze({
+      community: 'community',
+      group: 'group',
       private: 'private',
       public: 'public',
-      group: 'group',
-      community: 'community'
     });
   }
   static get EventStateFilter (): Object {
     return Object.freeze({
       canceled: 'canceled',
       draft: 'draft',
+      published: 'published',
       scheduled_draft_for_publication: 'scheduled_draft_for_publication',
-      published: 'published'
     });
   }
   static get TimeFilter (): Object {
     return Object.freeze({
+      past: 'past',
       upcoming: 'upcoming',
-      past: 'past'
     });
   }
   static get PromotableEventTypes (): Object {
     return Object.freeze({
       offsite_ticket: 'OFFSITE_TICKET',
       onsite_ticket: 'ONSITE_TICKET',
-      rsvp: 'RSVP'
+      rsvp: 'RSVP',
     });
   }
 
-  getAdmins (fields, params, fetchFirstPage = true): Profile {
+  getAdmins (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Profile,
       fields,
@@ -102,124 +124,25 @@ export default class Event extends AbstractCrudObject {
     );
   }
 
-  getAttending (fields, params, fetchFirstPage = true): User {
-    return this.getEdge(
-      User,
-      fields,
-      params,
-      fetchFirstPage,
-      '/attending'
-    );
-  }
-
-  getComments (fields, params, fetchFirstPage = true): NullNode {
-    return this.getEdge(
-      NullNode,
-      fields,
-      params,
-      fetchFirstPage,
-      '/comments'
-    );
-  }
-
-  createComment (fields, params): Comment {
-    return this.createEdge(
-      '/comments',
-      fields,
-      params,
-      Comment
-    );
-  }
-
-  getDeclined (fields, params, fetchFirstPage = true): User {
-    return this.getEdge(
-      User,
-      fields,
-      params,
-      fetchFirstPage,
-      '/declined'
-    );
-  }
-
-  getFeed (fields, params, fetchFirstPage = true): NullNode {
-    return this.getEdge(
-      NullNode,
-      fields,
-      params,
-      fetchFirstPage,
-      '/feed'
-    );
-  }
-
-  createFeed (fields, params): AbstractObject {
+  createFeed (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/feed',
       fields,
-      params
-
-    );
-  }
-
-  getInterested (fields, params, fetchFirstPage = true): User {
-    return this.getEdge(
-      User,
-      fields,
       params,
-      fetchFirstPage,
-      '/interested'
+      
     );
   }
 
-  getLiveVideos (fields, params, fetchFirstPage = true): NullNode {
-    return this.getEdge(
-      NullNode,
-      fields,
-      params,
-      fetchFirstPage,
-      '/live_videos'
-    );
-  }
-
-  createLiveVideo (fields, params): AbstractObject {
+  createLiveVideo (fields: Array<string>, params: Object = {}): Promise<LiveVideo> {
     return this.createEdge(
       '/live_videos',
       fields,
-      params
-
-    );
-  }
-
-  getMaybe (fields, params, fetchFirstPage = true): User {
-    return this.getEdge(
-      User,
-      fields,
       params,
-      fetchFirstPage,
-      '/maybe'
+      LiveVideo
     );
   }
 
-  getNoreply (fields, params, fetchFirstPage = true): User {
-    return this.getEdge(
-      User,
-      fields,
-      params,
-      fetchFirstPage,
-      '/noreply'
-    );
-  }
-
-  getPhotos (fields, params, fetchFirstPage = true): NullNode {
-    return this.getEdge(
-      NullNode,
-      fields,
-      params,
-      fetchFirstPage,
-      '/photos'
-    );
-  }
-
-  createPhoto (fields, params): Photo {
+  createPhoto (fields: Array<string>, params: Object = {}): Promise<Photo> {
     return this.createEdge(
       '/photos',
       fields,
@@ -228,9 +151,9 @@ export default class Event extends AbstractCrudObject {
     );
   }
 
-  getPicture (fields, params, fetchFirstPage = true): NullNode {
+  getPicture (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      NullNode,
+      ProfilePictureSource,
       fields,
       params,
       fetchFirstPage,
@@ -238,17 +161,7 @@ export default class Event extends AbstractCrudObject {
     );
   }
 
-  getPosts (fields, params, fetchFirstPage = true): NullNode {
-    return this.getEdge(
-      NullNode,
-      fields,
-      params,
-      fetchFirstPage,
-      '/posts'
-    );
-  }
-
-  getRoles (fields, params, fetchFirstPage = true): Profile {
+  getRoles (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Profile,
       fields,
@@ -258,40 +171,11 @@ export default class Event extends AbstractCrudObject {
     );
   }
 
-  getVideos (fields, params, fetchFirstPage = true): NullNode {
-    return this.getEdge(
-      NullNode,
-      fields,
-      params,
-      fetchFirstPage,
-      '/videos'
-    );
-  }
-
-  createVideo (fields, params): AdVideo {
-    return this.createEdge(
-      '/videos',
-      fields,
-      params,
-      AdVideo
-    );
-  }
-
-  delete (fields, params): AbstractObject {
-    return super.delete(
-      params
-    );
-  }
-
-  get (fields, params): Event {
+  
+  get (fields: Array<string>, params: Object = {}): Event {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
-      params
-    );
-  }
-
-  update (fields, params): Event {
-    return super.update(
       params
     );
   }

@@ -20,11 +20,14 @@ export default class VaultDeletedImage extends AbstractCrudObject {
       date_taken: 'date_taken',
       id: 'id',
       owner: 'owner',
-      remote_id: 'remote_id'
+      remote_id: 'remote_id',
     });
   }
 
-  get (fields, params): VaultDeletedImage {
+
+  
+  get (fields: Array<string>, params: Object = {}): VaultDeletedImage {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

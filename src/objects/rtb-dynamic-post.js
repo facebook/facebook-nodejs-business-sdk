@@ -7,8 +7,9 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 import Comment from './comment';
+import InstagramComment from './instagram-comment';
 import Profile from './profile';
 
 /**
@@ -29,11 +30,12 @@ export default class RTBDynamicPost extends AbstractCrudObject {
       owner_id: 'owner_id',
       place_id: 'place_id',
       product_id: 'product_id',
-      title: 'title'
+      title: 'title',
     });
   }
 
-  getComments (fields, params, fetchFirstPage = true): Comment {
+
+  getComments (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Comment,
       fields,
@@ -43,9 +45,9 @@ export default class RTBDynamicPost extends AbstractCrudObject {
     );
   }
 
-  getInstagramComments (fields, params, fetchFirstPage = true): AbstractObject {
+  getInstagramComments (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      AbstractObject,
+      InstagramComment,
       fields,
       params,
       fetchFirstPage,
@@ -53,7 +55,7 @@ export default class RTBDynamicPost extends AbstractCrudObject {
     );
   }
 
-  getLikes (fields, params, fetchFirstPage = true): Profile {
+  getLikes (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Profile,
       fields,
@@ -63,13 +65,9 @@ export default class RTBDynamicPost extends AbstractCrudObject {
     );
   }
 
-  delete (fields, params): AbstractObject {
-    return super.delete(
-      params
-    );
-  }
-
-  get (fields, params): RTBDynamicPost {
+  
+  get (fields: Array<string>, params: Object = {}): RTBDynamicPost {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

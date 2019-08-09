@@ -17,14 +17,7 @@ export default class AdRecommendationData extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       link: 'link',
-      id: 'id'
     });
   }
 
-  get (fields, params): AdRecommendationData {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

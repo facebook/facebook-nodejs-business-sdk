@@ -17,14 +17,8 @@ export default class UserIDForApp extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       app: 'app',
-      id: 'id'
+      id: 'id',
     });
   }
 
-  get (fields, params): UserIDForApp {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

@@ -17,14 +17,7 @@ export default class AdCreativePortraitCustomizations extends AbstractCrudObject
   static get Fields () {
     return Object.freeze({
       specifications: 'specifications',
-      id: 'id'
     });
   }
 
-  get (fields, params): AdCreativePortraitCustomizations {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

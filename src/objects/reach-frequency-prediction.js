@@ -52,7 +52,6 @@ export default class ReachFrequencyPrediction extends AbstractCrudObject {
       frequency_distribution: 'frequency_distribution',
       frequency_distribution_map: 'frequency_distribution_map',
       frequency_distribution_map_agg: 'frequency_distribution_map_agg',
-      full_view_ratio_00: 'full_view_ratio_00',
       grp_audience_size: 'grp_audience_size',
       grp_avg_probability_map: 'grp_avg_probability_map',
       grp_country_audience_size: 'grp_country_audience_size',
@@ -100,56 +99,51 @@ export default class ReachFrequencyPrediction extends AbstractCrudObject {
       timezone_name: 'timezone_name',
       topline_id: 'topline_id',
       tv_viewer_cluster_map: 'tv_viewer_cluster_map',
-      video_view_benchmark_map: 'video_view_benchmark_map',
       video_view_length_constraint: 'video_view_length_constraint',
-      viewtag: 'viewtag'
+      viewtag: 'viewtag',
     });
   }
 
   static get Action (): Object {
     return Object.freeze({
+      cancel: 'cancel',
       quote: 'quote',
       reserve: 'reserve',
-      cancel: 'cancel'
     });
   }
   static get BuyingType (): Object {
     return Object.freeze({
       auction: 'AUCTION',
-      fixed_cpm: 'FIXED_CPM',
-      reserved: 'RESERVED',
-      reachblock: 'REACHBLOCK',
       deprecated_reach_block: 'DEPRECATED_REACH_BLOCK',
+      fixed_cpm: 'FIXED_CPM',
+      mixed: 'MIXED',
+      reachblock: 'REACHBLOCK',
       research_poll: 'RESEARCH_POLL',
-      mixed: 'MIXED'
+      reserved: 'RESERVED',
     });
   }
   static get InstreamPackages (): Object {
     return Object.freeze({
+      beauty: 'BEAUTY',
+      entertainment: 'ENTERTAINMENT',
+      food: 'FOOD',
       normal: 'NORMAL',
       premium: 'PREMIUM',
-      sports: 'SPORTS',
-      entertainment: 'ENTERTAINMENT',
-      beauty: 'BEAUTY',
       regular_animals_pets: 'REGULAR_ANIMALS_PETS',
       regular_food: 'REGULAR_FOOD',
+      regular_games: 'REGULAR_GAMES',
       regular_politics: 'REGULAR_POLITICS',
       regular_sports: 'REGULAR_SPORTS',
       regular_style: 'REGULAR_STYLE',
-      regular_tv_movies: 'REGULAR_TV_MOVIES'
-    });
-  }
-  static get Status (): Object {
-    return Object.freeze({
-      expired: 'EXPIRED',
-      draft: 'DRAFT',
-      pending: 'PENDING',
-      active: 'ACTIVE',
-      completed: 'COMPLETED'
+      regular_tv_movies: 'REGULAR_TV_MOVIES',
+      spanish: 'SPANISH',
+      sports: 'SPORTS',
     });
   }
 
-  get (fields, params): ReachFrequencyPrediction {
+  
+  get (fields: Array<string>, params: Object = {}): ReachFrequencyPrediction {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

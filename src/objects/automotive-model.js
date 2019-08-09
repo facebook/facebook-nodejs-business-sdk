@@ -25,6 +25,8 @@ export default class AutomotiveModel extends AbstractCrudObject {
       description: 'description',
       drivetrain: 'drivetrain',
       exterior_color: 'exterior_color',
+      finance_description: 'finance_description',
+      finance_type: 'finance_type',
       fuel_type: 'fuel_type',
       generation: 'generation',
       id: 'id',
@@ -39,11 +41,14 @@ export default class AutomotiveModel extends AbstractCrudObject {
       transmission: 'transmission',
       trim: 'trim',
       url: 'url',
-      year: 'year'
+      year: 'year',
     });
   }
 
-  get (fields, params): AutomotiveModel {
+
+  
+  get (fields: Array<string>, params: Object = {}): AutomotiveModel {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

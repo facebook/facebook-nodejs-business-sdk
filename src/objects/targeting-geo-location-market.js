@@ -20,14 +20,7 @@ export default class TargetingGeoLocationMarket extends AbstractCrudObject {
       key: 'key',
       market_type: 'market_type',
       name: 'name',
-      id: 'id'
     });
   }
 
-  get (fields, params): TargetingGeoLocationMarket {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

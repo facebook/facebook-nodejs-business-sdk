@@ -44,14 +44,7 @@ export default class FlexibleTargeting extends AbstractCrudObject {
       user_adclusters: 'user_adclusters',
       work_employers: 'work_employers',
       work_positions: 'work_positions',
-      id: 'id'
     });
   }
 
-  get (fields, params): FlexibleTargeting {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

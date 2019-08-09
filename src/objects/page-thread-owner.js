@@ -17,14 +17,7 @@ export default class PageThreadOwner extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       thread_owner: 'thread_owner',
-      id: 'id'
     });
   }
 
-  get (fields, params): PageThreadOwner {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

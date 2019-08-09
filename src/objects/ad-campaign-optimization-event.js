@@ -19,14 +19,7 @@ export default class AdCampaignOptimizationEvent extends AbstractCrudObject {
       custom_conversion_id: 'custom_conversion_id',
       event_sequence: 'event_sequence',
       event_type: 'event_type',
-      id: 'id'
     });
   }
 
-  get (fields, params): AdCampaignOptimizationEvent {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

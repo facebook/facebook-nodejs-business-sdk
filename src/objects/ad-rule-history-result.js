@@ -19,22 +19,14 @@ export default class AdRuleHistoryResult extends AbstractCrudObject {
       actions: 'actions',
       object_id: 'object_id',
       object_type: 'object_type',
-      id: 'id'
     });
   }
 
   static get ObjectType (): Object {
     return Object.freeze({
-      campaign: 'CAMPAIGN',
+      ad: 'AD',
       adset: 'ADSET',
-      ad: 'AD'
+      campaign: 'CAMPAIGN',
     });
-  }
-
-  get (fields, params): AdRuleHistoryResult {
-    return this.read(
-      fields,
-      params
-    );
   }
 }

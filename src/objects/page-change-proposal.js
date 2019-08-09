@@ -21,18 +21,23 @@ export default class PageChangeProposal extends AbstractCrudObject {
       current_value: 'current_value',
       id: 'id',
       proposed_value: 'proposed_value',
-      upcoming_change_info: 'upcoming_change_info'
+      upcoming_change_info: 'upcoming_change_info',
     });
   }
 
-  get (fields, params): PageChangeProposal {
+
+  
+  get (fields: Array<string>, params: Object = {}): PageChangeProposal {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): PageChangeProposal {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): PageChangeProposal {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

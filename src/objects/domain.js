@@ -18,11 +18,14 @@ export default class Domain extends AbstractCrudObject {
     return Object.freeze({
       id: 'id',
       name: 'name',
-      url: 'url'
+      url: 'url',
     });
   }
 
-  get (fields, params): Domain {
+
+  
+  get (fields: Array<string>, params: Object = {}): Domain {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

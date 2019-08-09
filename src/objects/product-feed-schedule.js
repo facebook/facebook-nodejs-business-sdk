@@ -25,34 +25,26 @@ export default class ProductFeedSchedule extends AbstractCrudObject {
       timezone: 'timezone',
       url: 'url',
       username: 'username',
-      id: 'id'
     });
   }
 
   static get DayOfWeek (): Object {
     return Object.freeze({
-      sunday: 'SUNDAY',
+      friday: 'FRIDAY',
       monday: 'MONDAY',
+      saturday: 'SATURDAY',
+      sunday: 'SUNDAY',
+      thursday: 'THURSDAY',
       tuesday: 'TUESDAY',
       wednesday: 'WEDNESDAY',
-      thursday: 'THURSDAY',
-      friday: 'FRIDAY',
-      saturday: 'SATURDAY'
     });
   }
   static get Interval (): Object {
     return Object.freeze({
-      hourly: 'HOURLY',
       daily: 'DAILY',
+      hourly: 'HOURLY',
+      monthly: 'MONTHLY',
       weekly: 'WEEKLY',
-      monthly: 'MONTHLY'
     });
-  }
-
-  get (fields, params): ProductFeedSchedule {
-    return this.read(
-      fields,
-      params
-    );
   }
 }

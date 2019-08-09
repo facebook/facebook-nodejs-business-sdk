@@ -7,7 +7,9 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import Cursor from './../cursor';
 import ProductFeedUploadErrorSample from './product-feed-upload-error-sample';
+import ProductFeedRuleSuggestion from './product-feed-rule-suggestion';
 
 /**
  * ProductFeedUploadError
@@ -18,14 +20,12 @@ export default class ProductFeedUploadError extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       affected_surfaces: 'affected_surfaces',
-      column_number: 'column_number',
       description: 'description',
       error_type: 'error_type',
       id: 'id',
-      row_number: 'row_number',
       severity: 'severity',
       summary: 'summary',
-      total_count: 'total_count'
+      total_count: 'total_count',
     });
   }
 
@@ -33,17 +33,17 @@ export default class ProductFeedUploadError extends AbstractCrudObject {
     return Object.freeze({
       dynamic_ads: 'Dynamic Ads',
       marketplace: 'Marketplace',
-      us_marketplace: 'US Marketplace'
+      us_marketplace: 'US Marketplace',
     });
   }
   static get Severity (): Object {
     return Object.freeze({
       fatal: 'fatal',
-      warning: 'warning'
+      warning: 'warning',
     });
   }
 
-  getSamples (fields, params, fetchFirstPage = true): ProductFeedUploadErrorSample {
+  getSamples (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       ProductFeedUploadErrorSample,
       fields,
@@ -53,7 +53,19 @@ export default class ProductFeedUploadError extends AbstractCrudObject {
     );
   }
 
-  get (fields, params): ProductFeedUploadError {
+  getSuggestedRules (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      ProductFeedRuleSuggestion,
+      fields,
+      params,
+      fetchFirstPage,
+      '/suggested_rules'
+    );
+  }
+
+  
+  get (fields: Array<string>, params: Object = {}): ProductFeedUploadError {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

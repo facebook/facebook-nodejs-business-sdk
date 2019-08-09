@@ -17,14 +17,8 @@ export default class TaggableSubject extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       id: 'id',
-      name: 'name'
+      name: 'name',
     });
   }
 
-  get (fields, params): TaggableSubject {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

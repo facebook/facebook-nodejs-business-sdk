@@ -19,15 +19,11 @@ export default class CheckBatchRequestStatus extends AbstractCrudObject {
       errors: 'errors',
       errors_total_count: 'errors_total_count',
       handle: 'handle',
+      ids_of_invalid_requests: 'ids_of_invalid_requests',
       status: 'status',
-      id: 'id'
+      warnings: 'warnings',
+      warnings_total_count: 'warnings_total_count',
     });
   }
 
-  get (fields, params): CheckBatchRequestStatus {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

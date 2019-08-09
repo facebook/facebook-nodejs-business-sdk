@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import Cursor from './../cursor';
 import User from './user';
 
 /**
@@ -17,11 +18,12 @@ import User from './user';
 export default class OpenGraphContext extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      id: 'id'
+      id: 'id',
     });
   }
 
-  getFriendsTaggedAt (fields, params, fetchFirstPage = true): User {
+
+  getFriendsTaggedAt (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       User,
       fields,
@@ -31,17 +33,7 @@ export default class OpenGraphContext extends AbstractCrudObject {
     );
   }
 
-  getFriendsWhoLike (fields, params, fetchFirstPage = true): User {
-    return this.getEdge(
-      User,
-      fields,
-      params,
-      fetchFirstPage,
-      '/friends_who_like'
-    );
-  }
-
-  getMusicListenFriends (fields, params, fetchFirstPage = true): User {
+  getMusicListenFriends (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       User,
       fields,
@@ -51,7 +43,7 @@ export default class OpenGraphContext extends AbstractCrudObject {
     );
   }
 
-  getVideoWatchFriends (fields, params, fetchFirstPage = true): User {
+  getVideoWatchFriends (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       User,
       fields,
@@ -61,7 +53,9 @@ export default class OpenGraphContext extends AbstractCrudObject {
     );
   }
 
-  get (fields, params): OpenGraphContext {
+  
+  get (fields: Array<string>, params: Object = {}): OpenGraphContext {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

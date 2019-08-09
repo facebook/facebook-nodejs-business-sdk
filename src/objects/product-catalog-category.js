@@ -23,14 +23,14 @@ export default class ProductCatalogCategory extends AbstractCrudObject {
       name: 'name',
       num_items: 'num_items',
       tokens: 'tokens',
-      id: 'id'
     });
   }
 
-  get (fields, params): ProductCatalogCategory {
-    return this.read(
-      fields,
-      params
-    );
+  static get CategorizationCriteria (): Object {
+    return Object.freeze({
+      brand: 'BRAND',
+      category: 'CATEGORY',
+      product_type: 'PRODUCT_TYPE',
+    });
   }
 }

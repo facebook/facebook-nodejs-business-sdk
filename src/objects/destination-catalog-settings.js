@@ -17,11 +17,14 @@ export default class DestinationCatalogSettings extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       generate_items_from_pages: 'generate_items_from_pages',
-      id: 'id'
+      id: 'id',
     });
   }
 
-  get (fields, params): DestinationCatalogSettings {
+
+  
+  get (fields: Array<string>, params: Object = {}): DestinationCatalogSettings {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

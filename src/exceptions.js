@@ -4,15 +4,18 @@
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
+ * @format
  */
+
 // request-promise error types
 const REQUEST_ERROR = 'RequestError';
 const STATUS_CODE_ERROR = 'StatusCodeError';
 
-function FacebookError (error) {
+function FacebookError(error) {
   this.name = 'FacebookError';
   this.message = error.message;
-  this.stack = (new Error()).stack;
+  this.stack = new Error().stack;
 }
 FacebookError.prototype = Object.create(Error.prototype);
 FacebookError.prototype.constructor = FacebookError;
@@ -27,7 +30,7 @@ export class FacebookRequestError extends FacebookError {
    * @param  {String}   url
    * @param  {Object}   data
    */
-  constructor (response, method, url, data) {
+  constructor(response, method, url, data) {
     const errorResponse = constructErrorResponse(response);
 
     super(errorResponse);
@@ -48,7 +51,7 @@ export class FacebookRequestError extends FacebookError {
  * This method contructs and formats the response into the same structure for
  * creating a FacebookRequestError object.
  */
-function constructErrorResponse (response: Object) {
+function constructErrorResponse(response: Object) {
   let body;
   let message;
   let status;
@@ -58,9 +61,10 @@ function constructErrorResponse (response: Object) {
 
   if (isBatchResponse) {
     // Handle batch response
-    body = typeof response.body === 'string'
-      ? JSON.parse(response.body)
-      : response.body;
+    body =
+      typeof response.body === 'string'
+        ? JSON.parse(response.body)
+        : response.body;
     status = response.code;
     message = body.error.message;
   } else {
@@ -68,9 +72,7 @@ function constructErrorResponse (response: Object) {
     if (response.name === STATUS_CODE_ERROR) {
       // Handle when we can get response error code
       body = response.error ? response.error : response;
-      body = typeof body === 'string'
-        ? JSON.parse(body)
-        : body;
+      body = typeof body === 'string' ? JSON.parse(body) : body;
       // Construct an error message from subfields in body.error
       message = body.error.error_user_msg
         ? `${body.error.error_user_title}: ${body.error.error_user_msg}`

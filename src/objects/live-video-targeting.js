@@ -20,14 +20,7 @@ export default class LiveVideoTargeting extends AbstractCrudObject {
       age_min: 'age_min',
       excluded_countries: 'excluded_countries',
       geo_locations: 'geo_locations',
-      id: 'id'
     });
   }
 
-  get (fields, params): LiveVideoTargeting {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

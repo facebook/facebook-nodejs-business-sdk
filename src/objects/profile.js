@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import Cursor from './../cursor';
 import ProfilePictureSource from './profile-picture-source';
 
 /**
@@ -27,34 +28,34 @@ export default class Profile extends AbstractCrudObject {
       pic_small: 'pic_small',
       pic_square: 'pic_square',
       profile_type: 'profile_type',
-      username: 'username'
+      username: 'username',
     });
   }
 
   static get ProfileType (): Object {
     return Object.freeze({
-      user: 'user',
-      page: 'page',
+      application: 'application',
       event: 'event',
       group: 'group',
-      application: 'application'
+      page: 'page',
+      user: 'user',
     });
   }
   static get Type (): Object {
     return Object.freeze({
-      none: 'NONE',
+      angry: 'ANGRY',
+      haha: 'HAHA',
       like: 'LIKE',
       love: 'LOVE',
-      wow: 'WOW',
-      haha: 'HAHA',
+      none: 'NONE',
+      pride: 'PRIDE',
       sad: 'SAD',
-      angry: 'ANGRY',
       thankful: 'THANKFUL',
-      pride: 'PRIDE'
+      wow: 'WOW',
     });
   }
 
-  getPicture (fields, params, fetchFirstPage = true): ProfilePictureSource {
+  getPicture (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       ProfilePictureSource,
       fields,
@@ -64,7 +65,9 @@ export default class Profile extends AbstractCrudObject {
     );
   }
 
-  get (fields, params): Profile {
+  
+  get (fields: Array<string>, params: Object = {}): Profile {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

@@ -21,14 +21,7 @@ export default class PagePaymentOptions extends AbstractCrudObject {
       discover: 'discover',
       mastercard: 'mastercard',
       visa: 'visa',
-      id: 'id'
     });
   }
 
-  get (fields, params): PagePaymentOptions {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

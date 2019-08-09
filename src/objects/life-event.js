@@ -7,7 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 import Comment from './comment';
 import Profile from './profile';
 import Photo from './photo';
@@ -29,11 +29,12 @@ export default class LifeEvent extends AbstractCrudObject {
       is_hidden: 'is_hidden',
       start_time: 'start_time',
       title: 'title',
-      updated_time: 'updated_time'
+      updated_time: 'updated_time',
     });
   }
 
-  getComments (fields, params, fetchFirstPage = true): Comment {
+
+  getComments (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Comment,
       fields,
@@ -43,16 +44,7 @@ export default class LifeEvent extends AbstractCrudObject {
     );
   }
 
-  createComment (fields, params): Comment {
-    return this.createEdge(
-      '/comments',
-      fields,
-      params,
-      Comment
-    );
-  }
-
-  getLikes (fields, params, fetchFirstPage = true): Profile {
+  getLikes (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Profile,
       fields,
@@ -62,7 +54,7 @@ export default class LifeEvent extends AbstractCrudObject {
     );
   }
 
-  getPhotos (fields, params, fetchFirstPage = true): Photo {
+  getPhotos (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Photo,
       fields,
@@ -72,7 +64,7 @@ export default class LifeEvent extends AbstractCrudObject {
     );
   }
 
-  getShareDPosts (fields, params, fetchFirstPage = true): Post {
+  getSharedPosts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Post,
       fields,
@@ -82,21 +74,11 @@ export default class LifeEvent extends AbstractCrudObject {
     );
   }
 
-  delete (fields, params): AbstractObject {
-    return super.delete(
-      params
-    );
-  }
-
-  get (fields, params): LifeEvent {
+  
+  get (fields: Array<string>, params: Object = {}): LifeEvent {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
-      params
-    );
-  }
-
-  update (fields, params): LifeEvent {
-    return super.update(
       params
     );
   }

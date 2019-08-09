@@ -8,6 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 
 /**
  * VideoPoll
@@ -23,21 +24,28 @@ export default class VideoPoll extends AbstractCrudObject {
       question: 'question',
       show_gradient: 'show_gradient',
       show_results: 'show_results',
-      status: 'status'
+      status: 'status',
     });
   }
 
+  static get Status (): Object {
+    return Object.freeze({
+      closed: 'closed',
+      results_open: 'results_open',
+      voting_open: 'voting_open',
+    });
+  }
   static get Action (): Object {
     return Object.freeze({
       attach_to_video: 'ATTACH_TO_VIDEO',
       close: 'CLOSE',
-      show_voting: 'SHOW_VOTING',
+      delete_poll: 'DELETE_POLL',
       show_results: 'SHOW_RESULTS',
-      delete_poll: 'DELETE_POLL'
+      show_voting: 'SHOW_VOTING',
     });
   }
 
-  getPollOptions (fields, params, fetchFirstPage = true): AbstractObject {
+  getPollOptions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AbstractObject,
       fields,
@@ -47,14 +55,18 @@ export default class VideoPoll extends AbstractCrudObject {
     );
   }
 
-  get (fields, params): VideoPoll {
+  
+  get (fields: Array<string>, params: Object = {}): VideoPoll {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): VideoPoll {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): VideoPoll {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

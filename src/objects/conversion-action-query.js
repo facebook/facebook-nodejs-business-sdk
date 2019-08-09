@@ -42,14 +42,7 @@ export default class ConversionActionQuery extends AbstractCrudObject {
       question_creator: 'question.creator',
       response: 'response',
       subtype: 'subtype',
-      id: 'id'
     });
   }
 
-  get (fields, params): ConversionActionQuery {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

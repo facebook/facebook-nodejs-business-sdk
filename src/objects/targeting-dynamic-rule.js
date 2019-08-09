@@ -24,14 +24,7 @@ export default class TargetingDynamicRule extends AbstractCrudObject {
       page_id: 'page_id',
       post: 'post',
       retention_seconds: 'retention_seconds',
-      id: 'id'
     });
   }
 
-  get (fields, params): TargetingDynamicRule {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

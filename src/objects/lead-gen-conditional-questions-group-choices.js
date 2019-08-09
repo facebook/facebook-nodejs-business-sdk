@@ -19,14 +19,7 @@ export default class LeadGenConditionalQuestionsGroupChoices extends AbstractCru
       customized_token: 'customized_token',
       next_question_choices: 'next_question_choices',
       value: 'value',
-      id: 'id'
     });
   }
 
-  get (fields, params): LeadGenConditionalQuestionsGroupChoices {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

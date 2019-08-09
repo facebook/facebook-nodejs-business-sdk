@@ -28,14 +28,7 @@ export default class ReachFrequencyEstimatesPlacementBreakdown extends AbstractC
       ios: 'ios',
       msite: 'msite',
       suggested_videos: 'suggested_videos',
-      id: 'id'
     });
   }
 
-  get (fields, params): ReachFrequencyEstimatesPlacementBreakdown {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

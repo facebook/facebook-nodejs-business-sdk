@@ -19,21 +19,13 @@ export default class AdRuleExecutionOptions extends AbstractCrudObject {
       field: 'field',
       operator: 'operator',
       value: 'value',
-      id: 'id'
     });
   }
 
   static get Operator (): Object {
     return Object.freeze({
       equal: 'EQUAL',
-      in: 'IN'
+      in: 'IN',
     });
-  }
-
-  get (fields, params): AdRuleExecutionOptions {
-    return this.read(
-      fields,
-      params
-    );
   }
 }

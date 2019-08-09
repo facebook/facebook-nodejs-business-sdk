@@ -31,18 +31,20 @@ export default class AdImage extends AbstractCrudObject {
       updated_time: 'updated_time',
       url: 'url',
       url_128: 'url_128',
-      width: 'width'
+      width: 'width',
     });
   }
 
   static get Status (): Object {
     return Object.freeze({
       active: 'ACTIVE',
-      deleted: 'DELETED'
+      deleted: 'DELETED',
     });
   }
 
-  get (fields, params): AdImage {
+  
+  get (fields: Array<string>, params: Object = {}): AdImage {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

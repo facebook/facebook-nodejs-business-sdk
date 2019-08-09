@@ -27,24 +27,31 @@ export default class Referral extends AbstractCrudObject {
       promotion_text: 'promotion_text',
       receiver_benefits_text: 'receiver_benefits_text',
       referral_link_uri: 'referral_link_uri',
-      sender_benefits_text: 'sender_benefits_text'
+      sender_benefits_text: 'sender_benefits_text',
     });
   }
 
-  delete (fields, params): AbstractObject {
+
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.delete(
       params
     );
   }
 
-  get (fields, params): Referral {
+  
+  get (fields: Array<string>, params: Object = {}): Referral {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): Referral {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): Referral {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

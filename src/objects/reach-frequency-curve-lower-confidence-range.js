@@ -22,14 +22,7 @@ export default class ReachFrequencyCurveLowerConfidenceRange extends AbstractCru
       reach_lower: 'reach_lower',
       uniq_video_views_2s_lower: 'uniq_video_views_2s_lower',
       video_views_2s_lower: 'video_views_2s_lower',
-      id: 'id'
     });
   }
 
-  get (fields, params): ReachFrequencyCurveLowerConfidenceRange {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

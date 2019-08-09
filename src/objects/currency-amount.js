@@ -20,14 +20,7 @@ export default class CurrencyAmount extends AbstractCrudObject {
       amount_in_hundredths: 'amount_in_hundredths',
       currency: 'currency',
       offsetted_amount: 'offsetted_amount',
-      id: 'id'
     });
   }
 
-  get (fields, params): CurrencyAmount {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

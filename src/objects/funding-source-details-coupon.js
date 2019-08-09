@@ -20,14 +20,7 @@ export default class FundingSourceDetailsCoupon extends AbstractCrudObject {
       currency: 'currency',
       display_amount: 'display_amount',
       expiration: 'expiration',
-      id: 'id'
     });
   }
 
-  get (fields, params): FundingSourceDetailsCoupon {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

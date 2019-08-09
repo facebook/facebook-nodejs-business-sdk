@@ -21,14 +21,7 @@ export default class AdNetworkAnalyticsAsyncQueryResult extends AbstractCrudObje
       query_id: 'query_id',
       results: 'results',
       status: 'status',
-      id: 'id'
     });
   }
 
-  get (fields, params): AdNetworkAnalyticsAsyncQueryResult {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

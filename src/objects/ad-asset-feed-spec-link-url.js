@@ -22,14 +22,7 @@ export default class AdAssetFeedSpecLinkURL extends AbstractCrudObject {
       display_url: 'display_url',
       url_tags: 'url_tags',
       website_url: 'website_url',
-      id: 'id'
     });
   }
 
-  get (fields, params): AdAssetFeedSpecLinkURL {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

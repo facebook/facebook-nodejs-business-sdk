@@ -23,31 +23,23 @@ export default class AdAccountMatchedSearchApplicationsEdgeData extends Abstract
       store: 'store',
       unique_id: 'unique_id',
       url: 'url',
-      id: 'id'
     });
   }
 
   static get AppStore (): Object {
     return Object.freeze({
       amazon_app_store: 'AMAZON_APP_STORE',
-      google_play: 'GOOGLE_PLAY',
-      itunes: 'ITUNES',
-      itunes_ipad: 'ITUNES_IPAD',
+      does_not_exist: 'DOES_NOT_EXIST',
+      fb_android_store: 'FB_ANDROID_STORE',
       fb_canvas: 'FB_CANVAS',
       fb_gameroom: 'FB_GAMEROOM',
-      windows_store: 'WINDOWS_STORE',
-      fb_android_store: 'FB_ANDROID_STORE',
-      windows_10_store: 'WINDOWS_10_STORE',
-      roku_store: 'ROKU_STORE',
+      google_play: 'GOOGLE_PLAY',
       instant_game: 'INSTANT_GAME',
-      does_not_exist: 'DOES_NOT_EXIST'
+      itunes: 'ITUNES',
+      itunes_ipad: 'ITUNES_IPAD',
+      roku_store: 'ROKU_STORE',
+      windows_10_store: 'WINDOWS_10_STORE',
+      windows_store: 'WINDOWS_STORE',
     });
-  }
-
-  get (fields, params): AdAccountMatchedSearchApplicationsEdgeData {
-    return this.read(
-      fields,
-      params
-    );
   }
 }

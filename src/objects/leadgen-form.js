@@ -7,7 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 import Lead from './lead';
 
 /**
@@ -47,55 +47,55 @@ export default class LeadgenForm extends AbstractCrudObject {
       status: 'status',
       tcpa_compliance: 'tcpa_compliance',
       thank_you_page: 'thank_you_page',
-      tracking_parameters: 'tracking_parameters'
+      tracking_parameters: 'tracking_parameters',
     });
   }
 
-  static get Locale (): Object {
-    return Object.freeze({
-      en_us: 'EN_US',
-      it_it: 'IT_IT',
-      fr_fr: 'FR_FR',
-      es_es: 'ES_ES',
-      es_la: 'ES_LA',
-      de_de: 'DE_DE',
-      en_gb: 'EN_GB',
-      pt_br: 'PT_BR',
-      zh_tw: 'ZH_TW',
-      zh_hk: 'ZH_HK',
-      tr_tr: 'TR_TR',
-      ar_ar: 'AR_AR',
-      cs_cz: 'CS_CZ',
-      da_dk: 'DA_DK',
-      fi_fi: 'FI_FI',
-      he_il: 'HE_IL',
-      hi_in: 'HI_IN',
-      hu_hu: 'HU_HU',
-      id_id: 'ID_ID',
-      ja_jp: 'JA_JP',
-      ko_kr: 'KO_KR',
-      nb_no: 'NB_NO',
-      nl_nl: 'NL_NL',
-      pl_pl: 'PL_PL',
-      pt_pt: 'PT_PT',
-      ro_ro: 'RO_RO',
-      ru_ru: 'RU_RU',
-      sv_se: 'SV_SE',
-      th_th: 'TH_TH',
-      vi_vn: 'VI_VN',
-      zh_cn: 'ZH_CN'
-    });
-  }
   static get Status (): Object {
     return Object.freeze({
       active: 'ACTIVE',
       archived: 'ARCHIVED',
       deleted: 'DELETED',
-      draft: 'DRAFT'
+      draft: 'DRAFT',
+    });
+  }
+  static get Locale (): Object {
+    return Object.freeze({
+      ar_ar: 'AR_AR',
+      cs_cz: 'CS_CZ',
+      da_dk: 'DA_DK',
+      de_de: 'DE_DE',
+      en_gb: 'EN_GB',
+      en_us: 'EN_US',
+      es_es: 'ES_ES',
+      es_la: 'ES_LA',
+      fi_fi: 'FI_FI',
+      fr_fr: 'FR_FR',
+      he_il: 'HE_IL',
+      hi_in: 'HI_IN',
+      hu_hu: 'HU_HU',
+      id_id: 'ID_ID',
+      it_it: 'IT_IT',
+      ja_jp: 'JA_JP',
+      ko_kr: 'KO_KR',
+      nb_no: 'NB_NO',
+      nl_nl: 'NL_NL',
+      pl_pl: 'PL_PL',
+      pt_br: 'PT_BR',
+      pt_pt: 'PT_PT',
+      ro_ro: 'RO_RO',
+      ru_ru: 'RU_RU',
+      sv_se: 'SV_SE',
+      th_th: 'TH_TH',
+      tr_tr: 'TR_TR',
+      vi_vn: 'VI_VN',
+      zh_cn: 'ZH_CN',
+      zh_hk: 'ZH_HK',
+      zh_tw: 'ZH_TW',
     });
   }
 
-  getLeads (fields, params, fetchFirstPage = true): Lead {
+  getLeads (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Lead,
       fields,
@@ -105,16 +105,7 @@ export default class LeadgenForm extends AbstractCrudObject {
     );
   }
 
-  createLead (fields, params): Lead {
-    return this.createEdge(
-      '/leads',
-      fields,
-      params,
-      Lead
-    );
-  }
-
-  getTestLeads (fields, params, fetchFirstPage = true): Lead {
+  getTestLeads (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Lead,
       fields,
@@ -124,7 +115,7 @@ export default class LeadgenForm extends AbstractCrudObject {
     );
   }
 
-  createTestLead (fields, params): Lead {
+  createTestLead (fields: Array<string>, params: Object = {}): Promise<Lead> {
     return this.createEdge(
       '/test_leads',
       fields,
@@ -133,20 +124,18 @@ export default class LeadgenForm extends AbstractCrudObject {
     );
   }
 
-  delete (fields, params): AbstractObject {
-    return super.delete(
-      params
-    );
-  }
-
-  get (fields, params): LeadgenForm {
+  
+  get (fields: Array<string>, params: Object = {}): LeadgenForm {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): LeadgenForm {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): LeadgenForm {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

@@ -19,14 +19,8 @@ export default class AssignedUser extends AbstractCrudObject {
       business: 'business',
       id: 'id',
       name: 'name',
-      user_type: 'user_type'
+      user_type: 'user_type',
     });
   }
 
-  get (fields, params): AssignedUser {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

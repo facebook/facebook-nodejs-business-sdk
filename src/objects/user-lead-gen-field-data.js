@@ -18,14 +18,7 @@ export default class UserLeadGenFieldData extends AbstractCrudObject {
     return Object.freeze({
       name: 'name',
       values: 'values',
-      id: 'id'
     });
   }
 
-  get (fields, params): UserLeadGenFieldData {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

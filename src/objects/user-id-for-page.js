@@ -17,14 +17,8 @@ export default class UserIDForPage extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       id: 'id',
-      page: 'page'
+      page: 'page',
     });
   }
 
-  get (fields, params): UserIDForPage {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

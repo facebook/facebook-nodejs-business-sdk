@@ -17,14 +17,7 @@ export default class AdAccountTrackingData extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       tracking_specs: 'tracking_specs',
-      id: 'id'
     });
   }
 
-  get (fields, params): AdAccountTrackingData {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

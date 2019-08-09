@@ -19,14 +19,7 @@ export default class CanvasCollectionThumbnail extends AbstractCrudObject {
       element_child_index: 'element_child_index',
       element_id: 'element_id',
       photo: 'photo',
-      id: 'id'
     });
   }
 
-  get (fields, params): CanvasCollectionThumbnail {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }
