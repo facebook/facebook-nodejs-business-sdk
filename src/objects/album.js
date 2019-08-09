@@ -7,7 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 import Comment from './comment';
 import Profile from './profile';
 import Photo from './photo';
@@ -44,11 +44,12 @@ export default class Album extends AbstractCrudObject {
       privacy: 'privacy',
       type: 'type',
       updated_time: 'updated_time',
-      video_count: 'video_count'
+      video_count: 'video_count',
     });
   }
 
-  getComments (fields, params, fetchFirstPage = true): Comment {
+
+  getComments (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Comment,
       fields,
@@ -58,7 +59,7 @@ export default class Album extends AbstractCrudObject {
     );
   }
 
-  createComment (fields, params): Comment {
+  createComment (fields: Array<string>, params: Object = {}): Promise<Comment> {
     return this.createEdge(
       '/comments',
       fields,
@@ -67,14 +68,7 @@ export default class Album extends AbstractCrudObject {
     );
   }
 
-  deleteLikes (params): AbstractObject {
-    return super.deleteEdge(
-      '/likes',
-      params
-    );
-  }
-
-  getLikes (fields, params, fetchFirstPage = true): Profile {
+  getLikes (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Profile,
       fields,
@@ -84,7 +78,7 @@ export default class Album extends AbstractCrudObject {
     );
   }
 
-  createLike (fields, params): Album {
+  createLike (fields: Array<string>, params: Object = {}): Promise<Album> {
     return this.createEdge(
       '/likes',
       fields,
@@ -93,7 +87,7 @@ export default class Album extends AbstractCrudObject {
     );
   }
 
-  getPhotos (fields, params, fetchFirstPage = true): Photo {
+  getPhotos (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Photo,
       fields,
@@ -103,7 +97,7 @@ export default class Album extends AbstractCrudObject {
     );
   }
 
-  createPhoto (fields, params): Photo {
+  createPhoto (fields: Array<string>, params: Object = {}): Promise<Photo> {
     return this.createEdge(
       '/photos',
       fields,
@@ -112,7 +106,7 @@ export default class Album extends AbstractCrudObject {
     );
   }
 
-  getPicture (fields, params, fetchFirstPage = true): ProfilePictureSource {
+  getPicture (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       ProfilePictureSource,
       fields,
@@ -122,7 +116,7 @@ export default class Album extends AbstractCrudObject {
     );
   }
 
-  getReactions (fields, params, fetchFirstPage = true): Profile {
+  getReactions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Profile,
       fields,
@@ -132,7 +126,7 @@ export default class Album extends AbstractCrudObject {
     );
   }
 
-  getShareDPosts (fields, params, fetchFirstPage = true): Post {
+  getSharedPosts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Post,
       fields,
@@ -142,7 +136,9 @@ export default class Album extends AbstractCrudObject {
     );
   }
 
-  get (fields, params): Album {
+  
+  get (fields: Array<string>, params: Object = {}): Album {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

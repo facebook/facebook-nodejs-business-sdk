@@ -17,14 +17,7 @@ export default class TargetingGeoLocationLocationCluster extends AbstractCrudObj
   static get Fields () {
     return Object.freeze({
       key: 'key',
-      id: 'id'
     });
   }
 
-  get (fields, params): TargetingGeoLocationLocationCluster {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

@@ -19,14 +19,7 @@ export default class SplitTestWinner extends AbstractCrudObject {
       ad_object_level: 'ad_object_level',
       confidences: 'confidences',
       winner_ad_object_id: 'winner_ad_object_id',
-      id: 'id'
     });
   }
 
-  get (fields, params): SplitTestWinner {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

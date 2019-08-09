@@ -17,14 +17,7 @@ export default class CanvasBodyElement extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       element: 'element',
-      id: 'id'
     });
   }
 
-  get (fields, params): CanvasBodyElement {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

@@ -25,6 +25,7 @@ export default class Vehicle extends AbstractCrudObject {
       custom_label_0: 'custom_label_0',
       date_first_on_lot: 'date_first_on_lot',
       dealer_communication_channel: 'dealer_communication_channel',
+      dealer_email: 'dealer_email',
       dealer_id: 'dealer_id',
       dealer_name: 'dealer_name',
       dealer_phone: 'dealer_phone',
@@ -58,13 +59,109 @@ export default class Vehicle extends AbstractCrudObject {
       vehicle_specifications: 'vehicle_specifications',
       vehicle_type: 'vehicle_type',
       vin: 'vin',
-      year: 'year'
+      year: 'year',
     });
   }
 
-  get (fields, params): Vehicle {
+  static get Availability (): Object {
+    return Object.freeze({
+      available: 'AVAILABLE',
+      not_available: 'NOT_AVAILABLE',
+    });
+  }
+  static get BodyStyle (): Object {
+    return Object.freeze({
+      convertible: 'CONVERTIBLE',
+      coupe: 'COUPE',
+      crossover: 'CROSSOVER',
+      hatchback: 'HATCHBACK',
+      minivan: 'MINIVAN',
+      none: 'NONE',
+      other: 'OTHER',
+      sedan: 'SEDAN',
+      small_car: 'SMALL_CAR',
+      suv: 'SUV',
+      truck: 'TRUCK',
+      van: 'VAN',
+      wagon: 'WAGON',
+    });
+  }
+  static get Condition (): Object {
+    return Object.freeze({
+      excellent: 'EXCELLENT',
+      fair: 'FAIR',
+      good: 'GOOD',
+      none: 'NONE',
+      other: 'OTHER',
+      poor: 'POOR',
+      very_good: 'VERY_GOOD',
+    });
+  }
+  static get Drivetrain (): Object {
+    return Object.freeze({
+      awd: 'AWD',
+      four_wd: 'FOUR_WD',
+      fwd: 'FWD',
+      none: 'NONE',
+      other: 'OTHER',
+      rwd: 'RWD',
+      two_wd: 'TWO_WD',
+    });
+  }
+  static get FuelType (): Object {
+    return Object.freeze({
+      diesel: 'DIESEL',
+      electric: 'ELECTRIC',
+      flex: 'FLEX',
+      gasoline: 'GASOLINE',
+      hybrid: 'HYBRID',
+      none: 'NONE',
+      other: 'OTHER',
+      petrol: 'PETROL',
+      plugin_hybrid: 'PLUGIN_HYBRID',
+    });
+  }
+  static get StateOfVehicle (): Object {
+    return Object.freeze({
+      cpo: 'CPO',
+      new: 'NEW',
+      used: 'USED',
+    });
+  }
+  static get Transmission (): Object {
+    return Object.freeze({
+      automatic: 'AUTOMATIC',
+      manual: 'MANUAL',
+      none: 'NONE',
+      other: 'OTHER',
+    });
+  }
+  static get VehicleType (): Object {
+    return Object.freeze({
+      boat: 'BOAT',
+      car_truck: 'CAR_TRUCK',
+      commercial: 'COMMERCIAL',
+      motorcycle: 'MOTORCYCLE',
+      other: 'OTHER',
+      powersport: 'POWERSPORT',
+      rv_camper: 'RV_CAMPER',
+      trailer: 'TRAILER',
+    });
+  }
+
+  
+  get (fields: Array<string>, params: Object = {}): Vehicle {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
+      params
+    );
+  }
+
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): Vehicle {
+    // $FlowFixMe : Support Generic Types
+    return super.update(
       params
     );
   }

@@ -8,6 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 import AdRuleHistory from './ad-rule-history';
 
 /**
@@ -27,28 +28,28 @@ export default class AdRule extends AbstractCrudObject {
       name: 'name',
       schedule_spec: 'schedule_spec',
       status: 'status',
-      updated_time: 'updated_time'
+      updated_time: 'updated_time',
     });
   }
 
   static get Status (): Object {
     return Object.freeze({
-      enabled: 'ENABLED',
+      deleted: 'DELETED',
       disabled: 'DISABLED',
-      deleted: 'DELETED'
+      enabled: 'ENABLED',
     });
   }
 
-  createExecute (fields, params): AbstractObject {
+  createExecute (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/execute',
       fields,
-      params
-
+      params,
+      
     );
   }
 
-  getHistory (fields, params, fetchFirstPage = true): AdRuleHistory {
+  getHistory (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdRuleHistory,
       fields,
@@ -58,7 +59,7 @@ export default class AdRule extends AbstractCrudObject {
     );
   }
 
-  createPreview (fields, params): AdRule {
+  createPreview (fields: Array<string>, params: Object = {}): Promise<AdRule> {
     return this.createEdge(
       '/preview',
       fields,
@@ -67,20 +68,26 @@ export default class AdRule extends AbstractCrudObject {
     );
   }
 
-  delete (fields, params): AbstractObject {
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.delete(
       params
     );
   }
 
-  get (fields, params): AdRule {
+  
+  get (fields: Array<string>, params: Object = {}): AdRule {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): AdRule {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): AdRule {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

@@ -21,24 +21,17 @@ export default class EntityAtTextRange extends AbstractCrudObject {
       name: 'name',
       object: 'object',
       offset: 'offset',
-      type: 'type'
+      type: 'type',
     });
   }
 
   static get Type (): Object {
     return Object.freeze({
-      user: 'user',
-      page: 'page',
+      application: 'application',
       event: 'event',
       group: 'group',
-      application: 'application'
+      page: 'page',
+      user: 'user',
     });
-  }
-
-  get (fields, params): EntityAtTextRange {
-    return this.read(
-      fields,
-      params
-    );
   }
 }

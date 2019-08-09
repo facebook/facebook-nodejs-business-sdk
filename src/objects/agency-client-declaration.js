@@ -28,14 +28,7 @@ export default class AgencyClientDeclaration extends AbstractCrudObject {
       client_street2: 'client_street2',
       has_written_mandate_from_advertiser: 'has_written_mandate_from_advertiser',
       is_client_paying_invoices: 'is_client_paying_invoices',
-      id: 'id'
     });
   }
 
-  get (fields, params): AgencyClientDeclaration {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

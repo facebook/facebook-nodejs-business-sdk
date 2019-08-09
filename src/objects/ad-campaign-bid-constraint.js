@@ -17,14 +17,7 @@ export default class AdCampaignBidConstraint extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       roas_average_floor: 'roas_average_floor',
-      id: 'id'
     });
   }
 
-  get (fields, params): AdCampaignBidConstraint {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

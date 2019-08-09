@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import Cursor from './../cursor';
 import Application from './application';
 
 /**
@@ -40,7 +41,7 @@ export default class DirectDeal extends AbstractCrudObject {
       status: 'status',
       targeting: 'targeting',
       third_party_ids: 'third_party_ids',
-      third_party_integrated_deal: 'third_party_integrated_deal'
+      third_party_integrated_deal: 'third_party_integrated_deal',
     });
   }
 
@@ -52,11 +53,11 @@ export default class DirectDeal extends AbstractCrudObject {
       value_3: '3',
       value_4: '4',
       value_5: '5',
-      value_6: '6'
+      value_6: '6',
     });
   }
 
-  getApplications (fields, params, fetchFirstPage = true): Application {
+  getApplications (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Application,
       fields,
@@ -66,7 +67,9 @@ export default class DirectDeal extends AbstractCrudObject {
     );
   }
 
-  get (fields, params): DirectDeal {
+  
+  get (fields: Array<string>, params: Object = {}): DirectDeal {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

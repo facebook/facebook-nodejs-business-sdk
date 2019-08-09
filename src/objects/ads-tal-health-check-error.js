@@ -18,14 +18,7 @@ export default class AdsTALHealthCheckError extends AbstractCrudObject {
     return Object.freeze({
       error_code: 'error_code',
       target_id: 'target_id',
-      id: 'id'
     });
   }
 
-  get (fields, params): AdsTALHealthCheckError {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

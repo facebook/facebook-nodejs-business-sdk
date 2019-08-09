@@ -19,14 +19,7 @@ export default class LeadGenAppointmentBookingInfo extends AbstractCrudObject {
       advertiser_timezone_offset: 'advertiser_timezone_offset',
       appointment_durations: 'appointment_durations',
       appointment_slots_by_day: 'appointment_slots_by_day',
-      id: 'id'
     });
   }
 
-  get (fields, params): LeadGenAppointmentBookingInfo {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

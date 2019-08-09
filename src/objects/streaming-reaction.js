@@ -18,28 +18,20 @@ export default class StreamingReaction extends AbstractCrudObject {
     return Object.freeze({
       count: 'count',
       reaction_type: 'reaction_type',
-      id: 'id'
     });
   }
 
   static get ReactionType (): Object {
     return Object.freeze({
-      none: 'NONE',
+      angry: 'ANGRY',
+      haha: 'HAHA',
       like: 'LIKE',
       love: 'LOVE',
-      wow: 'WOW',
-      haha: 'HAHA',
+      none: 'NONE',
+      pride: 'PRIDE',
       sad: 'SAD',
-      angry: 'ANGRY',
       thankful: 'THANKFUL',
-      pride: 'PRIDE'
+      wow: 'WOW',
     });
-  }
-
-  get (fields, params): StreamingReaction {
-    return this.read(
-      fields,
-      params
-    );
   }
 }

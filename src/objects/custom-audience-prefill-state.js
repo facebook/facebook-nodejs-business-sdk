@@ -19,14 +19,7 @@ export default class CustomAudiencePrefillState extends AbstractCrudObject {
       description: 'description',
       num_added: 'num_added',
       status: 'status',
-      id: 'id'
     });
   }
 
-  get (fields, params): CustomAudiencePrefillState {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

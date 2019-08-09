@@ -19,11 +19,14 @@ export default class BusinessUnit extends AbstractCrudObject {
       business: 'business',
       creation_time: 'creation_time',
       id: 'id',
-      name: 'name'
+      name: 'name',
     });
   }
 
-  get (fields, params): BusinessUnit {
+
+  
+  get (fields: Array<string>, params: Object = {}): BusinessUnit {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

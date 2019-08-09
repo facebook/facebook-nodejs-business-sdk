@@ -23,6 +23,8 @@ export default class Targeting extends AbstractCrudObject {
       app_install_state: 'app_install_state',
       audience_network_positions: 'audience_network_positions',
       behaviors: 'behaviors',
+      brand_safety_content_filter_levels: 'brand_safety_content_filter_levels',
+      catalog_based_targeting: 'catalog_based_targeting',
       cities: 'cities',
       college_years: 'college_years',
       connections: 'connections',
@@ -46,6 +48,7 @@ export default class Targeting extends AbstractCrudObject {
       engagement_specs: 'engagement_specs',
       ethnic_affinity: 'ethnic_affinity',
       exclude_reached_since: 'exclude_reached_since',
+      excluded_brand_safety_content_types: 'excluded_brand_safety_content_types',
       excluded_connections: 'excluded_connections',
       excluded_custom_audiences: 'excluded_custom_audiences',
       excluded_dynamic_audience_ids: 'excluded_dynamic_audience_ids',
@@ -72,7 +75,6 @@ export default class Targeting extends AbstractCrudObject {
       income: 'income',
       industries: 'industries',
       instagram_positions: 'instagram_positions',
-      instream_video_sponsorship_placements: 'instream_video_sponsorship_placements',
       interested_in: 'interested_in',
       interests: 'interests',
       is_whatsapp_destination_ad: 'is_whatsapp_destination_ad',
@@ -93,7 +95,6 @@ export default class Targeting extends AbstractCrudObject {
       radius: 'radius',
       regions: 'regions',
       relationship_statuses: 'relationship_statuses',
-      rtb_flag: 'rtb_flag',
       site_category: 'site_category',
       targeting_optimization: 'targeting_optimization',
       user_adclusters: 'user_adclusters',
@@ -104,29 +105,21 @@ export default class Targeting extends AbstractCrudObject {
       work_employers: 'work_employers',
       work_positions: 'work_positions',
       zips: 'zips',
-      id: 'id'
     });
   }
 
   static get DevicePlatforms (): Object {
     return Object.freeze({
-      mobile: 'mobile',
+      connected_tv: 'connected_tv',
       desktop: 'desktop',
-      connected_tv: 'connected_tv'
+      mobile: 'mobile',
     });
   }
   static get EffectiveDevicePlatforms (): Object {
     return Object.freeze({
-      mobile: 'mobile',
+      connected_tv: 'connected_tv',
       desktop: 'desktop',
-      connected_tv: 'connected_tv'
+      mobile: 'mobile',
     });
-  }
-
-  get (fields, params): Targeting {
-    return this.read(
-      fields,
-      params
-    );
   }
 }

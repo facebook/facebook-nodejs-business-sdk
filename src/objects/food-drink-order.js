@@ -24,7 +24,7 @@ export default class FoodDrinkOrder extends AbstractCrudObject {
       note: 'note',
       order_details: 'order_details',
       state: 'state',
-      update_time: 'update_time'
+      update_time: 'update_time',
     });
   }
 
@@ -37,18 +37,22 @@ export default class FoodDrinkOrder extends AbstractCrudObject {
       on_delivery: 'ON_DELIVERY',
       pending: 'PENDING',
       ready_for_pickup: 'READY_FOR_PICKUP',
-      serving: 'SERVING'
+      serving: 'SERVING',
     });
   }
 
-  get (fields, params): FoodDrinkOrder {
+  
+  get (fields: Array<string>, params: Object = {}): FoodDrinkOrder {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): FoodDrinkOrder {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): FoodDrinkOrder {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

@@ -20,14 +20,7 @@ export default class UserPaymentModulesOptions extends AbstractCrudObject {
       available_payment_options: 'available_payment_options',
       country: 'country',
       currency: 'currency',
-      id: 'id'
     });
   }
 
-  get (fields, params): UserPaymentModulesOptions {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

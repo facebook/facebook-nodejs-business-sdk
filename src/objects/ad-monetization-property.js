@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import Cursor from './../cursor';
 import AdNetworkAnalyticsSyncQueryResult from './ad-network-analytics-sync-query-result';
 import AdNetworkAnalyticsAsyncQueryResult from './ad-network-analytics-async-query-result';
 
@@ -18,11 +19,12 @@ import AdNetworkAnalyticsAsyncQueryResult from './ad-network-analytics-async-que
 export default class AdMonetizationProperty extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      id: 'id'
+      id: 'id',
     });
   }
 
-  getAdNetworkAnalytics (fields, params, fetchFirstPage = true): AdNetworkAnalyticsSyncQueryResult {
+
+  getAdNetworkAnalytics (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdNetworkAnalyticsSyncQueryResult,
       fields,
@@ -32,7 +34,7 @@ export default class AdMonetizationProperty extends AbstractCrudObject {
     );
   }
 
-  createAdNetworkAnalytic (fields, params): AdMonetizationProperty {
+  createAdNetworkAnalytic (fields: Array<string>, params: Object = {}): Promise<AdMonetizationProperty> {
     return this.createEdge(
       '/adnetworkanalytics',
       fields,
@@ -41,7 +43,7 @@ export default class AdMonetizationProperty extends AbstractCrudObject {
     );
   }
 
-  getAdNetworkAnalyticsResults (fields, params, fetchFirstPage = true): AdNetworkAnalyticsAsyncQueryResult {
+  getAdNetworkAnalyticsResults (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdNetworkAnalyticsAsyncQueryResult,
       fields,
@@ -51,7 +53,9 @@ export default class AdMonetizationProperty extends AbstractCrudObject {
     );
   }
 
-  get (fields, params): AdMonetizationProperty {
+  
+  get (fields: Array<string>, params: Object = {}): AdMonetizationProperty {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

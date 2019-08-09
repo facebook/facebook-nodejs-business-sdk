@@ -7,7 +7,6 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import AbstractObject from './../abstract-object';
 
 /**
  * VideoCopyrightRule
@@ -23,25 +22,14 @@ export default class VideoCopyrightRule extends AbstractCrudObject {
       creator: 'creator',
       id: 'id',
       is_in_migration: 'is_in_migration',
-      name: 'name'
+      name: 'name',
     });
   }
 
-  static get Source (): Object {
-    return Object.freeze({
-      match_settings_dialog: 'MATCH_SETTINGS_DIALOG',
-      rules_selector: 'RULES_SELECTOR',
-      rules_tab: 'RULES_TAB'
-    });
-  }
 
-  delete (fields, params): AbstractObject {
-    return super.delete(
-      params
-    );
-  }
-
-  get (fields, params): VideoCopyrightRule {
+  
+  get (fields: Array<string>, params: Object = {}): VideoCopyrightRule {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

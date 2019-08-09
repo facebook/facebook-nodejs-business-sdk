@@ -18,14 +18,8 @@ export default class AdAccountUser extends AbstractCrudObject {
     return Object.freeze({
       id: 'id',
       name: 'name',
-      tasks: 'tasks'
+      tasks: 'tasks',
     });
   }
 
-  get (fields, params): AdAccountUser {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

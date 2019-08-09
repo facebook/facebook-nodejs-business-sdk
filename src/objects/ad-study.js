@@ -8,10 +8,10 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 import AdStudyCell from './ad-study-cell';
 import AdsTALHealthCheckError from './ads-tal-health-check-error';
 import AdStudyObjective from './ad-study-objective';
-import AdStudyAdsAssetUserPermissions from './ad-study-ads-asset-user-permissions';
 import User from './user';
 
 /**
@@ -36,30 +36,19 @@ export default class AdStudy extends AbstractCrudObject {
       start_time: 'start_time',
       type: 'type',
       updated_by: 'updated_by',
-      updated_time: 'updated_time'
+      updated_time: 'updated_time',
     });
   }
 
-  static get AudienceType (): Object {
-    return Object.freeze({
-      most_responsive: 'MOST_RESPONSIVE',
-      not_most_responsive: 'NOT_MOST_RESPONSIVE'
-    });
-  }
-  static get Role (): Object {
-    return Object.freeze({
-      admin: 'ADMIN',
-      analyst: 'ANALYST'
-    });
-  }
   static get Type (): Object {
     return Object.freeze({
+      continuous_lift_config: 'CONTINUOUS_LIFT_CONFIG',
       lift: 'LIFT',
-      split_test: 'SPLIT_TEST'
+      split_test: 'SPLIT_TEST',
     });
   }
 
-  getCells (fields, params, fetchFirstPage = true): AdStudyCell {
+  getCells (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdStudyCell,
       fields,
@@ -69,16 +58,7 @@ export default class AdStudy extends AbstractCrudObject {
     );
   }
 
-  createCustomAudience (fields, params): AdStudy {
-    return this.createEdge(
-      '/customaudiences',
-      fields,
-      params,
-      AdStudy
-    );
-  }
-
-  getHealthCheckErrors (fields, params, fetchFirstPage = true): AdsTALHealthCheckError {
+  getHealthCheckErrors (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdsTALHealthCheckError,
       fields,
@@ -88,7 +68,7 @@ export default class AdStudy extends AbstractCrudObject {
     );
   }
 
-  getObjectives (fields, params, fetchFirstPage = true): AdStudyObjective {
+  getObjectives (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdStudyObjective,
       fields,
@@ -98,7 +78,7 @@ export default class AdStudy extends AbstractCrudObject {
     );
   }
 
-  createObjective (fields, params): AdStudyObjective {
+  createObjective (fields: Array<string>, params: Object = {}): Promise<AdStudyObjective> {
     return this.createEdge(
       '/objectives',
       fields,
@@ -107,33 +87,7 @@ export default class AdStudy extends AbstractCrudObject {
     );
   }
 
-  deleteUserPermissions (params): AbstractObject {
-    return super.deleteEdge(
-      '/userpermissions',
-      params
-    );
-  }
-
-  getUserPermissions (fields, params, fetchFirstPage = true): AdStudyAdsAssetUserPermissions {
-    return this.getEdge(
-      AdStudyAdsAssetUserPermissions,
-      fields,
-      params,
-      fetchFirstPage,
-      '/userpermissions'
-    );
-  }
-
-  createUserPermission (fields, params): AdStudy {
-    return this.createEdge(
-      '/userpermissions',
-      fields,
-      params,
-      AdStudy
-    );
-  }
-
-  getViewers (fields, params, fetchFirstPage = true): User {
+  getViewers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       User,
       fields,
@@ -143,14 +97,26 @@ export default class AdStudy extends AbstractCrudObject {
     );
   }
 
-  get (fields, params): AdStudy {
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
+    return super.delete(
+      params
+    );
+  }
+
+  
+  get (fields: Array<string>, params: Object = {}): AdStudy {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): AdStudy {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): AdStudy {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

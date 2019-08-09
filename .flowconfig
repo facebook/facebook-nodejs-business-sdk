@@ -1,0 +1,14 @@
+[ignore]
+.*node_modules.*
+.*dist.*
+.*docs/.*
+.*examples/.*
+[include]
+
+[libs]
+
+[lints]
+
+[options]
+
+[strict]

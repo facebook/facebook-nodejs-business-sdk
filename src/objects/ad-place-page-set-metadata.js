@@ -17,16 +17,10 @@ export default class AdPlacePageSetMetadata extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       audience: 'audience',
+      custom: 'custom',
       extra_data: 'extra_data',
       fixed_radius: 'fixed_radius',
-      id: 'id'
     });
   }
 
-  get (fields, params): AdPlacePageSetMetadata {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

@@ -18,14 +18,7 @@ export default class VideoCopyrightGeoGate extends AbstractCrudObject {
     return Object.freeze({
       excluded_countries: 'excluded_countries',
       included_countries: 'included_countries',
-      id: 'id'
     });
   }
 
-  get (fields, params): VideoCopyrightGeoGate {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

@@ -19,14 +19,7 @@ export default class AdBidAdjustments extends AbstractCrudObject {
       age_range: 'age_range',
       page_types: 'page_types',
       user_groups: 'user_groups',
-      id: 'id'
     });
   }
 
-  get (fields, params): AdBidAdjustments {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

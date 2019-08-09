@@ -8,6 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 import AdsInsights from './ads-insights';
 
 /**
@@ -30,11 +31,12 @@ export default class AdReportRun extends AbstractCrudObject {
       is_running: 'is_running',
       schedule_id: 'schedule_id',
       time_completed: 'time_completed',
-      time_ref: 'time_ref'
+      time_ref: 'time_ref',
     });
   }
 
-  getInsights (fields, params, fetchFirstPage = true): AdsInsights {
+
+  getInsights (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdsInsights,
       fields,
@@ -44,29 +46,26 @@ export default class AdReportRun extends AbstractCrudObject {
     );
   }
 
-  createRetry (fields, params): AdReportRun {
-    return this.createEdge(
-      '/retry',
-      fields,
-      params,
-      AdReportRun
-    );
-  }
-
-  delete (fields, params): AbstractObject {
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.delete(
       params
     );
   }
 
-  get (fields, params): AdReportRun {
+  
+  get (fields: Array<string>, params: Object = {}): AdReportRun {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): AdReportRun {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): AdReportRun {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

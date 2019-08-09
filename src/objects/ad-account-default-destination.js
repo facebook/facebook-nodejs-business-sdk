@@ -18,14 +18,7 @@ export default class AdAccountDefaultDestination extends AbstractCrudObject {
     return Object.freeze({
       destination_id: 'destination_id',
       destination_url: 'destination_url',
-      id: 'id'
     });
   }
 
-  get (fields, params): AdAccountDefaultDestination {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

@@ -19,14 +19,7 @@ export default class AdAccountPromotableObjects extends AbstractCrudObject {
       promotable_app_ids: 'promotable_app_ids',
       promotable_page_ids: 'promotable_page_ids',
       promotable_urls: 'promotable_urls',
-      id: 'id'
     });
   }
 
-  get (fields, params): AdAccountPromotableObjects {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

@@ -8,6 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 import Comment from './comment';
 import InsightsResult from './insights-result';
 import Profile from './profile';
@@ -24,6 +25,8 @@ export default class Photo extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       album: 'album',
+      alt_text: 'alt_text',
+      alt_text_custom: 'alt_text_custom',
       backdated_time: 'backdated_time',
       backdated_time_granularity: 'backdated_time_granularity',
       can_backdate: 'can_backdate',
@@ -47,61 +50,39 @@ export default class Photo extends AbstractCrudObject {
       target: 'target',
       updated_time: 'updated_time',
       webp_images: 'webp_images',
-      width: 'width'
+      width: 'width',
     });
   }
 
   static get BackdatedTimeGranularity (): Object {
     return Object.freeze({
-      year: 'year',
-      month: 'month',
       day: 'day',
       hour: 'hour',
       min: 'min',
-      none: 'none'
+      month: 'month',
+      none: 'none',
+      year: 'year',
     });
   }
   static get UnpublishedContentType (): Object {
     return Object.freeze({
-      scheduled: 'SCHEDULED',
-      draft: 'DRAFT',
       ads_post: 'ADS_POST',
+      draft: 'DRAFT',
       inline_created: 'INLINE_CREATED',
-      published: 'PUBLISHED'
+      published: 'PUBLISHED',
+      scheduled: 'SCHEDULED',
+      scheduled_recurring: 'SCHEDULED_RECURRING',
     });
   }
   static get Type (): Object {
     return Object.freeze({
       profile: 'profile',
       tagged: 'tagged',
-      uploaded: 'uploaded'
-    });
-  }
-  static get CheckinEntryPoint (): Object {
-    return Object.freeze({
-      branding_checkin: 'BRANDING_CHECKIN',
-      branding_status: 'BRANDING_STATUS',
-      branding_photo: 'BRANDING_PHOTO',
-      branding_other: 'BRANDING_OTHER'
-    });
-  }
-  static get Formatting (): Object {
-    return Object.freeze({
-      plaintext: 'PLAINTEXT',
-      markdown: 'MARKDOWN'
-    });
-  }
-  static get PostSurfacesBlacklist (): Object {
-    return Object.freeze({
-      value_1: '1',
-      value_2: '2',
-      value_3: '3',
-      value_4: '4',
-      value_5: '5'
+      uploaded: 'uploaded',
     });
   }
 
-  getComments (fields, params, fetchFirstPage = true): Comment {
+  getComments (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Comment,
       fields,
@@ -111,7 +92,7 @@ export default class Photo extends AbstractCrudObject {
     );
   }
 
-  createComment (fields, params): Comment {
+  createComment (fields: Array<string>, params: Object = {}): Promise<Comment> {
     return this.createEdge(
       '/comments',
       fields,
@@ -120,16 +101,7 @@ export default class Photo extends AbstractCrudObject {
     );
   }
 
-  createDismissTagSuggestion (fields, params): Photo {
-    return this.createEdge(
-      '/dismisstagsuggestion',
-      fields,
-      params,
-      Photo
-    );
-  }
-
-  getInsights (fields, params, fetchFirstPage = true): InsightsResult {
+  getInsights (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       InsightsResult,
       fields,
@@ -139,14 +111,7 @@ export default class Photo extends AbstractCrudObject {
     );
   }
 
-  deleteLikes (params): AbstractObject {
-    return super.deleteEdge(
-      '/likes',
-      params
-    );
-  }
-
-  getLikes (fields, params, fetchFirstPage = true): Profile {
+  getLikes (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Profile,
       fields,
@@ -156,7 +121,7 @@ export default class Photo extends AbstractCrudObject {
     );
   }
 
-  createLike (fields, params): Photo {
+  createLike (fields: Array<string>, params: Object = {}): Promise<Photo> {
     return this.createEdge(
       '/likes',
       fields,
@@ -165,16 +130,7 @@ export default class Photo extends AbstractCrudObject {
     );
   }
 
-  createPhoto (fields, params): Photo {
-    return this.createEdge(
-      '/photos',
-      fields,
-      params,
-      Photo
-    );
-  }
-
-  getReactions (fields, params, fetchFirstPage = true): Profile {
+  getReactions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Profile,
       fields,
@@ -184,7 +140,7 @@ export default class Photo extends AbstractCrudObject {
     );
   }
 
-  getShareDPosts (fields, params, fetchFirstPage = true): Post {
+  getSharedPosts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Post,
       fields,
@@ -194,7 +150,7 @@ export default class Photo extends AbstractCrudObject {
     );
   }
 
-  getSponsorTags (fields, params, fetchFirstPage = true): Page {
+  getSponsorTags (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Page,
       fields,
@@ -204,7 +160,7 @@ export default class Photo extends AbstractCrudObject {
     );
   }
 
-  getTags (fields, params, fetchFirstPage = true): TaggableSubject {
+  getTags (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       TaggableSubject,
       fields,
@@ -214,30 +170,19 @@ export default class Photo extends AbstractCrudObject {
     );
   }
 
-  createTag (fields, params): Photo {
-    return this.createEdge(
-      '/tags',
-      fields,
-      params,
-      Photo
-    );
-  }
-
-  delete (fields, params): AbstractObject {
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.delete(
       params
     );
   }
 
-  get (fields, params): Photo {
+  
+  get (fields: Array<string>, params: Object = {}): Photo {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
-      params
-    );
-  }
-
-  update (fields, params): Photo {
-    return super.update(
       params
     );
   }

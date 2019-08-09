@@ -17,14 +17,7 @@ export default class SecuritySettings extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       secure_browsing: 'secure_browsing',
-      id: 'id'
     });
   }
 
-  get (fields, params): SecuritySettings {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

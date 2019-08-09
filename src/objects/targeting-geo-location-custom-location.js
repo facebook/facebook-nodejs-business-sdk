@@ -30,14 +30,7 @@ export default class TargetingGeoLocationCustomLocation extends AbstractCrudObje
       primary_city_id: 'primary_city_id',
       radius: 'radius',
       region_id: 'region_id',
-      id: 'id'
     });
   }
 
-  get (fields, params): TargetingGeoLocationCustomLocation {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

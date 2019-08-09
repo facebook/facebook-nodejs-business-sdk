@@ -23,14 +23,7 @@ export default class UserPaymentMethodsInfo extends AbstractCrudObject {
       country: 'country',
       currency: 'currency',
       existing_payment_methods: 'existing_payment_methods',
-      id: 'id'
     });
   }
 
-  get (fields, params): UserPaymentMethodsInfo {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

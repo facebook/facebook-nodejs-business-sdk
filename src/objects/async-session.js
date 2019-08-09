@@ -30,11 +30,14 @@ export default class AsyncSession extends AbstractCrudObject {
       start_time: 'start_time',
       status: 'status',
       uri: 'uri',
-      user: 'user'
+      user: 'user',
     });
   }
 
-  get (fields, params): AsyncSession {
+
+  
+  get (fields: Array<string>, params: Object = {}): AsyncSession {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

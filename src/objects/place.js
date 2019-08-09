@@ -19,11 +19,14 @@ export default class Place extends AbstractCrudObject {
       id: 'id',
       location: 'location',
       name: 'name',
-      overall_rating: 'overall_rating'
+      overall_rating: 'overall_rating',
     });
   }
 
-  get (fields, params): Place {
+
+  
+  get (fields: Array<string>, params: Object = {}): Place {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

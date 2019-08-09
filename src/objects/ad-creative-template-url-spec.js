@@ -23,14 +23,7 @@ export default class AdCreativeTemplateURLSpec extends AbstractCrudObject {
       iphone: 'iphone',
       web: 'web',
       windows_phone: 'windows_phone',
-      id: 'id'
     });
   }
 
-  get (fields, params): AdCreativeTemplateURLSpec {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

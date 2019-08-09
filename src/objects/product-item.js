@@ -8,7 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
-import Comment from './comment';
+import Cursor from './../cursor';
 import ProductSet from './product-set';
 
 /**
@@ -70,7 +70,7 @@ export default class ProductItem extends AbstractCrudObject {
       size: 'size',
       start_date: 'start_date',
       url: 'url',
-      visibility: 'visibility'
+      visibility: 'visibility',
     });
   }
 
@@ -82,68 +82,59 @@ export default class ProductItem extends AbstractCrudObject {
       kids: 'kids',
       newborn: 'newborn',
       teen: 'teen',
-      toddler: 'toddler'
+      toddler: 'toddler',
     });
   }
   static get Availability (): Object {
     return Object.freeze({
-      in_stock: 'in stock',
-      out_of_stock: 'out of stock',
-      preorder: 'preorder',
       available_for_order: 'available for order',
       discontinued: 'discontinued',
-      pending: 'pending'
+      in_stock: 'in stock',
+      out_of_stock: 'out of stock',
+      pending: 'pending',
+      preorder: 'preorder',
     });
   }
   static get Condition (): Object {
     return Object.freeze({
+      cpo: 'cpo',
       new: 'new',
+      open_box_new: 'open_box_new',
       refurbished: 'refurbished',
       used: 'used',
-      cpo: 'cpo',
-      open_box_new: 'open_box_new'
     });
   }
   static get Gender (): Object {
     return Object.freeze({
       female: 'female',
       male: 'male',
-      unisex: 'unisex'
+      unisex: 'unisex',
     });
   }
   static get ReviewStatus (): Object {
     return Object.freeze({
+      approved: 'approved',
+      outdated: 'outdated',
       pending: 'pending',
       rejected: 'rejected',
-      approved: 'approved',
-      outdated: 'outdated'
     });
   }
   static get ShippingWeightUnit (): Object {
     return Object.freeze({
       g: 'g',
       kg: 'kg',
+      lb: 'lb',
       oz: 'oz',
-      lb: 'lb'
     });
   }
   static get Visibility (): Object {
     return Object.freeze({
+      published: 'published',
       staging: 'staging',
-      published: 'published'
     });
   }
 
-  createComment (fields, params): Comment {
-    return this.createEdge(
-      '/comments',
-      fields,
-      params,
-      Comment
-    );
-  }
-
-  getProductSets (fields, params, fetchFirstPage = true): ProductSet {
+  getProductSets (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       ProductSet,
       fields,
@@ -153,20 +144,26 @@ export default class ProductItem extends AbstractCrudObject {
     );
   }
 
-  delete (fields, params): AbstractObject {
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.delete(
       params
     );
   }
 
-  get (fields, params): ProductItem {
+  
+  get (fields: Array<string>, params: Object = {}): ProductItem {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): ProductItem {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): ProductItem {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

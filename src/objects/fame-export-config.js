@@ -20,14 +20,7 @@ export default class FAMEExportConfig extends AbstractCrudObject {
       column_id: 'column_id',
       display_name: 'display_name',
       format: 'format',
-      id: 'id'
     });
   }
 
-  get (fields, params): FAMEExportConfig {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

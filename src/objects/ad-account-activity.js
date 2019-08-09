@@ -48,11 +48,14 @@ export default class AdAccountActivity extends AbstractCrudObject {
       tier_new: 'tier_new',
       tier_old: 'tier_old',
       time_updated_new: 'time_updated_new',
-      time_updated_old: 'time_updated_old'
+      time_updated_old: 'time_updated_old',
     });
   }
 
-  get (fields, params): AdAccountActivity {
+
+  
+  get (fields: Array<string>, params: Object = {}): AdAccountActivity {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

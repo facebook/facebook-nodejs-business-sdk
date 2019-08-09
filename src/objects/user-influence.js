@@ -19,14 +19,7 @@ export default class UserInfluence extends AbstractCrudObject {
       trust: 'trust',
       trust_code: 'trust_code',
       version: 'version',
-      id: 'id'
     });
   }
 
-  get (fields, params): UserInfluence {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

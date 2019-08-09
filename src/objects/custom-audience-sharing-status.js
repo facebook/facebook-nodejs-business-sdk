@@ -18,14 +18,7 @@ export default class CustomAudienceSharingStatus extends AbstractCrudObject {
     return Object.freeze({
       sharing_relationship_id: 'sharing_relationship_id',
       status: 'status',
-      id: 'id'
     });
   }
 
-  get (fields, params): CustomAudienceSharingStatus {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

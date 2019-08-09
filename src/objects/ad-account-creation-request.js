@@ -7,7 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 import AdAccount from './ad-account';
 
 /**
@@ -40,6 +40,7 @@ export default class AdAccountCreationRequest extends AbstractCrudObject {
       is_test: 'is_test',
       is_under_authorization: 'is_under_authorization',
       legal_entity_name_in_local_language: 'legal_entity_name_in_local_language',
+      oe_request_id: 'oe_request_id',
       official_website_url: 'official_website_url',
       planning_agency_business: 'planning_agency_business',
       planning_agency_business_id: 'planning_agency_business_id',
@@ -50,7 +51,7 @@ export default class AdAccountCreationRequest extends AbstractCrudObject {
       status: 'status',
       subvertical: 'subvertical',
       time_created: 'time_created',
-      vertical: 'vertical'
+      vertical: 'vertical',
     });
   }
 
@@ -58,22 +59,21 @@ export default class AdAccountCreationRequest extends AbstractCrudObject {
     return Object.freeze({
       accounting_and_taxes_and_legal: 'ACCOUNTING_AND_TAXES_AND_LEGAL',
       agriculture_and_farming: 'AGRICULTURE_AND_FARMING',
-      ecommerce_agriculture_and_farming: 'ECOMMERCE_AGRICULTURE_AND_FARMING',
       air: 'AIR',
       air_freight_or_package: 'AIR_FREIGHT_OR_PACKAGE',
       apparel_and_accessories: 'APPAREL_AND_ACCESSORIES',
       arts: 'ARTS',
       auctions: 'AUCTIONS',
+      automotive_manufacturer: 'AUTOMOTIVE_MANUFACTURER',
       auto_agency: 'AUTO_AGENCY',
       auto_rental: 'AUTO_RENTAL',
-      automotive_manufacturer: 'AUTOMOTIVE_MANUFACTURER',
       b2b: 'B2B',
       b2b_manufacturing: 'B2B_MANUFACTURING',
       beauty_and_personal_care: 'BEAUTY_AND_PERSONAL_CARE',
       beer_and_wine_and_liquor: 'BEER_AND_WINE_AND_LIQUOR',
       bookstores: 'BOOKSTORES',
-      bus_and_taxi_and_auto_retal: 'BUS_AND_TAXI_AND_AUTO_RETAL',
       business_support_services: 'BUSINESS_SUPPORT_SERVICES',
+      bus_and_taxi_and_auto_retal: 'BUS_AND_TAXI_AND_AUTO_RETAL',
       cable_and_satellite: 'CABLE_AND_SATELLITE',
       career: 'CAREER',
       computing_and_peripherals: 'COMPUTING_AND_PERIPHERALS',
@@ -93,8 +93,9 @@ export default class AdAccountCreationRequest extends AbstractCrudObject {
       desktop_software: 'DESKTOP_SOFTWARE',
       digital_advertising_and_marketing_or_untagged_agencies: 'DIGITAL_ADVERTISING_AND_MARKETING_OR_UNTAGGED_AGENCIES',
       ecatalog: 'ECATALOG',
-      ed_tech: 'ED_TECH',
+      ecommerce_agriculture_and_farming: 'ECOMMERCE_AGRICULTURE_AND_FARMING',
       education_resources: 'EDUCATION_RESOURCES',
+      ed_tech: 'ED_TECH',
       elearning_and_massive_online_open_courses: 'ELEARNING_AND_MASSIVE_ONLINE_OPEN_COURSES',
       engineering_and_design: 'ENGINEERING_AND_DESIGN',
       events: 'EVENTS',
@@ -127,6 +128,7 @@ export default class AdAccountCreationRequest extends AbstractCrudObject {
       office: 'OFFICE',
       oil_and_gas_and_consumable_fuel: 'OIL_AND_GAS_AND_CONSUMABLE_FUEL',
       online_or_software: 'ONLINE_OR_SOFTWARE',
+      other_wireline_services: 'OTHER_WIRELINE_SERVICES',
       parts_and_service: 'PARTS_AND_SERVICE',
       pet: 'PET',
       pet_retail: 'PET_RETAIL',
@@ -136,9 +138,9 @@ export default class AdAccountCreationRequest extends AbstractCrudObject {
       pr: 'PR',
       publishing_internet: 'PUBLISHING_INTERNET',
       railroads: 'RAILROADS',
-      recreational: 'RECREATIONAL',
       real_estate: 'REAL_ESTATE',
       real_money_or_skilled_gaming: 'REAL_MONEY_OR_SKILLED_GAMING',
+      recreational: 'RECREATIONAL',
       religious: 'RELIGIOUS',
       restaurant: 'RESTAURANT',
       retail_and_credit_union_and_commercial_bank: 'RETAIL_AND_CREDIT_UNION_AND_COMMERCIAL_BANK',
@@ -161,7 +163,6 @@ export default class AdAccountCreationRequest extends AbstractCrudObject {
       smb_religious: 'SMB_RELIGIOUS',
       smb_rentals: 'SMB_RENTALS',
       smb_repair_and_maintenance: 'SMB_REPAIR_AND_MAINTENANCE',
-      other_wireline_services: 'OTHER_WIRELINE_SERVICES',
       software: 'SOFTWARE',
       sporting: 'SPORTING',
       sports: 'SPORTS',
@@ -175,14 +176,14 @@ export default class AdAccountCreationRequest extends AbstractCrudObject {
       truck_and_moving: 'TRUCK_AND_MOVING',
       utilities_and_energy_equipment_and_services: 'UTILITIES_AND_ENERGY_EQUIPMENT_AND_SERVICES',
       water_and_soft_drink_and_baverage: 'WATER_AND_SOFT_DRINK_AND_BAVERAGE',
-      wireless_services: 'WIRELESS_SERVICES'
+      wireless_services: 'WIRELESS_SERVICES',
     });
   }
   static get Vertical (): Object {
     return Object.freeze({
       advertising_and_marketing: 'ADVERTISING_AND_MARKETING',
-      auto_agency: 'AUTO_AGENCY',
       automotive: 'AUTOMOTIVE',
+      auto_agency: 'AUTO_AGENCY',
       consumer_packaged_goods: 'CONSUMER_PACKAGED_GOODS',
       cpg_and_beverage: 'CPG_AND_BEVERAGE',
       ecommerce: 'ECOMMERCE',
@@ -199,27 +200,11 @@ export default class AdAccountCreationRequest extends AbstractCrudObject {
       retail: 'RETAIL',
       technology: 'TECHNOLOGY',
       telecom: 'TELECOM',
-      travel: 'TRAVEL'
-    });
-  }
-  static get Status (): Object {
-    return Object.freeze({
-      pending: 'PENDING',
-      under_review: 'UNDER_REVIEW',
-      approved: 'APPROVED',
-      disapproved: 'DISAPPROVED',
-      requested_change: 'REQUESTED_CHANGE',
-      cancelled: 'CANCELLED',
-      auto_approved: 'AUTO_APPROVED',
-      auto_disapproved: 'AUTO_DISAPPROVED',
-      appeal_pending: 'APPEAL_PENDING',
-      appeal_under_review: 'APPEAL_UNDER_REVIEW',
-      appeal_approved: 'APPEAL_APPROVED',
-      appeal_disapproved: 'APPEAL_DISAPPROVED'
+      travel: 'TRAVEL',
     });
   }
 
-  getAdAccounts (fields, params, fetchFirstPage = true): AdAccount {
+  getAdAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdAccount,
       fields,
@@ -229,29 +214,18 @@ export default class AdAccountCreationRequest extends AbstractCrudObject {
     );
   }
 
-  createVietnam (fields, params): AdAccountCreationRequest {
-    return this.createEdge(
-      '/vietnam',
-      fields,
-      params,
-      AdAccountCreationRequest
-    );
-  }
-
-  delete (fields, params): AbstractObject {
-    return super.delete(
-      params
-    );
-  }
-
-  get (fields, params): AdAccountCreationRequest {
+  
+  get (fields: Array<string>, params: Object = {}): AdAccountCreationRequest {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): AdAccountCreationRequest {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): AdAccountCreationRequest {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

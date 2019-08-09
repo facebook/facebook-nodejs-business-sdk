@@ -24,14 +24,7 @@ export default class AudienceInsightsStudySpec extends AbstractCrudObject {
       included_rules: 'included_rules',
       start_time: 'start_time',
       status: 'status',
-      id: 'id'
     });
   }
 
-  get (fields, params): AudienceInsightsStudySpec {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

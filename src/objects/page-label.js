@@ -7,8 +7,6 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import AbstractObject from './../abstract-object';
-import User from './user';
 
 /**
  * PageLabel
@@ -22,43 +20,14 @@ export default class PageLabel extends AbstractCrudObject {
       creator_id: 'creator_id',
       from: 'from',
       id: 'id',
-      name: 'name'
+      name: 'name',
     });
   }
 
-  deleteUsers (params): AbstractObject {
-    return super.deleteEdge(
-      '/users',
-      params
-    );
-  }
 
-  getUsers (fields, params, fetchFirstPage = true): User {
-    return this.getEdge(
-      User,
-      fields,
-      params,
-      fetchFirstPage,
-      '/users'
-    );
-  }
-
-  createUser (fields, params): PageLabel {
-    return this.createEdge(
-      '/users',
-      fields,
-      params,
-      PageLabel
-    );
-  }
-
-  delete (fields, params): AbstractObject {
-    return super.delete(
-      params
-    );
-  }
-
-  get (fields, params): PageLabel {
+  
+  get (fields: Array<string>, params: Object = {}): PageLabel {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

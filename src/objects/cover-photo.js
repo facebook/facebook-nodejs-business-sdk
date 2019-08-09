@@ -20,14 +20,8 @@ export default class CoverPhoto extends AbstractCrudObject {
       id: 'id',
       offset_x: 'offset_x',
       offset_y: 'offset_y',
-      source: 'source'
+      source: 'source',
     });
   }
 
-  get (fields, params): CoverPhoto {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

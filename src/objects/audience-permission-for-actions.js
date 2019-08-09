@@ -21,14 +21,7 @@ export default class AudiencePermissionForActions extends AbstractCrudObject {
       can_share: 'can_share',
       subtype_supports_lookalike: 'subtype_supports_lookalike',
       supports_recipient_lookalike: 'supports_recipient_lookalike',
-      id: 'id'
     });
   }
 
-  get (fields, params): AudiencePermissionForActions {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

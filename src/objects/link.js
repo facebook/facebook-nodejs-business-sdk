@@ -7,9 +7,8 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 import Comment from './comment';
-import Lead from './lead';
 import Profile from './profile';
 import Post from './post';
 
@@ -31,23 +30,13 @@ export default class Link extends AbstractCrudObject {
       message: 'message',
       multi_share_optimized: 'multi_share_optimized',
       name: 'name',
-      picture: 'picture',
       privacy: 'privacy',
-      via: 'via'
+      via: 'via',
     });
   }
 
-  static get UnpublishedContentType (): Object {
-    return Object.freeze({
-      scheduled: 'SCHEDULED',
-      draft: 'DRAFT',
-      ads_post: 'ADS_POST',
-      inline_created: 'INLINE_CREATED',
-      published: 'PUBLISHED'
-    });
-  }
 
-  getComments (fields, params, fetchFirstPage = true): Comment {
+  getComments (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Comment,
       fields,
@@ -57,7 +46,7 @@ export default class Link extends AbstractCrudObject {
     );
   }
 
-  createComment (fields, params): Comment {
+  createComment (fields: Array<string>, params: Object = {}): Promise<Comment> {
     return this.createEdge(
       '/comments',
       fields,
@@ -66,24 +55,7 @@ export default class Link extends AbstractCrudObject {
     );
   }
 
-  getLeads (fields, params, fetchFirstPage = true): Lead {
-    return this.getEdge(
-      Lead,
-      fields,
-      params,
-      fetchFirstPage,
-      '/leads'
-    );
-  }
-
-  deleteLikes (params): AbstractObject {
-    return super.deleteEdge(
-      '/likes',
-      params
-    );
-  }
-
-  getLikes (fields, params, fetchFirstPage = true): Profile {
+  getLikes (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Profile,
       fields,
@@ -93,16 +65,7 @@ export default class Link extends AbstractCrudObject {
     );
   }
 
-  createLike (fields, params): Link {
-    return this.createEdge(
-      '/likes',
-      fields,
-      params,
-      Link
-    );
-  }
-
-  getReactions (fields, params, fetchFirstPage = true): Profile {
+  getReactions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Profile,
       fields,
@@ -112,7 +75,7 @@ export default class Link extends AbstractCrudObject {
     );
   }
 
-  getShareDPosts (fields, params, fetchFirstPage = true): Post {
+  getSharedPosts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Post,
       fields,
@@ -122,13 +85,9 @@ export default class Link extends AbstractCrudObject {
     );
   }
 
-  delete (fields, params): AbstractObject {
-    return super.delete(
-      params
-    );
-  }
-
-  get (fields, params): Link {
+  
+  get (fields: Array<string>, params: Object = {}): Link {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

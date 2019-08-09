@@ -25,44 +25,37 @@ export default class AdAsyncRequest extends AbstractCrudObject {
       scope_object_id: 'scope_object_id',
       status: 'status',
       type: 'type',
-      updated_time: 'updated_time'
+      updated_time: 'updated_time',
     });
   }
 
-  static get Status (): Object {
-    return Object.freeze({
-      initial: 'INITIAL',
-      in_progress: 'IN_PROGRESS',
-      success: 'SUCCESS',
-      error: 'ERROR',
-      canceled: 'CANCELED',
-      pending_dependency: 'PENDING_DEPENDENCY',
-      canceled_dependency: 'CANCELED_DEPENDENCY',
-      error_dependency: 'ERROR_DEPENDENCY',
-      error_conflicts: 'ERROR_CONFLICTS'
-    });
-  }
   static get Statuses (): Object {
     return Object.freeze({
+      canceled: 'CANCELED',
+      canceled_dependency: 'CANCELED_DEPENDENCY',
+      error: 'ERROR',
+      error_conflicts: 'ERROR_CONFLICTS',
+      error_dependency: 'ERROR_DEPENDENCY',
       initial: 'INITIAL',
       in_progress: 'IN_PROGRESS',
-      success: 'SUCCESS',
-      error: 'ERROR',
-      canceled: 'CANCELED',
       pending_dependency: 'PENDING_DEPENDENCY',
-      canceled_dependency: 'CANCELED_DEPENDENCY',
-      error_dependency: 'ERROR_DEPENDENCY',
-      error_conflicts: 'ERROR_CONFLICTS'
+      success: 'SUCCESS',
+      user_canceled: 'USER_CANCELED',
+      user_canceled_dependency: 'USER_CANCELED_DEPENDENCY',
     });
   }
 
-  delete (fields, params): AbstractObject {
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.delete(
       params
     );
   }
 
-  get (fields, params): AdAsyncRequest {
+  
+  get (fields: Array<string>, params: Object = {}): AdAsyncRequest {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

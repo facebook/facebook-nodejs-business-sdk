@@ -25,7 +25,6 @@ export default class AdAccountAdRulesHistory extends AbstractCrudObject {
       rule_id: 'rule_id',
       schedule_spec: 'schedule_spec',
       timestamp: 'timestamp',
-      id: 'id'
     });
   }
 
@@ -41,14 +40,13 @@ export default class AdAccountAdRulesHistory extends AbstractCrudObject {
       message_sent: 'MESSAGE_SENT',
       not_changed: 'NOT_CHANGED',
       paused: 'PAUSED',
-      unpaused: 'UNPAUSED'
+      unpaused: 'UNPAUSED',
     });
   }
-
-  get (fields, params): AdAccountAdRulesHistory {
-    return this.read(
-      fields,
-      params
-    );
+  static get EvaluationType (): Object {
+    return Object.freeze({
+      schedule: 'SCHEDULE',
+      trigger: 'TRIGGER',
+    });
   }
 }

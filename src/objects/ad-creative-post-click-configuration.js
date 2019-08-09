@@ -18,14 +18,7 @@ export default class AdCreativePostClickConfiguration extends AbstractCrudObject
     return Object.freeze({
       post_click_item_description: 'post_click_item_description',
       post_click_item_headline: 'post_click_item_headline',
-      id: 'id'
     });
   }
 
-  get (fields, params): AdCreativePostClickConfiguration {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

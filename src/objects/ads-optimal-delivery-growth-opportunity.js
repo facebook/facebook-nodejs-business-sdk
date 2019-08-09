@@ -19,14 +19,7 @@ export default class AdsOptimalDeliveryGrowthOpportunity extends AbstractCrudObj
       child_metadata: 'child_metadata',
       metadata: 'metadata',
       optimization_type: 'optimization_type',
-      id: 'id'
     });
   }
 
-  get (fields, params): AdsOptimalDeliveryGrowthOpportunity {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

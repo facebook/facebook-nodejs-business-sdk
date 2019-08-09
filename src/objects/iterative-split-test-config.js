@@ -25,11 +25,13 @@ export default class IterativeSplitTestConfig extends AbstractCrudObject {
       results_window: 'results_window',
       splits: 'splits',
       start_time: 'start_time',
-      test_end_metrics_snapshot: 'test_end_metrics_snapshot'
     });
   }
 
-  get (fields, params): IterativeSplitTestConfig {
+
+  
+  get (fields: Array<string>, params: Object = {}): IterativeSplitTestConfig {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

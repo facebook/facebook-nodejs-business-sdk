@@ -7,7 +7,6 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import AbstractObject from './../abstract-object';
 
 /**
  * Canvas
@@ -26,42 +25,23 @@ export default class Canvas extends AbstractCrudObject {
       last_editor: 'last_editor',
       name: 'name',
       owner: 'owner',
-      update_time: 'update_time'
+      update_time: 'update_time',
     });
   }
 
-  createDuplicateCanva (fields, params): Canvas {
-    return this.createEdge(
-      '/duplicate_canvas',
-      fields,
-      params,
-      Canvas
-    );
-  }
 
-  createPreviewNotification (fields, params): Canvas {
-    return this.createEdge(
-      '/preview_notifications',
-      fields,
-      params,
-      Canvas
-    );
-  }
-
-  delete (fields, params): AbstractObject {
-    return super.delete(
-      params
-    );
-  }
-
-  get (fields, params): Canvas {
+  
+  get (fields: Array<string>, params: Object = {}): Canvas {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): Canvas {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): Canvas {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

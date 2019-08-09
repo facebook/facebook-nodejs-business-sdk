@@ -19,30 +19,23 @@ export default class AsyncRequest extends AbstractCrudObject {
       id: 'id',
       result: 'result',
       status: 'status',
-      type: 'type'
+      type: 'type',
     });
   }
 
   static get Status (): Object {
     return Object.freeze({
-      initialized: 'INITIALIZED',
+      error: 'ERROR',
       executing: 'EXECUTING',
       finished: 'FINISHED',
-      error: 'ERROR'
+      initialized: 'INITIALIZED',
     });
   }
   static get Type (): Object {
     return Object.freeze({
-      drafts: 'DRAFTS',
+      async_adgroup_creation: 'ASYNC_ADGROUP_CREATION',
       batch_api: 'BATCH_API',
-      async_adgroup_creation: 'ASYNC_ADGROUP_CREATION'
+      drafts: 'DRAFTS',
     });
-  }
-
-  get (fields, params): AsyncRequest {
-    return this.read(
-      fields,
-      params
-    );
   }
 }

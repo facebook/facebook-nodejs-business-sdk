@@ -19,17 +19,22 @@ export default class Persona extends AbstractCrudObject {
     return Object.freeze({
       id: 'id',
       name: 'name',
-      profile_picture_url: 'profile_picture_url'
+      profile_picture_url: 'profile_picture_url',
     });
   }
 
-  delete (fields, params): AbstractObject {
+
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.delete(
       params
     );
   }
 
-  get (fields, params): Persona {
+  
+  get (fields: Array<string>, params: Object = {}): Persona {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

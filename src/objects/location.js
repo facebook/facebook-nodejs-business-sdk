@@ -29,14 +29,7 @@ export default class Location extends AbstractCrudObject {
       state: 'state',
       street: 'street',
       zip: 'zip',
-      id: 'id'
     });
   }
 
-  get (fields, params): Location {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

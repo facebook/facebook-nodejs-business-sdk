@@ -7,9 +7,9 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import Cursor from './../cursor';
 import Comment from './comment';
 import Profile from './profile';
-import Photo from './photo';
 import ProfilePictureSource from './profile-picture-source';
 
 /**
@@ -23,7 +23,6 @@ export default class OpenGraphObject extends AbstractCrudObject {
       admins: 'admins',
       application: 'application',
       audio: 'audio',
-      context: 'context',
       created_time: 'created_time',
       description: 'description',
       determiner: 'determiner',
@@ -41,12 +40,12 @@ export default class OpenGraphObject extends AbstractCrudObject {
       title: 'title',
       type: 'type',
       updated_time: 'updated_time',
-      url: 'url',
-      video: 'video'
+      video: 'video',
     });
   }
 
-  getComments (fields, params, fetchFirstPage = true): Comment {
+
+  getComments (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Comment,
       fields,
@@ -56,16 +55,7 @@ export default class OpenGraphObject extends AbstractCrudObject {
     );
   }
 
-  createComment (fields, params): Comment {
-    return this.createEdge(
-      '/comments',
-      fields,
-      params,
-      Comment
-    );
-  }
-
-  getLikes (fields, params, fetchFirstPage = true): Profile {
+  getLikes (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Profile,
       fields,
@@ -75,25 +65,7 @@ export default class OpenGraphObject extends AbstractCrudObject {
     );
   }
 
-  createLike (fields, params): OpenGraphObject {
-    return this.createEdge(
-      '/likes',
-      fields,
-      params,
-      OpenGraphObject
-    );
-  }
-
-  createPhoto (fields, params): Photo {
-    return this.createEdge(
-      '/photos',
-      fields,
-      params,
-      Photo
-    );
-  }
-
-  getPicture (fields, params, fetchFirstPage = true): ProfilePictureSource {
+  getPicture (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       ProfilePictureSource,
       fields,
@@ -103,7 +75,7 @@ export default class OpenGraphObject extends AbstractCrudObject {
     );
   }
 
-  getReactions (fields, params, fetchFirstPage = true): Profile {
+  getReactions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Profile,
       fields,
@@ -113,15 +85,11 @@ export default class OpenGraphObject extends AbstractCrudObject {
     );
   }
 
-  get (fields, params): OpenGraphObject {
+  
+  get (fields: Array<string>, params: Object = {}): OpenGraphObject {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
-      params
-    );
-  }
-
-  update (fields, params): OpenGraphObject {
-    return super.update(
       params
     );
   }

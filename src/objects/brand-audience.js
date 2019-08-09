@@ -25,11 +25,14 @@ export default class BrandAudience extends AbstractCrudObject {
       status: 'status',
       targeting: 'targeting',
       time_created: 'time_created',
-      time_updated: 'time_updated'
+      time_updated: 'time_updated',
     });
   }
 
-  get (fields, params): BrandAudience {
+
+  
+  get (fields: Array<string>, params: Object = {}): BrandAudience {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

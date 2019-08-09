@@ -20,14 +20,7 @@ export default class AdsPixelStats extends AbstractCrudObject {
       diagnostics_hourly_last_timestamp: 'diagnostics_hourly_last_timestamp',
       event: 'event',
       value: 'value',
-      id: 'id'
     });
   }
 
-  get (fields, params): AdsPixelStats {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

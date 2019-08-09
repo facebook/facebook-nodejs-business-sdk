@@ -18,14 +18,7 @@ export default class AttributionSpec extends AbstractCrudObject {
     return Object.freeze({
       event_type: 'event_type',
       window_days: 'window_days',
-      id: 'id'
     });
   }
 
-  get (fields, params): AttributionSpec {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

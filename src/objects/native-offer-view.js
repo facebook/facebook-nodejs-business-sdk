@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import Cursor from './../cursor';
 import Photo from './photo';
 
 /**
@@ -19,11 +20,12 @@ export default class NativeOfferView extends AbstractCrudObject {
     return Object.freeze({
       id: 'id',
       offer: 'offer',
-      save_count: 'save_count'
+      save_count: 'save_count',
     });
   }
 
-  getPhotos (fields, params, fetchFirstPage = true): Photo {
+
+  getPhotos (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Photo,
       fields,
@@ -33,7 +35,7 @@ export default class NativeOfferView extends AbstractCrudObject {
     );
   }
 
-  createPhoto (fields, params): NativeOfferView {
+  createPhoto (fields: Array<string>, params: Object = {}): Promise<NativeOfferView> {
     return this.createEdge(
       '/photos',
       fields,
@@ -42,7 +44,7 @@ export default class NativeOfferView extends AbstractCrudObject {
     );
   }
 
-  createVideo (fields, params): NativeOfferView {
+  createVideo (fields: Array<string>, params: Object = {}): Promise<NativeOfferView> {
     return this.createEdge(
       '/videos',
       fields,
@@ -51,14 +53,18 @@ export default class NativeOfferView extends AbstractCrudObject {
     );
   }
 
-  get (fields, params): NativeOfferView {
+  
+  get (fields: Array<string>, params: Object = {}): NativeOfferView {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): NativeOfferView {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): NativeOfferView {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

@@ -24,11 +24,14 @@ export default class AppLinks extends AbstractCrudObject {
       web: 'web',
       windows: 'windows',
       windows_phone: 'windows_phone',
-      windows_universal: 'windows_universal'
+      windows_universal: 'windows_universal',
     });
   }
 
-  get (fields, params): AppLinks {
+
+  
+  get (fields: Array<string>, params: Object = {}): AppLinks {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

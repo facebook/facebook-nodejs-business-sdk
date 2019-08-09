@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import Cursor from './../cursor';
 import ProfilePictureSource from './profile-picture-source';
 
 /**
@@ -21,24 +22,18 @@ export default class UserTaggableFriend extends AbstractCrudObject {
       id: 'id',
       last_name: 'last_name',
       middle_name: 'middle_name',
-      name: 'name'
+      name: 'name',
     });
   }
 
-  getPicture (fields, params, fetchFirstPage = true): ProfilePictureSource {
+
+  getPicture (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       ProfilePictureSource,
       fields,
       params,
       fetchFirstPage,
       '/picture'
-    );
-  }
-
-  get (fields, params): UserTaggableFriend {
-    return this.read(
-      fields,
-      params
     );
   }
 }

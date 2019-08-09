@@ -18,21 +18,14 @@ export default class Permission extends AbstractCrudObject {
     return Object.freeze({
       permission: 'permission',
       status: 'status',
-      id: 'id'
     });
   }
 
   static get Status (): Object {
     return Object.freeze({
+      declined: 'declined',
+      expired: 'expired',
       granted: 'granted',
-      declined: 'declined'
     });
-  }
-
-  get (fields, params): Permission {
-    return this.read(
-      fields,
-      params
-    );
   }
 }

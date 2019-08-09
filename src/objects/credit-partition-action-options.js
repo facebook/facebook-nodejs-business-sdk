@@ -19,14 +19,7 @@ export default class CreditPartitionActionOptions extends AbstractCrudObject {
       liability_type: 'liability_type',
       partition_type: 'partition_type',
       send_bill_to: 'send_bill_to',
-      id: 'id'
     });
   }
 
-  get (fields, params): CreditPartitionActionOptions {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

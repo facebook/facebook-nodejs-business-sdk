@@ -7,8 +7,8 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import Cursor from './../cursor';
 import AdAccount from './ad-account';
-import AdMonetizationProperty from './ad-monetization-property';
 import Page from './page';
 import ProductCatalog from './product-catalog';
 import User from './user';
@@ -26,22 +26,21 @@ export default class SystemUser extends AbstractCrudObject {
       finance_permission: 'finance_permission',
       id: 'id',
       ip_permission: 'ip_permission',
-      name: 'name'
+      name: 'name',
     });
   }
 
   static get Role (): Object {
     return Object.freeze({
-      finance_editor: 'FINANCE_EDITOR',
-      finance_analyst: 'FINANCE_ANALYST',
-      ads_rights_reviewer: 'ADS_RIGHTS_REVIEWER',
       admin: 'ADMIN',
+      ads_rights_reviewer: 'ADS_RIGHTS_REVIEWER',
       employee: 'EMPLOYEE',
-      fb_employee_sales_rep: 'FB_EMPLOYEE_SALES_REP'
+      finance_analyst: 'FINANCE_ANALYST',
+      finance_editor: 'FINANCE_EDITOR',
     });
   }
 
-  getAssignedAdAccounts (fields, params, fetchFirstPage = true): AdAccount {
+  getAssignedAdAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdAccount,
       fields,
@@ -51,17 +50,7 @@ export default class SystemUser extends AbstractCrudObject {
     );
   }
 
-  getAssignedMonetizationProperties (fields, params, fetchFirstPage = true): AdMonetizationProperty {
-    return this.getEdge(
-      AdMonetizationProperty,
-      fields,
-      params,
-      fetchFirstPage,
-      '/assigned_monetization_properties'
-    );
-  }
-
-  getAssignedPages (fields, params, fetchFirstPage = true): Page {
+  getAssignedPages (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Page,
       fields,
@@ -71,7 +60,7 @@ export default class SystemUser extends AbstractCrudObject {
     );
   }
 
-  getAssignedProductCatalogs (fields, params, fetchFirstPage = true): ProductCatalog {
+  getAssignedProductCatalogs (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       ProductCatalog,
       fields,
@@ -81,7 +70,7 @@ export default class SystemUser extends AbstractCrudObject {
     );
   }
 
-  getUpdatedBy (fields, params, fetchFirstPage = true): User {
+  getUpdatedBy (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       User,
       fields,
@@ -91,7 +80,9 @@ export default class SystemUser extends AbstractCrudObject {
     );
   }
 
-  get (fields, params): SystemUser {
+  
+  get (fields: Array<string>, params: Object = {}): SystemUser {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

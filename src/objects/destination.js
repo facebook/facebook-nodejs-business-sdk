@@ -28,11 +28,14 @@ export default class Destination extends AbstractCrudObject {
       price_change: 'price_change',
       sanitized_images: 'sanitized_images',
       types: 'types',
-      url: 'url'
+      url: 'url',
     });
   }
 
-  get (fields, params): Destination {
+
+  
+  get (fields: Array<string>, params: Object = {}): Destination {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

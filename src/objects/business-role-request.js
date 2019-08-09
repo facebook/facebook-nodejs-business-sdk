@@ -30,43 +30,40 @@ export default class BusinessRoleRequest extends AbstractCrudObject {
       role: 'role',
       status: 'status',
       updated_by: 'updated_by',
-      updated_time: 'updated_time'
+      updated_time: 'updated_time',
     });
   }
 
   static get Role (): Object {
     return Object.freeze({
-      finance_editor: 'FINANCE_EDITOR',
-      finance_analyst: 'FINANCE_ANALYST',
-      ads_rights_reviewer: 'ADS_RIGHTS_REVIEWER',
       admin: 'ADMIN',
+      ads_rights_reviewer: 'ADS_RIGHTS_REVIEWER',
       employee: 'EMPLOYEE',
-      fb_employee_sales_rep: 'FB_EMPLOYEE_SALES_REP'
-    });
-  }
-  static get Status (): Object {
-    return Object.freeze({
-      pending: 'PENDING',
-      accepted: 'ACCEPTED',
-      declined: 'DECLINED',
-      expired: 'EXPIRED'
+      finance_analyst: 'FINANCE_ANALYST',
+      finance_editor: 'FINANCE_EDITOR',
     });
   }
 
-  delete (fields, params): AbstractObject {
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.delete(
       params
     );
   }
 
-  get (fields, params): BusinessRoleRequest {
+  
+  get (fields: Array<string>, params: Object = {}): BusinessRoleRequest {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): BusinessRoleRequest {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): BusinessRoleRequest {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

@@ -58,24 +58,31 @@ export default class HomeListing extends AbstractCrudObject {
       property_type: 'property_type',
       sanitized_images: 'sanitized_images',
       url: 'url',
-      year_built: 'year_built'
+      year_built: 'year_built',
     });
   }
 
-  delete (fields, params): AbstractObject {
+
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.delete(
       params
     );
   }
 
-  get (fields, params): HomeListing {
+  
+  get (fields: Array<string>, params: Object = {}): HomeListing {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): HomeListing {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): HomeListing {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

@@ -8,6 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 import AdPreview from './ad-preview';
 
 /**
@@ -22,7 +23,6 @@ export default class AdCreative extends AbstractCrudObject {
       actor_id: 'actor_id',
       adlabels: 'adlabels',
       applink_treatment: 'applink_treatment',
-      asset_feed_id: 'asset_feed_id',
       asset_feed_spec: 'asset_feed_spec',
       authorization_category: 'authorization_category',
       auto_update: 'auto_update',
@@ -46,6 +46,7 @@ export default class AdCreative extends AbstractCrudObject {
       instagram_actor_id: 'instagram_actor_id',
       instagram_permalink_url: 'instagram_permalink_url',
       instagram_story_id: 'instagram_story_id',
+      interactive_components_spec: 'interactive_components_spec',
       link_deep_link_url: 'link_deep_link_url',
       link_og_id: 'link_og_id',
       link_url: 'link_url',
@@ -60,6 +61,7 @@ export default class AdCreative extends AbstractCrudObject {
       place_page_set_id: 'place_page_set_id',
       platform_customizations: 'platform_customizations',
       playable_asset_id: 'playable_asset_id',
+      portrait_customizations: 'portrait_customizations',
       product_set_id: 'product_set_id',
       recommender_settings: 'recommender_settings',
       status: 'status',
@@ -69,67 +71,72 @@ export default class AdCreative extends AbstractCrudObject {
       title: 'title',
       url_tags: 'url_tags',
       use_page_actor_override: 'use_page_actor_override',
-      video_id: 'video_id'
+      video_id: 'video_id',
     });
   }
 
   static get ApplinkTreatment (): Object {
     return Object.freeze({
-      deeplink_with_web_fallback: 'deeplink_with_web_fallback',
       deeplink_with_appstore_fallback: 'deeplink_with_appstore_fallback',
-      web_only: 'web_only'
+      deeplink_with_web_fallback: 'deeplink_with_web_fallback',
+      web_only: 'web_only',
     });
   }
   static get CallToActionType (): Object {
     return Object.freeze({
-      open_link: 'OPEN_LINK',
-      like_page: 'LIKE_PAGE',
-      shop_now: 'SHOP_NOW',
-      play_game: 'PLAY_GAME',
-      install_app: 'INSTALL_APP',
-      use_app: 'USE_APP',
+      add_to_cart: 'ADD_TO_CART',
+      apply_now: 'APPLY_NOW',
+      book_travel: 'BOOK_TRAVEL',
+      buy: 'BUY',
+      buy_now: 'BUY_NOW',
+      buy_tickets: 'BUY_TICKETS',
       call: 'CALL',
       call_me: 'CALL_ME',
-      install_mobile_app: 'INSTALL_MOBILE_APP',
-      use_mobile_app: 'USE_MOBILE_APP',
-      mobile_download: 'MOBILE_DOWNLOAD',
-      book_travel: 'BOOK_TRAVEL',
-      listen_music: 'LISTEN_MUSIC',
-      watch_video: 'WATCH_VIDEO',
-      learn_more: 'LEARN_MORE',
-      sign_up: 'SIGN_UP',
+      contact: 'CONTACT',
+      contact_us: 'CONTACT_US',
+      donate: 'DONATE',
+      donate_now: 'DONATE_NOW',
       download: 'DOWNLOAD',
-      watch_more: 'WATCH_MORE',
-      no_button: 'NO_BUTTON',
-      visit_pages_feed: 'VISIT_PAGES_FEED',
-      apply_now: 'APPLY_NOW',
-      buy_now: 'BUY_NOW',
+      event_rsvp: 'EVENT_RSVP',
+      find_a_group: 'FIND_A_GROUP',
+      find_your_groups: 'FIND_YOUR_GROUPS',
+      follow_news_storyline: 'FOLLOW_NEWS_STORYLINE',
+      get_directions: 'GET_DIRECTIONS',
       get_offer: 'GET_OFFER',
       get_offer_view: 'GET_OFFER_VIEW',
-      buy_tickets: 'BUY_TICKETS',
-      update_app: 'UPDATE_APP',
-      get_directions: 'GET_DIRECTIONS',
-      buy: 'BUY',
+      get_quote: 'GET_QUOTE',
+      get_showtimes: 'GET_SHOWTIMES',
+      install_app: 'INSTALL_APP',
+      install_mobile_app: 'INSTALL_MOBILE_APP',
+      learn_more: 'LEARN_MORE',
+      like_page: 'LIKE_PAGE',
+      listen_music: 'LISTEN_MUSIC',
+      listen_now: 'LISTEN_NOW',
       message_page: 'MESSAGE_PAGE',
-      donate: 'DONATE',
-      subscribe: 'SUBSCRIBE',
+      mobile_download: 'MOBILE_DOWNLOAD',
+      moments: 'MOMENTS',
+      no_button: 'NO_BUTTON',
+      open_link: 'OPEN_LINK',
+      order_now: 'ORDER_NOW',
+      play_game: 'PLAY_GAME',
+      record_now: 'RECORD_NOW',
       say_thanks: 'SAY_THANKS',
+      see_more: 'SEE_MORE',
       sell_now: 'SELL_NOW',
       share: 'SHARE',
-      donate_now: 'DONATE_NOW',
-      get_quote: 'GET_QUOTE',
-      contact_us: 'CONTACT_US',
-      order_now: 'ORDER_NOW',
-      add_to_cart: 'ADD_TO_CART',
+      shop_now: 'SHOP_NOW',
+      sign_up: 'SIGN_UP',
+      sotto_subscribe: 'SOTTO_SUBSCRIBE',
+      subscribe: 'SUBSCRIBE',
+      update_app: 'UPDATE_APP',
+      use_app: 'USE_APP',
+      use_mobile_app: 'USE_MOBILE_APP',
       video_annotation: 'VIDEO_ANNOTATION',
-      moments: 'MOMENTS',
-      record_now: 'RECORD_NOW',
-      get_showtimes: 'GET_SHOWTIMES',
-      listen_now: 'LISTEN_NOW',
-      woodhenge_support: 'WOODHENGE_SUPPORT',
-      event_rsvp: 'EVENT_RSVP',
+      visit_pages_feed: 'VISIT_PAGES_FEED',
+      watch_more: 'WATCH_MORE',
+      watch_video: 'WATCH_VIDEO',
       whatsapp_message: 'WHATSAPP_MESSAGE',
-      follow_news_storyline: 'FOLLOW_NEWS_STORYLINE'
+      woodhenge_support: 'WOODHENGE_SUPPORT',
     });
   }
   static get ObjectType (): Object {
@@ -137,6 +144,7 @@ export default class AdCreative extends AbstractCrudObject {
       application: 'APPLICATION',
       domain: 'DOMAIN',
       event: 'EVENT',
+      invalid: 'INVALID',
       offer: 'OFFER',
       page: 'PAGE',
       photo: 'PHOTO',
@@ -144,26 +152,27 @@ export default class AdCreative extends AbstractCrudObject {
       status: 'STATUS',
       store_item: 'STORE_ITEM',
       video: 'VIDEO',
-      invalid: 'INVALID'
     });
   }
   static get Status (): Object {
     return Object.freeze({
       active: 'ACTIVE',
-      deleted: 'DELETED'
+      deleted: 'DELETED',
+      in_process: 'IN_PROCESS',
+      with_issues: 'WITH_ISSUES',
     });
   }
   static get AuthorizationCategory (): Object {
     return Object.freeze({
       none: 'NONE',
-      political: 'POLITICAL'
+      political: 'POLITICAL',
     });
   }
   static get CategorizationCriteria (): Object {
     return Object.freeze({
       brand: 'brand',
       category: 'category',
-      product_type: 'product_type'
+      product_type: 'product_type',
     });
   }
   static get CategoryMediaSource (): Object {
@@ -171,30 +180,30 @@ export default class AdCreative extends AbstractCrudObject {
       category: 'CATEGORY',
       mixed: 'MIXED',
       products_collage: 'PRODUCTS_COLLAGE',
-      products_slideshow: 'PRODUCTS_SLIDESHOW'
+      products_slideshow: 'PRODUCTS_SLIDESHOW',
     });
   }
   static get DynamicAdVoice (): Object {
     return Object.freeze({
       dynamic: 'DYNAMIC',
-      story_owner: 'STORY_OWNER'
+      story_owner: 'STORY_OWNER',
     });
   }
   static get Operator (): Object {
     return Object.freeze({
       all: 'ALL',
-      any: 'ANY'
+      any: 'ANY',
     });
   }
 
-  deleteAdLabels (params): AbstractObject {
+  deleteAdLabels (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/adlabels',
       params
     );
   }
 
-  createAdLabel (fields, params): AdCreative {
+  createAdLabel (fields: Array<string>, params: Object = {}): Promise<AdCreative> {
     return this.createEdge(
       '/adlabels',
       fields,
@@ -203,7 +212,7 @@ export default class AdCreative extends AbstractCrudObject {
     );
   }
 
-  getPreviews (fields, params, fetchFirstPage = true): AdPreview {
+  getPreviews (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdPreview,
       fields,
@@ -213,20 +222,26 @@ export default class AdCreative extends AbstractCrudObject {
     );
   }
 
-  delete (fields, params): AbstractObject {
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.delete(
       params
     );
   }
 
-  get (fields, params): AdCreative {
+  
+  get (fields: Array<string>, params: Object = {}): AdCreative {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): AdCreative {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): AdCreative {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

@@ -26,14 +26,8 @@ export default class BroadTargetingCategories extends AbstractCrudObject {
       type: 'type',
       type_name: 'type_name',
       untranslated_name: 'untranslated_name',
-      untranslated_parent_name: 'untranslated_parent_name'
+      untranslated_parent_name: 'untranslated_parent_name',
     });
   }
 
-  get (fields, params): BroadTargetingCategories {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

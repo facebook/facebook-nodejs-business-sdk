@@ -22,14 +22,7 @@ export default class DynamicPostChildAttachment extends AbstractCrudObject {
       place_id: 'place_id',
       product_id: 'product_id',
       title: 'title',
-      id: 'id'
     });
   }
 
-  get (fields, params): DynamicPostChildAttachment {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

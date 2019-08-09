@@ -8,6 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 import HotelRoom from './hotel-room';
 
 /**
@@ -32,13 +33,15 @@ export default class Hotel extends AbstractCrudObject {
       margin_level: 'margin_level',
       name: 'name',
       phone: 'phone',
+      sale_price: 'sale_price',
       sanitized_images: 'sanitized_images',
       star_rating: 'star_rating',
-      url: 'url'
+      url: 'url',
     });
   }
 
-  getHotelRooms (fields, params, fetchFirstPage = true): HotelRoom {
+
+  getHotelRooms (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       HotelRoom,
       fields,
@@ -48,29 +51,26 @@ export default class Hotel extends AbstractCrudObject {
     );
   }
 
-  createHotelRoom (fields, params): HotelRoom {
-    return this.createEdge(
-      '/hotel_rooms',
-      fields,
-      params,
-      HotelRoom
-    );
-  }
-
-  delete (fields, params): AbstractObject {
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.delete(
       params
     );
   }
 
-  get (fields, params): Hotel {
+  
+  get (fields: Array<string>, params: Object = {}): Hotel {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): Hotel {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): Hotel {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

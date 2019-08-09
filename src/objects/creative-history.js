@@ -18,14 +18,7 @@ export default class CreativeHistory extends AbstractCrudObject {
     return Object.freeze({
       creative_fingerprint: 'creative_fingerprint',
       time_ranges: 'time_ranges',
-      id: 'id'
     });
   }
 
-  get (fields, params): CreativeHistory {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

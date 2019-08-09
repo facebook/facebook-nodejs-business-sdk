@@ -18,14 +18,7 @@ export default class LeadGenQuestionOption extends AbstractCrudObject {
     return Object.freeze({
       key: 'key',
       value: 'value',
-      id: 'id'
     });
   }
 
-  get (fields, params): LeadGenQuestionOption {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

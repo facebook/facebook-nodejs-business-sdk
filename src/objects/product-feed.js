@@ -8,12 +8,14 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 import AutomotiveModel from './automotive-model';
 import Destination from './destination';
 import Flight from './flight';
 import HomeListing from './home-listing';
 import Hotel from './hotel';
 import ProductItem from './product-item';
+import ProductFeedRule from './product-feed-rule';
 import ProductFeedUpload from './product-feed-upload';
 import Vehicle from './vehicle';
 
@@ -37,11 +39,9 @@ export default class ProductFeed extends AbstractCrudObject {
       name: 'name',
       override_type: 'override_type',
       product_count: 'product_count',
-      qualified_product_count: 'qualified_product_count',
-      quoted_fields: 'quoted_fields',
       quoted_fields_mode: 'quoted_fields_mode',
       schedule: 'schedule',
-      update_schedule: 'update_schedule'
+      update_schedule: 'update_schedule',
     });
   }
 
@@ -50,27 +50,27 @@ export default class ProductFeed extends AbstractCrudObject {
       autodetect: 'AUTODETECT',
       bar: 'BAR',
       comma: 'COMMA',
+      semicolon: 'SEMICOLON',
       tab: 'TAB',
       tilde: 'TILDE',
-      semicolon: 'SEMICOLON'
     });
   }
   static get QuotedFieldsMode (): Object {
     return Object.freeze({
       autodetect: 'AUTODETECT',
+      off: 'OFF',
       on: 'ON',
-      off: 'OFF'
     });
   }
   static get Encoding (): Object {
     return Object.freeze({
       autodetect: 'AUTODETECT',
       latin1: 'LATIN1',
-      utf8: 'UTF8',
-      utf16le: 'UTF16LE',
       utf16be: 'UTF16BE',
+      utf16le: 'UTF16LE',
+      utf32be: 'UTF32BE',
       utf32le: 'UTF32LE',
-      utf32be: 'UTF32BE'
+      utf8: 'UTF8',
     });
   }
   static get FeedType (): Object {
@@ -85,12 +85,19 @@ export default class ProductFeed extends AbstractCrudObject {
       market: 'MARKET',
       media_title: 'MEDIA_TITLE',
       products: 'PRODUCTS',
+      vehicles: 'VEHICLES',
       vehicle_offer: 'VEHICLE_OFFER',
-      vehicles: 'VEHICLES'
+    });
+  }
+  static get OverrideType (): Object {
+    return Object.freeze({
+      catalog_segment_customize_default: 'CATALOG_SEGMENT_CUSTOMIZE_DEFAULT',
+      country: 'COUNTRY',
+      language: 'LANGUAGE',
     });
   }
 
-  getAutomotiveModels (fields, params, fetchFirstPage = true): AutomotiveModel {
+  getAutomotiveModels (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AutomotiveModel,
       fields,
@@ -100,7 +107,7 @@ export default class ProductFeed extends AbstractCrudObject {
     );
   }
 
-  getDestinations (fields, params, fetchFirstPage = true): Destination {
+  getDestinations (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Destination,
       fields,
@@ -110,7 +117,7 @@ export default class ProductFeed extends AbstractCrudObject {
     );
   }
 
-  getFlights (fields, params, fetchFirstPage = true): Flight {
+  getFlights (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Flight,
       fields,
@@ -120,7 +127,7 @@ export default class ProductFeed extends AbstractCrudObject {
     );
   }
 
-  getHomeListings (fields, params, fetchFirstPage = true): HomeListing {
+  getHomeListings (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       HomeListing,
       fields,
@@ -130,7 +137,7 @@ export default class ProductFeed extends AbstractCrudObject {
     );
   }
 
-  getHotels (fields, params, fetchFirstPage = true): Hotel {
+  getHotels (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Hotel,
       fields,
@@ -140,7 +147,7 @@ export default class ProductFeed extends AbstractCrudObject {
     );
   }
 
-  getProducts (fields, params, fetchFirstPage = true): ProductItem {
+  getProducts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       ProductItem,
       fields,
@@ -150,9 +157,9 @@ export default class ProductFeed extends AbstractCrudObject {
     );
   }
 
-  getRules (fields, params, fetchFirstPage = true): AbstractObject {
+  getRules (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      AbstractObject,
+      ProductFeedRule,
       fields,
       params,
       fetchFirstPage,
@@ -160,16 +167,16 @@ export default class ProductFeed extends AbstractCrudObject {
     );
   }
 
-  createRule (fields, params): AbstractObject {
+  createRule (fields: Array<string>, params: Object = {}): Promise<ProductFeedRule> {
     return this.createEdge(
       '/rules',
       fields,
-      params
-
+      params,
+      ProductFeedRule
     );
   }
 
-  getUploads (fields, params, fetchFirstPage = true): ProductFeedUpload {
+  getUploads (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       ProductFeedUpload,
       fields,
@@ -179,7 +186,7 @@ export default class ProductFeed extends AbstractCrudObject {
     );
   }
 
-  createUpload (fields, params): ProductFeedUpload {
+  createUpload (fields: Array<string>, params: Object = {}): Promise<ProductFeedUpload> {
     return this.createEdge(
       '/uploads',
       fields,
@@ -188,7 +195,7 @@ export default class ProductFeed extends AbstractCrudObject {
     );
   }
 
-  getVehicles (fields, params, fetchFirstPage = true): Vehicle {
+  getVehicles (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Vehicle,
       fields,
@@ -198,20 +205,26 @@ export default class ProductFeed extends AbstractCrudObject {
     );
   }
 
-  delete (fields, params): AbstractObject {
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.delete(
       params
     );
   }
 
-  get (fields, params): ProductFeed {
+  
+  get (fields: Array<string>, params: Object = {}): ProductFeed {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): ProductFeed {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): ProductFeed {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

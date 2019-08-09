@@ -24,14 +24,7 @@ export default class MessengerProfile extends AbstractCrudObject {
       persistent_menu: 'persistent_menu',
       target_audience: 'target_audience',
       whitelisted_domains: 'whitelisted_domains',
-      id: 'id'
     });
   }
 
-  get (fields, params): MessengerProfile {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

@@ -26,6 +26,7 @@ export default class AdsActionStats extends AbstractCrudObject {
       action_canvas_component_name: 'action_canvas_component_name',
       action_carousel_card_id: 'action_carousel_card_id',
       action_carousel_card_name: 'action_carousel_card_name',
+      action_converted_product_id: 'action_converted_product_id',
       action_destination: 'action_destination',
       action_device: 'action_device',
       action_event_channel: 'action_event_channel',
@@ -38,15 +39,10 @@ export default class AdsActionStats extends AbstractCrudObject {
       action_video_sound: 'action_video_sound',
       action_video_type: 'action_video_type',
       inline: 'inline',
+      interactive_component_sticker_id: 'interactive_component_sticker_id',
+      interactive_component_sticker_response: 'interactive_component_sticker_response',
       value: 'value',
-      id: 'id'
     });
   }
 
-  get (fields, params): AdsActionStats {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

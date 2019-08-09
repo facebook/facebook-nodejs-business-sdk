@@ -17,7 +17,6 @@ export default class ReachFrequencyEstimatesCurve extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       budget: 'budget',
-      click: 'click',
       conversion: 'conversion',
       impression: 'impression',
       interpolated_reach: 'interpolated_reach',
@@ -25,14 +24,7 @@ export default class ReachFrequencyEstimatesCurve extends AbstractCrudObject {
       raw_impression: 'raw_impression',
       raw_reach: 'raw_reach',
       reach: 'reach',
-      id: 'id'
     });
   }
 
-  get (fields, params): ReachFrequencyEstimatesCurve {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

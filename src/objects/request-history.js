@@ -23,22 +23,14 @@ export default class RequestHistory extends AbstractCrudObject {
       http_method: 'http_method',
       post_params: 'post_params',
       query_params: 'query_params',
-      id: 'id'
     });
   }
 
   static get HttpMethod (): Object {
     return Object.freeze({
+      delete: 'DELETE',
       get: 'GET',
       post: 'POST',
-      delete: 'DELETE'
     });
-  }
-
-  get (fields, params): RequestHistory {
-    return this.read(
-      fields,
-      params
-    );
   }
 }

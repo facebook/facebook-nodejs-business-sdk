@@ -18,11 +18,14 @@ export default class OfflineTermsOfService extends AbstractCrudObject {
     return Object.freeze({
       accept_time: 'accept_time',
       id: 'id',
-      signed_by_user: 'signed_by_user'
+      signed_by_user: 'signed_by_user',
     });
   }
 
-  get (fields, params): OfflineTermsOfService {
+
+  
+  get (fields: Array<string>, params: Object = {}): OfflineTermsOfService {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

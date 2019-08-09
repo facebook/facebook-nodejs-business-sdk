@@ -8,6 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 import Album from './album';
 import Event from './event';
 import LiveVideo from './live-video';
@@ -42,103 +43,155 @@ export default class Group extends AbstractCrudObject {
       purpose: 'purpose',
       subdomain: 'subdomain',
       updated_time: 'updated_time',
-      venue: 'venue'
+      venue: 'venue',
     });
   }
 
-  static get GroupType (): Object {
-    return Object.freeze({
-      family: 'FAMILY',
-      close_friends: 'CLOSE_FRIENDS',
-      neighbors: 'NEIGHBORS',
-      teammates: 'TEAMMATES',
-      for_sale: 'FOR_SALE',
-      event_planning: 'EVENT_PLANNING',
-      support: 'SUPPORT',
-      club: 'CLUB',
-      project: 'PROJECT',
-      sorority: 'SORORITY',
-      fraternity: 'FRATERNITY',
-      study_group: 'STUDY_GROUP',
-      school_class: 'SCHOOL_CLASS',
-      learning: 'LEARNING',
-      meme: 'MEME',
-      travel_planning: 'TRAVEL_PLANNING',
-      couple: 'COUPLE',
-      parents: 'PARENTS',
-      custom: 'CUSTOM',
-      none: 'NONE',
-      work_team: 'WORK_TEAM',
-      work_teamwork: 'WORK_TEAMWORK',
-      work_feedback: 'WORK_FEEDBACK',
-      work_announcement: 'WORK_ANNOUNCEMENT',
-      work_demo_group: 'WORK_DEMO_GROUP',
-      work_social: 'WORK_SOCIAL',
-      work_discussion: 'WORK_DISCUSSION',
-      work_multi_company: 'WORK_MULTI_COMPANY',
-      work_for_sale: 'WORK_FOR_SALE',
-      work_learning: 'WORK_LEARNING',
-      fitness: 'FITNESS',
-      real_world: 'REAL_WORLD',
-      casual: 'CASUAL',
-      game: 'GAME',
-      high_school_forum: 'HIGH_SCHOOL_FORUM',
-      jobs: 'JOBS',
-      real_world_at_work: 'REAL_WORLD_AT_WORK',
-      for_work: 'FOR_WORK',
-      mentorship: 'MENTORSHIP',
-      work_mentorship: 'WORK_MENTORSHIP',
-      ephemeral: 'EPHEMERAL',
-      work_ephemeral: 'WORK_EPHEMERAL'
-    });
-  }
   static get JoinSetting (): Object {
     return Object.freeze({
-      none: 'NONE',
+      admin_only: 'ADMIN_ONLY',
       anyone: 'ANYONE',
-      admin_only: 'ADMIN_ONLY'
+      none: 'NONE',
     });
   }
   static get PostPermissions (): Object {
     return Object.freeze({
-      none: 'NONE',
       admin_only: 'ADMIN_ONLY',
-      anyone: 'ANYONE'
+      anyone: 'ANYONE',
+      none: 'NONE',
+    });
+  }
+  static get Purpose (): Object {
+    return Object.freeze({
+      casual: 'CASUAL',
+      close_friends: 'CLOSE_FRIENDS',
+      club: 'CLUB',
+      couple: 'COUPLE',
+      coworkers: 'COWORKERS',
+      custom: 'CUSTOM',
+      ephemeral: 'EPHEMERAL',
+      event_planning: 'EVENT_PLANNING',
+      family: 'FAMILY',
+      fitness: 'FITNESS',
+      for_sale: 'FOR_SALE',
+      for_work: 'FOR_WORK',
+      fraternity: 'FRATERNITY',
+      game: 'GAME',
+      health_support: 'HEALTH_SUPPORT',
+      high_school_forum: 'HIGH_SCHOOL_FORUM',
+      jobs: 'JOBS',
+      learning: 'LEARNING',
+      meme: 'MEME',
+      mentorship: 'MENTORSHIP',
+      neighbors: 'NEIGHBORS',
+      none: 'NONE',
+      parents: 'PARENTS',
+      project: 'PROJECT',
+      real_world: 'REAL_WORLD',
+      real_world_at_work: 'REAL_WORLD_AT_WORK',
+      school_class: 'SCHOOL_CLASS',
+      sorority: 'SORORITY',
+      study_group: 'STUDY_GROUP',
+      support: 'SUPPORT',
+      teammates: 'TEAMMATES',
+      travel_planning: 'TRAVEL_PLANNING',
+      work_announcement: 'WORK_ANNOUNCEMENT',
+      work_demo_group: 'WORK_DEMO_GROUP',
+      work_discussion: 'WORK_DISCUSSION',
+      work_ephemeral: 'WORK_EPHEMERAL',
+      work_feedback: 'WORK_FEEDBACK',
+      work_for_sale: 'WORK_FOR_SALE',
+      work_learning: 'WORK_LEARNING',
+      work_mentorship: 'WORK_MENTORSHIP',
+      work_multi_company: 'WORK_MULTI_COMPANY',
+      work_recruiting: 'WORK_RECRUITING',
+      work_social: 'WORK_SOCIAL',
+      work_team: 'WORK_TEAM',
+      work_teamwork: 'WORK_TEAMWORK',
+    });
+  }
+  static get GroupType (): Object {
+    return Object.freeze({
+      casual: 'CASUAL',
+      close_friends: 'CLOSE_FRIENDS',
+      club: 'CLUB',
+      couple: 'COUPLE',
+      coworkers: 'COWORKERS',
+      custom: 'CUSTOM',
+      ephemeral: 'EPHEMERAL',
+      event_planning: 'EVENT_PLANNING',
+      family: 'FAMILY',
+      fitness: 'FITNESS',
+      for_sale: 'FOR_SALE',
+      for_work: 'FOR_WORK',
+      fraternity: 'FRATERNITY',
+      game: 'GAME',
+      health_support: 'HEALTH_SUPPORT',
+      high_school_forum: 'HIGH_SCHOOL_FORUM',
+      jobs: 'JOBS',
+      learning: 'LEARNING',
+      meme: 'MEME',
+      mentorship: 'MENTORSHIP',
+      neighbors: 'NEIGHBORS',
+      none: 'NONE',
+      parents: 'PARENTS',
+      project: 'PROJECT',
+      real_world: 'REAL_WORLD',
+      real_world_at_work: 'REAL_WORLD_AT_WORK',
+      school_class: 'SCHOOL_CLASS',
+      sorority: 'SORORITY',
+      study_group: 'STUDY_GROUP',
+      support: 'SUPPORT',
+      teammates: 'TEAMMATES',
+      travel_planning: 'TRAVEL_PLANNING',
+      work_announcement: 'WORK_ANNOUNCEMENT',
+      work_demo_group: 'WORK_DEMO_GROUP',
+      work_discussion: 'WORK_DISCUSSION',
+      work_ephemeral: 'WORK_EPHEMERAL',
+      work_feedback: 'WORK_FEEDBACK',
+      work_for_sale: 'WORK_FOR_SALE',
+      work_learning: 'WORK_LEARNING',
+      work_mentorship: 'WORK_MENTORSHIP',
+      work_multi_company: 'WORK_MULTI_COMPANY',
+      work_recruiting: 'WORK_RECRUITING',
+      work_social: 'WORK_SOCIAL',
+      work_team: 'WORK_TEAM',
+      work_teamwork: 'WORK_TEAMWORK',
     });
   }
   static get SuggestionCategory (): Object {
     return Object.freeze({
-      family: 'FAMILY',
-      life_event: 'LIFE_EVENT',
-      top_page: 'TOP_PAGE',
-      work: 'WORK',
-      work_generic: 'WORK_GENERIC',
-      school: 'SCHOOL',
-      school_generic: 'SCHOOL_GENERIC',
-      messenger: 'MESSENGER',
-      messenger_thread: 'MESSENGER_THREAD',
-      page_admin: 'PAGE_ADMIN',
-      friend_list: 'FRIEND_LIST',
-      games: 'GAMES',
-      event: 'EVENT',
       close_friends: 'CLOSE_FRIENDS',
       close_friends_generic: 'CLOSE_FRIENDS_GENERIC',
-      nearby_friends: 'NEARBY_FRIENDS',
       current_city: 'CURRENT_CITY',
+      event: 'EVENT',
+      family: 'FAMILY',
+      friend_list: 'FRIEND_LIST',
+      games: 'GAMES',
+      life_event: 'LIFE_EVENT',
+      messenger: 'MESSENGER',
+      messenger_thread: 'MESSENGER_THREAD',
+      nearby_friends: 'NEARBY_FRIENDS',
+      page_admin: 'PAGE_ADMIN',
+      school: 'SCHOOL',
+      school_generic: 'SCHOOL_GENERIC',
+      top_page: 'TOP_PAGE',
+      work: 'WORK',
+      workplace: 'WORKPLACE',
       workplace_1_1: 'WORKPLACE_1_1',
       workplace_manager: 'WORKPLACE_MANAGER',
-      workplace: 'WORKPLACE'
+      work_generic: 'WORK_GENERIC',
     });
   }
 
-  deleteAdmins (params): AbstractObject {
+  deleteAdmins (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/admins',
       params
     );
   }
 
-  createAdmin (fields, params): Group {
+  createAdmin (fields: Array<string>, params: Object = {}): Promise<Group> {
     return this.createEdge(
       '/admins',
       fields,
@@ -147,7 +200,7 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  getAlbums (fields, params, fetchFirstPage = true): Album {
+  getAlbums (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Album,
       fields,
@@ -157,7 +210,7 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  createAlbum (fields, params): Album {
+  createAlbum (fields: Array<string>, params: Object = {}): Promise<Album> {
     return this.createEdge(
       '/albums',
       fields,
@@ -166,7 +219,7 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  getDocs (fields, params, fetchFirstPage = true): AbstractObject {
+  getDocs (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AbstractObject,
       fields,
@@ -176,16 +229,7 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  createDoc (fields, params): AbstractObject {
-    return this.createEdge(
-      '/docs',
-      fields,
-      params
-
-    );
-  }
-
-  getEvents (fields, params, fetchFirstPage = true): Event {
+  getEvents (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Event,
       fields,
@@ -195,25 +239,16 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  createFeed (fields, params): AbstractObject {
+  createFeed (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/feed',
       fields,
-      params
-
+      params,
+      
     );
   }
 
-  createGroupThread (fields, params): AbstractObject {
-    return this.createEdge(
-      '/group_threads',
-      fields,
-      params
-
-    );
-  }
-
-  getGroups (fields, params, fetchFirstPage = true): Group {
+  getGroups (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Group,
       fields,
@@ -223,7 +258,7 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  createGroup (fields, params): Group {
+  createGroup (fields: Array<string>, params: Object = {}): Promise<Group> {
     return this.createEdge(
       '/groups',
       fields,
@@ -232,7 +267,7 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  getLiveVideos (fields, params, fetchFirstPage = true): LiveVideo {
+  getLiveVideos (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       LiveVideo,
       fields,
@@ -242,7 +277,7 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  createLiveVideo (fields, params): LiveVideo {
+  createLiveVideo (fields: Array<string>, params: Object = {}): Promise<LiveVideo> {
     return this.createEdge(
       '/live_videos',
       fields,
@@ -251,14 +286,14 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  deleteMembers (params): AbstractObject {
+  deleteMembers (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/members',
       params
     );
   }
 
-  createMember (fields, params): Group {
+  createMember (fields: Array<string>, params: Object = {}): Promise<Group> {
     return this.createEdge(
       '/members',
       fields,
@@ -267,32 +302,16 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  deleteModerators (params): AbstractObject {
-    return super.deleteEdge(
-      '/moderators',
-      params
-    );
-  }
-
-  createModerator (fields, params): Group {
+  createOpenGraphActionFeed (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
-      '/moderators',
+      '/open_graph_action_feed',
       fields,
       params,
-      Group
+      
     );
   }
 
-  createOpenGraphActionFeed (fields, params): AbstractObject {
-    return this.createEdge(
-      '/opengraphactionfeed',
-      fields,
-      params
-
-    );
-  }
-
-  getOptedInMembers (fields, params, fetchFirstPage = true): User {
+  getOptedInMembers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       User,
       fields,
@@ -302,7 +321,7 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  createPhoto (fields, params): Photo {
+  createPhoto (fields: Array<string>, params: Object = {}): Promise<Photo> {
     return this.createEdge(
       '/photos',
       fields,
@@ -311,7 +330,7 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  getPicture (fields, params, fetchFirstPage = true): ProfilePictureSource {
+  getPicture (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       ProfilePictureSource,
       fields,
@@ -321,7 +340,7 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  getVideos (fields, params, fetchFirstPage = true): AdVideo {
+  getVideos (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdVideo,
       fields,
@@ -331,7 +350,7 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  createVideo (fields, params): AdVideo {
+  createVideo (fields: Array<string>, params: Object = {}): Promise<AdVideo> {
     return this.createEdge(
       '/videos',
       fields,
@@ -340,9 +359,19 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  get (fields, params): Group {
+  
+  get (fields: Array<string>, params: Object = {}): Group {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
+      params
+    );
+  }
+
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): Group {
+    // $FlowFixMe : Support Generic Types
+    return super.update(
       params
     );
   }

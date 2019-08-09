@@ -19,14 +19,7 @@ export default class LeadGenConditionalQuestionsGroupQuestions extends AbstractC
       field_key: 'field_key',
       input_type: 'input_type',
       name: 'name',
-      id: 'id'
     });
   }
 
-  get (fields, params): LeadGenConditionalQuestionsGroupQuestions {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

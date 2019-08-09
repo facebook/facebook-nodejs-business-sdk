@@ -16,20 +16,11 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class Currency extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      currency_exchange: 'currency_exchange',
-      currency_exchange_inverse: 'currency_exchange_inverse',
       currency_offset: 'currency_offset',
       usd_exchange: 'usd_exchange',
       usd_exchange_inverse: 'usd_exchange_inverse',
       user_currency: 'user_currency',
-      id: 'id'
     });
   }
 
-  get (fields, params): Currency {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

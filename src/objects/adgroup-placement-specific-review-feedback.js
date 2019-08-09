@@ -38,15 +38,9 @@ export default class AdgroupPlacementSpecificReviewFeedback extends AbstractCrud
       profile: 'profile',
       seller: 'seller',
       shops: 'shops',
+      traffic_quality: 'traffic_quality',
       whatsapp: 'whatsapp',
-      id: 'id'
     });
   }
 
-  get (fields, params): AdgroupPlacementSpecificReviewFeedback {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

@@ -20,19 +20,23 @@ export default class PageUpcomingChange extends AbstractCrudObject {
       effective_time: 'effective_time',
       id: 'id',
       page: 'page',
-      proposal: 'proposal',
-      timer_status: 'timer_status'
+      timer_status: 'timer_status',
     });
   }
 
-  get (fields, params): PageUpcomingChange {
+
+  
+  get (fields: Array<string>, params: Object = {}): PageUpcomingChange {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): PageUpcomingChange {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): PageUpcomingChange {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

@@ -17,14 +17,7 @@ export default class AdCreativePlatformCustomization extends AbstractCrudObject 
   static get Fields () {
     return Object.freeze({
       instagram: 'instagram',
-      id: 'id'
     });
   }
 
-  get (fields, params): AdCreativePlatformCustomization {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

@@ -8,7 +8,9 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 import AdCreative from './ad-creative';
+import AdRule from './ad-rule';
 import AdsInsights from './ads-insights';
 import AdReportRun from './ad-report-run';
 import AdKeywordStats from './ad-keyword-stats';
@@ -44,10 +46,11 @@ export default class Ad extends AbstractCrudObject {
       engagement_audience: 'engagement_audience',
       failed_delivery_checks: 'failed_delivery_checks',
       id: 'id',
+      is_autobid: 'is_autobid',
       issues_info: 'issues_info',
       last_updated_by_app_id: 'last_updated_by_app_id',
       name: 'name',
-      objective_source: 'objective_source',
+      preview_shareable_link: 'preview_shareable_link',
       priority: 'priority',
       recommendations: 'recommendations',
       source_ad: 'source_ad',
@@ -56,94 +59,96 @@ export default class Ad extends AbstractCrudObject {
       targeting: 'targeting',
       tracking_and_conversion_with_defaults: 'tracking_and_conversion_with_defaults',
       tracking_specs: 'tracking_specs',
-      updated_time: 'updated_time'
+      updated_time: 'updated_time',
     });
   }
 
   static get BidType (): Object {
     return Object.freeze({
+      absolute_ocpm: 'ABSOLUTE_OCPM',
+      cpa: 'CPA',
       cpc: 'CPC',
       cpm: 'CPM',
       multi_premium: 'MULTI_PREMIUM',
-      absolute_ocpm: 'ABSOLUTE_OCPM',
-      cpa: 'CPA'
     });
   }
   static get ConfiguredStatus (): Object {
     return Object.freeze({
       active: 'ACTIVE',
-      paused: 'PAUSED',
+      archived: 'ARCHIVED',
       deleted: 'DELETED',
-      archived: 'ARCHIVED'
+      paused: 'PAUSED',
     });
   }
   static get EffectiveStatus (): Object {
     return Object.freeze({
       active: 'ACTIVE',
-      paused: 'PAUSED',
-      deleted: 'DELETED',
-      pending_review: 'PENDING_REVIEW',
-      disapproved: 'DISAPPROVED',
-      preapproved: 'PREAPPROVED',
-      pending_billing_info: 'PENDING_BILLING_INFO',
-      campaign_paused: 'CAMPAIGN_PAUSED',
+      adset_paused: 'ADSET_PAUSED',
       archived: 'ARCHIVED',
-      adset_paused: 'ADSET_PAUSED'
+      campaign_paused: 'CAMPAIGN_PAUSED',
+      deleted: 'DELETED',
+      disapproved: 'DISAPPROVED',
+      in_process: 'IN_PROCESS',
+      paused: 'PAUSED',
+      pending_billing_info: 'PENDING_BILLING_INFO',
+      pending_review: 'PENDING_REVIEW',
+      preapproved: 'PREAPPROVED',
+      with_issues: 'WITH_ISSUES',
     });
   }
   static get Status (): Object {
     return Object.freeze({
       active: 'ACTIVE',
-      paused: 'PAUSED',
+      archived: 'ARCHIVED',
       deleted: 'DELETED',
-      archived: 'ARCHIVED'
+      paused: 'PAUSED',
     });
   }
   static get DatePreset (): Object {
     return Object.freeze({
-      today: 'today',
-      yesterday: 'yesterday',
-      this_month: 'this_month',
-      last_month: 'last_month',
-      this_quarter: 'this_quarter',
-      lifetime: 'lifetime',
-      last_3d: 'last_3d',
-      last_7d: 'last_7d',
       last_14d: 'last_14d',
       last_28d: 'last_28d',
       last_30d: 'last_30d',
+      last_3d: 'last_3d',
+      last_7d: 'last_7d',
       last_90d: 'last_90d',
+      last_month: 'last_month',
+      last_quarter: 'last_quarter',
       last_week_mon_sun: 'last_week_mon_sun',
       last_week_sun_sat: 'last_week_sun_sat',
-      last_quarter: 'last_quarter',
       last_year: 'last_year',
+      lifetime: 'lifetime',
+      this_month: 'this_month',
+      this_quarter: 'this_quarter',
       this_week_mon_today: 'this_week_mon_today',
       this_week_sun_today: 'this_week_sun_today',
-      this_year: 'this_year'
+      this_year: 'this_year',
+      today: 'today',
+      yesterday: 'yesterday',
     });
   }
   static get ExecutionOptions (): Object {
     return Object.freeze({
-      validate_only: 'validate_only',
+      include_recommendations: 'include_recommendations',
       synchronous_ad_review: 'synchronous_ad_review',
-      include_recommendations: 'include_recommendations'
+      validate_only: 'validate_only',
     });
   }
   static get Operator (): Object {
     return Object.freeze({
       all: 'ALL',
-      any: 'ANY'
+      any: 'ANY',
     });
   }
   static get StatusOption (): Object {
     return Object.freeze({
       active: 'ACTIVE',
+      inherited_from_source: 'INHERITED_FROM_SOURCE',
       paused: 'PAUSED',
-      inherited_from_source: 'INHERITED_FROM_SOURCE'
     });
   }
 
-  getAdCreatives (fields, params, fetchFirstPage = true): AdCreative {
+  getAdCreatives (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdCreative,
       fields,
@@ -153,14 +158,14 @@ export default class Ad extends AbstractCrudObject {
     );
   }
 
-  deleteAdLabels (params): AbstractObject {
+  deleteAdLabels (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/adlabels',
       params
     );
   }
 
-  createAdLabel (fields, params): Ad {
+  createAdLabel (fields: Array<string>, params: Object = {}): Promise<Ad> {
     return this.createEdge(
       '/adlabels',
       fields,
@@ -169,7 +174,17 @@ export default class Ad extends AbstractCrudObject {
     );
   }
 
-  getCopies (fields, params, fetchFirstPage = true): Ad {
+  getAdRulesGoverned (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AdRule,
+      fields,
+      params,
+      fetchFirstPage,
+      '/adrules_governed'
+    );
+  }
+
+  getCopies (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Ad,
       fields,
@@ -179,7 +194,7 @@ export default class Ad extends AbstractCrudObject {
     );
   }
 
-  createCopy (fields, params): Ad {
+  createCopy (fields: Array<string>, params: Object = {}): Promise<Ad> {
     return this.createEdge(
       '/copies',
       fields,
@@ -188,7 +203,7 @@ export default class Ad extends AbstractCrudObject {
     );
   }
 
-  getInsights (fields, params, fetchFirstPage = true): AdsInsights {
+  getInsights (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdsInsights,
       fields,
@@ -198,7 +213,7 @@ export default class Ad extends AbstractCrudObject {
     );
   }
 
-  getInsightsAsync (fields, params): AdReportRun {
+  getInsightsAsync (fields: Array<string>, params: Object = {}): Promise<AdReportRun> {
     return this.createEdge(
       '/insights',
       fields,
@@ -207,7 +222,7 @@ export default class Ad extends AbstractCrudObject {
     );
   }
 
-  getKeywordStats (fields, params, fetchFirstPage = true): AdKeywordStats {
+  getKeywordStats (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdKeywordStats,
       fields,
@@ -217,7 +232,7 @@ export default class Ad extends AbstractCrudObject {
     );
   }
 
-  getLeads (fields, params, fetchFirstPage = true): Lead {
+  getLeads (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Lead,
       fields,
@@ -227,16 +242,7 @@ export default class Ad extends AbstractCrudObject {
     );
   }
 
-  createLead (fields, params): Lead {
-    return this.createEdge(
-      '/leads',
-      fields,
-      params,
-      Lead
-    );
-  }
-
-  getPreviews (fields, params, fetchFirstPage = true): AdPreview {
+  getPreviews (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdPreview,
       fields,
@@ -246,7 +252,7 @@ export default class Ad extends AbstractCrudObject {
     );
   }
 
-  getTargetingSentenceLines (fields, params, fetchFirstPage = true): TargetingSentenceLine {
+  getTargetingSentenceLines (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       TargetingSentenceLine,
       fields,
@@ -256,36 +262,35 @@ export default class Ad extends AbstractCrudObject {
     );
   }
 
-  deleteTrackingTag (params): AbstractObject {
-    return super.deleteEdge(
-      '/trackingtag',
-      params
-    );
-  }
-
-  createTrackingTag (fields, params): AbstractObject {
+  createTrackingTag (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/trackingtag',
       fields,
-      params
-
+      params,
+      
     );
   }
 
-  delete (fields, params): AbstractObject {
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.delete(
       params
     );
   }
 
-  get (fields, params): Ad {
+  
+  get (fields: Array<string>, params: Object = {}): Ad {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): Ad {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): Ad {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

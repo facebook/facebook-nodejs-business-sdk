@@ -23,14 +23,7 @@ export default class TargetingGeoLocationCity extends AbstractCrudObject {
       radius: 'radius',
       region: 'region',
       region_id: 'region_id',
-      id: 'id'
     });
   }
 
-  get (fields, params): TargetingGeoLocationCity {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }
