@@ -155,6 +155,7 @@ export { default as BusinessAdAccountRequest } from './../src/objects/business-a
 export { default as BusinessAdvertisableApplicationsResult } from './../src/objects/business-advertisable-applications-result';
 export { default as BusinessAgreement } from './../src/objects/business-agreement';
 export { default as BusinessApplicationRequest } from './../src/objects/business-application-request';
+export { default as BusinessAssetGroup } from './../src/objects/business-asset-group';
 export { default as BusinessAssetSharingAgreement } from './../src/objects/business-asset-sharing-agreement';
 export { default as BusinessCreative } from './../src/objects/business-creative';
 export { default as BusinessCreativeFolder } from './../src/objects/business-creative-folder';

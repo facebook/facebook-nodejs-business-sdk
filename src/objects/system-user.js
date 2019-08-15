@@ -9,6 +9,7 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 import Cursor from './../cursor';
 import AdAccount from './ad-account';
+import BusinessAssetGroup from './business-asset-group';
 import Page from './page';
 import ProductCatalog from './product-catalog';
 import User from './user';
@@ -47,6 +48,16 @@ export default class SystemUser extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/assigned_ad_accounts'
+    );
+  }
+
+  getAssignedBusinessAssetGroups (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      BusinessAssetGroup,
+      fields,
+      params,
+      fetchFirstPage,
+      '/assigned_business_asset_groups'
     );
   }
 

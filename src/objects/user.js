@@ -15,6 +15,7 @@ import AdAccount from './ad-account';
 import Album from './album';
 import AppRequestFormerRecipient from './app-request-former-recipient';
 import AppRequest from './app-request';
+import BusinessAssetGroup from './business-asset-group';
 import ProductCatalog from './product-catalog';
 import BusinessUser from './business-user';
 import Business from './business';
@@ -302,6 +303,16 @@ export default class User extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/assigned_ad_accounts'
+    );
+  }
+
+  getAssignedBusinessAssetGroups (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      BusinessAssetGroup,
+      fields,
+      params,
+      fetchFirstPage,
+      '/assigned_business_asset_groups'
     );
   }
 

@@ -17,6 +17,7 @@ import AdNetworkAnalyticsAsyncQueryResult from './ad-network-analytics-async-que
 import AdsPixel from './ads-pixel';
 import BusinessAdvertisableApplicationsResult from './business-advertisable-applications-result';
 import AdPlacement from './ad-placement';
+import BusinessAssetGroup from './business-asset-group';
 import OracleTransaction from './oracle-transaction';
 import BusinessUser from './business-user';
 import BusinessProject from './business-project';
@@ -289,6 +290,16 @@ export default class Business extends AbstractCrudObject {
       fields,
       params,
       Business
+    );
+  }
+
+  getBusinessAssetGroups (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      BusinessAssetGroup,
+      fields,
+      params,
+      fetchFirstPage,
+      '/business_asset_groups'
     );
   }
 

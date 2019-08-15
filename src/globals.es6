@@ -153,6 +153,7 @@ import './../src/objects/business-ad-account-request';
 import './../src/objects/business-advertisable-applications-result';
 import './../src/objects/business-agreement';
 import './../src/objects/business-application-request';
+import './../src/objects/business-asset-group';
 import './../src/objects/business-asset-sharing-agreement';
 import './../src/objects/business-creative';
 import './../src/objects/business-creative-folder';

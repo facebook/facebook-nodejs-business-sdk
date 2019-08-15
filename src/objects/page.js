@@ -52,6 +52,7 @@ import Tab from './tab';
 import PageThreadOwner from './page-thread-owner';
 import EventTour from './event-tour';
 import PageUpcomingChange from './page-upcoming-change';
+import VideoCopyrightRule from './video-copyright-rule';
 import VideoCopyright from './video-copyright';
 
 /**
@@ -963,6 +964,16 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
+  getMediaFingerprints (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      MediaFingerprint,
+      fields,
+      params,
+      fetchFirstPage,
+      '/media_fingerprints'
+    );
+  }
+
   createMediaFingerprint (fields: Array<string>, params: Object = {}): Promise<MediaFingerprint> {
     return this.createEdge(
       '/media_fingerprints',
@@ -1366,6 +1377,15 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
+  createTab (fields: Array<string>, params: Object = {}): Promise<Page> {
+    return this.createEdge(
+      '/tabs',
+      fields,
+      params,
+      Page
+    );
+  }
+
   getTagged (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       PagePost,
@@ -1447,6 +1467,16 @@ export default class Page extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/upcoming_changes'
+    );
+  }
+
+  getVideoCopyrightRules (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      VideoCopyrightRule,
+      fields,
+      params,
+      fetchFirstPage,
+      '/video_copyright_rules'
     );
   }
 

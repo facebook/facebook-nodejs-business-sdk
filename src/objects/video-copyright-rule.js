@@ -26,6 +26,13 @@ export default class VideoCopyrightRule extends AbstractCrudObject {
     });
   }
 
+  static get Source (): Object {
+    return Object.freeze({
+      match_settings_dialog: 'MATCH_SETTINGS_DIALOG',
+      rules_selector: 'RULES_SELECTOR',
+      rules_tab: 'RULES_TAB',
+    });
+  }
 
   
   get (fields: Array<string>, params: Object = {}): VideoCopyrightRule {

@@ -35,6 +35,13 @@ export default class MediaFingerprint extends AbstractCrudObject {
       songtrack: 'SONGTRACK',
     });
   }
+  static get FingerprintValidity (): Object {
+    return Object.freeze({
+      expired: 'EXPIRED',
+      expiring: 'EXPIRING',
+      valid: 'VALID',
+    });
+  }
 
   
   get (fields: Array<string>, params: Object = {}): MediaFingerprint {

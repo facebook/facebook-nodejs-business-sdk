@@ -127,6 +127,15 @@ export default class AdsPixel extends AbstractCrudObject {
     );
   }
 
+  createEvent (fields: Array<string>, params: Object = {}): Promise<AdsPixel> {
+    return this.createEdge(
+      '/events',
+      fields,
+      params,
+      AdsPixel
+    );
+  }
+
   deleteSharedAccounts (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/shared_accounts',
