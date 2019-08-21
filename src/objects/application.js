@@ -365,6 +365,13 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
+  deleteBanned (params: Object = {}): Promise<*> {
+    return super.deleteEdge(
+      '/banned',
+      params
+    );
+  }
+
   getBanned (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       User,
@@ -455,6 +462,15 @@ export default class Application extends AbstractCrudObject {
   createFullAppIndexingInfo (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/full_app_indexing_infos',
+      fields,
+      params,
+      
+    );
+  }
+
+  createInsightsPushSchedule (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+    return this.createEdge(
+      '/insights_push_schedule',
       fields,
       params,
       

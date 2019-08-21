@@ -115,6 +115,7 @@ export default class AdSet extends AbstractCrudObject {
     return Object.freeze({
       active: 'ACTIVE',
       archived: 'ARCHIVED',
+      campaign_paused: 'CAMPAIGN_PAUSED',
       deleted: 'DELETED',
       in_process: 'IN_PROCESS',
       paused: 'PAUSED',

@@ -8,6 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 
 /**
  * InstagramComment
@@ -27,6 +28,25 @@ export default class InstagramComment extends AbstractCrudObject {
     });
   }
 
+
+  getReplies (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      InstagramComment,
+      fields,
+      params,
+      fetchFirstPage,
+      '/replies'
+    );
+  }
+
+  createReply (fields: Array<string>, params: Object = {}): Promise<InstagramComment> {
+    return this.createEdge(
+      '/replies',
+      fields,
+      params,
+      InstagramComment
+    );
+  }
 
   // $FlowFixMe : Support Generic Types
   delete (fields: Array<string>, params: Object = {}): AbstractObject {

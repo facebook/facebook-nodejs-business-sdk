@@ -23,9 +23,15 @@ export default class URL extends AbstractCrudObject {
       instant_article: 'instant_article',
       og_object: 'og_object',
       ownership_permissions: 'ownership_permissions',
+      scopes: 'scopes',
     });
   }
 
+  static get Scopes (): Object {
+    return Object.freeze({
+      news_tab: 'NEWS_TAB',
+    });
+  }
 
   
   get (fields: Array<string>, params: Object = {}): URL {
