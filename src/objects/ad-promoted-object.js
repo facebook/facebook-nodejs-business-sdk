@@ -18,6 +18,7 @@ export default class AdPromotedObject extends AbstractCrudObject {
     return Object.freeze({
       application_id: 'application_id',
       custom_conversion_id: 'custom_conversion_id',
+      custom_event_str: 'custom_event_str',
       custom_event_type: 'custom_event_type',
       event_id: 'event_id',
       fundraiser_campaign_id: 'fundraiser_campaign_id',

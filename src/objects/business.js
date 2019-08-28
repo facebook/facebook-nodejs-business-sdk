@@ -30,6 +30,7 @@ import BusinessCreative from './business-creative';
 import DirectDeal from './direct-deal';
 import EventSourceGroup from './event-source-group';
 import ExtendedCredit from './extended-credit';
+import BusinessImage from './business-image';
 import BusinessAssetSharingAgreement from './business-asset-sharing-agreement';
 import BusinessAgreement from './business-agreement';
 import InstagramUser from './instagram-user';
@@ -141,6 +142,7 @@ export default class Business extends AbstractCrudObject {
       pages_messaging: 'PAGES_MESSAGING',
       pages_messaging_subscriptions: 'PAGES_MESSAGING_SUBSCRIPTIONS',
       platform_manage_pages: 'PLATFORM_MANAGE_PAGES',
+      platform_read_insights: 'PLATFORM_READ_INSIGHTS',
       read_page_mailboxes: 'READ_PAGE_MAILBOXES',
       view_monetization_insights: 'VIEW_MONETIZATION_INSIGHTS',
     });
@@ -560,12 +562,12 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createImage (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+  createImage (fields: Array<string>, params: Object = {}): Promise<BusinessImage> {
     return this.createEdge(
       '/images',
       fields,
       params,
-      
+      BusinessImage
     );
   }
 
@@ -609,6 +611,15 @@ export default class Business extends AbstractCrudObject {
   createManagedBusiness (fields: Array<string>, params: Object = {}): Promise<Business> {
     return this.createEdge(
       '/managed_businesses',
+      fields,
+      params,
+      Business
+    );
+  }
+
+  createMoveAsset (fields: Array<string>, params: Object = {}): Promise<Business> {
+    return this.createEdge(
+      '/move_asset',
       fields,
       params,
       Business

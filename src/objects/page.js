@@ -36,6 +36,7 @@ import MessagingFeatureReview from './messaging-feature-review';
 import MessengerDestinationPageWelcomeMessage from './messenger-destination-page-welcome-message';
 import MessengerProfile from './messenger-profile';
 import NativeOffer from './native-offer';
+import PartnerCouponOffer from './partner-coupon-offer';
 import Persona from './persona';
 import Photo from './photo';
 import ProfilePictureSource from './profile-picture-source';
@@ -288,6 +289,7 @@ export default class Page extends AbstractCrudObject {
       pages_messaging: 'PAGES_MESSAGING',
       pages_messaging_subscriptions: 'PAGES_MESSAGING_SUBSCRIPTIONS',
       platform_manage_pages: 'PLATFORM_MANAGE_PAGES',
+      platform_read_insights: 'PLATFORM_READ_INSIGHTS',
       read_page_mailboxes: 'READ_PAGE_MAILBOXES',
       view_monetization_insights: 'VIEW_MONETIZATION_INSIGHTS',
     });
@@ -305,6 +307,7 @@ export default class Page extends AbstractCrudObject {
       pages_messaging: 'PAGES_MESSAGING',
       pages_messaging_subscriptions: 'PAGES_MESSAGING_SUBSCRIPTIONS',
       platform_manage_pages: 'PLATFORM_MANAGE_PAGES',
+      platform_read_insights: 'PLATFORM_READ_INSIGHTS',
       read_page_mailboxes: 'READ_PAGE_MAILBOXES',
       view_monetization_insights: 'VIEW_MONETIZATION_INSIGHTS',
     });
@@ -1118,6 +1121,16 @@ export default class Page extends AbstractCrudObject {
       fields,
       params,
       InstagramUser
+    );
+  }
+
+  getPartnerCouponOffer (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      PartnerCouponOffer,
+      fields,
+      params,
+      fetchFirstPage,
+      '/partner_coupon_offer'
     );
   }
 

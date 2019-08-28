@@ -305,6 +305,7 @@ export { default as PageStartInfo } from './../src/objects/page-start-info';
 export { default as PageThreadOwner } from './../src/objects/page-thread-owner';
 export { default as PageUpcomingChange } from './../src/objects/page-upcoming-change';
 export { default as PageUserMessageThreadLabel } from './../src/objects/page-user-message-thread-label';
+export { default as PartnerCouponOffer } from './../src/objects/partner-coupon-offer';
 export { default as PartnerStudy } from './../src/objects/partner-study';
 export { default as PaymentPricepoints } from './../src/objects/payment-pricepoints';
 export { default as Permission } from './../src/objects/permission';

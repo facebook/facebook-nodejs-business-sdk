@@ -580,15 +580,6 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  createOzoneRelease (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
-    return this.createEdge(
-      '/ozone_release',
-      fields,
-      params,
-      
-    );
-  }
-
   createPageActivity (fields: Array<string>, params: Object = {}): Promise<Application> {
     return this.createEdge(
       '/page_activities',
@@ -714,15 +705,6 @@ export default class Application extends AbstractCrudObject {
       fields,
       params,
       
-    );
-  }
-
-  createSubscriptionsSample (fields: Array<string>, params: Object = {}): Promise<Application> {
-    return this.createEdge(
-      '/subscriptions_sample',
-      fields,
-      params,
-      Application
     );
   }
 

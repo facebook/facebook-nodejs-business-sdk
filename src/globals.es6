@@ -303,6 +303,7 @@ import './../src/objects/page-start-info';
 import './../src/objects/page-thread-owner';
 import './../src/objects/page-upcoming-change';
 import './../src/objects/page-user-message-thread-label';
+import './../src/objects/partner-coupon-offer';
 import './../src/objects/partner-study';
 import './../src/objects/payment-pricepoints';
 import './../src/objects/permission';
