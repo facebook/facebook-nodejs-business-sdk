@@ -4,8 +4,14 @@ All notable changes to this project will be documented in this file.
 
 
 ## Unreleased
+
+## v4.0.0
+### Changed
+- Graph API call upgrade to [v4.0](https://developers.facebook.com/docs/graph-api/changelog/version4.0)
+
+## v3.3.4
 ### Added
-- Add .flowconfig
+- Support [flow](https://flow.org/)
 
 ## v3.3.3
 
