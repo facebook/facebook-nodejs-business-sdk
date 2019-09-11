@@ -1119,6 +1119,22 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
+  deleteSubscribedApps (params: Object = {}): Promise<*> {
+    return super.deleteEdge(
+      '/subscribed_apps',
+      params
+    );
+  }
+
+  createSubscribedApp (fields: Array<string>, params: Object = {}): Promise<Application> {
+    return this.createEdge(
+      '/subscribed_apps',
+      fields,
+      params,
+      Application
+    );
+  }
+
   getTargetingBrowse (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdAccountTargetingUnified,

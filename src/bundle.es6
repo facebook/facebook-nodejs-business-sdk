@@ -367,6 +367,7 @@ export { default as ScreenName } from './../src/objects/screen-name';
 export { default as SecuritySettings } from './../src/objects/security-settings';
 export { default as SplitTestConfig } from './../src/objects/split-test-config';
 export { default as SplitTestWinner } from './../src/objects/split-test-winner';
+export { default as StoreCatalogSettings } from './../src/objects/store-catalog-settings';
 export { default as StreamingReaction } from './../src/objects/streaming-reaction';
 export { default as SystemUser } from './../src/objects/system-user';
 export { default as Tab } from './../src/objects/tab';

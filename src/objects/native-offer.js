@@ -47,6 +47,17 @@ export default class NativeOffer extends AbstractCrudObject {
     });
   }
 
+  static get UniqueCodesFileCodeType (): Object {
+    return Object.freeze({
+      barcodes: 'barcodes',
+      discount_and_barcodes: 'discount_and_barcodes',
+      discount_and_discount: 'discount_and_discount',
+      discount_codes: 'discount_codes',
+      instore_barcodes: 'instore_barcodes',
+      instore_discount_codes: 'instore_discount_codes',
+      online_discount_codes: 'online_discount_codes',
+    });
+  }
   static get BarcodeType (): Object {
     return Object.freeze({
       code128: 'CODE128',
@@ -70,6 +81,15 @@ export default class NativeOffer extends AbstractCrudObject {
       offline: 'offline',
       online: 'online',
     });
+  }
+
+  createCode (fields: Array<string>, params: Object = {}): Promise<NativeOffer> {
+    return this.createEdge(
+      '/codes',
+      fields,
+      params,
+      NativeOffer
+    );
   }
 
   createNativeOfferView (fields: Array<string>, params: Object = {}): Promise<NativeOffer> {

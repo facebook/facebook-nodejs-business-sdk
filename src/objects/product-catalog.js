@@ -49,6 +49,7 @@ export default class ProductCatalog extends AbstractCrudObject {
       id: 'id',
       name: 'name',
       product_count: 'product_count',
+      store_catalog_settings: 'store_catalog_settings',
       vertical: 'vertical',
     });
   }
@@ -61,6 +62,7 @@ export default class ProductCatalog extends AbstractCrudObject {
       flights: 'flights',
       home_listings: 'home_listings',
       hotels: 'hotels',
+      offline_commerce: 'offline_commerce',
       ticketed_experiences: 'ticketed_experiences',
       transactable_items: 'transactable_items',
       vehicles: 'vehicles',
@@ -451,6 +453,15 @@ export default class ProductCatalog extends AbstractCrudObject {
       fields,
       params,
       ProductItem
+    );
+  }
+
+  createStoreProductItemsBatch (fields: Array<string>, params: Object = {}): Promise<ProductCatalog> {
+    return this.createEdge(
+      '/store_product_items_batch',
+      fields,
+      params,
+      ProductCatalog
     );
   }
 

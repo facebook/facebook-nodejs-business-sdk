@@ -365,6 +365,7 @@ import './../src/objects/screen-name';
 import './../src/objects/security-settings';
 import './../src/objects/split-test-config';
 import './../src/objects/split-test-winner';
+import './../src/objects/store-catalog-settings';
 import './../src/objects/streaming-reaction';
 import './../src/objects/system-user';
 import './../src/objects/tab';
