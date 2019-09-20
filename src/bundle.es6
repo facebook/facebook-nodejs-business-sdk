@@ -224,7 +224,6 @@ export { default as ExternalEventSource } from './../src/objects/external-event-
 export { default as FAMEExportConfig } from './../src/objects/fame-export-config';
 export { default as FlexibleTargeting } from './../src/objects/flexible-targeting';
 export { default as Flight } from './../src/objects/flight';
-export { default as FoodDrinkOrder } from './../src/objects/food-drink-order';
 export { default as FriendList } from './../src/objects/friend-list';
 export { default as FundingSourceDetails } from './../src/objects/funding-source-details';
 export { default as FundingSourceDetailsCoupon } from './../src/objects/funding-source-details-coupon';

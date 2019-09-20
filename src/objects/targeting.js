@@ -91,7 +91,6 @@ export default class Targeting extends AbstractCrudObject {
       product_audience_specs: 'product_audience_specs',
       prospecting_audience: 'prospecting_audience',
       publisher_platforms: 'publisher_platforms',
-      publisher_visibility_categories: 'publisher_visibility_categories',
       radius: 'radius',
       regions: 'regions',
       relationship_statuses: 'relationship_statuses',

@@ -49,6 +49,7 @@ export default class Campaign extends AbstractCrudObject {
       recommendations: 'recommendations',
       source_campaign: 'source_campaign',
       source_campaign_id: 'source_campaign_id',
+      special_ad_category: 'special_ad_category',
       spend_cap: 'spend_cap',
       start_time: 'start_time',
       status: 'status',
@@ -136,6 +137,14 @@ export default class Campaign extends AbstractCrudObject {
       product_catalog_sales: 'PRODUCT_CATALOG_SALES',
       reach: 'REACH',
       video_views: 'VIDEO_VIEWS',
+    });
+  }
+  static get SpecialAdCategory (): Object {
+    return Object.freeze({
+      credit: 'CREDIT',
+      employment: 'EMPLOYMENT',
+      housing: 'HOUSING',
+      none: 'NONE',
     });
   }
   static get Operator (): Object {

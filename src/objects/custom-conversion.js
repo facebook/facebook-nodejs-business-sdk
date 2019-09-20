@@ -65,13 +65,6 @@ export default class CustomConversion extends AbstractCrudObject {
     });
   }
 
-  deleteAdAccounts (params: Object = {}): Promise<*> {
-    return super.deleteEdge(
-      '/adaccounts',
-      params
-    );
-  }
-
   getStats (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       CustomConversionStatsResult,

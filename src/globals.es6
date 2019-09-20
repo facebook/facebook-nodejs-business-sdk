@@ -222,7 +222,6 @@ import './../src/objects/external-event-source';
 import './../src/objects/fame-export-config';
 import './../src/objects/flexible-targeting';
 import './../src/objects/flight';
-import './../src/objects/food-drink-order';
 import './../src/objects/friend-list';
 import './../src/objects/funding-source-details';
 import './../src/objects/funding-source-details-coupon';

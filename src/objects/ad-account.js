@@ -421,13 +421,6 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  deleteAdReportRuns (params: Object = {}): Promise<*> {
-    return super.deleteEdge(
-      '/adreportruns',
-      params
-    );
-  }
-
   getAdReportSchedules (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AbstractObject,
@@ -1126,12 +1119,12 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createSubscribedApp (fields: Array<string>, params: Object = {}): Promise<Application> {
+  createSubscribedApp (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/subscribed_apps',
       fields,
       params,
-      Application
+      
     );
   }
 

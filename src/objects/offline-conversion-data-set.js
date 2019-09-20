@@ -56,6 +56,7 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
     return Object.freeze({
       ad_manager: 'AD_MANAGER',
       agency: 'AGENCY',
+      aggregator: 'AGGREGATOR',
       audience_manager: 'AUDIENCE_MANAGER',
       other: 'OTHER',
     });

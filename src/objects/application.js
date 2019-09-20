@@ -27,6 +27,7 @@ import OpenGraphObject from './open-graph-object';
 export default class Application extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
+      aam_rules: 'aam_rules',
       an_ad_space_limit: 'an_ad_space_limit',
       an_platforms: 'an_platforms',
       android_key_hash: 'android_key_hash',
@@ -468,6 +469,16 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
+  getInsightsPushSchedule (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/insights_push_schedule'
+    );
+  }
+
   createInsightsPushSchedule (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/insights_push_schedule',
@@ -642,15 +653,6 @@ export default class Application extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/roles'
-    );
-  }
-
-  createStagingResource (fields: Array<string>, params: Object = {}): Promise<Application> {
-    return this.createEdge(
-      '/staging_resources',
-      fields,
-      params,
-      Application
     );
   }
 

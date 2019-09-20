@@ -13,7 +13,6 @@ import Comment from './comment';
 import RTBDynamicPost from './rtb-dynamic-post';
 import InsightsResult from './insights-result';
 import Profile from './profile';
-import User from './user';
 import Page from './page';
 
 /**
@@ -218,16 +217,6 @@ export default class Post extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/reactions'
-    );
-  }
-
-  getSeen (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      User,
-      fields,
-      params,
-      fetchFirstPage,
-      '/seen'
     );
   }
 

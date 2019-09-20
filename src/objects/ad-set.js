@@ -196,6 +196,14 @@ export default class AdSet extends AbstractCrudObject {
       video_sound_on: 'VIDEO_SOUND_ON',
     });
   }
+  static get TuneForCategory (): Object {
+    return Object.freeze({
+      credit: 'CREDIT',
+      employment: 'EMPLOYMENT',
+      housing: 'HOUSING',
+      none: 'NONE',
+    });
+  }
   static get DatePreset (): Object {
     return Object.freeze({
       last_14d: 'LAST_14D',

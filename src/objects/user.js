@@ -30,7 +30,6 @@ import UserIDForPage from './user-id-for-page';
 import InsightsResult from './insights-result';
 import LiveEncoder from './live-encoder';
 import LiveVideo from './live-video';
-import PartnerCouponOffer from './partner-coupon-offer';
 import Permission from './permission';
 import Photo from './photo';
 import ProfilePictureSource from './profile-picture-source';
@@ -424,16 +423,6 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  getFavoriteRequests (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/favorite_requests'
-    );
-  }
-
   createFeed (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/feed',
@@ -654,16 +643,6 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  getPartnerCouponOffer (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      PartnerCouponOffer,
-      fields,
-      params,
-      fetchFirstPage,
-      '/partner_coupon_offer'
-    );
-  }
-
   deletePermissions (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/permissions',
@@ -717,15 +696,6 @@ export default class User extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/picture'
-    );
-  }
-
-  createPlace (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
-    return this.createEdge(
-      '/places',
-      fields,
-      params,
-      
     );
   }
 
