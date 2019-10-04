@@ -390,7 +390,7 @@ function constructErrorResponse(response) {
       body = typeof body === 'string' ? JSON.parse(body) : body;
       // Construct an error message from subfields in body.error
       message = body.error.error_user_msg ? body.error.error_user_title + ': ' + body.error.error_user_msg : body.error.message;
-      status = response.status;
+      status = body.error.code;
     } else if (response.name === REQUEST_ERROR) {
       // Handle network errors e.g. timeout, destination unreachable
       body = { error: response.error };
