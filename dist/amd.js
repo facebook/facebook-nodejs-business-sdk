@@ -231,21 +231,24 @@ var Http = function () {
             if (request.status.toString() === HTTP_STATUS.OK) {
               resolve(response);
             } else {
-              reject(new Error({
-                body: response,
+              reject({
+                name: 'StatusCodeError',
+                error: response,
                 status: request.status
-              }));
+              });
             }
           } catch (e) {
-            reject(new Error({
-              body: request.responseText,
+            reject({
+              name: 'RequestError',
+              error: request,
               status: request.status
-            }));
+            });
           }
         };
         request.onerror = function () {
           reject({
-            body: { error: { message: 'An unknown error occurred during the request.' } },
+            name: 'RequestError',
+            error: { error: { message: 'An unknown error occurred during the request.' } },
             status: request.status
           });
         };
@@ -386,7 +389,7 @@ function constructErrorResponse(response) {
       body = typeof body === 'string' ? JSON.parse(body) : body;
       // Construct an error message from subfields in body.error
       message = body.error.error_user_msg ? body.error.error_user_title + ': ' + body.error.error_user_msg : body.error.message;
-      status = response.statusCode;
+      status = response.status;
     } else if (response.name === REQUEST_ERROR) {
       // Handle network errors e.g. timeout, destination unreachable
       body = { error: response.error };

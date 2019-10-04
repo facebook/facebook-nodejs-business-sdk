@@ -77,7 +77,7 @@ function constructErrorResponse(response: Object) {
       message = body.error.error_user_msg
         ? `${body.error.error_user_title}: ${body.error.error_user_msg}`
         : body.error.message;
-      status = response.statusCode;
+      status = response.status;
     } else if (response.name === REQUEST_ERROR) {
       // Handle network errors e.g. timeout, destination unreachable
       body = {error: response.error};
