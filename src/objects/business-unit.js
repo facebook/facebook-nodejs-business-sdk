@@ -7,6 +7,8 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 
 /**
  * BusinessUnit
@@ -23,6 +25,25 @@ export default class BusinessUnit extends AbstractCrudObject {
     });
   }
 
+
+  getAtlasSalesAccesses (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/atlas_sales_accesses'
+    );
+  }
+
+  createAtlasSalesAccess (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+    return this.createEdge(
+      '/atlas_sales_accesses',
+      fields,
+      params,
+      
+    );
+  }
 
   
   get (fields: Array<string>, params: Object = {}): BusinessUnit {

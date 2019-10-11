@@ -25,6 +25,7 @@ export default class ProductFeedSchedule extends AbstractCrudObject {
       timezone: 'timezone',
       url: 'url',
       username: 'username',
+      id: 'id',
     });
   }
 
@@ -46,5 +47,14 @@ export default class ProductFeedSchedule extends AbstractCrudObject {
       monthly: 'MONTHLY',
       weekly: 'WEEKLY',
     });
+  }
+
+  
+  get (fields: Array<string>, params: Object = {}): ProductFeedSchedule {
+    // $FlowFixMe : Support Generic Types
+    return this.read(
+      fields,
+      params
+    );
   }
 }

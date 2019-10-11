@@ -22,6 +22,7 @@ export default class SavedAudience extends AbstractCrudObject {
       account: 'account',
       approximate_count: 'approximate_count',
       description: 'description',
+      extra_info: 'extra_info',
       id: 'id',
       name: 'name',
       permission_for_actions: 'permission_for_actions',

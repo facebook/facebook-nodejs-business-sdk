@@ -247,6 +247,15 @@ export default class User extends AbstractCrudObject {
     );
   }
 
+  createAdStudy (fields: Array<string>, params: Object = {}): Promise<AdStudy> {
+    return this.createEdge(
+      '/ad_studies',
+      fields,
+      params,
+      AdStudy
+    );
+  }
+
   getAdAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdAccount,

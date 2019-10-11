@@ -54,6 +54,16 @@ export default class BusinessImage extends AbstractCrudObject {
     });
   }
 
+  getAdPlacementValidationResults (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/ad_placement_validation_results'
+    );
+  }
+
   getInsights (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AbstractObject,

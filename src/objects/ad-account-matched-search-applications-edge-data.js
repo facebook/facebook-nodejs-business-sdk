@@ -17,6 +17,7 @@ export default class AdAccountMatchedSearchApplicationsEdgeData extends Abstract
   static get Fields () {
     return Object.freeze({
       app_id: 'app_id',
+      are_app_events_unavailable: 'are_app_events_unavailable',
       icon_url: 'icon_url',
       name: 'name',
       search_source_store: 'search_source_store',

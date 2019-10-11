@@ -9,14 +9,17 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * AdCreativeDegreesOfFreedomSpec
+ * AdAccountContentFilterLevelsInheritance
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class AdCreativeDegreesOfFreedomSpec extends AbstractCrudObject {
+export default class AdAccountContentFilterLevelsInheritance extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      degrees_of_freedom_type: 'degrees_of_freedom_type',
+      an_business_ids: 'an_business_ids',
+      an_level: 'an_level',
+      facebook_business_ids: 'facebook_business_ids',
+      facebook_level: 'facebook_level',
     });
   }
 

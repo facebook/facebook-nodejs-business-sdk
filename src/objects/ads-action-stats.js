@@ -38,6 +38,7 @@ export default class AdsActionStats extends AbstractCrudObject {
       action_video_asset_id: 'action_video_asset_id',
       action_video_sound: 'action_video_sound',
       action_video_type: 'action_video_type',
+      dda: 'dda',
       inline: 'inline',
       interactive_component_sticker_id: 'interactive_component_sticker_id',
       interactive_component_sticker_response: 'interactive_component_sticker_response',

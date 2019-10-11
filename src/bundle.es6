@@ -14,6 +14,8 @@ export { default as Ad } from './../src/objects/ad';
 export { default as AdAccount } from './../src/objects/ad-account';
 export { default as AdAccountActivity } from './../src/objects/ad-account-activity';
 export { default as AdAccountAdRulesHistory } from './../src/objects/ad-account-ad-rules-history';
+export { default as AdAccountAdVolume } from './../src/objects/ad-account-ad-volume';
+export { default as AdAccountContentFilterLevelsInheritance } from './../src/objects/ad-account-content-filter-levels-inheritance';
 export { default as AdAccountCreationRequest } from './../src/objects/ad-account-creation-request';
 export { default as AdAccountDefaultDestination } from './../src/objects/ad-account-default-destination';
 export { default as AdAccountDefaultObjective } from './../src/objects/ad-account-default-objective';
@@ -55,7 +57,6 @@ export { default as AdCampaignPacedBidInfo } from './../src/objects/ad-campaign-
 export { default as AdContract } from './../src/objects/ad-contract';
 export { default as AdCreative } from './../src/objects/ad-creative';
 export { default as AdCreativeCollectionThumbnailInfo } from './../src/objects/ad-creative-collection-thumbnail-info';
-export { default as AdCreativeDegreesOfFreedomSpec } from './../src/objects/ad-creative-degrees-of-freedom-spec';
 export { default as AdCreativeInteractiveComponentsSpec } from './../src/objects/ad-creative-interactive-components-spec';
 export { default as AdCreativeLinkData } from './../src/objects/ad-creative-link-data';
 export { default as AdCreativeLinkDataAppLinkSpec } from './../src/objects/ad-creative-link-data-app-link-spec';
@@ -152,7 +153,6 @@ export { default as BrandSafetyBlockListUsage } from './../src/objects/brand-saf
 export { default as BroadTargetingCategories } from './../src/objects/broad-targeting-categories';
 export { default as Business } from './../src/objects/business';
 export { default as BusinessAdAccountRequest } from './../src/objects/business-ad-account-request';
-export { default as BusinessAdvertisableApplicationsResult } from './../src/objects/business-advertisable-applications-result';
 export { default as BusinessAgreement } from './../src/objects/business-agreement';
 export { default as BusinessApplicationRequest } from './../src/objects/business-application-request';
 export { default as BusinessAssetGroup } from './../src/objects/business-asset-group';
@@ -180,6 +180,7 @@ export { default as ClientTransparencyStatus } from './../src/objects/client-tra
 export { default as CollaborativeAdsShareSettings } from './../src/objects/collaborative-ads-share-settings';
 export { default as Comment } from './../src/objects/comment';
 export { default as CommerceSettings } from './../src/objects/commerce-settings';
+export { default as ContentDeliveryReport } from './../src/objects/content-delivery-report';
 export { default as ConversionActionQuery } from './../src/objects/conversion-action-query';
 export { default as CopyrightReferenceContainer } from './../src/objects/copyright-reference-container';
 export { default as CoverPhoto } from './../src/objects/cover-photo';
@@ -252,6 +253,7 @@ export { default as LeadGenConditionalQuestionsGroupChoices } from './../src/obj
 export { default as LeadGenConditionalQuestionsGroupQuestions } from './../src/objects/lead-gen-conditional-questions-group-questions';
 export { default as LeadGenDraftQuestion } from './../src/objects/lead-gen-draft-question';
 export { default as LeadGenFormPreviewDetails } from './../src/objects/lead-gen-form-preview-details';
+export { default as LeadGenPostSubmissionCheckResult } from './../src/objects/lead-gen-post-submission-check-result';
 export { default as LeadGenQuestion } from './../src/objects/lead-gen-question';
 export { default as LeadGenQuestionOption } from './../src/objects/lead-gen-question-option';
 export { default as LeadgenForm } from './../src/objects/leadgen-form';

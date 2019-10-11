@@ -43,4 +43,12 @@ export default class Flight extends AbstractCrudObject {
       params
     );
   }
+
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): Flight {
+    // $FlowFixMe : Support Generic Types
+    return super.update(
+      params
+    );
+  }
 }

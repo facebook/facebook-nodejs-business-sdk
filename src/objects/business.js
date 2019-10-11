@@ -11,11 +11,9 @@ import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import AdStudy from './ad-study';
 import AdAccount from './ad-account';
-import AdAccountCreationRequest from './ad-account-creation-request';
 import AdNetworkAnalyticsSyncQueryResult from './ad-network-analytics-sync-query-result';
 import AdNetworkAnalyticsAsyncQueryResult from './ad-network-analytics-async-query-result';
 import AdsPixel from './ads-pixel';
-import BusinessAdvertisableApplicationsResult from './business-advertisable-applications-result';
 import AdPlacement from './ad-placement';
 import BusinessAssetGroup from './business-asset-group';
 import OracleTransaction from './oracle-transaction';
@@ -25,6 +23,7 @@ import CustomConversion from './custom-conversion';
 import Application from './application';
 import Page from './page';
 import ProductCatalog from './product-catalog';
+import ContentDeliveryReport from './content-delivery-report';
 import BusinessCreativeFolder from './business-creative-folder';
 import BusinessCreative from './business-creative';
 import DirectDeal from './direct-deal';
@@ -193,15 +192,6 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createAdAccountCreationRequest (fields: Array<string>, params: Object = {}): Promise<AdAccountCreationRequest> {
-    return this.createEdge(
-      '/adaccountcreationrequests',
-      fields,
-      params,
-      AdAccountCreationRequest
-    );
-  }
-
   getAdNetworkAnalytics (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdNetworkAnalyticsSyncQueryResult,
@@ -247,16 +237,6 @@ export default class Business extends AbstractCrudObject {
       fields,
       params,
       AdsPixel
-    );
-  }
-
-  getAdvertisableApplications (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      BusinessAdvertisableApplicationsResult,
-      fields,
-      params,
-      fetchFirstPage,
-      '/advertisable_applications'
     );
   }
 
@@ -463,6 +443,16 @@ export default class Business extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/clients'
+    );
+  }
+
+  getContentDeliveryReport (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      ContentDeliveryReport,
+      fields,
+      params,
+      fetchFirstPage,
+      '/content_delivery_report'
     );
   }
 

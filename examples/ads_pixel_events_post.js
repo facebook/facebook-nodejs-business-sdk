@@ -9,13 +9,12 @@
 
  'use strict';
 const bizSdk = require('facebook-nodejs-business-sdk');
-const Page = bizSdk.Page;
-const PageLabel = bizSdk.PageLabel;
+const AdsPixel = bizSdk.AdsPixel;
 
 const access_token = '<ACCESS_TOKEN>';
 const app_secret = '<APP_SECRET>';
 const app_id = '<APP_ID>';
-const id = '<ID>';
+const id = '<ADS_PIXEL_ID>';
 const api = bizSdk.FacebookAdsApi.init(access_token);
 const showDebugingInfo = true; // Setting this to true shows more debugging info.
 if (showDebugingInfo) {
@@ -33,10 +32,10 @@ let fields, params;
 fields = [
 ];
 params = {
-  'name' : 'This is a test value',
+  'data' : [{'event_name':'PageView','event_time':1569260711,'user_data':{'fbc':'fb.1.1554763741205.AbCdEfGhIjKlMnOpQrStUvWxYz1234567890','fbp':'fb.1.1558571054389.1098115397','em':'309a0a5c3e211326ae75ca18196d301a9bdbd1a882a4d2569511033da23f0abd'}}],
 };
-const labels = (new Page(id)).createLabel(
+const events = (new AdsPixel(id)).createEvent(
   fields,
   params
 );
-logApiCallResult('labels api call complete.', labels);
+logApiCallResult('events api call complete.', events);

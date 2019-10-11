@@ -9,19 +9,19 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * BusinessAdvertisableApplicationsResult
+ * AdAccountAdVolume
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class BusinessAdvertisableApplicationsResult extends AbstractCrudObject {
+export default class AdAccountAdVolume extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      are_app_events_unavailable: 'are_app_events_unavailable',
-      business: 'business',
-      has_insight_permission: 'has_insight_permission',
-      id: 'id',
-      name: 'name',
-      photo_url: 'photo_url',
+      actor_id: 'actor_id',
+      has_hit_total_live_ads_limit: 'has_hit_total_live_ads_limit',
+      live_ads_quota_left: 'live_ads_quota_left',
+      total_live_ads: 'total_live_ads',
+      total_live_ads_in_current_account: 'total_live_ads_in_current_account',
+      total_live_ads_limit: 'total_live_ads_limit',
     });
   }
 

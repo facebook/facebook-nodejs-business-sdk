@@ -27,6 +27,7 @@ export default class AdgroupPlacementSpecificReviewFeedback extends AbstractCrud
       facebook: 'facebook',
       instagram: 'instagram',
       instagram_shop: 'instagram_shop',
+      lead_gen_honeypot: 'lead_gen_honeypot',
       marketplace: 'marketplace',
       marketplace_home_rentals: 'marketplace_home_rentals',
       marketplace_home_sales: 'marketplace_home_sales',

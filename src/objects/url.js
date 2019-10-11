@@ -30,6 +30,7 @@ export default class URL extends AbstractCrudObject {
   static get Scopes (): Object {
     return Object.freeze({
       news_tab: 'NEWS_TAB',
+      news_tab_dev_env: 'NEWS_TAB_DEV_ENV',
     });
   }
 

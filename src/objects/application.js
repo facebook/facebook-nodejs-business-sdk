@@ -553,16 +553,6 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  getMoodsForApplication (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/moods_for_application'
-    );
-  }
-
   getObjects (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       OpenGraphObject,

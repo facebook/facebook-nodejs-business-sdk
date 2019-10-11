@@ -7,6 +7,8 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 
 /**
  * BusinessCreative
@@ -30,4 +32,14 @@ export default class BusinessCreative extends AbstractCrudObject {
     });
   }
 
+
+  getAdPlacementValidationResults (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/ad_placement_validation_results'
+    );
+  }
 }

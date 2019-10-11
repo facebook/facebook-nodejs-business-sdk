@@ -47,6 +47,7 @@ export default class BusinessAssetGroup extends AbstractCrudObject {
       advertise: 'ADVERTISE',
       manage: 'MANAGE',
       upload: 'UPLOAD',
+      view: 'VIEW',
     });
   }
   static get PageTasks (): Object {
