@@ -10,6 +10,7 @@ export { default as FacebookAdsApi } from './../src/api';
 export { default as FacebookAdsApiBatch } from './../src/api-batch';
 export { default as APIRequest } from './../src/api-request';
 export { default as APIResponse } from './../src/api-response';
+export { default as CrashReporter } from './../src/crash-reporter';
 export { default as Ad } from './../src/objects/ad';
 export { default as AdAccount } from './../src/objects/ad-account';
 export { default as AdAccountActivity } from './../src/objects/ad-account-activity';
