@@ -62,11 +62,6 @@ export default class FacebookAdsApi {
     return this._defaultApi;
   }
 
-  setDebug(flag: boolean) {
-    this._debug = flag;
-    return this;
-  }
-
   getAppID() : Promise<*> {
     let url = [FacebookAdsApi.GRAPH, FacebookAdsApi.VERSION, 'debug_token'].join('/');
     let params = {};
@@ -76,6 +71,11 @@ export default class FacebookAdsApi {
     url += `?${FacebookAdsApi._encodeParams(params)}`;
 
     return Http.request('GET', url, {}, {}, false);
+  }
+
+  setDebug(flag: boolean) {
+    this._debug = flag;
+    return this;
   }
 
   /**
