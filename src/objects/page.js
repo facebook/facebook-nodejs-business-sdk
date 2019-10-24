@@ -406,6 +406,7 @@ export default class Page extends AbstractCrudObject {
       merchant_review: 'merchant_review',
       message_deliveries: 'message_deliveries',
       message_echoes: 'message_echoes',
+      message_mention: 'message_mention',
       message_reads: 'message_reads',
       messages: 'messages',
       messaging_account_linking: 'messaging_account_linking',
@@ -687,22 +688,6 @@ export default class Page extends AbstractCrudObject {
   createCopyrightManualClaim (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/copyright_manual_claims',
-      fields,
-      params,
-      
-    );
-  }
-
-  deleteCopyrightWhitelistedIgPartners (params: Object = {}): Promise<*> {
-    return super.deleteEdge(
-      '/copyright_whitelisted_ig_partners',
-      params
-    );
-  }
-
-  createCopyrightWhitelistedIgPartner (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
-    return this.createEdge(
-      '/copyright_whitelisted_ig_partners',
       fields,
       params,
       
@@ -1122,6 +1107,15 @@ export default class Page extends AbstractCrudObject {
       fields,
       params,
       InstagramUser
+    );
+  }
+
+  createPageWhatsappNumberVerification (fields: Array<string>, params: Object = {}): Promise<Page> {
+    return this.createEdge(
+      '/page_whatsapp_number_verification',
+      fields,
+      params,
+      Page
     );
   }
 

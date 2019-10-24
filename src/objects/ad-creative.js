@@ -9,6 +9,7 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
+import AdCreativeInsights from './ad-creative-insights';
 import AdPreview from './ad-preview';
 
 /**
@@ -35,6 +36,7 @@ export default class AdCreative extends AbstractCrudObject {
       destination_set_id: 'destination_set_id',
       dynamic_ad_voice: 'dynamic_ad_voice',
       effective_authorization_category: 'effective_authorization_category',
+      effective_instagram_media_id: 'effective_instagram_media_id',
       effective_instagram_story_id: 'effective_instagram_story_id',
       effective_object_story_id: 'effective_object_story_id',
       enable_direct_install: 'enable_direct_install',
@@ -209,6 +211,16 @@ export default class AdCreative extends AbstractCrudObject {
       fields,
       params,
       AdCreative
+    );
+  }
+
+  getCreativeInsights (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AdCreativeInsights,
+      fields,
+      params,
+      fetchFirstPage,
+      '/creative_insights'
     );
   }
 

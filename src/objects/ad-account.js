@@ -12,7 +12,6 @@ import Cursor from './../cursor';
 import AdActivity from './ad-activity';
 import AdPlacePageSet from './ad-place-page-set';
 import AdStudy from './ad-study';
-import AdContract from './ad-contract';
 import AdCreative from './ad-creative';
 import AdImage from './ad-image';
 import AdLabel from './ad-label';
@@ -23,8 +22,6 @@ import Ad from './ad';
 import AdAccountAdVolume from './ad-account-ad-volume';
 import AdSet from './ad-set';
 import AdsPixel from './ads-pixel';
-import AdToplineDetail from './ad-topline-detail';
-import AdTopline from './ad-topline';
 import Application from './application';
 import AdVideo from './ad-video';
 import Business from './business';
@@ -56,6 +53,7 @@ import AdAccountReachEstimate from './ad-account-reach-estimate';
 import ReachFrequencyPrediction from './reach-frequency-prediction';
 import AdAccountRoas from './ad-account-roas';
 import SavedAudience from './saved-audience';
+import AdAccountSubscribedApps from './ad-account-subscribed-apps';
 import AdAccountTargetingUnified from './ad-account-targeting-unified';
 import TargetingSentenceLine from './targeting-sentence-line';
 import AdAccountTrackingData from './ad-account-tracking-data';
@@ -312,16 +310,6 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getAdContracts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AdContract,
-      fields,
-      params,
-      fetchFirstPage,
-      '/adcontracts'
-    );
-  }
-
   getAdCreatives (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdCreative,
@@ -554,26 +542,6 @@ export default class AdAccount extends AbstractCrudObject {
       fields,
       params,
       AdsPixel
-    );
-  }
-
-  getAdToplineDetails (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AdToplineDetail,
-      fields,
-      params,
-      fetchFirstPage,
-      '/adtoplinedetails'
-    );
-  }
-
-  getAdTopLines (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AdTopline,
-      fields,
-      params,
-      fetchFirstPage,
-      '/adtoplines'
     );
   }
 
@@ -1142,12 +1110,22 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createSubscribedApp (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+  getSubscribedApps (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AdAccountSubscribedApps,
+      fields,
+      params,
+      fetchFirstPage,
+      '/subscribed_apps'
+    );
+  }
+
+  createSubscribedApp (fields: Array<string>, params: Object = {}): Promise<AdAccountSubscribedApps> {
     return this.createEdge(
       '/subscribed_apps',
       fields,
       params,
-      
+      AdAccountSubscribedApps
     );
   }
 

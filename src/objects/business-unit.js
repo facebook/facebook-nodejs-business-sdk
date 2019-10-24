@@ -20,8 +20,13 @@ export default class BusinessUnit extends AbstractCrudObject {
     return Object.freeze({
       business: 'business',
       creation_time: 'creation_time',
+      currency: 'currency',
+      excluded_sources: 'excluded_sources',
       id: 'id',
+      is_enabled_for_measurement: 'is_enabled_for_measurement',
       name: 'name',
+      time_zone: 'time_zone',
+      visits_available_date: 'visits_available_date',
     });
   }
 
