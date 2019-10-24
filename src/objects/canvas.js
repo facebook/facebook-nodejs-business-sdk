@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
 
 /**
  * Canvas
@@ -29,6 +30,32 @@ export default class Canvas extends AbstractCrudObject {
     });
   }
 
+
+  createDuplicateCanva (fields: Array<string>, params: Object = {}): Promise<Canvas> {
+    return this.createEdge(
+      '/duplicate_canvas',
+      fields,
+      params,
+      Canvas
+    );
+  }
+
+  createPreviewNotification (fields: Array<string>, params: Object = {}): Promise<Canvas> {
+    return this.createEdge(
+      '/preview_notifications',
+      fields,
+      params,
+      Canvas
+    );
+  }
+
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
+    return super.delete(
+      params
+    );
+  }
 
   
   get (fields: Array<string>, params: Object = {}): Canvas {

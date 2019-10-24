@@ -50,13 +50,6 @@ export default class InstagramUser extends AbstractCrudObject {
     );
   }
 
-  deleteAuthorizedAdAccounts (params: Object = {}): Promise<*> {
-    return super.deleteEdge(
-      '/authorized_adaccounts',
-      params
-    );
-  }
-
   getAuthorizedAdAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdAccount,

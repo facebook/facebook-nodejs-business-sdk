@@ -15,6 +15,7 @@ import Flight from './flight';
 import HomeListing from './home-listing';
 import Hotel from './hotel';
 import ProductItem from './product-item';
+import VehicleOffer from './vehicle-offer';
 import Vehicle from './vehicle';
 
 /**
@@ -92,6 +93,16 @@ export default class ProductSet extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/products'
+    );
+  }
+
+  getVehicleOffers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      VehicleOffer,
+      fields,
+      params,
+      fetchFirstPage,
+      '/vehicle_offers'
     );
   }
 

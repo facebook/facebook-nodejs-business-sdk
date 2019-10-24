@@ -73,13 +73,6 @@ export default class BusinessCreativeFolder extends AbstractCrudObject {
     );
   }
 
-  deleteAssignedUsers (params: Object = {}): Promise<*> {
-    return super.deleteEdge(
-      '/assigned_users',
-      params
-    );
-  }
-
   getAssignedUsers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AssignedUser,

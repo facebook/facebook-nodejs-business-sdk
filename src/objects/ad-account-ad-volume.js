@@ -17,9 +17,9 @@ export default class AdAccountAdVolume extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       actor_id: 'actor_id',
+      ads_running_or_in_review_count: 'ads_running_or_in_review_count',
       has_hit_total_live_ads_limit: 'has_hit_total_live_ads_limit',
       live_ads_quota_left: 'live_ads_quota_left',
-      total_live_ads: 'total_live_ads',
       total_live_ads_in_current_account: 'total_live_ads_in_current_account',
       total_live_ads_limit: 'total_live_ads_limit',
     });
