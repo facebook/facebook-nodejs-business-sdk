@@ -40,6 +40,7 @@ import BusinessApplicationRequest from './business-application-request';
 import BusinessPageRequest from './business-page-request';
 import BusinessRoleRequest from './business-role-request';
 import ProfilePictureSource from './profile-picture-source';
+import BusinessPixelTOS from './business-pixel-tos';
 import AudiencePermission from './audience-permission';
 import BusinessOwnedObjectOnBehalfOfRequest from './business-owned-object-on-behalf-of-request';
 import SystemUser from './system-user';
@@ -710,15 +711,6 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createOwnedDomain (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
-    return this.createEdge(
-      '/owned_domains',
-      fields,
-      params,
-      
-    );
-  }
-
   getOwnedInstagramAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       InstagramUser,
@@ -881,6 +873,16 @@ export default class Business extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/picture'
+    );
+  }
+
+  getPixelTos (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      BusinessPixelTOS,
+      fields,
+      params,
+      fetchFirstPage,
+      '/pixel_tos'
     );
   }
 

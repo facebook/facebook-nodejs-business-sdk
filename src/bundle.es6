@@ -84,7 +84,6 @@ export { default as AdCustomizationRuleSpec } from './../src/objects/ad-customiz
 export { default as AdDynamicCreative } from './../src/objects/ad-dynamic-creative';
 export { default as AdEntityTargetSpend } from './../src/objects/ad-entity-target-spend';
 export { default as AdImage } from './../src/objects/ad-image';
-export { default as AdKeywordStats } from './../src/objects/ad-keyword-stats';
 export { default as AdKeywords } from './../src/objects/ad-keywords';
 export { default as AdLabel } from './../src/objects/ad-label';
 export { default as AdMonetizationProperty } from './../src/objects/ad-monetization-property';
@@ -140,6 +139,7 @@ export { default as Application } from './../src/objects/application';
 export { default as AssignedUser } from './../src/objects/assigned-user';
 export { default as AsyncRequest } from './../src/objects/async-request';
 export { default as AsyncSession } from './../src/objects/async-session';
+export { default as AtlasCampaign } from './../src/objects/atlas-campaign';
 export { default as AtlasURL } from './../src/objects/atlas-url';
 export { default as AttributionSpec } from './../src/objects/attribution-spec';
 export { default as AudienceInsightsStudySpec } from './../src/objects/audience-insights-study-spec';
@@ -162,6 +162,7 @@ export { default as BusinessCreativeFolder } from './../src/objects/business-cre
 export { default as BusinessImage } from './../src/objects/business-image';
 export { default as BusinessOwnedObjectOnBehalfOfRequest } from './../src/objects/business-owned-object-on-behalf-of-request';
 export { default as BusinessPageRequest } from './../src/objects/business-page-request';
+export { default as BusinessPixelTOS } from './../src/objects/business-pixel-tos';
 export { default as BusinessProject } from './../src/objects/business-project';
 export { default as BusinessRoleRequest } from './../src/objects/business-role-request';
 export { default as BusinessUnit } from './../src/objects/business-unit';

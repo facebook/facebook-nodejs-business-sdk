@@ -120,15 +120,6 @@ export default class Comment extends AbstractCrudObject {
     );
   }
 
-  createPrivateReply (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
-    return this.createEdge(
-      '/private_replies',
-      fields,
-      params,
-      
-    );
-  }
-
   getReactions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Profile,

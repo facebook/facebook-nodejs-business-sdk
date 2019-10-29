@@ -247,15 +247,6 @@ export default class PagePost extends AbstractCrudObject {
     );
   }
 
-  createPrivateReply (fields: Array<string>, params: Object = {}): Promise<PagePost> {
-    return this.createEdge(
-      '/private_replies',
-      fields,
-      params,
-      PagePost
-    );
-  }
-
   getReactions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Profile,

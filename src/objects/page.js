@@ -134,8 +134,6 @@ export default class Page extends AbstractCrudObject {
       is_webhooks_subscribed: 'is_webhooks_subscribed',
       keywords: 'keywords',
       leadgen_form_preview_details: 'leadgen_form_preview_details',
-      leadgen_has_crm_integration: 'leadgen_has_crm_integration',
-      leadgen_has_fat_ping_crm_integration: 'leadgen_has_fat_ping_crm_integration',
       leadgen_tos_acceptance_time: 'leadgen_tos_acceptance_time',
       leadgen_tos_accepted: 'leadgen_tos_accepted',
       leadgen_tos_accepting_user: 'leadgen_tos_accepting_user',
@@ -407,6 +405,7 @@ export default class Page extends AbstractCrudObject {
       message_deliveries: 'message_deliveries',
       message_echoes: 'message_echoes',
       message_mention: 'message_mention',
+      message_reactions: 'message_reactions',
       message_reads: 'message_reads',
       messages: 'messages',
       messaging_account_linking: 'messaging_account_linking',
@@ -978,15 +977,6 @@ export default class Page extends AbstractCrudObject {
       fields,
       params,
       
-    );
-  }
-
-  createMessageCreative (fields: Array<string>, params: Object = {}): Promise<Page> {
-    return this.createEdge(
-      '/message_creatives',
-      fields,
-      params,
-      Page
     );
   }
 

@@ -31,6 +31,16 @@ export default class BusinessUnit extends AbstractCrudObject {
   }
 
 
+  getAdPlatforms (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/ad_platforms'
+    );
+  }
+
   getAtlasSalesAccesses (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AbstractObject,
@@ -47,6 +57,36 @@ export default class BusinessUnit extends AbstractCrudObject {
       fields,
       params,
       
+    );
+  }
+
+  getCustomBreakdowns (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/custom_breakdowns'
+    );
+  }
+
+  getDiagnostics (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/diagnostics'
+    );
+  }
+
+  getExternalImportFile (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/external_import_file'
     );
   }
 

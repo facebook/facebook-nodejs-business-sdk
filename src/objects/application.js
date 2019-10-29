@@ -17,7 +17,6 @@ import AdAccount from './ad-account';
 import User from './user';
 import DACheck from './da-check';
 import Event from './event';
-import OpenGraphObject from './open-graph-object';
 
 /**
  * Application
@@ -550,25 +549,6 @@ export default class Application extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/mobile_sdk_gk'
-    );
-  }
-
-  getObjects (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      OpenGraphObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/objects'
-    );
-  }
-
-  createObject (fields: Array<string>, params: Object = {}): Promise<OpenGraphObject> {
-    return this.createEdge(
-      '/objects',
-      fields,
-      params,
-      OpenGraphObject
     );
   }
 
