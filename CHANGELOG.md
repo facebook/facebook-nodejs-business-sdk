@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+## v5.0.0
+### Changed
+- Graph API call upgrade to [v5.0](https://developers.facebook.com/docs/graph-api/changelog/version5.0)
+
 ## v4.0.0
 ### Changed
 - Graph API call upgrade to [v4.0](https://developers.facebook.com/docs/graph-api/changelog/version4.0)
