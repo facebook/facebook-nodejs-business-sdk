@@ -15,6 +15,7 @@ import {FacebookRequestError} from './exceptions';
  */
 export default class FacebookAdsApi {
   _debug: boolean;
+  _showHeader: boolean;
   accessToken: string;
   locale: string;
   static _defaultApi: FacebookAdsApi;
@@ -40,6 +41,7 @@ export default class FacebookAdsApi {
     this.accessToken = accessToken;
     this.locale = locale;
     this._debug = false;
+    this._showHeader = false;
   }
 
   /**
@@ -78,6 +80,11 @@ export default class FacebookAdsApi {
     return this;
   }
 
+  setShowHeader(flag: boolean) {
+    this._showHeader = flag;
+    return this;
+  }
+
   /**
    * Http Request
    * @param  {String} method
@@ -109,14 +116,17 @@ export default class FacebookAdsApi {
       url = path;
     }
     const strUrl: string = (url: any);
-    return Http.request(method, strUrl, data, files, useMultipartFormData)
+    return Http.request(method, strUrl, data, files, useMultipartFormData, this._showHeader)
       .then(response => {
+        if (this._showHeader) {
+          response.body['headers'] = response.headers;
+          response = response.body;
+        }
+
         if (this._debug) {
+          console.log(`200 ${method} ${url} ${data ? JSON.stringify(data) : ""}`);
           console.log(
-            `200 ${method} ${url} ${data ? JSON.stringify(data) : ''}`,
-          );
-          console.log(
-            `Response: ${response ? JSON.stringify(response) : ''}`,
+            `Response: ${response ? JSON.stringify(response) : ""}`
           );
         }
         return Promise.resolve(response);
@@ -142,5 +152,5 @@ export default class FacebookAdsApi {
         return `${encodeURIComponent(key)}=${encodeURIComponent(param)}`;
       })
       .join('&');
-  }
+    }
 }

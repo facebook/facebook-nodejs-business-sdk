@@ -29,11 +29,12 @@ export default class Http {
     data: Object,
     files: Object,
     useMultipartFormData: Boolean,
+    showHeader: Boolean,
   ): Promise<*> {
     if (typeof window !== 'undefined' && window.XMLHttpRequest) {
       return Http.xmlHttpRequest(method, url, data);
     }
-    return Http.requestPromise(method, url, data, files, useMultipartFormData);
+    return Http.requestPromise(method, url, data, files, useMultipartFormData, showHeader);
   }
 
   /**
@@ -95,6 +96,7 @@ export default class Http {
     data: Object,
     files: Object,
     useMultipartFormData: Boolean = false,
+    showHeader: Boolean = false,
   ): Promise<*> {
     const options = {
       method: method,
@@ -102,6 +104,7 @@ export default class Http {
       json: !useMultipartFormData,
       headers: {'User-Agent': `fbbizsdk-nodejs-${Api.VERSION}`},
       body: Object,
+      resolveWithFullResponse: showHeader,
     };
     // Prevent null or undefined input
     // because it can be merged with the files argument later
