@@ -73,7 +73,6 @@ export default class User extends AbstractCrudObject {
       is_famedeeplinkinguser: 'is_famedeeplinkinguser',
       is_shared_login: 'is_shared_login',
       is_verified: 'is_verified',
-      labels: 'labels',
       languages: 'languages',
       last_name: 'last_name',
       link: 'link',

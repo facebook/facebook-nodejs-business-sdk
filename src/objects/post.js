@@ -7,6 +7,13 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
+import Comment from './comment';
+import RTBDynamicPost from './rtb-dynamic-post';
+import InsightsResult from './insights-result';
+import Profile from './profile';
+import Page from './page';
 
 /**
  * Post
@@ -80,9 +87,201 @@ export default class Post extends AbstractCrudObject {
     });
   }
 
+  static get BackdatedTimeGranularity (): Object {
+    return Object.freeze({
+      day: 'day',
+      hour: 'hour',
+      min: 'min',
+      month: 'month',
+      none: 'none',
+      year: 'year',
+    });
+  }
+  static get FeedStoryVisibility (): Object {
+    return Object.freeze({
+      hidden: 'hidden',
+      visible: 'visible',
+    });
+  }
+  static get TimelineVisibility (): Object {
+    return Object.freeze({
+      forced_allow: 'forced_allow',
+      hidden: 'hidden',
+      normal: 'normal',
+    });
+  }
   static get With (): Object {
     return Object.freeze({
       location: 'LOCATION',
     });
+  }
+
+  getAttachments (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/attachments'
+    );
+  }
+
+  getComments (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      Comment,
+      fields,
+      params,
+      fetchFirstPage,
+      '/comments'
+    );
+  }
+
+  createComment (fields: Array<string>, params: Object = {}): Promise<Comment> {
+    return this.createEdge(
+      '/comments',
+      fields,
+      params,
+      Comment
+    );
+  }
+
+  getDynamicPosts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      RTBDynamicPost,
+      fields,
+      params,
+      fetchFirstPage,
+      '/dynamic_posts'
+    );
+  }
+
+  getEditActions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/edit_actions'
+    );
+  }
+
+  getInsights (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      InsightsResult,
+      fields,
+      params,
+      fetchFirstPage,
+      '/insights'
+    );
+  }
+
+  deleteLikes (params: Object = {}): Promise<*> {
+    return super.deleteEdge(
+      '/likes',
+      params
+    );
+  }
+
+  getLikes (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      Profile,
+      fields,
+      params,
+      fetchFirstPage,
+      '/likes'
+    );
+  }
+
+  createLike (fields: Array<string>, params: Object = {}): Promise<Post> {
+    return this.createEdge(
+      '/likes',
+      fields,
+      params,
+      Post
+    );
+  }
+
+  createPromotion (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+    return this.createEdge(
+      '/promotions',
+      fields,
+      params,
+      
+    );
+  }
+
+  getReactions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      Profile,
+      fields,
+      params,
+      fetchFirstPage,
+      '/reactions'
+    );
+  }
+
+  getSharedPosts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      Post,
+      fields,
+      params,
+      fetchFirstPage,
+      '/sharedposts'
+    );
+  }
+
+  getSponsorTags (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      Page,
+      fields,
+      params,
+      fetchFirstPage,
+      '/sponsor_tags'
+    );
+  }
+
+  getTo (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      Profile,
+      fields,
+      params,
+      fetchFirstPage,
+      '/to'
+    );
+  }
+
+  getWithTags (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      Profile,
+      fields,
+      params,
+      fetchFirstPage,
+      '/with_tags'
+    );
+  }
+
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
+    return super.delete(
+      params
+    );
+  }
+
+  
+  get (fields: Array<string>, params: Object = {}): Post {
+    // $FlowFixMe : Support Generic Types
+    return this.read(
+      fields,
+      params
+    );
+  }
+
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): Post {
+    // $FlowFixMe : Support Generic Types
+    return super.update(
+      params
+    );
   }
 }

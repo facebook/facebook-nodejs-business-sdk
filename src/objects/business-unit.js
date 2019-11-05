@@ -9,6 +9,7 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
+import AtlasCampaign from './atlas-campaign';
 
 /**
  * BusinessUnit
@@ -60,6 +61,26 @@ export default class BusinessUnit extends AbstractCrudObject {
     );
   }
 
+  getCampaigns (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AtlasCampaign,
+      fields,
+      params,
+      fetchFirstPage,
+      '/campaigns'
+    );
+  }
+
+  getConversionEvents (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/conversion_events'
+    );
+  }
+
   getCustomBreakdowns (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AbstractObject,
@@ -87,6 +108,26 @@ export default class BusinessUnit extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/external_import_file'
+    );
+  }
+
+  getFbConversionEvents (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/fb_conversion_events'
+    );
+  }
+
+  getSources (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/sources'
     );
   }
 

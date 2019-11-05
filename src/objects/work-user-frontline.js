@@ -9,16 +9,14 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * ScreenName
+ * WorkUserFrontline
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class ScreenName extends AbstractCrudObject {
+export default class WorkUserFrontline extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      service_name: 'service_name',
-      service_type: 'service_type',
-      value: 'value',
+      is_frontline: 'is_frontline',
     });
   }
 

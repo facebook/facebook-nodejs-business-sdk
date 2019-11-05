@@ -21,7 +21,6 @@ import Post from './post';
 export default class LifeEvent extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      created_time: 'created_time',
       description: 'description',
       end_time: 'end_time',
       from: 'from',

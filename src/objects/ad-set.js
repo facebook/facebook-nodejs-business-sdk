@@ -225,6 +225,7 @@ export default class AdSet extends AbstractCrudObject {
       credit: 'CREDIT',
       employment: 'EMPLOYMENT',
       housing: 'HOUSING',
+      issues_elections_politics: 'ISSUES_ELECTIONS_POLITICS',
       none: 'NONE',
     });
   }
@@ -269,6 +270,22 @@ export default class AdSet extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/adcreatives'
+    );
+  }
+
+  deleteAdLabels (params: Object = {}): Promise<*> {
+    return super.deleteEdge(
+      '/adlabels',
+      params
+    );
+  }
+
+  createAdLabel (fields: Array<string>, params: Object = {}): Promise<AdSet> {
+    return this.createEdge(
+      '/adlabels',
+      fields,
+      params,
+      AdSet
     );
   }
 
@@ -357,22 +374,6 @@ export default class AdSet extends AbstractCrudObject {
       fields,
       params,
       AdReportRun
-    );
-  }
-
-  deleteLabels (params: Object = {}): Promise<*> {
-    return super.deleteEdge(
-      '/labels',
-      params
-    );
-  }
-
-  createLabel (fields: Array<string>, params: Object = {}): Promise<AdSet> {
-    return this.createEdge(
-      '/labels',
-      fields,
-      params,
-      AdSet
     );
   }
 

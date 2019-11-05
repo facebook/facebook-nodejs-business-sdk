@@ -44,7 +44,6 @@ import ProductCatalog from './product-catalog';
 import Recommendation from './recommendation';
 import User from './user';
 import RTBDynamicPost from './rtb-dynamic-post';
-import ScreenName from './screen-name';
 import Application from './application';
 import PageSettings from './page-settings';
 import VideoList from './video-list';
@@ -399,6 +398,7 @@ export default class Page extends AbstractCrudObject {
       leadgen_fat: 'leadgen_fat',
       live_videos: 'live_videos',
       location: 'location',
+      mcom_invoice_change: 'mcom_invoice_change',
       members: 'members',
       mention: 'mention',
       merchant_review: 'merchant_review',
@@ -1270,16 +1270,6 @@ export default class Page extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/scheduled_posts'
-    );
-  }
-
-  getScreenNames (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      ScreenName,
-      fields,
-      params,
-      fetchFirstPage,
-      '/screennames'
     );
   }
 

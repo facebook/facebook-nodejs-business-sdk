@@ -335,15 +335,6 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createCatalogSegmentProducerTo (fields: Array<string>, params: Object = {}): Promise<Business> {
-    return this.createEdge(
-      '/catalog_segment_producer_tos',
-      fields,
-      params,
-      Business
-    );
-  }
-
   createClaimCustomConversion (fields: Array<string>, params: Object = {}): Promise<CustomConversion> {
     return this.createEdge(
       '/claim_custom_conversions',
@@ -883,6 +874,15 @@ export default class Business extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/pixel_tos'
+    );
+  }
+
+  createPixelTo (fields: Array<string>, params: Object = {}): Promise<BusinessPixelTOS> {
+    return this.createEdge(
+      '/pixel_tos',
+      fields,
+      params,
+      BusinessPixelTOS
     );
   }
 
