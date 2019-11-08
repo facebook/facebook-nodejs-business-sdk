@@ -38,6 +38,7 @@ export class FacebookRequestError extends FacebookError {
     this.message = errorResponse.message;
     this.status = errorResponse.status;
     this.response = errorResponse.body;
+    this.headers = errorResponse.headers;
     this.method = method;
     this.url = url;
     if (data) {
@@ -55,6 +56,7 @@ function constructErrorResponse(response: Object) {
   let body;
   let message;
   let status;
+  let headers;
 
   // Batch request error contains code and body fields
   const isBatchResponse = response.code && response.body;
@@ -67,6 +69,7 @@ function constructErrorResponse(response: Object) {
         : response.body;
     status = response.code;
     message = body.error.message;
+    headers = response.headers;
   } else {
     // Handle single response
     if (response.name === STATUS_CODE_ERROR) {
@@ -78,6 +81,9 @@ function constructErrorResponse(response: Object) {
         ? `${body.error.error_user_title}: ${body.error.error_user_msg}`
         : body.error.message;
       status = response.statusCode;
+      if (response.response) {
+        headers = response.response.headers;
+      }
     } else if (response.name === REQUEST_ERROR) {
       // Handle network errors e.g. timeout, destination unreachable
       body = {error: response.error};
@@ -88,5 +94,5 @@ function constructErrorResponse(response: Object) {
     }
   }
 
-  return {body, message, status};
+  return {body, message, status, headers};
 }

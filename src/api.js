@@ -128,7 +128,7 @@ export default class FacebookAdsApi {
         }
 
         if (this._debug) {
-          console.log(`200 ${method} ${url} ${data ? JSON.stringify(data) : ""}`);
+          console.log(`200 ${method} ${url} ${Object.keys(data).length > 0 ? JSON.stringify(data) : ""}`);
           console.log(
             `Response: ${response ? JSON.stringify(response) : ""}`
           );
@@ -138,8 +138,8 @@ export default class FacebookAdsApi {
       .catch(response => {
         if (this._debug) {
           console.log(
-            `${response.status} ${method} ${url}
-            ${data ? JSON.stringify(data) : ''}`,
+            `${response.statusCode} ${method} ${url}
+            ${Object.keys(data).length > 0 ? JSON.stringify(data) : ''}`,
           );
         }
         throw new FacebookRequestError(response, method, url, data);
