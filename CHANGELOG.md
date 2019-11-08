@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 ## Unreleased
 ### Added
 - Add the ability to read headers from response and `FacebookRequestError`.
+- Add `CrashRepoter`, more context available [here](https://developers.facebook.com/docs/business-sdk/guides/crash-reports)
 
 ## v5.0.0
 ### Changed
