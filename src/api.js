@@ -9,6 +9,7 @@
  */
 import Http from './http';
 import {FacebookRequestError} from './exceptions';
+import CrashReporter from './crash-reporter';
 
 /**
  * Facebook Ads API
@@ -34,7 +35,7 @@ export default class FacebookAdsApi {
    * @param {String} accessToken
    * @param {String} [locale]
    */
-  constructor(accessToken: string, locale: string = 'en_US') {
+  constructor(accessToken: string, locale: string = 'en_US', crash_log: bool = true) {
     if (!accessToken) {
       throw new Error('Access token required');
     }
@@ -42,6 +43,9 @@ export default class FacebookAdsApi {
     this.locale = locale;
     this._debug = false;
     this._showHeader = false;
+    if (crash_log) {
+      CrashReporter.enable();
+    }
   }
 
   /**
@@ -50,8 +54,8 @@ export default class FacebookAdsApi {
    * @param  {String} [locale]
    * @return {FacebookAdsApi}
    */
-  static init(accessToken: string, locale: string = 'en_US') {
-    const api = new this(accessToken, locale);
+  static init(accessToken: string, locale: string = 'en_US', crash_log: bool = true) {
+    const api = new this(accessToken, locale, crash_log);
     this.setDefaultApi(api);
     return api;
   }
