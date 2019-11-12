@@ -17,6 +17,7 @@ import AdsPixel from './ads-pixel';
 import AdPlacement from './ad-placement';
 import BusinessAssetGroup from './business-asset-group';
 import OracleTransaction from './oracle-transaction';
+import BusinessUnit from './business-unit';
 import BusinessUser from './business-user';
 import BusinessProject from './business-project';
 import CustomConversion from './custom-conversion';
@@ -294,6 +295,16 @@ export default class Business extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/business_invoices'
+    );
+  }
+
+  getBusinessUnits (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      BusinessUnit,
+      fields,
+      params,
+      fetchFirstPage,
+      '/business_units'
     );
   }
 

@@ -31,4 +31,12 @@ export default class WhatsAppBusinessProfile extends AbstractCrudObject {
       params
     );
   }
+
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): WhatsAppBusinessProfile {
+    // $FlowFixMe : Support Generic Types
+    return super.update(
+      params
+    );
+  }
 }

@@ -145,7 +145,6 @@ export default class Campaign extends AbstractCrudObject {
       credit: 'CREDIT',
       employment: 'EMPLOYMENT',
       housing: 'HOUSING',
-      issues_elections_politics: 'ISSUES_ELECTIONS_POLITICS',
       none: 'NONE',
     });
   }

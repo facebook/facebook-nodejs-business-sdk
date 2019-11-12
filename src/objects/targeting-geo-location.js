@@ -25,7 +25,6 @@ export default class TargetingGeoLocation extends AbstractCrudObject {
       large_geo_areas: 'large_geo_areas',
       location_cluster_ids: 'location_cluster_ids',
       location_expansion: 'location_expansion',
-      location_set_ids: 'location_set_ids',
       location_types: 'location_types',
       medium_geo_areas: 'medium_geo_areas',
       metro_areas: 'metro_areas',
