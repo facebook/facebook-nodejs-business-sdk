@@ -11,6 +11,13 @@ export { default as FacebookAdsApiBatch } from './../src/api-batch';
 export { default as APIRequest } from './../src/api-request';
 export { default as APIResponse } from './../src/api-response';
 export { default as CrashReporter } from './../src/crash-reporter';
+export { default as Content } from './../src/objects/serverside/content';
+export { default as CustomData } from './../src/objects/serverside/custom-data';
+export { default as EventRequest } from './../src/objects/serverside/event-request';
+export { default as EventResponse } from './../src/objects/serverside/event-response';
+export { default as ServerEvent } from './../src/objects/serverside/server-event';
+export { default as UserData } from './../src/objects/serverside/user-data';
+
 export { default as Ad } from './../src/objects/ad';
 export { default as AdAccount } from './../src/objects/ad-account';
 export { default as AdAccountActivity } from './../src/objects/ad-account-activity';
