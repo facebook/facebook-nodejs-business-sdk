@@ -33,6 +33,7 @@ let fields, params;
 fields = [
 ];
 params = {
+  'special_ad_category' : 'NONE',
   'name' : 'My First Event Campaign',
   'objective' : 'EVENT_RESPONSES',
   'status' : 'PAUSED',

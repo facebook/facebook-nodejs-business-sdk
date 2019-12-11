@@ -10,7 +10,7 @@
  'use strict';
 const bizSdk = require('facebook-nodejs-business-sdk');
 const AdAccount = bizSdk.AdAccount;
-const AdSet = bizSdk.AdSet;
+const AdCreative = bizSdk.AdCreative;
 
 const access_token = '<ACCESS_TOKEN>';
 const app_secret = '<APP_SECRET>';
@@ -33,19 +33,12 @@ let fields, params;
 fields = [
 ];
 params = {
-  'name' : 'My First Adset',
-  'daily_budget' : '2000',
-  'start_time' : '2019-12-05T23:43:07-0800',
-  'end_time' : '2019-12-12T23:43:07-0800',
-  'campaign_id' : '<adCampaignLinkClicksID>',
-  'bid_amount' : '100',
-  'billing_event' : 'LINK_CLICKS',
-  'optimization_goal' : 'LINK_CLICKS',
-  'targeting' : {'facebook_positions':['feed'],'geo_locations':{'countries':['US']}},
-  'status' : 'PAUSED',
+  'name' : 'Dynamic Ad Template Creative Sample',
+  'object_story_spec' : {'page_id':'<pageID>','template_data':{'call_to_action':{'type':'INSTALL_MOBILE_APP','value':{'link':'http://www.example.com/appstoreurl'}},'message':'Test {{product.name | titleize}}','link':'http://www.example.com/appstoreurl','name':'Headline {{product.price}}','description':'Description {{product.description}}'}},
+  'product_set_id' : '<productSetID>',
 };
-const adsets = (new AdAccount(id)).createAdSet(
+const adcreatives = (new AdAccount(id)).createAdCreative(
   fields,
   params
 );
-logApiCallResult('adsets api call complete.', adsets);
+logApiCallResult('adcreatives api call complete.', adcreatives);

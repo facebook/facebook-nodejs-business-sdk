@@ -170,7 +170,6 @@ export { default as BusinessImage } from './../src/objects/business-image';
 export { default as BusinessOwnedObjectOnBehalfOfRequest } from './../src/objects/business-owned-object-on-behalf-of-request';
 export { default as BusinessPageRequest } from './../src/objects/business-page-request';
 export { default as BusinessPixelTOS } from './../src/objects/business-pixel-tos';
-export { default as BusinessProject } from './../src/objects/business-project';
 export { default as BusinessRoleRequest } from './../src/objects/business-role-request';
 export { default as BusinessUnit } from './../src/objects/business-unit';
 export { default as BusinessUser } from './../src/objects/business-user';
@@ -289,6 +288,7 @@ export { default as MusicVideoCopyright } from './../src/objects/music-video-cop
 export { default as NativeOffer } from './../src/objects/native-offer';
 export { default as NativeOfferDiscount } from './../src/objects/native-offer-discount';
 export { default as NativeOfferView } from './../src/objects/native-offer-view';
+export { default as NullNode } from './../src/objects/null-node';
 export { default as OfflineConversionDataSet } from './../src/objects/offline-conversion-data-set';
 export { default as OfflineTermsOfService } from './../src/objects/offline-terms-of-service';
 export { default as OffsitePixel } from './../src/objects/offsite-pixel';

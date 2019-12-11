@@ -16,6 +16,7 @@ import HomeListing from './home-listing';
 import Hotel from './hotel';
 import ProductItem from './product-item';
 import ProductFeedRule from './product-feed-rule';
+import ProductFeedSchedule from './product-feed-schedule';
 import ProductFeedUpload from './product-feed-upload';
 import VehicleOffer from './vehicle-offer';
 import Vehicle from './vehicle';
@@ -176,6 +177,25 @@ export default class ProductFeed extends AbstractCrudObject {
       fields,
       params,
       ProductFeedRule
+    );
+  }
+
+  getUploadSchedules (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      ProductFeedSchedule,
+      fields,
+      params,
+      fetchFirstPage,
+      '/upload_schedules'
+    );
+  }
+
+  createUploadSchedule (fields: Array<string>, params: Object = {}): Promise<ProductFeed> {
+    return this.createEdge(
+      '/upload_schedules',
+      fields,
+      params,
+      ProductFeed
     );
   }
 

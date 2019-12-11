@@ -33,6 +33,7 @@ let fields, params;
 fields = [
 ];
 params = {
+  'special_ad_category' : 'NONE',
   'name' : 'Local ad campaign',
   'objective' : 'REACH',
   'status' : 'PAUSED',

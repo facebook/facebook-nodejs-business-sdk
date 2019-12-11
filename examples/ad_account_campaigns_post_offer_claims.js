@@ -33,6 +33,7 @@ let fields, params;
 fields = [
 ];
 params = {
+  'special_ad_category' : 'NONE',
   'name' : 'My Offer Claims Campaign',
   'objective' : 'OFFER_CLAIMS',
   'status' : 'PAUSED',

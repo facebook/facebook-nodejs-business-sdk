@@ -71,6 +71,7 @@ export default class User extends AbstractCrudObject {
       installed: 'installed',
       interested_in: 'interested_in',
       is_famedeeplinkinguser: 'is_famedeeplinkinguser',
+      is_guest_user: 'is_guest_user',
       is_shared_login: 'is_shared_login',
       is_verified: 'is_verified',
       languages: 'languages',
@@ -168,6 +169,7 @@ export default class User extends AbstractCrudObject {
       msn: 'MSN',
       myspace: 'MYSPACE',
       nateon: 'NATEON',
+      oculus: 'OCULUS',
       ok: 'OK',
       orkut: 'ORKUT',
       others: 'OTHERS',
@@ -378,6 +380,15 @@ export default class User extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/businesses'
+    );
+  }
+
+  createBusiness (fields: Array<string>, params: Object = {}): Promise<Business> {
+    return this.createEdge(
+      '/businesses',
+      fields,
+      params,
+      Business
     );
   }
 

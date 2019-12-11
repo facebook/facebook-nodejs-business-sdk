@@ -19,7 +19,6 @@ import BusinessAssetGroup from './business-asset-group';
 import OracleTransaction from './oracle-transaction';
 import BusinessUnit from './business-unit';
 import BusinessUser from './business-user';
-import BusinessProject from './business-project';
 import CustomConversion from './custom-conversion';
 import Application from './application';
 import Page from './page';
@@ -308,6 +307,15 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
+  createBusinessUnit (fields: Array<string>, params: Object = {}): Promise<BusinessUnit> {
+    return this.createEdge(
+      '/business_units',
+      fields,
+      params,
+      BusinessUnit
+    );
+  }
+
   getBusinessUsers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       BusinessUser,
@@ -324,25 +332,6 @@ export default class Business extends AbstractCrudObject {
       fields,
       params,
       BusinessUser
-    );
-  }
-
-  getBusinessProjects (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      BusinessProject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/businessprojects'
-    );
-  }
-
-  createBusinessProject (fields: Array<string>, params: Object = {}): Promise<BusinessProject> {
-    return this.createEdge(
-      '/businessprojects',
-      fields,
-      params,
-      BusinessProject
     );
   }
 

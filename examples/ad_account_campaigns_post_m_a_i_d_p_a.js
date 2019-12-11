@@ -33,6 +33,7 @@ let fields, params;
 fields = [
 ];
 params = {
+  'special_ad_category' : 'NONE',
   'name' : 'App Installs Campaign with Dynamic Product Ads',
   'objective' : 'APP_INSTALLS',
   'status' : 'PAUSED',

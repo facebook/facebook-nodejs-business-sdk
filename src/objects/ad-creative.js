@@ -152,6 +152,7 @@ export default class AdCreative extends AbstractCrudObject {
       page: 'PAGE',
       photo: 'PHOTO',
       post_deleted: 'POST_DELETED',
+      privacy_check_fail: 'PRIVACY_CHECK_FAIL',
       share: 'SHARE',
       status: 'STATUS',
       store_item: 'STORE_ITEM',

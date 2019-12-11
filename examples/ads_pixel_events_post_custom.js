@@ -9,13 +9,12 @@
 
  'use strict';
 const bizSdk = require('facebook-nodejs-business-sdk');
-const AdAccount = bizSdk.AdAccount;
-const AdSet = bizSdk.AdSet;
+const AdsPixel = bizSdk.AdsPixel;
 
 const access_token = '<ACCESS_TOKEN>';
 const app_secret = '<APP_SECRET>';
 const app_id = '<APP_ID>';
-const id = '<AD_ACCOUNT_ID>';
+const id = '<ADS_PIXEL_ID>';
 const api = bizSdk.FacebookAdsApi.init(access_token);
 const showDebugingInfo = true; // Setting this to true shows more debugging info.
 if (showDebugingInfo) {
@@ -33,19 +32,10 @@ let fields, params;
 fields = [
 ];
 params = {
-  'name' : 'My First Adset',
-  'daily_budget' : '2000',
-  'start_time' : '2019-12-05T23:43:07-0800',
-  'end_time' : '2019-12-12T23:43:07-0800',
-  'campaign_id' : '<adCampaignLinkClicksID>',
-  'bid_amount' : '100',
-  'billing_event' : 'LINK_CLICKS',
-  'optimization_goal' : 'LINK_CLICKS',
-  'targeting' : {'facebook_positions':['feed'],'geo_locations':{'countries':['US']}},
-  'status' : 'PAUSED',
+  'data' : [{'event_name':'PageView','event_time':1569260711,'user_data':{'fbc':'fb.1.1554763741205.AbCdEfGhIjKlMnOpQrStUvWxYz1234567890','fbp':'fb.1.1558571054389.1098115397','em':'309a0a5c3e211326ae75ca18196d301a9bdbd1a882a4d2569511033da23f0abd'}}],
 };
-const adsets = (new AdAccount(id)).createAdSet(
+const events = (new AdsPixel(id)).createEvent(
   fields,
   params
 );
-logApiCallResult('adsets api call complete.', adsets);
+logApiCallResult('events api call complete.', events);

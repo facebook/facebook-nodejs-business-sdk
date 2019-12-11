@@ -9,13 +9,12 @@
 
  'use strict';
 const bizSdk = require('facebook-nodejs-business-sdk');
-const AdAccount = bizSdk.AdAccount;
-const AdSet = bizSdk.AdSet;
+const AdsPixel = bizSdk.AdsPixel;
 
 const access_token = '<ACCESS_TOKEN>';
 const app_secret = '<APP_SECRET>';
 const app_id = '<APP_ID>';
-const id = '<AD_ACCOUNT_ID>';
+const id = '<ADS_PIXEL_ID>';
 const api = bizSdk.FacebookAdsApi.init(access_token);
 const showDebugingInfo = true; // Setting this to true shows more debugging info.
 if (showDebugingInfo) {
@@ -31,21 +30,12 @@ const logApiCallResult = (apiCallName, data) => {
 
 let fields, params;
 fields = [
+  'code',
 ];
 params = {
-  'name' : 'My First Adset',
-  'daily_budget' : '2000',
-  'start_time' : '2019-12-05T23:43:07-0800',
-  'end_time' : '2019-12-12T23:43:07-0800',
-  'campaign_id' : '<adCampaignLinkClicksID>',
-  'bid_amount' : '100',
-  'billing_event' : 'LINK_CLICKS',
-  'optimization_goal' : 'LINK_CLICKS',
-  'targeting' : {'facebook_positions':['feed'],'geo_locations':{'countries':['US']}},
-  'status' : 'PAUSED',
 };
-const adsets = (new AdAccount(id)).createAdSet(
+const sample_code = (new AdsPixel(id)).get(
   fields,
   params
 );
-logApiCallResult('adsets api call complete.', adsets);
+logApiCallResult('sample_code api call complete.', sample_code);

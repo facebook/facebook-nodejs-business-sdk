@@ -33,6 +33,7 @@ let fields, params;
 fields = [
 ];
 params = {
+  'special_ad_category' : 'NONE',
   'name' : 'Store Visits Campaign',
   'objective' : 'STORE_VISITS',
   'promoted_object' : {'page_id':'<pageID>'},

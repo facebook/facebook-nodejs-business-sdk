@@ -12,7 +12,6 @@ import Cursor from './../cursor';
 import AdStudyCell from './ad-study-cell';
 import AdsTALHealthCheckError from './ads-tal-health-check-error';
 import AdStudyObjective from './ad-study-objective';
-import User from './user';
 
 /**
  * AdStudy
@@ -84,16 +83,6 @@ export default class AdStudy extends AbstractCrudObject {
       fields,
       params,
       AdStudyObjective
-    );
-  }
-
-  getViewers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      User,
-      fields,
-      params,
-      fetchFirstPage,
-      '/viewers'
     );
   }
 

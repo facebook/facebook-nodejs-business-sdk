@@ -14,7 +14,6 @@ import Business from './business';
 import Album from './album';
 import AssignedUser from './assigned-user';
 import Profile from './profile';
-import BusinessProject from './business-project';
 import PageCallToAction from './page-call-to-action';
 import CanvasBodyElement from './canvas-body-element';
 import Canvas from './canvas';
@@ -399,6 +398,7 @@ export default class Page extends AbstractCrudObject {
       leadgen_fat: 'leadgen_fat',
       live_videos: 'live_videos',
       location: 'location',
+      mcom_invoice_change: 'mcom_invoice_change',
       members: 'members',
       mention: 'mention',
       merchant_review: 'merchant_review',
@@ -581,16 +581,6 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  getBusinessProjects (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      BusinessProject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/businessprojects'
-    );
-  }
-
   getCallToActions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       PageCallToAction,
@@ -729,6 +719,22 @@ export default class Page extends AbstractCrudObject {
       fields,
       params,
       PageUserMessageThreadLabel
+    );
+  }
+
+  deleteCustomUserSettings (params: Object = {}): Promise<*> {
+    return super.deleteEdge(
+      '/custom_user_settings',
+      params
+    );
+  }
+
+  createCustomUserSetting (fields: Array<string>, params: Object = {}): Promise<Page> {
+    return this.createEdge(
+      '/custom_user_settings',
+      fields,
+      params,
+      Page
     );
   }
 

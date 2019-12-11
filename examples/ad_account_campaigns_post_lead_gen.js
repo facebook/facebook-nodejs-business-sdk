@@ -33,6 +33,7 @@ let fields, params;
 fields = [
 ];
 params = {
+  'special_ad_category' : 'NONE',
   'name' : 'Lead generation campaign',
   'objective' : 'LEAD_GENERATION',
   'status' : 'PAUSED',

@@ -33,6 +33,7 @@ let fields, params;
 fields = [
 ];
 params = {
+  'special_ad_category' : 'NONE',
   'name' : 'My First Campaign',
   'objective' : 'PAGE_LIKES',
   'status' : 'PAUSED',

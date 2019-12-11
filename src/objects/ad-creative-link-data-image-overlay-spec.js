@@ -66,8 +66,10 @@ export default class AdCreativeLinkDataImageOverlaySpec extends AbstractCrudObje
       custom: 'custom',
       disclaimer: 'disclaimer',
       from_price: 'from_price',
+      guest_rating: 'guest_rating',
       percentage_off: 'percentage_off',
       price: 'price',
+      star_rating: 'star_rating',
       strikethrough_price: 'strikethrough_price',
     });
   }
