@@ -7,6 +7,8 @@
  * @flow
  */
 
+import ServerSideUtils from './utils';
+
 /**
  * CustomData represents the Custom Data Parameters of a Server Side Event Request. Use these parameters to send additional data we can use for ads delivery optimization.
  * @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#custom}
@@ -288,7 +290,7 @@ export default class CustomData {
 		}
 
 		if (this.currency) {
-			customData['currency'] = this.currency;
+			customData['currency'] = ServerSideUtils.normalizeCurrency(this.currency);
 		}
 
 		if (this.content_name) {

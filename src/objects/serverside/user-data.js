@@ -382,43 +382,43 @@ export default class UserData {
 		const userData = {};
 
 		if (this.email) {
-			userData['em'] = ServerSideUtils.normalize(this.email, 'em');
+			userData['em'] = ServerSideUtils.normalizeAndHash(this.email, 'em');
 		}
 
 		if (this.phone) {
-			userData['ph'] = ServerSideUtils.normalize(this.phone, 'ph');
+			userData['ph'] = ServerSideUtils.normalizeAndHash(this.phone, 'ph');
 		}
 
 		if (this.gender) {
-			userData['ge'] = ServerSideUtils.normalize(this.gender, 'ge');
+			userData['ge'] = ServerSideUtils.normalizeAndHash(this.gender, 'ge');
 		}
 
 		if (this.date_of_birth) {
-			userData['db'] = ServerSideUtils.normalize(this.date_of_birth, 'db');
+			userData['db'] = ServerSideUtils.normalizeAndHash(this.date_of_birth, 'db');
 		}
 
 		if (this.last_name) {
-			userData['ln'] = ServerSideUtils.normalize(this.last_name, 'ln');
+			userData['ln'] = ServerSideUtils.normalizeAndHash(this.last_name, 'ln');
 		}
 
 		if (this.first_name) {
-			userData['fn'] = ServerSideUtils.normalize(this.first_name, 'fn');
+			userData['fn'] = ServerSideUtils.normalizeAndHash(this.first_name, 'fn');
 		}
 
 		if (this.city) {
-			userData['ct'] = ServerSideUtils.normalize(this.city, 'ct');
+			userData['ct'] = ServerSideUtils.normalizeAndHash(this.city, 'ct');
 		}
 
 		if (this.state) {
-			userData['st'] = ServerSideUtils.normalize(this.state, 'st');
+			userData['st'] = ServerSideUtils.normalizeAndHash(this.state, 'st');
 		}
 
 		if (this.zip) {
-			userData['zp'] = ServerSideUtils.normalize(this.zip, 'zp');
+			userData['zp'] = ServerSideUtils.normalizeAndHash(this.zip, 'zp');
 		}
 
 		if (this.country) {
-			userData['country'] = ServerSideUtils.normalize(this.country, 'country');
+			userData['country'] = ServerSideUtils.normalizeAndHash(this.country, 'country');
 		}
 
 		if (this.external_id) {
