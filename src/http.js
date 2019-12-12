@@ -55,24 +55,27 @@ export default class Http {
             resolve(response);
           } else {
             reject(
-              new Error({
-                body: response,
-                status: request.status,
-              }),
+              {
+                name: 'StatusCodeError',
+                error: response,
+                status: request.status
+              },
             );
           }
         } catch (e) {
           reject(
-            new Error({
-              body: request.responseText,
-              status: request.status,
-            }),
+            {
+              name: 'RequestError',
+              error: request,
+              status: request.status
+            },
           );
         }
       };
       request.onerror = function () {
         reject({
-          body: { error: { message: 'An unknown error occurred during the request.' } },
+          name: 'RequestError',
+          error: { error: { message: 'An unknown error occurred during the request.' } },
           status: request.status
         });
       }

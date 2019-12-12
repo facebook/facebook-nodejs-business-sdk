@@ -55,4 +55,4 @@ jspm_packages/
 .env
 
 # distribution packages
-dist/
+# dist/
