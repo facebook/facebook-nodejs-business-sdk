@@ -79,6 +79,16 @@ export default class CustomData {
 	}
 
 	/**
+	 * Sets the value of the custom data.
+	 * @param {Number} value A numeric value associated with this event. This could be a monetary value or a value in some other metric.
+	 * Example: 142.54.
+	 */
+	setValue(value: number) : CustomData {
+		this._value = value;
+		return this;
+	}
+
+	/**
 	 * Gets the currency for the custom data.
 	 * The currency for the value specified, if applicable. Currency must be a valid ISO 4217 three digit currency code.
 	 * Example: 'usd'
@@ -94,6 +104,16 @@ export default class CustomData {
 	 */
 	set currency(currency)  {
 		this._currency = currency;
+	}
+
+	/**
+	 * Sets the currency for the custom data.
+	 * @param {String} currency The currency for the value specified, if applicable. Currency must be a valid ISO 4217 three digit currency code.
+	 * Example: 'usd'
+	 */
+	setCurrency(currency: string) : CustomData {
+		this._currency = currency;
+		return this;
 	}
 
 	/**
@@ -115,6 +135,16 @@ export default class CustomData {
 	}
 
 	/**
+	 * Sets the content name for the custom data.
+	 * @param content_name The name of the page or product associated with the event.
+	 * Example: 'lettuce'
+	 */
+	setContentName(content_name: string) : CustomData {
+		this._content_name = content_name;
+		return this;
+	}
+
+	/**
 	 * Gets the content category for the custom data.
 	 * The category of the content associated with the event.
 	 * Example: 'grocery'
@@ -124,7 +154,7 @@ export default class CustomData {
 	}
 
 	/**
-	 * Sets the content_categor for the custom data.
+	 * Sets the content_category for the custom data.
 	 * @param content_category The category of the content associated with the event.
 	 * Example: 'grocery'
 	 */
@@ -133,7 +163,17 @@ export default class CustomData {
 	}
 
 	/**
-	 * Gets the first content_ids for the custom data.
+	 * Sets the content_category for the custom data.
+	 * @param content_category The category of the content associated with the event.
+	 * Example: 'grocery'
+	 */
+	setContentCategory(content_category: string) : CustomData {
+		this._content_category = content_category;
+		return this;
+	}
+
+	/**
+	 * Gets the content_ids for the custom data.
 	 * The content IDs associated with the event, such as product SKUs for items in an AddToCart, represented as Array of string.
 	 * If content_type is a product, then your content IDs must be an array with a single string value. Otherwise, this array can contain any number of string values.
 	 * Example: ['ABC123', 'XYZ789']
@@ -143,13 +183,24 @@ export default class CustomData {
 	}
 
 	/**
-	 * Sets the first content_ids for the custom data.
+	 * Sets the content_ids for the custom data.
 	 * @param content_ids The content IDs associated with the event, such as product SKUs for items in an AddToCart, represented as Array of string.
 	 * If content_type is a product, then your content IDs must be an array with a single string value. Otherwise, this array can contain any number of string values.
 	 * Example: ['ABC123', 'XYZ789']
 	 */
 	set content_ids(content_ids)  {
 		this._content_ids = content_ids;
+	}
+
+	/**
+	 * Sets the content_ids for the custom data.
+	 * @param {Array} content_ids The content IDs associated with the event, such as product SKUs for items in an AddToCart, represented as Array of string.
+	 * If content_type is a product, then your content IDs must be an array with a single string value. Otherwise, this array can contain any number of string values.
+	 * Example: ['ABC123', 'XYZ789']
+	 */
+	setContentIds(content_ids: Array) : CustomData {
+		this._content_ids = content_ids;
+		return this;
 	}
 
 	/**
@@ -171,6 +222,16 @@ export default class CustomData {
 	}
 
 	/**
+	 * Sets the contents for the custom data.
+	 * @param {Array} contents An array of Content objects that contain the product IDs associated with the event plus information about the products. id, quantity, and item_price are available fields.
+	 * Example: [{'id':'ABC123','quantity' :2,'item_price':5.99}, {'id':'XYZ789','quantity':2, 'item_price':9.99}]
+	 */
+	setContents(contents: Array) : CustomData {
+		this._contents = contents;
+		return this;
+	}
+
+	/**
 	 * Gets the content type for the custom data.
 	 * A String equal to either product or product_group. Set to product if the keys you send content_ids or contents represent products.
 	 * Set to product_group if the keys you send in content_ids represent product groups.
@@ -186,6 +247,16 @@ export default class CustomData {
 	 */
 	set content_type(content_type)  {
 		this._content_type = content_type;
+	}
+
+	/**
+	 * Sets the content type for the custom data.
+	 * @param {String} content_type A string equal to either product or product_group. Set to product if the keys you send content_ids or contents represent products.
+	 * Set to product_group if the keys you send in content_ids represent product groups.
+	 */
+	setContentType(content_type: string) : CustomData {
+		this._content_type = content_type;
+		return this;
 	}
 
 	/**
@@ -206,6 +277,15 @@ export default class CustomData {
 		this._order_id = order_id;
 	}
 
+	/**
+	 * Sets the order_id for the custom data.
+	 * @param {String} order_id The order ID for this transaction as a String.
+	 * Example: 'order1234'
+	 */
+	setOrderId(order_id: string) : CustomData {
+		this._order_id = order_id;
+		return this;
+	}
 
 	/**
 	 * Gets the predicted LifeTimeValue for the (user) in custom data.
@@ -223,6 +303,16 @@ export default class CustomData {
 	 */
 	set predicted_ltv(predicted_ltv)  {
 		this._predicted_ltv = predicted_ltv;
+	}
+
+	/**
+	 * Sets the predicted LifeTimeValue for the custom data.
+	 * @param {Number} predicted_ltv The predicted lifetime value of a conversion event, as a String.
+	 * Example: '432.12'
+	 */
+	setPredictedLtv(predicted_ltv: number) : CustomData {
+		this._predicted_ltv = predicted_ltv;
+		return this;
 	}
 
 	/**
@@ -244,6 +334,16 @@ export default class CustomData {
 	}
 
 	/**
+	 * Sets the number of items for the custom data.
+	 * @param {Number} num_items The number of items that a user tries to buy during checkout. Use only with InitiateCheckout type events.
+	 * Example: 5
+	 */
+	setNumItems(num_items: number) : CustomData {
+		this._num_items = num_items;
+		return this;
+	}
+
+	/**
 	 * Gets the search string for the custom data.
 	 * A search query made by a user.Use only with Search events.
 	 * Eg: 'lettuce'
@@ -254,11 +354,21 @@ export default class CustomData {
 
 	/**
 	 * Sets the search string for the custom data.
-	 * @param search_string A search query made by a user.Use only with Search events.
+	 * @param {Number} search_string A search query made by a user.Use only with Search events.
 	 * Eg: 'lettuce'
 	 */
 	set search_string(search_string)  {
 		this._search_string = search_string;
+	}
+
+	/**
+	 * Sets the search string for the custom data.
+	 * @param search_string A search query made by a user.Use only with Search events.
+	 * Eg: 'lettuce'
+	 */
+	setSearchString(search_string: string) : CustomData {
+		this._search_string = search_string;
+		return this;
 	}
 
 
@@ -272,10 +382,19 @@ export default class CustomData {
 
 	/**
 	 * Sets the status of the registration event.
-	 * @param status status of the registration event, as a String.Use only with CompleteRegistration events.
+	 * @param status Status of the registration event, as a String.Use only with CompleteRegistration events.
 	 */
 	set status(status)  {
 		this._status = status;
+	}
+
+	/**
+	 * Sets the status of the registration event.
+	 * @param {String} status Status of the registration event, as a String. Use only with CompleteRegistration events.
+	 */
+	setStatus(status: string) : CustomData {
+		this._status = status;
+		return this;
 	}
 
 	/**

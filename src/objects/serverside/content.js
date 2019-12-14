@@ -20,7 +20,7 @@ export default class Content {
 
 	/**
 	 * @param {String} id Product Id of the Item.
-	 * @param {Number} quantity Quantity of the Content/Item.
+	 * @param {Number} quantity Quantity of the Item.
 	 * @param {Number} item_price Price per unit of the content/product.
 	 */
 	constructor(id: string, quantity: number, item_price: number)  {
@@ -31,8 +31,8 @@ export default class Content {
 	}
 
 	/**
-	 * Gets the Product Id of the Item. id A string representing the unique product Id representing the product.
-	 * A string representing the unique product Id representing the product.
+	 * Gets the Product Id of the Item.
+	 * A string representing the unique Id for the product.
 	 * Example: XYZ.
 	 */
 	get  id()  {
@@ -41,15 +41,25 @@ export default class Content {
 
 	/**
 	 * Sets the Product Id of the Item.
-	 * @param id A string representing the unique product Id representing the product.
+	 * @param id A string representing the unique Id for the product.
 	 * Example: XYZ.
 	 */
 	set id(id)  {
 		this._id = id;
 	}
 
+    /**
+	 * Sets the Product Id of the Item.
+	 * @param id is a string representing the unique id for the product.
+	 * Example: XYZ.
+	 */
+	setId(id: string) : Content {
+		this._id = id;
+        return this;
+	}
+
 	/**
-	 * Gets the quantity of the Content/Item.
+	 * Gets the quantity of the Item.
 	 * The number/quantity of the content that is being involved in the customer interaction.
 	 * Example: 5
 	 */
@@ -58,17 +68,27 @@ export default class Content {
 	}
 
 	/**
-	 * Sets the quantity of the Content/Item.
-	 * @param quantity The number/quantity of the content that is being involved in the customer interaction.
+	 * Sets the quantity of the Item.
+	 * @param quantity The number/quantity of the product that is being involved in the customer interaction.
 	 * Example: 5
 	 */
 	set quantity(quantity)  {
 		this._quantity = quantity;
 	}
 
+    /**
+	 * Sets the quantity of the Content/Item.
+	 * @param {Number} quantity The number/quantity of the product that is being involved in the customer interaction.
+	 * Example: 5
+	 */
+	setQuantity(quantity: number) : Content  {
+		this._quantity = quantity;
+        return this;
+	}
+
 	/**
-	 * Gets the item price for the Content.
-	 * The item_price or price per unit of the content/product.
+	 * Gets the item price for the Product.
+	 * The item_price or price per unit of the product.
 	 * Example: '123.45'
 	 */
 	get item_price()  {
@@ -76,17 +96,27 @@ export default class Content {
 	}
 
 	/**
-	 * Sets the item price for the Content .
-	 * @param item_price The item_price or price per unit of the content/product.
+	 * Sets the item price for the Content.
+	 * @param item_price The item_price or price per unit of the product.
 	 * Example: '123.45'
 	 */
 	set item_price(item_price)  {
 		this._item_price = item_price;
 	}
 
+    /**
+	 * Sets the item price for the Content.
+	 * @param {Number} item_price The item_price or price per unit of the product.
+	 * Example: '123.45'
+	 */
+	setItemPrice(item_price: number) : Content {
+		this._item_price = item_price;
+        return this;
+	}
+
 	/**
-	 * Returns the normalized payload for the content.
-	 * @returns {Object} normalized content payload.
+	 * Returns the normalized payload for the Content.
+	 * @returns {Object} normalized Content payload.
 	 */
 	normalize(): Object {
 		const content = {};

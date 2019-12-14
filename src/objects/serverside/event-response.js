@@ -51,6 +51,16 @@ export default class EventResponse {
 		this._events_received = events_received;
 	}
 
+    /**
+	 * Sets the events received for the response received from Graph API.
+	 * events_received is represented by integer.
+	 * @param {Number} events_received representing the number of events received for the event Request
+	 */
+	setEventsReceived(events_received: number) : EventResponse {
+		this._events_received = events_received;
+        return this;
+	}
+
 
 	/**
 	 * Sets the messages as array for the response received from Graph API.
@@ -68,6 +78,15 @@ export default class EventResponse {
 		this._messages = messages;
 	}
 
+    /**
+	 * Sets the messages as array for the response received from Graph API.
+	 * @param {Array} messages in the event Response
+	 */
+	setMessages(messages: Array)  : EventResponse {
+		this._messages = messages;
+        return this;
+	}
+
 	/**
 	 * Gets the fbtrace_id for the response received from Graph API.
 	 * @param fbtrace_id in the event Response that can used for debugging purposes
@@ -82,5 +101,14 @@ export default class EventResponse {
 	 */
 	set fbtrace_id(fbtrace_id)  {
 		this._fbtrace_id = fbtrace_id;
+	}
+
+    /**
+	 * Sets the fbtrace_id for the response received from Graph API.
+	 * @param {String} fbtrace_id in the event Response that can used for debugging purposes
+	 */
+	setFbtraceId(fbtrace_id: string)  : EventResponse {
+		this._fbtrace_id = fbtrace_id;
+        return this;
 	}
 }

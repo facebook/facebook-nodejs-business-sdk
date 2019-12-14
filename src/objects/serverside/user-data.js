@@ -10,7 +10,7 @@
 import ServerSideUtils from './utils';
 
 /**
- * UserData represents the User Data Parameters(user_data) of a Server Side Event Request. https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#user
+ * UserData represents the User Data Parameters(user_data) of a Server Side Event Request.
  * 'user_data' is a set of identifiers Facebook can use for targeted attribution. See Custom Audiences from CRM Data for details on how to normalize and hash the data you send.
  * @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#user}
  */
@@ -100,6 +100,16 @@ export default class UserData {
 	}
 
 	/**
+	 * Sets the email address for the user data field.
+	 * @param {String} email An email address, in lowercase.
+	 * Example: joe@eg.com
+	 */
+	setEmail(email: string) : UserData {
+		this._email = email;
+		return this;
+	}
+
+	/**
 	 * Gets the phone number for the user data.
 	 * A phone number. Include only digits with country code, area code, and number.
 	 * Example: 16505551212
@@ -115,6 +125,16 @@ export default class UserData {
 	 */
 	set phone(phone) {
 		this._phone = phone;
+	}
+
+	/**
+	 * Sets the phone number for the user data.
+	 * @param {String} phone A phone number. Include only digits with country code, area code, and number.
+	 * Example: 16505551212
+	 */
+	setPhone(phone: string) : UserData {
+		this._phone = phone;
+		return this;
 	}
 
 	/**
@@ -136,6 +156,16 @@ export default class UserData {
 	}
 
 	/**
+	 * Sets the gender value for the user data.
+	 * @param {String} gender Gender in lowercase. Either f for FEMALE or m for MALE.
+	 * Example: f
+	 */
+	setGender(gender: string) : UserData {
+		this._gender = gender;
+		return this;
+	}
+
+	/**
 	 * Gets the date of birth for the user data.
 	 * A date of birth given as year, month, and day in the Format YYYYMMDD
 	 * Example: 19971226 for December 26, 1997.
@@ -151,6 +181,16 @@ export default class UserData {
 	 */
 	set date_of_birth(date_of_birth) {
 		this._date_of_birth = date_of_birth;
+	}
+
+	/**
+	 * Sets the date of birth for the user data.
+	 * @param {String} date_of_birth A date of birth given as year, month, and day in the Format YYYYMMDD
+	 * Example: 19971226 for December 26, 1997.
+	 */
+	setDateOfBirth(date_of_birth: string) : UserData {
+		this._date_of_birth = date_of_birth;
+		return this;
 	}
 
 	/**
@@ -172,6 +212,16 @@ export default class UserData {
 	}
 
 	/**
+	 * Sets the last name for the user data.
+	 * @param {String} last_name is last name in lowercase.
+	 * Example: smith
+	 */
+	setLastName(last_name: string) : UserData {
+		this._last_name = last_name;
+		return this;
+	}
+
+	/**
 	 * Gets the first name for the user data.
 	 * first_name is first name in lowercase.
 	 * Example: joe
@@ -187,6 +237,16 @@ export default class UserData {
 	 */
 	set first_name(first_name) {
 		this._last_name = last_name;
+	}
+
+	/**
+	 * Sets the first name for the user data.
+	 * @param {String} first_name is first name in lowercase.
+	 * Example: joe
+	 */
+	setFirstName(first_name: string) : UserData {
+		this._last_name = last_name;
+		return this;
 	}
 
 	/**
@@ -208,6 +268,16 @@ export default class UserData {
 	}
 
 	/**
+	 * Sets the city for the user data.
+	 * @param {String} city is city in lower-case without spaces or punctuation.
+	 * Example: menlopark
+	 */
+	setCity(city: string) : UserData {
+		this._city = city;
+		return this;
+	}
+
+	/**
 	 * Gets the zip/postal code for the user data.
 	 * zip is a five-digit zip code for United States.For other locations, follow each country's standards.
 	 * Example: 98121 (for United States Zipcode)
@@ -223,6 +293,16 @@ export default class UserData {
 	 */
 	set zip(zip) {
 		this._zip = zip;
+	}
+
+	/**
+	 * Sets the zip/postal code for the user data.
+	 * @param {String} zip is a five-digit zip code for United States.For other locations, follow each country's standards.
+	 * Example: 98121 (for United States Zipcode)
+	 */
+	setZip(zip: string) : UserData{
+		this._zip = zip;
+		return this;
 	}
 
 	/**
@@ -244,6 +324,16 @@ export default class UserData {
 	}
 
 	/**
+	 * Sets the state for the user data.
+	 * @param {String} state is state in lower-case without spaces or punctuation.
+	 * Example: ca
+	 */
+	setState(state: string) : UserData {
+		this._state = state;
+		return this;
+	}
+
+	/**
 	 * Gets the country for the user data.
 	 * country is A two-letter country code in lowercase.
 	 * Example: usa
@@ -262,11 +352,21 @@ export default class UserData {
 	}
 
 	/**
+	 * Sets the country for the user data.
+	 * @param {String} country is A two-letter country code in lowercase.
+	 * Example: usa
+	 */
+	setCountry(country: string) : UserData {
+		this._country = country;
+		return this;
+	}
+
+	/**
 	 * Gets the external id for the user data.
 	 * external_id is a unique ID from the advertiser, such as loyalty membership IDs, user IDs, and external cookie IDs.
-	 * In the Offline Conversions API (https://www.facebook.com/business/help/104039186799009),
-	 * this is known as extern_id. For more information, see Offline Conversions, Providing External IDs.
+	 * In the Offline Conversions API this is known as extern_id. For more information, see Offline Conversions.
 	 * If External ID is being sent via other channels, then it should be sent in the same format via the server-side API
+	 * @see {@link https://www.facebook.com/business/help/104039186799009}
 	 */
 	get external_id() {
 		return this._external_id;
@@ -275,12 +375,24 @@ export default class UserData {
 	/**
 	 * Sets the external id for the user data.
 	 * @param external_id is a unique ID from the advertiser, such as loyalty membership IDs, user IDs, and external cookie IDs.
-	 * In the Offline Conversions API (https://www.facebook.com/business/help/104039186799009),
-	 * this is known as extern_id. For more information, see Offline Conversions, Providing External IDs.
+	 * In the Offline Conversions API this is known as extern_id. For more information, see Offline Conversions.
 	 * If External ID is being sent via other channels, then it should be sent in the same format via the server-side API
+	 * @see {@link https://www.facebook.com/business/help/104039186799009}
 	 */
 	set external_id(external_id) {
 		this._external_id = external_id;
+	}
+
+	/**
+	 * Sets the external id for the user data.
+	 * @param {String} external_id is a unique ID from the advertiser, such as loyalty membership IDs, user IDs, and external cookie IDs.
+	 * In the Offline Conversions API this is known as extern_id. For more information, see Offline Conversions.
+	 * If External ID is being sent via other channels, then it should be sent in the same format via the server-side API
+	 * @see {@link https://www.facebook.com/business/help/104039186799009}
+	 */
+	setExternalId(external_id: string) : UserData {
+		this._external_id = external_id;
+		return this;
 	}
 
 
@@ -301,6 +413,15 @@ export default class UserData {
 	}
 
 	/**
+	 * Sets the client ip address for the user data.
+	 * @param {String} client_ip_address is the IP address of the browser corresponding to the event.
+	 */
+	setClientIpAddress(client_ip_address: string) : UserData {
+		this._client_ip_address = client_ip_address;
+		return this;
+	}
+
+	/**
 	 * Gets the client user agent for the user data.
 	 * client_user_agent is the user agent for the browser corresponding to the event.
 	 */
@@ -317,9 +438,18 @@ export default class UserData {
 	}
 
 	/**
+	 * Sets the client user agent for the user data.
+	 * @param {String} client_user_agent is the user agent for the browser corresponding to the event.
+	 */
+	setClientUserAgent(client_user_agent: string) : UserData {
+		this._client_user_agent = client_user_agent;
+		return this;
+	}
+
+	/**
 	 * Gets the fbc for the user data.
 	 * fbc is the Facebook click ID value stored in the _fbc browser cookie under your domain.
-	 * See Managing fbc and fbp Parameters for how to get this value (https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#fbc),
+	 * See Managing fbc and fbp Parameters for how to get this value @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#fbc},
 	 * You can also generate this value from a fbclid query parameter.
 	 */
 	get fbc() {
@@ -329,18 +459,29 @@ export default class UserData {
 	/**
 	 * Sets the fbc for the user data.
 	 * @param fbc is the Facebook click ID value stored in the _fbc browser cookie under your domain.
-	 * See Managing fbc and fbp Parameters for how to get this value (https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#fbc),
+	 * See Managing fbc and fbp Parameters for how to get this value @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#fbc},
 	 * You can also generate this value from a fbclid query parameter.
 	 */
 	set fbc(fbc) {
 		this._fbc = fbc;
 	}
 
+	/**
+	 * Sets the fbc for the user data.
+	 * @param {String} fbc is the Facebook click ID value stored in the _fbc browser cookie under your domain.
+	 * See Managing fbc and fbp Parameters for how to get this value @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#fbc},
+	 * You can also generate this value from a fbclid query parameter.
+	 */
+	setFbc(fbc: string) : UserData {
+		this._fbc = fbc;
+		return this;
+	}
+
 
 	/**
 	 * Gets the fbp for the user data.
 	 * fbp is Facebook browser ID value stored in the _fbp browser cookie under your domain.
-	 * See Managing fbc and fbp Parameters for how to get this value (https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#fbc),
+	 * See Managing fbc and fbp Parameters for how to get this value @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#fbc},
 	 */
 	get fbp() {
 		return this._fbp;
@@ -349,10 +490,20 @@ export default class UserData {
 	/**
 	 * Sets the fbp for the user data.
 	 * @param fbp is Facebook browser ID value stored in the _fbp browser cookie under your domain.
-	 * See Managing fbc and fbp Parameters for how to get this value (https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#fbc),
+	 * See Managing fbc and fbp Parameters for how to get this value @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#fbc},
 	 */
 	set fbp(fbp) {
 		this._fbp = fbp;
+	}
+
+	/**
+	 * Sets the fbp for the user data.
+	 * @param {String} fbp is Facebook browser ID value stored in the _fbp browser cookie under your domain.
+	 * See Managing fbc and fbp Parameters for how to get this value @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#fbc},
+	 */
+	setFbp(fbp: string) : UserData {
+		this._fbp = fbp;
+		return this;
 	}
 
 	/**
@@ -366,13 +517,22 @@ export default class UserData {
 
 	/**
 	 * Sets the subscription id for the user data.
-	 * subscription_id is the subscription ID for the user in this transaction. This is similar to the order ID for an individual product.
+	 * @param {String} subscription_id is the subscription ID for the user in this transaction. This is similar to the order ID for an individual product.
 	 * Example: anid1234.
 	 */
 	set subscription_id(subscription_id) {
 		this._subscription_id = subscription_id;
 	}
 
+	/**
+	 * Sets the subscription id for the user data.
+	 * @param {String} subscription_id is the subscription ID for the user in this transaction. This is similar to the order ID for an individual product.
+	 * Example: anid1234.
+	 */
+	setSubscriptionId(subscription_id) : UserData {
+		this._subscription_id = subscription_id;
+		return this;
+	}
 
 	/**
 	 * Returns the normalized payload for the user_data parameter.

@@ -60,6 +60,15 @@ export default class ServerEvent {
 	}
 
 	/**
+	 * Sets the Event Name for the current Event.
+	 * @param {String} event_name Facebook pixel Standard Event or Custom Event name.
+	 */
+	setEventName(event_name: string) : ServerEvent {
+		this._event_name = event_name;
+		return this;
+	}
+
+	/**
 	 * Gets the Event Time when the current Event happened.
 	 */
 	get event_time() {
@@ -68,10 +77,19 @@ export default class ServerEvent {
 
 	/**
 	 * Sets the Event Time when the current Event happened.
-	 * @param {Integer} event_time is a Unix timestamp in seconds indicating when the actual event occurred.
+	 * @param {Number} event_time is a Unix timestamp in seconds indicating when the actual event occurred.
 	 */
-	set event_time(event_time) {
+	set event_time(event_time: number) {
 		this._event_time = event_time;
+	}
+
+	/**
+	 * Sets the Event Time when the current Event happened.
+	 * @param {Number} event_time is a Unix timestamp in seconds indicating when the actual event occurred.
+	 */
+	setEventTime(event_time: number) : ServerEvent {
+		this._event_time = event_time;
+		return this;
 	}
 
 	/**
@@ -90,6 +108,15 @@ export default class ServerEvent {
 	}
 
 	/**
+	 * Sets the browser url source for the current event.
+	 * @param {String} event_source_url The browser URL where the event happened.
+	 */
+	setEventSourceUrl(event_source_url: string) : ServerEvent {
+		this._event_source_url = event_source_url;
+		return this;
+	}
+
+	/**
 	 * Gets the event_id for the current Event.
 	 */
 	get event_id() {
@@ -97,11 +124,22 @@ export default class ServerEvent {
 	}
 
 	/**
-	 * Sets the event Id for the current Event. event_id can be any string chosen by the advertiser. This is used with event_name to determine if events are identical. Learn about Deduplicate Pixel and Server-Side Events.
-	 * @param {String}
+	 * Sets the event Id for the current Event.
+	 * @param {String} event_id can be any string chosen by the advertiser. This is used with event_name to determine if events are identical.Learn about Deduplicate Pixel and Server-Side Events
+	 * @see {@link https://developers.facebook.com/docs/marketing-api/server-side-api/using-the-api#dedup}
 	 */
 	set event_id(event_id) {
 		this._event_id = event_id;
+	}
+
+	/**
+	 * Sets the event Id for the current Event.
+	 * @param {String} event_id can be any string chosen by the advertiser. This is used with event_name to determine if events are identical. Learn about Deduplicate Pixel and Server-Side Events.
+	 * @see {@link https://developers.facebook.com/docs/marketing-api/server-side-api/using-the-api#dedup}
+	 */
+	setEventId(event_id: string)  : ServerEvent{
+		this._event_id = event_id;
+		return this;
 	}
 
 	/**
@@ -113,15 +151,24 @@ export default class ServerEvent {
 
 	/**
 	 * Sets the opt_out feature for the current event.
-	 * @param {Integer} opt_out is a boolean flag that indicates we should not use this event for ads delivery optimization. If set to true, we only use the event for attribution.
+	 * @param {Boolean} opt_out is a boolean flag that indicates we should not use this event for ads delivery optimization. If set to true, we only use the event for attribution.
 	 */
 	set opt_out(opt_out) {
 		this._opt_out = opt_out;
 	}
 
 	/**
+	 * Sets the opt_out feature for the current event.
+	 * @param {Boolean} opt_out is a boolean flag that indicates we should not use this event for ads delivery optimization. If set to true, we only use the event for attribution.
+	 */
+	setOptOut(opt_out: boolean) : ServerEvent {
+		this._opt_out = opt_out;
+		return this;
+	}
+
+	/**
 	 * Gets the user data object for the current Server Event.
-	 * https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#user
+	 * @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#user}
 	 */
 	get user_data() {
 		return this._user_data;
@@ -130,15 +177,25 @@ export default class ServerEvent {
 	/**
 	 * Sets the user data object for the current Server Event.
 	 * @param {UserData} user_data user_data is a map that contains user data. See User Data Parameter Table for options. Also see Advanced Matching with the Pixel to see comparable options available for data sent via Facebook pixel.
-	 * https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#user
+	 * @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#user}
 	 */
 	set user_data(user_data) {
 		this._user_data = user_data;
 	}
 
 	/**
+	 * Sets the user data object for the current Server Event.
+	 * @param {UserData} user_data user_data is a map that contains user data. See User Data Parameter Table for options. Also see Advanced Matching with the Pixel to see comparable options available for data sent via Facebook pixel.
+	 * @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#user}
+	 */
+	setUserData(user_data: UserData) : ServerEvent {
+		this._user_data = user_data;
+		return this;
+	}
+
+	/**
 	 * Gets the custom data object for the current Server Event.
-	 * https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#custom
+	 * @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#custom}
 	 */
 	get custom_data() {
 		return this._custom_data;
@@ -147,10 +204,20 @@ export default class ServerEvent {
 	/**
 	 * Sets the custom data object for the current Server Event.
 	 * @param {CustomData} custom_data is a map that includes additional business data about the event.
-	 * https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#custom
+	 * @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#custom}
 	 */
 	set custom_data(custom_data) {
 		this._custom_data = custom_data;
+	}
+
+	/**
+	 * Sets the custom data object for the current Server Event.
+	 * @param {CustomData} custom_data is a map that includes additional business data about the event.
+	 * @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#custom}
+	 */
+	setCustomData(custom_data: CustomData) : ServerEvent {
+		this._custom_data = custom_data;
+		return this;
 	}
 
 	/**
