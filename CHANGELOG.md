@@ -5,8 +5,15 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
-## v5.0.2
+## v5.0.4
+### Added
+- Add setter methods for Server-side API
 
+## v5.0.3
+### Added
+- Add strongly typed Server-side API
+
+## v5.0.2
 ### Added
 - Add the ability to read headers from response and `FacebookRequestError`.
 - Add `CrashRepoter`, more context available [here](https://developers.facebook.com/docs/business-sdk/guides/crash-reports)
@@ -34,4 +41,3 @@ All notable changes to this project will be documented in this file.
 ## v3.3.0
 ### Changed
 - Graph API call upgrade to [v3.3](https://developers.facebook.com/docs/graph-api/changelog/version3.3)
-
