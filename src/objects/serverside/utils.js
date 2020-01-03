@@ -8,6 +8,7 @@
  */
 
 const sha256 = require('js-sha256');
+const currency_codes = require('currency-codes');
 
 const PHONE_NUMBER_IGNORE_CHAR_SET = /[\-@#<>'",; ]|\(|\)|\+|[a-z]/g;
 const PHONE_NUMBER_DROP_PREFIX_ZEROS = /^\+?0{0,2}/;
@@ -107,7 +108,7 @@ export default class ServerSideUtils {
     // Retain only alpha characters bounded for ISO code.
     currency = currency.replace(/[^a-z]/g, '');
 
-    if (currency.length != 3) {
+    if (!currency_codes.codes().includes(currency.toUpperCase())) {
       throw new Error("Invalid format for currency:'" + currency + "'.Please follow ISO 4217 3-letter standard for representing currency. Eg: usd");
     }
 
