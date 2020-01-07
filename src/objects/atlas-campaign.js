@@ -141,15 +141,6 @@ export default class AtlasCampaign extends AbstractCrudObject {
     );
   }
 
-  createImportTemplate (fields: Array<string>, params: Object = {}): Promise<AtlasCampaign> {
-    return this.createEdge(
-      '/importtemplate',
-      fields,
-      params,
-      AtlasCampaign
-    );
-  }
-
   getMetricsBreakdown (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AbstractObject,

@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import Comment from './comment';
 import Profile from './profile';
@@ -30,6 +31,7 @@ export default class Link extends AbstractCrudObject {
       message: 'message',
       multi_share_optimized: 'multi_share_optimized',
       name: 'name',
+      picture: 'picture',
       privacy: 'privacy',
       via: 'via',
     });
@@ -55,6 +57,13 @@ export default class Link extends AbstractCrudObject {
     );
   }
 
+  deleteLikes (params: Object = {}): Promise<*> {
+    return super.deleteEdge(
+      '/likes',
+      params
+    );
+  }
+
   getLikes (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Profile,
@@ -62,6 +71,15 @@ export default class Link extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/likes'
+    );
+  }
+
+  createLike (fields: Array<string>, params: Object = {}): Promise<Link> {
+    return this.createEdge(
+      '/likes',
+      fields,
+      params,
+      Link
     );
   }
 

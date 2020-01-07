@@ -13,6 +13,7 @@ import User from './user';
 import Comment from './comment';
 import Page from './page';
 import LiveVideoError from './live-video-error';
+import VideoGameShow from './video-game-show';
 import LiveVideoInputStream from './live-video-input-stream';
 import Profile from './profile';
 import VideoPoll from './video-poll';
@@ -166,6 +167,16 @@ export default class LiveVideo extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/errors'
+    );
+  }
+
+  getGameShows (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      VideoGameShow,
+      fields,
+      params,
+      fetchFirstPage,
+      '/game_shows'
     );
   }
 

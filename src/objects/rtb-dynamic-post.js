@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import Comment from './comment';
 import InstagramComment from './instagram-comment';
@@ -62,6 +63,14 @@ export default class RTBDynamicPost extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/likes'
+    );
+  }
+
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
+    return super.delete(
+      params
     );
   }
 

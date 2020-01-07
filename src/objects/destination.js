@@ -41,4 +41,12 @@ export default class Destination extends AbstractCrudObject {
       params
     );
   }
+
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): Destination {
+    // $FlowFixMe : Support Generic Types
+    return super.update(
+      params
+    );
+  }
 }

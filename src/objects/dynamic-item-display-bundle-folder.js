@@ -8,6 +8,8 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
+import DynamicItemDisplayBundle from './dynamic-item-display-bundle';
 
 /**
  * DynamicItemDisplayBundleFolder
@@ -31,6 +33,16 @@ export default class DynamicItemDisplayBundleFolder extends AbstractCrudObject {
     return super.deleteEdge(
       '/bundles',
       params
+    );
+  }
+
+  getBundles (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      DynamicItemDisplayBundle,
+      fields,
+      params,
+      fetchFirstPage,
+      '/bundles'
     );
   }
 

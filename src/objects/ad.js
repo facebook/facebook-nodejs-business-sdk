@@ -231,6 +231,15 @@ export default class Ad extends AbstractCrudObject {
     );
   }
 
+  createLead (fields: Array<string>, params: Object = {}): Promise<Lead> {
+    return this.createEdge(
+      '/leads',
+      fields,
+      params,
+      Lead
+    );
+  }
+
   getPreviews (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdPreview,
@@ -248,6 +257,13 @@ export default class Ad extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/targetingsentencelines'
+    );
+  }
+
+  deleteTrackingTag (params: Object = {}): Promise<*> {
+    return super.deleteEdge(
+      '/trackingtag',
+      params
     );
   }
 

@@ -13,6 +13,7 @@ import Comment from './comment';
 import RTBDynamicPost from './rtb-dynamic-post';
 import InsightsResult from './insights-result';
 import Profile from './profile';
+import Photo from './photo';
 import Page from './page';
 
 /**
@@ -201,6 +202,15 @@ export default class Post extends AbstractCrudObject {
     );
   }
 
+  createPhoto (fields: Array<string>, params: Object = {}): Promise<Photo> {
+    return this.createEdge(
+      '/photos',
+      fields,
+      params,
+      Photo
+    );
+  }
+
   createPromotion (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/promotions',
@@ -237,6 +247,22 @@ export default class Post extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/sponsor_tags'
+    );
+  }
+
+  deleteSubscribed (params: Object = {}): Promise<*> {
+    return super.deleteEdge(
+      '/subscribed',
+      params
+    );
+  }
+
+  createSubscribed (fields: Array<string>, params: Object = {}): Promise<Post> {
+    return this.createEdge(
+      '/subscribed',
+      fields,
+      params,
+      Post
     );
   }
 

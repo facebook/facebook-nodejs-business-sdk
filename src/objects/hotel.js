@@ -51,6 +51,15 @@ export default class Hotel extends AbstractCrudObject {
     );
   }
 
+  createHotelRoom (fields: Array<string>, params: Object = {}): Promise<HotelRoom> {
+    return this.createEdge(
+      '/hotel_rooms',
+      fields,
+      params,
+      HotelRoom
+    );
+  }
+
   // $FlowFixMe : Support Generic Types
   delete (fields: Array<string>, params: Object = {}): AbstractObject {
     // $FlowFixMe : Support Generic Types

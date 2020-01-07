@@ -9,33 +9,31 @@
 
  'use strict';
 const bizSdk = require('facebook-nodejs-business-sdk');
-const AdsPixel = bizSdk.AdsPixel;
+const ServerEvent = bizSdk.ServerEvent;
+const EventRequest = bizSdk.EventRequest;
+const UserData = bizSdk.UserData;
+const CustomData = bizSdk.CustomData;
+const Content = bizSdk.Content;
 
 const access_token = '<ACCESS_TOKEN>';
-const app_secret = '<APP_SECRET>';
-const app_id = '<APP_ID>';
-const id = '<ADS_PIXEL_ID>';
+const pixel_id = '<ADS_PIXEL_ID>';
 const api = bizSdk.FacebookAdsApi.init(access_token);
-const showDebugingInfo = true; // Setting this to true shows more debugging info.
-if (showDebugingInfo) {
-  api.setDebug(true);
-}
 
-const logApiCallResult = (apiCallName, data) => {
-  console.log(apiCallName);
-  if (showDebugingInfo) {
-    console.log('Data:' + JSON.stringify(data));
-  }
-};
+let current_timestamp = Math.floor(new Date() / 1000);
 
-let fields, params;
-fields = [
-];
-params = {
-  'data' : [{'event_name':'PageView','event_time':1569260711,'user_data':{'fbc':'fb.1.1554763741205.AbCdEfGhIjKlMnOpQrStUvWxYz1234567890','fbp':'fb.1.1558571054389.1098115397','em':'309a0a5c3e211326ae75ca18196d301a9bdbd1a882a4d2569511033da23f0abd'}}],
-};
-const events = (new AdsPixel(id)).createEvent(
-  fields,
-  params
-);
-logApiCallResult('events api call complete.', events);
+const userData = (new UserData())
+                .setEmail('joe@eg.com')
+                .setFbp('fb.1.1558571054389.1098115397')
+                .setFbc('fb.1.1554763741205.AbCdEfGhIjKlMnOpQrStUvWxYz1234567890');
+
+const serverEvent = (new ServerEvent())
+                .setEventName('PageView')
+                .setEventTime(current_timestamp)
+                .setUserData(userData);
+
+   const eventsData = [serverEvent];
+   const eventRequest = (new EventRequest(access_token, pixel_id))
+                .setEvents(eventsData);
+
+
+   eventRequest.execute();

@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
 
 /**
  * PageInsightsAsyncExportRun
@@ -28,6 +29,13 @@ export default class PageInsightsAsyncExportRun extends AbstractCrudObject {
     });
   }
 
+
+  deleteInsightsExports (params: Object = {}): Promise<*> {
+    return super.deleteEdge(
+      '/insights_exports',
+      params
+    );
+  }
 
   
   get (fields: Array<string>, params: Object = {}): PageInsightsAsyncExportRun {

@@ -10,6 +10,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import AutomotiveModel from './automotive-model';
+import DACheck from './da-check';
 import Destination from './destination';
 import Flight from './flight';
 import HomeListing from './home-listing';
@@ -43,6 +44,16 @@ export default class ProductSet extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/automotive_models'
+    );
+  }
+
+  getDaChecks (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      DACheck,
+      fields,
+      params,
+      fetchFirstPage,
+      '/da_checks'
     );
   }
 

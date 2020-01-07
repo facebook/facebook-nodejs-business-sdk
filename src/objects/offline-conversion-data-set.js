@@ -13,6 +13,7 @@ import AdAccount from './ad-account';
 import Business from './business';
 import CustomAudience from './custom-audience';
 import CustomConversion from './custom-conversion';
+import DACheck from './da-check';
 
 /**
  * OfflineConversionDataSet
@@ -60,6 +61,23 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
       audience_manager: 'AUDIENCE_MANAGER',
       other: 'OTHER',
     });
+  }
+
+  getActivities (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/activities'
+    );
+  }
+
+  deleteAdAccounts (params: Object = {}): Promise<*> {
+    return super.deleteEdge(
+      '/adaccounts',
+      params
+    );
   }
 
   getAdAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
@@ -120,6 +138,16 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
     );
   }
 
+  getDaChecks (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      DACheck,
+      fields,
+      params,
+      fetchFirstPage,
+      '/da_checks'
+    );
+  }
+
   createEvent (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/events',
@@ -155,6 +183,13 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
       fields,
       params,
       
+    );
+  }
+
+  deleteUsers (params: Object = {}): Promise<*> {
+    return super.deleteEdge(
+      '/users',
+      params
     );
   }
 

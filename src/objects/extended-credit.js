@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import ExtendedCreditInvoiceGroup from './extended-credit-invoice-group';
 import ExtendedCreditAllocationConfig from './extended-credit-allocation-config';
@@ -38,6 +39,16 @@ export default class ExtendedCredit extends AbstractCrudObject {
     });
   }
 
+
+  getExtendedCreditEmails (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/extended_credit_emails'
+    );
+  }
 
   getExtendedCreditInvoiceGroups (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(

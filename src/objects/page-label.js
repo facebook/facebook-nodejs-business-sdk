@@ -7,6 +7,8 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import Cursor from './../cursor';
+import User from './user';
 
 /**
  * PageLabel
@@ -24,6 +26,16 @@ export default class PageLabel extends AbstractCrudObject {
     });
   }
 
+
+  getUsers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      User,
+      fields,
+      params,
+      fetchFirstPage,
+      '/users'
+    );
+  }
 
   
   get (fields: Array<string>, params: Object = {}): PageLabel {

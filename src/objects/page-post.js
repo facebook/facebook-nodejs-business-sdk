@@ -247,6 +247,15 @@ export default class PagePost extends AbstractCrudObject {
     );
   }
 
+  createPromotion (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+    return this.createEdge(
+      '/promotions',
+      fields,
+      params,
+      
+    );
+  }
+
   getReactions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Profile,
@@ -274,6 +283,22 @@ export default class PagePost extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/sponsor_tags'
+    );
+  }
+
+  deleteSubscribed (params: Object = {}): Promise<*> {
+    return super.deleteEdge(
+      '/subscribed',
+      params
+    );
+  }
+
+  createSubscribed (fields: Array<string>, params: Object = {}): Promise<PagePost> {
+    return this.createEdge(
+      '/subscribed',
+      fields,
+      params,
+      PagePost
     );
   }
 

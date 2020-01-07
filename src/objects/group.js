@@ -306,6 +306,15 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
+  createModerator (fields: Array<string>, params: Object = {}): Promise<Group> {
+    return this.createEdge(
+      '/moderators',
+      fields,
+      params,
+      Group
+    );
+  }
+
   createOpenGraphActionFeed (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/open_graph_action_feed',

@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import Comment from './comment';
 import Profile from './profile';
@@ -43,6 +44,15 @@ export default class LifeEvent extends AbstractCrudObject {
     );
   }
 
+  createComment (fields: Array<string>, params: Object = {}): Promise<Comment> {
+    return this.createEdge(
+      '/comments',
+      fields,
+      params,
+      Comment
+    );
+  }
+
   getLikes (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Profile,
@@ -73,11 +83,27 @@ export default class LifeEvent extends AbstractCrudObject {
     );
   }
 
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
+    return super.delete(
+      params
+    );
+  }
+
   
   get (fields: Array<string>, params: Object = {}): LifeEvent {
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
+      params
+    );
+  }
+
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): LifeEvent {
+    // $FlowFixMe : Support Generic Types
+    return super.update(
       params
     );
   }
