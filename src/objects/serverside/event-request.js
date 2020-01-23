@@ -21,6 +21,7 @@ export default class EventRequest {
 	_access_token: string;
 	_pixel_id: string;
 	_events: Array<ServerEvent>;
+	_partner_agent: ?string;
 	_test_event_code: ?string;
 	_debug_mode: bool;
 	_api: Object
@@ -28,15 +29,17 @@ export default class EventRequest {
 	/**
 	 * @param {String} access_token Access Token for the user calling Graph API
 	 * @param {String} pixel_id Pixel Id to which you are sending the events
-	 * @param {Array<ServerEvent>} events data for the request Payload for a Server Side Event
+	 * @param {Array<ServerEvent>} events Data for the request Payload for a Server Side Event
+	 * @param {?String} partner_agent Platform from which the event is sent e.g. wordpress
 	 * @param {?String} test_event_code Test Event Code used to verify that your server events are received correctly by Facebook.
 	 * @param {Boolean} debug_mode_flag Set to true if you want to enable more logging in SDK
 	 */
-	constructor(access_token: string, pixel_id: string, events: Array<ServerEvent> = [], test_event_code: ?string = null, debug_mode_flag: bool = false ) {
+	constructor(access_token: string, pixel_id: string, events: Array<ServerEvent> = [], partner_agent: ?string = null, test_event_code: ?string = null, debug_mode_flag: bool = false ) {
 
 		this._access_token = access_token;
 		this._pixel_id = pixel_id;
 		this._events = events;
+		this._partner_agent = partner_agent;
 		this._test_event_code = test_event_code;
 		this._debug_mode = debug_mode_flag;
 
@@ -69,6 +72,32 @@ export default class EventRequest {
 		return this;
 	}
 
+	/**
+	 * Gets the partner_agent for the request
+	 * Allows you to specify the platform from which the event is sent e.g. wordpress
+	 */
+	get partner_agent() {
+		return this._partner_agent;
+	}
+
+	/**
+	 * Sets the partner_agent for the request
+	 * Allows you to specify the platform from which the event is sent e.g. wordpress
+	 * @param {String} partner_agent String value for the partner agent
+	 */
+	set partner_agent(partner_agent: string) {
+		this._partner_agent = partner_agent;
+	}
+
+	/**
+	 * Sets the partner_agent for the request
+	 * Allows you to specify the platform from which the event is sent e.g. wordpress
+	 * @param {String} partner_agent String value for the partner agent
+	 */
+	setPartnerAgent(partner_agent: string) : EventRequest {
+		this._partner_agent = partner_agent;
+		return this;
+	}
 
 	/**
 	 * Gets the test_event_code for the request
@@ -196,6 +225,7 @@ export default class EventRequest {
 
 		params = {
 			'data': normalized_events,
+			'partner_agent': this.partner_agent,
 			'test_event_code' : this.test_event_code
 		}
 
