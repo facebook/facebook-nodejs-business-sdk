@@ -172,13 +172,6 @@ export default class Campaign extends AbstractCrudObject {
     );
   }
 
-  deleteAdLabels (params: Object = {}): Promise<*> {
-    return super.deleteEdge(
-      '/adlabels',
-      params
-    );
-  }
-
   createAdLabel (fields: Array<string>, params: Object = {}): Promise<Campaign> {
     return this.createEdge(
       '/adlabels',

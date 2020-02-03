@@ -180,22 +180,6 @@ export default class CustomAudience extends AbstractCrudObject {
     );
   }
 
-  deleteUpload (params: Object = {}): Promise<*> {
-    return super.deleteEdge(
-      '/upload',
-      params
-    );
-  }
-
-  createUpload (fields: Array<string>, params: Object = {}): Promise<CustomAudience> {
-    return this.createEdge(
-      '/upload',
-      fields,
-      params,
-      CustomAudience
-    );
-  }
-
   deleteUsers (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/users',

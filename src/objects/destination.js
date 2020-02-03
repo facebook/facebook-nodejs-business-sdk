@@ -17,7 +17,6 @@ export default class Destination extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       address: 'address',
-      applinks: 'applinks',
       currency: 'currency',
       description: 'description',
       destination_id: 'destination_id',
@@ -38,14 +37,6 @@ export default class Destination extends AbstractCrudObject {
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
-      params
-    );
-  }
-
-  // $FlowFixMe : Support Generic Types
-  update (fields: Array<string>, params: Object = {}): Destination {
-    // $FlowFixMe : Support Generic Types
-    return super.update(
       params
     );
   }

@@ -33,7 +33,6 @@ export default class ReachFrequencyPrediction extends AbstractCrudObject {
       daily_impression_curve: 'daily_impression_curve',
       daily_impression_curve_map: 'daily_impression_curve_map',
       day_parting_schedule: 'day_parting_schedule',
-      demo_breakdown: 'demo_breakdown',
       destination_id: 'destination_id',
       end_time: 'end_time',
       expiration_time: 'expiration_time',

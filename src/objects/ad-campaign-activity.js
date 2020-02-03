@@ -100,7 +100,6 @@ export default class AdCampaignActivity extends AbstractCrudObject {
       page_likes: 'PAGE_LIKES',
       post_engagement: 'POST_ENGAGEMENT',
       thruplay: 'THRUPLAY',
-      video_views: 'VIDEO_VIEWS',
     });
   }
   static get BillingEventOld (): Object {
@@ -114,7 +113,6 @@ export default class AdCampaignActivity extends AbstractCrudObject {
       page_likes: 'PAGE_LIKES',
       post_engagement: 'POST_ENGAGEMENT',
       thruplay: 'THRUPLAY',
-      video_views: 'VIDEO_VIEWS',
     });
   }
   static get OptimizationGoalNew (): Object {
@@ -143,7 +141,6 @@ export default class AdCampaignActivity extends AbstractCrudObject {
       thruplay: 'THRUPLAY',
       two_second_continuous_video_views: 'TWO_SECOND_CONTINUOUS_VIDEO_VIEWS',
       value: 'VALUE',
-      video_views: 'VIDEO_VIEWS',
     });
   }
   static get OptimizationGoalOld (): Object {
@@ -172,7 +169,6 @@ export default class AdCampaignActivity extends AbstractCrudObject {
       thruplay: 'THRUPLAY',
       two_second_continuous_video_views: 'TWO_SECOND_CONTINUOUS_VIDEO_VIEWS',
       value: 'VALUE',
-      video_views: 'VIDEO_VIEWS',
     });
   }
 

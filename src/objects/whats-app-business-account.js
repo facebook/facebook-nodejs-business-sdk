@@ -9,7 +9,6 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
-import AssignedUser from './assigned-user';
 
 /**
  * WhatsAppBusinessAccount
@@ -45,16 +44,6 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
       ticket_update: 'TICKET_UPDATE',
       transportation_update: 'TRANSPORTATION_UPDATE',
     });
-  }
-
-  getAssignedUsers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AssignedUser,
-      fields,
-      params,
-      fetchFirstPage,
-      '/assigned_users'
-    );
   }
 
   deleteMessageTemplates (params: Object = {}): Promise<*> {

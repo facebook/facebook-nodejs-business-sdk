@@ -10,7 +10,6 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import AssignedUser from './assigned-user';
-import CustomAudience from './custom-audience';
 import DACheck from './da-check';
 import AdAccount from './ad-account';
 import Business from './business';
@@ -80,12 +79,6 @@ export default class AdsPixel extends AbstractCrudObject {
       edit: 'EDIT',
     });
   }
-  static get Type (): Object {
-    return Object.freeze({
-      primary: 'PRIMARY',
-      secondary: 'SECONDARY',
-    });
-  }
 
   deleteAssignedUsers (params: Object = {}): Promise<*> {
     return super.deleteEdge(
@@ -113,25 +106,6 @@ export default class AdsPixel extends AbstractCrudObject {
     );
   }
 
-  getAudiences (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      CustomAudience,
-      fields,
-      params,
-      fetchFirstPage,
-      '/audiences'
-    );
-  }
-
-  createCreateServerToServerKey (fields: Array<string>, params: Object = {}): Promise<AdsPixel> {
-    return this.createEdge(
-      '/create_server_to_server_keys',
-      fields,
-      params,
-      AdsPixel
-    );
-  }
-
   getDaChecks (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       DACheck,
@@ -145,15 +119,6 @@ export default class AdsPixel extends AbstractCrudObject {
   createEvent (fields: Array<string>, params: Object = {}): Promise<AdsPixel> {
     return this.createEdge(
       '/events',
-      fields,
-      params,
-      AdsPixel
-    );
-  }
-
-  createResetServerToServerKey (fields: Array<string>, params: Object = {}): Promise<AdsPixel> {
-    return this.createEdge(
-      '/reset_server_to_server_key',
       fields,
       params,
       AdsPixel

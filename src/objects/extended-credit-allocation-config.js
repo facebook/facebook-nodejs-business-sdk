@@ -66,4 +66,12 @@ export default class ExtendedCreditAllocationConfig extends AbstractCrudObject {
       params
     );
   }
+
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): ExtendedCreditAllocationConfig {
+    // $FlowFixMe : Support Generic Types
+    return super.update(
+      params
+    );
+  }
 }

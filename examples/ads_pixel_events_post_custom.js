@@ -31,9 +31,9 @@ const serverEvent = (new ServerEvent())
                 .setEventTime(current_timestamp)
                 .setUserData(userData);
 
-   const eventsData = [serverEvent];
-   const eventRequest = (new EventRequest(access_token, pixel_id))
+const eventsData = [serverEvent];
+const eventRequest = (new EventRequest(access_token, pixel_id))
                 .setEvents(eventsData);
 
 
-   eventRequest.execute();
+eventRequest.execute();

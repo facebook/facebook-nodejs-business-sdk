@@ -9,8 +9,6 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
-import CustomConversionActivities from './custom-conversion-activities';
-import AdAccount from './ad-account';
 import CustomConversionStatsResult from './custom-conversion-stats-result';
 
 /**
@@ -65,26 +63,6 @@ export default class CustomConversion extends AbstractCrudObject {
       submit_application: 'SUBMIT_APPLICATION',
       subscribe: 'SUBSCRIBE',
     });
-  }
-
-  getActivities (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      CustomConversionActivities,
-      fields,
-      params,
-      fetchFirstPage,
-      '/activities'
-    );
-  }
-
-  getAdAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AdAccount,
-      fields,
-      params,
-      fetchFirstPage,
-      '/adaccounts'
-    );
   }
 
   getStats (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {

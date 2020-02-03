@@ -22,9 +22,11 @@ export default class BusinessCreativeFolder extends AbstractCrudObject {
     return Object.freeze({
       business: 'business',
       creation_time: 'creation_time',
+      creative_insight_permissions: 'creative_insight_permissions',
       description: 'description',
       id: 'id',
       name: 'name',
+      parent_folder: 'parent_folder',
     });
   }
 
@@ -89,6 +91,16 @@ export default class BusinessCreativeFolder extends AbstractCrudObject {
       fields,
       params,
       BusinessCreativeFolder
+    );
+  }
+
+  getSubFolders (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      BusinessCreativeFolder,
+      fields,
+      params,
+      fetchFirstPage,
+      '/subfolders'
     );
   }
 

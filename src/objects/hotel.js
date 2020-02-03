@@ -20,8 +20,8 @@ export default class Hotel extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       address: 'address',
-      applinks: 'applinks',
       brand: 'brand',
+      category: 'category',
       currency: 'currency',
       description: 'description',
       guest_ratings: 'guest_ratings',
@@ -48,15 +48,6 @@ export default class Hotel extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/hotel_rooms'
-    );
-  }
-
-  createHotelRoom (fields: Array<string>, params: Object = {}): Promise<HotelRoom> {
-    return this.createEdge(
-      '/hotel_rooms',
-      fields,
-      params,
-      HotelRoom
     );
   }
 

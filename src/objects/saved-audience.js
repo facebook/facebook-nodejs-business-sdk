@@ -8,8 +8,6 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
-import Cursor from './../cursor';
-import AdSet from './ad-set';
 
 /**
  * SavedAudience
@@ -34,16 +32,6 @@ export default class SavedAudience extends AbstractCrudObject {
     });
   }
 
-
-  getAdSets (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AdSet,
-      fields,
-      params,
-      fetchFirstPage,
-      '/adsets'
-    );
-  }
 
   // $FlowFixMe : Support Generic Types
   delete (fields: Array<string>, params: Object = {}): AbstractObject {

@@ -13,7 +13,6 @@ import Comment from './comment';
 import RTBDynamicPost from './rtb-dynamic-post';
 import InsightsResult from './insights-result';
 import Profile from './profile';
-import Photo from './photo';
 import Page from './page';
 
 /**
@@ -156,16 +155,6 @@ export default class Post extends AbstractCrudObject {
     );
   }
 
-  getEditActions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/edit_actions'
-    );
-  }
-
   getInsights (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       InsightsResult,
@@ -183,31 +172,12 @@ export default class Post extends AbstractCrudObject {
     );
   }
 
-  getLikes (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      Profile,
-      fields,
-      params,
-      fetchFirstPage,
-      '/likes'
-    );
-  }
-
   createLike (fields: Array<string>, params: Object = {}): Promise<Post> {
     return this.createEdge(
       '/likes',
       fields,
       params,
       Post
-    );
-  }
-
-  createPhoto (fields: Array<string>, params: Object = {}): Promise<Photo> {
-    return this.createEdge(
-      '/photos',
-      fields,
-      params,
-      Photo
     );
   }
 
@@ -250,22 +220,6 @@ export default class Post extends AbstractCrudObject {
     );
   }
 
-  deleteSubscribed (params: Object = {}): Promise<*> {
-    return super.deleteEdge(
-      '/subscribed',
-      params
-    );
-  }
-
-  createSubscribed (fields: Array<string>, params: Object = {}): Promise<Post> {
-    return this.createEdge(
-      '/subscribed',
-      fields,
-      params,
-      Post
-    );
-  }
-
   getTo (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Profile,
@@ -273,16 +227,6 @@ export default class Post extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/to'
-    );
-  }
-
-  getWithTags (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      Profile,
-      fields,
-      params,
-      fetchFirstPage,
-      '/with_tags'
     );
   }
 

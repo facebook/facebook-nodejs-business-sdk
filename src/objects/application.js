@@ -13,11 +13,8 @@ import AdNetworkAnalyticsSyncQueryResult from './ad-network-analytics-sync-query
 import AdNetworkAnalyticsAsyncQueryResult from './ad-network-analytics-async-query-result';
 import Business from './business';
 import Group from './group';
-import CustomAudience from './custom-audience';
 import AdAccount from './ad-account';
-import User from './user';
 import DACheck from './da-check';
-import DirectDeal from './direct-deal';
 import Event from './event';
 
 /**
@@ -60,7 +57,6 @@ export default class Application extends AbstractCrudObject {
       company: 'company',
       configured_ios_sso: 'configured_ios_sso',
       contact_email: 'contact_email',
-      context: 'context',
       created_time: 'created_time',
       creator_uid: 'creator_uid',
       daily_active_users: 'daily_active_users',
@@ -208,14 +204,6 @@ export default class Application extends AbstractCrudObject {
       page: 'PAGE',
     });
   }
-  static get Role (): Object {
-    return Object.freeze({
-      administrators: 'administrators',
-      developers: 'developers',
-      insights_users: 'insights users',
-      testers: 'testers',
-    });
-  }
 
   deleteAccounts (params: Object = {}): Promise<*> {
     return super.deleteEdge(
@@ -288,16 +276,6 @@ export default class Application extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/agencies'
-    );
-  }
-
-  getAndroidDialogConfigs (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/android_dialog_configs'
     );
   }
 
@@ -377,16 +355,6 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  getAudiences (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      CustomAudience,
-      fields,
-      params,
-      fetchFirstPage,
-      '/audiences'
-    );
-  }
-
   getAuthorizedAdAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdAccount,
@@ -401,25 +369,6 @@ export default class Application extends AbstractCrudObject {
     return super.deleteEdge(
       '/banned',
       params
-    );
-  }
-
-  getBanned (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      User,
-      fields,
-      params,
-      fetchFirstPage,
-      '/banned'
-    );
-  }
-
-  createBanned (fields: Array<string>, params: Object = {}): Promise<User> {
-    return this.createEdge(
-      '/banned',
-      fields,
-      params,
-      User
     );
   }
 
@@ -442,41 +391,12 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  createCodelessEventBinding (fields: Array<string>, params: Object = {}): Promise<Application> {
-    return this.createEdge(
-      '/codeless_event_bindings',
-      fields,
-      params,
-      Application
-    );
-  }
-
   createCodelessEventMapping (fields: Array<string>, params: Object = {}): Promise<Application> {
     return this.createEdge(
       '/codeless_event_mappings',
       fields,
       params,
       Application
-    );
-  }
-
-  getConnections (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/connections'
-    );
-  }
-
-  getCustomAudienceThirdPartyId (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/custom_audience_third_party_id'
     );
   }
 
@@ -487,16 +407,6 @@ export default class Application extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/da_checks'
-    );
-  }
-
-  getDirectDeals (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      DirectDeal,
-      fields,
-      params,
-      fetchFirstPage,
-      '/direct_deals'
     );
   }
 
@@ -526,16 +436,6 @@ export default class Application extends AbstractCrudObject {
       fields,
       params,
       
-    );
-  }
-
-  getInsightsEventLabels (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/insights_event_labels'
     );
   }
 
@@ -632,16 +532,6 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  getObjectTypes (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/object_types'
-    );
-  }
-
   createOccludesPopup (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/occludespopups',
@@ -716,13 +606,6 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  deleteRoles (params: Object = {}): Promise<*> {
-    return super.deleteEdge(
-      '/roles',
-      params
-    );
-  }
-
   getRoles (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AbstractObject,
@@ -730,15 +613,6 @@ export default class Application extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/roles'
-    );
-  }
-
-  createRole (fields: Array<string>, params: Object = {}): Promise<Application> {
-    return this.createEdge(
-      '/roles',
-      fields,
-      params,
-      Application
     );
   }
 

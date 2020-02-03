@@ -26,11 +26,6 @@ export default class InsightsResult extends AbstractCrudObject {
     });
   }
 
-  static get Metric (): Object {
-    return Object.freeze({
-      messages_sent: 'messages_sent',
-    });
-  }
   static get DatePreset (): Object {
     return Object.freeze({
       last_14d: 'last_14d',

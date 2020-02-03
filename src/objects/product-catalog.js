@@ -17,7 +17,6 @@ import DynamicItemDisplayBundle from './dynamic-item-display-bundle';
 import ProductCatalogCategory from './product-catalog-category';
 import CheckBatchRequestStatus from './check-batch-request-status';
 import CollaborativeAdsShareSettings from './collaborative-ads-share-settings';
-import ProductDaEventSamplesBatch from './product-da-event-samples-batch';
 import Destination from './destination';
 import ProductEventStat from './product-event-stat';
 import ExternalEventSource from './external-event-source';
@@ -33,7 +32,6 @@ import ProductCatalogProductSetsBatch from './product-catalog-product-sets-batch
 import ProductItem from './product-item';
 import VehicleOffer from './vehicle-offer';
 import Vehicle from './vehicle';
-import AdVideo from './ad-video';
 
 /**
  * ProductCatalog
@@ -49,7 +47,6 @@ export default class ProductCatalog extends AbstractCrudObject {
       default_image_url: 'default_image_url',
       fallback_image_url: 'fallback_image_url',
       feed_count: 'feed_count',
-      flight_catalog_settings: 'flight_catalog_settings',
       id: 'id',
       name: 'name',
       product_count: 'product_count',
@@ -167,32 +164,12 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  getBundleFolders (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      DynamicItemDisplayBundleFolder,
-      fields,
-      params,
-      fetchFirstPage,
-      '/bundle_folders'
-    );
-  }
-
   createBundleFolder (fields: Array<string>, params: Object = {}): Promise<DynamicItemDisplayBundleFolder> {
     return this.createEdge(
       '/bundle_folders',
       fields,
       params,
       DynamicItemDisplayBundleFolder
-    );
-  }
-
-  getBundles (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      DynamicItemDisplayBundle,
-      fields,
-      params,
-      fetchFirstPage,
-      '/bundles'
     );
   }
 
@@ -244,16 +221,6 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  getDaEventSamples (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      ProductDaEventSamplesBatch,
-      fields,
-      params,
-      fetchFirstPage,
-      '/da_event_samples'
-    );
-  }
-
   getDestinations (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Destination,
@@ -261,15 +228,6 @@ export default class ProductCatalog extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/destinations'
-    );
-  }
-
-  createDestination (fields: Array<string>, params: Object = {}): Promise<Destination> {
-    return this.createEdge(
-      '/destinations',
-      fields,
-      params,
-      Destination
     );
   }
 
@@ -316,15 +274,6 @@ export default class ProductCatalog extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/flights'
-    );
-  }
-
-  createFlight (fields: Array<string>, params: Object = {}): Promise<Flight> {
-    return this.createEdge(
-      '/flights',
-      fields,
-      params,
-      Flight
     );
   }
 
@@ -543,15 +492,6 @@ export default class ProductCatalog extends AbstractCrudObject {
       fields,
       params,
       Vehicle
-    );
-  }
-
-  createVideo (fields: Array<string>, params: Object = {}): Promise<AdVideo> {
-    return this.createEdge(
-      '/videos',
-      fields,
-      params,
-      AdVideo
     );
   }
 

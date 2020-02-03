@@ -31,27 +31,12 @@ export default class AudioCopyright extends AbstractCrudObject {
     });
   }
 
-  static get UpdateSource (): Object {
-    return Object.freeze({
-      ddex: 'ddex',
-      edit_reference_dialog: 'edit_reference_dialog',
-      reference_conflict_dialog: 'reference_conflict_dialog',
-    });
-  }
 
   
   get (fields: Array<string>, params: Object = {}): AudioCopyright {
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
-      params
-    );
-  }
-
-  // $FlowFixMe : Support Generic Types
-  update (fields: Array<string>, params: Object = {}): AudioCopyright {
-    // $FlowFixMe : Support Generic Types
-    return super.update(
       params
     );
   }

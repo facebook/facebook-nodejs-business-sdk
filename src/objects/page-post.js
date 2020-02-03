@@ -201,16 +201,6 @@ export default class PagePost extends AbstractCrudObject {
     );
   }
 
-  getEditActions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/edit_actions'
-    );
-  }
-
   getInsights (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       InsightsResult,
@@ -247,15 +237,6 @@ export default class PagePost extends AbstractCrudObject {
     );
   }
 
-  createPromotion (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
-    return this.createEdge(
-      '/promotions',
-      fields,
-      params,
-      
-    );
-  }
-
   getReactions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Profile,
@@ -286,22 +267,6 @@ export default class PagePost extends AbstractCrudObject {
     );
   }
 
-  deleteSubscribed (params: Object = {}): Promise<*> {
-    return super.deleteEdge(
-      '/subscribed',
-      params
-    );
-  }
-
-  createSubscribed (fields: Array<string>, params: Object = {}): Promise<PagePost> {
-    return this.createEdge(
-      '/subscribed',
-      fields,
-      params,
-      PagePost
-    );
-  }
-
   getTo (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Profile,
@@ -309,16 +274,6 @@ export default class PagePost extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/to'
-    );
-  }
-
-  getWithTags (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      Profile,
-      fields,
-      params,
-      fetchFirstPage,
-      '/with_tags'
     );
   }
 

@@ -16,7 +16,6 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class URL extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      app_links: 'app_links',
       development_instant_article: 'development_instant_article',
       engagement: 'engagement',
       id: 'id',

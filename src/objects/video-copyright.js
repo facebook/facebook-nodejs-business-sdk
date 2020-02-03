@@ -7,7 +7,6 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import AbstractObject from './../abstract-object';
 
 /**
  * VideoCopyright
@@ -49,14 +48,6 @@ export default class VideoCopyright extends AbstractCrudObject {
       video_and_audio: 'VIDEO_AND_AUDIO',
       video_only: 'VIDEO_ONLY',
     });
-  }
-
-  // $FlowFixMe : Support Generic Types
-  delete (fields: Array<string>, params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
-    return super.delete(
-      params
-    );
   }
 
   

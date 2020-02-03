@@ -23,6 +23,7 @@ export default class AdAssetFeedSpec extends AbstractCrudObject {
       bodies: 'bodies',
       call_to_action_types: 'call_to_action_types',
       captions: 'captions',
+      carousels: 'carousels',
       descriptions: 'descriptions',
       groups: 'groups',
       images: 'images',
