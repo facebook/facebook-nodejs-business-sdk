@@ -10,6 +10,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import AdsInsights from './ads-insights';
+import FacebookAdsApi from './../api';
 
 /**
  * AdReportRun
@@ -69,5 +70,15 @@ export default class AdReportRun extends AbstractCrudObject {
     return super.update(
       params
     );
+  }
+
+  constructor(
+    id: number | ?string = null,
+    data: Object = {},
+    parentId: ?string,
+    api: ?FacebookAdsApi,
+  ) {
+    super();
+    this.id = data.report_run_id;
   }
 }
