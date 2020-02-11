@@ -67,7 +67,7 @@ export default class EventResponse {
 	 * @param messages in the event Response
 	 */
 	get  messages()  {
-		return  this.messages;
+		return this._messages;
 	}
 
 	/**
@@ -92,7 +92,7 @@ export default class EventResponse {
 	 * @param fbtrace_id in the event Response that can used for debugging purposes
 	 */
 	get  fbtrace_id()  {
-		return  this.fbtrace_id;
+		return this._fbtrace_id;
 	}
 
 	/**
