@@ -24,7 +24,7 @@ export default class EventRequest {
 	_partner_agent: ?string;
 	_test_event_code: ?string;
 	_debug_mode: bool;
-	_api: Object
+	_api: Object;
 
 	/**
 	 * @param {String} access_token Access Token for the user calling Graph API
@@ -188,7 +188,7 @@ export default class EventRequest {
 
 	/**
 	 * Sets the pixel against which we send the events
-	 * @param {String} pixel string value representing whether you want to send the request in debug mode to get detailed logging.
+	 * @param {String} pixel_id string value representing the Pixel's Id to which you are sending the events.
 	 */
 	set pixel_id(pixel_id: string) {
 		this._pixel_id = pixel_id;
@@ -227,7 +227,7 @@ export default class EventRequest {
 			'data': normalized_events,
 			'partner_agent': this.partner_agent,
 			'test_event_code' : this.test_event_code
-		}
+		};
 
 		const adsPixelPromise = (new AdsPixel(this._pixel_id)).createEvent(
 			fields,

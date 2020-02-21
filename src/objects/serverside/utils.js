@@ -34,7 +34,7 @@ export default class ServerSideUtils {
 
     let normalized_input = input.trim().toLowerCase();
 
-    if (normalized_input.length == 0) {
+    if (normalized_input.length === 0) {
       return null;
     }
 
@@ -63,7 +63,7 @@ export default class ServerSideUtils {
     }
 
 	  // Hashing the normalized input with SHA 256
-    const hashed_input = ServerSideUtils.tosha256(normalized_input);
+    const hashed_input = ServerSideUtils.toSHA256(normalized_input);
     return hashed_input;
   }
 
@@ -132,9 +132,9 @@ export default class ServerSideUtils {
   static normalizeGender (gender: string) {
     gender = gender.replace(/[^a-z]/g, '');
 
-    if (gender == 'female' || gender == 'f') {
+    if (gender === 'female' || gender === 'f') {
       gender = 'f';
-    } else if (gender == 'male' || gender == 'm') {
+    } else if (gender === 'male' || gender === 'm') {
       gender = 'm';
     } else { return null; }
 
@@ -143,7 +143,7 @@ export default class ServerSideUtils {
 
   /**
    * Normalizes the given phone and returns acceptable phone value
-   * @param  {String} [phone] phone number value to be normalized.
+   * @param  {String} [phone_number] phone number value to be normalized.
    * @return {String} Normalized phone number value.
    */
   static normalizePhone (phone_number: string) {
@@ -214,8 +214,9 @@ export default class ServerSideUtils {
    * @param  {String} [input] String to be hashed
    * @return {String} SHA 256 Hash of the string
    */
-  static tosha256 (input: ?string) {
-    if (input === null) { return input; }
+  static toSHA256(input: ?string) {
+    if (input === null)
+      return input;
 
     return sha256(input);
   }

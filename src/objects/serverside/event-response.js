@@ -7,9 +7,6 @@
  * @flow
  */
 
-import AdsPixel from './../ads-pixel';
-import FacebookAdsApi from './../../api';
-
 /**
  * EventResponse
  * @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters}
@@ -22,9 +19,9 @@ export default class EventResponse {
 	_fbtrace_id: string;
 
 	/**
-	 * @param {Number} _events_received
-	 * @param {Array<string>} _messages
-	 * @param {String} _fbtrace_id
+	 * @param {Number} events_received
+	 * @param {Array<string>} messages
+	 * @param {String} fbtrace_id
 	 */
 	constructor(events_received: number, messages: Array<string>, fbtrace_id: string)  {
 
@@ -36,7 +33,7 @@ export default class EventResponse {
 	/**
 	 * Sets the events received for the response received from Graph API.
 	 * events_received is represented by integer.
-	 * @param events_received representing the number of events received for the event Request
+	 * @return events_received representing the number of events received for the event Request
 	 */
 	get  events_received()  {
 		return  this._events_received;
@@ -64,7 +61,7 @@ export default class EventResponse {
 
 	/**
 	 * Sets the messages as array for the response received from Graph API.
-	 * @param messages in the event Response
+	 * @return messages in the event Response
 	 */
 	get  messages()  {
 		return  this.messages;
@@ -89,7 +86,7 @@ export default class EventResponse {
 
 	/**
 	 * Gets the fbtrace_id for the response received from Graph API.
-	 * @param fbtrace_id in the event Response that can used for debugging purposes
+	 * @return fbtrace_id in the event Response that can used for debugging purposes
 	 */
 	get  fbtrace_id()  {
 		return  this.fbtrace_id;
