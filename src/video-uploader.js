@@ -213,8 +213,8 @@ class VideoUploadTransferRequestManager extends VideoUploadRequestManager {
   async sendRequest(context: VideoUploadRequestContext): Object {
     // Init a VideoUploadRequest
     const request = new VideoUploadRequest(this._api);
-    this._startOffset = context.startOffset;
-    this._endOffset = context.endOffset;
+    var start_offset = context.startOffset;
+    var end_offset = context.endOffset;
     const filePath = context.filePath;
     const fileSize = fs.statSync(filePath).size;
 
@@ -223,11 +223,16 @@ class VideoUploadTransferRequestManager extends VideoUploadRequestManager {
     let response = null;
     // While there are still more chunks to send
     const videoFileDescriptor = fs.openSync(filePath, 'r');
-
-    while (this._startOffset !== this._endOffset) {
-      context.startOffset = this._startOffset;
-      context.endOffset = this._endOffset;
-      request.setParams(this.getParamsFromContext(context), {
+    while (start_offset !== end_offset) {
+      context.startOffset = start_offset;
+      context.endOffset = end_offset;
+      let params = {
+        upload_phase: 'transfer',
+        start_offset: context.startOffset,
+        upload_session_id: context.sessionId,
+        video_file_chunk: context.videoFileChunk,
+      };
+      request.setParams(params, {
         video_file_chunk: fs.createReadStream(context.filePath, {
           start: context.startOffset,
           end: context.endOffset - 1,
@@ -236,9 +241,8 @@ class VideoUploadTransferRequestManager extends VideoUploadRequestManager {
       // Send the request
       try {
         const response = await request.send([context.accountId, 'advideos']);
-
-        this._startOffset = parseInt(response['start_offset']);
-        this._endOffset = parseInt(response['end_offset']);
+        start_offset = parseInt(response['start_offset']);
+        end_offset = parseInt(response['end_offset']);
       } catch (error) {
         if (numRetry > 0) {
           numRetry = Math.max(numRetry - 1, 0);
@@ -248,18 +252,12 @@ class VideoUploadTransferRequestManager extends VideoUploadRequestManager {
         throw error;
       }
     }
+
+    this._startOffset = start_offset;
+    this._endOffset = end_offset;
     fs.close(videoFileDescriptor, err => {});
 
     return response;
-  }
-
-  getParamsFromContext(context: VideoUploadRequestContext): Object {
-    return {
-      upload_phase: 'transfer',
-      start_offset: context.startOffset,
-      upload_session_id: context.sessionId,
-      video_file_chunk: context.videoFileChunk,
-    };
   }
 }
 
