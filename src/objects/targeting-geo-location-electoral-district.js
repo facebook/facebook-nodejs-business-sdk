@@ -19,7 +19,8 @@ export default class TargetingGeoLocationElectoralDistrict extends AbstractCrudO
       country: 'country',
       electoral_district: 'electoral_district',
       key: 'key',
-      name: 'name'
+      name: 'name',
     });
   }
+
 }

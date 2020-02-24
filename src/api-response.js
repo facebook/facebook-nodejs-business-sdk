@@ -11,16 +11,16 @@
 import HTTP_STATUS from './http-status';
 import {FacebookRequestError} from './exceptions';
 /**
-  * Encapsulates an http response from Facebook's Graph API.
-  */
+ * Encapsulates an http response from Facebook's Graph API.
+ */
 class APIResponse {
-  _body: string;
+  _body: Object;
   _httpStatus: string;
   _headers: Object;
   _call: Object;
   _response: Object;
 
-  constructor (response: Object, call?: Object) {
+  constructor(response: Object, call?: Object) {
     response.body = JSON.parse(response.body);
     this._body = response.body;
     this._httpStatus = response.code;
@@ -32,23 +32,23 @@ class APIResponse {
   /**
    * @return {Object} The response body
    */
-  get body () {
+  get body() {
     return this._body;
   }
 
-  get headers () {
+  get headers() {
     return this._headers;
   }
 
-  get etag () {
+  get etag() {
     return this._headers['ETag'];
   }
 
-  get status () {
+  get status() {
     return this._httpStatus;
   }
 
-  get isSuccess () {
+  get isSuccess() {
     const body = this._body;
 
     if ('error' in body) {
@@ -70,7 +70,7 @@ class APIResponse {
     }
   }
 
-  get error () {
+  get error() {
     if (this.isSuccess) {
       return null;
     }
@@ -79,7 +79,7 @@ class APIResponse {
       this._response,
       this._call.method,
       this._call.relativeUrl,
-      this._call.body
+      this._call.body,
     );
   }
 }

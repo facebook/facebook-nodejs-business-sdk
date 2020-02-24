@@ -8,6 +8,8 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
+import DynamicPriceConfigByDate from './dynamic-price-config-by-date';
 
 /**
  * HotelRoom
@@ -17,7 +19,6 @@ import AbstractObject from './../abstract-object';
 export default class HotelRoom extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      applinks: 'applinks',
       base_price: 'base_price',
       currency: 'currency',
       description: 'description',
@@ -27,24 +28,41 @@ export default class HotelRoom extends AbstractCrudObject {
       name: 'name',
       room_id: 'room_id',
       sale_price: 'sale_price',
-      url: 'url'
+      url: 'url',
     });
   }
 
-  delete (fields, params): AbstractObject {
+
+  getPricingVariables (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      DynamicPriceConfigByDate,
+      fields,
+      params,
+      fetchFirstPage,
+      '/pricing_variables'
+    );
+  }
+
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.delete(
       params
     );
   }
 
-  get (fields, params): HotelRoom {
+  
+  get (fields: Array<string>, params: Object = {}): HotelRoom {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): HotelRoom {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): HotelRoom {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

@@ -1,0 +1,13 @@
+[ignore]
+.*dist.*
+.*docs/.*
+.*examples/.*
+[include]
+
+[libs]
+
+[lints]
+
+[options]
+
+[strict]

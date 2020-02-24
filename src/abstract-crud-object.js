@@ -28,11 +28,11 @@ export class AbstractCrudObject extends AbstractObject {
    * @param  {String} parentId
    * @param  {FacebookAdApi} [api]
    */
-  constructor (
+  constructor(
     id: number | ?string = null,
     data: Object = {},
     parentId: ?string,
-    api: ?FacebookAdsApi
+    api: ?FacebookAdsApi,
   ) {
     super();
     this._parentId = parentId;
@@ -49,7 +49,7 @@ export class AbstractCrudObject extends AbstractObject {
    * Define data getter and setter recording changes
    * @param {String} field
    */
-  _defineProperty (field: string): void {
+  _defineProperty(field: string): void {
     if (this._changes === undefined) {
       this._changes = {};
     }
@@ -59,7 +59,7 @@ export class AbstractCrudObject extends AbstractObject {
         this._changes[field] = value;
         this._data[field] = value;
       },
-      enumerable: true
+      enumerable: true,
     });
   }
 
@@ -68,7 +68,7 @@ export class AbstractCrudObject extends AbstractObject {
    * @param {Object} data
    * @return this
    */
-  setData (data: Object): AbstractCrudObject {
+  setData(data: Object): AbstractCrudObject {
     super.setData(data);
     Object.keys(data).forEach(key => {
       delete this._changes[key];
@@ -80,7 +80,7 @@ export class AbstractCrudObject extends AbstractObject {
    * Export changed object data
    * @return {Object}
    */
-  exportData (): Object {
+  exportData(): Object {
     return this._changes;
   }
 
@@ -88,7 +88,7 @@ export class AbstractCrudObject extends AbstractObject {
    * Export object data
    * @return {Object}
    */
-  exportAllData (): Object {
+  exportAllData(): Object {
     return this._data;
   }
 
@@ -96,7 +96,7 @@ export class AbstractCrudObject extends AbstractObject {
    * Clear change history
    * @return this
    */
-  clearHistory (): Object {
+  clearHistory(): Object {
     this._changes = {};
     return this;
   }
@@ -105,7 +105,7 @@ export class AbstractCrudObject extends AbstractObject {
    * @throws {Error} if object has no id
    * @return {String}
    */
-  getId (): string {
+  getId(): string {
     if (!this.id) {
       throw new Error(`${this.constructor.name} Id not defined`);
     }
@@ -116,7 +116,7 @@ export class AbstractCrudObject extends AbstractObject {
    * @throws {Error} if object has no parent id
    * @return {String}
    */
-  getParentId (): string {
+  getParentId(): string {
     if (!this._parentId) {
       throw new Error(`${this.constructor.name} parentId not defined`);
     }
@@ -126,7 +126,7 @@ export class AbstractCrudObject extends AbstractObject {
   /**
    * @return {String}
    */
-  getNodePath (): string {
+  getNodePath(): string {
     return this.getId();
   }
 
@@ -135,14 +135,14 @@ export class AbstractCrudObject extends AbstractObject {
    * @throws {Error} if object doesn't hold an API
    * @return {FacebookAdsApi}
    */
-  getApi (): FacebookAdsApi {
+  getApi(): FacebookAdsApi {
     const api = this._api;
     if (!api) {
       throw new Error(
         `${this.constructor.name} does not yet have an
         associated api object.\n Did you forget to
         instantiate an API session with:
-        "FacebookAdsApi.init"?`
+        "FacebookAdsApi.init"?`,
       );
     }
     return api;
@@ -154,10 +154,12 @@ export class AbstractCrudObject extends AbstractObject {
    * @param   {Object}  [params]
    * @return  {Promise}
    */
-  read (fields: Array<string>, params: Object = {}): Promise<*> {
+  read(fields: Array<string>, params: Object = {}): Promise<*> {
     const api = this.getApi();
     const path: Array<string> = [this.getNodePath()];
-    if (fields) params['fields'] = fields.join(',');
+    if (fields) {
+      params['fields'] = fields.join(',');
+    }
     return new Promise((resolve, reject) => {
       api
         .call('GET', path, params)
@@ -171,12 +173,15 @@ export class AbstractCrudObject extends AbstractObject {
    * @param   {Object}  [params]
    * @return  {Promise}
    */
-  update (params: Object = {}): Promise<*> {
+  update(params: Object = {}): Promise<*> {
     const api = this.getApi();
     const path = [this.getNodePath()];
     params = Object.assign(params, this.exportData());
     return new Promise((resolve, reject) => {
-      api.call('POST', path, params).then(data => resolve(data)).catch(reject);
+      api
+        .call('POST', path, params)
+        .then(data => resolve(data))
+        .catch(reject);
     });
   }
 
@@ -185,7 +190,7 @@ export class AbstractCrudObject extends AbstractObject {
    * @param   {Object}  [params]
    * @return  {Promise}
    */
-  delete (params: Object = {}): Promise<*> {
+  delete(params: Object = {}): Promise<*> {
     const api = this.getApi();
     const path = [this.getNodePath()];
     params = Object.assign(params, this.exportData());
@@ -206,13 +211,13 @@ export class AbstractCrudObject extends AbstractObject {
    * @param  {String}  [endpoint]
    * @return {Cursor}
    */
-  getEdge (
+  getEdge(
     targetClass: Object,
     fields: Array<string>,
     params: Object = {},
     fetchFirstPage: boolean = true,
-    endpoint: ?string
-  ): Cursor {
+    endpoint: ?string,
+  ): Cursor | Promise<*> {
     if (params == null) {
       params = {};
     }
@@ -232,12 +237,14 @@ export class AbstractCrudObject extends AbstractObject {
    * @param   {String}  [endpoint]
    * @param   {Array}  [fields]
    * @param   {Object}  [params]
+   * @param   {Function} [targetClassConstructor]
    * @return  {Promise}
    */
-  createEdge (
+  createEdge(
     endpoint: string,
     fields: Array<string>,
-    params: Object = {}
+    params: Object = {},
+    targetClassConstructor: Function = null,
   ): Promise<*> {
     if (params == null) {
       params = {};
@@ -252,7 +259,12 @@ export class AbstractCrudObject extends AbstractObject {
       api
         .call('POST', path, params)
         .then(data => {
-          resolve(this.setData(data));
+          resolve(
+            /* eslint new-cap: "off" */
+            targetClassConstructor === null
+              ? this.setData(data)
+              : new targetClassConstructor(data.id, data),
+          );
         })
         .catch(reject);
     });
@@ -264,7 +276,7 @@ export class AbstractCrudObject extends AbstractObject {
    * @param   {Object}  [params]
    * @return  {Promise}
    */
-  deleteEdge (endpoint: string, params: Object = {}): Promise<*> {
+  deleteEdge(endpoint: string, params: Object = {}): Promise<*> {
     const api = this.getApi();
     const path = [this.getNodePath(), Utils.removePreceedingSlash(endpoint)];
     params = Object.assign(params, this.exportData());
@@ -284,14 +296,16 @@ export class AbstractCrudObject extends AbstractObject {
    * @param  {FacebookAdsApi} [api]
    * @return {Promise}
    */
-  static getByIds (
+  static getByIds(
     ids: Array<number>,
     fields: Array<string>,
     params: Object = {},
-    api: FacebookAdsApi
+    api: FacebookAdsApi,
   ): Promise<*> {
     api = api || FacebookAdsApi.getDefaultApi();
-    if (fields) params['fields'] = fields.join(',');
+    if (fields) {
+      params['fields'] = fields.join(',');
+    }
     params['ids'] = ids.join(',');
     return new Promise((resolve, reject) => {
       return api

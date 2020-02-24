@@ -19,7 +19,8 @@ export default class OutcomePredictionPoint extends AbstractCrudObject {
       actions: 'actions',
       impressions: 'impressions',
       reach: 'reach',
-      spend: 'spend'
+      spend: 'spend',
     });
   }
+
 }

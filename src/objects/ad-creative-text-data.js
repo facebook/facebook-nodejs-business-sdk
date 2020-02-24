@@ -16,7 +16,8 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class AdCreativeTextData extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      message: 'message'
+      message: 'message',
     });
   }
+
 }

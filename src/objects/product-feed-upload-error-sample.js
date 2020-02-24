@@ -18,11 +18,14 @@ export default class ProductFeedUploadErrorSample extends AbstractCrudObject {
     return Object.freeze({
       id: 'id',
       retailer_id: 'retailer_id',
-      row_number: 'row_number'
+      row_number: 'row_number',
     });
   }
 
-  get (fields, params): ProductFeedUploadErrorSample {
+
+  
+  get (fields: Array<string>, params: Object = {}): ProductFeedUploadErrorSample {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params

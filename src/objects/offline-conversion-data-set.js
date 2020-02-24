@@ -8,7 +8,11 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 import AdAccount from './ad-account';
+import Business from './business';
+import CustomAudience from './custom-audience';
+import CustomConversion from './custom-conversion';
 
 /**
  * OfflineConversionDataSet
@@ -18,7 +22,6 @@ import AdAccount from './ad-account';
 export default class OfflineConversionDataSet extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      attribute_stats: 'attribute_stats',
       business: 'business',
       config: 'config',
       creation_time: 'creation_time',
@@ -29,27 +32,37 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
       event_time_max: 'event_time_max',
       event_time_min: 'event_time_min',
       id: 'id',
+      is_mta_use: 'is_mta_use',
       is_restricted_use: 'is_restricted_use',
+      is_unavailable: 'is_unavailable',
       last_upload_app: 'last_upload_app',
+      last_upload_app_changed_time: 'last_upload_app_changed_time',
+      match_rate_approx: 'match_rate_approx',
       matched_entries: 'matched_entries',
-      matched_unique_users: 'matched_unique_users',
       name: 'name',
       usage: 'usage',
-      valid_entries: 'valid_entries'
+      valid_entries: 'valid_entries',
     });
   }
 
-  getActivities (fields, params, fetchFirstPage = true): AbstractObject {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/activities'
-    );
+  static get PermittedRoles (): Object {
+    return Object.freeze({
+      admin: 'ADMIN',
+      advertiser: 'ADVERTISER',
+      uploader: 'UPLOADER',
+    });
+  }
+  static get RelationshipType (): Object {
+    return Object.freeze({
+      ad_manager: 'AD_MANAGER',
+      agency: 'AGENCY',
+      aggregator: 'AGGREGATOR',
+      audience_manager: 'AUDIENCE_MANAGER',
+      other: 'OTHER',
+    });
   }
 
-  getAdAccounts (fields, params, fetchFirstPage = true): AdAccount {
+  getAdAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdAccount,
       fields,
@@ -59,23 +72,64 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
     );
   }
 
-  createAdAccount (fields, params): AbstractObject {
+  createAdAccount (fields: Array<string>, params: Object = {}): Promise<OfflineConversionDataSet> {
     return this.createEdge(
       '/adaccounts',
       fields,
-      params
+      params,
+      OfflineConversionDataSet
     );
   }
 
-  createEvent (fields, params): AbstractObject {
+  getAgencies (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      Business,
+      fields,
+      params,
+      fetchFirstPage,
+      '/agencies'
+    );
+  }
+
+  createAgency (fields: Array<string>, params: Object = {}): Promise<OfflineConversionDataSet> {
+    return this.createEdge(
+      '/agencies',
+      fields,
+      params,
+      OfflineConversionDataSet
+    );
+  }
+
+  getAudiences (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      CustomAudience,
+      fields,
+      params,
+      fetchFirstPage,
+      '/audiences'
+    );
+  }
+
+  getCustomConversions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      CustomConversion,
+      fields,
+      params,
+      fetchFirstPage,
+      '/customconversions'
+    );
+  }
+
+  createEvent (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/events',
       fields,
-      params
+      params,
+      
     );
   }
 
-  getStats (fields, params, fetchFirstPage = true): AbstractObject {
+  getStats (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AbstractObject,
       fields,
@@ -85,7 +139,7 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
     );
   }
 
-  getUploads (fields, params, fetchFirstPage = true): AbstractObject {
+  getUploads (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AbstractObject,
       fields,
@@ -95,9 +149,54 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
     );
   }
 
-  get (fields, params): OfflineConversionDataSet {
+  createUpload (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+    return this.createEdge(
+      '/uploads',
+      fields,
+      params,
+      
+    );
+  }
+
+  createUser (fields: Array<string>, params: Object = {}): Promise<OfflineConversionDataSet> {
+    return this.createEdge(
+      '/users',
+      fields,
+      params,
+      OfflineConversionDataSet
+    );
+  }
+
+  createValidate (fields: Array<string>, params: Object = {}): Promise<OfflineConversionDataSet> {
+    return this.createEdge(
+      '/validate',
+      fields,
+      params,
+      OfflineConversionDataSet
+    );
+  }
+
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
+    return super.delete(
+      params
+    );
+  }
+
+  
+  get (fields: Array<string>, params: Object = {}): OfflineConversionDataSet {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
+      params
+    );
+  }
+
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): OfflineConversionDataSet {
+    // $FlowFixMe : Support Generic Types
+    return super.update(
       params
     );
   }

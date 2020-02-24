@@ -8,6 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 import AdCreative from './ad-creative';
 import Ad from './ad';
 import AdSet from './ad-set';
@@ -25,17 +26,12 @@ export default class AdLabel extends AbstractCrudObject {
       created_time: 'created_time',
       id: 'id',
       name: 'name',
-      updated_time: 'updated_time'
+      updated_time: 'updated_time',
     });
   }
 
-  static get ExecutionOptions (): Object {
-    return Object.freeze({
-      validate_only: 'VALIDATE_ONLY'
-    });
-  }
 
-  getAdCreatives (fields, params, fetchFirstPage = true): AdCreative {
+  getAdCreatives (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdCreative,
       fields,
@@ -45,7 +41,7 @@ export default class AdLabel extends AbstractCrudObject {
     );
   }
 
-  getAds (fields, params, fetchFirstPage = true): Ad {
+  getAds (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Ad,
       fields,
@@ -55,7 +51,7 @@ export default class AdLabel extends AbstractCrudObject {
     );
   }
 
-  getAdSets (fields, params, fetchFirstPage = true): AdSet {
+  getAdSets (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdSet,
       fields,
@@ -65,7 +61,7 @@ export default class AdLabel extends AbstractCrudObject {
     );
   }
 
-  getCampaigns (fields, params, fetchFirstPage = true): Campaign {
+  getCampaigns (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Campaign,
       fields,
@@ -75,20 +71,26 @@ export default class AdLabel extends AbstractCrudObject {
     );
   }
 
-  delete (fields, params): AbstractObject {
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.delete(
       params
     );
   }
 
-  get (fields, params): AdLabel {
+  
+  get (fields: Array<string>, params: Object = {}): AdLabel {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): AdLabel {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): AdLabel {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

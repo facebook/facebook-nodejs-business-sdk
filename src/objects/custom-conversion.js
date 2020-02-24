@@ -8,6 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 import CustomConversionStatsResult from './custom-conversion-stats-result';
 
 /**
@@ -20,6 +21,7 @@ export default class CustomConversion extends AbstractCrudObject {
     return Object.freeze({
       account_id: 'account_id',
       aggregation_rule: 'aggregation_rule',
+      business: 'business',
       creation_time: 'creation_time',
       custom_event_type: 'custom_event_type',
       data_sources: 'data_sources',
@@ -29,12 +31,13 @@ export default class CustomConversion extends AbstractCrudObject {
       first_fired_time: 'first_fired_time',
       id: 'id',
       is_archived: 'is_archived',
+      is_unavailable: 'is_unavailable',
       last_fired_time: 'last_fired_time',
       name: 'name',
       offline_conversion_data_set: 'offline_conversion_data_set',
       pixel: 'pixel',
       retention_days: 'retention_days',
-      rule: 'rule'
+      rule: 'rule',
     });
   }
 
@@ -44,41 +47,25 @@ export default class CustomConversion extends AbstractCrudObject {
       add_to_cart: 'ADD_TO_CART',
       add_to_wishlist: 'ADD_TO_WISHLIST',
       complete_registration: 'COMPLETE_REGISTRATION',
+      contact: 'CONTACT',
       content_view: 'CONTENT_VIEW',
+      customize_product: 'CUSTOMIZE_PRODUCT',
+      donate: 'DONATE',
+      find_location: 'FIND_LOCATION',
       initiated_checkout: 'INITIATED_CHECKOUT',
       lead: 'LEAD',
+      listing_interaction: 'LISTING_INTERACTION',
+      other: 'OTHER',
       purchase: 'PURCHASE',
+      schedule: 'SCHEDULE',
       search: 'SEARCH',
-      other: 'OTHER'
+      start_trial: 'START_TRIAL',
+      submit_application: 'SUBMIT_APPLICATION',
+      subscribe: 'SUBSCRIBE',
     });
   }
 
-  getActivities (fields, params, fetchFirstPage = true): AbstractObject {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/activities'
-    );
-  }
-
-  deleteSharedAgencies (params): AbstractObject {
-    return super.deleteEdge(
-      '/shared_agencies',
-      params
-    );
-  }
-
-  createSharedAgency (fields, params): CustomConversion {
-    return this.createEdge(
-      '/shared_agencies',
-      fields,
-      params
-    );
-  }
-
-  getStats (fields, params, fetchFirstPage = true): CustomConversionStatsResult {
+  getStats (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       CustomConversionStatsResult,
       fields,
@@ -88,20 +75,26 @@ export default class CustomConversion extends AbstractCrudObject {
     );
   }
 
-  delete (fields, params): AbstractObject {
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.delete(
       params
     );
   }
 
-  get (fields, params): CustomConversion {
+  
+  get (fields: Array<string>, params: Object = {}): CustomConversion {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): CustomConversion {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): CustomConversion {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

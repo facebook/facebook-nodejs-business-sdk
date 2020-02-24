@@ -21,25 +21,36 @@ export default class AdPlacePageSet extends AbstractCrudObject {
       location_types: 'location_types',
       name: 'name',
       pages_count: 'pages_count',
-      parent_page: 'parent_page'
+      parent_page: 'parent_page',
     });
   }
 
   static get LocationTypes (): Object {
     return Object.freeze({
-      recent: 'RECENT',
-      home: 'HOME'
+      home: 'home',
+      recent: 'recent',
+    });
+  }
+  static get TargetedAreaType (): Object {
+    return Object.freeze({
+      custom_radius: 'CUSTOM_RADIUS',
+      marketing_area: 'MARKETING_AREA',
+      none: 'NONE',
     });
   }
 
-  get (fields, params): AdPlacePageSet {
+  
+  get (fields: Array<string>, params: Object = {}): AdPlacePageSet {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): AdPlacePageSet {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): AdPlacePageSet {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

@@ -8,6 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 import ProductItem from './product-item';
 
 /**
@@ -21,11 +22,12 @@ export default class ProductGroup extends AbstractCrudObject {
       id: 'id',
       product_catalog: 'product_catalog',
       retailer_id: 'retailer_id',
-      variants: 'variants'
+      variants: 'variants',
     });
   }
 
-  getProducts (fields, params, fetchFirstPage = true): ProductItem {
+
+  getProducts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       ProductItem,
       fields,
@@ -35,28 +37,35 @@ export default class ProductGroup extends AbstractCrudObject {
     );
   }
 
-  createProduct (fields, params): ProductItem {
+  createProduct (fields: Array<string>, params: Object = {}): Promise<ProductItem> {
     return this.createEdge(
       '/products',
       fields,
-      params
+      params,
+      ProductItem
     );
   }
 
-  delete (fields, params): AbstractObject {
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.delete(
       params
     );
   }
 
-  get (fields, params): ProductGroup {
+  
+  get (fields: Array<string>, params: Object = {}): ProductGroup {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): ProductGroup {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): ProductGroup {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

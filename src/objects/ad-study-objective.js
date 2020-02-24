@@ -7,6 +7,15 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
+import AdPlacePageSet from './ad-place-page-set';
+import AdsPixel from './ads-pixel';
+import Application from './application';
+import CustomConversion from './custom-conversion';
+import OfflineConversionDataSet from './offline-conversion-data-set';
+import OffsitePixel from './offsite-pixel';
+import PartnerStudy from './partner-study';
 
 /**
  * AdStudyObjective
@@ -16,41 +25,120 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class AdStudyObjective extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      custom_attributes: 'custom_attributes',
       id: 'id',
       is_primary: 'is_primary',
       last_updated_results: 'last_updated_results',
       name: 'name',
       results: 'results',
-      type: 'type'
+      type: 'type',
     });
   }
 
-  static get Breakdowns (): Object {
-    return Object.freeze({
-      age: 'AGE',
-      cell_id: 'CELL_ID',
-      gender: 'GENDER',
-      country: 'COUNTRY'
-    });
-  }
   static get Type (): Object {
     return Object.freeze({
-      sales: 'SALES',
-      nonsales: 'NONSALES',
-      mae: 'MAE',
-      telco: 'TELCO',
-      ftl: 'FTL',
-      mai: 'MAI',
-      partner: 'PARTNER',
+      brand: 'BRAND',
       brandlift: 'BRANDLIFT',
-      brand: 'BRAND'
+      ftl: 'FTL',
+      mae: 'MAE',
+      mai: 'MAI',
+      nonsales: 'NONSALES',
+      partner: 'PARTNER',
+      sales: 'SALES',
+      telco: 'TELCO',
     });
   }
 
-  get (fields, params): AdStudyObjective {
+  getAdPlacePageSets (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AdPlacePageSet,
+      fields,
+      params,
+      fetchFirstPage,
+      '/ad_place_page_sets'
+    );
+  }
+
+  getAdsPixels (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AdsPixel,
+      fields,
+      params,
+      fetchFirstPage,
+      '/adspixels'
+    );
+  }
+
+  getApplications (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      Application,
+      fields,
+      params,
+      fetchFirstPage,
+      '/applications'
+    );
+  }
+
+  getCustomConversions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      CustomConversion,
+      fields,
+      params,
+      fetchFirstPage,
+      '/customconversions'
+    );
+  }
+
+  getOfflineConversionDataSets (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      OfflineConversionDataSet,
+      fields,
+      params,
+      fetchFirstPage,
+      '/offline_conversion_data_sets'
+    );
+  }
+
+  getOffsitePixels (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      OffsitePixel,
+      fields,
+      params,
+      fetchFirstPage,
+      '/offsitepixels'
+    );
+  }
+
+  getPartnerStudies (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      PartnerStudy,
+      fields,
+      params,
+      fetchFirstPage,
+      '/partnerstudies'
+    );
+  }
+
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
+    return super.delete(
+      params
+    );
+  }
+
+  
+  get (fields: Array<string>, params: Object = {}): AdStudyObjective {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
+      params
+    );
+  }
+
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): AdStudyObjective {
+    // $FlowFixMe : Support Generic Types
+    return super.update(
       params
     );
   }

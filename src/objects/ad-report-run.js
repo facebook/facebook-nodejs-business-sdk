@@ -7,7 +7,10 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 import AdsInsights from './ads-insights';
+import FacebookAdsApi from './../api';
 
 /**
  * AdReportRun
@@ -29,11 +32,12 @@ export default class AdReportRun extends AbstractCrudObject {
       is_running: 'is_running',
       schedule_id: 'schedule_id',
       time_completed: 'time_completed',
-      time_ref: 'time_ref'
+      time_ref: 'time_ref',
     });
   }
 
-  getInsights (fields, params, fetchFirstPage = true): AdsInsights {
+
+  getInsights (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdsInsights,
       fields,
@@ -43,10 +47,38 @@ export default class AdReportRun extends AbstractCrudObject {
     );
   }
 
-  get (fields, params): AdReportRun {
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
+    return super.delete(
+      params
+    );
+  }
+
+  
+  get (fields: Array<string>, params: Object = {}): AdReportRun {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
+  }
+
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): AdReportRun {
+    // $FlowFixMe : Support Generic Types
+    return super.update(
+      params
+    );
+  }
+
+  constructor(
+    id: number | ?string = null,
+    data: Object = {},
+    parentId: ?string,
+    api: ?FacebookAdsApi,
+  ) {
+    super();
+    this.id = data.report_run_id;
   }
 }

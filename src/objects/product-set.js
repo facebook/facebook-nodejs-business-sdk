@@ -8,7 +8,15 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
+import AutomotiveModel from './automotive-model';
+import Destination from './destination';
+import Flight from './flight';
+import HomeListing from './home-listing';
+import Hotel from './hotel';
 import ProductItem from './product-item';
+import VehicleOffer from './vehicle-offer';
+import Vehicle from './vehicle';
 
 /**
  * ProductSet
@@ -23,11 +31,62 @@ export default class ProductSet extends AbstractCrudObject {
       id: 'id',
       name: 'name',
       product_catalog: 'product_catalog',
-      product_count: 'product_count'
+      product_count: 'product_count',
     });
   }
 
-  getProducts (fields, params, fetchFirstPage = true): ProductItem {
+
+  getAutomotiveModels (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AutomotiveModel,
+      fields,
+      params,
+      fetchFirstPage,
+      '/automotive_models'
+    );
+  }
+
+  getDestinations (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      Destination,
+      fields,
+      params,
+      fetchFirstPage,
+      '/destinations'
+    );
+  }
+
+  getFlights (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      Flight,
+      fields,
+      params,
+      fetchFirstPage,
+      '/flights'
+    );
+  }
+
+  getHomeListings (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      HomeListing,
+      fields,
+      params,
+      fetchFirstPage,
+      '/home_listings'
+    );
+  }
+
+  getHotels (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      Hotel,
+      fields,
+      params,
+      fetchFirstPage,
+      '/hotels'
+    );
+  }
+
+  getProducts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       ProductItem,
       fields,
@@ -37,20 +96,46 @@ export default class ProductSet extends AbstractCrudObject {
     );
   }
 
-  delete (fields, params): AbstractObject {
+  getVehicleOffers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      VehicleOffer,
+      fields,
+      params,
+      fetchFirstPage,
+      '/vehicle_offers'
+    );
+  }
+
+  getVehicles (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      Vehicle,
+      fields,
+      params,
+      fetchFirstPage,
+      '/vehicles'
+    );
+  }
+
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
     return super.delete(
       params
     );
   }
 
-  get (fields, params): ProductSet {
+  
+  get (fields: Array<string>, params: Object = {}): ProductSet {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): ProductSet {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): ProductSet {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

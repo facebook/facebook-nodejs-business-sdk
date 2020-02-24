@@ -19,7 +19,6 @@ export default class AdCreativeVideoData extends AbstractCrudObject {
       additional_image_index: 'additional_image_index',
       branded_content_shared_to_sponsor_status: 'branded_content_shared_to_sponsor_status',
       branded_content_sponsor_page_id: 'branded_content_sponsor_page_id',
-      branded_content_sponsor_relationship: 'branded_content_sponsor_relationship',
       call_to_action: 'call_to_action',
       collection_thumbnails: 'collection_thumbnails',
       image_hash: 'image_hash',
@@ -32,7 +31,8 @@ export default class AdCreativeVideoData extends AbstractCrudObject {
       retailer_item_ids: 'retailer_item_ids',
       targeting: 'targeting',
       title: 'title',
-      video_id: 'video_id'
+      video_id: 'video_id',
     });
   }
+
 }

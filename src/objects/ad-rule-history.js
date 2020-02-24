@@ -23,7 +23,7 @@ export default class AdRuleHistory extends AbstractCrudObject {
       is_manual: 'is_manual',
       results: 'results',
       schedule_spec: 'schedule_spec',
-      timestamp: 'timestamp'
+      timestamp: 'timestamp',
     });
   }
 
@@ -39,7 +39,7 @@ export default class AdRuleHistory extends AbstractCrudObject {
       message_sent: 'MESSAGE_SENT',
       not_changed: 'NOT_CHANGED',
       paused: 'PAUSED',
-      unpaused: 'UNPAUSED'
+      unpaused: 'UNPAUSED',
     });
   }
 }

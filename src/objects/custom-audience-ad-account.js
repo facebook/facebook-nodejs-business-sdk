@@ -16,7 +16,8 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class CustomAudienceAdAccount extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      id: 'id'
+      id: 'id',
     });
   }
+
 }

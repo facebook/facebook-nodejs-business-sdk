@@ -17,7 +17,8 @@ export default class IDName extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       id: 'id',
-      name: 'name'
+      name: 'name',
     });
   }
+
 }

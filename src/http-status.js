@@ -11,5 +11,5 @@
 // HTTP Status Code
 export default {
   OK: '200',
-  NOT_MODIFIED: '304'
+  NOT_MODIFIED: '304',
 };

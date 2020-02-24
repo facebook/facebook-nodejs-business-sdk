@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
 
 /**
  * ProductFeedSchedule
@@ -19,32 +20,58 @@ export default class ProductFeedSchedule extends AbstractCrudObject {
       day_of_month: 'day_of_month',
       day_of_week: 'day_of_week',
       hour: 'hour',
+      id: 'id',
       interval: 'interval',
       interval_count: 'interval_count',
       minute: 'minute',
       timezone: 'timezone',
       url: 'url',
-      username: 'username'
+      username: 'username',
     });
   }
 
   static get DayOfWeek (): Object {
     return Object.freeze({
-      sunday: 'SUNDAY',
+      friday: 'FRIDAY',
       monday: 'MONDAY',
+      saturday: 'SATURDAY',
+      sunday: 'SUNDAY',
+      thursday: 'THURSDAY',
       tuesday: 'TUESDAY',
       wednesday: 'WEDNESDAY',
-      thursday: 'THURSDAY',
-      friday: 'FRIDAY',
-      saturday: 'SATURDAY'
     });
   }
   static get Interval (): Object {
     return Object.freeze({
-      hourly: 'HOURLY',
       daily: 'DAILY',
+      hourly: 'HOURLY',
+      monthly: 'MONTHLY',
       weekly: 'WEEKLY',
-      monthly: 'MONTHLY'
     });
+  }
+
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
+    return super.delete(
+      params
+    );
+  }
+
+  
+  get (fields: Array<string>, params: Object = {}): ProductFeedSchedule {
+    // $FlowFixMe : Support Generic Types
+    return this.read(
+      fields,
+      params
+    );
+  }
+
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): ProductFeedSchedule {
+    // $FlowFixMe : Support Generic Types
+    return super.update(
+      params
+    );
   }
 }

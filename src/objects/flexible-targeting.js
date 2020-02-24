@@ -43,7 +43,8 @@ export default class FlexibleTargeting extends AbstractCrudObject {
       relationship_statuses: 'relationship_statuses',
       user_adclusters: 'user_adclusters',
       work_employers: 'work_employers',
-      work_positions: 'work_positions'
+      work_positions: 'work_positions',
     });
   }
+
 }

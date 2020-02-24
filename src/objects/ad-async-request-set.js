@@ -7,6 +7,8 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 import AdAsyncRequest from './ad-async-request';
 
 /**
@@ -32,25 +34,25 @@ export default class AdAsyncRequestSet extends AbstractCrudObject {
       owner_id: 'owner_id',
       success_count: 'success_count',
       total_count: 'total_count',
-      updated_time: 'updated_time'
+      updated_time: 'updated_time',
     });
   }
 
   static get NotificationMode (): Object {
     return Object.freeze({
       off: 'OFF',
-      on_complete: 'ON_COMPLETE'
+      on_complete: 'ON_COMPLETE',
     });
   }
   static get NotificationStatus (): Object {
     return Object.freeze({
       not_sent: 'NOT_SENT',
       sending: 'SENDING',
-      sent: 'SENT'
+      sent: 'SENT',
     });
   }
 
-  getRequests (fields, params, fetchFirstPage = true): AdAsyncRequest {
+  getRequests (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdAsyncRequest,
       fields,
@@ -60,9 +62,27 @@ export default class AdAsyncRequestSet extends AbstractCrudObject {
     );
   }
 
-  get (fields, params): AdAsyncRequestSet {
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
+    return super.delete(
+      params
+    );
+  }
+
+  
+  get (fields: Array<string>, params: Object = {}): AdAsyncRequestSet {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
+      params
+    );
+  }
+
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): AdAsyncRequestSet {
+    // $FlowFixMe : Support Generic Types
+    return super.update(
       params
     );
   }

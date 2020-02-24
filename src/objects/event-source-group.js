@@ -7,6 +7,8 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import Cursor from './../cursor';
+import AdAccount from './ad-account';
 
 /**
  * EventSourceGroup
@@ -19,26 +21,42 @@ export default class EventSourceGroup extends AbstractCrudObject {
       business: 'business',
       event_sources: 'event_sources',
       id: 'id',
-      name: 'name'
+      name: 'name',
     });
   }
 
-  createSharedAccount (fields, params): EventSourceGroup {
-    return this.createEdge(
-      '/shared_accounts',
+
+  getSharedAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AdAccount,
       fields,
-      params
+      params,
+      fetchFirstPage,
+      '/shared_accounts'
     );
   }
 
-  get (fields, params): EventSourceGroup {
+  createSharedAccount (fields: Array<string>, params: Object = {}): Promise<EventSourceGroup> {
+    return this.createEdge(
+      '/shared_accounts',
+      fields,
+      params,
+      EventSourceGroup
+    );
+  }
+
+  
+  get (fields: Array<string>, params: Object = {}): EventSourceGroup {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
     );
   }
 
-  update (fields, params): EventSourceGroup {
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): EventSourceGroup {
+    // $FlowFixMe : Support Generic Types
     return super.update(
       params
     );

@@ -24,14 +24,8 @@ export default class LeadGenQuestion extends AbstractCrudObject {
       key: 'key',
       label: 'label',
       options: 'options',
-      type: 'type'
+      type: 'type',
     });
   }
 
-  get (fields, params): LeadGenQuestion {
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

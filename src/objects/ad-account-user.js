@@ -18,8 +18,8 @@ export default class AdAccountUser extends AbstractCrudObject {
     return Object.freeze({
       id: 'id',
       name: 'name',
-      permissions: 'permissions',
-      role: 'role'
+      tasks: 'tasks',
     });
   }
+
 }

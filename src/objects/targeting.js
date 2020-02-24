@@ -23,6 +23,8 @@ export default class Targeting extends AbstractCrudObject {
       app_install_state: 'app_install_state',
       audience_network_positions: 'audience_network_positions',
       behaviors: 'behaviors',
+      brand_safety_content_filter_levels: 'brand_safety_content_filter_levels',
+      catalog_based_targeting: 'catalog_based_targeting',
       cities: 'cities',
       college_years: 'college_years',
       connections: 'connections',
@@ -46,6 +48,7 @@ export default class Targeting extends AbstractCrudObject {
       engagement_specs: 'engagement_specs',
       ethnic_affinity: 'ethnic_affinity',
       exclude_reached_since: 'exclude_reached_since',
+      excluded_brand_safety_content_types: 'excluded_brand_safety_content_types',
       excluded_connections: 'excluded_connections',
       excluded_custom_audiences: 'excluded_custom_audiences',
       excluded_dynamic_audience_ids: 'excluded_dynamic_audience_ids',
@@ -74,6 +77,7 @@ export default class Targeting extends AbstractCrudObject {
       instagram_positions: 'instagram_positions',
       interested_in: 'interested_in',
       interests: 'interests',
+      is_whatsapp_destination_ad: 'is_whatsapp_destination_ad',
       keywords: 'keywords',
       life_events: 'life_events',
       locales: 'locales',
@@ -85,12 +89,11 @@ export default class Targeting extends AbstractCrudObject {
       political_views: 'political_views',
       politics: 'politics',
       product_audience_specs: 'product_audience_specs',
+      prospecting_audience: 'prospecting_audience',
       publisher_platforms: 'publisher_platforms',
-      publisher_visibility_categories: 'publisher_visibility_categories',
       radius: 'radius',
       regions: 'regions',
       relationship_statuses: 'relationship_statuses',
-      rtb_flag: 'rtb_flag',
       site_category: 'site_category',
       targeting_optimization: 'targeting_optimization',
       user_adclusters: 'user_adclusters',
@@ -100,22 +103,22 @@ export default class Targeting extends AbstractCrudObject {
       wireless_carrier: 'wireless_carrier',
       work_employers: 'work_employers',
       work_positions: 'work_positions',
-      zips: 'zips'
+      zips: 'zips',
     });
   }
 
   static get DevicePlatforms (): Object {
     return Object.freeze({
-      mobile: 'MOBILE',
-      desktop: 'DESKTOP',
-      connected_tv: 'CONNECTED_TV'
+      connected_tv: 'connected_tv',
+      desktop: 'desktop',
+      mobile: 'mobile',
     });
   }
   static get EffectiveDevicePlatforms (): Object {
     return Object.freeze({
-      mobile: 'MOBILE',
-      desktop: 'DESKTOP',
-      connected_tv: 'CONNECTED_TV'
+      connected_tv: 'connected_tv',
+      desktop: 'desktop',
+      mobile: 'mobile',
     });
   }
 }

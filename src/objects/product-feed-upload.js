@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import Cursor from './../cursor';
 import ProductFeedUploadError from './product-feed-upload-error';
 
 /**
@@ -18,23 +19,40 @@ export default class ProductFeedUpload extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       end_time: 'end_time',
+      error_count: 'error_count',
+      error_report: 'error_report',
+      filename: 'filename',
       id: 'id',
       input_method: 'input_method',
+      num_deleted_items: 'num_deleted_items',
+      num_detected_items: 'num_detected_items',
+      num_invalid_items: 'num_invalid_items',
+      num_persisted_items: 'num_persisted_items',
       start_time: 'start_time',
-      url: 'url'
+      url: 'url',
+      warning_count: 'warning_count',
     });
   }
 
   static get InputMethod (): Object {
     return Object.freeze({
-      manual_upload: 'MANUAL_UPLOAD',
-      server_fetch: 'SERVER_FETCH',
-      reupload_last_file: 'REUPLOAD_LAST_FILE',
-      user_initiated_server_fetch: 'USER_INITIATED_SERVER_FETCH'
+      manual_upload: 'Manual Upload',
+      reupload_last_file: 'Reupload Last File',
+      server_fetch: 'Server Fetch',
+      user_initiated_server_fetch: 'User initiated server fetch',
     });
   }
 
-  getErrors (fields, params, fetchFirstPage = true): ProductFeedUploadError {
+  createErrorReport (fields: Array<string>, params: Object = {}): Promise<ProductFeedUpload> {
+    return this.createEdge(
+      '/error_report',
+      fields,
+      params,
+      ProductFeedUpload
+    );
+  }
+
+  getErrors (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       ProductFeedUploadError,
       fields,
@@ -44,7 +62,9 @@ export default class ProductFeedUpload extends AbstractCrudObject {
     );
   }
 
-  get (fields, params): ProductFeedUpload {
+  
+  get (fields: Array<string>, params: Object = {}): ProductFeedUpload {
+    // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
       params
