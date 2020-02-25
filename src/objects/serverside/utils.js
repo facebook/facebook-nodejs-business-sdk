@@ -9,6 +9,7 @@
 
 const sha256 = require('js-sha256');
 const currency_codes = require('currency-codes');
+const country_codes = require('iso-3166-1-alpha-2');
 
 const PHONE_NUMBER_IGNORE_CHAR_SET = /[\-@#<>'",; ]|\(|\)|\+|[a-z]/g;
 const PHONE_NUMBER_DROP_PREFIX_ZEROS = /^\+?0{0,2}/;
@@ -20,15 +21,13 @@ const INTL_PHONE_NUMBER_REGEX = /^\d{1,4}\(?\d{2,3}\)?\d{4,}$/;
  */
 
 export default class ServerSideUtils {
-
   /**
    * Normalizes and hashes the input given the field name.
    * @param  {String} [input] Value to be normalized. eg: `foo@bar.com` for email input.
    * @param  {String} [field] Key(Type) of Value to be normalized eg: 'em' for email field.
    * @return {String} Normalized and hashed value for the string.
    */
-  static normalizeAndHash(input: string, field: string) {
-
+  static normalizeAndHash (input: string, field: string) {
     if (field == null || input == null) {
       return null;
     }
@@ -40,7 +39,6 @@ export default class ServerSideUtils {
     }
 
     switch (field) {
-
       case 'country':
         normalized_input = ServerSideUtils.normalizeCountry(normalized_input);
         break;
@@ -62,7 +60,6 @@ export default class ServerSideUtils {
       case 'zp':
         normalized_input = ServerSideUtils.normalizeZip(normalized_input);
         break;
-
     }
 
 	  // Hashing the normalized input with SHA 256
@@ -75,13 +72,11 @@ export default class ServerSideUtils {
    * @param  {String} [country] country value to be normalized.
    * @return {String} Normalized ISO country code.
    */
-  static normalizeCountry(country: string) {
+  static normalizeCountry (country: string) {
+    country = country.trim().toUpperCase();
 
-    // Retain only alpha characters bounded for ISO code.
-    country = country.replace(/[^a-z]/g, '');
-
-    if (country.length != 2) {
-      throw new Error("Invalid format for country:'" + country + "'.Please follow ISO 3166-1 2-letter standard for representing country. eg: us");
+    if (country_codes.getCountry(country) == null) {
+      throw new Error("Invalid country code: '" + country + "'. Please follow ISO 3166-1 2-letter standard for representing country. eg: US");
     }
 
     return country;
@@ -92,8 +87,7 @@ export default class ServerSideUtils {
    * @param  {String} [city] city value to be normalized.
    * @return {String} Normalized city value.
    */
-  static normalizeCity(city: string) {
-
+  static normalizeCity (city: string) {
     city = city.replace(/[0-9\s().-]/g, '');
     return city;
   }
@@ -103,8 +97,7 @@ export default class ServerSideUtils {
    * @param  {String} [currency] country value to be normalized.
    * @return {String} Normalized ISO currency code.
    */
-  static normalizeCurrency(currency: string) {
-
+  static normalizeCurrency (currency: string) {
     // Retain only alpha characters bounded for ISO code.
     currency = currency.replace(/[^a-z]/g, '');
 
@@ -120,8 +113,7 @@ export default class ServerSideUtils {
    * @param  {String} [email] email value to be normalized.
    * @return {String} Normalized email value.
    */
-  static normalizeEmail(email: string) {
-
+  static normalizeEmail (email: string) {
     // RFC 2822 REGEX approximation
     const EMAIL_RE = /^[\w!#\$%&'\*\+\/\=\?\^`\{\|\}~\-]+(:?\.[\w!#\$%&'\*\+\/\=\?\^`\{\|\}~\-]+)*@(?:[a-z0-9](?:[a-z0-9\-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9\-]*[a-z0-9])?$/i;
 
@@ -137,16 +129,14 @@ export default class ServerSideUtils {
    * @param  {String} [gender] gender value to be normalized.
    * @return {String} Normalized gender value.
    */
-  static normalizeGender(gender: string) {
-
+  static normalizeGender (gender: string) {
     gender = gender.replace(/[^a-z]/g, '');
 
     if (gender == 'female' || gender == 'f') {
       gender = 'f';
     } else if (gender == 'male' || gender == 'm') {
       gender = 'm';
-    } else
-      return null;
+    } else { return null; }
 
     return gender;
   }
@@ -156,8 +146,7 @@ export default class ServerSideUtils {
    * @param  {String} [phone] phone number value to be normalized.
    * @return {String} Normalized phone number value.
    */
-  static normalizePhone(phone_number: string) {
-
+  static normalizePhone (phone_number: string) {
     // Remove common characters occuring as part of the phone numbers.
     phone_number = phone_number.replace(PHONE_NUMBER_IGNORE_CHAR_SET, '');
 
@@ -177,8 +166,7 @@ export default class ServerSideUtils {
    * @param  {String} [state] state value to be normalized.
    * @return {String} Normalized state value.
    */
-  static normalizeState(state: string) {
-
+  static normalizeState (state: string) {
     state = state.replace(/[0-9\s().-]/g, '');
     return state;
   }
@@ -188,7 +176,7 @@ export default class ServerSideUtils {
    * @param  {String} [zip] zip value to be normalized.
    * @return {String} Normalized zip code value.
    */
-  static normalizeZip(zip: string) {
+  static normalizeZip (zip: string) {
     zip = zip.replace(/[\s]/g, '');
 
     // If the zip code '-', we retain just the first part alone.
@@ -206,8 +194,7 @@ export default class ServerSideUtils {
    * @param  {String} phone_number that has to be tested.
    * @return {Boolean} value if a number is represented international format
    */
-  static isInternationalPhoneNumber(phone_number: string) {
-
+  static isInternationalPhoneNumber (phone_number: string) {
     // strip up to 2 leading 0s and +
     phone_number = phone_number.replace(PHONE_NUMBER_DROP_PREFIX_ZEROS, '');
 
@@ -227,9 +214,8 @@ export default class ServerSideUtils {
    * @param  {String} [input] String to be hashed
    * @return {String} SHA 256 Hash of the string
    */
-  static tosha256(input: ?string) {
-    if (input === null)
-      return input;
+  static tosha256 (input: ?string) {
+    if (input === null) { return input; }
 
     return sha256(input);
   }
