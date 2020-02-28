@@ -280,7 +280,7 @@ export default class UserData {
 	/**
 	 * Gets the zip/postal code for the user data.
 	 * zip is a five-digit zip code for United States.For other locations, follow each country's standards.
-	 * Example: 98121 (for United States Zipcode)
+	 * Example: 98121 (for United States zip code)
 	 */
 	get zip() {
 		return this._zip;
@@ -289,7 +289,7 @@ export default class UserData {
 	/**
 	 * Sets the zip/postal code for the user data.
 	 * @param zip is a five-digit zip code for United States.For other locations, follow each country's standards.
-	 * Example: 98121 (for United States Zipcode)
+	 * Example: 98121 (for United States zip code)
 	 */
 	set zip(zip: string) {
 		this._zip = zip;
@@ -298,7 +298,7 @@ export default class UserData {
 	/**
 	 * Sets the zip/postal code for the user data.
 	 * @param {String} zip is a five-digit zip code for United States.For other locations, follow each country's standards.
-	 * Example: 98121 (for United States Zipcode)
+	 * Example: 98121 (for United States zip code)
 	 */
 	setZip(zip: string) : UserData{
 		this._zip = zip;
@@ -508,7 +508,7 @@ export default class UserData {
 
 	/**
 	 * Gets the subscription id for the user data.
-	 * @param subscription_id is the subscription ID for the user in this transaction. This is similar to the order ID for an individual product.
+	 * @return subscription_id is the subscription ID for the user in this transaction. This is similar to the order ID for an individual product.
 	 * Example: anid1234.
 	 */
 	get subscription_id() {
