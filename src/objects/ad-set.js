@@ -58,6 +58,7 @@ export default class AdSet extends AbstractCrudObject {
       instagram_actor_id: 'instagram_actor_id',
       is_dynamic_creative: 'is_dynamic_creative',
       issues_info: 'issues_info',
+      learning_stage_info: 'learning_stage_info',
       lifetime_budget: 'lifetime_budget',
       lifetime_imps: 'lifetime_imps',
       lifetime_min_spend_target: 'lifetime_min_spend_target',

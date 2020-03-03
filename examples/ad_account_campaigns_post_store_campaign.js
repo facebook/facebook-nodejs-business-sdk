@@ -34,7 +34,7 @@ fields = [
 ];
 params = {
   'special_ad_category' : 'NONE',
-  'name' : 'Store Visits Campaign',
+  'name' : 'Store Traffic Campaign',
   'objective' : 'STORE_VISITS',
   'promoted_object' : {'page_id':'<pageID>'},
   'status' : 'PAUSED',

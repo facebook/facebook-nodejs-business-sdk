@@ -47,15 +47,6 @@ export default class UnifiedThread extends AbstractCrudObject {
     );
   }
 
-  createMessage (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
-    return this.createEdge(
-      '/messages',
-      fields,
-      params,
-      
-    );
-  }
-
   
   get (fields: Array<string>, params: Object = {}): UnifiedThread {
     // $FlowFixMe : Support Generic Types

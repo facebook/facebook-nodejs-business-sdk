@@ -26,13 +26,11 @@ import FriendList from './friend-list';
 import Group from './group';
 import UserIDForApp from './user-id-for-app';
 import UserIDForPage from './user-id-for-page';
-import InsightsResult from './insights-result';
 import LiveEncoder from './live-encoder';
 import LiveVideo from './live-video';
 import Permission from './permission';
 import Photo from './photo';
 import ProfilePictureSource from './profile-picture-source';
-import Post from './post';
 import RequestHistory from './request-history';
 import Canvas from './canvas';
 import UserTaggableFriend from './user-taggable-friend';
@@ -95,6 +93,7 @@ export default class User extends AbstractCrudObject {
       short_name: 'short_name',
       significant_other: 'significant_other',
       sports: 'sports',
+      supports_donate_button_in_live_video: 'supports_donate_button_in_live_video',
       test_group: 'test_group',
       third_party_id: 'third_party_id',
       timezone: 'timezone',
@@ -120,12 +119,6 @@ export default class User extends AbstractCrudObject {
       status_on: 'STATUS_ON',
     });
   }
-  static get ResumeType (): Object {
-    return Object.freeze({
-      bot_action: 'BOT_ACTION',
-      native: 'NATIVE',
-    });
-  }
   static get Filtering (): Object {
     return Object.freeze({
       ema: 'ema',
@@ -137,58 +130,6 @@ export default class User extends AbstractCrudObject {
     return Object.freeze({
       content_update: 'content_update',
       generic: 'generic',
-    });
-  }
-  static get ServiceType (): Object {
-    return Object.freeze({
-      aim: 'AIM',
-      ask_fm: 'ASK_FM',
-      bbm: 'BBM',
-      bbm_ppid: 'BBM_PPID',
-      cyworld: 'CYWORLD',
-      ebuddy: 'EBUDDY',
-      foursquare: 'FOURSQUARE',
-      gadu: 'GADU',
-      github: 'GITHUB',
-      groupwise: 'GROUPWISE',
-      gtalk: 'GTALK',
-      hyves: 'HYVES',
-      icloud: 'ICLOUD',
-      icq: 'ICQ',
-      instagram: 'INSTAGRAM',
-      jabber: 'JABBER',
-      kakaotalk: 'KAKAOTALK',
-      kik: 'KIK',
-      line: 'LINE',
-      linked_in: 'LINKED_IN',
-      mailru: 'MAILRU',
-      medium: 'MEDIUM',
-      mixi: 'MIXI',
-      msn: 'MSN',
-      myspace: 'MYSPACE',
-      nateon: 'NATEON',
-      oculus: 'OCULUS',
-      ok: 'OK',
-      orkut: 'ORKUT',
-      others: 'OTHERS',
-      pinterest: 'PINTEREST',
-      qip: 'QIP',
-      qq: 'QQ',
-      rediff_bol: 'REDIFF_BOL',
-      skype: 'SKYPE',
-      snapchat: 'SNAPCHAT',
-      sound_cloud: 'SOUND_CLOUD',
-      spotify: 'SPOTIFY',
-      tumblr: 'TUMBLR',
-      twitch: 'TWITCH',
-      twitter: 'TWITTER',
-      vimeo: 'VIMEO',
-      vkontakte: 'VKONTAKTE',
-      wechat: 'WECHAT',
-      whatsapp: 'WHATSAPP',
-      yahoo: 'YAHOO',
-      yahoo_jp: 'YAHOO_JP',
-      you_tube: 'YOU_TUBE',
     });
   }
 
@@ -535,16 +476,6 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  getInsights (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      InsightsResult,
-      fields,
-      params,
-      fetchFirstPage,
-      '/insights'
-    );
-  }
-
   getLikes (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Page,
@@ -590,15 +521,6 @@ export default class User extends AbstractCrudObject {
       fields,
       params,
       LiveVideo
-    );
-  }
-
-  createMfsAccountPinReset (fields: Array<string>, params: Object = {}): Promise<User> {
-    return this.createEdge(
-      '/mfs_account_pin_reset',
-      fields,
-      params,
-      User
     );
   }
 
@@ -687,16 +609,6 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  getPosts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      Post,
-      fields,
-      params,
-      fetchFirstPage,
-      '/posts'
-    );
-  }
-
   getRequestHistory (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       RequestHistory,
@@ -714,15 +626,6 @@ export default class User extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/rich_media_documents'
-    );
-  }
-
-  createScreenName (fields: Array<string>, params: Object = {}): Promise<User> {
-    return this.createEdge(
-      '/screennames',
-      fields,
-      params,
-      User
     );
   }
 

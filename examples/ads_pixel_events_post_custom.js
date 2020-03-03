@@ -26,10 +26,15 @@ const userData = (new UserData())
                 .setFbp('fb.1.1558571054389.1098115397')
                 .setFbc('fb.1.1554763741205.AbCdEfGhIjKlMnOpQrStUvWxYz1234567890');
 
+const customData = (new CustomData())
+                .setCurrency('usd')
+                .setValue(123.45);
+
 const serverEvent = (new ServerEvent())
-                .setEventName('PageView')
+                .setEventName('Purchase')
                 .setEventTime(current_timestamp)
-                .setUserData(userData);
+                .setUserData(userData)
+                .setCustomData(customData);
 
 const eventsData = [serverEvent];
 const eventRequest = (new EventRequest(access_token, pixel_id))

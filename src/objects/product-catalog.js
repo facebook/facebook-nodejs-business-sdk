@@ -63,6 +63,7 @@ export default class ProductCatalog extends AbstractCrudObject {
       flights: 'flights',
       home_listings: 'home_listings',
       hotels: 'hotels',
+      offer_items: 'offer_items',
       offline_commerce: 'offline_commerce',
       ticketed_experiences: 'ticketed_experiences',
       transactable_items: 'transactable_items',

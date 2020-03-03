@@ -134,7 +134,6 @@ export { default as AdsOptimalDeliveryGrowthOpportunity } from './../src/objects
 export { default as AdsPixel } from './../src/objects/ads-pixel';
 export { default as AdsPixelStats } from './../src/objects/ads-pixel-stats';
 export { default as AdsPixelStatsResult } from './../src/objects/ads-pixel-stats-result';
-export { default as AdsTALHealthCheckError } from './../src/objects/ads-tal-health-check-error';
 export { default as AgeRange } from './../src/objects/age-range';
 export { default as AgencyClientDeclaration } from './../src/objects/agency-client-declaration';
 export { default as Album } from './../src/objects/album';
@@ -258,7 +257,6 @@ export { default as LeadGenAppointmentBookingInfo } from './../src/objects/lead-
 export { default as LeadGenConditionalQuestionsGroupChoices } from './../src/objects/lead-gen-conditional-questions-group-choices';
 export { default as LeadGenConditionalQuestionsGroupQuestions } from './../src/objects/lead-gen-conditional-questions-group-questions';
 export { default as LeadGenDraftQuestion } from './../src/objects/lead-gen-draft-question';
-export { default as LeadGenFormPreviewDetails } from './../src/objects/lead-gen-form-preview-details';
 export { default as LeadGenPostSubmissionCheckResult } from './../src/objects/lead-gen-post-submission-check-result';
 export { default as LeadGenQuestion } from './../src/objects/lead-gen-question';
 export { default as LeadGenQuestionOption } from './../src/objects/lead-gen-question-option';

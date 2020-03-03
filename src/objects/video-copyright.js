@@ -31,6 +31,7 @@ export default class VideoCopyright extends AbstractCrudObject {
       reference_file_expired: 'reference_file_expired',
       reference_owner_id: 'reference_owner_id',
       rule_ids: 'rule_ids',
+      tags: 'tags',
       whitelisted_ids: 'whitelisted_ids',
     });
   }

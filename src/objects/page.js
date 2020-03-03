@@ -130,7 +130,6 @@ export default class Page extends AbstractCrudObject {
       is_verified: 'is_verified',
       is_webhooks_subscribed: 'is_webhooks_subscribed',
       keywords: 'keywords',
-      leadgen_form_preview_details: 'leadgen_form_preview_details',
       leadgen_tos_acceptance_time: 'leadgen_tos_acceptance_time',
       leadgen_tos_accepted: 'leadgen_tos_accepted',
       leadgen_tos_accepting_user: 'leadgen_tos_accepting_user',
@@ -187,6 +186,7 @@ export default class Page extends AbstractCrudObject {
       store_location_descriptor: 'store_location_descriptor',
       store_number: 'store_number',
       studio: 'studio',
+      supports_donate_button_in_live_video: 'supports_donate_button_in_live_video',
       supports_instant_articles: 'supports_instant_articles',
       talking_about_count: 'talking_about_count',
       unread_message_count: 'unread_message_count',
@@ -285,6 +285,12 @@ export default class Page extends AbstractCrudObject {
       platform_manage_pages: 'PLATFORM_MANAGE_PAGES',
       platform_pages_manage_instant_articles: 'PLATFORM_PAGES_MANAGE_INSTANT_ARTICLES',
       platform_read_insights: 'PLATFORM_READ_INSIGHTS',
+      profile_plus_advertise: 'PROFILE_PLUS_ADVERTISE',
+      profile_plus_analyze: 'PROFILE_PLUS_ANALYZE',
+      profile_plus_create_content: 'PROFILE_PLUS_CREATE_CONTENT',
+      profile_plus_manage: 'PROFILE_PLUS_MANAGE',
+      profile_plus_messaging: 'PROFILE_PLUS_MESSAGING',
+      profile_plus_moderate: 'PROFILE_PLUS_MODERATE',
       read_page_mailboxes: 'READ_PAGE_MAILBOXES',
       view_monetization_insights: 'VIEW_MONETIZATION_INSIGHTS',
     });
@@ -304,6 +310,12 @@ export default class Page extends AbstractCrudObject {
       platform_manage_pages: 'PLATFORM_MANAGE_PAGES',
       platform_pages_manage_instant_articles: 'PLATFORM_PAGES_MANAGE_INSTANT_ARTICLES',
       platform_read_insights: 'PLATFORM_READ_INSIGHTS',
+      profile_plus_advertise: 'PROFILE_PLUS_ADVERTISE',
+      profile_plus_analyze: 'PROFILE_PLUS_ANALYZE',
+      profile_plus_create_content: 'PROFILE_PLUS_CREATE_CONTENT',
+      profile_plus_manage: 'PROFILE_PLUS_MANAGE',
+      profile_plus_messaging: 'PROFILE_PLUS_MESSAGING',
+      profile_plus_moderate: 'PROFILE_PLUS_MODERATE',
       read_page_mailboxes: 'READ_PAGE_MAILBOXES',
       view_monetization_insights: 'VIEW_MONETIZATION_INSIGHTS',
     });
@@ -331,8 +343,10 @@ export default class Page extends AbstractCrudObject {
   static get SenderAction (): Object {
     return Object.freeze({
       mark_seen: 'MARK_SEEN',
+      react: 'REACT',
       typing_off: 'TYPING_OFF',
       typing_on: 'TYPING_ON',
+      unreact: 'UNREACT',
     });
   }
   static get Model (): Object {

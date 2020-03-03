@@ -31,6 +31,7 @@ export default class BusinessOwnedObjectOnBehalfOfRequest extends AbstractCrudOb
       decline: 'DECLINE',
       expired: 'EXPIRED',
       in_progress: 'IN_PROGRESS',
+      pending: 'PENDING',
     });
   }
 

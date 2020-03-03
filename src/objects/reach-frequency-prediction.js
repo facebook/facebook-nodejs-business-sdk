@@ -47,7 +47,6 @@ export default class ReachFrequencyPrediction extends AbstractCrudObject {
       external_reach: 'external_reach',
       feed_ratio_0000: 'feed_ratio_0000',
       frequency_cap: 'frequency_cap',
-      frequency_distribution: 'frequency_distribution',
       frequency_distribution_map: 'frequency_distribution_map',
       frequency_distribution_map_agg: 'frequency_distribution_map_agg',
       grp_audience_size: 'grp_audience_size',

@@ -31,6 +31,7 @@ export default class BusinessAssetSharingAgreement extends AbstractCrudObject {
       decline: 'DECLINE',
       expired: 'EXPIRED',
       in_progress: 'IN_PROGRESS',
+      pending: 'PENDING',
     });
   }
 
