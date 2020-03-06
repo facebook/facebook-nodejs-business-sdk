@@ -9,7 +9,7 @@ install: npm install
 script: npm run flow
 deploy:
   provider: npm
-  email: ''
+  # email: ''
   api_key:
     secure: f1qQaFvatLfqnF84sggEAcybNlmF+C8zjlWCXHn8HeuFj526pjH7gSQv7loM/0s3SbTGKU9Xqf7Xl+qnpLG3WJfR6MQCfioqn0ZuZgkAtr+ftv3ClDlcCnAmm64LiGi624QuO5f9I1qRt+L1wb+2//Mr097PUELzPYQdiqCLmzFeLkFoEbfK4Zz+5R8nBsUrwcTvzAcUBp095X3z+L+6PmOygztE0J7Hb1f+4Y5XzYm+aN/sdlvhUElYgXakxXSYbsSgLm60uDZabXPBm1OmK9VPZg/dPWkUzcrqdYx7HXH41D/ddaQfpJYg/wsZmBB+FGLEfFGd/afQjj5x3+pQ0d1sET55aO3tli49MkwViDlMbxvIh3Z3NRV1Fs2fRBSC3/INkhtsWUgTchjj5mvaRhR2YPWhi/CJ5GLHf1fVngO4SAy53WMfWN4zhA7EMBRI/rlmkIWgrLZodpgmgvHx7dWnIY8XKVpVvkSq8SChin/qK/J+/2RWPfArLdRisDWdScozqTer3zQZ7LgVkWpxisuw5+fBAxQwH74JvvD6dnef/DY34g4GR4FR6IFihMqc3xd8AcoP/cnR0o6rdYcO3YOHj3wcGc6y8HIbISmE/xXmMDjsH00Dsaas8fy2YWbIowWwCD8zUWGltr9MyQbY8n5JoiCDfG+IOAjjllVzocg=
   on:
