@@ -6,13 +6,11 @@ branches:
   only:
   - master
 install: npm install
-script: npm run flow
-deploy:
-  provider: npm
-  # email: ''
-  api_key:
-    secure: f1qQaFvatLfqnF84sggEAcybNlmF+C8zjlWCXHn8HeuFj526pjH7gSQv7loM/0s3SbTGKU9Xqf7Xl+qnpLG3WJfR6MQCfioqn0ZuZgkAtr+ftv3ClDlcCnAmm64LiGi624QuO5f9I1qRt+L1wb+2//Mr097PUELzPYQdiqCLmzFeLkFoEbfK4Zz+5R8nBsUrwcTvzAcUBp095X3z+L+6PmOygztE0J7Hb1f+4Y5XzYm+aN/sdlvhUElYgXakxXSYbsSgLm60uDZabXPBm1OmK9VPZg/dPWkUzcrqdYx7HXH41D/ddaQfpJYg/wsZmBB+FGLEfFGd/afQjj5x3+pQ0d1sET55aO3tli49MkwViDlMbxvIh3Z3NRV1Fs2fRBSC3/INkhtsWUgTchjj5mvaRhR2YPWhi/CJ5GLHf1fVngO4SAy53WMfWN4zhA7EMBRI/rlmkIWgrLZodpgmgvHx7dWnIY8XKVpVvkSq8SChin/qK/J+/2RWPfArLdRisDWdScozqTer3zQZ7LgVkWpxisuw5+fBAxQwH74JvvD6dnef/DY34g4GR4FR6IFihMqc3xd8AcoP/cnR0o6rdYcO3YOHj3wcGc6y8HIbISmE/xXmMDjsH00Dsaas8fy2YWbIowWwCD8zUWGltr9MyQbY8n5JoiCDfG+IOAjjllVzocg=
-  on:
-    # tags: true
-    all_branches: true
-    repo: facebook/facebook-nodejs-business-sdk
+script: 
+ - npm run flow
+ - npm config set '//registry.npmjs.org/:_authToken' '${NPM_TOKEN}'
+ - npm install
+ - npm publish
+env:
+  global:
+   - secure: "SBlJg7KTBFM8wdwMI7mLAopDwQ/maKBIxgU58XrClxkoJTIJQRCgzr5dPst5O4ql9Pd4magDtP9k0NrSXsG3JNBytfkKuhLdoW/AcYkPjwMh+ONAf3+Y4qqdbtyZwAEajFoKZBJNuCMUFDEXkiZuENPnKQwOlgvzGIcUsiWDVn6T6TNJY1gWMETCYdfr0Q4iKsYJnSDmgcT82U6L/kK3Q6xWuWcxKEsZ7fzYjVwKy8jEo/8n1RyY6Y3BsYwj1qV/83FDFYbnwwwFK7KIS9NWWUXUcR5MPuHotMOqJ7bhKzYNrsK5mnXzG/naM0pOyBJv5QbcCSG1i6LyHPzpH/6pOGkCh/gst7G5jakA8CYX+RsPqhcV4rKGIIIo3yOHqgrU7Jg6NYspmReoYPtbPo90VtKDY2EbAKVY7aXDIc7Z7HS4DHWaFdX876xXVFthca2Vnn+SNHXcT/UYYv2bzKyNLl3VcpmKVZ6oU1svBWyyOaQoRhJlMJgpekIq5R4k5HjpmfUseRtkIJwa47LVCCjJKeGaaXgOYbyKVP2HwrTagTKVZdliiMPXeYlj53St2fnWfXhUSK4ykoM9EbfKog9i981FZKfj3ZrMHH1zbUm6AJoFdQu8K/ZljjE3I/8X8lP8BVoNITWPDFTmLdY3ERxfvv1nTEFk+9zmC6DtNNDpk/w="
