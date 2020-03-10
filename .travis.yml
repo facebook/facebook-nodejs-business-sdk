@@ -9,7 +9,7 @@ branches:
 script: 
  - npm run flow
  - npm config set '//registry.npmjs.org/:_authToken' '${NPM_TOKEN}'
- - npm install
+ - npm install || exit 1
  - npm publish
 env:
   global:
