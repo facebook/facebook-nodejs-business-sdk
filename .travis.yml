@@ -5,11 +5,10 @@ node_js:
 branches:
   only:
   - master
-# install: npm install
+install: npm install
 script: 
  - npm run flow
  - npm config set '//registry.npmjs.org/:_authToken' '${NPM_TOKEN}'
- - npm install || exit 1
  - npm publish
 env:
   global:
