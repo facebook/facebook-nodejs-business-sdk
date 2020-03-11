@@ -1,12 +1,21 @@
 language: node_js
 sudo: false
 node_js:
-  - 'node'
-
+  - node
 branches:
   only:
-    - master
+  - master
+install: 
+ - npm run flow
+ - npm install
 
-install: npm install
-
-script: npm run flow
+deploy:
+  provider: script
+  script: 
+    - npm config set '//registry.npmjs.org/:_authToken' '${NPM_TOKEN}'
+    - npm publish
+  on:
+    tags: true
+env:
+  global:
+   - secure: "SBlJg7KTBFM8wdwMI7mLAopDwQ/maKBIxgU58XrClxkoJTIJQRCgzr5dPst5O4ql9Pd4magDtP9k0NrSXsG3JNBytfkKuhLdoW/AcYkPjwMh+ONAf3+Y4qqdbtyZwAEajFoKZBJNuCMUFDEXkiZuENPnKQwOlgvzGIcUsiWDVn6T6TNJY1gWMETCYdfr0Q4iKsYJnSDmgcT82U6L/kK3Q6xWuWcxKEsZ7fzYjVwKy8jEo/8n1RyY6Y3BsYwj1qV/83FDFYbnwwwFK7KIS9NWWUXUcR5MPuHotMOqJ7bhKzYNrsK5mnXzG/naM0pOyBJv5QbcCSG1i6LyHPzpH/6pOGkCh/gst7G5jakA8CYX+RsPqhcV4rKGIIIo3yOHqgrU7Jg6NYspmReoYPtbPo90VtKDY2EbAKVY7aXDIc7Z7HS4DHWaFdX876xXVFthca2Vnn+SNHXcT/UYYv2bzKyNLl3VcpmKVZ6oU1svBWyyOaQoRhJlMJgpekIq5R4k5HjpmfUseRtkIJwa47LVCCjJKeGaaXgOYbyKVP2HwrTagTKVZdliiMPXeYlj53St2fnWfXhUSK4ykoM9EbfKog9i981FZKfj3ZrMHH1zbUm6AJoFdQu8K/ZljjE3I/8X8lP8BVoNITWPDFTmLdY3ERxfvv1nTEFk+9zmC6DtNNDpk/w="
