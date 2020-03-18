@@ -33,6 +33,7 @@ export default class UserData {
 	_fbc: string;
 	_fbp: string;
 	_subscription_id: string;
+	_fb_login_id: string;
 
 	/**
 	 * @param {String} email An email address, in lowercase.
@@ -51,9 +52,10 @@ export default class UserData {
 	 * @param {String} fbp The Facebook click ID value stored in the _fbc browser cookie under your domain.
 	 * @param {String} fbc The Facebook browser ID value stored in the _fbp browser cookie under your domain.
 	 * @param {String} subscription_id The subscription ID for the user in this transaction.
+	 * @param {String} fb_login_id The FB login ID for the user.
 	 */
 	constructor(email: string, phone: string, gender: string, first_name: string, last_name: string, date_of_birth: string,
-		city: string, state: string, zip: string, country: string, external_id: string, client_ip_address: string, client_user_agent: string, fbp: string, fbc: string, subscription_id: string) {
+		city: string, state: string, zip: string, country: string, external_id: string, client_ip_address: string, client_user_agent: string, fbp: string, fbc: string, subscription_id: string, fb_login_id: string) {
 
 		this._email = email;
 		this._phone = phone;
@@ -71,6 +73,7 @@ export default class UserData {
 		this._fbp = fbp;
 		this._fbc = fbc;
 		this._subscription_id = subscription_id;
+		this._fb_login_id = fb_login_id;
 	}
 
 	static get Gender(): Object {
@@ -535,6 +538,29 @@ export default class UserData {
 	}
 
 	/**
+	 * 	
+	 * Gets the fb_login_id for the user data.
+	 */
+	get fb_login_id() {
+		return this._fb_login_id;
+	}
+
+	/**
+	 * Sets the fb_login_id for the user data.
+	 */
+	set fb_login_id(fb_login_id: string) {
+		this._fb_login_id = fb_login_id;
+	}
+
+	/**
+	 * Sets the fb_login_id for the user data.
+	 */
+	setFbLoginId(fb_login_id: string) : UserData {
+		this._fb_login_id = fb_login_id;
+		return this;
+	}
+
+	/**
 	 * Returns the normalized payload for the user_data parameter.
 	 * @returns {Object} normalized user data payload.
 	 */
@@ -603,6 +629,10 @@ export default class UserData {
 
 		if (this.subscription_id) {
 			userData['subscription_id'] = this.subscription_id;
+		}
+
+		if (this.fb_login_id) {
+			userData['fb_login_id'] = this.fb_login_id;
 		}
 
 		return userData;
