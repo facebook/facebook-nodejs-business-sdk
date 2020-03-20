@@ -9,6 +9,7 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
+import CreativeAssetTag from './creative-asset-tag';
 
 /**
  * BusinessImage
@@ -23,6 +24,7 @@ export default class BusinessImage extends AbstractCrudObject {
       hash: 'hash',
       height: 'height',
       id: 'id',
+      media_library_url: 'media_library_url',
       name: 'name',
       url: 'url',
       url_128: 'url_128',
@@ -61,6 +63,32 @@ export default class BusinessImage extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/ad_placement_validation_results'
+    );
+  }
+
+  deleteCreativeAssetTags (params: Object = {}): Promise<*> {
+    return super.deleteEdge(
+      '/creative_asset_tags',
+      params
+    );
+  }
+
+  getCreativeAssetTags (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      CreativeAssetTag,
+      fields,
+      params,
+      fetchFirstPage,
+      '/creative_asset_tags'
+    );
+  }
+
+  createCreativeAssetTag (fields: Array<string>, params: Object = {}): Promise<BusinessImage> {
+    return this.createEdge(
+      '/creative_asset_tags',
+      fields,
+      params,
+      BusinessImage
     );
   }
 

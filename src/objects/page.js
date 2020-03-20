@@ -189,6 +189,7 @@ export default class Page extends AbstractCrudObject {
       supports_donate_button_in_live_video: 'supports_donate_button_in_live_video',
       supports_instant_articles: 'supports_instant_articles',
       talking_about_count: 'talking_about_count',
+      temporary_status: 'temporary_status',
       unread_message_count: 'unread_message_count',
       unread_notif_count: 'unread_notif_count',
       unseen_message_count: 'unseen_message_count',
@@ -270,10 +271,18 @@ export default class Page extends AbstractCrudObject {
       vietnamese: 'Vietnamese',
     });
   }
+  static get TemporaryStatus (): Object {
+    return Object.freeze({
+      differently_open: 'DIFFERENTLY_OPEN',
+      operating_as_usual: 'OPERATING_AS_USUAL',
+      temporarily_closed: 'TEMPORARILY_CLOSED',
+    });
+  }
   static get PermittedTasks (): Object {
     return Object.freeze({
       advertise: 'ADVERTISE',
       analyze: 'ANALYZE',
+      cashier_role: 'CASHIER_ROLE',
       create_content: 'CREATE_CONTENT',
       manage: 'MANAGE',
       manage_jobs: 'MANAGE_JOBS',
@@ -299,6 +308,7 @@ export default class Page extends AbstractCrudObject {
     return Object.freeze({
       advertise: 'ADVERTISE',
       analyze: 'ANALYZE',
+      cashier_role: 'CASHIER_ROLE',
       create_content: 'CREATE_CONTENT',
       manage: 'MANAGE',
       manage_jobs: 'MANAGE_JOBS',

@@ -141,6 +141,7 @@ export default class AdCampaignActivity extends AbstractCrudObject {
       thruplay: 'THRUPLAY',
       two_second_continuous_video_views: 'TWO_SECOND_CONTINUOUS_VIDEO_VIEWS',
       value: 'VALUE',
+      visit_instagram_profile: 'VISIT_INSTAGRAM_PROFILE',
     });
   }
   static get OptimizationGoalOld (): Object {
@@ -169,6 +170,7 @@ export default class AdCampaignActivity extends AbstractCrudObject {
       thruplay: 'THRUPLAY',
       two_second_continuous_video_views: 'TWO_SECOND_CONTINUOUS_VIDEO_VIEWS',
       value: 'VALUE',
+      visit_instagram_profile: 'VISIT_INSTAGRAM_PROFILE',
     });
   }
 

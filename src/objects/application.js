@@ -420,25 +420,6 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  getFullAppIndexingInfos (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/full_app_indexing_infos'
-    );
-  }
-
-  createFullAppIndexingInfo (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
-    return this.createEdge(
-      '/full_app_indexing_infos',
-      fields,
-      params,
-      
-    );
-  }
-
   getInsightsPushSchedule (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AbstractObject,

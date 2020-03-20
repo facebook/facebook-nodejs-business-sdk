@@ -150,6 +150,7 @@ export default class AdAccountTargetingUnified extends AbstractCrudObject {
       id: 'id',
       income: 'income',
       industries: 'industries',
+      instagram_hashtags: 'instagram_hashtags',
       instagram_positions: 'instagram_positions',
       instream_video_sponsorship_placements: 'instream_video_sponsorship_placements',
       interest_defaults_source: 'interest_defaults_source',

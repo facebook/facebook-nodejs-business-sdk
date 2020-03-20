@@ -35,7 +35,7 @@ params = {
   'account_id' : '<adAccountID>',
   'business' : '<businessID>',
 };
-const shared_accounts = (new AdsPixel(id)).createShareDAccount(
+const shared_accounts = (new AdsPixel(id)).createSharedAccount(
   fields,
   params
 );

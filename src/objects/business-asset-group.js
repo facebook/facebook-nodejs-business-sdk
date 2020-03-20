@@ -54,6 +54,7 @@ export default class BusinessAssetGroup extends AbstractCrudObject {
     return Object.freeze({
       advertise: 'ADVERTISE',
       analyze: 'ANALYZE',
+      cashier_role: 'CASHIER_ROLE',
       create_content: 'CREATE_CONTENT',
       manage: 'MANAGE',
       manage_jobs: 'MANAGE_JOBS',

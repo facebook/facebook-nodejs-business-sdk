@@ -167,16 +167,12 @@ export default class Group extends AbstractCrudObject {
   }
   static get SuggestionCategory (): Object {
     return Object.freeze({
-      close_friends_generic: 'CLOSE_FRIENDS_GENERIC',
       event: 'EVENT',
-      family: 'FAMILY',
-      life_event: 'LIFE_EVENT',
       messenger: 'MESSENGER',
       work: 'WORK',
       workplace: 'WORKPLACE',
       workplace_1_1: 'WORKPLACE_1_1',
       workplace_manager: 'WORKPLACE_MANAGER',
-      work_generic: 'WORK_GENERIC',
     });
   }
 

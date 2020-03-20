@@ -168,15 +168,6 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  createAchievement (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
-    return this.createEdge(
-      '/achievements',
-      fields,
-      params,
-      
-    );
-  }
-
   getAdStudies (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdStudy,

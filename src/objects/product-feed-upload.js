@@ -36,6 +36,7 @@ export default class ProductFeedUpload extends AbstractCrudObject {
 
   static get InputMethod (): Object {
     return Object.freeze({
+      google_sheets_fetch: 'Google Sheets Fetch',
       manual_upload: 'Manual Upload',
       reupload_last_file: 'Reupload Last File',
       server_fetch: 'Server Fetch',

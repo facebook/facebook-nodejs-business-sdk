@@ -80,6 +80,7 @@ export default class CustomAudience extends AbstractCrudObject {
       flight: 'FLIGHT',
       home_listing: 'HOME_LISTING',
       hotel: 'HOTEL',
+      location_based_item: 'LOCATION_BASED_ITEM',
       media_title: 'MEDIA_TITLE',
       offline_product: 'OFFLINE_PRODUCT',
       product: 'PRODUCT',

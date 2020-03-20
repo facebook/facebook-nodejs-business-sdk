@@ -48,6 +48,7 @@ export default class ProductCatalog extends AbstractCrudObject {
       fallback_image_url: 'fallback_image_url',
       feed_count: 'feed_count',
       id: 'id',
+      is_catalog_segment: 'is_catalog_segment',
       name: 'name',
       product_count: 'product_count',
       store_catalog_settings: 'store_catalog_settings',
@@ -430,15 +431,6 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  createProductSetsBatch (fields: Array<string>, params: Object = {}): Promise<ProductCatalog> {
-    return this.createEdge(
-      '/product_sets_batch',
-      fields,
-      params,
-      ProductCatalog
-    );
-  }
-
   getProducts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       ProductItem,
@@ -455,15 +447,6 @@ export default class ProductCatalog extends AbstractCrudObject {
       fields,
       params,
       ProductItem
-    );
-  }
-
-  createStoreProductItemsBatch (fields: Array<string>, params: Object = {}): Promise<ProductCatalog> {
-    return this.createEdge(
-      '/store_product_items_batch',
-      fields,
-      params,
-      ProductCatalog
     );
   }
 

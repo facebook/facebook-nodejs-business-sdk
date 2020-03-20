@@ -42,6 +42,7 @@ export default class PageCallToAction extends AbstractCrudObject {
   static get AndroidDestinationType (): Object {
     return Object.freeze({
       app_deeplink: 'APP_DEEPLINK',
+      become_a_volunteer: 'BECOME_A_VOLUNTEER',
       email: 'EMAIL',
       facebook_app: 'FACEBOOK_APP',
       messenger: 'MESSENGER',
@@ -65,6 +66,7 @@ export default class PageCallToAction extends AbstractCrudObject {
   }
   static get Type (): Object {
     return Object.freeze({
+      become_a_volunteer: 'BECOME_A_VOLUNTEER',
       book_appointment: 'BOOK_APPOINTMENT',
       book_now: 'BOOK_NOW',
       buy_tickets: 'BUY_TICKETS',
@@ -96,6 +98,7 @@ export default class PageCallToAction extends AbstractCrudObject {
   }
   static get WebDestinationType (): Object {
     return Object.freeze({
+      become_a_volunteer: 'BECOME_A_VOLUNTEER',
       become_supporter: 'BECOME_SUPPORTER',
       email: 'EMAIL',
       messenger: 'MESSENGER',

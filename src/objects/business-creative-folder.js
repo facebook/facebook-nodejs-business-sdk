@@ -25,6 +25,7 @@ export default class BusinessCreativeFolder extends AbstractCrudObject {
       creative_insight_permissions: 'creative_insight_permissions',
       description: 'description',
       id: 'id',
+      media_library_url: 'media_library_url',
       name: 'name',
       parent_folder: 'parent_folder',
     });

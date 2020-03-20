@@ -78,6 +78,7 @@ export { default as AdCreativeLinkDataSponsorshipInfoSpec } from './../src/objec
 export { default as AdCreativeLinkDataTemplateVideoSpec } from './../src/objects/ad-creative-link-data-template-video-spec';
 export { default as AdCreativeObjectStorySpec } from './../src/objects/ad-creative-object-story-spec';
 export { default as AdCreativePhotoData } from './../src/objects/ad-creative-photo-data';
+export { default as AdCreativePhotoDataMediaElements } from './../src/objects/ad-creative-photo-data-media-elements';
 export { default as AdCreativePlaceData } from './../src/objects/ad-creative-place-data';
 export { default as AdCreativePlatformCustomization } from './../src/objects/ad-creative-platform-customization';
 export { default as AdCreativePortraitCustomizations } from './../src/objects/ad-creative-portrait-customizations';
@@ -130,6 +131,7 @@ export { default as AdgroupReviewFeedback } from './../src/objects/adgroup-revie
 export { default as AdsActionStats } from './../src/objects/ads-action-stats';
 export { default as AdsImageCrops } from './../src/objects/ads-image-crops';
 export { default as AdsInsights } from './../src/objects/ads-insights';
+export { default as AdsInterest } from './../src/objects/ads-interest';
 export { default as AdsOptimalDeliveryGrowthOpportunity } from './../src/objects/ads-optimal-delivery-growth-opportunity';
 export { default as AdsPixel } from './../src/objects/ads-pixel';
 export { default as AdsPixelStats } from './../src/objects/ads-pixel-stats';
@@ -162,6 +164,7 @@ export { default as BusinessAssetGroup } from './../src/objects/business-asset-g
 export { default as BusinessAssetSharingAgreement } from './../src/objects/business-asset-sharing-agreement';
 export { default as BusinessCreative } from './../src/objects/business-creative';
 export { default as BusinessCreativeFolder } from './../src/objects/business-creative-folder';
+export { default as BusinessCreativeFolderSharingAgreement } from './../src/objects/business-creative-folder-sharing-agreement';
 export { default as BusinessImage } from './../src/objects/business-image';
 export { default as BusinessOwnedObjectOnBehalfOfRequest } from './../src/objects/business-owned-object-on-behalf-of-request';
 export { default as BusinessPageRequest } from './../src/objects/business-page-request';
@@ -178,6 +181,7 @@ export { default as CanvasAdSettings } from './../src/objects/canvas-ad-settings
 export { default as CanvasBodyElement } from './../src/objects/canvas-body-element';
 export { default as CanvasCollectionThumbnail } from './../src/objects/canvas-collection-thumbnail';
 export { default as CatalogBasedTargeting } from './../src/objects/catalog-based-targeting';
+export { default as CatalogItemAppealStatus } from './../src/objects/catalog-item-appeal-status';
 export { default as CheckBatchRequestStatus } from './../src/objects/check-batch-request-status';
 export { default as ChildEvent } from './../src/objects/child-event';
 export { default as ClientTransparencyStatus } from './../src/objects/client-transparency-status';
@@ -189,6 +193,7 @@ export { default as ContentDeliveryReport } from './../src/objects/content-deliv
 export { default as ConversionActionQuery } from './../src/objects/conversion-action-query';
 export { default as CopyrightReferenceContainer } from './../src/objects/copyright-reference-container';
 export { default as CoverPhoto } from './../src/objects/cover-photo';
+export { default as CreativeAssetTag } from './../src/objects/creative-asset-tag';
 export { default as CreativeHistory } from './../src/objects/creative-history';
 export { default as CreditPartitionActionOptions } from './../src/objects/credit-partition-action-options';
 export { default as Currency } from './../src/objects/currency';

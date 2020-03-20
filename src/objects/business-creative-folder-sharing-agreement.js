@@ -9,41 +9,35 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * VideoGameShow
+ * BusinessCreativeFolderSharingAgreement
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class VideoGameShow extends AbstractCrudObject {
+export default class BusinessCreativeFolderSharingAgreement extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      end_time: 'end_time',
-      game_status: 'game_status',
-      game_type: 'game_type',
+      folder_id: 'folder_id',
       id: 'id',
-      start_time: 'start_time',
+      requesting_business: 'requesting_business',
+      status: 'status',
     });
   }
 
-  static get Action (): Object {
+  static get RequestStatus (): Object {
     return Object.freeze({
-      end_game: 'END_GAME',
-      start_game: 'START_GAME',
+      approve: 'APPROVE',
+      decline: 'DECLINE',
+      expired: 'EXPIRED',
+      in_progress: 'IN_PROGRESS',
+      pending: 'PENDING',
     });
   }
 
   
-  get (fields: Array<string>, params: Object = {}): VideoGameShow {
+  get (fields: Array<string>, params: Object = {}): BusinessCreativeFolderSharingAgreement {
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
-      params
-    );
-  }
-
-  // $FlowFixMe : Support Generic Types
-  update (fields: Array<string>, params: Object = {}): VideoGameShow {
-    // $FlowFixMe : Support Generic Types
-    return super.update(
       params
     );
   }

@@ -15,6 +15,7 @@ import AdNetworkAnalyticsSyncQueryResult from './ad-network-analytics-sync-query
 import AdNetworkAnalyticsAsyncQueryResult from './ad-network-analytics-async-query-result';
 import AdsPixel from './ads-pixel';
 import AdPlacement from './ad-placement';
+import BusinessCreativeFolderSharingAgreement from './business-creative-folder-sharing-agreement';
 import BusinessAssetGroup from './business-asset-group';
 import OracleTransaction from './oracle-transaction';
 import BusinessUnit from './business-unit';
@@ -24,6 +25,7 @@ import Application from './application';
 import Page from './page';
 import ProductCatalog from './product-catalog';
 import ContentDeliveryReport from './content-delivery-report';
+import CreativeAssetTag from './creative-asset-tag';
 import BusinessCreativeFolder from './business-creative-folder';
 import BusinessCreative from './business-creative';
 import EventSourceGroup from './event-source-group';
@@ -128,6 +130,7 @@ export default class Business extends AbstractCrudObject {
     return Object.freeze({
       advertise: 'ADVERTISE',
       analyze: 'ANALYZE',
+      cashier_role: 'CASHIER_ROLE',
       create_content: 'CREATE_CONTENT',
       manage: 'MANAGE',
       manage_jobs: 'MANAGE_JOBS',
@@ -259,6 +262,16 @@ export default class Business extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/an_placements'
+    );
+  }
+
+  getAttemptedSharingAgreements (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      BusinessCreativeFolderSharingAgreement,
+      fields,
+      params,
+      fetchFirstPage,
+      '/attempted_sharing_agreements'
     );
   }
 
@@ -439,6 +452,16 @@ export default class Business extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/content_delivery_report'
+    );
+  }
+
+  getCreativeAssetTags (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      CreativeAssetTag,
+      fields,
+      params,
+      fetchFirstPage,
+      '/creative_asset_tags'
     );
   }
 
