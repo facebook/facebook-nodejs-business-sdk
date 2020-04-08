@@ -34,6 +34,7 @@ export default class Event extends AbstractCrudObject {
       interested_count: 'interested_count',
       is_canceled: 'is_canceled',
       is_draft: 'is_draft',
+      is_online: 'is_online',
       is_page_owned: 'is_page_owned',
       maybe_count: 'maybe_count',
       name: 'name',

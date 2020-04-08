@@ -92,6 +92,7 @@ export default class Page extends AbstractCrudObject {
       current_location: 'current_location',
       description: 'description',
       description_html: 'description_html',
+      differently_open_offerings: 'differently_open_offerings',
       directed_by: 'directed_by',
       display_subtext: 'display_subtext',
       displayed_message_response_time: 'displayed_message_response_time',
@@ -274,6 +275,7 @@ export default class Page extends AbstractCrudObject {
   static get TemporaryStatus (): Object {
     return Object.freeze({
       differently_open: 'DIFFERENTLY_OPEN',
+      no_data: 'NO_DATA',
       operating_as_usual: 'OPERATING_AS_USUAL',
       temporarily_closed: 'TEMPORARILY_CLOSED',
     });
@@ -291,8 +293,9 @@ export default class Page extends AbstractCrudObject {
       moderate_community: 'MODERATE_COMMUNITY',
       pages_messaging: 'PAGES_MESSAGING',
       pages_messaging_subscriptions: 'PAGES_MESSAGING_SUBSCRIPTIONS',
-      platform_manage_pages: 'PLATFORM_MANAGE_PAGES',
       platform_pages_manage_instant_articles: 'PLATFORM_PAGES_MANAGE_INSTANT_ARTICLES',
+      platform_page_administer: 'PLATFORM_PAGE_ADMINISTER',
+      platform_page_basic_admin: 'PLATFORM_PAGE_BASIC_ADMIN',
       platform_read_insights: 'PLATFORM_READ_INSIGHTS',
       profile_plus_advertise: 'PROFILE_PLUS_ADVERTISE',
       profile_plus_analyze: 'PROFILE_PLUS_ANALYZE',
@@ -317,8 +320,9 @@ export default class Page extends AbstractCrudObject {
       moderate_community: 'MODERATE_COMMUNITY',
       pages_messaging: 'PAGES_MESSAGING',
       pages_messaging_subscriptions: 'PAGES_MESSAGING_SUBSCRIPTIONS',
-      platform_manage_pages: 'PLATFORM_MANAGE_PAGES',
       platform_pages_manage_instant_articles: 'PLATFORM_PAGES_MANAGE_INSTANT_ARTICLES',
+      platform_page_administer: 'PLATFORM_PAGE_ADMINISTER',
+      platform_page_basic_admin: 'PLATFORM_PAGE_BASIC_ADMIN',
       platform_read_insights: 'PLATFORM_READ_INSIGHTS',
       profile_plus_advertise: 'PROFILE_PLUS_ADVERTISE',
       profile_plus_analyze: 'PROFILE_PLUS_ANALYZE',
@@ -328,6 +332,68 @@ export default class Page extends AbstractCrudObject {
       profile_plus_moderate: 'PROFILE_PLUS_MODERATE',
       read_page_mailboxes: 'READ_PAGE_MAILBOXES',
       view_monetization_insights: 'VIEW_MONETIZATION_INSIGHTS',
+    });
+  }
+  static get BackdatedTimeGranularity (): Object {
+    return Object.freeze({
+      day: 'day',
+      hour: 'hour',
+      min: 'min',
+      month: 'month',
+      none: 'none',
+      year: 'year',
+    });
+  }
+  static get CheckinEntryPoint (): Object {
+    return Object.freeze({
+      branding_checkin: 'BRANDING_CHECKIN',
+      branding_other: 'BRANDING_OTHER',
+      branding_photo: 'BRANDING_PHOTO',
+      branding_status: 'BRANDING_STATUS',
+    });
+  }
+  static get Formatting (): Object {
+    return Object.freeze({
+      markdown: 'MARKDOWN',
+      plaintext: 'PLAINTEXT',
+    });
+  }
+  static get PlaceAttachmentSetting (): Object {
+    return Object.freeze({
+      value_1: '1',
+      value_2: '2',
+    });
+  }
+  static get PostSurfacesBlacklist (): Object {
+    return Object.freeze({
+      value_1: '1',
+      value_2: '2',
+      value_3: '3',
+      value_4: '4',
+      value_5: '5',
+    });
+  }
+  static get PostingToRedspace (): Object {
+    return Object.freeze({
+      disabled: 'disabled',
+      enabled: 'enabled',
+    });
+  }
+  static get TargetSurface (): Object {
+    return Object.freeze({
+      story: 'STORY',
+      timeline: 'TIMELINE',
+    });
+  }
+  static get UnpublishedContentType (): Object {
+    return Object.freeze({
+      ads_post: 'ADS_POST',
+      draft: 'DRAFT',
+      inline_created: 'INLINE_CREATED',
+      published: 'PUBLISHED',
+      reviewable_branded_content: 'REVIEWABLE_BRANDED_CONTENT',
+      scheduled: 'SCHEDULED',
+      scheduled_recurring: 'SCHEDULED_RECURRING',
     });
   }
   static get PublishStatus (): Object {
@@ -786,12 +852,12 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createFeed (fields: Array<string>, params: Object = {}): Promise<PagePost> {
+  createFeed (fields: Array<string>, params: Object = {}): Promise<Page> {
     return this.createEdge(
       '/feed',
       fields,
       params,
-      PagePost
+      Page
     );
   }
 
@@ -1450,6 +1516,15 @@ export default class Page extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/video_copyright_rules'
+    );
+  }
+
+  createVideoCopyrightRule (fields: Array<string>, params: Object = {}): Promise<VideoCopyrightRule> {
+    return this.createEdge(
+      '/video_copyright_rules',
+      fields,
+      params,
+      VideoCopyrightRule
     );
   }
 

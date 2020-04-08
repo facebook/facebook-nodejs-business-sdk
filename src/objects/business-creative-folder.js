@@ -50,13 +50,6 @@ export default class BusinessCreativeFolder extends AbstractCrudObject {
     });
   }
 
-  deleteAgencies (params: Object = {}): Promise<*> {
-    return super.deleteEdge(
-      '/agencies',
-      params
-    );
-  }
-
   getAgencies (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Business,

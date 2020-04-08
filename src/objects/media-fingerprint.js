@@ -36,13 +36,6 @@ export default class MediaFingerprint extends AbstractCrudObject {
       songtrack: 'SONGTRACK',
     });
   }
-  static get FingerprintValidity (): Object {
-    return Object.freeze({
-      expired: 'EXPIRED',
-      expiring: 'EXPIRING',
-      valid: 'VALID',
-    });
-  }
 
   // $FlowFixMe : Support Generic Types
   delete (fields: Array<string>, params: Object = {}): AbstractObject {

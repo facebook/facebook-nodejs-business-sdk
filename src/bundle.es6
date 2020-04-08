@@ -218,8 +218,6 @@ export { default as Destination } from './../src/objects/destination';
 export { default as DestinationCatalogSettings } from './../src/objects/destination-catalog-settings';
 export { default as Domain } from './../src/objects/domain';
 export { default as DynamicContentSet } from './../src/objects/dynamic-content-set';
-export { default as DynamicItemDisplayBundle } from './../src/objects/dynamic-item-display-bundle';
-export { default as DynamicItemDisplayBundleFolder } from './../src/objects/dynamic-item-display-bundle-folder';
 export { default as DynamicPostChildAttachment } from './../src/objects/dynamic-post-child-attachment';
 export { default as DynamicPriceConfigByDate } from './../src/objects/dynamic-price-config-by-date';
 export { default as Engagement } from './../src/objects/engagement';

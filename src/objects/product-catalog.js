@@ -12,8 +12,6 @@ import Cursor from './../cursor';
 import Business from './business';
 import AssignedUser from './assigned-user';
 import AutomotiveModel from './automotive-model';
-import DynamicItemDisplayBundleFolder from './dynamic-item-display-bundle-folder';
-import DynamicItemDisplayBundle from './dynamic-item-display-bundle';
 import ProductCatalogCategory from './product-catalog-category';
 import CheckBatchRequestStatus from './check-batch-request-status';
 import CollaborativeAdsShareSettings from './collaborative-ads-share-settings';
@@ -163,24 +161,6 @@ export default class ProductCatalog extends AbstractCrudObject {
       fields,
       params,
       ProductCatalog
-    );
-  }
-
-  createBundleFolder (fields: Array<string>, params: Object = {}): Promise<DynamicItemDisplayBundleFolder> {
-    return this.createEdge(
-      '/bundle_folders',
-      fields,
-      params,
-      DynamicItemDisplayBundleFolder
-    );
-  }
-
-  createBundle (fields: Array<string>, params: Object = {}): Promise<DynamicItemDisplayBundle> {
-    return this.createEdge(
-      '/bundles',
-      fields,
-      params,
-      DynamicItemDisplayBundle
     );
   }
 

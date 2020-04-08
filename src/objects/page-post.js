@@ -81,6 +81,11 @@ export default class PagePost extends AbstractCrudObject {
     });
   }
 
+  static get With (): Object {
+    return Object.freeze({
+      location: 'LOCATION',
+    });
+  }
   static get BackdatedTimeGranularity (): Object {
     return Object.freeze({
       day: 'day',
@@ -89,63 +94,6 @@ export default class PagePost extends AbstractCrudObject {
       month: 'month',
       none: 'none',
       year: 'year',
-    });
-  }
-  static get CheckinEntryPoint (): Object {
-    return Object.freeze({
-      branding_checkin: 'BRANDING_CHECKIN',
-      branding_other: 'BRANDING_OTHER',
-      branding_photo: 'BRANDING_PHOTO',
-      branding_status: 'BRANDING_STATUS',
-    });
-  }
-  static get Formatting (): Object {
-    return Object.freeze({
-      markdown: 'MARKDOWN',
-      plaintext: 'PLAINTEXT',
-    });
-  }
-  static get PlaceAttachmentSetting (): Object {
-    return Object.freeze({
-      value_1: '1',
-      value_2: '2',
-    });
-  }
-  static get PostSurfacesBlacklist (): Object {
-    return Object.freeze({
-      value_1: '1',
-      value_2: '2',
-      value_3: '3',
-      value_4: '4',
-      value_5: '5',
-    });
-  }
-  static get PostingToRedspace (): Object {
-    return Object.freeze({
-      disabled: 'disabled',
-      enabled: 'enabled',
-    });
-  }
-  static get TargetSurface (): Object {
-    return Object.freeze({
-      story: 'STORY',
-      timeline: 'TIMELINE',
-    });
-  }
-  static get UnpublishedContentType (): Object {
-    return Object.freeze({
-      ads_post: 'ADS_POST',
-      draft: 'DRAFT',
-      inline_created: 'INLINE_CREATED',
-      published: 'PUBLISHED',
-      reviewable_branded_content: 'REVIEWABLE_BRANDED_CONTENT',
-      scheduled: 'SCHEDULED',
-      scheduled_recurring: 'SCHEDULED_RECURRING',
-    });
-  }
-  static get With (): Object {
-    return Object.freeze({
-      location: 'LOCATION',
     });
   }
   static get FeedStoryVisibility (): Object {

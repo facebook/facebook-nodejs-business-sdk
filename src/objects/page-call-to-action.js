@@ -55,6 +55,7 @@ export default class PageCallToAction extends AbstractCrudObject {
   static get IphoneDestinationType (): Object {
     return Object.freeze({
       app_deeplink: 'APP_DEEPLINK',
+      become_a_volunteer: 'BECOME_A_VOLUNTEER',
       email: 'EMAIL',
       facebook_app: 'FACEBOOK_APP',
       messenger: 'MESSENGER',

@@ -77,6 +77,7 @@ export default class AdCampaignActivity extends AbstractCrudObject {
 
   static get BidStrategyNew (): Object {
     return Object.freeze({
+      cost_cap: 'COST_CAP',
       lowest_cost_without_cap: 'LOWEST_COST_WITHOUT_CAP',
       lowest_cost_with_bid_cap: 'LOWEST_COST_WITH_BID_CAP',
       target_cost: 'TARGET_COST',
@@ -84,6 +85,7 @@ export default class AdCampaignActivity extends AbstractCrudObject {
   }
   static get BidStrategyOld (): Object {
     return Object.freeze({
+      cost_cap: 'COST_CAP',
       lowest_cost_without_cap: 'LOWEST_COST_WITHOUT_CAP',
       lowest_cost_with_bid_cap: 'LOWEST_COST_WITH_BID_CAP',
       target_cost: 'TARGET_COST',

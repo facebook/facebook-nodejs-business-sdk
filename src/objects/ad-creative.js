@@ -194,6 +194,12 @@ export default class AdCreative extends AbstractCrudObject {
       story_owner: 'STORY_OWNER',
     });
   }
+  static get InstantCheckoutSetting (): Object {
+    return Object.freeze({
+      off: 'off',
+      on: 'on',
+    });
+  }
   static get Operator (): Object {
     return Object.freeze({
       all: 'ALL',

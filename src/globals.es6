@@ -208,8 +208,6 @@ import './../src/objects/destination';
 import './../src/objects/destination-catalog-settings';
 import './../src/objects/domain';
 import './../src/objects/dynamic-content-set';
-import './../src/objects/dynamic-item-display-bundle';
-import './../src/objects/dynamic-item-display-bundle-folder';
 import './../src/objects/dynamic-post-child-attachment';
 import './../src/objects/dynamic-price-config-by-date';
 import './../src/objects/engagement';

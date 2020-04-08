@@ -682,24 +682,6 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createBatchReplace (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
-    return this.createEdge(
-      '/batchreplace',
-      fields,
-      params,
-      
-    );
-  }
-
-  createBatchUpload (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
-    return this.createEdge(
-      '/batchupload',
-      fields,
-      params,
-      
-    );
-  }
-
   createBlockListDraft (fields: Array<string>, params: Object = {}): Promise<AdAccount> {
     return this.createEdge(
       '/block_list_drafts',
