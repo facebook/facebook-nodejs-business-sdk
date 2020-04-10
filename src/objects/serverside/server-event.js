@@ -20,6 +20,7 @@ export default class ServerEvent {
 	_event_time: number;
 	_event_source_url: string;
 	_event_id: string;
+	_action_source: string;
 	_opt_out: bool;
 	_user_data: UserData;
 	_custom_data: CustomData;
@@ -29,11 +30,12 @@ export default class ServerEvent {
 	 * @param {Number} event_time A Unix timestamp in seconds indicating when the actual event occurred.
 	 * @param {String} event_source_url The browser URL where the event happened.
 	 * @param {String} event_id This ID can be any string chosen by the advertiser.
+	 * @param {String} action_source A string that indicates where the event took place.
 	 * @param {Boolean} opt_out A flag that indicates we should not use this event for ads delivery optimization.
 	 * @param {UserData} user_data A map that contains user data. See UserData Class for options.
 	 * @param {CustomData} custom_data A map that contains user data. See CustomData Class for options.
 	 */
-	constructor(event_name: string, event_time: number, event_source_url: string, user_data: UserData, custom_data: CustomData, event_id: string, opt_out: boolean) {
+	constructor(event_name: string, event_time: number, event_source_url: string, user_data: UserData, custom_data: CustomData, event_id: string, opt_out: boolean, action_source: string) {
 
 		this._event_name = event_name;
 		this._event_time = event_time;
@@ -42,6 +44,7 @@ export default class ServerEvent {
 		this._event_source_url = event_source_url;
 		this.event_id = event_id;
 		this._opt_out = opt_out;
+		this._action_source = action_source;
 	}
 
 	/**
@@ -139,6 +142,30 @@ export default class ServerEvent {
 	 */
 	setEventId(event_id: string)  : ServerEvent{
 		this._event_id = event_id;
+		return this;
+	}
+
+	/**
+	 * Gets the action_source for the current event. The Action Source represents where the action took place.
+	 */
+	get action_source() {
+		return this._action_source;
+	}
+
+	/**
+	 * Sets the action_source for the current event.
+	 * @param {String} action_source represents where the action took place. One of {'physical_store','app','chat','email','other','phone_call','system_generated','website'}
+	 */
+	set action_source(action_source: string) {
+		this._action_source = action_source;
+	}
+
+	/**
+	 * Sets the action_source for the current event.
+	 * @param {String} action_source represents where the action took place. One of {'physical_store','app','chat','email','other','phone_call','system_generated','website'}
+	 */
+	setActionSource(action_source: string) : ServerEvent {
+		this._action_source = action_source;
 		return this;
 	}
 
@@ -242,6 +269,10 @@ export default class ServerEvent {
 
 		if (this.custom_data) {
 			serverEvent.custom_data = this.custom_data.normalize();
+		}
+
+		if (this.action_source) {
+			serverEvent.action_source = this.action_source.toLowerCase();
 		}
 
 		if (this.opt_out) {
