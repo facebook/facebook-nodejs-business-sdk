@@ -21,6 +21,7 @@ export default class AdCreativeVideoData extends AbstractCrudObject {
       branded_content_sponsor_page_id: 'branded_content_sponsor_page_id',
       call_to_action: 'call_to_action',
       collection_thumbnails: 'collection_thumbnails',
+      customization_rules_spec: 'customization_rules_spec',
       image_hash: 'image_hash',
       image_url: 'image_url',
       link_description: 'link_description',

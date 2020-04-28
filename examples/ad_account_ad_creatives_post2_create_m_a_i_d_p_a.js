@@ -10,7 +10,7 @@
  'use strict';
 const bizSdk = require('facebook-nodejs-business-sdk');
 const AdAccount = bizSdk.AdAccount;
-const Campaign = bizSdk.Campaign;
+const AdCreative = bizSdk.AdCreative;
 
 const access_token = '<ACCESS_TOKEN>';
 const app_secret = '<APP_SECRET>';
@@ -33,13 +33,12 @@ let fields, params;
 fields = [
 ];
 params = {
-  'name' : 'Lead generation campaign',
-  'objective' : 'LEAD_GENERATION',
-  'status' : 'PAUSED',
-  'special_ad_categories' : [],
+  'name' : 'Dynamic Ad Template Creative Sample',
+  'object_story_spec' : {'page_id':'<pageID>','template_data':{'call_to_action':{'type':'INSTALL_MOBILE_APP','value':{'link':'http://www.example.com/appstoreurl'}},'message':'Test {{product.name | titleize}}','link':'http://www.example.com/appstoreurl','name':'Headline {{product.price}}','description':'Description {{product.description}}'}},
+  'product_set_id' : '<productSetID>',
 };
-const campaigns = (new AdAccount(id)).createCampaign(
+const adcreatives = (new AdAccount(id)).createAdCreative(
   fields,
   params
 );
-logApiCallResult('campaigns api call complete.', campaigns);
+logApiCallResult('adcreatives api call complete.', adcreatives);

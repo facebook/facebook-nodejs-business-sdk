@@ -31,6 +31,7 @@ export default class IGUser extends AbstractCrudObject {
       mentioned_media: 'mentioned_media',
       name: 'name',
       profile_picture_url: 'profile_picture_url',
+      shopping_review_status: 'shopping_review_status',
       username: 'username',
       website: 'website',
     });

@@ -111,6 +111,7 @@ export default class Group extends AbstractCrudObject {
       work_social: 'WORK_SOCIAL',
       work_team: 'WORK_TEAM',
       work_teamwork: 'WORK_TEAMWORK',
+      work_vc_call: 'WORK_VC_CALL',
     });
   }
   static get GroupType (): Object {
@@ -163,6 +164,7 @@ export default class Group extends AbstractCrudObject {
       work_social: 'WORK_SOCIAL',
       work_team: 'WORK_TEAM',
       work_teamwork: 'WORK_TEAMWORK',
+      work_vc_call: 'WORK_VC_CALL',
     });
   }
   static get SuggestionCategory (): Object {
@@ -291,15 +293,6 @@ export default class Group extends AbstractCrudObject {
       fields,
       params,
       Group
-    );
-  }
-
-  createOpenGraphActionFeed (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
-    return this.createEdge(
-      '/open_graph_action_feed',
-      fields,
-      params,
-      
     );
   }
 

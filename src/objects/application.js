@@ -504,15 +504,6 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  createMonetization (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
-    return this.createEdge(
-      '/monetization',
-      fields,
-      params,
-      
-    );
-  }
-
   createOccludesPopup (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/occludespopups',

@@ -10,7 +10,7 @@
  'use strict';
 const bizSdk = require('facebook-nodejs-business-sdk');
 const AdAccount = bizSdk.AdAccount;
-const Campaign = bizSdk.Campaign;
+const AdCreative = bizSdk.AdCreative;
 
 const access_token = '<ACCESS_TOKEN>';
 const app_secret = '<APP_SECRET>';
@@ -33,13 +33,10 @@ let fields, params;
 fields = [
 ];
 params = {
-  'name' : 'Lead generation campaign',
-  'objective' : 'LEAD_GENERATION',
-  'status' : 'PAUSED',
-  'special_ad_categories' : [],
+  'object_story_spec' : {'page_id':'<pageID>','video_data':{'link_description':'try it out','image_url':'<imageURL>','video_id':'<videoID>','call_to_action':{'type':'SIGN_UP','value':{'link':'http:\/\/fb.me\/','lead_gen_form_id':'<formID>'}}}},
 };
-const campaigns = (new AdAccount(id)).createCampaign(
+const adcreatives = (new AdAccount(id)).createAdCreative(
   fields,
   params
 );
-logApiCallResult('campaigns api call complete.', campaigns);
+logApiCallResult('adcreatives api call complete.', adcreatives);

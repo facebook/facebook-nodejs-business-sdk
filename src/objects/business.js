@@ -39,7 +39,6 @@ import BusinessApplicationRequest from './business-application-request';
 import BusinessPageRequest from './business-page-request';
 import BusinessRoleRequest from './business-role-request';
 import ProfilePictureSource from './profile-picture-source';
-import BusinessPixelTOS from './business-pixel-tos';
 import SystemUser from './system-user';
 import ThirdPartyMeasurementReportDataset from './third-party-measurement-report-dataset';
 import MeasurementUploadEvent from './measurement-upload-event';
@@ -139,10 +138,6 @@ export default class Business extends AbstractCrudObject {
       moderate_community: 'MODERATE_COMMUNITY',
       pages_messaging: 'PAGES_MESSAGING',
       pages_messaging_subscriptions: 'PAGES_MESSAGING_SUBSCRIPTIONS',
-      platform_pages_manage_instant_articles: 'PLATFORM_PAGES_MANAGE_INSTANT_ARTICLES',
-      platform_page_administer: 'PLATFORM_PAGE_ADMINISTER',
-      platform_page_basic_admin: 'PLATFORM_PAGE_BASIC_ADMIN',
-      platform_read_insights: 'PLATFORM_READ_INSIGHTS',
       profile_plus_advertise: 'PROFILE_PLUS_ADVERTISE',
       profile_plus_analyze: 'PROFILE_PLUS_ANALYZE',
       profile_plus_create_content: 'PROFILE_PLUS_CREATE_CONTENT',
@@ -822,22 +817,12 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  getPixelTos (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      BusinessPixelTOS,
-      fields,
-      params,
-      fetchFirstPage,
-      '/pixel_tos'
-    );
-  }
-
-  createPixelTo (fields: Array<string>, params: Object = {}): Promise<BusinessPixelTOS> {
+  createPixelTo (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/pixel_tos',
       fields,
       params,
-      BusinessPixelTOS
+      
     );
   }
 

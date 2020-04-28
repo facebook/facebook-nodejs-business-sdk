@@ -47,12 +47,4 @@ export default class AdPlacePageSet extends AbstractCrudObject {
       params
     );
   }
-
-  // $FlowFixMe : Support Generic Types
-  update (fields: Array<string>, params: Object = {}): AdPlacePageSet {
-    // $FlowFixMe : Support Generic Types
-    return super.update(
-      params
-    );
-  }
 }

@@ -24,26 +24,12 @@ export default class VideoGameShow extends AbstractCrudObject {
     });
   }
 
-  static get Action (): Object {
-    return Object.freeze({
-      end_game: 'END_GAME',
-      start_game: 'START_GAME',
-    });
-  }
 
   
   get (fields: Array<string>, params: Object = {}): VideoGameShow {
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
-      params
-    );
-  }
-
-  // $FlowFixMe : Support Generic Types
-  update (fields: Array<string>, params: Object = {}): VideoGameShow {
-    // $FlowFixMe : Support Generic Types
-    return super.update(
       params
     );
   }

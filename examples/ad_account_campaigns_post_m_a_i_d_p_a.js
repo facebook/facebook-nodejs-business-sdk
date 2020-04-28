@@ -33,10 +33,10 @@ let fields, params;
 fields = [
 ];
 params = {
-  'special_ad_category' : 'NONE',
   'name' : 'App Installs Campaign with Dynamic Product Ads',
   'objective' : 'APP_INSTALLS',
   'status' : 'PAUSED',
+  'special_ad_categories' : [],
 };
 const campaigns = (new AdAccount(id)).createCampaign(
   fields,

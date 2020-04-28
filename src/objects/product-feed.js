@@ -86,6 +86,7 @@ export default class ProductFeed extends AbstractCrudObject {
       local_inventory: 'LOCAL_INVENTORY',
       market: 'MARKET',
       media_title: 'MEDIA_TITLE',
+      offer: 'OFFER',
       products: 'PRODUCTS',
       vehicles: 'VEHICLES',
       vehicle_offer: 'VEHICLE_OFFER',

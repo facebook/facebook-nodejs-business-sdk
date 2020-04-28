@@ -49,6 +49,7 @@ export default class PagePost extends AbstractCrudObject {
       is_eligible_for_promotion: 'is_eligible_for_promotion',
       is_expired: 'is_expired',
       is_hidden: 'is_hidden',
+      is_inline_created: 'is_inline_created',
       is_instagram_eligible: 'is_instagram_eligible',
       is_popular: 'is_popular',
       is_published: 'is_published',

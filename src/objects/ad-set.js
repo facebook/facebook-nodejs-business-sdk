@@ -63,6 +63,7 @@ export default class AdSet extends AbstractCrudObject {
       lifetime_imps: 'lifetime_imps',
       lifetime_min_spend_target: 'lifetime_min_spend_target',
       lifetime_spend_cap: 'lifetime_spend_cap',
+      multi_optimization_goal_weight: 'multi_optimization_goal_weight',
       name: 'name',
       optimization_goal: 'optimization_goal',
       optimization_sub_event: 'optimization_sub_event',
@@ -205,6 +206,14 @@ export default class AdSet extends AbstractCrudObject {
       extended_exploration: 'EXTENDED_EXPLORATION',
       limited_exploration: 'LIMITED_EXPLORATION',
       none_exploration: 'NONE_EXPLORATION',
+    });
+  }
+  static get MultiOptimizationGoalWeight (): Object {
+    return Object.freeze({
+      balanced: 'BALANCED',
+      prefer_event: 'PREFER_EVENT',
+      prefer_install: 'PREFER_INSTALL',
+      undefined: 'UNDEFINED',
     });
   }
   static get OptimizationSubEvent (): Object {
