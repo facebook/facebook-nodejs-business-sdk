@@ -8,6 +8,7 @@ install:
 
 deploy:
   provider: script
+  skip_cleanup: true
   script: 
     - npm config set '//registry.npmjs.org/:_authToken' '${NPM_TOKEN}'
     - npm publish
