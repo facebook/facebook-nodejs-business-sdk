@@ -19,6 +19,7 @@ import DynamicPriceConfigByDate from './dynamic-price-config-by-date';
 export default class HotelRoom extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
+      applinks: 'applinks',
       base_price: 'base_price',
       currency: 'currency',
       description: 'description',

@@ -20,6 +20,7 @@ export default class VehicleOffer extends AbstractCrudObject {
       amount_percentage: 'amount_percentage',
       amount_price: 'amount_price',
       amount_qualifier: 'amount_qualifier',
+      applinks: 'applinks',
       body_style: 'body_style',
       cashback_currency: 'cashback_currency',
       cashback_price: 'cashback_price',

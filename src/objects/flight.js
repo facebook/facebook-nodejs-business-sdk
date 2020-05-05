@@ -16,6 +16,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class Flight extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
+      applinks: 'applinks',
       currency: 'currency',
       description: 'description',
       destination_airport: 'destination_airport',

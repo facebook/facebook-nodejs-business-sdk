@@ -20,6 +20,7 @@ export default class Hotel extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       address: 'address',
+      applinks: 'applinks',
       brand: 'brand',
       category: 'category',
       currency: 'currency',

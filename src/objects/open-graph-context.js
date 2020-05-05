@@ -7,8 +7,6 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import Cursor from './../cursor';
-import User from './user';
 
 /**
  * OpenGraphContext
@@ -22,36 +20,6 @@ export default class OpenGraphContext extends AbstractCrudObject {
     });
   }
 
-
-  getFriendsTaggedAt (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      User,
-      fields,
-      params,
-      fetchFirstPage,
-      '/friends_tagged_at'
-    );
-  }
-
-  getMusicListenFriends (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      User,
-      fields,
-      params,
-      fetchFirstPage,
-      '/music_listen_friends'
-    );
-  }
-
-  getVideoWatchFriends (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      User,
-      fields,
-      params,
-      fetchFirstPage,
-      '/video_watch_friends'
-    );
-  }
 
   
   get (fields: Array<string>, params: Object = {}): OpenGraphContext {

@@ -24,6 +24,7 @@ export default class AdgroupPlacementSpecificReviewFeedback extends AbstractCrud
       daily_deals: 'daily_deals',
       daily_deals_legacy: 'daily_deals_legacy',
       dpa: 'dpa',
+      dri_counterfeit: 'dri_counterfeit',
       facebook: 'facebook',
       facebook_pages_live_shopping: 'facebook_pages_live_shopping',
       instagram: 'instagram',

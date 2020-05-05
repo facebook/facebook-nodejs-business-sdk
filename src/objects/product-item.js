@@ -23,6 +23,7 @@ export default class ProductItem extends AbstractCrudObject {
       additional_image_urls: 'additional_image_urls',
       additional_variant_attributes: 'additional_variant_attributes',
       age_group: 'age_group',
+      applinks: 'applinks',
       availability: 'availability',
       brand: 'brand',
       capability_to_review_status: 'capability_to_review_status',

@@ -64,6 +64,7 @@ export { default as AdCampaignLearningStageInfo } from './../src/objects/ad-camp
 export { default as AdCampaignOptimizationEvent } from './../src/objects/ad-campaign-optimization-event';
 export { default as AdCampaignPacedBidInfo } from './../src/objects/ad-campaign-paced-bid-info';
 export { default as AdCreative } from './../src/objects/ad-creative';
+export { default as AdCreativeAdDisclaimer } from './../src/objects/ad-creative-ad-disclaimer';
 export { default as AdCreativeCollectionThumbnailInfo } from './../src/objects/ad-creative-collection-thumbnail-info';
 export { default as AdCreativeInsights } from './../src/objects/ad-creative-insights';
 export { default as AdCreativeInteractiveComponentsSpec } from './../src/objects/ad-creative-interactive-components-spec';
@@ -180,6 +181,7 @@ export { default as CanvasAdSettings } from './../src/objects/canvas-ad-settings
 export { default as CanvasBodyElement } from './../src/objects/canvas-body-element';
 export { default as CanvasCollectionThumbnail } from './../src/objects/canvas-collection-thumbnail';
 export { default as CatalogBasedTargeting } from './../src/objects/catalog-based-targeting';
+export { default as CatalogItemAppLinks } from './../src/objects/catalog-item-app-links';
 export { default as CatalogItemAppealStatus } from './../src/objects/catalog-item-appeal-status';
 export { default as CheckBatchRequestStatus } from './../src/objects/check-batch-request-status';
 export { default as ChildEvent } from './../src/objects/child-event';

@@ -9,21 +9,21 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * MessengerProfile
+ * CatalogItemAppLinks
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class MessengerProfile extends AbstractCrudObject {
+export default class CatalogItemAppLinks extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      account_linking_url: 'account_linking_url',
-      get_started: 'get_started',
-      greeting: 'greeting',
-      ice_breakers: 'ice_breakers',
-      payment_settings: 'payment_settings',
-      persistent_menu: 'persistent_menu',
-      target_audience: 'target_audience',
-      whitelisted_domains: 'whitelisted_domains',
+      android: 'android',
+      ios: 'ios',
+      ipad: 'ipad',
+      iphone: 'iphone',
+      web: 'web',
+      windows: 'windows',
+      windows_phone: 'windows_phone',
+      windows_universal: 'windows_universal',
     });
   }
 

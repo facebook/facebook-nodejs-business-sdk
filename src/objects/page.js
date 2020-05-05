@@ -48,7 +48,6 @@ import PageSettings from './page-settings';
 import Tab from './tab';
 import PageThreadOwner from './page-thread-owner';
 import EventTour from './event-tour';
-import PageUpcomingChange from './page-upcoming-change';
 import VideoCopyrightRule from './video-copyright-rule';
 import VideoCopyright from './video-copyright';
 import VideoList from './video-list';
@@ -469,6 +468,7 @@ export default class Page extends AbstractCrudObject {
       general_manager: 'general_manager',
       hometown: 'hometown',
       hours: 'hours',
+      inbox_labels: 'inbox_labels',
       invoice_access_invoice_change: 'invoice_access_invoice_change',
       invoice_access_onboarding_status_active: 'invoice_access_onboarding_status_active',
       leadgen: 'leadgen',
@@ -595,15 +595,6 @@ export default class Page extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/albums'
-    );
-  }
-
-  createAlbum (fields: Array<string>, params: Object = {}): Promise<Album> {
-    return this.createEdge(
-      '/albums',
-      fields,
-      params,
-      Album
     );
   }
 
@@ -824,16 +815,6 @@ export default class Page extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/events'
-    );
-  }
-
-  getFeaturedVideosCollection (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AdVideo,
-      fields,
-      params,
-      fetchFirstPage,
-      '/featured_videos_collection'
     );
   }
 
@@ -1491,16 +1472,6 @@ export default class Page extends AbstractCrudObject {
       fields,
       params,
       Page
-    );
-  }
-
-  getUpcomingChanges (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      PageUpcomingChange,
-      fields,
-      params,
-      fetchFirstPage,
-      '/upcoming_changes'
     );
   }
 

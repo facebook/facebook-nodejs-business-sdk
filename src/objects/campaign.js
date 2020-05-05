@@ -50,6 +50,7 @@ export default class Campaign extends AbstractCrudObject {
       recommendations: 'recommendations',
       source_campaign: 'source_campaign',
       source_campaign_id: 'source_campaign_id',
+      special_ad_categories: 'special_ad_categories',
       special_ad_category: 'special_ad_category',
       spend_cap: 'spend_cap',
       start_time: 'start_time',
@@ -141,7 +142,7 @@ export default class Campaign extends AbstractCrudObject {
       video_views: 'VIDEO_VIEWS',
     });
   }
-  static get SpecialAdCategory (): Object {
+  static get SpecialAdCategories (): Object {
     return Object.freeze({
       credit: 'CREDIT',
       employment: 'EMPLOYMENT',
@@ -153,6 +154,14 @@ export default class Campaign extends AbstractCrudObject {
     return Object.freeze({
       all: 'ALL',
       any: 'ANY',
+    });
+  }
+  static get SpecialAdCategory (): Object {
+    return Object.freeze({
+      credit: 'CREDIT',
+      employment: 'EMPLOYMENT',
+      housing: 'HOUSING',
+      none: 'NONE',
     });
   }
   static get StatusOption (): Object {

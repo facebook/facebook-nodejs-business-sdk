@@ -17,6 +17,7 @@ export default class Destination extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       address: 'address',
+      applinks: 'applinks',
       currency: 'currency',
       description: 'description',
       destination_id: 'destination_id',

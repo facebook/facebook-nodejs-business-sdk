@@ -32,16 +32,6 @@ export default class PublisherBlockList extends AbstractCrudObject {
   }
 
 
-  getPagedAppPublishers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/paged_app_publishers'
-    );
-  }
-
   getPagedWebPublishers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AbstractObject,

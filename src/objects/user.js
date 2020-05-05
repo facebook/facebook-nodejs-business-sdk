@@ -276,16 +276,6 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  getBooks (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      Page,
-      fields,
-      params,
-      fetchFirstPage,
-      '/books'
-    );
-  }
-
   getBusinessUsers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       BusinessUser,
@@ -399,16 +389,6 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  getGames (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      Page,
-      fields,
-      params,
-      fetchFirstPage,
-      '/games'
-    );
-  }
-
   createGamesPlay (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/games_plays',
@@ -512,16 +492,6 @@ export default class User extends AbstractCrudObject {
       fields,
       params,
       LiveVideo
-    );
-  }
-
-  getMovies (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      Page,
-      fields,
-      params,
-      fetchFirstPage,
-      '/movies'
     );
   }
 
@@ -636,16 +606,6 @@ export default class User extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/taggable_friends'
-    );
-  }
-
-  getTelevision (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      Page,
-      fields,
-      params,
-      fetchFirstPage,
-      '/television'
     );
   }
 

@@ -9,21 +9,16 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * MessengerProfile
+ * AdCreativeAdDisclaimer
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class MessengerProfile extends AbstractCrudObject {
+export default class AdCreativeAdDisclaimer extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      account_linking_url: 'account_linking_url',
-      get_started: 'get_started',
-      greeting: 'greeting',
-      ice_breakers: 'ice_breakers',
-      payment_settings: 'payment_settings',
-      persistent_menu: 'persistent_menu',
-      target_audience: 'target_audience',
-      whitelisted_domains: 'whitelisted_domains',
+      text: 'text',
+      title: 'title',
+      url: 'url',
     });
   }
 
