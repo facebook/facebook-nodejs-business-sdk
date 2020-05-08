@@ -59,18 +59,16 @@ export default class Http {
           // JSON failed to parse.
           reject({
             // Providing a structure compatible with the request-promise API.
-            // See the logic in `exceptions.js#constructErrorResponse`.
             name: STATUS_CODE_ERROR,
+            // This double-nested "error" is because request-promise includes
+            // an error field in the response, which would contain the Facebook
+            // response JSON object, which itself contains an error field.
             error: {
               error: {
                 message: 'Failed to parse response JSON.',
               }
             },
             statusCode: request.status,
-            method: request.method,
-            response: {
-              headers: request.headers
-            }
           });
           return;
         }
@@ -82,10 +80,6 @@ export default class Http {
             name: STATUS_CODE_ERROR,
             error: response,
             statusCode: request.status,
-            method: request.method,
-            response: {
-              headers: request.headers
-            }
           });
         }
       };
