@@ -11,6 +11,9 @@ import Api from './api';
 import HTTP_STATUS from './http-status';
 const requestPromise = require('request-promise');
 
+// request-promise error types
+const STATUS_CODE_ERROR = 'StatusCodeError';
+
 /**
  * Isomorphic Http Promise Requests Class
  * @flow
@@ -48,27 +51,42 @@ export default class Http {
     return new Promise((resolve, reject) => {
       const request = new window.XMLHttpRequest();
       request.open(method, url);
-      request.onload = function() {
+      request.onload = function () {
+        let response;
         try {
-          const response = JSON.parse(request.response);
-
-          if (request.status.toString() === HTTP_STATUS.OK) {
-            resolve(response);
-          } else {
-            reject(
-              new Error({
-                body: response,
-                status: request.status,
-              }),
-            );
-          }
+          response = JSON.parse(request.response);
         } catch (e) {
-          reject(
-            new Error({
-              body: request.responseText,
-              status: request.status,
-            }),
-          );
+          // JSON failed to parse.
+          reject({
+            // Providing a structure compatible with the request-promise API.
+            // See the logic in `exceptions.js#constructErrorResponse`.
+            name: STATUS_CODE_ERROR,
+            error: {
+              error: {
+                message: 'Failed to parse response JSON.',
+              }
+            },
+            statusCode: request.status,
+            method: request.method,
+            response: {
+              headers: request.headers
+            }
+          });
+          return;
+        }
+        if (request.status.toString() === HTTP_STATUS.OK) {
+          resolve(response);
+        } else {
+          reject({
+            // Providing a structure compatible with the request-promise API.
+            name: STATUS_CODE_ERROR,
+            error: response,
+            statusCode: request.status,
+            method: request.method,
+            response: {
+              headers: request.headers
+            }
+          });
         }
       };
       request.setRequestHeader('Content-Type', 'application/json');
