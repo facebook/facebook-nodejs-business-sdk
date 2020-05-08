@@ -11,9 +11,6 @@ import Api from './api';
 import HTTP_STATUS from './http-status';
 const requestPromise = require('request-promise');
 
-// request-promise error types
-const STATUS_CODE_ERROR = 'StatusCodeError';
-
 /**
  * Isomorphic Http Promise Requests Class
  * @flow
@@ -56,32 +53,21 @@ export default class Http {
         try {
           response = JSON.parse(request.response);
         } catch (e) {
-          // JSON failed to parse.
-          reject({
-            // Providing a structure compatible with the request-promise API.
-            name: STATUS_CODE_ERROR,
-            // This double-nested "error" is because request-promise includes
-            // an error field in the response, which would contain the Facebook
-            // response JSON object, which itself contains an error field.
+          // JSON failed to parse. Create a placeholder response.
+          response = {
             error: {
-              error: {
-                message: 'Failed to parse response JSON.',
-              }
-            },
-            statusCode: request.status,
-          });
+              message: 'Failed to parse response JSON.',
+            }
+          };
+          reject(convertXhrErrorToRequestPromiseError(request, response));
           return;
         }
-        if (request.status.toString() === HTTP_STATUS.OK) {
-          resolve(response);
-        } else {
-          reject({
-            // Providing a structure compatible with the request-promise API.
-            name: STATUS_CODE_ERROR,
-            error: response,
-            statusCode: request.status,
-          });
+        if (request.status.toString() !== HTTP_STATUS.OK) {
+          reject(convertXhrErrorToRequestPromiseError(request, response));
+          return;
         }
+        
+        resolve(response);
       };
       request.setRequestHeader('Content-Type', 'application/json');
       request.setRequestHeader('Accept', 'application/json');
@@ -137,4 +123,19 @@ export default class Http {
       throw response;
     });
   }
+}
+
+/**
+ * Converts the given XHR error to an error that looks like one that would
+ * be returned by the request-promise API.
+ * 
+ * @param {XMLHttpRequest} request 
+ * @param {any} response 
+ */
+function convertXhrErrorToRequestPromiseError(request, response) {
+  return {
+    name: 'StatusCodeError',
+    error: response,
+    statusCode: request.status,
+  };
 }
