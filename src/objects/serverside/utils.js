@@ -73,9 +73,7 @@ export default class ServerSideUtils {
    * @return {String} Normalized ISO country code.
    */
   static normalizeCountry (country: string) {
-    country = country.trim().toUpperCase();
-
-    if (country_codes.getCountry(country) == null) {
+    if (country_codes.getCountry(country.toUpperCase()) == null) {
       throw new Error("Invalid country code: '" + country + "'. Please follow ISO 3166-1 2-letter standard for representing country. eg: US");
     }
 
