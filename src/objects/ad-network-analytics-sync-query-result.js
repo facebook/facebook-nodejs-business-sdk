@@ -29,6 +29,7 @@ export default class AdNetworkAnalyticsSyncQueryResult extends AbstractCrudObjec
   }
   static get Breakdowns (): Object {
     return Object.freeze({
+      ad_server_campaign_id: 'AD_SERVER_CAMPAIGN_ID',
       ad_space: 'AD_SPACE',
       age: 'AGE',
       app: 'APP',

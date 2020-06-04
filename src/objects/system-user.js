@@ -35,6 +35,7 @@ export default class SystemUser extends AbstractCrudObject {
     return Object.freeze({
       admin: 'ADMIN',
       ads_rights_reviewer: 'ADS_RIGHTS_REVIEWER',
+      developer: 'DEVELOPER',
       employee: 'EMPLOYEE',
       finance_analyst: 'FINANCE_ANALYST',
       finance_editor: 'FINANCE_EDITOR',

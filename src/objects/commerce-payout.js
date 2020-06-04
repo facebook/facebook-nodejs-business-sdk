@@ -9,15 +9,18 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * ProductFeedUploadDiagnostics
+ * CommercePayout
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class ProductFeedUploadDiagnostics extends AbstractCrudObject {
+export default class CommercePayout extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      last_modified_time: 'last_modified_time',
-      report_url: 'report_url',
+      amount: 'amount',
+      payout_date: 'payout_date',
+      payout_reference_id: 'payout_reference_id',
+      status: 'status',
+      transfer_id: 'transfer_id',
     });
   }
 

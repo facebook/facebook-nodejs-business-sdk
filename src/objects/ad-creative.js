@@ -104,6 +104,7 @@ export default class AdCreative extends AbstractCrudObject {
       find_a_group: 'FIND_A_GROUP',
       find_your_groups: 'FIND_YOUR_GROUPS',
       follow_news_storyline: 'FOLLOW_NEWS_STORYLINE',
+      follow_page: 'FOLLOW_PAGE',
       follow_user: 'FOLLOW_USER',
       get_directions: 'GET_DIRECTIONS',
       get_offer: 'GET_OFFER',
@@ -209,13 +210,6 @@ export default class AdCreative extends AbstractCrudObject {
       all: 'ALL',
       any: 'ANY',
     });
-  }
-
-  deleteAdLabels (params: Object = {}): Promise<*> {
-    return super.deleteEdge(
-      '/adlabels',
-      params
-    );
   }
 
   createAdLabel (fields: Array<string>, params: Object = {}): Promise<AdCreative> {

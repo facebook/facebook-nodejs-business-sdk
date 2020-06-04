@@ -31,7 +31,6 @@ import LiveVideo from './live-video';
 import Permission from './permission';
 import Photo from './photo';
 import ProfilePictureSource from './profile-picture-source';
-import RequestHistory from './request-history';
 import Canvas from './canvas';
 import UserTaggableFriend from './user-taggable-friend';
 import AdVideo from './ad-video';
@@ -398,15 +397,6 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  createGamesStat (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
-    return this.createEdge(
-      '/games_stats',
-      fields,
-      params,
-      
-    );
-  }
-
   getGroups (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Group,
@@ -567,16 +557,6 @@ export default class User extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/picture'
-    );
-  }
-
-  getRequestHistory (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      RequestHistory,
-      fields,
-      params,
-      fetchFirstPage,
-      '/request_history'
     );
   }
 

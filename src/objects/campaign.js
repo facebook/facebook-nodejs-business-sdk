@@ -139,6 +139,7 @@ export default class Campaign extends AbstractCrudObject {
       post_engagement: 'POST_ENGAGEMENT',
       product_catalog_sales: 'PRODUCT_CATALOG_SALES',
       reach: 'REACH',
+      store_visits: 'STORE_VISITS',
       video_views: 'VIDEO_VIEWS',
     });
   }

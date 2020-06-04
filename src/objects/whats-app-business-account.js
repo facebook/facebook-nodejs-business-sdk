@@ -82,6 +82,15 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
     );
   }
 
+  createSubscribedApp (fields: Array<string>, params: Object = {}): Promise<WhatsAppBusinessAccount> {
+    return this.createEdge(
+      '/subscribed_apps',
+      fields,
+      params,
+      WhatsAppBusinessAccount
+    );
+  }
+
   
   get (fields: Array<string>, params: Object = {}): WhatsAppBusinessAccount {
     // $FlowFixMe : Support Generic Types

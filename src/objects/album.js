@@ -9,6 +9,7 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 import Cursor from './../cursor';
 import Comment from './comment';
+import Profile from './profile';
 import Photo from './photo';
 import ProfilePictureSource from './profile-picture-source';
 import Post from './post';
@@ -67,6 +68,16 @@ export default class Album extends AbstractCrudObject {
     );
   }
 
+  getLikes (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      Profile,
+      fields,
+      params,
+      fetchFirstPage,
+      '/likes'
+    );
+  }
+
   createLike (fields: Array<string>, params: Object = {}): Promise<Album> {
     return this.createEdge(
       '/likes',
@@ -102,6 +113,16 @@ export default class Album extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/picture'
+    );
+  }
+
+  getReactions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      Profile,
+      fields,
+      params,
+      fetchFirstPage,
+      '/reactions'
     );
   }
 

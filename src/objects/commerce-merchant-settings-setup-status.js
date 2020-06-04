@@ -9,16 +9,18 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * CustomAudiencePrefillState
+ * CommerceMerchantSettingsSetupStatus
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class CustomAudiencePrefillState extends AbstractCrudObject {
+export default class CommerceMerchantSettingsSetupStatus extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      description: 'description',
-      num_added: 'num_added',
-      status: 'status',
+      deals_setup: 'deals_setup',
+      marketplace_approval_status: 'marketplace_approval_status',
+      marketplace_approval_status_details: 'marketplace_approval_status_details',
+      payment_setup: 'payment_setup',
+      shop_setup: 'shop_setup',
     });
   }
 

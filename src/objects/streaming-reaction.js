@@ -24,6 +24,7 @@ export default class StreamingReaction extends AbstractCrudObject {
   static get ReactionType (): Object {
     return Object.freeze({
       angry: 'ANGRY',
+      care: 'CARE',
       haha: 'HAHA',
       like: 'LIKE',
       love: 'LOVE',

@@ -24,6 +24,7 @@ import CustomConversion from './custom-conversion';
 import Application from './application';
 import Page from './page';
 import ProductCatalog from './product-catalog';
+import CommerceMerchantSettings from './commerce-merchant-settings';
 import ContentDeliveryReport from './content-delivery-report';
 import CreativeAssetTag from './creative-asset-tag';
 import BusinessCreativeFolder from './business-creative-folder';
@@ -32,6 +33,7 @@ import EventSourceGroup from './event-source-group';
 import ExtendedCredit from './extended-credit';
 import BusinessImage from './business-image';
 import BusinessAssetSharingAgreement from './business-asset-sharing-agreement';
+import BusinessAgreement from './business-agreement';
 import InstagramUser from './instagram-user';
 import OfflineConversionDataSet from './offline-conversion-data-set';
 import BusinessAdAccountRequest from './business-ad-account-request';
@@ -441,6 +443,16 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
+  getCommerceMerchantSettings (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      CommerceMerchantSettings,
+      fields,
+      params,
+      fetchFirstPage,
+      '/commerce_merchant_settings'
+    );
+  }
+
   getContentDeliveryReport (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       ContentDeliveryReport,
@@ -544,6 +556,16 @@ export default class Business extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/initiated_audience_sharing_requests'
+    );
+  }
+
+  getInitiatedSharingAgreements (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      BusinessAgreement,
+      fields,
+      params,
+      fetchFirstPage,
+      '/initiated_sharing_agreements'
     );
   }
 
@@ -833,6 +855,16 @@ export default class Business extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/received_audience_sharing_requests'
+    );
+  }
+
+  getReceivedSharingAgreements (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      BusinessAgreement,
+      fields,
+      params,
+      fetchFirstPage,
+      '/received_sharing_agreements'
     );
   }
 

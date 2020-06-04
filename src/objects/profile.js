@@ -44,6 +44,7 @@ export default class Profile extends AbstractCrudObject {
   static get Type (): Object {
     return Object.freeze({
       angry: 'ANGRY',
+      care: 'CARE',
       haha: 'HAHA',
       like: 'LIKE',
       love: 'LOVE',
