@@ -23,6 +23,10 @@ export default class EventRequest {
 	_events: Array<ServerEvent>;
 	_partner_agent: ?string;
 	_test_event_code: ?string;
+	_namespace_id: ?string;
+	_upload_id: ?string;
+	_upload_tag: ?string;
+	_upload_source: ?string;
 	_debug_mode: bool;
 	_api: Object;
 
@@ -32,9 +36,16 @@ export default class EventRequest {
 	 * @param {Array<ServerEvent>} events Data for the request Payload for a Server Side Event
 	 * @param {?String} partner_agent Platform from which the event is sent e.g. wordpress
 	 * @param {?String} test_event_code Test Event Code used to verify that your server events are received correctly by Facebook.
+	 * @param {?String} namespace_id Scope used to resolve extern_id or Third-party ID. Can be another data set or data partner ID.
+	 * @param {?String} upload_id Unique id used to denote the current set being uploaded.
+	 * @param {?String} upload_tag Tag string added to track your Offline event uploads.
+	 * @param {?String} upload_source The origin/source of data for the dataset to be uploaded.
 	 * @param {Boolean} debug_mode_flag Set to true if you want to enable more logging in SDK
 	 */
-	constructor(access_token: string, pixel_id: string, events: Array<ServerEvent> = [], partner_agent: ?string = null, test_event_code: ?string = null, debug_mode_flag: bool = false ) {
+	constructor(access_token: string, pixel_id: string, events: Array<ServerEvent> = [],
+							partner_agent: ?string = null, test_event_code: ?string = null,
+							namespace_id: string, upload_id: string, upload_tag: string, upload_source: string,
+							debug_mode_flag: bool = false ) {
 
 		this._access_token = access_token;
 		this._pixel_id = pixel_id;
@@ -42,6 +53,10 @@ export default class EventRequest {
 		this._partner_agent = partner_agent;
 		this._test_event_code = test_event_code;
 		this._debug_mode = debug_mode_flag;
+		this._namespace_id = namespace_id;
+		this._upload_id = upload_id;
+		this._upload_tag = upload_tag;
+		this._upload_source = upload_source;
 
 		this._api = FacebookAdsApi.init(this._access_token);
 	}
@@ -203,6 +218,105 @@ export default class EventRequest {
 		return this;
 	}
 
+	/* Region Offline Conversion Fields */
+	/**
+	 * Gets the NamespaceId for the events
+	 */
+	get namespace_id() {
+		return this._namespace_id;
+	}
+
+	/**
+	 * Sets the namespace_id for the events
+	 * @param {String} namespace_id Scope used to resolve extern_id or Third-party ID. Can be another data set or data partner ID.
+	 */
+	set namespace_id(namespace_id: string) {
+		this._namespace_id = namespace_id;
+	}
+
+	/**
+	 * Sets the namespace_id for the events
+	 * @param {String} namespace_id Scope used to resolve extern_id or Third-party ID. Can be another data set or data partner ID.
+	 */
+	setNamespaceId(namespace_id: string) : EventRequest {
+		this._namespace_id = namespace_id;
+		return this;
+	}
+
+	/**
+	 * Gets the Upload Tag for the current events upload
+	 */
+	get upload_tag() {
+		return this._upload_tag;
+	}
+
+	/**
+	 * Sets the upload_tag for the current events upload
+	 * @param {String} upload_tag Tag string added to Track your Offline event uploads
+	 */
+	set upload_tag(upload_tag: string) {
+		this._upload_tag = upload_tag;
+	}
+
+	/**
+	 * Sets the upload_tag for the current events upload
+	 * @param {String} upload_tag Tag string added to Track your Offline event uploads
+	 */
+	setUploadTag(upload_tag: string) : EventRequest {
+		this._upload_tag = upload_tag;
+		return this;
+	}
+
+	/**
+	 * Gets the Upload Tag for the current events upload
+	 */
+	get upload_id() {
+		return this._upload_id;
+	}
+
+	/**
+	 * Sets the upload_id for the current events upload
+	 * @param {String} upload_id Unique id used to denote the current set being uploaded
+	 */
+	set upload_id(upload_id: string) {
+		this._upload_id = upload_id;
+	}
+
+	/**
+	 * Sets the upload_id for the current events upload
+	 * @param {String} upload_id Unique id used to denote the current set being uploaded
+	 */
+	setUploadId(upload_id: string) : EventRequest {
+		this._upload_id = upload_id;
+		return this;
+	}
+
+	/**
+	 * Gets the Upload Tag for the current events upload
+	 */
+	get upload_source() {
+		return this._upload_source;
+	}
+
+	/**
+	 * Sets the upload_source for the current events upload
+	 * @param {String} upload_source origin/source of data for the dataset to be uploaded.
+	 */
+	set upload_source(upload_source: string) {
+		this._upload_source = upload_source;
+	}
+
+	/**
+	 * Sets the upload_source for the current events upload
+	 * @param {String} upload_source origin/source of data for the dataset to be uploaded.
+	 */
+	setUploadSource(upload_source: string) : EventRequest {
+		this._upload_source = upload_source;
+		return this;
+	}
+
+
+
 	/**
 	 * Executes the current event_request data by making a call to the Facebook Graph API.
 	 */
@@ -226,7 +340,11 @@ export default class EventRequest {
 		params = {
 			'data': normalized_events,
 			'partner_agent': this.partner_agent,
-			'test_event_code' : this.test_event_code
+			'test_event_code' : this.test_event_code,
+			'namespace_id' : this.namespace_id,
+			'upload_id' : this.upload_id,
+			'upload_tag' : this.upload_tag,
+			'upload_source' : this.upload_source,
 		};
 
 		const adsPixelPromise = (new AdsPixel(this._pixel_id)).createEvent(
