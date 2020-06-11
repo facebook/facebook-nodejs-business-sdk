@@ -17,17 +17,29 @@ export default class Content {
 	_id: string;
 	_quantity: number;
 	_item_price: number;
+	_title: string;
+	_description: string;
+	_category: string;
+	_brand: string;
 
 	/**
 	 * @param {String} id Product Id of the Item.
 	 * @param {Number} quantity Quantity of the Item.
 	 * @param {Number} item_price Price per unit of the content/product.
+	 * @param {String} title Title of the listed Item.
+	 * @param {String} description Product description used for the item.
+	 * @param {String} brand Brand of the item.
+	 * @param {String} category Category of the Item.
 	 */
-	constructor(id: string, quantity: number, item_price: number)  {
+	constructor(id: string, quantity: number, item_price: number, title: string, description: string, brand: string, category: string)  {
 
 		this._id = id;
 		this._quantity = quantity;
 		this._item_price = item_price;
+		this._title = title;
+		this._description = description;
+		this._brand = brand;
+		this._category = category;
 	}
 
 	/**
@@ -115,6 +127,108 @@ export default class Content {
 	}
 
 	/**
+	 * Gets the Title of the listed Item.
+	 * A string representing the Title for the product.
+	 */
+	get  title()  {
+		return  this._title;
+	}
+
+	/**
+	 * Sets the Title of the listed Item.
+	 * @param title A string representing the Title for the product.
+	 */
+	set title(title: string)  {
+		this._title = title;
+	}
+
+    /**
+	 * Sets the Title of the Item.
+	 * @param title is a string representing listed title for the product.
+	 */
+	setTitle(title: string) : Content {
+		this._title = title;
+        return this;
+	}
+
+	/**
+	 * Gets the Description of the listed Item.
+	 * A string representing the Description for the product.
+	 */
+	get description()  {
+		return  this._description;
+	}
+
+	/**
+	 * Sets the Description of the listed Item.
+	 * @param description A string representing the Description for the product.
+	 */
+	set description(description: string)  {
+		this._description = description;
+	}
+
+	   /**
+	 * Sets the Product Description of the Item.
+	 * @param description is a string representing the description for the product.
+	 */
+	setDescription(description: string) : Content {
+		this._description = description;
+        return this;
+	}
+
+	/**
+	 * Gets the Brand of the listed Item.
+	 * A string representing the Brand for the product.
+	 */
+	get brand()  {
+		return  this._brand;
+	}
+
+	/**
+	 * Sets the Brand of the listed Item.
+	 * @param brand A string representing the Brand for the product.
+	 */
+	set brand(brand: string)  {
+		this._brand = brand;
+	}
+
+	/**
+	 * Sets the Brand of the Product.
+	 * @param brand is a string representing the Brand for the product.
+	 */
+	setBrand(brand: string) : Content {
+		this._brand = brand;
+        return this;
+	}
+
+	/**
+	 * Gets the Category of the listed Item.
+	 * A string representing the Category for the product.
+	 */
+	get category()  {
+		return  this._category;
+	}
+
+	/**
+	 * Sets the Category of the listed Item.
+	 * @param category A string representing the Category for the product.
+	 */
+	set category(category: string)  {
+		this._category = category;
+	}
+
+	/**
+	 * Sets the Category of the Product.
+	 * @param category is a string representing the Category for the product.
+	 */
+	setCategory(category: string) : Content {
+		this._category = category;
+        return this;
+	}
+
+
+
+	/**
 	 * Returns the normalized payload for the Content.
 	 * @returns {Object} normalized Content payload.
 	 */
@@ -131,6 +245,22 @@ export default class Content {
 
 		if (this.item_price) {
 			content['item_price'] = this.item_price;
+		}
+
+		if (this.title) {
+			content['title'] = this.title;
+		}
+
+		if (this.description) {
+			content['description'] = this.description;
+		}
+
+		if (this.brand) {
+			content['brand'] = this.brand;
+		}
+
+		if (this.category) {
+			content['category'] = this.category;
 		}
 
 		return content;
