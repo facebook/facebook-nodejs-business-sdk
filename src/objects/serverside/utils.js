@@ -60,6 +60,13 @@ export default class ServerSideUtils {
       case 'zp':
         normalized_input = ServerSideUtils.normalizeZip(normalized_input);
         break;
+      case 'f5first':
+      case 'f5last':
+        normalized_input = ServerSideUtils.normalizeF5NameField(normalized_input);
+        break;
+      case 'fi':
+        normalized_input = normalized_input.charAt(0);
+        break;
     }
 
 	  // Hashing the normalized input with SHA 256
@@ -96,7 +103,7 @@ export default class ServerSideUtils {
    * @return {String} Normalized ISO currency code.
    */
   static normalizeCurrency (currency: string) {
-    
+
     // Retain only alpha characters bounded for ISO code.
     currency = currency.replace(/[^a-zA-Z]/g, '');
 
@@ -138,6 +145,16 @@ export default class ServerSideUtils {
     } else { return null; }
 
     return gender;
+  }
+
+   /**
+   * Normalizes the 5 character name field.
+   * @param  {String} [name] name value to be normalized.
+   * @return {String} Normalized 5 character {first,last}name field value.
+   */
+  static normalizeF5NameField (name: string) {
+
+    return name.length <= 5 ? name : name.substring(0,5);
   }
 
   /**

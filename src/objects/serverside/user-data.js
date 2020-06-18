@@ -35,6 +35,9 @@ export default class UserData {
 	_subscription_id: string;
 	_fb_login_id: string;
 	_lead_id: string;
+	_f5first: string;
+	_f5last: string;
+	_fi : string;
 
 	/**
 	 * @param {String} email An email address, in lowercase.
@@ -587,6 +590,75 @@ export default class UserData {
 	}
 
 	/**
+	 *
+	 * Gets the first 5 characters of the FirstName.
+	 */
+	get f5first() {
+		return this._f5first;
+	}
+
+	/**
+	 * Sets the Gets the first 5 characters of the FirstName.
+	 */
+	set f5first(f5first: string) {
+		this._f5first = f5first;
+	}
+
+	/**
+	 * Sets the first 5 characters of the FirstName.
+	 */
+	setF5First(f5first: string) : UserData {
+		this._f5first = f5first;
+		return this;
+	}
+
+	/**
+	 *
+	 * Gets the first 5 characters of the LastName.
+	 */
+	get f5last() {
+		return this._f5last;
+	}
+
+	/**
+	 * Sets the first 5 characters of the LastName.
+	 */
+	set f5last(f5last: string) {
+		this._f5last = f5last;
+	}
+
+	/**
+	 * Sets the first 5 characters of the LastName.
+	 */
+	setF5Last(f5last: string) : UserData {
+		this._f5last = f5last;
+		return this;
+	}
+
+	/**
+	 *
+	 * Gets the first Name Initial.
+	 */
+	get fi() {
+		return this._fi;
+	}
+
+	/**
+	 * Sets the first Name Initial.
+	 */
+	set fi(fi: string) {
+		this._fi = fi;
+	}
+
+	/**
+	 * Sets the first Name Initial.
+	 */
+	setFi(fi: string) : UserData {
+		this._fi = fi;
+		return this;
+	}
+
+	/**
 	 * Returns the normalized payload for the user_data parameter.
 	 * @returns {Object} normalized user data payload.
 	 */
@@ -663,6 +735,18 @@ export default class UserData {
 
 		if (this.lead_id) {
 			userData['lead_id'] = this.lead_id;
+		}
+
+		if (this.f5first) {
+			userData['f5first'] = ServerSideUtils.normalizeAndHash(this.f5first, 'f5first');
+		}
+
+		if (this.f5last) {
+			userData['f5last'] = ServerSideUtils.normalizeAndHash(this.f5last, 'f5last');
+		}
+
+		if (this.fi) {
+			userData['fi'] = ServerSideUtils.normalizeAndHash(this.fi, 'fi');
 		}
 
 		return userData;
