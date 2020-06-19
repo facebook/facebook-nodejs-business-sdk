@@ -1,0 +1,14 @@
+{
+  "name": "facebook-nodejs-business-sdk-tests",
+  "version": "1.0.0",
+  "description": "Adding tests for Facebook NodeJs Business SDK",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "dependencies": {
+    "facebook-nodejs-business-sdk": "file:../"
+  },
+  "devDependencies": {
+    "mocha": "^8.0.1"
+  }
+}
