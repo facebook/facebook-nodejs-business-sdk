@@ -24,6 +24,9 @@ export default class ServerEvent {
 	_opt_out: bool;
 	_user_data: UserData;
 	_custom_data: CustomData;
+	_data_processing_options: Array<string>;
+	_data_processing_options_state: number;
+	_data_processing_options_country: number;
 
 	/**
 	 * @param {String} event_name A Facebook pixel Standard Event or Custom Event name.
@@ -34,8 +37,11 @@ export default class ServerEvent {
 	 * @param {Boolean} opt_out A flag that indicates we should not use this event for ads delivery optimization.
 	 * @param {UserData} user_data A map that contains user data. See UserData Class for options.
 	 * @param {CustomData} custom_data A map that contains user data. See CustomData Class for options.
+	 * @param {Array<string>} data_processing_options Processing options you would like to enable for a specific event.
+	 * @param {Number} data_processing_options_country A country that you want to associate to this data processing option.
+	 * @param {Number} data_processing_options_state A state that you want to associate with this data processing option.
 	 */
-	constructor(event_name: string, event_time: number, event_source_url: string, user_data: UserData, custom_data: CustomData, event_id: string, opt_out: boolean, action_source: string) {
+	constructor(event_name: string, event_time: number, event_source_url: string, user_data: UserData, custom_data: CustomData, event_id: string, opt_out: boolean, action_source: string, data_processing_options: Array<string>, data_processing_options_country: number, data_processing_options_state: number) {
 
 		this._event_name = event_name;
 		this._event_time = event_time;
@@ -45,6 +51,9 @@ export default class ServerEvent {
 		this.event_id = event_id;
 		this._opt_out = opt_out;
 		this._action_source = action_source;
+		this._data_processing_options = data_processing_options;
+		this._data_processing_options_country = data_processing_options_country;
+		this._data_processing_options_state = data_processing_options_state;
 	}
 
 	/**
@@ -248,6 +257,86 @@ export default class ServerEvent {
 	}
 
 	/**
+	 * Gets the data_processing_options for the current event.
+	 * Processing options you would like to enable for a specific event.
+	 */
+	get data_processing_options() {
+		return this._data_processing_options;
+	}
+
+	/**
+	 * Sets the data_processing_options for the current event.
+	 * @param {Array<string>} data_processing_options represents Data processing options you would like to enable for a specific event, e.g. [] or ['LDU']
+	 * @see {@link https://developers.facebook.com/docs/marketing-apis/data-processing-options}
+	 */
+	set data_processing_options(data_processing_options: Array<string>) {
+		this._data_processing_options = data_processing_options;
+	}
+
+	/**
+	 * Sets the data_processing_options for the current event.
+	 * @param {Array<string>} data_processing_options represents Data processing options you would like to enable for a specific event, e.g. [] or ['LDU']
+	 * @see {@link https://developers.facebook.com/docs/marketing-apis/data-processing-options}
+	 */
+	setDataProcessingOptions(data_processing_options: Array<string>) : ServerEvent {
+		this._data_processing_options = data_processing_options;
+		return this;
+	}
+
+	/**
+	 * Gets the data_processing_options_country for the current event.
+	 * A country that you want to associate to this data processing option.
+	 * @see {@link https://developers.facebook.com/docs/marketing-apis/data-processing-options}
+	 */
+	get data_processing_options_country() {
+		return this._data_processing_options_country;
+	}
+
+	/**
+	 * Sets the data_processing_options_country for the current event.
+	 * @param {number} data_processing_options_country represents country that you want to associate to this data processing option.
+	 */
+	set data_processing_options_country(data_processing_options_country: number) {
+		this._data_processing_options_country = data_processing_options_country;
+	}
+
+	/**
+	 * Sets the data_processing_options_country for the current event.
+	 * @param {number} data_processing_options_country represents country that you want to associate to this data processing option.
+	 */
+	setDataProcessingOptionsCountry(data_processing_options_country: number) : ServerEvent {
+		this._data_processing_options_country = data_processing_options_country;
+		return this;
+	}
+
+	/**
+	 * Gets the data_processing_options_state for the current event.
+	 * A state that you want to associate with this data processing option.
+	 * @see {@link https://developers.facebook.com/docs/marketing-apis/data-processing-options}
+	 */
+	get data_processing_options_state() {
+		return this._data_processing_options_state;
+	}
+
+	/**
+	 * Sets the data_processing_options_state for the current event.
+	 * @param {number} data_processing_options_state represents state that you want to associate with this data processing option.
+	 */
+	set data_processing_options_state(data_processing_options_state: number) {
+		this._data_processing_options_state = data_processing_options_state;
+	}
+
+	/**
+	 * Sets the data_processing_options_state for the current event.
+	 * @param {number} data_processing_options_state represents state that you want to associate with this data processing option.
+	 */
+	setDataProcessingOptionsState(data_processing_options_state: number) : ServerEvent {
+		this._data_processing_options_state = data_processing_options_state;
+		return this;
+	}
+
+
+	/**
 	 * Returns the normalized payload for the event.
 	 * @returns {Object} normalized event payload.
 	 */
@@ -285,6 +374,18 @@ export default class ServerEvent {
 
 		if (this.event_source_url) {
 			serverEvent.event_source_url = this.event_source_url;
+		}
+
+		if (this.data_processing_options) {
+			serverEvent.data_processing_options = this.data_processing_options;
+		}
+
+		if (this.data_processing_options_country) {
+			serverEvent.data_processing_options_country = this.data_processing_options_country;
+		}
+
+		if (this.data_processing_options_state) {
+			serverEvent.data_processing_options_state = this.data_processing_options_state;
 		}
 
 		return serverEvent;
