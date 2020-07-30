@@ -9,6 +9,7 @@
     "facebook-nodejs-business-sdk": "file:../"
   },
   "devDependencies": {
-    "mocha": "^8.0.1"
+    "mocha": "^8.0.1",
+    "chai": "~3.5.0"
   }
 }

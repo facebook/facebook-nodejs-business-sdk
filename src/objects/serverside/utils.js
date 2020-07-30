@@ -67,6 +67,15 @@ export default class ServerSideUtils {
       case 'fi':
         normalized_input = normalized_input.charAt(0);
         break;
+      case 'dobd':
+        normalized_input = ServerSideUtils.normalizeDobd(normalized_input);
+        break;
+      case 'dobm':
+        normalized_input = ServerSideUtils.normalizeDobm(normalized_input);
+        break;
+      case 'doby':
+        normalized_input = ServerSideUtils.normalizeDoby(normalized_input);
+        break;
     }
 
 	  // Hashing the normalized input with SHA 256
@@ -203,6 +212,55 @@ export default class ServerSideUtils {
     }
 
     return zip;
+  }
+
+  /**
+   * Normalizes the given date of birth day
+   * @param  {String} [dobd] value to be normalized.
+   * @return {String} Normalized value.
+   */
+  static normalizeDobd (dobd: string) {
+    if (dobd.length === 1) {
+      dobd = '0' + dobd;
+    }
+
+    const dobd_int = parseInt(dobd);
+    if (dobd_int < 1 || dobd_int > 31) {
+      throw new Error("Invalid format for dobd:'" + dobd + "'.Please use 'DD' format for dobd.")
+    }
+
+    return dobd;
+  }
+
+  /**
+   * Normalizes the given date of birth month
+   * @param  {String} [dobm] value to be normalized.
+   * @return {String} Normalized value.
+   */
+  static normalizeDobm (dobm: string) {
+    if (dobm.length === 1) {
+      dobm = '0' + dobm;
+    }
+
+    const dobm_int = parseInt(dobm);
+    if (dobm_int < 1 || dobm_int > 12) {
+      throw new Error("Invalid format for dobm:'" + dobm + "'.Please use 'MM' format for dobm.")
+    }
+
+    return dobm;
+  }
+
+  /**
+   * Normalizes the given date of birth year
+   * @param  {String} [doby] value to be normalized.
+   * @return {String} Normalized value.
+   */
+  static normalizeDoby (doby: string) {
+    if (!doby.match(/^[0-9]{4}$/)) {
+      throw new Error("Invalid format for doby:'" + doby + "'.Please use 'YYYY' format for doby.")
+    }
+
+    return doby;
   }
 
   /**
