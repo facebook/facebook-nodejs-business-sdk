@@ -112,6 +112,7 @@ export default class ServerSideUtils {
    * @return {String} Normalized ISO currency code.
    */
   static normalizeCurrency (currency: string) {
+    currency = currency.trim().toLowerCase();
 
     // Retain only alpha characters bounded for ISO code.
     currency = currency.replace(/[^a-zA-Z]/g, '');
