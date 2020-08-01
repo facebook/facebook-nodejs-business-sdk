@@ -29,6 +29,8 @@ export default class ProductSet extends AbstractCrudObject {
       auto_creation_url: 'auto_creation_url',
       filter: 'filter',
       id: 'id',
+      latest_metadata: 'latest_metadata',
+      live_metadata: 'live_metadata',
       name: 'name',
       product_catalog: 'product_catalog',
       product_count: 'product_count',

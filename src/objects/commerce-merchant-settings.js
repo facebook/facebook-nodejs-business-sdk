@@ -42,6 +42,7 @@ export default class CommerceMerchantSettings extends AbstractCrudObject {
       supported_card_types: 'supported_card_types',
       terms: 'terms',
       terms_url_by_locale: 'terms_url_by_locale',
+      whatsapp_channel: 'whatsapp_channel',
     });
   }
 
@@ -133,6 +134,15 @@ export default class CommerceMerchantSettings extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/tax_settings'
+    );
+  }
+
+  createWhatsappChannel (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+    return this.createEdge(
+      '/whatsapp_channel',
+      fields,
+      params,
+      
     );
   }
 

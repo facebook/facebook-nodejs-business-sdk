@@ -9,29 +9,21 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * BrandAudience
+ * WorkMeetingLink
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class BrandAudience extends AbstractCrudObject {
+export default class WorkMeetingLink extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      account: 'account',
-      delivery_targeting: 'delivery_targeting',
-      description: 'description',
       id: 'id',
-      name: 'name',
-      sentence_lines: 'sentence_lines',
-      status: 'status',
-      targeting: 'targeting',
-      time_created: 'time_created',
-      time_updated: 'time_updated',
+      owner: 'owner',
     });
   }
 
 
   
-  get (fields: Array<string>, params: Object = {}): BrandAudience {
+  get (fields: Array<string>, params: Object = {}): WorkMeetingLink {
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,

@@ -180,6 +180,7 @@ export default class AdAccount extends AbstractCrudObject {
       thb: 'THB',
       try: 'TRY',
       twd: 'TWD',
+      uah: 'UAH',
       usd: 'USD',
       uyu: 'UYU',
       vnd: 'VND',
@@ -190,9 +191,6 @@ export default class AdAccount extends AbstractCrudObject {
     return Object.freeze({
       advertise: 'ADVERTISE',
       analyze: 'ANALYZE',
-      creative: 'CREATIVE',
-      draft: 'DRAFT',
-      fb_employee_dso_advertise: 'FB_EMPLOYEE_DSO_ADVERTISE',
       manage: 'MANAGE',
     });
   }
@@ -200,9 +198,6 @@ export default class AdAccount extends AbstractCrudObject {
     return Object.freeze({
       advertise: 'ADVERTISE',
       analyze: 'ANALYZE',
-      creative: 'CREATIVE',
-      draft: 'DRAFT',
-      fb_employee_dso_advertise: 'FB_EMPLOYEE_DSO_ADVERTISE',
       manage: 'MANAGE',
     });
   }

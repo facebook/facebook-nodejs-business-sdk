@@ -88,6 +88,7 @@ export default class AdActivity extends AbstractCrudObject {
       update_ad_set_bidding: 'update_ad_set_bidding',
       update_ad_set_budget: 'update_ad_set_budget',
       update_ad_set_duration: 'update_ad_set_duration',
+      update_ad_set_learning_stage_status: 'update_ad_set_learning_stage_status',
       update_ad_set_min_spend_target: 'update_ad_set_min_spend_target',
       update_ad_set_name: 'update_ad_set_name',
       update_ad_set_optimization_goal: 'update_ad_set_optimization_goal',
@@ -108,6 +109,7 @@ export default class AdActivity extends AbstractCrudObject {
       update_campaign_name: 'update_campaign_name',
       update_campaign_run_status: 'update_campaign_run_status',
       update_campaign_schedule: 'update_campaign_schedule',
+      update_delivery_type_cross_level_shift: 'update_delivery_type_cross_level_shift',
     });
   }
   static get Category (): Object {
@@ -123,6 +125,12 @@ export default class AdActivity extends AbstractCrudObject {
       date: 'DATE',
       status: 'STATUS',
       targeting: 'TARGETING',
+    });
+  }
+  static get DataSource (): Object {
+    return Object.freeze({
+      calypso: 'CALYPSO',
+      tao: 'TAO',
     });
   }
 }

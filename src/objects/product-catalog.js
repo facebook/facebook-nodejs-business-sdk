@@ -56,6 +56,7 @@ export default class ProductCatalog extends AbstractCrudObject {
 
   static get Vertical (): Object {
     return Object.freeze({
+      adoptable_pets: 'adoptable_pets',
       bookable: 'bookable',
       commerce: 'commerce',
       destinations: 'destinations',

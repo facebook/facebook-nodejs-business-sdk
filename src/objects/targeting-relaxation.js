@@ -9,14 +9,14 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * CreativeAssetTag
+ * TargetingRelaxation
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class CreativeAssetTag extends AbstractCrudObject {
+export default class TargetingRelaxation extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      name: 'name',
+      lookalike: 'lookalike',
     });
   }
 

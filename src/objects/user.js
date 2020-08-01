@@ -22,12 +22,12 @@ import Business from './business';
 import UnifiedThread from './unified-thread';
 import PageUserMessageThreadLabel from './page-user-message-thread-label';
 import Event from './event';
-import FriendList from './friend-list';
 import Group from './group';
 import UserIDForApp from './user-id-for-app';
 import UserIDForPage from './user-id-for-page';
 import LiveEncoder from './live-encoder';
 import LiveVideo from './live-video';
+import WorkMeetingLink from './work-meeting-link';
 import Permission from './permission';
 import Photo from './photo';
 import ProfilePictureSource from './profile-picture-source';
@@ -350,16 +350,6 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  getFriendLists (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      FriendList,
-      fields,
-      params,
-      fetchFirstPage,
-      '/friendlists'
-    );
-  }
-
   getFriends (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       User,
@@ -482,6 +472,25 @@ export default class User extends AbstractCrudObject {
       fields,
       params,
       LiveVideo
+    );
+  }
+
+  getMeetingLink (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      WorkMeetingLink,
+      fields,
+      params,
+      fetchFirstPage,
+      '/meeting_link'
+    );
+  }
+
+  createMeetingLink (fields: Array<string>, params: Object = {}): Promise<WorkMeetingLink> {
+    return this.createEdge(
+      '/meeting_link',
+      fields,
+      params,
+      WorkMeetingLink
     );
   }
 

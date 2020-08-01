@@ -19,6 +19,7 @@ import InstagramInsightsResult from './instagram-insights-result';
 export default class IGMedia extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
+      alt_text: 'alt_text',
       caption: 'caption',
       comments_count: 'comments_count',
       id: 'id',

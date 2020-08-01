@@ -39,6 +39,8 @@ export default class Event extends AbstractCrudObject {
       maybe_count: 'maybe_count',
       name: 'name',
       noreply_count: 'noreply_count',
+      online_event_format: 'online_event_format',
+      online_event_third_party_url: 'online_event_third_party_url',
       owner: 'owner',
       parent_group: 'parent_group',
       place: 'place',
@@ -83,9 +85,19 @@ export default class Event extends AbstractCrudObject {
       workshop: 'WORKSHOP',
     });
   }
+  static get OnlineEventFormat (): Object {
+    return Object.freeze({
+      fb_live: 'fb_live',
+      messenger_room: 'messenger_room',
+      none: 'none',
+      other: 'other',
+      third_party: 'third_party',
+    });
+  }
   static get Type (): Object {
     return Object.freeze({
       community: 'community',
+      friends: 'friends',
       group: 'group',
       private: 'private',
       public: 'public',

@@ -138,6 +138,7 @@ export default class Application extends AbstractCrudObject {
       ipad: 'IPAD',
       iphone: 'IPHONE',
       mobile_web: 'MOBILE_WEB',
+      oculus: 'OCULUS',
       supplementary_images: 'SUPPLEMENTARY_IMAGES',
       web: 'WEB',
       windows: 'WINDOWS',

@@ -129,10 +129,10 @@ export { default as AdgroupIssuesInfo } from './../src/objects/adgroup-issues-in
 export { default as AdgroupPlacementSpecificReviewFeedback } from './../src/objects/adgroup-placement-specific-review-feedback';
 export { default as AdgroupRelevanceScore } from './../src/objects/adgroup-relevance-score';
 export { default as AdgroupReviewFeedback } from './../src/objects/adgroup-review-feedback';
+export { default as AdoptablePet } from './../src/objects/adoptable-pet';
 export { default as AdsActionStats } from './../src/objects/ads-action-stats';
 export { default as AdsImageCrops } from './../src/objects/ads-image-crops';
 export { default as AdsInsights } from './../src/objects/ads-insights';
-export { default as AdsInterest } from './../src/objects/ads-interest';
 export { default as AdsOptimalDeliveryGrowthOpportunity } from './../src/objects/ads-optimal-delivery-growth-opportunity';
 export { default as AdsPixel } from './../src/objects/ads-pixel';
 export { default as AdsPixelStats } from './../src/objects/ads-pixel-stats';
@@ -155,7 +155,6 @@ export { default as AudiencePermissionForActions } from './../src/objects/audien
 export { default as AudioCopyright } from './../src/objects/audio-copyright';
 export { default as AutomotiveModel } from './../src/objects/automotive-model';
 export { default as BilledAmountDetails } from './../src/objects/billed-amount-details';
-export { default as BrandAudience } from './../src/objects/brand-audience';
 export { default as BrandSafetyBlockListUsage } from './../src/objects/brand-safety-block-list-usage';
 export { default as BroadTargetingCategories } from './../src/objects/broad-targeting-categories';
 export { default as Business } from './../src/objects/business';
@@ -164,10 +163,6 @@ export { default as BusinessAgreement } from './../src/objects/business-agreemen
 export { default as BusinessApplicationRequest } from './../src/objects/business-application-request';
 export { default as BusinessAssetGroup } from './../src/objects/business-asset-group';
 export { default as BusinessAssetSharingAgreement } from './../src/objects/business-asset-sharing-agreement';
-export { default as BusinessCreative } from './../src/objects/business-creative';
-export { default as BusinessCreativeFolder } from './../src/objects/business-creative-folder';
-export { default as BusinessCreativeFolderSharingAgreement } from './../src/objects/business-creative-folder-sharing-agreement';
-export { default as BusinessImage } from './../src/objects/business-image';
 export { default as BusinessOwnedObjectOnBehalfOfRequest } from './../src/objects/business-owned-object-on-behalf-of-request';
 export { default as BusinessPageRequest } from './../src/objects/business-page-request';
 export { default as BusinessRoleRequest } from './../src/objects/business-role-request';
@@ -186,7 +181,6 @@ export { default as CatalogItemAppLinks } from './../src/objects/catalog-item-ap
 export { default as CatalogItemAppealStatus } from './../src/objects/catalog-item-appeal-status';
 export { default as CheckBatchRequestStatus } from './../src/objects/check-batch-request-status';
 export { default as ChildEvent } from './../src/objects/child-event';
-export { default as ClientTransparencyStatus } from './../src/objects/client-transparency-status';
 export { default as CollaborativeAdsPartnerInfoListItem } from './../src/objects/collaborative-ads-partner-info-list-item';
 export { default as CollaborativeAdsShareSettings } from './../src/objects/collaborative-ads-share-settings';
 export { default as Comment } from './../src/objects/comment';
@@ -200,7 +194,6 @@ export { default as ContentDeliveryReport } from './../src/objects/content-deliv
 export { default as ConversionActionQuery } from './../src/objects/conversion-action-query';
 export { default as CopyrightReferenceContainer } from './../src/objects/copyright-reference-container';
 export { default as CoverPhoto } from './../src/objects/cover-photo';
-export { default as CreativeAssetTag } from './../src/objects/creative-asset-tag';
 export { default as CreativeHistory } from './../src/objects/creative-history';
 export { default as CreditPartitionActionOptions } from './../src/objects/credit-partition-action-options';
 export { default as Currency } from './../src/objects/currency';
@@ -284,7 +277,6 @@ export { default as MeasurementUploadEvent } from './../src/objects/measurement-
 export { default as MediaFingerprint } from './../src/objects/media-fingerprint';
 export { default as MessagingFeatureReview } from './../src/objects/messaging-feature-review';
 export { default as MessengerDestinationPageWelcomeMessage } from './../src/objects/messenger-destination-page-welcome-message';
-export { default as MessengerPlatformReferral } from './../src/objects/messenger-platform-referral';
 export { default as MessengerProfile } from './../src/objects/messenger-profile';
 export { default as MinimumBudget } from './../src/objects/minimum-budget';
 export { default as MusicVideoCopyright } from './../src/objects/music-video-copyright';
@@ -317,6 +309,7 @@ export { default as PageUpcomingChange } from './../src/objects/page-upcoming-ch
 export { default as PageUserMessageThreadLabel } from './../src/objects/page-user-message-thread-label';
 export { default as PartnerStudy } from './../src/objects/partner-study';
 export { default as PaymentPricepoints } from './../src/objects/payment-pricepoints';
+export { default as PaymentSubscription } from './../src/objects/payment-subscription';
 export { default as Permission } from './../src/objects/permission';
 export { default as Persona } from './../src/objects/persona';
 export { default as Photo } from './../src/objects/photo';
@@ -348,6 +341,7 @@ export { default as ProductGroup } from './../src/objects/product-group';
 export { default as ProductItem } from './../src/objects/product-item';
 export { default as ProductItemCommerceInsights } from './../src/objects/product-item-commerce-insights';
 export { default as ProductSet } from './../src/objects/product-set';
+export { default as ProductSetMetadata } from './../src/objects/product-set-metadata';
 export { default as ProductVariant } from './../src/objects/product-variant';
 export { default as Profile } from './../src/objects/profile';
 export { default as ProfilePictureSource } from './../src/objects/profile-picture-source';
@@ -374,7 +368,6 @@ export { default as SecuritySettings } from './../src/objects/security-settings'
 export { default as SplitTestConfig } from './../src/objects/split-test-config';
 export { default as SplitTestWinner } from './../src/objects/split-test-winner';
 export { default as StoreCatalogSettings } from './../src/objects/store-catalog-settings';
-export { default as StreamingReaction } from './../src/objects/streaming-reaction';
 export { default as SystemUser } from './../src/objects/system-user';
 export { default as Tab } from './../src/objects/tab';
 export { default as Targeting } from './../src/objects/targeting';
@@ -394,6 +387,7 @@ export { default as TargetingGeoLocationZip } from './../src/objects/targeting-g
 export { default as TargetingProductAudienceSpec } from './../src/objects/targeting-product-audience-spec';
 export { default as TargetingProductAudienceSubSpec } from './../src/objects/targeting-product-audience-sub-spec';
 export { default as TargetingProspectingAudience } from './../src/objects/targeting-prospecting-audience';
+export { default as TargetingRelaxation } from './../src/objects/targeting-relaxation';
 export { default as TargetingSentenceLine } from './../src/objects/targeting-sentence-line';
 export { default as ThirdPartyMeasurementReportDataset } from './../src/objects/third-party-measurement-report-dataset';
 export { default as TrackingAndConversionWithDefaults } from './../src/objects/tracking-and-conversion-with-defaults';
@@ -404,7 +398,6 @@ export { default as UserCoverPhoto } from './../src/objects/user-cover-photo';
 export { default as UserDevice } from './../src/objects/user-device';
 export { default as UserIDForApp } from './../src/objects/user-id-for-app';
 export { default as UserIDForPage } from './../src/objects/user-id-for-page';
-export { default as UserInfluence } from './../src/objects/user-influence';
 export { default as UserLeadGenDisclaimerResponse } from './../src/objects/user-lead-gen-disclaimer-response';
 export { default as UserLeadGenFieldData } from './../src/objects/user-lead-gen-field-data';
 export { default as UserPaymentMethodsInfo } from './../src/objects/user-payment-methods-info';
@@ -426,7 +419,7 @@ export { default as VideoUploadLimits } from './../src/objects/video-upload-limi
 export { default as VoipInfo } from './../src/objects/voip-info';
 export { default as WebAppLink } from './../src/objects/web-app-link';
 export { default as WhatsAppBusinessAccount } from './../src/objects/whats-app-business-account';
-export { default as WhatsAppBusinessProfile } from './../src/objects/whats-app-business-profile';
 export { default as WindowsAppLink } from './../src/objects/windows-app-link';
 export { default as WindowsPhoneAppLink } from './../src/objects/windows-phone-app-link';
+export { default as WorkMeetingLink } from './../src/objects/work-meeting-link';
 export { default as WorkUserFrontline } from './../src/objects/work-user-frontline';
