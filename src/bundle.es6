@@ -17,6 +17,7 @@ export { default as EventRequest } from './../src/objects/serverside/event-reque
 export { default as EventResponse } from './../src/objects/serverside/event-response';
 export { default as ServerEvent } from './../src/objects/serverside/server-event';
 export { default as UserData } from './../src/objects/serverside/user-data';
+export { default as DeliveryCategory } from './../src/objects/serverside/delivery-category';
 
 export { default as Ad } from './../src/objects/ad';
 export { default as AdAccount } from './../src/objects/ad-account';

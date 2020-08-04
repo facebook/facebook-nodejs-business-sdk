@@ -30,6 +30,7 @@ export default class CustomData {
 	_search_string: string;
 	_status: string;
 	_item_number: string;
+	_delivery_category: string;
 	_custom_properties: Object;
 
 	/**
@@ -46,10 +47,12 @@ export default class CustomData {
 	 * @param {String} search_string query string used for the Search event
 	 * @param {String} status Status of the registration in Registration event
 	 * @param {String} item_number The item number
+	 * @param {String} delivery_category The type of delivery for a purchase event
 	 * @param {Object} custom_properties Custom Properties to be added to the Custom Data
 	 */
 	constructor(value: number, currency: string, content_name: string, content_category: string, content_ids: Array<string>, contents: Array<Content>,
-		content_type: string, order_id: string, predicted_ltv: number, num_items: number, search_string: string, status: string, item_number: string, custom_properties: Object)  {
+		content_type: string, order_id: string, predicted_ltv: number, num_items: number, search_string: string, status: string, item_number: string,
+		delivery_category: string, custom_properties: Object)  {
 
 		this._value = value;
 		this._currency = currency;
@@ -64,6 +67,7 @@ export default class CustomData {
 		this._search_string = search_string;
 		this._status = status;
 		this._item_number = item_number;
+		this._delivery_category = delivery_category;
 		this._custom_properties = custom_properties;
 	}
 
@@ -403,6 +407,30 @@ export default class CustomData {
 	}
 
 	/**
+	 * Gets the delivery category.
+	 */
+	get delivery_category()  {
+		return  this._delivery_category;
+	}
+
+	/**
+	 * Sets the type of delivery for a purchase event.
+	 * @param delivery_category The delivery category.
+	 */
+	set delivery_category(delivery_category: string)  {
+		this._delivery_category = delivery_category;
+	}
+
+	/**
+	 * Sets the type of delivery for a purchase event.
+	 * @param {String} delivery_category The delivery category.
+	 */
+	setDeliveryCategory(delivery_category: string) : CustomData {
+		this._delivery_category = delivery_category;
+		return this;
+	}
+
+	/**
 	 * Gets the custom properties to be included in the Custom Data.
 	 * If our predefined object properties don't suit your needs, you can include your own, custom properties. Custom properties can be used with both standard and custom events, and can help you further define custom audiences.
 	 * This behavior is the same for Server-Side API and Facebook Pixel.
@@ -543,6 +571,10 @@ export default class CustomData {
 
 		if (this.item_number) {
 			customData['item_number'] = this.item_number;
+		}
+
+		if (this.delivery_category) {
+			customData['delivery_category'] = ServerSideUtils.normalizeDeliveryCategory(this.delivery_category);
 		}
 
 		if (this.custom_properties) {
