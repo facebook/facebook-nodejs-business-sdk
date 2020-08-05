@@ -9,7 +9,6 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 import Cursor from './../cursor';
 import InvoiceCampaign from './invoice-campaign';
-import AtlasURL from './atlas-url';
 
 /**
  * OracleTransaction
@@ -24,7 +23,6 @@ export default class OracleTransaction extends AbstractCrudObject {
       amount_due: 'amount_due',
       billed_amount_details: 'billed_amount_details',
       billing_period: 'billing_period',
-      campaign: 'campaign',
       cdn_download_uri: 'cdn_download_uri',
       currency: 'currency',
       download_uri: 'download_uri',
@@ -55,16 +53,6 @@ export default class OracleTransaction extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/campaigns'
-    );
-  }
-
-  getData (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AtlasURL,
-      fields,
-      params,
-      fetchFirstPage,
-      '/data'
     );
   }
 

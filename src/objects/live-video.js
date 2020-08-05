@@ -14,8 +14,8 @@ import Comment from './comment';
 import Page from './page';
 import LiveVideoError from './live-video-error';
 import LiveVideoInputStream from './live-video-input-stream';
-import Profile from './profile';
 import VideoPoll from './video-poll';
+import Profile from './profile';
 
 /**
  * LiveVideo
@@ -175,16 +175,6 @@ export default class LiveVideo extends AbstractCrudObject {
       fields,
       params,
       LiveVideoInputStream
-    );
-  }
-
-  getLikes (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      Profile,
-      fields,
-      params,
-      fetchFirstPage,
-      '/likes'
     );
   }
 

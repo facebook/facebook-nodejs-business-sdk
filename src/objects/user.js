@@ -32,7 +32,6 @@ import Permission from './permission';
 import Photo from './photo';
 import ProfilePictureSource from './profile-picture-source';
 import Canvas from './canvas';
-import UserTaggableFriend from './user-taggable-friend';
 import AdVideo from './ad-video';
 
 /**
@@ -585,16 +584,6 @@ export default class User extends AbstractCrudObject {
       fields,
       params,
       User
-    );
-  }
-
-  getTaggableFriends (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      UserTaggableFriend,
-      fields,
-      params,
-      fetchFirstPage,
-      '/taggable_friends'
     );
   }
 

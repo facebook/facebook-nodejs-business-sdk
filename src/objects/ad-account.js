@@ -287,13 +287,6 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  deleteAdSets (params: Object = {}): Promise<*> {
-    return super.deleteEdge(
-      '/ad_sets',
-      params
-    );
-  }
-
   getAdStudies (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdStudy,
@@ -394,16 +387,6 @@ export default class AdAccount extends AbstractCrudObject {
       fields,
       params,
       PlayableContent
-    );
-  }
-
-  getAdReportSchedules (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/adreportschedules'
     );
   }
 

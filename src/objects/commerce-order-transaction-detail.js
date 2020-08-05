@@ -31,6 +31,16 @@ export default class CommerceOrderTransactionDetail extends AbstractCrudObject {
   }
 
 
+  getItems (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/items'
+    );
+  }
+
   getTaxDetails (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AbstractObject,

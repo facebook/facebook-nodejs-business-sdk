@@ -42,7 +42,6 @@ import NativeOffer from './native-offer';
 import Persona from './persona';
 import Photo from './photo';
 import ProfilePictureSource from './profile-picture-source';
-import PlaceTopic from './place-topic';
 import ProductCatalog from './product-catalog';
 import Recommendation from './recommendation';
 import User from './user';
@@ -156,7 +155,6 @@ export default class Page extends AbstractCrudObject {
       new_like_count: 'new_like_count',
       offer_eligible: 'offer_eligible',
       overall_star_rating: 'overall_star_rating',
-      page_about_story: 'page_about_story',
       page_token: 'page_token',
       parent_page: 'parent_page',
       parking: 'parking',
@@ -165,6 +163,7 @@ export default class Page extends AbstractCrudObject {
       personal_interests: 'personal_interests',
       pharma_safety_info: 'pharma_safety_info',
       phone: 'phone',
+      pickup_options: 'pickup_options',
       place_type: 'place_type',
       plot_outline: 'plot_outline',
       preferred_audience: 'preferred_audience',
@@ -275,6 +274,13 @@ export default class Page extends AbstractCrudObject {
       vegan: 'Vegan',
       vegetarian: 'Vegetarian',
       vietnamese: 'Vietnamese',
+    });
+  }
+  static get PickupOptions (): Object {
+    return Object.freeze({
+      curbside: 'CURBSIDE',
+      in_store: 'IN_STORE',
+      other: 'OTHER',
     });
   }
   static get TemporaryStatus (): Object {
@@ -528,33 +534,6 @@ export default class Page extends AbstractCrudObject {
       video_text_question_responses: 'video_text_question_responses',
       videos: 'videos',
       website: 'website',
-    });
-  }
-  static get DomainActionType (): Object {
-    return Object.freeze({
-      add: 'ADD',
-      remove: 'REMOVE',
-    });
-  }
-  static get PaymentDevModeAction (): Object {
-    return Object.freeze({
-      add: 'ADD',
-      remove: 'REMOVE',
-    });
-  }
-  static get SettingType (): Object {
-    return Object.freeze({
-      account_linking: 'ACCOUNT_LINKING',
-      call_to_actions: 'CALL_TO_ACTIONS',
-      domain_whitelisting: 'DOMAIN_WHITELISTING',
-      greeting: 'GREETING',
-      payment: 'PAYMENT',
-    });
-  }
-  static get ThreadState (): Object {
-    return Object.freeze({
-      existing_thread: 'EXISTING_THREAD',
-      new_thread: 'NEW_THREAD',
     });
   }
 
@@ -1174,15 +1153,6 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createPageAboutStory (fields: Array<string>, params: Object = {}): Promise<Page> {
-    return this.createEdge(
-      '/page_about_story',
-      fields,
-      params,
-      Page
-    );
-  }
-
   getPageBackedInstagramAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       InstagramUser,
@@ -1274,16 +1244,6 @@ export default class Page extends AbstractCrudObject {
       fields,
       params,
       ProfilePictureSource
-    );
-  }
-
-  getPlaceTopics (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      PlaceTopic,
-      fields,
-      params,
-      fetchFirstPage,
-      '/place_topics'
     );
   }
 
@@ -1431,13 +1391,6 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  deleteTabs (params: Object = {}): Promise<*> {
-    return super.deleteEdge(
-      '/tabs',
-      params
-    );
-  }
-
   getTabs (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Tab,
@@ -1483,22 +1436,6 @@ export default class Page extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/thread_owner'
-    );
-  }
-
-  deleteThreadSettings (params: Object = {}): Promise<*> {
-    return super.deleteEdge(
-      '/thread_settings',
-      params
-    );
-  }
-
-  createThreadSetting (fields: Array<string>, params: Object = {}): Promise<Page> {
-    return this.createEdge(
-      '/thread_settings',
-      fields,
-      params,
-      Page
     );
   }
 

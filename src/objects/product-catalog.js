@@ -82,12 +82,14 @@ export default class ProductCatalog extends AbstractCrudObject {
     return Object.freeze({
       advertise: 'ADVERTISE',
       manage: 'MANAGE',
+      manage_ar: 'MANAGE_AR',
     });
   }
   static get Tasks (): Object {
     return Object.freeze({
       advertise: 'ADVERTISE',
       manage: 'MANAGE',
+      manage_ar: 'MANAGE_AR',
     });
   }
   static get Standard (): Object {
