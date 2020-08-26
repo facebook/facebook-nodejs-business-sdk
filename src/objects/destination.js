@@ -18,6 +18,7 @@ export default class Destination extends AbstractCrudObject {
     return Object.freeze({
       address: 'address',
       applinks: 'applinks',
+      category_specific_fields: 'category_specific_fields',
       currency: 'currency',
       description: 'description',
       destination_id: 'destination_id',

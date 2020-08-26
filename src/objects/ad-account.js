@@ -726,6 +726,15 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
+  createCreateAndApplyPublisherBlockList (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+    return this.createEdge(
+      '/create_and_apply_publisher_block_list',
+      fields,
+      params,
+      
+    );
+  }
+
   getCustomAudiences (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       CustomAudience,

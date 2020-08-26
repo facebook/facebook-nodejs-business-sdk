@@ -27,7 +27,6 @@ import UserIDForApp from './user-id-for-app';
 import UserIDForPage from './user-id-for-page';
 import LiveEncoder from './live-encoder';
 import LiveVideo from './live-video';
-import WorkMeetingLink from './work-meeting-link';
 import Permission from './permission';
 import Photo from './photo';
 import ProfilePictureSource from './profile-picture-source';
@@ -48,7 +47,6 @@ export default class User extends AbstractCrudObject {
       age_range: 'age_range',
       auth_method: 'auth_method',
       birthday: 'birthday',
-      can_review_measurement_request: 'can_review_measurement_request',
       cover: 'cover',
       currency: 'currency',
       devices: 'devices',
@@ -64,9 +62,7 @@ export default class User extends AbstractCrudObject {
       install_type: 'install_type',
       installed: 'installed',
       interested_in: 'interested_in',
-      is_famedeeplinkinguser: 'is_famedeeplinkinguser',
       is_guest_user: 'is_guest_user',
-      is_shared_login: 'is_shared_login',
       is_verified: 'is_verified',
       languages: 'languages',
       last_name: 'last_name',
@@ -86,20 +82,17 @@ export default class User extends AbstractCrudObject {
       quotes: 'quotes',
       relationship_status: 'relationship_status',
       religion: 'religion',
-      security_settings: 'security_settings',
       shared_login_upgrade_required_by: 'shared_login_upgrade_required_by',
       short_name: 'short_name',
       significant_other: 'significant_other',
       sports: 'sports',
       supports_donate_button_in_live_video: 'supports_donate_button_in_live_video',
-      test_group: 'test_group',
       third_party_id: 'third_party_id',
       timezone: 'timezone',
       token_for_business: 'token_for_business',
       updated_time: 'updated_time',
       verified: 'verified',
       video_upload_limits: 'video_upload_limits',
-      viewer_can_send_gift: 'viewer_can_send_gift',
       website: 'website',
       work: 'work',
     });
@@ -474,25 +467,6 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  getMeetingLink (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      WorkMeetingLink,
-      fields,
-      params,
-      fetchFirstPage,
-      '/meeting_link'
-    );
-  }
-
-  createMeetingLink (fields: Array<string>, params: Object = {}): Promise<WorkMeetingLink> {
-    return this.createEdge(
-      '/meeting_link',
-      fields,
-      params,
-      WorkMeetingLink
-    );
-  }
-
   getMusic (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Page,
@@ -509,6 +483,16 @@ export default class User extends AbstractCrudObject {
       fields,
       params,
       User
+    );
+  }
+
+  getOwnedProductCatalogs (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      ProductCatalog,
+      fields,
+      params,
+      fetchFirstPage,
+      '/owned_product_catalogs'
     );
   }
 

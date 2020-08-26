@@ -37,6 +37,7 @@ export default class ProductFeed extends AbstractCrudObject {
       encoding: 'encoding',
       file_name: 'file_name',
       id: 'id',
+      item_sub_type: 'item_sub_type',
       latest_upload: 'latest_upload',
       name: 'name',
       override_type: 'override_type',
@@ -91,6 +92,36 @@ export default class ProductFeed extends AbstractCrudObject {
       transactable_items: 'TRANSACTABLE_ITEMS',
       vehicles: 'VEHICLES',
       vehicle_offer: 'VEHICLE_OFFER',
+    });
+  }
+  static get ItemSubType (): Object {
+    return Object.freeze({
+      appliances: 'APPLIANCES',
+      baby_feeding: 'BABY_FEEDING',
+      baby_transport: 'BABY_TRANSPORT',
+      beauty: 'BEAUTY',
+      bedding: 'BEDDING',
+      cameras: 'CAMERAS',
+      cell_phones_and_smart_watches: 'CELL_PHONES_AND_SMART_WATCHES',
+      cleaning_supplies: 'CLEANING_SUPPLIES',
+      clothing: 'CLOTHING',
+      clothing_accessories: 'CLOTHING_ACCESSORIES',
+      computers_and_tablets: 'COMPUTERS_AND_TABLETS',
+      diapering_and_potty_training: 'DIAPERING_AND_POTTY_TRAINING',
+      electronics_accessories: 'ELECTRONICS_ACCESSORIES',
+      furniture: 'FURNITURE',
+      health: 'HEALTH',
+      home_goods: 'HOME_GOODS',
+      jewelry: 'JEWELRY',
+      nursery: 'NURSERY',
+      printers_and_scanners: 'PRINTERS_AND_SCANNERS',
+      projectors: 'PROJECTORS',
+      shoes_and_footwear: 'SHOES_AND_FOOTWEAR',
+      software: 'SOFTWARE',
+      toys: 'TOYS',
+      tvs_and_monitors: 'TVS_AND_MONITORS',
+      video_game_consoles_and_video_games: 'VIDEO_GAME_CONSOLES_AND_VIDEO_GAMES',
+      watches: 'WATCHES',
     });
   }
   static get OverrideType (): Object {

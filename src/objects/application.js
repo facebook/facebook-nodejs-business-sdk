@@ -16,6 +16,7 @@ import Group from './group';
 import AdAccount from './ad-account';
 import DACheck from './da-check';
 import Event from './event';
+import LiveVideo from './live-video';
 
 /**
  * Application
@@ -280,6 +281,16 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
+  getAndroidDialogConfigs (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/android_dialog_configs'
+    );
+  }
+
   getAppEventTypes (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AbstractObject,
@@ -483,6 +494,16 @@ export default class Application extends AbstractCrudObject {
       fields,
       params,
       Application
+    );
+  }
+
+  getLiveVideos (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      LiveVideo,
+      fields,
+      params,
+      fetchFirstPage,
+      '/live_videos'
     );
   }
 

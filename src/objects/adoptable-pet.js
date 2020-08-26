@@ -24,6 +24,7 @@ export default class AdoptablePet extends AbstractCrudObject {
       applinks: 'applinks',
       availability: 'availability',
       breed: 'breed',
+      category_specific_fields: 'category_specific_fields',
       currency: 'currency',
       description: 'description',
       gender: 'gender',

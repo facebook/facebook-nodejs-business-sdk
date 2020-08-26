@@ -24,6 +24,7 @@ export default class CommerceMerchantSettings extends AbstractCrudObject {
       braintree_merchant_id: 'braintree_merchant_id',
       checkout_message: 'checkout_message',
       contact_email: 'contact_email',
+      cta: 'cta',
       disable_checkout_urls: 'disable_checkout_urls',
       display_name: 'display_name',
       facebook_channel: 'facebook_channel',
@@ -46,6 +47,12 @@ export default class CommerceMerchantSettings extends AbstractCrudObject {
     });
   }
 
+  static get Cta (): Object {
+    return Object.freeze({
+      contact_merchant: 'CONTACT_MERCHANT',
+      offsite_link: 'OFFSITE_LINK',
+    });
+  }
   static get MerchantStatus (): Object {
     return Object.freeze({
       enabled: 'ENABLED',

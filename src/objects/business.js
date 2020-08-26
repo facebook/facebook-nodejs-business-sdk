@@ -23,6 +23,8 @@ import CustomConversion from './custom-conversion';
 import Application from './application';
 import Page from './page';
 import ProductCatalog from './product-catalog';
+import CPASCollaborationRequest from './cpas-collaboration-request';
+import CPASAdvertiserPartnershipRecommendation from './cpas-advertiser-partnership-recommendation';
 import CommerceMerchantSettings from './commerce-merchant-settings';
 import ContentDeliveryReport from './content-delivery-report';
 import EventSourceGroup from './event-source-group';
@@ -424,6 +426,35 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
+  getCollaborativeAdsCollaborationRequests (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      CPASCollaborationRequest,
+      fields,
+      params,
+      fetchFirstPage,
+      '/collaborative_ads_collaboration_requests'
+    );
+  }
+
+  createCollaborativeAdsCollaborationRequest (fields: Array<string>, params: Object = {}): Promise<CPASCollaborationRequest> {
+    return this.createEdge(
+      '/collaborative_ads_collaboration_requests',
+      fields,
+      params,
+      CPASCollaborationRequest
+    );
+  }
+
+  getCollaborativeAdsSuggestedPartners (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      CPASAdvertiserPartnershipRecommendation,
+      fields,
+      params,
+      fetchFirstPage,
+      '/collaborative_ads_suggested_partners'
+    );
+  }
+
   getCommerceMerchantSettings (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       CommerceMerchantSettings,
@@ -441,6 +472,15 @@ export default class Business extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/content_delivery_report'
+    );
+  }
+
+  createCreateAndApplyPublisherBlockList (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+    return this.createEdge(
+      '/create_and_apply_publisher_block_list',
+      fields,
+      params,
+      
     );
   }
 

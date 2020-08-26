@@ -24,6 +24,7 @@ export default class CommerceOrder extends AbstractCrudObject {
       estimated_payment_details: 'estimated_payment_details',
       id: 'id',
       is_group_buy: 'is_group_buy',
+      is_test_order: 'is_test_order',
       last_updated: 'last_updated',
       merchant_order_id: 'merchant_order_id',
       order_status: 'order_status',

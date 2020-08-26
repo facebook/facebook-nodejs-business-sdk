@@ -644,6 +644,15 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
+  createBusinessDatum (fields: Array<string>, params: Object = {}): Promise<Page> {
+    return this.createEdge(
+      '/business_data',
+      fields,
+      params,
+      Page
+    );
+  }
+
   getCallToActions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       PageCallToAction,

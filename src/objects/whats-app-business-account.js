@@ -30,6 +30,15 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
     });
   }
 
+  static get Tasks (): Object {
+    return Object.freeze({
+      develop: 'DEVELOP',
+      manage: 'MANAGE',
+      manage_phone: 'MANAGE_PHONE',
+      manage_templates: 'MANAGE_TEMPLATES',
+      view_cost: 'VIEW_COST',
+    });
+  }
   static get Category (): Object {
     return Object.freeze({
       account_update: 'ACCOUNT_UPDATE',
@@ -44,6 +53,22 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
       ticket_update: 'TICKET_UPDATE',
       transportation_update: 'TRANSPORTATION_UPDATE',
     });
+  }
+
+  deleteAssignedUsers (params: Object = {}): Promise<*> {
+    return super.deleteEdge(
+      '/assigned_users',
+      params
+    );
+  }
+
+  createAssignedUser (fields: Array<string>, params: Object = {}): Promise<WhatsAppBusinessAccount> {
+    return this.createEdge(
+      '/assigned_users',
+      fields,
+      params,
+      WhatsAppBusinessAccount
+    );
   }
 
   deleteMessageTemplates (params: Object = {}): Promise<*> {

@@ -168,6 +168,8 @@ export { default as BusinessPageRequest } from './../src/objects/business-page-r
 export { default as BusinessRoleRequest } from './../src/objects/business-role-request';
 export { default as BusinessUnit } from './../src/objects/business-unit';
 export { default as BusinessUser } from './../src/objects/business-user';
+export { default as CPASAdvertiserPartnershipRecommendation } from './../src/objects/cpas-advertiser-partnership-recommendation';
+export { default as CPASCollaborationRequest } from './../src/objects/cpas-collaboration-request';
 export { default as CPASParentCatalogSettings } from './../src/objects/cpas-parent-catalog-settings';
 export { default as Campaign } from './../src/objects/campaign';
 export { default as CampaignGroupBrandConfiguration } from './../src/objects/campaign-group-brand-configuration';
@@ -179,6 +181,7 @@ export { default as CanvasCollectionThumbnail } from './../src/objects/canvas-co
 export { default as CatalogBasedTargeting } from './../src/objects/catalog-based-targeting';
 export { default as CatalogItemAppLinks } from './../src/objects/catalog-item-app-links';
 export { default as CatalogItemAppealStatus } from './../src/objects/catalog-item-appeal-status';
+export { default as CatalogSubVerticalList } from './../src/objects/catalog-sub-vertical-list';
 export { default as CheckBatchRequestStatus } from './../src/objects/check-batch-request-status';
 export { default as ChildEvent } from './../src/objects/child-event';
 export { default as CollaborativeAdsPartnerInfoListItem } from './../src/objects/collaborative-ads-partner-info-list-item';
@@ -417,5 +420,4 @@ export { default as WebAppLink } from './../src/objects/web-app-link';
 export { default as WhatsAppBusinessAccount } from './../src/objects/whats-app-business-account';
 export { default as WindowsAppLink } from './../src/objects/windows-app-link';
 export { default as WindowsPhoneAppLink } from './../src/objects/windows-phone-app-link';
-export { default as WorkMeetingLink } from './../src/objects/work-meeting-link';
 export { default as WorkUserFrontline } from './../src/objects/work-user-frontline';

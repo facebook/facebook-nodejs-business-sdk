@@ -23,6 +23,7 @@ export default class Hotel extends AbstractCrudObject {
       applinks: 'applinks',
       brand: 'brand',
       category: 'category',
+      category_specific_fields: 'category_specific_fields',
       currency: 'currency',
       description: 'description',
       guest_ratings: 'guest_ratings',
