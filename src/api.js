@@ -18,6 +18,7 @@ export default class FacebookAdsApi {
   _debug: boolean;
   _showHeader: boolean;
   accessToken: string;
+  appsecretProof: string;
   locale: string;
   static _defaultApi: FacebookAdsApi;
   static get VERSION(): string {
@@ -38,11 +39,12 @@ export default class FacebookAdsApi {
    * @param {String} accessToken
    * @param {String} [locale]
    */
-  constructor(accessToken: string, locale: string = 'en_US', crash_log: bool = true) {
+  constructor(accessToken: string, appsecretProof: string = '', locale: string = 'en_US', crash_log: bool = true) {
     if (!accessToken) {
       throw new Error('Access token required');
     }
     this.accessToken = accessToken;
+    this.appsecretProof = appsecretProof;
     this.locale = locale;
     this._debug = false;
     this._showHeader = false;
@@ -57,8 +59,8 @@ export default class FacebookAdsApi {
    * @param  {String} [locale]
    * @return {FacebookAdsApi}
    */
-  static init(accessToken: string, locale: string = 'en_US', crash_log: bool = true) : FacebookAdsApi {
-    const api = new this(accessToken, locale, crash_log);
+  static init(accessToken: string, appsecretProof: string = '', locale: string = 'en_US', crash_log: bool = true) : FacebookAdsApi {
+    const api = new this(accessToken, appsecretProof, locale, crash_log);
     this.setDefaultApi(api);
     return api;
   }
@@ -76,6 +78,7 @@ export default class FacebookAdsApi {
     let params = {};
     params['access_token'] = this.accessToken;
     params['input_token'] = this.accessToken;
+    params['appsecret_proof'] = this.appsecretProof;
     params['fields'] = 'app_id';
     url += `?${FacebookAdsApi._encodeParams(params)}`;
 
@@ -108,7 +111,7 @@ export default class FacebookAdsApi {
     useMultipartFormData: boolean = false,
     urlOverride: string = '',
   ): Promise<*> {
-    let url: any;
+    let url: string;
     let data: Object = {};
     if (method === 'POST' || method === 'PUT') {
       data = params;
@@ -117,10 +120,26 @@ export default class FacebookAdsApi {
     const domain = urlOverride || FacebookAdsApi.GRAPH;
     if (typeof path !== 'string' && !(path instanceof String)) {
       url = [domain, FacebookAdsApi.VERSION, ...path].join('/');
-      params['access_token'] = this.accessToken;
+      if (!params.access_token) {
+        params['access_token'] = this.accessToken;
+      }
       url += `?${FacebookAdsApi._encodeParams(params)}`;
+      if (this.appsecretProof && !url.includes('appsecret_proof')) {
+        let connector: string = '?';
+        if (url.indexOf('?') > -1) {
+          connector = '&';
+        }
+        url += connector + 'appsecret_proof=' + this.appsecretProof;
+      }
     } else {
-      url = path;
+      url = (path: any);
+    }
+    if (this.appsecretProof && !url.includes('appsecret_proof')) {
+      let connector: string = '?';
+      if (url.indexOf('?') > -1) {
+        connector = '&';
+      }
+      url += connector + 'appsecret_proof=' + this.appsecretProof;
     }
     const strUrl: string = (url: any);
     return Http.request(method, strUrl, data, files, useMultipartFormData, this._showHeader)

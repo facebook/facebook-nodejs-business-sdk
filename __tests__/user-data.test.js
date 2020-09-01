@@ -7,7 +7,7 @@
  */
 
 'use strict';
-const {UserData} = require('facebook-nodejs-business-sdk');
+const {UserData} = require('../');
 const sha256 = require('js-sha256');
 
 

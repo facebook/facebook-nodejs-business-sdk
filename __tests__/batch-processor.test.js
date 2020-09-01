@@ -7,7 +7,7 @@
  */
 
 'use strict';
-const {BatchProcessor, Content, CustomData, DeliveryCategory} = require('facebook-nodejs-business-sdk');
+const {BatchProcessor, Content, CustomData, DeliveryCategory} = require('../');
 
 
 

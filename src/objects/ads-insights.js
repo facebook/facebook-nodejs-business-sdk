@@ -41,6 +41,9 @@ export default class AdsInsights extends AbstractCrudObject {
       campaign_name: 'campaign_name',
       canvas_avg_view_percent: 'canvas_avg_view_percent',
       canvas_avg_view_time: 'canvas_avg_view_time',
+      card_views: 'card_views',
+      catalog_segment_value_in_catalog_currency:
+        'catalog_segment_value_in_catalog_currency',
       catalog_segment_actions: 'catalog_segment_actions',
       catalog_segment_value: 'catalog_segment_value',
       catalog_segment_value_mobile_purchase_roas: 'catalog_segment_value_mobile_purchase_roas',
@@ -48,12 +51,25 @@ export default class AdsInsights extends AbstractCrudObject {
       catalog_segment_value_website_purchase_roas: 'catalog_segment_value_website_purchase_roas',
       clicks: 'clicks',
       conversion_rate_ranking: 'conversion_rate_ranking',
+      conditional_time_spent_ms_over_10s_actions:
+        'conditional_time_spent_ms_over_10s_actions',
+      conditional_time_spent_ms_over_15s_actions:
+        'conditional_time_spent_ms_over_15s_actions',
+      conditional_time_spent_ms_over_2s_actions:
+        'conditional_time_spent_ms_over_2s_actions',
+      conditional_time_spent_ms_over_3s_actions:
+        'conditional_time_spent_ms_over_3s_actions',
+      conditional_time_spent_ms_over_6s_actions:
+        'conditional_time_spent_ms_over_6s_actions',
+      contact_actions: 'contact_actions',
+      contact_value: 'contact_value',
       conversion_values: 'conversion_values',
       conversions: 'conversions',
       converted_product_quantity: 'converted_product_quantity',
       converted_product_value: 'converted_product_value',
       cost_per_15_sec_video_view: 'cost_per_15_sec_video_view',
       cost_per_2_sec_continuous_video_view: 'cost_per_2_sec_continuous_video_view',
+      cost_per_action_result: 'cost_per_action_result',
       cost_per_action_type: 'cost_per_action_type',
       cost_per_ad_click: 'cost_per_ad_click',
       cost_per_conversion: 'cost_per_conversion',
@@ -92,6 +108,12 @@ export default class AdsInsights extends AbstractCrudObject {
       impressions: 'impressions',
       inline_link_click_ctr: 'inline_link_click_ctr',
       inline_link_clicks: 'inline_link_clicks',
+      hourly_stats_aggregated_by_advertiser_time_zone:
+        'hourly_stats_aggregated_by_advertiser_time_zone',
+      hourly_stats_aggregated_by_audience_time_zone:
+        'hourly_stats_aggregated_by_audience_time_zone',
+      image_asset: 'image_asset',
+      impression_device: 'impression_device',
       inline_post_engagement: 'inline_post_engagement',
       instant_experience_clicks_to_open: 'instant_experience_clicks_to_open',
       instant_experience_clicks_to_start: 'instant_experience_clicks_to_start',
@@ -112,6 +134,12 @@ export default class AdsInsights extends AbstractCrudObject {
       quality_score_ecvr: 'quality_score_ecvr',
       quality_score_organic: 'quality_score_organic',
       reach: 'reach',
+      recurring_subscription_payment_actions:
+        'recurring_subscription_payment_actions',
+      region: 'region',
+      rule_asset: 'rule_asset',
+      schedule_actions: 'schedule_actions',
+      schedule_value: 'schedule_value',
       social_spend: 'social_spend',
       spend: 'spend',
       total_postbacks: 'total_postbacks',
@@ -132,6 +160,9 @@ export default class AdsInsights extends AbstractCrudObject {
       video_avg_time_watched_actions: 'video_avg_time_watched_actions',
       video_continuous_2_sec_watched_actions: 'video_continuous_2_sec_watched_actions',
       video_p100_watched_actions: 'video_p100_watched_actions',
+      video_complete_watched_actions: 'video_complete_watched_actions',
+      video_completed_view_or_15s_passed_actions:
+        'video_completed_view_or_15s_passed_actions',
       video_p25_watched_actions: 'video_p25_watched_actions',
       video_p50_watched_actions: 'video_p50_watched_actions',
       video_p75_watched_actions: 'video_p75_watched_actions',

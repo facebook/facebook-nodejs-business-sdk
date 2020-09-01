@@ -7,7 +7,7 @@
  */
 
 'use strict';
-const {Content, DeliveryCategory} = require('facebook-nodejs-business-sdk');
+const {Content, DeliveryCategory} = require('../');
 
 
 describe('Content', function() {

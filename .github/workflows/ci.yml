@@ -9,7 +9,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [8.x, 10.x, 12.x]
+        node-version: [6.x, 8.x, 10.x, 12.x, 14.x, 16.x, 18.x]
 
     steps:
     - uses: actions/checkout@v2
@@ -17,7 +17,7 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm install
+    - run: yarn install --ignore-engines
     - run: npm run flow
       env:
         CI: true

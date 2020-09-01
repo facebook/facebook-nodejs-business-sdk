@@ -4,6 +4,7 @@
 .*examples/.*
 .*src/objects/serverside
 .*src/objects/signal
+.*/malformed_package_json/package.json
 [include]
 
 [libs]
