@@ -1,14 +1,14 @@
 {
-  "name": "facebook-nodejs-business-sdk",
+  "name": "proof-facebook-nodejs-business-sdk",
   "version": "14.0.0",
-  "description": "SDK for the Facebook Ads API in Javascript and Node.js",
+  "description": "PruvoNet fork of SDK for the Facebook Ads API in Javascript and Node.js",
   "author": "Facebook",
   "maintainers": [
-    "Ellen Tao <ellentao@fb.com>, Yonghong Shi <yongshi@fb.com>, Moyang He <hemoyang@fb.com>, Zain Aziz <zaziz@fb.com>, Neil Chen <xiaotchen@fb.com>, Supasate Choochaisri <supasate@fb.com>, lucascosta <lucas@lucascosta.com>"
+    "Regev Brody <regevbr@gmail.com>"
   ],
-  "homepage": "https://github.com/facebook/facebook-nodejs-business-sdk",
+  "homepage": "https://github.com/PruvoNet/facebook-nodejs-business-sdk",
   "bugs": {
-    "url": "https://github.com/facebook/facebook-nodejs-business-sdk/issues"
+    "url": "https://github.com/PruvoNet/facebook-nodejs-business-sdk/issues"
   },
   "keywords": [
     "facebook",
@@ -27,7 +27,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/facebook/facebook-nodejs-business-sdk.git"
+    "url": "git://github.com/PruvoNet/facebook-nodejs-business-sdk.git"
   },
   "dependencies": {
     "currency-codes": "^1.5.1",
@@ -61,6 +61,7 @@
     "gulp-open": "^3.0.1",
     "gulp-rename": "^1.2.3",
     "gulp-sourcemaps": "~2.1.1",
+    "jest": "^27.2.1",
     "jshint-sourcemap-reporter": "0.0.1",
     "rollup-plugin-babel": "~2.6.1",
     "rollup-plugin-commonjs": "~5.0.5",
@@ -72,7 +73,7 @@
     "vinyl-source-stream": "~2.0.0"
   },
   "scripts": {
-    "prepublish": "gulp dist",
+    "prepublish1": "gulp dist",
     "start": "semistandard --fix",
     "flow": "flow",
     "test": "jest"

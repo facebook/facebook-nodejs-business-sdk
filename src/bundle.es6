@@ -220,6 +220,7 @@ export { default as CustomAudienceSession } from './../src/objects/custom-audien
 export { default as CustomAudienceSharingStatus } from './../src/objects/custom-audience-sharing-status';
 export { default as CustomAudienceStatus } from './../src/objects/custom-audience-status';
 export { default as CustomAudiencesTOS } from './../src/objects/custom-audiences-tos';
+export { default as Cursor } from './../src/cursor';
 export { default as CustomAudiencesharedAccountInfo } from './../src/objects/custom-audienceshared-account-info';
 export { default as CustomConversion } from './../src/objects/custom-conversion';
 export { default as CustomConversionStatsResult } from './../src/objects/custom-conversion-stats-result';

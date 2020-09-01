@@ -8,7 +8,7 @@
 
 'use strict';
 
-const { ServerSideUtils } = require('facebook-nodejs-business-sdk');
+const { ServerSideUtils } = require('../');
 const sha256 = require('js-sha256');
 
 

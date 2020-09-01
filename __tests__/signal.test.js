@@ -7,7 +7,7 @@
  */
 
 'use strict';
-const { SignalUserData, SignalContent, SignalCustomData, SignalEvent, DeliveryCategory } = require('facebook-nodejs-business-sdk');
+const { SignalUserData, SignalContent, SignalCustomData, SignalEvent, DeliveryCategory } = require('../');
 const sha256 = require('js-sha256');
 
 

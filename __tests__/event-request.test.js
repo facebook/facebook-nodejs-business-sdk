@@ -17,7 +17,7 @@ const {
     HttpServiceClientConfig,
     ServerEvent,
     UserData,
-} = require('facebook-nodejs-business-sdk');
+} = require('../');
 
 
 describe('EventRequest', function() {
