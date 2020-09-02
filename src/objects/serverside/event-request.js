@@ -353,7 +353,12 @@ export default class EventRequest {
 		);
 
 		return adsPixelPromise.then(response => {
-			return new EventResponse(response._data['events_received'],response._data['messages'], response._data['fbtrace_id']);
+			return new EventResponse(
+					response._data['events_received'],
+					response._data['messages'],
+					response._data['fbtrace_id'],
+					response._data['id'],
+					response._data['num_processed_entries']);
 		});
 	}
 }
