@@ -18,6 +18,9 @@ export { default as EventResponse } from './../src/objects/serverside/event-resp
 export { default as ServerEvent } from './../src/objects/serverside/server-event';
 export { default as UserData } from './../src/objects/serverside/user-data';
 export { default as DeliveryCategory } from './../src/objects/serverside/delivery-category';
+export { default as HttpMethod } from './../src/objects/serverside/http-method';
+export { default as HttpServiceClientConfig } from './../src/objects/serverside/http-service-client-config';
+export { default as HttpServiceInterface } from './../src/objects/serverside/http-service-interface';
 
 export { default as Ad } from './../src/objects/ad';
 export { default as AdAccount } from './../src/objects/ad-account';

@@ -10,6 +10,9 @@
 import AdsPixel from './../ads-pixel';
 import FacebookAdsApi from './../../api';
 import EventResponse from './event-response';
+import HttpMethod from './http-method';
+import HttpServiceClientConfig from './http-service-client-config';
+import HttpServiceInterface from './http-service-interface';
 import ServerEvent from './server-event';
 
 /**
@@ -29,6 +32,7 @@ export default class EventRequest {
 	_upload_source: ?string;
 	_debug_mode: bool;
 	_api: Object;
+	_http_service: ?HttpServiceInterface;
 
 	/**
 	 * @param {String} access_token Access Token for the user calling Graph API
@@ -41,11 +45,12 @@ export default class EventRequest {
 	 * @param {?String} upload_tag Tag string added to track your Offline event uploads.
 	 * @param {?String} upload_source The origin/source of data for the dataset to be uploaded.
 	 * @param {Boolean} debug_mode_flag Set to true if you want to enable more logging in SDK
+	 * @param {?HttpServiceInterface} http_service Override the default http request method by setting an object that implements HttpServiceInterface
 	 */
 	constructor(access_token: string, pixel_id: string, events: Array<ServerEvent> = [],
 							partner_agent: ?string = null, test_event_code: ?string = null,
 							namespace_id: string, upload_id: string, upload_tag: string, upload_source: string,
-							debug_mode_flag: bool = false ) {
+							debug_mode_flag: bool = false, http_service: ?HttpServiceInterface = null ) {
 
 		this._access_token = access_token;
 		this._pixel_id = pixel_id;
@@ -58,6 +63,7 @@ export default class EventRequest {
 		this._upload_tag = upload_tag;
 		this._upload_source = upload_source;
 
+		this._http_service = http_service;
 		this._api = FacebookAdsApi.init(this._access_token);
 	}
 
@@ -315,7 +321,29 @@ export default class EventRequest {
 		return this;
 	}
 
+	/**
+	 * Gets the http_service object for making the events request
+	 */
+	get http_service() {
+		return this._http_service;
+	}
 
+	/**
+	 * Sets the http_service object for making the events request
+	 * @param {HttpServiceInterface} http_service
+	 */
+	set http_service(http_service: HttpServiceInterface) {
+		this._http_service = http_service;
+	}
+
+	/**
+	 * Sets the http_service object for making the events request
+	 * @param {HttpServiceInterface} http_service
+	 */
+	setHttpService(http_service: HttpServiceInterface): EventRequest {
+		this._http_service = http_service;
+		return this;
+	}
 
 	/**
 	 * Executes the current event_request data by making a call to the Facebook Graph API.
@@ -323,6 +351,7 @@ export default class EventRequest {
 	execute(): Promise<EventResponse> {
 		let fields, params;
 		fields = [];
+		params = {};
 
 		let normalized_events = [];
 
@@ -345,8 +374,35 @@ export default class EventRequest {
 			'upload_id' : this.upload_id,
 			'upload_tag' : this.upload_tag,
 			'upload_source' : this.upload_source,
+			'access_token': this.access_token,
 		};
 
+		let http_service;
+		if (this._http_service != null) {
+			http_service = this._http_service;
+		} else {
+			http_service = HttpServiceClientConfig.getClient();
+		}
+		if (http_service != null) {
+			const url = [
+                FacebookAdsApi.GRAPH,
+                FacebookAdsApi.VERSION,
+                this._pixel_id,
+                'events'
+            ].join('/');
+			const headers = {
+                'User-Agent': `fbbizsdk-nodejs-${FacebookAdsApi.VERSION}`,
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+            };
+
+			return http_service.executeRequest(
+				url,
+				HttpMethod.POST,
+				headers,
+				params
+			);
+		}
 		const adsPixelPromise = (new AdsPixel(this._pixel_id)).createEvent(
 			fields,
 			params
