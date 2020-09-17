@@ -49,7 +49,9 @@ export default class AdsPixel extends AbstractCrudObject {
   }
   static get AutomaticMatchingFields (): Object {
     return Object.freeze({
+      country: 'country',
       ct: 'ct',
+      db: 'db',
       em: 'em',
       fn: 'fn',
       ge: 'ge',

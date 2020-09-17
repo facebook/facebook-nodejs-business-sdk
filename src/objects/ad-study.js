@@ -43,6 +43,7 @@ export default class AdStudy extends AbstractCrudObject {
       continuous_lift_config: 'CONTINUOUS_LIFT_CONFIG',
       geo_lift: 'GEO_LIFT',
       lift: 'LIFT',
+      private_lift: 'PRIVATE_LIFT',
       split_test: 'SPLIT_TEST',
     });
   }

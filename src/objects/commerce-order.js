@@ -115,6 +115,16 @@ export default class CommerceOrder extends AbstractCrudObject {
     );
   }
 
+  getPromotionDetails (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/promotion_details'
+    );
+  }
+
   getPromotions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AbstractObject,

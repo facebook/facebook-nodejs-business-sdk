@@ -134,6 +134,25 @@ export default class CommerceMerchantSettings extends AbstractCrudObject {
     );
   }
 
+  getShippingProfiles (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/shipping_profiles'
+    );
+  }
+
+  createShippingProfile (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+    return this.createEdge(
+      '/shipping_profiles',
+      fields,
+      params,
+      
+    );
+  }
+
   getTaxSettings (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AbstractObject,

@@ -9,28 +9,16 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * DACheck
+ * ConnectionsTargeting
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class DACheck extends AbstractCrudObject {
+export default class ConnectionsTargeting extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      action_uri: 'action_uri',
-      description: 'description',
-      key: 'key',
-      result: 'result',
-      title: 'title',
-      user_message: 'user_message',
+      id: 'id',
+      name: 'name',
     });
   }
 
-  static get ConnectionMethod (): Object {
-    return Object.freeze({
-      all: 'ALL',
-      app: 'APP',
-      browser: 'BROWSER',
-      server: 'SERVER',
-    });
-  }
 }

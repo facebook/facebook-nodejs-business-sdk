@@ -44,6 +44,7 @@ export default class AdNetworkAnalyticsSyncQueryResult extends AbstractCrudObjec
       gender: 'GENDER',
       instant_article_id: 'INSTANT_ARTICLE_ID',
       instant_article_page_id: 'INSTANT_ARTICLE_PAGE_ID',
+      is_deal_backfill: 'IS_DEAL_BACKFILL',
       placement: 'PLACEMENT',
       placement_name: 'PLACEMENT_NAME',
       platform: 'PLATFORM',

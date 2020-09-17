@@ -34,6 +34,7 @@ export default class ProductSet extends AbstractCrudObject {
       name: 'name',
       product_catalog: 'product_catalog',
       product_count: 'product_count',
+      retailer_id: 'retailer_id',
     });
   }
 
