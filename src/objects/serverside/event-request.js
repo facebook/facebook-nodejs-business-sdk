@@ -49,19 +49,19 @@ export default class EventRequest {
 	 */
 	constructor(access_token: string, pixel_id: string, events: Array<ServerEvent> = [],
 							partner_agent: ?string = null, test_event_code: ?string = null,
-							namespace_id: string, upload_id: string, upload_tag: string, upload_source: string,
+							namespace_id: ?string = null, upload_id: ?string = null,
+							upload_tag: ?string = null, upload_source: ?string = null,
 							debug_mode_flag: bool = false, http_service: ?HttpServiceInterface = null ) {
-
 		this._access_token = access_token;
 		this._pixel_id = pixel_id;
 		this._events = events;
 		this._partner_agent = partner_agent;
 		this._test_event_code = test_event_code;
-		this._debug_mode = debug_mode_flag;
 		this._namespace_id = namespace_id;
 		this._upload_id = upload_id;
 		this._upload_tag = upload_tag;
 		this._upload_source = upload_source;
+		this._debug_mode = debug_mode_flag;
 
 		this._http_service = http_service;
 		this._api = FacebookAdsApi.init(this._access_token);
@@ -416,5 +416,20 @@ export default class EventRequest {
 					response._data['id'],
 					response._data['num_processed_entries']);
 		});
+	}
+
+	cloneWithoutEvents(): EventRequest {
+		return new EventRequest(
+			this._access_token,
+			this._pixel_id,
+			[],
+			this._partner_agent,
+			this._test_event_code,
+			this._namespace_id,
+			this._upload_id,
+			this._upload_tag,
+			this._upload_source,
+			this._debug_mode,
+		);
 	}
 }

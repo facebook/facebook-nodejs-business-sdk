@@ -7,7 +7,9 @@
  */
 
 'use strict';
+
 const {
+    Event,
     EventRequest,
     EventResponse,
     FacebookAdsApi,
@@ -156,5 +158,33 @@ describe('EventRequest', function() {
             expect(actual_headers).to.deep.equal(expected_headers);
             expect(actual_params).to.deep.equal(expected_params);
         });
+    });
+
+    it('cloneWithoutEvents clones the EventRequest object without the events', async function() {
+        const event_request = new EventRequest(
+            'access_token-1',
+            'pixel_id-2',
+            [new Event()],
+		    'partner_agent-3',
+		    'test_event_code-4',
+		    'namespace_id-5',
+		    'upload_id-6',
+		    'upload_tag-7',
+		    'upload_source-8',
+            true
+        );
+        const cloned = event_request.cloneWithoutEvents();
+
+        expect(cloned.access_token).to.equal(event_request.access_token);
+        expect(cloned.pixel_id).to.equal(event_request.pixel_id);
+        expect(cloned.events).to.deep.equal([]);
+        expect(cloned.partner_agent).to.equal(event_request.partner_agent);
+        expect(cloned.test_event_code).to.equal(event_request.test_event_code);
+        expect(cloned.namespace_id).to.equal(event_request.namespace_id);
+        expect(cloned.upload_id).to.equal(event_request.upload_id);
+        expect(cloned.upload_tag).to.equal(event_request.upload_tag);
+        expect(cloned.upload_source).to.equal(event_request.upload_source);
+        expect(cloned.debug_mode).to.equal(event_request.debug_mode);
+        expect(cloned === event_request).to.equal(false);
     });
 });
