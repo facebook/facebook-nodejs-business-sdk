@@ -35,4 +35,9 @@ export default class ProfilePictureSource extends AbstractCrudObject {
       thumbnail: 'thumbnail',
     });
   }
+  static get BreakingChange (): Object {
+    return Object.freeze({
+      profile_picture: 'PROFILE_PICTURE',
+    });
+  }
 }

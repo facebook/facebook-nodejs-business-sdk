@@ -9,6 +9,7 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
+import AssignedUser from './assigned-user';
 
 /**
  * WhatsAppBusinessAccount
@@ -24,12 +25,22 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
       message_template_namespace: 'message_template_namespace',
       name: 'name',
       on_behalf_of_business_info: 'on_behalf_of_business_info',
+      primary_funding_id: 'primary_funding_id',
       purchase_order_number: 'purchase_order_number',
       status: 'status',
       timezone_id: 'timezone_id',
     });
   }
 
+  static get Tasks (): Object {
+    return Object.freeze({
+      develop: 'DEVELOP',
+      manage: 'MANAGE',
+      manage_phone: 'MANAGE_PHONE',
+      manage_templates: 'MANAGE_TEMPLATES',
+      view_cost: 'VIEW_COST',
+    });
+  }
   static get Category (): Object {
     return Object.freeze({
       account_update: 'ACCOUNT_UPDATE',
@@ -44,6 +55,32 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
       ticket_update: 'TICKET_UPDATE',
       transportation_update: 'TRANSPORTATION_UPDATE',
     });
+  }
+
+  deleteAssignedUsers (params: Object = {}): Promise<*> {
+    return super.deleteEdge(
+      '/assigned_users',
+      params
+    );
+  }
+
+  getAssignedUsers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AssignedUser,
+      fields,
+      params,
+      fetchFirstPage,
+      '/assigned_users'
+    );
+  }
+
+  createAssignedUser (fields: Array<string>, params: Object = {}): Promise<WhatsAppBusinessAccount> {
+    return this.createEdge(
+      '/assigned_users',
+      fields,
+      params,
+      WhatsAppBusinessAccount
+    );
   }
 
   deleteMessageTemplates (params: Object = {}): Promise<*> {
@@ -79,6 +116,15 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/phone_numbers'
+    );
+  }
+
+  createSubscribedApp (fields: Array<string>, params: Object = {}): Promise<WhatsAppBusinessAccount> {
+    return this.createEdge(
+      '/subscribed_apps',
+      fields,
+      params,
+      WhatsAppBusinessAccount
     );
   }
 

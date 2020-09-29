@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import ExtendedCreditInvoiceGroup from './extended-credit-invoice-group';
 import ExtendedCreditAllocationConfig from './extended-credit-allocation-config';
@@ -75,6 +76,15 @@ export default class ExtendedCredit extends AbstractCrudObject {
       fields,
       params,
       ExtendedCreditAllocationConfig
+    );
+  }
+
+  createWhatsappCreditSharingAndAttach (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+    return this.createEdge(
+      '/whatsapp_credit_sharing_and_attach',
+      fields,
+      params,
+      
     );
   }
 

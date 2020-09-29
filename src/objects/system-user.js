@@ -12,7 +12,6 @@ import AdAccount from './ad-account';
 import BusinessAssetGroup from './business-asset-group';
 import Page from './page';
 import ProductCatalog from './product-catalog';
-import User from './user';
 
 /**
  * SystemUser
@@ -35,9 +34,19 @@ export default class SystemUser extends AbstractCrudObject {
     return Object.freeze({
       admin: 'ADMIN',
       ads_rights_reviewer: 'ADS_RIGHTS_REVIEWER',
+      developer: 'DEVELOPER',
       employee: 'EMPLOYEE',
       finance_analyst: 'FINANCE_ANALYST',
       finance_editor: 'FINANCE_EDITOR',
+      finance_edit_task: 'FINANCE_EDIT_TASK',
+      finance_view_task: 'FINANCE_VIEW_TASK',
+      moderate_task: 'MODERATE_TASK',
+      operate_task: 'OPERATE_TASK',
+      partner_center_admin: 'PARTNER_CENTER_ADMIN',
+      partner_center_analyst: 'PARTNER_CENTER_ANALYST',
+      partner_center_education: 'PARTNER_CENTER_EDUCATION',
+      partner_center_marketing: 'PARTNER_CENTER_MARKETING',
+      partner_center_operations: 'PARTNER_CENTER_OPERATIONS',
     });
   }
 
@@ -78,16 +87,6 @@ export default class SystemUser extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/assigned_product_catalogs'
-    );
-  }
-
-  getUpdatedBy (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      User,
-      fields,
-      params,
-      fetchFirstPage,
-      '/updated_by'
     );
   }
 

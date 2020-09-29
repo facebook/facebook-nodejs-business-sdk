@@ -25,4 +25,12 @@ export default class DACheck extends AbstractCrudObject {
     });
   }
 
+  static get ConnectionMethod (): Object {
+    return Object.freeze({
+      all: 'ALL',
+      app: 'APP',
+      browser: 'BROWSER',
+      server: 'SERVER',
+    });
+  }
 }

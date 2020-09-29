@@ -17,8 +17,10 @@ export default class Vehicle extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       address: 'address',
+      applinks: 'applinks',
       availability: 'availability',
       body_style: 'body_style',
+      category_specific_fields: 'category_specific_fields',
       condition: 'condition',
       currency: 'currency',
       custom_label_0: 'custom_label_0',

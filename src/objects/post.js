@@ -35,26 +35,33 @@ export default class Post extends AbstractCrudObject {
       comments_mirroring_domain: 'comments_mirroring_domain',
       coordinates: 'coordinates',
       created_time: 'created_time',
+      delivery_growth_optimizations: 'delivery_growth_optimizations',
       description: 'description',
+      entities: 'entities',
       event: 'event',
       expanded_height: 'expanded_height',
       expanded_width: 'expanded_width',
       feed_targeting: 'feed_targeting',
+      formatting: 'formatting',
       from: 'from',
       full_picture: 'full_picture',
       height: 'height',
       icon: 'icon',
       id: 'id',
+      implicit_place: 'implicit_place',
       instagram_eligibility: 'instagram_eligibility',
+      instream_eligibility: 'instream_eligibility',
       is_app_share: 'is_app_share',
       is_eligible_for_promotion: 'is_eligible_for_promotion',
       is_expired: 'is_expired',
       is_hidden: 'is_hidden',
+      is_inline_created: 'is_inline_created',
       is_instagram_eligible: 'is_instagram_eligible',
       is_popular: 'is_popular',
       is_published: 'is_published',
       is_spherical: 'is_spherical',
       link: 'link',
+      live_video_eligibility: 'live_video_eligibility',
       message: 'message',
       message_tags: 'message_tags',
       multi_share_end_card: 'multi_share_end_card',
@@ -65,10 +72,12 @@ export default class Post extends AbstractCrudObject {
       permalink_url: 'permalink_url',
       picture: 'picture',
       place: 'place',
+      poll: 'poll',
       privacy: 'privacy',
       promotable_id: 'promotable_id',
       promotion_status: 'promotion_status',
       properties: 'properties',
+      publishing_stats: 'publishing_stats',
       scheduled_publish_time: 'scheduled_publish_time',
       shares: 'shares',
       source: 'source',
@@ -79,11 +88,13 @@ export default class Post extends AbstractCrudObject {
       target: 'target',
       targeting: 'targeting',
       timeline_visibility: 'timeline_visibility',
+      translations: 'translations',
       type: 'type',
       updated_time: 'updated_time',
       via: 'via',
       video_buying_eligibility: 'video_buying_eligibility',
       width: 'width',
+      will_be_autocropped_when_deliver_to_instagram: 'will_be_autocropped_when_deliver_to_instagram',
     });
   }
 
@@ -108,11 +119,6 @@ export default class Post extends AbstractCrudObject {
       forced_allow: 'forced_allow',
       hidden: 'hidden',
       normal: 'normal',
-    });
-  }
-  static get With (): Object {
-    return Object.freeze({
-      location: 'LOCATION',
     });
   }
 

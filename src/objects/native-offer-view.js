@@ -7,8 +7,6 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import Cursor from './../cursor';
-import Photo from './photo';
 
 /**
  * NativeOfferView
@@ -24,16 +22,6 @@ export default class NativeOfferView extends AbstractCrudObject {
     });
   }
 
-
-  getPhotos (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      Photo,
-      fields,
-      params,
-      fetchFirstPage,
-      '/photos'
-    );
-  }
 
   createPhoto (fields: Array<string>, params: Object = {}): Promise<NativeOfferView> {
     return this.createEdge(

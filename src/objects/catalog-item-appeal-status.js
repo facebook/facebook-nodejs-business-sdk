@@ -9,16 +9,17 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * CustomAudiencePrefillState
+ * CatalogItemAppealStatus
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class CustomAudiencePrefillState extends AbstractCrudObject {
+export default class CatalogItemAppealStatus extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      description: 'description',
-      num_added: 'num_added',
+      handle: 'handle',
+      item_id: 'item_id',
       status: 'status',
+      use_cases: 'use_cases',
     });
   }
 

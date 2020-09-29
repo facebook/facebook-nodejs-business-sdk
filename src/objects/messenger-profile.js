@@ -19,7 +19,6 @@ export default class MessengerProfile extends AbstractCrudObject {
       account_linking_url: 'account_linking_url',
       get_started: 'get_started',
       greeting: 'greeting',
-      home_url: 'home_url',
       ice_breakers: 'ice_breakers',
       payment_settings: 'payment_settings',
       persistent_menu: 'persistent_menu',

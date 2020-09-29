@@ -7,8 +7,11 @@
  * @flow
  */
 
+import DeliveryCategory from './delivery-category.js';
+
 const sha256 = require('js-sha256');
 const currency_codes = require('currency-codes');
+const country_codes = require('iso-3166-1-alpha-2');
 
 const PHONE_NUMBER_IGNORE_CHAR_SET = /[\-@#<>'",; ]|\(|\)|\+|[a-z]/g;
 const PHONE_NUMBER_DROP_PREFIX_ZEROS = /^\+?0{0,2}/;
@@ -20,27 +23,24 @@ const INTL_PHONE_NUMBER_REGEX = /^\d{1,4}\(?\d{2,3}\)?\d{4,}$/;
  */
 
 export default class ServerSideUtils {
-
   /**
    * Normalizes and hashes the input given the field name.
    * @param  {String} [input] Value to be normalized. eg: `foo@bar.com` for email input.
    * @param  {String} [field] Key(Type) of Value to be normalized eg: 'em' for email field.
    * @return {String} Normalized and hashed value for the string.
    */
-  static normalizeAndHash(input: string, field: string) {
-
+  static normalizeAndHash (input: string, field: string) {
     if (field == null || input == null) {
       return null;
     }
 
     let normalized_input = input.trim().toLowerCase();
 
-    if (normalized_input.length == 0) {
+    if (normalized_input.length === 0) {
       return null;
     }
 
     switch (field) {
-
       case 'country':
         normalized_input = ServerSideUtils.normalizeCountry(normalized_input);
         break;
@@ -62,11 +62,26 @@ export default class ServerSideUtils {
       case 'zp':
         normalized_input = ServerSideUtils.normalizeZip(normalized_input);
         break;
-
+      case 'f5first':
+      case 'f5last':
+        normalized_input = ServerSideUtils.normalizeF5NameField(normalized_input);
+        break;
+      case 'fi':
+        normalized_input = normalized_input.charAt(0);
+        break;
+      case 'dobd':
+        normalized_input = ServerSideUtils.normalizeDobd(normalized_input);
+        break;
+      case 'dobm':
+        normalized_input = ServerSideUtils.normalizeDobm(normalized_input);
+        break;
+      case 'doby':
+        normalized_input = ServerSideUtils.normalizeDoby(normalized_input);
+        break;
     }
 
 	  // Hashing the normalized input with SHA 256
-    const hashed_input = ServerSideUtils.tosha256(normalized_input);
+    const hashed_input = ServerSideUtils.toSHA256(normalized_input);
     return hashed_input;
   }
 
@@ -75,13 +90,9 @@ export default class ServerSideUtils {
    * @param  {String} [country] country value to be normalized.
    * @return {String} Normalized ISO country code.
    */
-  static normalizeCountry(country: string) {
-
-    // Retain only alpha characters bounded for ISO code.
-    country = country.replace(/[^a-z]/g, '');
-
-    if (country.length != 2) {
-      throw new Error("Invalid format for country:'" + country + "'.Please follow ISO 3166-1 2-letter standard for representing country. eg: us");
+  static normalizeCountry (country: string) {
+    if (country_codes.getCountry(country.toUpperCase()) == null) {
+      throw new Error("Invalid country code: '" + country + "'. Please follow ISO 3166-1 2-letter standard for representing country. eg: US");
     }
 
     return country;
@@ -92,8 +103,7 @@ export default class ServerSideUtils {
    * @param  {String} [city] city value to be normalized.
    * @return {String} Normalized city value.
    */
-  static normalizeCity(city: string) {
-
+  static normalizeCity (city: string) {
     city = city.replace(/[0-9\s().-]/g, '');
     return city;
   }
@@ -103,10 +113,11 @@ export default class ServerSideUtils {
    * @param  {String} [currency] country value to be normalized.
    * @return {String} Normalized ISO currency code.
    */
-  static normalizeCurrency(currency: string) {
+  static normalizeCurrency (currency: string) {
+    currency = currency.trim().toLowerCase();
 
     // Retain only alpha characters bounded for ISO code.
-    currency = currency.replace(/[^a-z]/g, '');
+    currency = currency.replace(/[^a-zA-Z]/g, '');
 
     if (!currency_codes.codes().includes(currency.toUpperCase())) {
       throw new Error("Invalid format for currency:'" + currency + "'.Please follow ISO 4217 3-letter standard for representing currency. Eg: usd");
@@ -116,12 +127,28 @@ export default class ServerSideUtils {
   }
 
   /**
+   * Normalizes the given delivery category value and returns a valid string.
+   * @param  {String} [input] delivery_category input to be validated.
+   * @return {String} Valid delivery_category value.
+   */
+  static normalizeDeliveryCategory(input: string) {
+
+    let delivery_category = input.trim().toLowerCase();
+
+    if(!(Object.values(DeliveryCategory).includes(delivery_category))){
+				throw new Error("Invalid delivery_category passed: " + input +
+																". Allowed values are one of " + (Object.values(DeliveryCategory)).join(','));
+			}
+
+    return delivery_category;
+  }
+
+  /**
    * Normalizes the given email to RFC 822 standard and returns acceptable email value
    * @param  {String} [email] email value to be normalized.
    * @return {String} Normalized email value.
    */
-  static normalizeEmail(email: string) {
-
+  static normalizeEmail (email: string) {
     // RFC 2822 REGEX approximation
     const EMAIL_RE = /^[\w!#\$%&'\*\+\/\=\?\^`\{\|\}~\-]+(:?\.[\w!#\$%&'\*\+\/\=\?\^`\{\|\}~\-]+)*@(?:[a-z0-9](?:[a-z0-9\-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9\-]*[a-z0-9])?$/i;
 
@@ -137,27 +164,34 @@ export default class ServerSideUtils {
    * @param  {String} [gender] gender value to be normalized.
    * @return {String} Normalized gender value.
    */
-  static normalizeGender(gender: string) {
-
+  static normalizeGender (gender: string) {
     gender = gender.replace(/[^a-z]/g, '');
 
-    if (gender == 'female' || gender == 'f') {
+    if (gender === 'female' || gender === 'f') {
       gender = 'f';
-    } else if (gender == 'male' || gender == 'm') {
+    } else if (gender === 'male' || gender === 'm') {
       gender = 'm';
-    } else
-      return null;
+    } else { return null; }
 
     return gender;
   }
 
+   /**
+   * Normalizes the 5 character name field.
+   * @param  {String} [name] name value to be normalized.
+   * @return {String} Normalized 5 character {first,last}name field value.
+   */
+  static normalizeF5NameField (name: string) {
+
+    return name.length <= 5 ? name : name.substring(0,5);
+  }
+
   /**
    * Normalizes the given phone and returns acceptable phone value
-   * @param  {String} [phone] phone number value to be normalized.
+   * @param  {String} [phone_number] phone number value to be normalized.
    * @return {String} Normalized phone number value.
    */
-  static normalizePhone(phone_number: string) {
-
+  static normalizePhone (phone_number: string) {
     // Remove common characters occuring as part of the phone numbers.
     phone_number = phone_number.replace(PHONE_NUMBER_IGNORE_CHAR_SET, '');
 
@@ -177,8 +211,7 @@ export default class ServerSideUtils {
    * @param  {String} [state] state value to be normalized.
    * @return {String} Normalized state value.
    */
-  static normalizeState(state: string) {
-
+  static normalizeState (state: string) {
     state = state.replace(/[0-9\s().-]/g, '');
     return state;
   }
@@ -188,7 +221,7 @@ export default class ServerSideUtils {
    * @param  {String} [zip] zip value to be normalized.
    * @return {String} Normalized zip code value.
    */
-  static normalizeZip(zip: string) {
+  static normalizeZip (zip: string) {
     zip = zip.replace(/[\s]/g, '');
 
     // If the zip code '-', we retain just the first part alone.
@@ -202,12 +235,60 @@ export default class ServerSideUtils {
   }
 
   /**
+   * Normalizes the given date of birth day
+   * @param  {String} [dobd] value to be normalized.
+   * @return {String} Normalized value.
+   */
+  static normalizeDobd (dobd: string) {
+    if (dobd.length === 1) {
+      dobd = '0' + dobd;
+    }
+
+    const dobd_int = parseInt(dobd);
+    if (dobd_int < 1 || dobd_int > 31) {
+      throw new Error("Invalid format for dobd:'" + dobd + "'.Please use 'DD' format for dobd.")
+    }
+
+    return dobd;
+  }
+
+  /**
+   * Normalizes the given date of birth month
+   * @param  {String} [dobm] value to be normalized.
+   * @return {String} Normalized value.
+   */
+  static normalizeDobm (dobm: string) {
+    if (dobm.length === 1) {
+      dobm = '0' + dobm;
+    }
+
+    const dobm_int = parseInt(dobm);
+    if (dobm_int < 1 || dobm_int > 12) {
+      throw new Error("Invalid format for dobm:'" + dobm + "'.Please use 'MM' format for dobm.")
+    }
+
+    return dobm;
+  }
+
+  /**
+   * Normalizes the given date of birth year
+   * @param  {String} [doby] value to be normalized.
+   * @return {String} Normalized value.
+   */
+  static normalizeDoby (doby: string) {
+    if (!doby.match(/^[0-9]{4}$/)) {
+      throw new Error("Invalid format for doby:'" + doby + "'.Please use 'YYYY' format for doby.")
+    }
+
+    return doby;
+  }
+
+  /**
    * Boolean method which checks if a given number is represented in international format
    * @param  {String} phone_number that has to be tested.
    * @return {Boolean} value if a number is represented international format
    */
-  static isInternationalPhoneNumber(phone_number: string) {
-
+  static isInternationalPhoneNumber (phone_number: string) {
     // strip up to 2 leading 0s and +
     phone_number = phone_number.replace(PHONE_NUMBER_DROP_PREFIX_ZEROS, '');
 
@@ -227,7 +308,7 @@ export default class ServerSideUtils {
    * @param  {String} [input] String to be hashed
    * @return {String} SHA 256 Hash of the string
    */
-  static tosha256(input: ?string) {
+  static toSHA256(input: ?string) {
     if (input === null)
       return input;
 

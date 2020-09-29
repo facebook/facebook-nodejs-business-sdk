@@ -7,37 +7,32 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import AbstractObject from './../abstract-object';
 
 /**
- * PageAboutStory
+ * BusinessAgreement
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class PageAboutStory extends AbstractCrudObject {
+export default class BusinessAgreement extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      composed_text: 'composed_text',
-      cover_photo: 'cover_photo',
-      entity_map: 'entity_map',
       id: 'id',
-      is_published: 'is_published',
-      page_id: 'page_id',
-      title: 'title',
+      request_status: 'request_status',
     });
   }
 
-
-  // $FlowFixMe : Support Generic Types
-  delete (fields: Array<string>, params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
-    return super.delete(
-      params
-    );
+  static get RequestStatus (): Object {
+    return Object.freeze({
+      approve: 'APPROVE',
+      decline: 'DECLINE',
+      expired: 'EXPIRED',
+      in_progress: 'IN_PROGRESS',
+      pending: 'PENDING',
+    });
   }
 
   
-  get (fields: Array<string>, params: Object = {}): PageAboutStory {
+  get (fields: Array<string>, params: Object = {}): BusinessAgreement {
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
@@ -46,7 +41,7 @@ export default class PageAboutStory extends AbstractCrudObject {
   }
 
   // $FlowFixMe : Support Generic Types
-  update (fields: Array<string>, params: Object = {}): PageAboutStory {
+  update (fields: Array<string>, params: Object = {}): BusinessAgreement {
     // $FlowFixMe : Support Generic Types
     return super.update(
       params

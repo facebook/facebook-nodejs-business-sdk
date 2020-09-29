@@ -16,8 +16,6 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class AdAccountActivity extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      billing_address_new: 'billing_address_new',
-      billing_address_old: 'billing_address_old',
       created_by: 'created_by',
       created_time: 'created_time',
       credit_new: 'credit_new',

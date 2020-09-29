@@ -7,7 +7,6 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import AbstractObject from './../abstract-object';
 
 /**
  * BusinessOwnedObjectOnBehalfOfRequest
@@ -31,15 +30,8 @@ export default class BusinessOwnedObjectOnBehalfOfRequest extends AbstractCrudOb
       decline: 'DECLINE',
       expired: 'EXPIRED',
       in_progress: 'IN_PROGRESS',
+      pending: 'PENDING',
     });
-  }
-
-  // $FlowFixMe : Support Generic Types
-  delete (fields: Array<string>, params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
-    return super.delete(
-      params
-    );
   }
 
   

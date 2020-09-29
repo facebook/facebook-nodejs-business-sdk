@@ -9,25 +9,22 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * BusinessPixelTOS
+ * CatalogItemAppLinks
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class BusinessPixelTOS extends AbstractCrudObject {
+export default class CatalogItemAppLinks extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      accept_time: 'accept_time',
-      id: 'id',
+      android: 'android',
+      ios: 'ios',
+      ipad: 'ipad',
+      iphone: 'iphone',
+      web: 'web',
+      windows: 'windows',
+      windows_phone: 'windows_phone',
+      windows_universal: 'windows_universal',
     });
   }
 
-
-  
-  get (fields: Array<string>, params: Object = {}): BusinessPixelTOS {
-    // $FlowFixMe : Support Generic Types
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

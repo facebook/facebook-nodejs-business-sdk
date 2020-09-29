@@ -16,6 +16,7 @@ import Group from './group';
 import AdAccount from './ad-account';
 import DACheck from './da-check';
 import Event from './event';
+import LiveVideo from './live-video';
 
 /**
  * Application
@@ -138,6 +139,7 @@ export default class Application extends AbstractCrudObject {
       ipad: 'IPAD',
       iphone: 'IPHONE',
       mobile_web: 'MOBILE_WEB',
+      oculus: 'OCULUS',
       supplementary_images: 'SUPPLEMENTARY_IMAGES',
       web: 'WEB',
       windows: 'WINDOWS',
@@ -276,6 +278,25 @@ export default class Application extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/agencies'
+    );
+  }
+
+  createAggregateRevenue (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+    return this.createEdge(
+      '/aggregate_revenue',
+      fields,
+      params,
+      
+    );
+  }
+
+  getAndroidDialogConfigs (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/android_dialog_configs'
     );
   }
 
@@ -420,25 +441,6 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  getFullAppIndexingInfos (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/full_app_indexing_infos'
-    );
-  }
-
-  createFullAppIndexingInfo (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
-    return this.createEdge(
-      '/full_app_indexing_infos',
-      fields,
-      params,
-      
-    );
-  }
-
   getInsightsPushSchedule (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AbstractObject,
@@ -504,6 +506,16 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
+  getLiveVideos (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      LiveVideo,
+      fields,
+      params,
+      fetchFirstPage,
+      '/live_videos'
+    );
+  }
+
   createMmpAuditing (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/mmp_auditing',
@@ -520,15 +532,6 @@ export default class Application extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/mobile_sdk_gk'
-    );
-  }
-
-  createMonetization (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
-    return this.createEdge(
-      '/monetization',
-      fields,
-      params,
-      
     );
   }
 

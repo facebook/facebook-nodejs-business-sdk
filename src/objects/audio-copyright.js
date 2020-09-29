@@ -25,6 +25,7 @@ export default class AudioCopyright extends AbstractCrudObject {
       ownership_countries: 'ownership_countries',
       reference_file_status: 'reference_file_status',
       ridge_monitoring_status: 'ridge_monitoring_status',
+      tags: 'tags',
       update_time: 'update_time',
       whitelisted_fb_users: 'whitelisted_fb_users',
       whitelisted_ig_users: 'whitelisted_ig_users',

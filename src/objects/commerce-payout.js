@@ -9,15 +9,18 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * AdsTALHealthCheckError
+ * CommercePayout
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class AdsTALHealthCheckError extends AbstractCrudObject {
+export default class CommercePayout extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      error_code: 'error_code',
-      target_id: 'target_id',
+      amount: 'amount',
+      payout_date: 'payout_date',
+      payout_reference_id: 'payout_reference_id',
+      status: 'status',
+      transfer_id: 'transfer_id',
     });
   }
 

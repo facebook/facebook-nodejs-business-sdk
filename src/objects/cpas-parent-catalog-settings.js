@@ -24,6 +24,7 @@ export default class CPASParentCatalogSettings extends AbstractCrudObject {
 
   static get AttributionWindows (): Object {
     return Object.freeze({
+      dda: 'DDA',
       default: 'DEFAULT',
       x1d_click: 'X1D_CLICK',
       x1d_view: 'X1D_VIEW',

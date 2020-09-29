@@ -10,6 +10,9 @@
 import AdsPixel from './../ads-pixel';
 import FacebookAdsApi from './../../api';
 import EventResponse from './event-response';
+import HttpMethod from './http-method';
+import HttpServiceClientConfig from './http-service-client-config';
+import HttpServiceInterface from './http-service-interface';
 import ServerEvent from './server-event';
 
 /**
@@ -23,8 +26,13 @@ export default class EventRequest {
 	_events: Array<ServerEvent>;
 	_partner_agent: ?string;
 	_test_event_code: ?string;
+	_namespace_id: ?string;
+	_upload_id: ?string;
+	_upload_tag: ?string;
+	_upload_source: ?string;
 	_debug_mode: bool;
-	_api: Object
+	_api: Object;
+	_http_service: ?HttpServiceInterface;
 
 	/**
 	 * @param {String} access_token Access Token for the user calling Graph API
@@ -32,17 +40,30 @@ export default class EventRequest {
 	 * @param {Array<ServerEvent>} events Data for the request Payload for a Server Side Event
 	 * @param {?String} partner_agent Platform from which the event is sent e.g. wordpress
 	 * @param {?String} test_event_code Test Event Code used to verify that your server events are received correctly by Facebook.
+	 * @param {?String} namespace_id Scope used to resolve extern_id or Third-party ID. Can be another data set or data partner ID.
+	 * @param {?String} upload_id Unique id used to denote the current set being uploaded.
+	 * @param {?String} upload_tag Tag string added to track your Offline event uploads.
+	 * @param {?String} upload_source The origin/source of data for the dataset to be uploaded.
 	 * @param {Boolean} debug_mode_flag Set to true if you want to enable more logging in SDK
+	 * @param {?HttpServiceInterface} http_service Override the default http request method by setting an object that implements HttpServiceInterface
 	 */
-	constructor(access_token: string, pixel_id: string, events: Array<ServerEvent> = [], partner_agent: ?string = null, test_event_code: ?string = null, debug_mode_flag: bool = false ) {
-
+	constructor(access_token: string, pixel_id: string, events: Array<ServerEvent> = [],
+							partner_agent: ?string = null, test_event_code: ?string = null,
+							namespace_id: ?string = null, upload_id: ?string = null,
+							upload_tag: ?string = null, upload_source: ?string = null,
+							debug_mode_flag: bool = false, http_service: ?HttpServiceInterface = null ) {
 		this._access_token = access_token;
 		this._pixel_id = pixel_id;
 		this._events = events;
 		this._partner_agent = partner_agent;
 		this._test_event_code = test_event_code;
+		this._namespace_id = namespace_id;
+		this._upload_id = upload_id;
+		this._upload_tag = upload_tag;
+		this._upload_source = upload_source;
 		this._debug_mode = debug_mode_flag;
 
+		this._http_service = http_service;
 		this._api = FacebookAdsApi.init(this._access_token);
 	}
 
@@ -188,7 +209,7 @@ export default class EventRequest {
 
 	/**
 	 * Sets the pixel against which we send the events
-	 * @param {String} pixel string value representing whether you want to send the request in debug mode to get detailed logging.
+	 * @param {String} pixel_id string value representing the Pixel's Id to which you are sending the events.
 	 */
 	set pixel_id(pixel_id: string) {
 		this._pixel_id = pixel_id;
@@ -203,12 +224,134 @@ export default class EventRequest {
 		return this;
 	}
 
+	/* Region Offline Conversion Fields */
+	/**
+	 * Gets the NamespaceId for the events
+	 */
+	get namespace_id() {
+		return this._namespace_id;
+	}
+
+	/**
+	 * Sets the namespace_id for the events
+	 * @param {String} namespace_id Scope used to resolve extern_id or Third-party ID. Can be another data set or data partner ID.
+	 */
+	set namespace_id(namespace_id: string) {
+		this._namespace_id = namespace_id;
+	}
+
+	/**
+	 * Sets the namespace_id for the events
+	 * @param {String} namespace_id Scope used to resolve extern_id or Third-party ID. Can be another data set or data partner ID.
+	 */
+	setNamespaceId(namespace_id: string) : EventRequest {
+		this._namespace_id = namespace_id;
+		return this;
+	}
+
+	/**
+	 * Gets the Upload Tag for the current events upload
+	 */
+	get upload_tag() {
+		return this._upload_tag;
+	}
+
+	/**
+	 * Sets the upload_tag for the current events upload
+	 * @param {String} upload_tag Tag string added to Track your Offline event uploads
+	 */
+	set upload_tag(upload_tag: string) {
+		this._upload_tag = upload_tag;
+	}
+
+	/**
+	 * Sets the upload_tag for the current events upload
+	 * @param {String} upload_tag Tag string added to Track your Offline event uploads
+	 */
+	setUploadTag(upload_tag: string) : EventRequest {
+		this._upload_tag = upload_tag;
+		return this;
+	}
+
+	/**
+	 * Gets the Upload Tag for the current events upload
+	 */
+	get upload_id() {
+		return this._upload_id;
+	}
+
+	/**
+	 * Sets the upload_id for the current events upload
+	 * @param {String} upload_id Unique id used to denote the current set being uploaded
+	 */
+	set upload_id(upload_id: string) {
+		this._upload_id = upload_id;
+	}
+
+	/**
+	 * Sets the upload_id for the current events upload
+	 * @param {String} upload_id Unique id used to denote the current set being uploaded
+	 */
+	setUploadId(upload_id: string) : EventRequest {
+		this._upload_id = upload_id;
+		return this;
+	}
+
+	/**
+	 * Gets the Upload Tag for the current events upload
+	 */
+	get upload_source() {
+		return this._upload_source;
+	}
+
+	/**
+	 * Sets the upload_source for the current events upload
+	 * @param {String} upload_source origin/source of data for the dataset to be uploaded.
+	 */
+	set upload_source(upload_source: string) {
+		this._upload_source = upload_source;
+	}
+
+	/**
+	 * Sets the upload_source for the current events upload
+	 * @param {String} upload_source origin/source of data for the dataset to be uploaded.
+	 */
+	setUploadSource(upload_source: string) : EventRequest {
+		this._upload_source = upload_source;
+		return this;
+	}
+
+	/**
+	 * Gets the http_service object for making the events request
+	 */
+	get http_service() {
+		return this._http_service;
+	}
+
+	/**
+	 * Sets the http_service object for making the events request
+	 * @param {HttpServiceInterface} http_service
+	 */
+	set http_service(http_service: HttpServiceInterface) {
+		this._http_service = http_service;
+	}
+
+	/**
+	 * Sets the http_service object for making the events request
+	 * @param {HttpServiceInterface} http_service
+	 */
+	setHttpService(http_service: HttpServiceInterface): EventRequest {
+		this._http_service = http_service;
+		return this;
+	}
+
 	/**
 	 * Executes the current event_request data by making a call to the Facebook Graph API.
 	 */
 	execute(): Promise<EventResponse> {
 		let fields, params;
 		fields = [];
+		params = {};
 
 		let normalized_events = [];
 
@@ -226,16 +369,67 @@ export default class EventRequest {
 		params = {
 			'data': normalized_events,
 			'partner_agent': this.partner_agent,
-			'test_event_code' : this.test_event_code
-		}
+			'test_event_code' : this.test_event_code,
+			'namespace_id' : this.namespace_id,
+			'upload_id' : this.upload_id,
+			'upload_tag' : this.upload_tag,
+			'upload_source' : this.upload_source,
+			'access_token': this.access_token,
+		};
 
+		let http_service;
+		if (this._http_service != null) {
+			http_service = this._http_service;
+		} else {
+			http_service = HttpServiceClientConfig.getClient();
+		}
+		if (http_service != null) {
+			const url = [
+                FacebookAdsApi.GRAPH,
+                FacebookAdsApi.VERSION,
+                this._pixel_id,
+                'events'
+            ].join('/');
+			const headers = {
+                'User-Agent': `fbbizsdk-nodejs-${FacebookAdsApi.VERSION}`,
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+            };
+
+			return http_service.executeRequest(
+				url,
+				HttpMethod.POST,
+				headers,
+				params
+			);
+		}
 		const adsPixelPromise = (new AdsPixel(this._pixel_id)).createEvent(
 			fields,
 			params
 		);
 
 		return adsPixelPromise.then(response => {
-			return new EventResponse(response._data['events_received'],response._data['messages'], response._data['fbtrace_id']);
+			return new EventResponse(
+					response._data['events_received'],
+					response._data['messages'],
+					response._data['fbtrace_id'],
+					response._data['id'],
+					response._data['num_processed_entries']);
 		});
+	}
+
+	cloneWithoutEvents(): EventRequest {
+		return new EventRequest(
+			this._access_token,
+			this._pixel_id,
+			[],
+			this._partner_agent,
+			this._test_event_code,
+			this._namespace_id,
+			this._upload_id,
+			this._upload_tag,
+			this._upload_source,
+			this._debug_mode,
+		);
 	}
 }

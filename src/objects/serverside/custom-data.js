@@ -29,6 +29,9 @@ export default class CustomData {
 	_num_items: number;
 	_search_string: string;
 	_status: string;
+	_item_number: string;
+	_delivery_category: string;
+	_custom_properties: Object;
 
 	/**
 	 * @param {Number} value value of the item Eg: 123.45
@@ -43,9 +46,13 @@ export default class CustomData {
 	 * @param {Number} num_items Number of items involved
 	 * @param {String} search_string query string used for the Search event
 	 * @param {String} status Status of the registration in Registration event
+	 * @param {String} item_number The item number
+	 * @param {String} delivery_category The type of delivery for a purchase event
+	 * @param {Object} custom_properties Custom Properties to be added to the Custom Data
 	 */
 	constructor(value: number, currency: string, content_name: string, content_category: string, content_ids: Array<string>, contents: Array<Content>,
-		content_type: string, order_id: string, predicted_ltv: number, num_items: number, search_string: string, status: string)  {
+		content_type: string, order_id: string, predicted_ltv: number, num_items: number, search_string: string, status: string, item_number: string,
+		delivery_category: string, custom_properties: Object)  {
 
 		this._value = value;
 		this._currency = currency;
@@ -59,6 +66,9 @@ export default class CustomData {
 		this._num_items = num_items;
 		this._search_string = search_string;
 		this._status = status;
+		this._item_number = item_number;
+		this._delivery_category = delivery_category;
+		this._custom_properties = custom_properties;
 	}
 
 	/**
@@ -372,6 +382,89 @@ export default class CustomData {
 		return this;
 	}
 
+	/**
+	 * Gets the item number.
+	 */
+	get item_number()  {
+		return  this._item_number;
+	}
+
+	/**
+	 * Sets the item number.
+	 * @param item_number The item number.
+	 */
+	set item_number(item_number: string)  {
+		this._item_number = item_number;
+	}
+
+	/**
+	 * Sets the item number.
+	 * @param {String} item_number The item number.
+	 */
+	setItemNumber(item_number: string) : CustomData {
+		this._item_number = item_number;
+		return this;
+	}
+
+	/**
+	 * Gets the delivery category.
+	 */
+	get delivery_category()  {
+		return  this._delivery_category;
+	}
+
+	/**
+	 * Sets the type of delivery for a purchase event.
+	 * @param delivery_category The delivery category.
+	 */
+	set delivery_category(delivery_category: string)  {
+		this._delivery_category = delivery_category;
+	}
+
+	/**
+	 * Sets the type of delivery for a purchase event.
+	 * @param {String} delivery_category The delivery category.
+	 */
+	setDeliveryCategory(delivery_category: string) : CustomData {
+		this._delivery_category = delivery_category;
+		return this;
+	}
+
+	/**
+	 * Gets the custom properties to be included in the Custom Data.
+	 * If our predefined object properties don't suit your needs, you can include your own, custom properties. Custom properties can be used with both standard and custom events, and can help you further define custom audiences.
+	 * This behavior is the same for Server-Side API and Facebook Pixel.
+	 * @see {@link https://developers.facebook.com/docs/marketing-api/server-side-api/parameters/custom-data#custom-properties}
+	 * Eg: '{ 'warehouse_location' : 'washington', 'package_size' : 'L'}'
+	 */
+	get custom_properties()  {
+		return  this._custom_properties;
+	}
+
+	/**
+	 * Sets the custom properties to be included in the Custom Data.
+	 * If our predefined object properties don't suit your needs, you can include your own, custom properties. Custom properties can be used with both standard and custom events, and can help you further define custom audiences.
+	 * This behavior is the same for Server-Side API and Facebook Pixel.
+	 * @see {@link https://developers.facebook.com/docs/marketing-api/server-side-api/parameters/custom-data#custom-properties}
+	 * @param {Object} custom_properties custom properties property bag to be included in the Custom Data. Eg: '{ 'warehouse_location' : 'washington', 'package_size' : 'L'}'
+	 */
+	set custom_properties(custom_properties: Object)  {
+		this._custom_properties = custom_properties;
+	}
+
+	/**
+	 * Sets the search string for the custom data.
+	 * @param custom_properties A custom properties property bag to be included in the Custom Data.
+	 * If our predefined object properties don't suit your needs, you can include your own, custom properties. Custom properties can be used with both standard and custom events, and can help you further define custom audiences.
+	 * This behavior is the same for Server-Side API and Facebook Pixel.
+	 * @see {@link https://developers.facebook.com/docs/marketing-api/server-side-api/parameters/custom-data#custom-properties}
+	 * Eg: '{ 'warehouse_location' : 'washington', 'package_size' : 'L'}'
+	 * * @returns {Object} custom_properties property bag.
+	 */
+	setCustomProperties(custom_properties: Object) : CustomData {
+		this._custom_properties = custom_properties;
+		return this;
+	}
 
 	/**
 	 * Gets the status of the registration event.
@@ -396,6 +489,20 @@ export default class CustomData {
 	setStatus(status: string) : CustomData {
 		this._status = status;
 		return this;
+	}
+
+	/**
+	 * Adds the custom property (key, value) to the custom property bag.
+	 * @param {string} key The Key for the property to be added.
+	 * @param {string} value The Value for the property to be added.
+	 */
+	add_custom_property(key : string, value: string) {
+
+		if(this.custom_properties == null) {
+			this.custom_properties = {};
+		}
+
+		this.custom_properties[key] = value;
 	}
 
 	/**
@@ -460,6 +567,24 @@ export default class CustomData {
 
 		if (this.status) {
 			customData['status'] = this.status;
+		}
+
+		if (this.item_number) {
+			customData['item_number'] = this.item_number;
+		}
+
+		if (this.delivery_category) {
+			customData['delivery_category'] = ServerSideUtils.normalizeDeliveryCategory(this.delivery_category);
+		}
+
+		if (this.custom_properties) {
+			for (let key in this.custom_properties) {
+				if(customData.hasOwnProperty(key)) {
+					throw new Error('Duplicate key in custom_properties:"' + key + '". Please make sure the keys defined in the custom_properties are not already available in standard custom_data property list.');
+				}
+
+				customData[key] = this.custom_properties[key];
+			}
 		}
 
 		return customData;

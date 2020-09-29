@@ -33,10 +33,10 @@ let fields, params;
 fields = [
 ];
 params = {
-  'special_ad_category' : 'NONE',
   'name' : 'Video Views campaign',
   'objective' : 'VIDEO_VIEWS',
   'status' : 'PAUSED',
+  'special_ad_categories' : [],
 };
 const campaigns = (new AdAccount(id)).createCampaign(
   fields,

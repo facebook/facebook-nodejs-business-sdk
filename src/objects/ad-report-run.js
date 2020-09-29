@@ -7,7 +7,6 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import AdsInsights from './ads-insights';
 import FacebookAdsApi from './../api';
@@ -47,27 +46,11 @@ export default class AdReportRun extends AbstractCrudObject {
     );
   }
 
-  // $FlowFixMe : Support Generic Types
-  delete (fields: Array<string>, params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
-    return super.delete(
-      params
-    );
-  }
-
   
   get (fields: Array<string>, params: Object = {}): AdReportRun {
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
-      params
-    );
-  }
-
-  // $FlowFixMe : Support Generic Types
-  update (fields: Array<string>, params: Object = {}): AdReportRun {
-    // $FlowFixMe : Support Generic Types
-    return super.update(
       params
     );
   }

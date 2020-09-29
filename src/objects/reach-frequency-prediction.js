@@ -47,7 +47,6 @@ export default class ReachFrequencyPrediction extends AbstractCrudObject {
       external_reach: 'external_reach',
       feed_ratio_0000: 'feed_ratio_0000',
       frequency_cap: 'frequency_cap',
-      frequency_distribution: 'frequency_distribution',
       frequency_distribution_map: 'frequency_distribution_map',
       frequency_distribution_map_agg: 'frequency_distribution_map_agg',
       grp_audience_size: 'grp_audience_size',
@@ -96,7 +95,6 @@ export default class ReachFrequencyPrediction extends AbstractCrudObject {
       timezone_id: 'timezone_id',
       timezone_name: 'timezone_name',
       topline_id: 'topline_id',
-      tv_viewer_cluster_map: 'tv_viewer_cluster_map',
       video_view_length_constraint: 'video_view_length_constraint',
       viewtag: 'viewtag',
     });

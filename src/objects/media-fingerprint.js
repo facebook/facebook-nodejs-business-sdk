@@ -36,13 +36,6 @@ export default class MediaFingerprint extends AbstractCrudObject {
       songtrack: 'SONGTRACK',
     });
   }
-  static get FingerprintValidity (): Object {
-    return Object.freeze({
-      expired: 'EXPIRED',
-      expiring: 'EXPIRING',
-      valid: 'VALID',
-    });
-  }
 
   // $FlowFixMe : Support Generic Types
   delete (fields: Array<string>, params: Object = {}): AbstractObject {
@@ -57,6 +50,14 @@ export default class MediaFingerprint extends AbstractCrudObject {
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
+      params
+    );
+  }
+
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): MediaFingerprint {
+    // $FlowFixMe : Support Generic Types
+    return super.update(
       params
     );
   }

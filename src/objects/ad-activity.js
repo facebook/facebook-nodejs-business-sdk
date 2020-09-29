@@ -88,15 +88,19 @@ export default class AdActivity extends AbstractCrudObject {
       update_ad_set_bidding: 'update_ad_set_bidding',
       update_ad_set_budget: 'update_ad_set_budget',
       update_ad_set_duration: 'update_ad_set_duration',
+      update_ad_set_learning_stage_status: 'update_ad_set_learning_stage_status',
+      update_ad_set_min_spend_target: 'update_ad_set_min_spend_target',
       update_ad_set_name: 'update_ad_set_name',
       update_ad_set_optimization_goal: 'update_ad_set_optimization_goal',
       update_ad_set_run_status: 'update_ad_set_run_status',
+      update_ad_set_spend_cap: 'update_ad_set_spend_cap',
       update_ad_set_target_spec: 'update_ad_set_target_spec',
       update_ad_targets_spec: 'update_ad_targets_spec',
       update_adgroup_stop_delivery: 'update_adgroup_stop_delivery',
       update_audience: 'update_audience',
       update_campaign_ad_scheduling: 'update_campaign_ad_scheduling',
       update_campaign_budget: 'update_campaign_budget',
+      update_campaign_budget_optimization_toggling_status: 'update_campaign_budget_optimization_toggling_status',
       update_campaign_delivery_type: 'update_campaign_delivery_type',
       update_campaign_duration: 'update_campaign_duration',
       update_campaign_group_ad_scheduling: 'update_campaign_group_ad_scheduling',
@@ -105,6 +109,7 @@ export default class AdActivity extends AbstractCrudObject {
       update_campaign_name: 'update_campaign_name',
       update_campaign_run_status: 'update_campaign_run_status',
       update_campaign_schedule: 'update_campaign_schedule',
+      update_delivery_type_cross_level_shift: 'update_delivery_type_cross_level_shift',
     });
   }
   static get Category (): Object {
@@ -120,6 +125,12 @@ export default class AdActivity extends AbstractCrudObject {
       date: 'DATE',
       status: 'STATUS',
       targeting: 'TARGETING',
+    });
+  }
+  static get DataSource (): Object {
+    return Object.freeze({
+      calypso: 'CALYPSO',
+      tao: 'TAO',
     });
   }
 }

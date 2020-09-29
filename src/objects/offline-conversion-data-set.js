@@ -158,15 +158,6 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
     );
   }
 
-  createUser (fields: Array<string>, params: Object = {}): Promise<OfflineConversionDataSet> {
-    return this.createEdge(
-      '/users',
-      fields,
-      params,
-      OfflineConversionDataSet
-    );
-  }
-
   createValidate (fields: Array<string>, params: Object = {}): Promise<OfflineConversionDataSet> {
     return this.createEdge(
       '/validate',

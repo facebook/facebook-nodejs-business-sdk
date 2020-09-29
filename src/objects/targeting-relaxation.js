@@ -9,29 +9,15 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * StreamingReaction
+ * TargetingRelaxation
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class StreamingReaction extends AbstractCrudObject {
+export default class TargetingRelaxation extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      count: 'count',
-      reaction_type: 'reaction_type',
+      lookalike: 'lookalike',
     });
   }
 
-  static get ReactionType (): Object {
-    return Object.freeze({
-      angry: 'ANGRY',
-      haha: 'HAHA',
-      like: 'LIKE',
-      love: 'LOVE',
-      none: 'NONE',
-      pride: 'PRIDE',
-      sad: 'SAD',
-      thankful: 'THANKFUL',
-      wow: 'WOW',
-    });
-  }
 }

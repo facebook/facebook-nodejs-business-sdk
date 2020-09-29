@@ -9,28 +9,16 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * MessengerPlatformReferral
+ * ProductFeedUploadDiagnosticsReport
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class MessengerPlatformReferral extends AbstractCrudObject {
+export default class ProductFeedUploadDiagnosticsReport extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      ad_id: 'ad_id',
-      id: 'id',
-      ref: 'ref',
-      source: 'source',
-      type: 'type',
+      last_updated_time: 'last_updated_time',
+      report_url: 'report_url',
     });
   }
 
-
-  
-  get (fields: Array<string>, params: Object = {}): MessengerPlatformReferral {
-    // $FlowFixMe : Support Generic Types
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

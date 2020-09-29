@@ -32,8 +32,6 @@ export default class AdCampaignActivity extends AbstractCrudObject {
       bid_type_old: 'bid_type_old',
       billing_event_new: 'billing_event_new',
       billing_event_old: 'billing_event_old',
-      brande_audience_id_new: 'brande_audience_id_new',
-      brande_audience_id_old: 'brande_audience_id_old',
       budget_limit_new: 'budget_limit_new',
       budget_limit_old: 'budget_limit_old',
       created_time: 'created_time',
@@ -77,6 +75,7 @@ export default class AdCampaignActivity extends AbstractCrudObject {
 
   static get BidStrategyNew (): Object {
     return Object.freeze({
+      cost_cap: 'COST_CAP',
       lowest_cost_without_cap: 'LOWEST_COST_WITHOUT_CAP',
       lowest_cost_with_bid_cap: 'LOWEST_COST_WITH_BID_CAP',
       target_cost: 'TARGET_COST',
@@ -84,6 +83,7 @@ export default class AdCampaignActivity extends AbstractCrudObject {
   }
   static get BidStrategyOld (): Object {
     return Object.freeze({
+      cost_cap: 'COST_CAP',
       lowest_cost_without_cap: 'LOWEST_COST_WITHOUT_CAP',
       lowest_cost_with_bid_cap: 'LOWEST_COST_WITH_BID_CAP',
       target_cost: 'TARGET_COST',
@@ -135,12 +135,14 @@ export default class AdCampaignActivity extends AbstractCrudObject {
       page_engagement: 'PAGE_ENGAGEMENT',
       page_likes: 'PAGE_LIKES',
       post_engagement: 'POST_ENGAGEMENT',
+      quality_lead: 'QUALITY_LEAD',
       reach: 'REACH',
       replies: 'REPLIES',
       social_impressions: 'SOCIAL_IMPRESSIONS',
       thruplay: 'THRUPLAY',
       two_second_continuous_video_views: 'TWO_SECOND_CONTINUOUS_VIDEO_VIEWS',
       value: 'VALUE',
+      visit_instagram_profile: 'VISIT_INSTAGRAM_PROFILE',
     });
   }
   static get OptimizationGoalOld (): Object {
@@ -163,12 +165,14 @@ export default class AdCampaignActivity extends AbstractCrudObject {
       page_engagement: 'PAGE_ENGAGEMENT',
       page_likes: 'PAGE_LIKES',
       post_engagement: 'POST_ENGAGEMENT',
+      quality_lead: 'QUALITY_LEAD',
       reach: 'REACH',
       replies: 'REPLIES',
       social_impressions: 'SOCIAL_IMPRESSIONS',
       thruplay: 'THRUPLAY',
       two_second_continuous_video_views: 'TWO_SECOND_CONTINUOUS_VIDEO_VIEWS',
       value: 'VALUE',
+      visit_instagram_profile: 'VISIT_INSTAGRAM_PROFILE',
     });
   }
 

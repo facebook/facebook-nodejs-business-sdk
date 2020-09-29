@@ -69,6 +69,7 @@ export default class Group extends AbstractCrudObject {
       couple: 'COUPLE',
       coworkers: 'COWORKERS',
       custom: 'CUSTOM',
+      deals: 'DEALS',
       ephemeral: 'EPHEMERAL',
       event_planning: 'EVENT_PLANNING',
       family: 'FAMILY',
@@ -96,6 +97,7 @@ export default class Group extends AbstractCrudObject {
       study_group: 'STUDY_GROUP',
       support: 'SUPPORT',
       teammates: 'TEAMMATES',
+      theme: 'THEME',
       travel_planning: 'TRAVEL_PLANNING',
       work_announcement: 'WORK_ANNOUNCEMENT',
       work_demo_group: 'WORK_DEMO_GROUP',
@@ -103,13 +105,16 @@ export default class Group extends AbstractCrudObject {
       work_ephemeral: 'WORK_EPHEMERAL',
       work_feedback: 'WORK_FEEDBACK',
       work_for_sale: 'WORK_FOR_SALE',
+      work_garden: 'WORK_GARDEN',
       work_learning: 'WORK_LEARNING',
       work_mentorship: 'WORK_MENTORSHIP',
       work_multi_company: 'WORK_MULTI_COMPANY',
       work_recruiting: 'WORK_RECRUITING',
+      work_resume_review: 'WORK_RESUME_REVIEW',
       work_social: 'WORK_SOCIAL',
       work_team: 'WORK_TEAM',
       work_teamwork: 'WORK_TEAMWORK',
+      work_vc_call: 'WORK_VC_CALL',
     });
   }
   static get GroupType (): Object {
@@ -120,6 +125,7 @@ export default class Group extends AbstractCrudObject {
       couple: 'COUPLE',
       coworkers: 'COWORKERS',
       custom: 'CUSTOM',
+      deals: 'DEALS',
       ephemeral: 'EPHEMERAL',
       event_planning: 'EVENT_PLANNING',
       family: 'FAMILY',
@@ -147,6 +153,7 @@ export default class Group extends AbstractCrudObject {
       study_group: 'STUDY_GROUP',
       support: 'SUPPORT',
       teammates: 'TEAMMATES',
+      theme: 'THEME',
       travel_planning: 'TRAVEL_PLANNING',
       work_announcement: 'WORK_ANNOUNCEMENT',
       work_demo_group: 'WORK_DEMO_GROUP',
@@ -154,37 +161,26 @@ export default class Group extends AbstractCrudObject {
       work_ephemeral: 'WORK_EPHEMERAL',
       work_feedback: 'WORK_FEEDBACK',
       work_for_sale: 'WORK_FOR_SALE',
+      work_garden: 'WORK_GARDEN',
       work_learning: 'WORK_LEARNING',
       work_mentorship: 'WORK_MENTORSHIP',
       work_multi_company: 'WORK_MULTI_COMPANY',
       work_recruiting: 'WORK_RECRUITING',
+      work_resume_review: 'WORK_RESUME_REVIEW',
       work_social: 'WORK_SOCIAL',
       work_team: 'WORK_TEAM',
       work_teamwork: 'WORK_TEAMWORK',
+      work_vc_call: 'WORK_VC_CALL',
     });
   }
   static get SuggestionCategory (): Object {
     return Object.freeze({
-      close_friends: 'CLOSE_FRIENDS',
-      close_friends_generic: 'CLOSE_FRIENDS_GENERIC',
-      current_city: 'CURRENT_CITY',
       event: 'EVENT',
-      family: 'FAMILY',
-      friend_list: 'FRIEND_LIST',
-      games: 'GAMES',
-      life_event: 'LIFE_EVENT',
       messenger: 'MESSENGER',
-      messenger_thread: 'MESSENGER_THREAD',
-      nearby_friends: 'NEARBY_FRIENDS',
-      page_admin: 'PAGE_ADMIN',
-      school: 'SCHOOL',
-      school_generic: 'SCHOOL_GENERIC',
-      top_page: 'TOP_PAGE',
       work: 'WORK',
       workplace: 'WORKPLACE',
       workplace_1_1: 'WORKPLACE_1_1',
       workplace_manager: 'WORKPLACE_MANAGER',
-      work_generic: 'WORK_GENERIC',
     });
   }
 
@@ -303,15 +299,6 @@ export default class Group extends AbstractCrudObject {
       fields,
       params,
       Group
-    );
-  }
-
-  createOpenGraphActionFeed (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
-    return this.createEdge(
-      '/open_graph_action_feed',
-      fields,
-      params,
-      
     );
   }
 

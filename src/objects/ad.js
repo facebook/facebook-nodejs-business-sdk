@@ -45,7 +45,6 @@ export default class Ad extends AbstractCrudObject {
       engagement_audience: 'engagement_audience',
       failed_delivery_checks: 'failed_delivery_checks',
       id: 'id',
-      is_autobid: 'is_autobid',
       issues_info: 'issues_info',
       last_updated_by_app_id: 'last_updated_by_app_id',
       name: 'name',

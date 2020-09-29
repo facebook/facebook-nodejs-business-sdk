@@ -180,6 +180,7 @@ export default class AdAccount extends AbstractCrudObject {
       thb: 'THB',
       try: 'TRY',
       twd: 'TWD',
+      uah: 'UAH',
       usd: 'USD',
       uyu: 'UYU',
       vnd: 'VND',
@@ -190,9 +191,6 @@ export default class AdAccount extends AbstractCrudObject {
     return Object.freeze({
       advertise: 'ADVERTISE',
       analyze: 'ANALYZE',
-      creative: 'CREATIVE',
-      draft: 'DRAFT',
-      fb_employee_dso_advertise: 'FB_EMPLOYEE_DSO_ADVERTISE',
       manage: 'MANAGE',
     });
   }
@@ -200,9 +198,6 @@ export default class AdAccount extends AbstractCrudObject {
     return Object.freeze({
       advertise: 'ADVERTISE',
       analyze: 'ANALYZE',
-      creative: 'CREATIVE',
-      draft: 'DRAFT',
-      fb_employee_dso_advertise: 'FB_EMPLOYEE_DSO_ADVERTISE',
       manage: 'MANAGE',
     });
   }
@@ -225,6 +220,8 @@ export default class AdAccount extends AbstractCrudObject {
       flight: 'FLIGHT',
       home_listing: 'HOME_LISTING',
       hotel: 'HOTEL',
+      local_service_business: 'LOCAL_SERVICE_BUSINESS',
+      location_based_item: 'LOCATION_BASED_ITEM',
       media_title: 'MEDIA_TITLE',
       offline_product: 'OFFLINE_PRODUCT',
       product: 'PRODUCT',
@@ -287,13 +284,6 @@ export default class AdAccount extends AbstractCrudObject {
       fields,
       params,
       AdPlacePageSet
-    );
-  }
-
-  deleteAdSets (params: Object = {}): Promise<*> {
-    return super.deleteEdge(
-      '/ad_sets',
-      params
     );
   }
 
@@ -397,25 +387,6 @@ export default class AdAccount extends AbstractCrudObject {
       fields,
       params,
       PlayableContent
-    );
-  }
-
-  getAdReportSchedules (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/adreportschedules'
-    );
-  }
-
-  createAdReportSchedule (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
-    return this.createEdge(
-      '/adreportschedules',
-      fields,
-      params,
-      
     );
   }
 
@@ -690,24 +661,6 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createBatchReplace (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
-    return this.createEdge(
-      '/batchreplace',
-      fields,
-      params,
-      
-    );
-  }
-
-  createBatchUpload (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
-    return this.createEdge(
-      '/batchupload',
-      fields,
-      params,
-      
-    );
-  }
-
   createBlockListDraft (fields: Array<string>, params: Object = {}): Promise<AdAccount> {
     return this.createEdge(
       '/block_list_drafts',
@@ -770,6 +723,15 @@ export default class AdAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/content_delivery_report'
+    );
+  }
+
+  createCreateAndApplyPublisherBlockList (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+    return this.createEdge(
+      '/create_and_apply_publisher_block_list',
+      fields,
+      params,
+      
     );
   }
 

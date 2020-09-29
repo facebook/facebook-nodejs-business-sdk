@@ -101,6 +101,16 @@ export default class Comment extends AbstractCrudObject {
     );
   }
 
+  getLikes (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      Profile,
+      fields,
+      params,
+      fetchFirstPage,
+      '/likes'
+    );
+  }
+
   createLike (fields: Array<string>, params: Object = {}): Promise<Comment> {
     return this.createEdge(
       '/likes',

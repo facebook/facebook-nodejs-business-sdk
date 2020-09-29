@@ -36,9 +36,6 @@ export default class BusinessAssetGroup extends AbstractCrudObject {
     return Object.freeze({
       advertise: 'ADVERTISE',
       analyze: 'ANALYZE',
-      creative: 'CREATIVE',
-      draft: 'DRAFT',
-      fb_employee_dso_advertise: 'FB_EMPLOYEE_DSO_ADVERTISE',
       manage: 'MANAGE',
     });
   }
@@ -54,17 +51,23 @@ export default class BusinessAssetGroup extends AbstractCrudObject {
     return Object.freeze({
       advertise: 'ADVERTISE',
       analyze: 'ANALYZE',
+      cashier_role: 'CASHIER_ROLE',
       create_content: 'CREATE_CONTENT',
       manage: 'MANAGE',
       manage_jobs: 'MANAGE_JOBS',
       manage_leads: 'MANAGE_LEADS',
+      messaging: 'MESSAGING',
       moderate: 'MODERATE',
       moderate_community: 'MODERATE_COMMUNITY',
       pages_messaging: 'PAGES_MESSAGING',
       pages_messaging_subscriptions: 'PAGES_MESSAGING_SUBSCRIPTIONS',
-      platform_manage_pages: 'PLATFORM_MANAGE_PAGES',
-      platform_pages_manage_instant_articles: 'PLATFORM_PAGES_MANAGE_INSTANT_ARTICLES',
-      platform_read_insights: 'PLATFORM_READ_INSIGHTS',
+      profile_plus_advertise: 'PROFILE_PLUS_ADVERTISE',
+      profile_plus_analyze: 'PROFILE_PLUS_ANALYZE',
+      profile_plus_create_content: 'PROFILE_PLUS_CREATE_CONTENT',
+      profile_plus_live_stream_moderation: 'PROFILE_PLUS_LIVE_STREAM_MODERATION',
+      profile_plus_manage: 'PROFILE_PLUS_MANAGE',
+      profile_plus_messaging: 'PROFILE_PLUS_MESSAGING',
+      profile_plus_moderate: 'PROFILE_PLUS_MODERATE',
       read_page_mailboxes: 'READ_PAGE_MAILBOXES',
       view_monetization_insights: 'VIEW_MONETIZATION_INSIGHTS',
     });

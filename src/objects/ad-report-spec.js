@@ -7,7 +7,6 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import AbstractObject from './../abstract-object';
 
 /**
  * AdReportSpec
@@ -28,7 +27,6 @@ export default class AdReportSpec extends AbstractCrudObject {
       id: 'id',
       insights_section: 'insights_section',
       name: 'name',
-      report_schedule: 'report_schedule',
       report_schedule_id: 'report_schedule_id',
       sort_by: 'sort_by',
       sort_dir: 'sort_dir',
@@ -38,14 +36,6 @@ export default class AdReportSpec extends AbstractCrudObject {
     });
   }
 
-
-  // $FlowFixMe : Support Generic Types
-  delete (fields: Array<string>, params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
-    return super.delete(
-      params
-    );
-  }
 
   
   get (fields: Array<string>, params: Object = {}): AdReportSpec {

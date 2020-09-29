@@ -9,29 +9,28 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * BrandAudience
+ * CPASAdvertiserPartnershipRecommendation
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class BrandAudience extends AbstractCrudObject {
+export default class CPASAdvertiserPartnershipRecommendation extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      account: 'account',
-      delivery_targeting: 'delivery_targeting',
-      description: 'description',
+      advertiser_business_id: 'advertiser_business_id',
+      brand_business_id: 'brand_business_id',
+      brands: 'brands',
+      countries: 'countries',
       id: 'id',
-      name: 'name',
-      sentence_lines: 'sentence_lines',
+      merchant_business_id: 'merchant_business_id',
+      merchant_categories: 'merchant_categories',
       status: 'status',
-      targeting: 'targeting',
-      time_created: 'time_created',
-      time_updated: 'time_updated',
+      status_reason: 'status_reason',
     });
   }
 
 
   
-  get (fields: Array<string>, params: Object = {}): BrandAudience {
+  get (fields: Array<string>, params: Object = {}): CPASAdvertiserPartnershipRecommendation {
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,

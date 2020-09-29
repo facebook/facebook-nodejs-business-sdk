@@ -49,7 +49,9 @@ export default class AdsPixel extends AbstractCrudObject {
   }
   static get AutomaticMatchingFields (): Object {
     return Object.freeze({
+      country: 'country',
       ct: 'ct',
+      db: 'db',
       em: 'em',
       fn: 'fn',
       ge: 'ge',
@@ -78,13 +80,6 @@ export default class AdsPixel extends AbstractCrudObject {
       analyze: 'ANALYZE',
       edit: 'EDIT',
     });
-  }
-
-  deleteAssignedUsers (params: Object = {}): Promise<*> {
-    return super.deleteEdge(
-      '/assigned_users',
-      params
-    );
   }
 
   getAssignedUsers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {

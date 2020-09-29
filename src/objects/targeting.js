@@ -75,6 +75,7 @@ export default class Targeting extends AbstractCrudObject {
       income: 'income',
       industries: 'industries',
       instagram_positions: 'instagram_positions',
+      instream_video_skippable_excluded: 'instream_video_skippable_excluded',
       interested_in: 'interested_in',
       interests: 'interests',
       is_whatsapp_destination_ad: 'is_whatsapp_destination_ad',
