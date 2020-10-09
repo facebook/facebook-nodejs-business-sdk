@@ -96,8 +96,6 @@ class FacebookAdsApiBatch {
 
       if (method === 'GET') {
         relativeUrl += '?' + keyVals.join('&');
-      } else {
-        var body = keyVals.join('&');
       }
 
       if (params && params['name']) {
