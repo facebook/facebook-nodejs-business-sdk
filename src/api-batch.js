@@ -101,6 +101,7 @@ class FacebookAdsApiBatch {
       if (params && params['name']) {
         var name = params['name'];
       }
+      var body = params['body']
     }
 
     // Handle attached files
@@ -112,7 +113,7 @@ class FacebookAdsApiBatch {
     var call = {};
     call.method = method;
     call.relative_url = relativeUrl,
-    call.body = params["body"];
+    call.body = body;
     call.attachedFiles = attachedFiles
     // add name parameter only if the batch request contains name
     if (name) {
