@@ -390,8 +390,8 @@ export default class EventRequest {
                 this._pixel_id,
                 'events'
             ].join('/');
-			const headers = {
-                'User-Agent': `fbbizsdk-nodejs-${FacebookAdsApi.VERSION}`,
+            const headers = {
+                'User-Agent': `fbbizsdk-nodejs-v${FacebookAdsApi.SDK_VERSION}`,
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
             };

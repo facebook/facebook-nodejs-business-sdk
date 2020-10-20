@@ -102,7 +102,7 @@ export default class Http {
       method: method,
       uri: url,
       json: !useMultipartFormData,
-      headers: {'User-Agent': `fbbizsdk-nodejs-${Api.VERSION}`},
+      headers: {'User-Agent': `fbbizsdk-nodejs-v${Api.SDK_VERSION}`},
       body: Object,
       resolveWithFullResponse: showHeader,
     };
