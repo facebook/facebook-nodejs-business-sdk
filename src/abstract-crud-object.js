@@ -324,3 +324,5 @@ export class AbstractCrudObject extends AbstractObject {
     });
   }
 }
+
+export default AbstractCrudObject;
