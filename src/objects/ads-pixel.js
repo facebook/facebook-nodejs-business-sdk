@@ -21,7 +21,7 @@ import AdsPixelStatsResult from './ads-pixel-stats-result';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdsPixel extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       automatic_matching_fields: 'automatic_matching_fields',
       can_proxy: 'can_proxy',

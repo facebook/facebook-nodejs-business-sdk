@@ -17,7 +17,7 @@ import AssignedUser from './assigned-user';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class WhatsAppBusinessAccount extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       analytics: 'analytics',
       currency: 'currency',

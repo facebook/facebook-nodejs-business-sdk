@@ -23,7 +23,7 @@ import Profile from './profile';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class LiveVideo extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       ad_break_config: 'ad_break_config',
       ad_break_failure_reason: 'ad_break_failure_reason',

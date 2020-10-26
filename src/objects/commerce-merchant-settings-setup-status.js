@@ -14,7 +14,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class CommerceMerchantSettingsSetupStatus extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       deals_setup: 'deals_setup',
       marketplace_approval_status: 'marketplace_approval_status',

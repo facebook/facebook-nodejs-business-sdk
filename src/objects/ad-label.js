@@ -20,7 +20,7 @@ import Campaign from './campaign';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdLabel extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       account: 'account',
       created_time: 'created_time',

@@ -14,7 +14,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class LiveVideoAdBreakConfig extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       default_ad_break_duration: 'default_ad_break_duration',
       failure_reason_polling_interval: 'failure_reason_polling_interval',

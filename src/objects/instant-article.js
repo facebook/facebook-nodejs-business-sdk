@@ -17,7 +17,7 @@ import InstantArticleInsightsQueryResult from './instant-article-insights-query-
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class InstantArticle extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       canonical_url: 'canonical_url',
       development_mode: 'development_mode',

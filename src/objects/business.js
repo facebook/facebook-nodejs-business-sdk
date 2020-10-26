@@ -49,7 +49,7 @@ import MeasurementUploadEvent from './measurement-upload-event';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class Business extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       block_offline_analytics: 'block_offline_analytics',
       created_by: 'created_by',

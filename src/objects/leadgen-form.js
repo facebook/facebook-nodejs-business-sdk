@@ -16,7 +16,7 @@ import Lead from './lead';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class LeadgenForm extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       allow_organic_lead: 'allow_organic_lead',
       block_display_for_non_targeted_viewer: 'block_display_for_non_targeted_viewer',

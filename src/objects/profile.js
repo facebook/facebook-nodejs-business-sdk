@@ -16,7 +16,7 @@ import ProfilePictureSource from './profile-picture-source';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class Profile extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       can_post: 'can_post',
       id: 'id',

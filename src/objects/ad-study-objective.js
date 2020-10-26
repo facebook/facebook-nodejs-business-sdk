@@ -23,7 +23,7 @@ import PartnerStudy from './partner-study';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdStudyObjective extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       id: 'id',
       is_primary: 'is_primary',

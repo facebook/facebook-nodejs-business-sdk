@@ -16,7 +16,7 @@ import AdAccount from './ad-account';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdAccountCreationRequest extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       ad_accounts_currency: 'ad_accounts_currency',
       ad_accounts_info: 'ad_accounts_info',

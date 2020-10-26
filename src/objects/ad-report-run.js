@@ -17,7 +17,7 @@ import FacebookAdsApi from './../api';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdReportRun extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       account_id: 'account_id',
       async_percent_completion: 'async_percent_completion',

@@ -20,7 +20,7 @@ import CustomAudiencesharedAccountInfo from './custom-audienceshared-account-inf
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class CustomAudience extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       account_id: 'account_id',
       approximate_count: 'approximate_count',

@@ -18,7 +18,7 @@ import AdAccount from './ad-account';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class InstagramUser extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       follow_count: 'follow_count',
       followed_by_count: 'followed_by_count',

@@ -17,7 +17,7 @@ import ProductSet from './product-set';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class ProductItem extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       additional_image_cdn_urls: 'additional_image_cdn_urls',
       additional_image_urls: 'additional_image_urls',

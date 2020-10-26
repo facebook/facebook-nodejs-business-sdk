@@ -19,7 +19,7 @@ import BusinessUser from './business-user';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class BusinessUnit extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       business: 'business',
       creation_time: 'creation_time',

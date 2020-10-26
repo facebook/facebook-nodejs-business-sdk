@@ -20,7 +20,7 @@ import Post from './post';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class Album extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       backdated_time: 'backdated_time',
       backdated_time_granularity: 'backdated_time_granularity',

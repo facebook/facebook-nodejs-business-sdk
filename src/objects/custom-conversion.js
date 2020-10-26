@@ -17,7 +17,7 @@ import CustomConversionStatsResult from './custom-conversion-stats-result';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class CustomConversion extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       account_id: 'account_id',
       aggregation_rule: 'aggregation_rule',

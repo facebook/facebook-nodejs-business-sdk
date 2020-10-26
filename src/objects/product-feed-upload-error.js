@@ -17,7 +17,7 @@ import ProductFeedRuleSuggestion from './product-feed-rule-suggestion';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class ProductFeedUploadError extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       affected_surfaces: 'affected_surfaces',
       description: 'description',

@@ -24,7 +24,7 @@ import LiveVideo from './live-video';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class Application extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       aam_rules: 'aam_rules',
       an_ad_space_limit: 'an_ad_space_limit',

@@ -17,7 +17,7 @@ import InstagramInsightsResult from './instagram-insights-result';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class IGMedia extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       alt_text: 'alt_text',
       caption: 'caption',

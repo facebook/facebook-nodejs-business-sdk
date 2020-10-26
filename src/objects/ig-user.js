@@ -18,7 +18,7 @@ import IGMedia from './ig-media';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class IGUser extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       biography: 'biography',
       business_discovery: 'business_discovery',

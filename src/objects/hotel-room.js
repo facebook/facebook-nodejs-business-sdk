@@ -17,7 +17,7 @@ import DynamicPriceConfigByDate from './dynamic-price-config-by-date';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class HotelRoom extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       applinks: 'applinks',
       base_price: 'base_price',

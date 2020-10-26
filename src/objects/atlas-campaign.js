@@ -17,7 +17,7 @@ import BusinessUnit from './business-unit';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AtlasCampaign extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       ad_platform: 'ad_platform',
       alias: 'alias',

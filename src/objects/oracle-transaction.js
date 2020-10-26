@@ -16,7 +16,7 @@ import InvoiceCampaign from './invoice-campaign';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class OracleTransaction extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       ad_account_ids: 'ad_account_ids',
       amount: 'amount',

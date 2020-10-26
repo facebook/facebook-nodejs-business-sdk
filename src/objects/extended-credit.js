@@ -18,7 +18,7 @@ import ExtendedCreditAllocationConfig from './extended-credit-allocation-config'
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class ExtendedCredit extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       allocated_amount: 'allocated_amount',
       balance: 'balance',

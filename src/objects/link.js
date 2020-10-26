@@ -18,7 +18,7 @@ import Post from './post';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class Link extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       caption: 'caption',
       created_time: 'created_time',
