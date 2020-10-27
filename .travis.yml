@@ -6,6 +6,8 @@ install:
  - npm install
  - npm run flow
 
+script: true
+
 deploy:
   provider: script
   skip_cleanup: true
