@@ -17,6 +17,8 @@ const PHONE_NUMBER_IGNORE_CHAR_SET = /[\-@#<>'",; ]|\(|\)|\+|[a-z]/g;
 const PHONE_NUMBER_DROP_PREFIX_ZEROS = /^\+?0{0,2}/;
 const US_PHONE_NUMBER_REGEX = /^1\(?\d{3}\)?\d{7}$/;
 const INTL_PHONE_NUMBER_REGEX = /^\d{1,4}\(?\d{2,3}\)?\d{4,}$/;
+const SHA256_REGEX = /^[a-f0-9]{64}$/;
+const MD5_REGEX = /^[a-f0-9]{32}$/;
 
 /**
  * ServerSideUtils contains the Utility modules used for sending Server Side Events
@@ -38,6 +40,10 @@ export default class ServerSideUtils {
 
     if (normalized_input.length === 0) {
       return null;
+    }
+
+    if (normalized_input.match(SHA256_REGEX) || normalized_input.match(MD5_REGEX)) {
+      return normalized_input;
     }
 
     switch (field) {

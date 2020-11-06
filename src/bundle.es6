@@ -23,6 +23,7 @@ export { default as HttpMethod } from './../src/objects/serverside/http-method';
 export { default as HttpServiceClientConfig } from './../src/objects/serverside/http-service-client-config';
 export { default as HttpServiceInterface } from './../src/objects/serverside/http-service-interface';
 export { default as BatchProcessor } from './../src/objects/serverside/batch-processor';
+export { default as ServerSideUtils } from './../src/objects/serverside/utils';
 
 export { default as Ad } from './../src/objects/ad';
 export { default as AdAccount } from './../src/objects/ad-account';

@@ -5,6 +5,9 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+### Changed
+- Stop validating and hashing already hashed input values for Conversions API
+
 ## v8.0.2
 
 ### Added
