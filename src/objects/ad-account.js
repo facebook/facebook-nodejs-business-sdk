@@ -1083,13 +1083,6 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  deleteTracking (params: Object = {}): Promise<*> {
-    return super.deleteEdge(
-      '/tracking',
-      params
-    );
-  }
-
   getTracking (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdAccountTrackingData,

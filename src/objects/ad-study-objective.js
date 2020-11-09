@@ -14,7 +14,6 @@ import AdsPixel from './ads-pixel';
 import Application from './application';
 import CustomConversion from './custom-conversion';
 import OfflineConversionDataSet from './offline-conversion-data-set';
-import OffsitePixel from './offsite-pixel';
 import PartnerStudy from './partner-study';
 
 /**
@@ -95,16 +94,6 @@ export default class AdStudyObjective extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/offline_conversion_data_sets'
-    );
-  }
-
-  getOffsitePixels (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      OffsitePixel,
-      fields,
-      params,
-      fetchFirstPage,
-      '/offsitepixels'
     );
   }
 

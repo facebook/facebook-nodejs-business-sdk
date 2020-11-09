@@ -9,13 +9,13 @@
 
  'use strict';
 const bizSdk = require('facebook-nodejs-business-sdk');
-const AdAccount = bizSdk.AdAccount;
-const CustomAudience = bizSdk.CustomAudience;
+const PagePost = bizSdk.PagePost;
+const Comment = bizSdk.Comment;
 
 const access_token = '<ACCESS_TOKEN>';
 const app_secret = '<APP_SECRET>';
 const app_id = '<APP_ID>';
-const id = '<AD_ACCOUNT_ID>';
+const id = '<PAGE_POST_ID>';
 const api = bizSdk.FacebookAdsApi.init(access_token);
 const showDebugingInfo = true; // Setting this to true shows more debugging info.
 if (showDebugingInfo) {
@@ -33,12 +33,9 @@ let fields, params;
 fields = [
 ];
 params = {
-  'name' : 'My Test Engagement Custom Audience',
-  'rule' : {'inclusions':{'operator':'or','rules':[{'event_sources':[{'id':'<pageID>','type':'page'}],'retention_seconds':31536000,'filter':{'operator':'and','filters':[{'field':'event','operator':'eq','value':'page_engaged'},{'field':'event','operator':'eq','value':'page_engaged'}]}}]}},
-  'prefill' : '1',
 };
-const customaudiences = (new AdAccount(id)).createCustomAudience(
+const commentss = (new PagePost(id)).getComments(
   fields,
   params
 );
-logApiCallResult('customaudiences api call complete.', customaudiences);
+logApiCallResult('commentss api call complete.', commentss);

@@ -47,6 +47,7 @@ export default class ProductItem extends AbstractCrudObject {
       id: 'id',
       image_cdn_urls: 'image_cdn_urls',
       image_url: 'image_url',
+      images: 'images',
       inventory: 'inventory',
       manufacturer_part_number: 'manufacturer_part_number',
       material: 'material',

@@ -74,7 +74,6 @@ export { default as AdCreative } from './../src/objects/ad-creative';
 export { default as AdCreativeAdDisclaimer } from './../src/objects/ad-creative-ad-disclaimer';
 export { default as AdCreativeCollectionThumbnailInfo } from './../src/objects/ad-creative-collection-thumbnail-info';
 export { default as AdCreativeInsights } from './../src/objects/ad-creative-insights';
-export { default as AdCreativeInstagramBrandedContent } from './../src/objects/ad-creative-instagram-branded-content';
 export { default as AdCreativeInteractiveComponentsSpec } from './../src/objects/ad-creative-interactive-components-spec';
 export { default as AdCreativeLinkData } from './../src/objects/ad-creative-link-data';
 export { default as AdCreativeLinkDataAppLinkSpec } from './../src/objects/ad-creative-link-data-app-link-spec';

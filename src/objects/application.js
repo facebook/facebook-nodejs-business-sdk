@@ -32,6 +32,7 @@ export default class Application extends AbstractCrudObject {
       android_key_hash: 'android_key_hash',
       android_sdk_error_categories: 'android_sdk_error_categories',
       app_domains: 'app_domains',
+      app_events_config: 'app_events_config',
       app_events_feature_bitmask: 'app_events_feature_bitmask',
       app_events_session_timeout: 'app_events_session_timeout',
       app_install_tracked: 'app_install_tracked',

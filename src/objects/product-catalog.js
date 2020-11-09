@@ -64,6 +64,7 @@ export default class ProductCatalog extends AbstractCrudObject {
       home_listings: 'home_listings',
       hotels: 'hotels',
       jobs: 'jobs',
+      local_delivery_shipping_profiles: 'local_delivery_shipping_profiles',
       local_service_businesses: 'local_service_businesses',
       offer_items: 'offer_items',
       offline_commerce: 'offline_commerce',
@@ -354,15 +355,6 @@ export default class ProductCatalog extends AbstractCrudObject {
   createItemsBatch (fields: Array<string>, params: Object = {}): Promise<ProductCatalog> {
     return this.createEdge(
       '/items_batch',
-      fields,
-      params,
-      ProductCatalog
-    );
-  }
-
-  createOnsiteCommerceMerchant (fields: Array<string>, params: Object = {}): Promise<ProductCatalog> {
-    return this.createEdge(
-      '/onsite_commerce_merchant',
       fields,
       params,
       ProductCatalog

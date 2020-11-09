@@ -183,6 +183,7 @@ export default class AdsInsights extends AbstractCrudObject {
     return Object.freeze({
       conversion: 'conversion',
       impression: 'impression',
+      mixed: 'mixed',
     });
   }
   static get Breakdowns (): Object {

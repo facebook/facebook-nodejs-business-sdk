@@ -36,7 +36,6 @@ import LiveEncoder from './live-encoder';
 import LiveVideo from './live-video';
 import MediaFingerprint from './media-fingerprint';
 import MessagingFeatureReview from './messaging-feature-review';
-import MessengerDestinationPageWelcomeMessage from './messenger-destination-page-welcome-message';
 import MessengerProfile from './messenger-profile';
 import NativeOffer from './native-offer';
 import Persona from './persona';
@@ -87,6 +86,7 @@ export default class Page extends AbstractCrudObject {
       checkins: 'checkins',
       company_overview: 'company_overview',
       connected_instagram_account: 'connected_instagram_account',
+      connected_page_backed_instagram_account: 'connected_page_backed_instagram_account',
       contact_address: 'contact_address',
       copyright_whitelisted_ig_partners: 'copyright_whitelisted_ig_partners',
       country_page_likes: 'country_page_likes',
@@ -308,7 +308,6 @@ export default class Page extends AbstractCrudObject {
       profile_plus_advertise: 'PROFILE_PLUS_ADVERTISE',
       profile_plus_analyze: 'PROFILE_PLUS_ANALYZE',
       profile_plus_create_content: 'PROFILE_PLUS_CREATE_CONTENT',
-      profile_plus_live_stream_moderation: 'PROFILE_PLUS_LIVE_STREAM_MODERATION',
       profile_plus_manage: 'PROFILE_PLUS_MANAGE',
       profile_plus_messaging: 'PROFILE_PLUS_MESSAGING',
       profile_plus_moderate: 'PROFILE_PLUS_MODERATE',
@@ -333,7 +332,6 @@ export default class Page extends AbstractCrudObject {
       profile_plus_advertise: 'PROFILE_PLUS_ADVERTISE',
       profile_plus_analyze: 'PROFILE_PLUS_ANALYZE',
       profile_plus_create_content: 'PROFILE_PLUS_CREATE_CONTENT',
-      profile_plus_live_stream_moderation: 'PROFILE_PLUS_LIVE_STREAM_MODERATION',
       profile_plus_manage: 'PROFILE_PLUS_MANAGE',
       profile_plus_messaging: 'PROFILE_PLUS_MESSAGING',
       profile_plus_moderate: 'PROFILE_PLUS_MODERATE',
@@ -488,6 +486,7 @@ export default class Page extends AbstractCrudObject {
       leadgen: 'leadgen',
       leadgen_fat: 'leadgen_fat',
       live_videos: 'live_videos',
+      local_delivery: 'local_delivery',
       location: 'location',
       mcom_invoice_change: 'mcom_invoice_change',
       members: 'members',
@@ -719,15 +718,6 @@ export default class Page extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/claimed_urls'
-    );
-  }
-
-  createClaimedUrl (fields: Array<string>, params: Object = {}): Promise<Page> {
-    return this.createEdge(
-      '/claimed_urls',
-      fields,
-      params,
-      Page
     );
   }
 
@@ -1111,16 +1101,6 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  getMessengerAdsPageWelcomeMessages (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      MessengerDestinationPageWelcomeMessage,
-      fields,
-      params,
-      fetchFirstPage,
-      '/messenger_ads_page_welcome_messages'
-    );
-  }
-
   deleteMessengerProfile (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/messenger_profile',
@@ -1206,6 +1186,15 @@ export default class Page extends AbstractCrudObject {
   createPassThreadControl (fields: Array<string>, params: Object = {}): Promise<Page> {
     return this.createEdge(
       '/pass_thread_control',
+      fields,
+      params,
+      Page
+    );
+  }
+
+  createPassThreadMetadatum (fields: Array<string>, params: Object = {}): Promise<Page> {
+    return this.createEdge(
+      '/pass_thread_metadata',
       fields,
       params,
       Page
@@ -1306,6 +1295,15 @@ export default class Page extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/ratings'
+    );
+  }
+
+  createReleaseThreadControl (fields: Array<string>, params: Object = {}): Promise<Page> {
+    return this.createEdge(
+      '/release_thread_control',
+      fields,
+      params,
+      Page
     );
   }
 
@@ -1497,6 +1495,15 @@ export default class Page extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/video_copyright_rules'
+    );
+  }
+
+  createVideoCopyrightRule (fields: Array<string>, params: Object = {}): Promise<VideoCopyrightRule> {
+    return this.createEdge(
+      '/video_copyright_rules',
+      fields,
+      params,
+      VideoCopyrightRule
     );
   }
 

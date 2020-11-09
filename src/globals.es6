@@ -57,7 +57,6 @@ import './../src/objects/ad-creative';
 import './../src/objects/ad-creative-ad-disclaimer';
 import './../src/objects/ad-creative-collection-thumbnail-info';
 import './../src/objects/ad-creative-insights';
-import './../src/objects/ad-creative-instagram-branded-content';
 import './../src/objects/ad-creative-interactive-components-spec';
 import './../src/objects/ad-creative-link-data';
 import './../src/objects/ad-creative-link-data-app-link-spec';

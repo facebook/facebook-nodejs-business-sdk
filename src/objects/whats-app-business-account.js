@@ -25,6 +25,7 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
       message_template_namespace: 'message_template_namespace',
       name: 'name',
       on_behalf_of_business_info: 'on_behalf_of_business_info',
+      owner_business_info: 'owner_business_info',
       primary_funding_id: 'primary_funding_id',
       purchase_order_number: 'purchase_order_number',
       status: 'status',
@@ -116,6 +117,23 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/phone_numbers'
+    );
+  }
+
+  deleteSubscribedApps (params: Object = {}): Promise<*> {
+    return super.deleteEdge(
+      '/subscribed_apps',
+      params
+    );
+  }
+
+  getSubscribedApps (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/subscribed_apps'
     );
   }
 

@@ -22,6 +22,7 @@ import Business from './business';
 import UnifiedThread from './unified-thread';
 import PageUserMessageThreadLabel from './page-user-message-thread-label';
 import Event from './event';
+import Post from './post';
 import Group from './group';
 import UserIDForApp from './user-id-for-app';
 import UserIDForPage from './user-id-for-page';
@@ -72,6 +73,7 @@ export default class User extends AbstractCrudObject {
       locale: 'locale',
       location: 'location',
       meeting_for: 'meeting_for',
+      messenger_join_notifications_enabled: 'messenger_join_notifications_enabled',
       middle_name: 'middle_name',
       name: 'name',
       name_format: 'name_format',
@@ -79,6 +81,7 @@ export default class User extends AbstractCrudObject {
       political: 'political',
       profile_pic: 'profile_pic',
       public_key: 'public_key',
+      published_timeline: 'published_timeline',
       quotes: 'quotes',
       relationship_status: 'relationship_status',
       religion: 'religion',
@@ -91,6 +94,8 @@ export default class User extends AbstractCrudObject {
       timezone: 'timezone',
       token_for_business: 'token_for_business',
       updated_time: 'updated_time',
+      user_storage_key: 'user_storage_key',
+      username: 'username',
       verified: 'verified',
       video_upload_limits: 'video_upload_limits',
       website: 'website',
@@ -333,12 +338,22 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  createFeed (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+  getFeed (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      Post,
+      fields,
+      params,
+      fetchFirstPage,
+      '/feed'
+    );
+  }
+
+  createFeed (fields: Array<string>, params: Object = {}): Promise<Post> {
     return this.createEdge(
       '/feed',
       fields,
       params,
-      
+      Post
     );
   }
 

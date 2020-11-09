@@ -56,6 +56,8 @@ export default class AdCampaignActivity extends AbstractCrudObject {
       optimization_goal_old: 'optimization_goal_old',
       pacing_type_new: 'pacing_type_new',
       pacing_type_old: 'pacing_type_old',
+      promoted_object_id_new: 'promoted_object_id_new',
+      promoted_object_id_old: 'promoted_object_id_old',
       run_status_new: 'run_status_new',
       run_status_old: 'run_status_old',
       schedule_new: 'schedule_new',

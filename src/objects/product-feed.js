@@ -39,6 +39,7 @@ export default class ProductFeed extends AbstractCrudObject {
       id: 'id',
       item_sub_type: 'item_sub_type',
       latest_upload: 'latest_upload',
+      migrated_from_feed_id: 'migrated_from_feed_id',
       name: 'name',
       override_type: 'override_type',
       product_count: 'product_count',

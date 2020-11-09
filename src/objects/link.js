@@ -36,6 +36,16 @@ export default class Link extends AbstractCrudObject {
   }
 
 
+  getComments (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      Comment,
+      fields,
+      params,
+      fetchFirstPage,
+      '/comments'
+    );
+  }
+
   createComment (fields: Array<string>, params: Object = {}): Promise<Comment> {
     return this.createEdge(
       '/comments',

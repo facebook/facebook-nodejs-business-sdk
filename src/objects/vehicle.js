@@ -68,6 +68,7 @@ export default class Vehicle extends AbstractCrudObject {
     return Object.freeze({
       available: 'AVAILABLE',
       not_available: 'NOT_AVAILABLE',
+      pending: 'PENDING',
     });
   }
   static get BodyStyle (): Object {

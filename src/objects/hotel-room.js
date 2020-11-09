@@ -7,7 +7,6 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import DynamicPriceConfigByDate from './dynamic-price-config-by-date';
 
@@ -41,14 +40,6 @@ export default class HotelRoom extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/pricing_variables'
-    );
-  }
-
-  // $FlowFixMe : Support Generic Types
-  delete (fields: Array<string>, params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
-    return super.delete(
-      params
     );
   }
 

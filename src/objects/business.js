@@ -138,7 +138,6 @@ export default class Business extends AbstractCrudObject {
       profile_plus_advertise: 'PROFILE_PLUS_ADVERTISE',
       profile_plus_analyze: 'PROFILE_PLUS_ANALYZE',
       profile_plus_create_content: 'PROFILE_PLUS_CREATE_CONTENT',
-      profile_plus_live_stream_moderation: 'PROFILE_PLUS_LIVE_STREAM_MODERATION',
       profile_plus_manage: 'PROFILE_PLUS_MANAGE',
       profile_plus_messaging: 'PROFILE_PLUS_MESSAGING',
       profile_plus_moderate: 'PROFILE_PLUS_MODERATE',
@@ -153,6 +152,13 @@ export default class Business extends AbstractCrudObject {
       fields,
       params,
       Business
+    );
+  }
+
+  deleteAdAccounts (params: Object = {}): Promise<*> {
+    return super.deleteEdge(
+      '/ad_accounts',
+      params
     );
   }
 
@@ -744,6 +750,16 @@ export default class Business extends AbstractCrudObject {
       fields,
       params,
       ProductCatalog
+    );
+  }
+
+  getOwnedWhatsAppBusinessAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      WhatsAppBusinessAccount,
+      fields,
+      params,
+      fetchFirstPage,
+      '/owned_whatsapp_business_accounts'
     );
   }
 

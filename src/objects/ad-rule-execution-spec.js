@@ -23,15 +23,19 @@ export default class AdRuleExecutionSpec extends AbstractCrudObject {
 
   static get ExecutionType (): Object {
     return Object.freeze({
+      add_interest_relaxation: 'ADD_INTEREST_RELAXATION',
+      add_questionnaire_interests: 'ADD_QUESTIONNAIRE_INTERESTS',
       change_bid: 'CHANGE_BID',
       change_budget: 'CHANGE_BUDGET',
       change_campaign_budget: 'CHANGE_CAMPAIGN_BUDGET',
+      increase_radius: 'INCREASE_RADIUS',
       notification: 'NOTIFICATION',
       pause: 'PAUSE',
       ping_endpoint: 'PING_ENDPOINT',
       rebalance_budget: 'REBALANCE_BUDGET',
       rotate: 'ROTATE',
       unpause: 'UNPAUSE',
+      update_creative: 'UPDATE_CREATIVE',
     });
   }
 }

@@ -24,7 +24,7 @@ export default class FacebookAdsApi {
     return 'v8.0';
   }
   static get SDK_VERSION() {
-    return '8.0.2';
+    return '8.0.3';
   }
   static get GRAPH() {
     return 'https://graph.facebook.com';
