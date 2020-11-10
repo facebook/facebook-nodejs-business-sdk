@@ -12,6 +12,8 @@
  * @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#custom}
  */
 
+import ServerSideUtils from './utils';
+
 export default class Content {
 
 	_id: string;
@@ -21,6 +23,7 @@ export default class Content {
 	_description: string;
 	_category: string;
 	_brand: string;
+	_delivery_category: string;
 
 	/**
 	 * @param {String} id Product Id of the Item.
@@ -30,8 +33,9 @@ export default class Content {
 	 * @param {String} description Product description used for the item.
 	 * @param {String} brand Brand of the item.
 	 * @param {String} category Category of the Item.
+	 * @param {String} delivery_category The type of delivery for a purchase event
 	 */
-	constructor(id: string, quantity: number, item_price: number, title: string, description: string, brand: string, category: string)  {
+	constructor(id: string, quantity: number, item_price: number, title: string, description: string, brand: string, category: string, delivery_category: string)  {
 
 		this._id = id;
 		this._quantity = quantity;
@@ -40,6 +44,7 @@ export default class Content {
 		this._description = description;
 		this._brand = brand;
 		this._category = category;
+		this._delivery_category = delivery_category;
 	}
 
 	/**
@@ -226,7 +231,29 @@ export default class Content {
         return this;
 	}
 
+	/**
+	 * Gets the delivery category.
+	 */
+	get delivery_category() {
+		return this._delivery_category;
+	}
 
+	/**
+	 * Sets the type of delivery for a purchase event.
+	 * @param delivery_category The delivery category.
+	 */
+	set delivery_category(delivery_category: string) {
+		this._delivery_category = delivery_category;
+	}
+
+	/**
+	 * Sets the type of delivery for a purchase event.
+	 * @param {String} delivery_category The delivery category.
+	 */
+	setDeliveryCategory(delivery_category: string) : Content {
+		this._delivery_category = delivery_category;
+		return this;
+	}
 
 	/**
 	 * Returns the normalized payload for the Content.
@@ -261,6 +288,10 @@ export default class Content {
 
 		if (this.category) {
 			content['category'] = this.category;
+		}
+
+		if (this.delivery_category) {
+			content['delivery_category'] = ServerSideUtils.normalizeDeliveryCategory(this.delivery_category);
 		}
 
 		return content;
