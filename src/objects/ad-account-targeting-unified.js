@@ -231,6 +231,7 @@ export default class AdAccountTargetingUnified extends AbstractCrudObject {
       local_awareness: 'LOCAL_AWARENESS',
       messages: 'MESSAGES',
       offer_claims: 'OFFER_CLAIMS',
+      outcome_leads: 'OUTCOME_LEADS',
       page_likes: 'PAGE_LIKES',
       post_engagement: 'POST_ENGAGEMENT',
       product_catalog_sales: 'PRODUCT_CATALOG_SALES',

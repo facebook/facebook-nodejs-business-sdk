@@ -60,6 +60,8 @@ export default class AdgroupActivity extends AbstractCrudObject {
       stop_time_old: 'stop_time_old',
       target_spec_id_new: 'target_spec_id_new',
       target_spec_id_old: 'target_spec_id_old',
+      targets_spec_new: 'targets_spec_new',
+      targets_spec_old: 'targets_spec_old',
       tracking_pixel_ids_new: 'tracking_pixel_ids_new',
       tracking_pixel_ids_old: 'tracking_pixel_ids_old',
       tracking_specs_new: 'tracking_specs_new',

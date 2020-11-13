@@ -33,6 +33,7 @@ import ExtendedCredit from './extended-credit';
 import BusinessAssetSharingAgreement from './business-asset-sharing-agreement';
 import BusinessAgreement from './business-agreement';
 import InstagramUser from './instagram-user';
+import IGUser from './ig-user';
 import OfflineConversionDataSet from './offline-conversion-data-set';
 import BusinessAdAccountRequest from './business-ad-account-request';
 import BusinessApplicationRequest from './business-application-request';
@@ -332,15 +333,6 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createBusinessUser (fields: Array<string>, params: Object = {}): Promise<BusinessUser> {
-    return this.createEdge(
-      '/business_users',
-      fields,
-      params,
-      BusinessUser
-    );
-  }
-
   createClaimCustomConversion (fields: Array<string>, params: Object = {}): Promise<CustomConversion> {
     return this.createEdge(
       '/claim_custom_conversions',
@@ -584,6 +576,16 @@ export default class Business extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/instagram_accounts'
+    );
+  }
+
+  getInstagramBusinessAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      IGUser,
+      fields,
+      params,
+      fetchFirstPage,
+      '/instagram_business_accounts'
     );
   }
 
@@ -876,15 +878,6 @@ export default class Business extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/system_users'
-    );
-  }
-
-  createSystemUser (fields: Array<string>, params: Object = {}): Promise<SystemUser> {
-    return this.createEdge(
-      '/system_users',
-      fields,
-      params,
-      SystemUser
     );
   }
 

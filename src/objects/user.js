@@ -136,15 +136,6 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  createAccessToken (fields: Array<string>, params: Object = {}): Promise<User> {
-    return this.createEdge(
-      '/access_tokens',
-      fields,
-      params,
-      User
-    );
-  }
-
   getAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Page,
