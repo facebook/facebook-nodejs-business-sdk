@@ -28,6 +28,7 @@ export { default as SignalUserData } from './../src/objects/signal/user-data';
 export { default as SignalContent } from './../src/objects/signal/content';
 export { default as SignalCustomData } from './../src/objects/signal/custom-data';
 export { default as SignalEvent } from './../src/objects/signal/event';
+export { default as SignalEventRequest } from './../src/objects/signal/event-request';
 
 export { default as Ad } from './../src/objects/ad';
 export { default as AdAccount } from './../src/objects/ad-account';
