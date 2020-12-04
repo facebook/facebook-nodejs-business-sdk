@@ -33,27 +33,24 @@ export default class Content {
      * @param {String} external_content_id Unique ID for the contents/products that are being involved in the customer interaction.
      */
     constructor(id: string, quantity: number, price: number, item_price: number, title: string, description: string, brand: string, category: string, delivery_category: string, tax: number, external_content_id: string) {
-        this._business_data_content = new BusinessDataContent();
-        this._server_content = new ServerContent();
-
-        // Business Data API
-        this._business_data_content.id = id;
-        this._business_data_content.quantity = quantity;
-        this._business_data_content.price = price;
-        this._business_data_content.title = title;
-        this._business_data_content.external_content_id = external_content_id;
-        this._business_data_content.tax = tax;
-
-        // Conversion API
-        this._server_content.id = id;
-        this._server_content.quantity = quantity;
-        this._server_content.item_prices = price;
-        this._server_content.title = title;
-        this._server_content.description = description;
-        this._server_content.brand = brand;
-        this._server_content.category = category;
-        this._server_content.delivery_category = delivery_category;
-
+        this._business_data_content = new BusinessDataContent(
+            id,
+            quantity,
+            price,
+            title,
+            tax,
+            external_content_id
+        );
+        this._server_content = new ServerContent(
+            id,
+            quantity,
+            item_price,
+            title,
+            description,
+            brand,
+            category,
+            delivery_category,
+        );
     }
 
     /**

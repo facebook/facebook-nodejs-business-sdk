@@ -11,6 +11,7 @@
 import BusinessDataEventRequest from '../businessdataapi/event-request';
 import ServerEventRequest from '../serverside/event-request';
 import FacebookAdsApi from './../../api';
+import HttpServiceInterface from '../serverside/http-service-interface';
 
 import SignalEvent from './event';
 import ServerEventResponse from '../serverside/event-response';
@@ -56,7 +57,7 @@ export default class EventRequest {
         this._server_event_request = new ServerEventRequest(
             access_token,
             pixel_id,
-            events,
+            server_events,
             partner_agent,
             test_event_code,
             namespace_id,
@@ -72,7 +73,7 @@ export default class EventRequest {
      * Gets the data for the request Payload for a Server Side Event and Business Data Event.
      */
     get events() {
-        return Utils.constructResponse(this._server_event_request.even.events, this._business_data_event_request.events);
+        return Utils.constructResponse(this._server_event_request.events, this._business_data_event_request.events);
     }
 
     /**

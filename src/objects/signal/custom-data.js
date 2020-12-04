@@ -51,41 +51,42 @@ export default class CustomData {
      */
     constructor(value: number, currency: string, content_name: string, content_category: string, content_ids: Array < string > , contents: Array < SignalContent > ,
         content_type: string, order_id: string, predicted_ltv: number, num_items: number, search_string: string, status: string, item_number: string,
-        delivery_category: string, custom_properties: Object, shipping_contact: SignalUserData, billing_contact: SignalUserData, external_order_id: String, original_order_id: String, message: String) {
-        this._business_data_custom_data = (new BusinessDataCustomData());
-        this._server_custom_data = (new ServerCustomData());
+        delivery_category: string, custom_properties: Object, shipping_contact: SignalUserData, billing_contact: SignalUserData, external_order_id: string, original_order_id: string, message: string) {
 
-        // business data
-        this._business_data_custom_data.value = value;
-        this._business_data_custom_data.currency = currency;
-        this._business_data_custom_data.contents = contents;
-        this._business_data_custom_data.order_id = order_id;
-        this._business_data_custom_data.status = status;
-        this._business_data_custom_data.external_order_id = external_order_id;
-        this._business_data_custom_data.original_order_id = original_order_id;
-        this._business_data_custom_data.message = message;
-        const business_data_contents = contents == undefined ? undefined : contents.map(content => content.business_data_content);
-        this._business_data_custom_data.contents = business_data_contents;
-        this._business_data_custom_data.shipping_contact = shipping_contact == undefined ? undefined : shipping_contact.business_data_user_data;
-        this._business_data_custom_data.billing_contact = billing_contact == undefined ? undefined : billing_contact.business_data_user_data;
+        const business_data_contents = contents != undefined ? contents.map(content => content.business_data_content) : [];
+        const server_contents = contents != undefined ? contents.map(content => content.server_content) : [];
+        const business_data_shipping_contact = shipping_contact != undefined ? shipping_contact.business_data_user_data : shipping_contact;
+        const business_data_billing_contact = billing_contact != undefined ? billing_contact.business_data_user_data : billing_contact;
 
-        // server
-        this._server_custom_data.value = value;
-        this._server_custom_data.currency = currency;
-        this._server_custom_data.content_name = content_name;
-        this._server_custom_data.content_category = content_category;
-        this._server_custom_data.content_ids = content_ids;
-        this._server_custom_data.content_type = content_type;
-        this._server_custom_data.order_id = order_id;
-        this._server_custom_data.predicted_ltv = predicted_ltv;
-        this._server_custom_data.num_items = num_items;
-        this._server_custom_data.search_string = search_string;
-        this._server_custom_data.status = status;
-        this._server_custom_data.item_number = item_number;
-        this._server_custom_data.delivery_category = delivery_category;
-        this._server_custom_data.custom_properties = custom_properties;
-        const server_contents = contents == undefined ? undefined : contents.map(content => content.server_content);
-        this._server_custom_data.contents = server_contents;
+        this._business_data_custom_data = new BusinessDataCustomData(
+            value,
+            currency,
+            business_data_contents,
+            order_id,
+            status,
+            business_data_shipping_contact,
+            business_data_billing_contact,
+            external_order_id,
+            original_order_id,
+            message
+        );
+        this._server_custom_data = new ServerCustomData(
+            value,
+            currency,
+            content_name,
+            content_category,
+            content_ids,
+            server_contents,
+            content_type,
+            order_id,
+            predicted_ltv,
+            num_items,
+            search_string,
+            status,
+            item_number,
+            delivery_category,
+            custom_properties
+        );
     }
 
     /**

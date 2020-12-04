@@ -36,31 +36,34 @@ export default class Event {
      * @param {Number} data_processing_options_state A state that you want to associate with this data processing option.
      */
     constructor(event_name: string, event_time: number, event_source_url: string, user_data: SignalUserData, custom_data: SignalCustomData, event_id: string, opt_out: boolean, action_source: string, data_processing_options: Array < string > , data_processing_options_country: number, data_processing_options_state: number) {
-        this._business_data_event = (new BusinessDataEvent());
-        this._server_event = (new ServerEvent());
+        const business_data_user_data = user_data != undefined ?  user_data.business_data_user_data :  user_data;
+        const server_user_data = user_data != undefined ? user_data.server_user_data : user_data;
+        const business_data_custom_data = custom_data != undefined ? custom_data.business_data_custom_data : custom_data;
+        const server_custom_data = custom_data != undefined ? custom_data.server_custom_data : custom_data;
+        this._business_data_event = new BusinessDataEvent(
+            event_name,
+            event_time,
+            business_data_user_data,
+            business_data_custom_data,
+            event_id,
+            data_processing_options,
+            data_processing_options_country,
+            data_processing_options_state
+        );
 
-        // business data
-        this._business_data_event.event_name = event_name;
-        this._business_data_event.event_time = event_time;
-        this._business_data_event.event_id = event_id;
-        this._business_data_event.user_data = user_data == undefined ? undefined : user_data.business_data_user_data;
-        this._business_data_event.custom_data = custom_data == undefined ? undefined : custom_data.business_data_custom_data;
-        this._business_data_event.data_processing_options = data_processing_options;
-        this._business_data_event.data_processing_options_country = data_processing_options_country;
-        this._business_data_event.data_processing_options_state = data_processing_options_state;
-
-        // server
-        this._server_event.event_name = event_name;
-        this._server_event.event_time = event_time;
-        this._server_event.event_source_url = event_source_url;
-        this._server_event.event_id = event_id;
-        this._server_event.action_source = action_source;
-        this._server_event.opt_out = opt_out;
-        this._server_event.user_data = user_data == undefined ? undefined : user_data.server_user_data;
-        this._server_event.custom_data = custom_data == undefined ? undefined : custom_data.server_custom_data;
-        this._server_event.data_processing_options = data_processing_options;
-        this._server_event.data_processing_options_country = data_processing_options_country;
-        this._server_event.data_processing_options_state = data_processing_options_state;
+        this._server_event = new ServerEvent(
+            event_name,
+            event_time,
+            event_source_url,
+            server_user_data,
+            server_custom_data,
+            event_id,
+            opt_out,
+            action_source,
+            data_processing_options,
+            data_processing_options_country,
+            data_processing_options_state
+        );
     }
 
     /**

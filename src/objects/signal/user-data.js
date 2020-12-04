@@ -53,44 +53,40 @@ export default class UserData {
         client_ip_address: string, client_user_agent: string, fbp: string, fbc: string, subscription_id: string,
         fb_login_id: string, lead_id: string, dobd: string, dobm: string, doby: string, f5first: string, f5last: string,
         fi: string, address: string) {
-        this._business_data_user_data = (new BusinessDataUserData());
-        this._server_user_data = (new ServerUserData());
-
-        // business data api
-        this._business_data_user_data.email = email;
-        this._business_data_user_data.phone = phone;
-        this._business_data_user_data.first_name = first_name;
-        this._business_data_user_data.last_name = last_name;
-        this._business_data_user_data.date_of_birth = date_of_birth;
-        this._business_data_user_data.city = city;
-        this._business_data_user_data.state = state;
-        this._business_data_user_data.country = country;
-        this._business_data_user_data.zip = zip;
-        this._business_data_user_data.external_id = external_id;
-        this._business_data_user_data.address = address;
+        this._business_data_user_data = new BusinessDataUserData(
+            email,
+            phone,
+            first_name,
+            last_name,
+            date_of_birth,
+            city,
+            state,
+            zip,
+            country,
+            external_id,
+            address
+        );
+        this._server_user_data = new ServerUserData(
+            email,
+            phone,
+            gender,
+            first_name,
+            last_name,
+            date_of_birth,
+            city,
+            state,
+            zip,
+            country,
+            external_id,
+            client_ip_address,
+            client_user_agent,
+            fbp,
+            fbc,
+            subscription_id,
+            fb_login_id,lead_id,dobd,dobm, doby
+        );
 
         // conversion api
-        this._server_user_data.email = email;
-        this._server_user_data.phone = phone;
-        this._server_user_data.gender = gender;
-        this._server_user_data.first_name = first_name;
-        this._server_user_data.last_name = last_name;
-        this._server_user_data.date_of_birth = date_of_birth;
-        this._server_user_data.city = city;
-        this._server_user_data.state = state;
-        this._server_user_data.country = country;
-        this._server_user_data.zip = zip;
-        this._server_user_data.external_id = external_id;
-        this._server_user_data.client_ip_address = client_ip_address;
-        this._server_user_data.client_user_agent = client_user_agent;
-        this._server_user_data.fbp = fbp;
-        this._server_user_data.fbc = fbc;
-        this._server_user_data.subscription_id = subscription_id;
-        this._server_user_data.fb_login_id = fb_login_id;
-        this._server_user_data.lead_id = lead_id;
-        this._server_user_data.dobd = dobd;
-        this._server_user_data.dobm = dobm;
-        this._server_user_data.doby = doby;
         this._server_user_data.f5first = f5first;
         this._server_user_data.f5last = f5last;
         this._server_user_data.fi = fi;
