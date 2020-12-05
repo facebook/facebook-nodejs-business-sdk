@@ -82,12 +82,12 @@ export default class FacebookAdsApi {
     return Http.request('GET', url, {}, {}, false);
   }
 
-  setDebug(flag: boolean) {
+  setDebug(flag: boolean): FacebookAdsApi {
     this._debug = flag;
     return this;
   }
 
-  setShowHeader(flag: boolean) {
+  setShowHeader(flag: boolean): FacebookAdsApi {
     this._showHeader = flag;
     return this;
   }

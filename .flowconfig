@@ -2,6 +2,9 @@
 .*dist.*
 .*docs/.*
 .*examples/.*
+.*src/objects/serverside
+.*src/objects/signal
+.*src/objects/businessdataapi
 [include]
 
 [libs]
@@ -9,5 +12,5 @@
 [lints]
 
 [options]
-
+types_first=false
 [strict]
