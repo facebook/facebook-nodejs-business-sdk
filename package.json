@@ -52,7 +52,7 @@
     "chai": "~3.5.0",
     "eslint": "^4.18.2",
     "eslint-plugin-flowtype": "^2.50.3",
-    "flow-bin": "^0.101.0",
+    "flow-bin": "^0.138.0",
     "gulp": "^4.0.2",
     "gulp-cli": "^2.2.0",
     "gulp-filenames": "~4.0.0",
