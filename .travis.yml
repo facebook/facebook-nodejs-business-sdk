@@ -2,7 +2,7 @@ language: node_js
 sudo: false
 node_js:
   - node
-install:
+install: 
  - npm install
  - npm run flow
 
@@ -11,7 +11,7 @@ script: true
 deploy:
   provider: script
   skip_cleanup: true
-  script:
+  script: 
     - npm config set '//registry.npmjs.org/:_authToken' '${NPM_TOKEN}'
     - npm publish
   on:
