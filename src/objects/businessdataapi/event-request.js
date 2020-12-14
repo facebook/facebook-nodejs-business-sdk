@@ -155,10 +155,11 @@ export default class EventRequest {
         );
 
         return pagePromise.then(response => {
-            return new EventResponse()
-                .setEventsReceived(response._data['events_received'])
-                .setEventsDropped(response._data['events_dropped'])
-                .setMessage(response._data['message']);
+            return new EventResponse(
+                response._data['events_received'],
+                response._data['events_dropped'],
+                response._data['message']
+            );
         });
     }
 }

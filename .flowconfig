@@ -4,7 +4,6 @@
 .*examples/.*
 .*src/objects/serverside
 .*src/objects/signal
-.*src/objects/businessdataapi
 [include]
 
 [libs]

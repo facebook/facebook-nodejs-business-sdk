@@ -211,7 +211,7 @@ export default class CustomData {
      * Sets the shipping contact of the order.
      * @param {UserData} shipping_contact An Object contains the user data of shipping contact. Use {UserData} to construct the object.
      */
-    setShipping_contact(shipping_contact: UserData) {
+    setShippingContact(shipping_contact: UserData) : CustomData {
         this._shipping_contact = shipping_contact;
         return this;
     }
@@ -236,7 +236,7 @@ export default class CustomData {
      * Sets the billing contact of the order.
      * @param {UserData} billing_contact An Object contains the user data of billing contact. Use {UserData} to construct the object.
      */
-    setBilling_contact(billing_contact: UserData) {
+    setBillingContact(billing_contact: UserData): CustomData  {
         this._billing_contact = billing_contact;
         return this;
     }
@@ -261,7 +261,7 @@ export default class CustomData {
      * Sets the unique id of the order.
      * @param {String} external_order_id Unique ID representing the order, universal across multiple categories from the business.
      */
-    setExternalOrderId(external_order_id: string) {
+    setExternalOrderId(external_order_id: string) : CustomData {
         this._external_order_id = external_order_id;
         return this;
     }
@@ -286,7 +286,7 @@ export default class CustomData {
      * Sets the unique id of the original order.
      * @param {String} original_order_id Original order id for refund. For Refund event only.
      */
-    setOriginalOrderId(original_order_id: string) {
+    setOriginalOrderId(original_order_id: string) : CustomData {
         this._original_order_id = original_order_id;
         return this;
     }
@@ -311,7 +311,7 @@ export default class CustomData {
      * Sets the unique id of the original order.
      * @param {String} message Reason for refund. For Refund event only.
      */
-    setMessage(message: string) {
+    setMessage(message: string) : CustomData {
         this._message = message;
         return this;
     }

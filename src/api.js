@@ -57,7 +57,7 @@ export default class FacebookAdsApi {
    * @param  {String} [locale]
    * @return {FacebookAdsApi}
    */
-  static init(accessToken: string, locale: string = 'en_US', crash_log: bool = true) {
+  static init(accessToken: string, locale: string = 'en_US', crash_log: bool = true) : FacebookAdsApi {
     const api = new this(accessToken, locale, crash_log);
     this.setDefaultApi(api);
     return api;
