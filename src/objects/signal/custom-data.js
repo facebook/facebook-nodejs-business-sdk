@@ -163,7 +163,7 @@ export default class CustomData {
      * @param contents An array of Content objects that contain the product IDs associated with the event plus information about the products. id, quantity, and item_price are available fields.
      * Example: [{'id':'ABC123','quantity' :2,'item_price':5.99}, {'id':'XYZ789','quantity':2, 'item_price':9.99}]
      */
-    set contents(contents: Array < Content > ) {
+    set contents(contents: Array < SignalContent > ) {
         const business_data_contents = contents.map(content => content.business_data_content);
         const server_contents = contents.map(content => content.server_content);
         this._business_data_custom_data.contents = business_data_contents;
@@ -175,7 +175,7 @@ export default class CustomData {
      * @param {Array<Content>} contents An array of Content objects that contain the product IDs associated with the event plus information about the products. id, quantity, and item_price are available fields.
      * Example: [{'id':'ABC123','quantity' :2,'item_price':5.99}, {'id':'XYZ789','quantity':2, 'item_price':9.99}]
      */
-    setContents(contents: Array < Content > ): CustomData {
+    setContents(contents: Array < SignalContent > ): CustomData {
         const business_data_contents = contents.map(content => content.business_data_content);
         const server_contents = contents.map(content => content.server_content);
         this._business_data_custom_data.contents = business_data_contents;
