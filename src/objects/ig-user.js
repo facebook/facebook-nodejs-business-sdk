@@ -26,7 +26,6 @@ export default class IGUser extends AbstractCrudObject {
       follows_count: 'follows_count',
       id: 'id',
       ig_id: 'ig_id',
-      is_ig_shopping_seller_policy_enabled: 'is_ig_shopping_seller_policy_enabled',
       media_count: 'media_count',
       mentioned_comment: 'mentioned_comment',
       mentioned_media: 'mentioned_media',

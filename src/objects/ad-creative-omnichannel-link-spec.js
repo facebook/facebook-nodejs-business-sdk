@@ -9,20 +9,15 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * UserPaymentMethodsInfo
+ * AdCreativeOmnichannelLinkSpec
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class UserPaymentMethodsInfo extends AbstractCrudObject {
+export default class AdCreativeOmnichannelLinkSpec extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      account_id: 'account_id',
-      available_card_types: 'available_card_types',
-      available_payment_methods: 'available_payment_methods',
-      available_payment_methods_details: 'available_payment_methods_details',
-      country: 'country',
-      currency: 'currency',
-      existing_payment_methods: 'existing_payment_methods',
+      app: 'app',
+      web: 'web',
     });
   }
 

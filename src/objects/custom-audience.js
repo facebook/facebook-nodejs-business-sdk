@@ -187,6 +187,15 @@ export default class CustomAudience extends AbstractCrudObject {
     );
   }
 
+  createUsersReplace (fields: Array<string>, params: Object = {}): Promise<CustomAudience> {
+    return this.createEdge(
+      '/usersreplace',
+      fields,
+      params,
+      CustomAudience
+    );
+  }
+
   // $FlowFixMe : Support Generic Types
   delete (fields: Array<string>, params: Object = {}): AbstractObject {
     // $FlowFixMe : Support Generic Types

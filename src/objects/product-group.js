@@ -27,6 +27,15 @@ export default class ProductGroup extends AbstractCrudObject {
   }
 
 
+  createArDatum (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+    return this.createEdge(
+      '/ar_data',
+      fields,
+      params,
+      
+    );
+  }
+
   getProducts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       ProductItem,

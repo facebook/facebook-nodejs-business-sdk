@@ -50,7 +50,6 @@ import PageSettings from './page-settings';
 import CommerceMerchantSettingsSetupStatus from './commerce-merchant-settings-setup-status';
 import Tab from './tab';
 import PageThreadOwner from './page-thread-owner';
-import EventTour from './event-tour';
 import VideoCopyrightRule from './video-copyright-rule';
 import VideoCopyright from './video-copyright';
 import VideoList from './video-list';
@@ -701,13 +700,6 @@ export default class Page extends AbstractCrudObject {
       fields,
       params,
       Canvas
-    );
-  }
-
-  deleteClaimedUrls (params: Object = {}): Promise<*> {
-    return super.deleteEdge(
-      '/claimed_urls',
-      params
     );
   }
 
@@ -1471,7 +1463,7 @@ export default class Page extends AbstractCrudObject {
 
   getTours (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      EventTour,
+      AbstractObject,
       fields,
       params,
       fetchFirstPage,

@@ -20,7 +20,6 @@ import ProductCatalog from './product-catalog';
 import BusinessUser from './business-user';
 import Business from './business';
 import UnifiedThread from './unified-thread';
-import PageUserMessageThreadLabel from './page-user-message-thread-label';
 import Event from './event';
 import Post from './post';
 import Group from './group';
@@ -28,6 +27,7 @@ import UserIDForApp from './user-id-for-app';
 import UserIDForPage from './user-id-for-page';
 import LiveEncoder from './live-encoder';
 import LiveVideo from './live-video';
+import PaymentEnginePayment from './payment-engine-payment';
 import Permission from './permission';
 import Photo from './photo';
 import ProfilePictureSource from './profile-picture-source';
@@ -43,14 +43,10 @@ export default class User extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       about: 'about',
-      address: 'address',
-      admin_notes: 'admin_notes',
       age_range: 'age_range',
-      auth_method: 'auth_method',
       birthday: 'birthday',
       cover: 'cover',
       currency: 'currency',
-      devices: 'devices',
       education: 'education',
       email: 'email',
       favorite_athletes: 'favorite_athletes',
@@ -73,15 +69,12 @@ export default class User extends AbstractCrudObject {
       locale: 'locale',
       location: 'location',
       meeting_for: 'meeting_for',
-      messenger_join_notifications_enabled: 'messenger_join_notifications_enabled',
       middle_name: 'middle_name',
       name: 'name',
       name_format: 'name_format',
       payment_pricepoints: 'payment_pricepoints',
       political: 'political',
       profile_pic: 'profile_pic',
-      public_key: 'public_key',
-      published_timeline: 'published_timeline',
       quotes: 'quotes',
       relationship_status: 'relationship_status',
       religion: 'religion',
@@ -94,12 +87,9 @@ export default class User extends AbstractCrudObject {
       timezone: 'timezone',
       token_for_business: 'token_for_business',
       updated_time: 'updated_time',
-      user_storage_key: 'user_storage_key',
-      username: 'username',
       verified: 'verified',
       video_upload_limits: 'video_upload_limits',
       website: 'website',
-      work: 'work',
     });
   }
 
@@ -309,16 +299,6 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  getCustomLabels (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      PageUserMessageThreadLabel,
-      fields,
-      params,
-      fetchFirstPage,
-      '/custom_labels'
-    );
-  }
-
   getEvents (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Event,
@@ -492,13 +472,13 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  getOwnedProductCatalogs (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+  getPaymentTransactions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      ProductCatalog,
+      PaymentEnginePayment,
       fields,
       params,
       fetchFirstPage,
-      '/owned_product_catalogs'
+      '/payment_transactions'
     );
   }
 
@@ -555,6 +535,16 @@ export default class User extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/picture'
+    );
+  }
+
+  getPosts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      Post,
+      fields,
+      params,
+      fetchFirstPage,
+      '/posts'
     );
   }
 

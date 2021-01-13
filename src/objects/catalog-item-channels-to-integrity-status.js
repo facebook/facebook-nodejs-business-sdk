@@ -9,17 +9,15 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * UserPaymentModulesOptions
+ * CatalogItemChannelsToIntegrityStatus
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class UserPaymentModulesOptions extends AbstractCrudObject {
+export default class CatalogItemChannelsToIntegrityStatus extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      account_id: 'account_id',
-      available_payment_options: 'available_payment_options',
-      country: 'country',
-      currency: 'currency',
+      channels: 'channels',
+      rejection_information: 'rejection_information',
     });
   }
 

@@ -36,6 +36,7 @@ export default class Ad extends AbstractCrudObject {
       campaign: 'campaign',
       campaign_id: 'campaign_id',
       configured_status: 'configured_status',
+      conversion_domain: 'conversion_domain',
       conversion_specs: 'conversion_specs',
       created_time: 'created_time',
       creative: 'creative',

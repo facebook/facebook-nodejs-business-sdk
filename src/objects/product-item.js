@@ -9,6 +9,7 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
+import CatalogItemChannelsToIntegrityStatus from './catalog-item-channels-to-integrity-status';
 import ProductSet from './product-set';
 
 /**
@@ -54,6 +55,7 @@ export default class ProductItem extends AbstractCrudObject {
       mobile_link: 'mobile_link',
       name: 'name',
       ordering_index: 'ordering_index',
+      parent_product_id: 'parent_product_id',
       pattern: 'pattern',
       price: 'price',
       product_catalog: 'product_catalog',
@@ -344,6 +346,25 @@ export default class ProductItem extends AbstractCrudObject {
       fb_vehi: 'FB_VEHI',
       fb_vehi_part: 'FB_VEHI_PART',
     });
+  }
+
+  createArDatum (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+    return this.createEdge(
+      '/ar_data',
+      fields,
+      params,
+      
+    );
+  }
+
+  getChannelsToIntegrityStatus (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      CatalogItemChannelsToIntegrityStatus,
+      fields,
+      params,
+      fetchFirstPage,
+      '/channels_to_integrity_status'
+    );
   }
 
   getProductSets (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {

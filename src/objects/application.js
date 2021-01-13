@@ -16,7 +16,6 @@ import Group from './group';
 import AdAccount from './ad-account';
 import DACheck from './da-check';
 import Event from './event';
-import LiveVideo from './live-video';
 
 /**
  * Application
@@ -141,6 +140,7 @@ export default class Application extends AbstractCrudObject {
       iphone: 'IPHONE',
       mobile_web: 'MOBILE_WEB',
       oculus: 'OCULUS',
+      samsung: 'SAMSUNG',
       supplementary_images: 'SUPPLEMENTARY_IMAGES',
       web: 'WEB',
       windows: 'WINDOWS',
@@ -507,16 +507,6 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  getLiveVideos (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      LiveVideo,
-      fields,
-      params,
-      fetchFirstPage,
-      '/live_videos'
-    );
-  }
-
   createMmpAuditing (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/mmp_auditing',
@@ -542,16 +532,6 @@ export default class Application extends AbstractCrudObject {
       fields,
       params,
       
-    );
-  }
-
-  getOzoneRelease (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/ozone_release'
     );
   }
 

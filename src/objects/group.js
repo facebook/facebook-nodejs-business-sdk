@@ -11,6 +11,7 @@ import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import Album from './album';
 import Event from './event';
+import Post from './post';
 import LiveVideo from './live-video';
 import User from './user';
 import Photo from './photo';
@@ -36,7 +37,6 @@ export default class Group extends AbstractCrudObject {
       member_count: 'member_count',
       member_request_count: 'member_request_count',
       name: 'name',
-      owner: 'owner',
       parent: 'parent',
       permissions: 'permissions',
       privacy: 'privacy',
@@ -72,6 +72,7 @@ export default class Group extends AbstractCrudObject {
       deals: 'DEALS',
       ephemeral: 'EPHEMERAL',
       event_planning: 'EVENT_PLANNING',
+      faith: 'FAITH',
       family: 'FAMILY',
       fitness: 'FITNESS',
       for_sale: 'FOR_SALE',
@@ -129,6 +130,7 @@ export default class Group extends AbstractCrudObject {
       deals: 'DEALS',
       ephemeral: 'EPHEMERAL',
       event_planning: 'EVENT_PLANNING',
+      faith: 'FAITH',
       family: 'FAMILY',
       fitness: 'FITNESS',
       for_sale: 'FOR_SALE',
@@ -241,12 +243,32 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  createFeed (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+  getFeed (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      Post,
+      fields,
+      params,
+      fetchFirstPage,
+      '/feed'
+    );
+  }
+
+  createFeed (fields: Array<string>, params: Object = {}): Promise<Post> {
     return this.createEdge(
       '/feed',
       fields,
       params,
-      
+      Post
+    );
+  }
+
+  getFiles (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/files'
     );
   }
 

@@ -41,6 +41,7 @@ export default class Campaign extends AbstractCrudObject {
       daily_budget: 'daily_budget',
       effective_status: 'effective_status',
       id: 'id',
+      is_skadnetwork_attribution: 'is_skadnetwork_attribution',
       issues_info: 'issues_info',
       last_budget_toggling_time: 'last_budget_toggling_time',
       lifetime_budget: 'lifetime_budget',
@@ -49,6 +50,7 @@ export default class Campaign extends AbstractCrudObject {
       pacing_type: 'pacing_type',
       promoted_object: 'promoted_object',
       recommendations: 'recommendations',
+      smart_promotion_type: 'smart_promotion_type',
       source_campaign: 'source_campaign',
       source_campaign_id: 'source_campaign_id',
       special_ad_categories: 'special_ad_categories',
@@ -68,7 +70,6 @@ export default class Campaign extends AbstractCrudObject {
       cost_cap: 'COST_CAP',
       lowest_cost_without_cap: 'LOWEST_COST_WITHOUT_CAP',
       lowest_cost_with_bid_cap: 'LOWEST_COST_WITH_BID_CAP',
-      target_cost: 'TARGET_COST',
     });
   }
   static get ConfiguredStatus (): Object {
