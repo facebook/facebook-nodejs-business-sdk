@@ -25,6 +25,7 @@ export default class ProductItem extends AbstractCrudObject {
       additional_variant_attributes: 'additional_variant_attributes',
       age_group: 'age_group',
       applinks: 'applinks',
+      ar_data: 'ar_data',
       availability: 'availability',
       brand: 'brand',
       capability_to_review_status: 'capability_to_review_status',
@@ -346,15 +347,6 @@ export default class ProductItem extends AbstractCrudObject {
       fb_vehi: 'FB_VEHI',
       fb_vehi_part: 'FB_VEHI_PART',
     });
-  }
-
-  createArDatum (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
-    return this.createEdge(
-      '/ar_data',
-      fields,
-      params,
-      
-    );
   }
 
   getChannelsToIntegrityStatus (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {

@@ -33,6 +33,7 @@ export default class AdgroupPlacementSpecificReviewFeedback extends AbstractCrud
       facebook_pages_live_shopping: 'facebook_pages_live_shopping',
       instagram: 'instagram',
       instagram_shop: 'instagram_shop',
+      job_search: 'job_search',
       lead_gen_honeypot: 'lead_gen_honeypot',
       marketplace: 'marketplace',
       marketplace_home_rentals: 'marketplace_home_rentals',

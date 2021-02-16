@@ -46,6 +46,32 @@ export default class AutomotiveModel extends AbstractCrudObject {
     });
   }
 
+  static get BodyStyle (): Object {
+    return Object.freeze({
+      convertible: 'CONVERTIBLE',
+      coupe: 'COUPE',
+      crossover: 'CROSSOVER',
+      estate: 'ESTATE',
+      grandtourer: 'GRANDTOURER',
+      hatchback: 'HATCHBACK',
+      minibus: 'MINIBUS',
+      minivan: 'MINIVAN',
+      mpv: 'MPV',
+      none: 'NONE',
+      other: 'OTHER',
+      pickup: 'PICKUP',
+      roadster: 'ROADSTER',
+      saloon: 'SALOON',
+      sedan: 'SEDAN',
+      sportscar: 'SPORTSCAR',
+      supercar: 'SUPERCAR',
+      supermini: 'SUPERMINI',
+      suv: 'SUV',
+      truck: 'TRUCK',
+      van: 'VAN',
+      wagon: 'WAGON',
+    });
+  }
 
   
   get (fields: Array<string>, params: Object = {}): AutomotiveModel {

@@ -177,16 +177,6 @@ export default class Group extends AbstractCrudObject {
       work_vc_call: 'WORK_VC_CALL',
     });
   }
-  static get SuggestionCategory (): Object {
-    return Object.freeze({
-      event: 'EVENT',
-      messenger: 'MESSENGER',
-      work: 'WORK',
-      workplace: 'WORKPLACE',
-      workplace_1_1: 'WORKPLACE_1_1',
-      workplace_manager: 'WORKPLACE_MANAGER',
-    });
-  }
 
   deleteAdmins (params: Object = {}): Promise<*> {
     return super.deleteEdge(

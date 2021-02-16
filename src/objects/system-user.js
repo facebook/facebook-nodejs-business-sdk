@@ -30,6 +30,25 @@ export default class SystemUser extends AbstractCrudObject {
     });
   }
 
+  static get Role (): Object {
+    return Object.freeze({
+      admin: 'ADMIN',
+      ads_rights_reviewer: 'ADS_RIGHTS_REVIEWER',
+      default: 'DEFAULT',
+      developer: 'DEVELOPER',
+      employee: 'EMPLOYEE',
+      finance_analyst: 'FINANCE_ANALYST',
+      finance_edit: 'FINANCE_EDIT',
+      finance_editor: 'FINANCE_EDITOR',
+      finance_view: 'FINANCE_VIEW',
+      manage: 'MANAGE',
+      partner_center_admin: 'PARTNER_CENTER_ADMIN',
+      partner_center_analyst: 'PARTNER_CENTER_ANALYST',
+      partner_center_education: 'PARTNER_CENTER_EDUCATION',
+      partner_center_marketing: 'PARTNER_CENTER_MARKETING',
+      partner_center_operations: 'PARTNER_CENTER_OPERATIONS',
+    });
+  }
 
   getAssignedAdAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(

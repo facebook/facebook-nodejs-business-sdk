@@ -334,6 +334,15 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
+  createBusinessUser (fields: Array<string>, params: Object = {}): Promise<BusinessUser> {
+    return this.createEdge(
+      '/business_users',
+      fields,
+      params,
+      BusinessUser
+    );
+  }
+
   createClaimCustomConversion (fields: Array<string>, params: Object = {}): Promise<CustomConversion> {
     return this.createEdge(
       '/claim_custom_conversions',
@@ -540,6 +549,15 @@ export default class Business extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/extendedcredits'
+    );
+  }
+
+  createFranchiseProgram (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+    return this.createEdge(
+      '/franchise_programs',
+      fields,
+      params,
+      
     );
   }
 
@@ -879,6 +897,15 @@ export default class Business extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/system_users'
+    );
+  }
+
+  createSystemUser (fields: Array<string>, params: Object = {}): Promise<SystemUser> {
+    return this.createEdge(
+      '/system_users',
+      fields,
+      params,
+      SystemUser
     );
   }
 

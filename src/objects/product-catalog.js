@@ -112,6 +112,7 @@ export default class ProductCatalog extends AbstractCrudObject {
       clothing_accessories: 'CLOTHING_ACCESSORIES',
       computers_and_tablets: 'COMPUTERS_AND_TABLETS',
       diapering_and_potty_training: 'DIAPERING_AND_POTTY_TRAINING',
+      digital_product_offer: 'DIGITAL_PRODUCT_OFFER',
       electronics_accessories: 'ELECTRONICS_ACCESSORIES',
       furniture: 'FURNITURE',
       health: 'HEALTH',
@@ -188,6 +189,15 @@ export default class ProductCatalog extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/automotive_models'
+    );
+  }
+
+  createAutomotiveModel (fields: Array<string>, params: Object = {}): Promise<AutomotiveModel> {
+    return this.createEdge(
+      '/automotive_models',
+      fields,
+      params,
+      AutomotiveModel
     );
   }
 

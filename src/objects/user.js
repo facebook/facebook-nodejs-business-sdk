@@ -20,6 +20,7 @@ import ProductCatalog from './product-catalog';
 import BusinessUser from './business-user';
 import Business from './business';
 import UnifiedThread from './unified-thread';
+import PageUserMessageThreadLabel from './page-user-message-thread-label';
 import Event from './event';
 import Post from './post';
 import Group from './group';
@@ -123,6 +124,15 @@ export default class User extends AbstractCrudObject {
     return super.deleteEdge(
       '/access_tokens',
       params
+    );
+  }
+
+  createAccessToken (fields: Array<string>, params: Object = {}): Promise<User> {
+    return this.createEdge(
+      '/access_tokens',
+      fields,
+      params,
+      User
     );
   }
 
@@ -296,6 +306,16 @@ export default class User extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/conversations'
+    );
+  }
+
+  getCustomLabels (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      PageUserMessageThreadLabel,
+      fields,
+      params,
+      fetchFirstPage,
+      '/custom_labels'
     );
   }
 

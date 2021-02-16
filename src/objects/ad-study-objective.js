@@ -7,7 +7,6 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import AdPlacePageSet from './ad-place-page-set';
 import AdsPixel from './ads-pixel';
@@ -104,14 +103,6 @@ export default class AdStudyObjective extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/partnerstudies'
-    );
-  }
-
-  // $FlowFixMe : Support Generic Types
-  delete (fields: Array<string>, params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
-    return super.delete(
-      params
     );
   }
 

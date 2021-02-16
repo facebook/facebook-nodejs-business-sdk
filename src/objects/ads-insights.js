@@ -38,6 +38,7 @@ export default class AdsInsights extends AbstractCrudObject {
       adset_name: 'adset_name',
       adset_start: 'adset_start',
       age_targeting: 'age_targeting',
+      attribution_setting: 'attribution_setting',
       auction_bid: 'auction_bid',
       auction_competitiveness: 'auction_competitiveness',
       auction_max_competitor_bid: 'auction_max_competitor_bid',

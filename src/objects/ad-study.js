@@ -68,15 +68,6 @@ export default class AdStudy extends AbstractCrudObject {
     );
   }
 
-  createObjective (fields: Array<string>, params: Object = {}): Promise<AdStudyObjective> {
-    return this.createEdge(
-      '/objectives',
-      fields,
-      params,
-      AdStudyObjective
-    );
-  }
-
   // $FlowFixMe : Support Generic Types
   delete (fields: Array<string>, params: Object = {}): AbstractObject {
     // $FlowFixMe : Support Generic Types

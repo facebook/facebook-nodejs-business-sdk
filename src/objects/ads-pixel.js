@@ -121,6 +121,15 @@ export default class AdsPixel extends AbstractCrudObject {
     );
   }
 
+  createShadowTrafficHelper (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+    return this.createEdge(
+      '/shadowtraffichelper',
+      fields,
+      params,
+      
+    );
+  }
+
   deleteSharedAccounts (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/shared_accounts',
