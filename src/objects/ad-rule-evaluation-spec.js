@@ -19,6 +19,7 @@ export default class AdRuleEvaluationSpec extends AbstractCrudObject {
       evaluation_type: 'evaluation_type',
       filters: 'filters',
       trigger: 'trigger',
+      id: 'id',
     });
   }
 
@@ -27,5 +28,14 @@ export default class AdRuleEvaluationSpec extends AbstractCrudObject {
       schedule: 'SCHEDULE',
       trigger: 'TRIGGER',
     });
+  }
+
+  
+  get (fields: Array<string>, params: Object = {}): AdRuleEvaluationSpec {
+    // $FlowFixMe : Support Generic Types
+    return this.read(
+      fields,
+      params
+    );
   }
 }

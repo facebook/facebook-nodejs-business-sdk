@@ -153,6 +153,7 @@ export default class ProductItem extends AbstractCrudObject {
       fb_aprl_clothing: 'FB_APRL_CLOTHING',
       fb_aprl_costume: 'FB_APRL_COSTUME',
       fb_aprl_cstm: 'FB_APRL_CSTM',
+      fb_aprl_formal: 'FB_APRL_FORMAL',
       fb_aprl_handbag: 'FB_APRL_HANDBAG',
       fb_aprl_jewelry: 'FB_APRL_JEWELRY',
       fb_aprl_shoe: 'FB_APRL_SHOE',

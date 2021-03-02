@@ -649,6 +649,13 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
+  deleteBusinessData (params: Object = {}): Promise<*> {
+    return super.deleteEdge(
+      '/business_data',
+      params
+    );
+  }
+
   createBusinessDatum (fields: Array<string>, params: Object = {}): Promise<Page> {
     return this.createEdge(
       '/business_data',
@@ -1432,6 +1439,13 @@ export default class Page extends AbstractCrudObject {
       fields,
       params,
       Page
+    );
+  }
+
+  deleteTabs (params: Object = {}): Promise<*> {
+    return super.deleteEdge(
+      '/tabs',
+      params
     );
   }
 
