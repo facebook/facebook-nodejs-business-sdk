@@ -18,16 +18,27 @@ import ServerSideUtils from './utils';
 export default class UserData {
 
 	_email: string;
+	_emails: string[];
 	_phone: string;
+	_phones: string[];
 	_gender: string;
+	_genders: string[];
 	_first_name: string;
+	_first_names: string[];
 	_last_name: string;
+	_last_names: string[];
 	_date_of_birth: string;
+	_dates_of_birth: string[];
 	_city: string;
+	_cities: string[];
 	_state: string;
+	_states: string[];
 	_zip: string;
+	_zips: string[];
 	_country: string;
+	_countries: string[];
 	_external_id: string;
+	_external_ids: string[];
 	_client_ip_address: string;
 	_client_user_agent: string;
 	_fbc: string;
@@ -110,12 +121,30 @@ export default class UserData {
 	}
 
 	/**
+	 * Gets email addresses for the user data field.
+	 * Email addresses, in lowercase.
+	 * Example: ['joe@eg.com', 'smith@test.com']
+	 */
+	get emails() {
+		return this._emails;
+	}
+
+	/**
 	 * Sets the email address for the user data field.
 	 * @param email An email address, in lowercase.
 	 * Example: joe@eg.com
 	 */
 	set email(email: string) {
 		this._email = email;
+	}
+
+	/**
+	 * Sets email addresses for the user data field.
+	 * @param emails Email addresses, in lowercase.
+	 * Example: ['joe@eg.com', 'smith@test.com']
+	 */
+	set emails(emails: string[]) {
+		this._emails = emails;
 	}
 
 	/**
@@ -129,6 +158,16 @@ export default class UserData {
 	}
 
 	/**
+	 * Sets email addresses for the user data field.
+	 * @param emails Email addresses, in lowercase.
+	 * Example: ['joe@eg.com', 'smith@test.com']
+	 */
+	setEmails(emails: string[]) : UserData {
+		this._emails = emails;
+		return this;
+	}
+
+	/**
 	 * Gets the phone number for the user data.
 	 * A phone number. Include only digits with country code, area code, and number.
 	 * Example: 16505551212
@@ -138,12 +177,30 @@ export default class UserData {
 	}
 
 	/**
+	 * Gets the phone numbers for the user data.
+	 * Phone numbers. Include only digits with country code, area code, and number.
+	 * Example: ['16505551212', '12062072008']
+	 */
+	get phones() {
+		return this._phones;
+	}
+
+	/**
 	 * Sets the phone number for the user data.
 	 * @param phone A phone number. Include only digits with country code, area code, and number.
 	 * Example: 16505551212
 	 */
 	set phone(phone: string) {
 		this._phone = phone;
+	}
+
+	/**
+	 * Sets the phone numbers for the user data.
+	 * @param phones Phone numbers. Include only digits with country code, area code, and number.
+	 * Example: ['16505551212', '12062072008']
+	 */
+	set phones(phones: string[]) {
+		this._phones = phones;
 	}
 
 	/**
@@ -157,6 +214,16 @@ export default class UserData {
 	}
 
 	/**
+	 * Sets the phone numbers for the user data.
+	 * @param phones Phone numbers. Include only digits with country code, area code, and number.
+	 * Example: ['16505551212', '12062072008']
+	 */
+	setPhones(phones: string[]) : UserData {
+		this._phones = phones;
+		return this;
+	}
+
+	/**
 	 * Gets the gender value for the user data.
 	 * Gender in lowercase. Either f for FEMALE or m for MALE.
 	 * Example: f
@@ -166,12 +233,30 @@ export default class UserData {
 	}
 
 	/**
+	 * Gets the gender values for the user data.
+	 * Genders in lowercase. Either f for FEMALE or m for MALE.
+	 * Example: [f, m]
+	 */
+	get genders() {
+		return this._genders;
+	}
+
+	/**
 	 * Sets the gender value for the user data.
 	 * @param gender Gender in lowercase. Either f for FEMALE or m for MALE.
 	 * Example: f
 	 */
 	set gender(gender: string) {
 		this._gender = gender;
+	}
+
+	/**
+	 * Sets the gender values for the user data.
+	 * @param genders Genders in lowercase. Either f for FEMALE or m for MALE.
+	 * Example: [f, m]
+	 */
+	set genders(genders: string[]) {
+		this._genders = genders;
 	}
 
 	/**
@@ -185,6 +270,16 @@ export default class UserData {
 	}
 
 	/**
+	 * Sets the gender values for the user data.
+	 * @param genders Genders in lowercase. Either f for FEMALE or m for MALE.
+	 * Example: [f, m]
+	 */
+	setGenders(genders: string[]) : UserData {
+		this._genders = genders;
+		return this;
+	}
+
+	/**
 	 * Gets the date of birth for the user data.
 	 * A date of birth given as year, month, and day in the Format YYYYMMDD
 	 * Example: 19971226 for December 26, 1997.
@@ -194,12 +289,30 @@ export default class UserData {
 	}
 
 	/**
+	 * Gets the dates of birth for the user data.
+	 * A date of birth given as year, month, and day in the Format YYYYMMDD
+	 * Example: 19971226 for December 26, 1997.
+	 */
+	get dates_of_birth() {
+		return this._dates_of_birth;
+	}
+
+	/**
 	 * Sets the date of birth for the user data.
 	 * @param date_of_birth A date of birth given as year, month, and day in the Format YYYYMMDD
 	 * Example: 19971226 for December 26, 1997.
 	 */
 	set date_of_birth(date_of_birth: string) {
 		this._date_of_birth = date_of_birth;
+	}
+
+	/**
+	 * Sets the dates of birth for the user data.
+	 * @param dates_of_birth A date of birth given as year, month, and day in the Format YYYYMMDD
+	 * Example: 19971226 for December 26, 1997.
+	 */
+	set dates_of_birth(dates_of_birth: string[]) {
+		this._dates_of_birth = dates_of_birth;
 	}
 
 	/**
@@ -213,6 +326,16 @@ export default class UserData {
 	}
 
 	/**
+	 * Sets the dates of birth for the user data.
+	 * @param {String} dates_of_birth A date of birth given as year, month, and day in the Format YYYYMMDD
+	 * Example: 19971226 for December 26, 1997.
+	 */
+	setDatesOfBirth(dates_of_birth: string[]) : UserData {
+		this._dates_of_birth = dates_of_birth;
+		return this;
+	}
+
+	/**
 	 * Gets the last name for the user data.
 	 * last_name is the last name in lowercase.
 	 * Example: smith
@@ -222,12 +345,30 @@ export default class UserData {
 	}
 
 	/**
+	 * Gets the last names for the user data.
+	 * last_name is the last name in lowercase.
+	 * Example: ['smith', 'wilson']
+	 */
+	get last_names() {
+		return this._last_names;
+	}
+
+	/**
 	 * Sets the last name for the user data.
 	 * @param last_name is last name in lowercase.
 	 * Example: smith
 	 */
 	set last_name(last_name: string) {
 		this._last_name = last_name;
+	}
+
+	/**
+	 * Sets the last names for the user data.
+	 * @param last_names is last name in lowercase.
+	 * Example: ['smith', 'wilson']
+	 */
+	set last_names(last_names: string[]) {
+		this._last_names = last_names;
 	}
 
 	/**
@@ -241,12 +382,31 @@ export default class UserData {
 	}
 
 	/**
+	 * Sets the last name for the user data.
+	 * @param last_names is last name in lowercase.
+	 * Example: ['smith', 'wilson']
+	 */
+	setLastNames(last_names: string[]) : UserData {
+		this._last_names = last_names;
+		return this;
+	}
+
+	/**
 	 * Gets the first name for the user data.
 	 * first_name is first name in lowercase.
 	 * Example: joe
 	 */
 	get first_name() {
 		return this._first_name;
+	}
+
+  /**
+	 * Gets the first names for the user data.
+	 * first_name is first name in lowercase.
+	 * Example: ['joe', 'mary']
+	 */
+	get first_names() {
+		return this._first_names;
 	}
 
 	/**
@@ -256,6 +416,15 @@ export default class UserData {
 	 */
 	set first_name(first_name: string) {
 		this._first_name = first_name;
+	}
+
+  /**
+	 * Sets the first names for the user data.
+	 * @param first_names is first name in lowercase.
+	 * Example: ['joe', 'mary']
+	 */
+	set first_names(first_names: string[]) {
+		this._first_names = first_names;
 	}
 
 	/**
@@ -269,6 +438,16 @@ export default class UserData {
 	}
 
 	/**
+	 * Sets the first names for the user data.
+	 * @param {String} first_names is first name in lowercase.
+	 * Example: joe
+	 */
+	setFirstNames(first_names: string[]) : UserData {
+		this._first_names = first_names;
+		return this;
+	}
+
+	/**
 	 * Gets the city for the user data.
 	 * city is city in lower-case without spaces or punctuation.
 	 * Example: menlopark
@@ -278,12 +457,30 @@ export default class UserData {
 	}
 
 	/**
+	 * Gets the cities for the user data.
+	 * city is city in lower-case without spaces or punctuation.
+	 * Example:['menlopark', 'seattle']
+	 */
+	get cities() {
+		return this._cities;
+	}
+
+	/**
 	 * Sets the city for the user data.
 	 * @param city is city in lower-case without spaces or punctuation.
 	 * Example: menlopark
 	 */
 	set city(city: string) {
 		this._city = city;
+	}
+
+	/**
+	 * Sets the cities for the user data.
+	 * @param cities is city in lower-case without spaces or punctuation.
+	 * Example: ['menlopark', 'seattle']
+	 */
+	set cities(cities: string[]) {
+		this._cities = cities;
 	}
 
 	/**
@@ -297,6 +494,16 @@ export default class UserData {
 	}
 
 	/**
+	 * Sets the cities for the user data.
+	 * @param cities is city in lower-case without spaces or punctuation.
+	 * Example: ['menlopark', 'seattle']
+	 */
+	setCities(cities: string[]) : UserData {
+		this._cities = cities;
+		return this;
+	}
+
+	/**
 	 * Gets the zip/postal code for the user data.
 	 * zip is a five-digit zip code for United States.For other locations, follow each country's standards.
 	 * Example: 98121 (for United States zip code)
@@ -306,12 +513,30 @@ export default class UserData {
 	}
 
 	/**
+	 * Gets the zip/postal codes for the user data.
+	 * zip is a five-digit zip code for United States.For other locations, follow each country's standards.
+	 * Example: 98121 (for United States zip code)
+	 */
+	get zips() {
+		return this._zips;
+	}
+
+	/**
 	 * Sets the zip/postal code for the user data.
 	 * @param zip is a five-digit zip code for United States.For other locations, follow each country's standards.
 	 * Example: 98121 (for United States zip code)
 	 */
 	set zip(zip: string) {
 		this._zip = zip;
+	}
+
+	/**
+	 * Sets the zip/postal codes for the user data.
+	 * @param zips is a five-digit zip code for United States.For other locations, follow each country's standards.
+	 * Example: 98121 (for United States zip code)
+	 */
+	set zips(zips: string[]) {
+		this._zips = zips;
 	}
 
 	/**
@@ -325,6 +550,16 @@ export default class UserData {
 	}
 
 	/**
+	 * Sets the zip/postal codes for the user data.
+	 * @param zips is a five-digit zip code for United States.For other locations, follow each country's standards.
+	 * Example: 98121 (for United States zip code)
+	 */
+	setZips(zips: string[]) : UserData{
+		this._zips = zips;
+		return this;
+	}
+
+	/**
 	 * Gets the state for the user data.
 	 * state is state in lower-case without spaces or punctuation.
 	 * Example: ca
@@ -334,12 +569,30 @@ export default class UserData {
 	}
 
 	/**
+	 * Gets the states for the user data.
+	 * state is state in lower-case without spaces or punctuation.
+	 * Example: ca
+	 */
+	get states() {
+		return this._states;
+	}
+
+	/**
 	 * Sets the state for the user data.
 	 * @param state is state in lower-case without spaces or punctuation.
 	 * Example: ca
 	 */
 	set state(state: string) {
 		this._state = state;
+	}
+
+	/**
+	 * Sets the states for the user data.
+	 * @param states is state in lower-case without spaces or punctuation.
+	 * Example: ca
+	 */
+	set states(states: string[]) {
+		this._states = states;
 	}
 
 	/**
@@ -353,12 +606,31 @@ export default class UserData {
 	}
 
 	/**
+	 * Sets the states for the user data.
+	 * @param states is state in lower-case without spaces or punctuation.
+	 * Example: ca
+	 */
+	setStates(states: string[]) : UserData {
+		this._states = states;
+		return this;
+	}
+
+	/**
 	 * Gets the country for the user data.
 	 * country is A two-letter country code in lowercase.
 	 * Example: usa
 	 */
 	get country() {
 		return this._country;
+	}
+
+	/**
+	 * Gets the countries for the user data.
+	 * country is A two-letter country code in lowercase.
+	 * Example: usa
+	 */
+	get countries() {
+		return this._countries;
 	}
 
 	/**
@@ -371,12 +643,31 @@ export default class UserData {
 	}
 
 	/**
+	 * Sets the countries for the user data.
+	 * @param countries is A two-letter country code in lowercase.
+	 * Example: usa
+	 */
+	set countries(countries: string[]) {
+		this._countries = countries;
+	}
+
+	/**
 	 * Sets the country for the user data.
 	 * @param {String} country is A two-letter country code in lowercase.
 	 * Example: usa
 	 */
 	setCountry(country: string) : UserData {
 		this._country = country;
+		return this;
+	}
+
+	/**
+	 * Sets the countries for the user data.
+	 * @param countries is A two-letter country code in lowercase.
+	 * Example: usa
+	 */
+	setCountries(countries: string[]) : UserData {
+		this._countries = countries;
 		return this;
 	}
 
@@ -392,6 +683,17 @@ export default class UserData {
 	}
 
 	/**
+	 * Gets the external ids for the user data.
+	 * external_id is a unique ID from the advertiser, such as loyalty membership IDs, user IDs, and external cookie IDs.
+	 * In the Offline Conversions API this is known as extern_id. For more information, see Offline Conversions.
+	 * If External ID is being sent via other channels, then it should be sent in the same format via the server-side API
+	 * @see {@link https://www.facebook.com/business/help/104039186799009}
+	 */
+	get external_ids() {
+		return this._external_ids;
+	}
+
+	/**
 	 * Sets the external id for the user data.
 	 * @param external_id is a unique ID from the advertiser, such as loyalty membership IDs, user IDs, and external cookie IDs.
 	 * In the Offline Conversions API this is known as extern_id. For more information, see Offline Conversions.
@@ -404,6 +706,17 @@ export default class UserData {
 
 	/**
 	 * Sets the external id for the user data.
+	 * @param external_ids is a unique ID from the advertiser, such as loyalty membership IDs, user IDs, and external cookie IDs.
+	 * In the Offline Conversions API this is known as extern_id. For more information, see Offline Conversions.
+	 * If External ID is being sent via other channels, then it should be sent in the same format via the server-side API
+	 * @see {@link https://www.facebook.com/business/help/104039186799009}
+	 */
+	set external_ids(external_ids: string[]) {
+		this._external_ids = external_ids;
+	}
+
+	/**
+	 * Sets the external id for the user data.
 	 * @param {String} external_id is a unique ID from the advertiser, such as loyalty membership IDs, user IDs, and external cookie IDs.
 	 * In the Offline Conversions API this is known as extern_id. For more information, see Offline Conversions.
 	 * If External ID is being sent via other channels, then it should be sent in the same format via the server-side API
@@ -411,6 +724,18 @@ export default class UserData {
 	 */
 	setExternalId(external_id: string) : UserData {
 		this._external_id = external_id;
+		return this;
+	}
+
+	/**
+	 * Sets the external ids for the user data.
+	 * @param external_ids is a unique ID from the advertiser, such as loyalty membership IDs, user IDs, and external cookie IDs.
+	 * In the Offline Conversions API this is known as extern_id. For more information, see Offline Conversions.
+	 * If External ID is being sent via other channels, then it should be sent in the same format via the server-side API
+	 * @see {@link https://www.facebook.com/business/help/104039186799009}
+	 */
+	setExternalIds(external_ids: string[]) : UserData {
+		this._external_ids = external_ids;
 		return this;
 	}
 

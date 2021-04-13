@@ -129,4 +129,44 @@ describe('UserData', function() {
             });
         });
     });
+
+    describe('Multiple values of customer information parameters', function() {
+        it('Getters and setters should work.', function() {
+            // Arrange
+            const emails = ['joe@eg.com', 'smith@test.com'];
+            const phones = ['14251234567', '2062072009'];
+            const genders = ['m', 'female'];
+            const datesOfBirth = ['123456', '01/01/2010'];
+            const lastNames = ['smith', 'brown'];
+            const firstNames = ['joe', 'mary'];
+            const cities = ['seattle', 'san francisco'];
+            const states = ['WA', 'CA'];
+            const countries = ['USA', 'Canada'];
+            const externalIds = ['123', '456'];
+
+            // Act
+            const userData = (new UserData()).setEmails(emails)
+                .setPhones(phones)
+                .setDatesOfBirth(datesOfBirth)
+                .setGenders(genders)
+                .setLastNames(lastNames)
+                .setFirstNames(firstNames)
+                .setCities(cities)
+                .setStates(states)
+                .setCountries(countries)
+                .setExternalIds(externalIds);
+
+            // Assert
+            expect(userData.emails).to.equal(emails);
+            expect(userData.phones).to.equal(phones);
+            expect(userData.genders).to.equal(genders);
+            expect(userData.dates_of_birth).to.equal(datesOfBirth);
+            expect(userData.last_names).to.equal(lastNames);
+            expect(userData.first_names).to.equal(firstNames);
+            expect(userData.cities).to.equal(cities);
+            expect(userData.states).to.equal(states);
+            expect(userData.countries).to.equal(countries);
+            expect(userData.external_ids).to.equal(externalIds);
+        });
+    });
 });
