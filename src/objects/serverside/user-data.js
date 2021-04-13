@@ -17,27 +17,16 @@ import ServerSideUtils from './utils';
 
 export default class UserData {
 
-	_email: string;
 	_emails: string[];
-	_phone: string;
 	_phones: string[];
-	_gender: string;
 	_genders: string[];
-	_first_name: string;
 	_first_names: string[];
-	_last_name: string;
 	_last_names: string[];
-	_date_of_birth: string;
 	_dates_of_birth: string[];
-	_city: string;
 	_cities: string[];
-	_state: string;
 	_states: string[];
-	_zip: string;
 	_zips: string[];
-	_country: string;
 	_countries: string[];
-	_external_id: string;
 	_external_ids: string[];
 	_client_ip_address: string;
 	_client_user_agent: string;
@@ -80,17 +69,17 @@ export default class UserData {
 		city: string, state: string, zip: string, country: string, external_id: string, client_ip_address: string, client_user_agent: string,
 		fbp: string, fbc: string, subscription_id: string, fb_login_id: string, lead_id: string, dobd: string, dobm: string, doby: string) {
 
-		this._email = email;
-		this._phone = phone;
-		this._gender = gender;
-		this._first_name = first_name;
-		this._last_name = last_name;
-		this._date_of_birth = date_of_birth;
-		this._city = city;
-		this._state = state;
-		this._country = country;
-		this._zip = zip;
-		this._external_id = external_id;
+		this._emails = new Array(email);
+		this._phones = new Array(phone);
+		this._genders = new Array(gender);
+		this._first_names = new Array(first_name);
+		this._last_names = new Array(last_name);
+		this._dates_of_birth = new Array(date_of_birth);
+		this._cities = new Array(city);
+		this._states = new Array(state);
+		this._countries = new Array(country);
+		this._zips = new Array(zip);
+		this._external_ids = new Array(external_id);
 		this._client_ip_address = client_ip_address;
 		this._client_user_agent = client_user_agent;
 		this._fbp = fbp;
@@ -117,7 +106,7 @@ export default class UserData {
 	 * Example: joe@eg.com
 	 */
 	get email() {
-		return this._email;
+		return this._emails == null ? null : this._emails[0];
 	}
 
 	/**
@@ -135,7 +124,7 @@ export default class UserData {
 	 * Example: joe@eg.com
 	 */
 	set email(email: string) {
-		this._email = email;
+		this._emails = new Array(email);
 	}
 
 	/**
@@ -153,7 +142,7 @@ export default class UserData {
 	 * Example: joe@eg.com
 	 */
 	setEmail(email: string) : UserData {
-		this._email = email;
+		this._emails = new Array(email);
 		return this;
 	}
 
@@ -173,7 +162,7 @@ export default class UserData {
 	 * Example: 16505551212
 	 */
 	get phone() {
-		return this._phone;
+		return this._phones == null ? null : this._phones[0];
 	}
 
 	/**
@@ -191,7 +180,7 @@ export default class UserData {
 	 * Example: 16505551212
 	 */
 	set phone(phone: string) {
-		this._phone = phone;
+		this._phones = new Array(phone);
 	}
 
 	/**
@@ -209,7 +198,7 @@ export default class UserData {
 	 * Example: 16505551212
 	 */
 	setPhone(phone: string) : UserData {
-		this._phone = phone;
+		this._phones = new Array(phone);
 		return this;
 	}
 
@@ -229,7 +218,7 @@ export default class UserData {
 	 * Example: f
 	 */
 	get gender() {
-		return this._gender;
+		return this._genders == null ? null : this.genders[0];
 	}
 
 	/**
@@ -247,7 +236,7 @@ export default class UserData {
 	 * Example: f
 	 */
 	set gender(gender: string) {
-		this._gender = gender;
+		this._genders = new Array(gender);
 	}
 
 	/**
@@ -265,7 +254,7 @@ export default class UserData {
 	 * Example: f
 	 */
 	setGender(gender: string) : UserData {
-		this._gender = gender;
+		this._genders = new Array(gender);
 		return this;
 	}
 
@@ -285,7 +274,7 @@ export default class UserData {
 	 * Example: 19971226 for December 26, 1997.
 	 */
 	get date_of_birth() {
-		return this._date_of_birth;
+		return this._dates_of_birth == null ? null : this._dates_of_birth[0];
 	}
 
 	/**
@@ -303,7 +292,7 @@ export default class UserData {
 	 * Example: 19971226 for December 26, 1997.
 	 */
 	set date_of_birth(date_of_birth: string) {
-		this._date_of_birth = date_of_birth;
+		this._dates_of_birth = new Array(date_of_birth);
 	}
 
 	/**
@@ -321,7 +310,7 @@ export default class UserData {
 	 * Example: 19971226 for December 26, 1997.
 	 */
 	setDateOfBirth(date_of_birth: string) : UserData {
-		this._date_of_birth = date_of_birth;
+		this._dates_of_birth = new Array(date_of_birth);
 		return this;
 	}
 
@@ -341,7 +330,7 @@ export default class UserData {
 	 * Example: smith
 	 */
 	get last_name() {
-		return this._last_name;
+		return this._last_names == null ? null : this._last_names[0];
 	}
 
 	/**
@@ -359,7 +348,7 @@ export default class UserData {
 	 * Example: smith
 	 */
 	set last_name(last_name: string) {
-		this._last_name = last_name;
+		this._last_names = new Array(last_name);
 	}
 
 	/**
@@ -377,7 +366,7 @@ export default class UserData {
 	 * Example: smith
 	 */
 	setLastName(last_name: string) : UserData {
-		this._last_name = last_name;
+		this._last_names = new Array(last_name);
 		return this;
 	}
 
@@ -397,7 +386,7 @@ export default class UserData {
 	 * Example: joe
 	 */
 	get first_name() {
-		return this._first_name;
+		return this._first_names == null ? null : this._first_names[0];
 	}
 
   /**
@@ -415,7 +404,7 @@ export default class UserData {
 	 * Example: joe
 	 */
 	set first_name(first_name: string) {
-		this._first_name = first_name;
+		this._first_names = new Array(first_name);
 	}
 
   /**
@@ -433,7 +422,7 @@ export default class UserData {
 	 * Example: joe
 	 */
 	setFirstName(first_name: string) : UserData {
-		this._first_name = first_name;
+		this._first_names = new Array(first_name);
 		return this;
 	}
 
@@ -453,7 +442,7 @@ export default class UserData {
 	 * Example: menlopark
 	 */
 	get city() {
-		return this._city;
+		return this._cities == null ? null : this._cities[0];
 	}
 
 	/**
@@ -471,7 +460,7 @@ export default class UserData {
 	 * Example: menlopark
 	 */
 	set city(city: string) {
-		this._city = city;
+		this._cities = new Array(city);
 	}
 
 	/**
@@ -489,7 +478,7 @@ export default class UserData {
 	 * Example: menlopark
 	 */
 	setCity(city: string) : UserData {
-		this._city = city;
+		this._cities = new Array(city);
 		return this;
 	}
 
@@ -509,7 +498,7 @@ export default class UserData {
 	 * Example: 98121 (for United States zip code)
 	 */
 	get zip() {
-		return this._zip;
+		return this._zips == null ? null : this._zips[0];
 	}
 
 	/**
@@ -527,7 +516,7 @@ export default class UserData {
 	 * Example: 98121 (for United States zip code)
 	 */
 	set zip(zip: string) {
-		this._zip = zip;
+		this._zips = new Array(zip);
 	}
 
 	/**
@@ -545,7 +534,7 @@ export default class UserData {
 	 * Example: 98121 (for United States zip code)
 	 */
 	setZip(zip: string) : UserData{
-		this._zip = zip;
+		this._zips = new Array(zip);
 		return this;
 	}
 
@@ -565,7 +554,7 @@ export default class UserData {
 	 * Example: ca
 	 */
 	get state() {
-		return this._state;
+		return this._states == null ? null : this._states[0];
 	}
 
 	/**
@@ -583,7 +572,7 @@ export default class UserData {
 	 * Example: ca
 	 */
 	set state(state: string) {
-		this._state = state;
+		this._states = new Array(state);
 	}
 
 	/**
@@ -601,7 +590,7 @@ export default class UserData {
 	 * Example: ca
 	 */
 	setState(state: string) : UserData {
-		this._state = state;
+		this._states = new Array(state);
 		return this;
 	}
 
@@ -621,7 +610,7 @@ export default class UserData {
 	 * Example: usa
 	 */
 	get country() {
-		return this._country;
+		return this._countries == null ? null : this._countries[0];
 	}
 
 	/**
@@ -639,7 +628,7 @@ export default class UserData {
 	 * Example: usa
 	 */
 	set country(country: string) {
-		this._country = country;
+		this._countries = new Array(country);
 	}
 
 	/**
@@ -657,7 +646,7 @@ export default class UserData {
 	 * Example: usa
 	 */
 	setCountry(country: string) : UserData {
-		this._country = country;
+		this._countries = new Array(country);
 		return this;
 	}
 
@@ -679,7 +668,7 @@ export default class UserData {
 	 * @see {@link https://www.facebook.com/business/help/104039186799009}
 	 */
 	get external_id() {
-		return this._external_id;
+		return this._external_ids == null ? null : this._external_ids[0];
 	}
 
 	/**
@@ -701,7 +690,7 @@ export default class UserData {
 	 * @see {@link https://www.facebook.com/business/help/104039186799009}
 	 */
 	set external_id(external_id: string) {
-		this._external_id = external_id;
+		this._external_ids = new Array(external_id);
 	}
 
 	/**
@@ -723,7 +712,7 @@ export default class UserData {
 	 * @see {@link https://www.facebook.com/business/help/104039186799009}
 	 */
 	setExternalId(external_id: string) : UserData {
-		this._external_id = external_id;
+		this._external_ids = new Array(external_id);
 		return this;
 	}
 
@@ -1069,48 +1058,48 @@ export default class UserData {
 	normalize(): Object {
 		const userData = {};
 
-		if (this.email) {
-			userData['em'] = ServerSideUtils.normalizeAndHash(this.email, 'em');
+		if (this.emails) {
+			userData['em'] = this.normalizeAndHashMultiValues(this.emails, 'em');
 		}
 
-		if (this.phone) {
-			userData['ph'] = ServerSideUtils.normalizeAndHash(this.phone, 'ph');
+		if (this.phones) {
+			userData['ph'] = this.normalizeAndHashMultiValues(this.phones, 'ph');
 		}
 
-		if (this.gender) {
-			userData['ge'] = ServerSideUtils.normalizeAndHash(this.gender, 'ge');
+		if (this.genders) {
+			userData['ge'] = this.normalizeAndHashMultiValues(this.genders, 'ge');
 		}
 
-		if (this.date_of_birth) {
-			userData['db'] = ServerSideUtils.normalizeAndHash(this.date_of_birth, 'db');
+		if (this.dates_of_birth) {
+			userData['db'] = this.normalizeAndHashMultiValues(this.dates_of_birth, 'db');
 		}
 
-		if (this.last_name) {
-			userData['ln'] = ServerSideUtils.normalizeAndHash(this.last_name, 'ln');
+		if (this.last_names) {
+			userData['ln'] = this.normalizeAndHashMultiValues(this.last_names, 'ln');
 		}
 
-		if (this.first_name) {
-			userData['fn'] = ServerSideUtils.normalizeAndHash(this.first_name, 'fn');
+		if (this.first_names) {
+			userData['fn'] = this.normalizeAndHashMultiValues(this.first_names, 'fn');
 		}
 
-		if (this.city) {
-			userData['ct'] = ServerSideUtils.normalizeAndHash(this.city, 'ct');
+		if (this.cities) {
+			userData['ct'] = this.normalizeAndHashMultiValues(this.cities, 'ct');
 		}
 
-		if (this.state) {
-			userData['st'] = ServerSideUtils.normalizeAndHash(this.state, 'st');
+		if (this.states) {
+			userData['st'] = this.normalizeAndHashMultiValues(this.states, 'st');
 		}
 
-		if (this.zip) {
-			userData['zp'] = ServerSideUtils.normalizeAndHash(this.zip, 'zp');
+		if (this.zips) {
+			userData['zp'] = this.normalizeAndHashMultiValues(this.zips, 'zp');
 		}
 
-		if (this.country) {
-			userData['country'] = ServerSideUtils.normalizeAndHash(this.country, 'country');
+		if (this.countries) {
+			userData['country'] = this.normalizeAndHashMultiValues(this.countries, 'country');
 		}
 
-		if (this.external_id) {
-			userData['external_id'] = this.external_id;
+		if (this.external_ids) {
+			userData['external_id'] = this.external_ids;
 		}
 
 		if (this.client_ip_address) {
@@ -1167,4 +1156,15 @@ export default class UserData {
 
 		return userData;
 	}
+
+  /**
+  * Returns the deduped and normalized payload for the given array of values and the field.
+  * @returns {string[]} dedupped and normalized values.
+  */
+  normalizeAndHashMultiValues(arr: string[], fieldName: String): string[]{
+    let dedupSet = new Set(
+      arr.map(value => ServerSideUtils.normalizeAndHash(value, fieldName))
+    );
+    return Array.from(dedupSet);
+  }
 }
