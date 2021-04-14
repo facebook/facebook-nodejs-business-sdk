@@ -37,7 +37,7 @@ export default class EventRequest {
 	/**
 	 * @param {String} access_token Access Token for the user calling Graph API
 	 * @param {String} pixel_id Pixel Id to which you are sending the events
-	 * @param {Array<ServerEvent>} events Data for the request Payload for a Server Side Event
+	 * @param {Array<ServerEvent>} events Data for the request Payload for a Conversions API Event
 	 * @param {?String} partner_agent Platform from which the event is sent e.g. wordpress
 	 * @param {?String} test_event_code Test Event Code used to verify that your server events are received correctly by Facebook.
 	 * @param {?String} namespace_id Scope used to resolve extern_id or Third-party ID. Can be another data set or data partner ID.
@@ -68,14 +68,14 @@ export default class EventRequest {
 	}
 
 	/**
-	 * Gets the data for the request Payload for a Server Side Event. events is represented by a list/array of ServerEvent objects.
+	 * Gets the data for the request Payload for a Conversions API Event. events is represented by a list/array of ServerEvent objects.
 	 */
 	get events() {
 		return this._events;
 	}
 
 	/**
-	 * Sets the events for the request Payload for a Server Side Event.
+	 * Sets the events for the request Payload for a Conversions API Event.
 	 * events is represented by a list/array of ServerEvent objects.
 	 * @param events for the current server event
 	 */
@@ -84,7 +84,7 @@ export default class EventRequest {
 	}
 
 	/**
-	 * Sets the events for the request Payload for a Server Side Event.
+	 * Sets the events for the request Payload for a Conversions API Event.
 	 * events is represented by a list/array of ServerEvent objects.
 	 * @param events for the current server event
 	 */

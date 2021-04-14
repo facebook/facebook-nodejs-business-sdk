@@ -10,7 +10,7 @@
 import ServerSideUtils from './utils';
 
 /**
- * UserData represents the User Data Parameters(user_data) of a Server Side Event Request.
+ * UserData represents the User Data Parameters(user_data) of a Conversions API Event Request.
  * 'user_data' is a set of identifiers Facebook can use for targeted attribution. See Custom Audiences from CRM Data for details on how to normalize and hash the data you send.
  * @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#user}
  */
@@ -664,7 +664,7 @@ export default class UserData {
 	 * Gets the external id for the user data.
 	 * external_id is a unique ID from the advertiser, such as loyalty membership IDs, user IDs, and external cookie IDs.
 	 * In the Offline Conversions API this is known as extern_id. For more information, see Offline Conversions.
-	 * If External ID is being sent via other channels, then it should be sent in the same format via the server-side API
+	 * If External ID is being sent via other channels, then it should be sent in the same format via the Conversions API
 	 * @see {@link https://www.facebook.com/business/help/104039186799009}
 	 */
 	get external_id() {
@@ -675,7 +675,7 @@ export default class UserData {
 	 * Gets the external ids for the user data.
 	 * external_id is a unique ID from the advertiser, such as loyalty membership IDs, user IDs, and external cookie IDs.
 	 * In the Offline Conversions API this is known as extern_id. For more information, see Offline Conversions.
-	 * If External ID is being sent via other channels, then it should be sent in the same format via the server-side API
+	 * If External ID is being sent via other channels, then it should be sent in the same format via the Conversions API
 	 * @see {@link https://www.facebook.com/business/help/104039186799009}
 	 */
 	get external_ids() {
@@ -686,7 +686,7 @@ export default class UserData {
 	 * Sets the external id for the user data.
 	 * @param external_id is a unique ID from the advertiser, such as loyalty membership IDs, user IDs, and external cookie IDs.
 	 * In the Offline Conversions API this is known as extern_id. For more information, see Offline Conversions.
-	 * If External ID is being sent via other channels, then it should be sent in the same format via the server-side API
+	 * If External ID is being sent via other channels, then it should be sent in the same format via the Conversions API
 	 * @see {@link https://www.facebook.com/business/help/104039186799009}
 	 */
 	set external_id(external_id: string) {
@@ -697,7 +697,7 @@ export default class UserData {
 	 * Sets the external id for the user data.
 	 * @param external_ids is a unique ID from the advertiser, such as loyalty membership IDs, user IDs, and external cookie IDs.
 	 * In the Offline Conversions API this is known as extern_id. For more information, see Offline Conversions.
-	 * If External ID is being sent via other channels, then it should be sent in the same format via the server-side API
+	 * If External ID is being sent via other channels, then it should be sent in the same format via the Conversions API
 	 * @see {@link https://www.facebook.com/business/help/104039186799009}
 	 */
 	set external_ids(external_ids: string[]) {
@@ -708,7 +708,7 @@ export default class UserData {
 	 * Sets the external id for the user data.
 	 * @param {String} external_id is a unique ID from the advertiser, such as loyalty membership IDs, user IDs, and external cookie IDs.
 	 * In the Offline Conversions API this is known as extern_id. For more information, see Offline Conversions.
-	 * If External ID is being sent via other channels, then it should be sent in the same format via the server-side API
+	 * If External ID is being sent via other channels, then it should be sent in the same format via the Conversions API
 	 * @see {@link https://www.facebook.com/business/help/104039186799009}
 	 */
 	setExternalId(external_id: string) : UserData {
@@ -720,7 +720,7 @@ export default class UserData {
 	 * Sets the external ids for the user data.
 	 * @param external_ids is a unique ID from the advertiser, such as loyalty membership IDs, user IDs, and external cookie IDs.
 	 * In the Offline Conversions API this is known as extern_id. For more information, see Offline Conversions.
-	 * If External ID is being sent via other channels, then it should be sent in the same format via the server-side API
+	 * If External ID is being sent via other channels, then it should be sent in the same format via the Conversions API
 	 * @see {@link https://www.facebook.com/business/help/104039186799009}
 	 */
 	setExternalIds(external_ids: string[]) : UserData {

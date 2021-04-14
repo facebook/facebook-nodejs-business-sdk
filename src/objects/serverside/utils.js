@@ -21,7 +21,7 @@ const SHA256_REGEX = /^[a-f0-9]{64}$/;
 const MD5_REGEX = /^[a-f0-9]{32}$/;
 
 /**
- * ServerSideUtils contains the Utility modules used for sending Server Side Events
+ * ServerSideUtils contains the Utility modules used for sending Conversions API Events
  */
 
 export default class ServerSideUtils {
