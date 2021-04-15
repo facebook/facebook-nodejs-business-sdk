@@ -137,7 +137,7 @@ export default class ServerEvent {
 
 	/**
 	 * Sets the event Id for the current Event.
-	 * @param {String} event_id can be any string chosen by the advertiser. This is used with event_name to determine if events are identical.Learn about Deduplicate Pixel and Server-Side Events
+	 * @param {String} event_id can be any string chosen by the advertiser. This is used with event_name to determine if events are identical.Learn about Deduplicate Pixel and Conversions API Events
 	 * @see {@link https://developers.facebook.com/docs/marketing-api/server-side-api/using-the-api#dedup}
 	 */
 	set event_id(event_id: string) {
@@ -146,7 +146,7 @@ export default class ServerEvent {
 
 	/**
 	 * Sets the event Id for the current Event.
-	 * @param {String} event_id can be any string chosen by the advertiser. This is used with event_name to determine if events are identical. Learn about Deduplicate Pixel and Server-Side Events.
+	 * @param {String} event_id can be any string chosen by the advertiser. This is used with event_name to determine if events are identical. Learn about Deduplicate Pixel and Conversions API Events.
 	 * @see {@link https://developers.facebook.com/docs/marketing-api/server-side-api/using-the-api#dedup}
 	 */
 	setEventId(event_id: string)  : ServerEvent{

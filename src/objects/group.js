@@ -11,6 +11,7 @@ import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import Album from './album';
 import Event from './event';
+import Post from './post';
 import LiveVideo from './live-video';
 import User from './user';
 import Photo from './photo';
@@ -23,7 +24,7 @@ import AdVideo from './ad-video';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class Group extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       archived: 'archived',
       cover: 'cover',
@@ -36,7 +37,6 @@ export default class Group extends AbstractCrudObject {
       member_count: 'member_count',
       member_request_count: 'member_request_count',
       name: 'name',
-      owner: 'owner',
       parent: 'parent',
       permissions: 'permissions',
       privacy: 'privacy',
@@ -94,6 +94,7 @@ export default class Group extends AbstractCrudObject {
       school_class: 'SCHOOL_CLASS',
       sorority: 'SORORITY',
       sports: 'SPORTS',
+      streamer: 'STREAMER',
       study_group: 'STUDY_GROUP',
       support: 'SUPPORT',
       teammates: 'TEAMMATES',
@@ -150,6 +151,7 @@ export default class Group extends AbstractCrudObject {
       school_class: 'SCHOOL_CLASS',
       sorority: 'SORORITY',
       sports: 'SPORTS',
+      streamer: 'STREAMER',
       study_group: 'STUDY_GROUP',
       support: 'SUPPORT',
       teammates: 'TEAMMATES',
@@ -171,16 +173,6 @@ export default class Group extends AbstractCrudObject {
       work_team: 'WORK_TEAM',
       work_teamwork: 'WORK_TEAMWORK',
       work_vc_call: 'WORK_VC_CALL',
-    });
-  }
-  static get SuggestionCategory (): Object {
-    return Object.freeze({
-      event: 'EVENT',
-      messenger: 'MESSENGER',
-      work: 'WORK',
-      workplace: 'WORKPLACE',
-      workplace_1_1: 'WORKPLACE_1_1',
-      workplace_manager: 'WORKPLACE_MANAGER',
     });
   }
 
@@ -239,12 +231,32 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  createFeed (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+  getFeed (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      Post,
+      fields,
+      params,
+      fetchFirstPage,
+      '/feed'
+    );
+  }
+
+  createFeed (fields: Array<string>, params: Object = {}): Promise<Post> {
     return this.createEdge(
       '/feed',
       fields,
       params,
-      
+      Post
+    );
+  }
+
+  getFiles (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/files'
     );
   }
 

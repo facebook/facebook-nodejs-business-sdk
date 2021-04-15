@@ -18,7 +18,7 @@ import AdStudyObjective from './ad-study-objective';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdStudy extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       business: 'business',
       canceled_time: 'canceled_time',
@@ -65,15 +65,6 @@ export default class AdStudy extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/objectives'
-    );
-  }
-
-  createObjective (fields: Array<string>, params: Object = {}): Promise<AdStudyObjective> {
-    return this.createEdge(
-      '/objectives',
-      fields,
-      params,
-      AdStudyObjective
     );
   }
 

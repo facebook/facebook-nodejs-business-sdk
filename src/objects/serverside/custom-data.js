@@ -11,7 +11,7 @@ import ServerSideUtils from './utils';
 import Content from './content.js';
 
 /**
- * CustomData represents the Custom Data Parameters of a Server Side Event Request. Use these parameters to send additional data we can use for ads delivery optimization.
+ * CustomData represents the Custom Data Parameters of a Conversions API Event Request. Use these parameters to send additional data we can use for ads delivery optimization.
  * @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#custom}
  */
 
@@ -433,7 +433,7 @@ export default class CustomData {
 	/**
 	 * Gets the custom properties to be included in the Custom Data.
 	 * If our predefined object properties don't suit your needs, you can include your own, custom properties. Custom properties can be used with both standard and custom events, and can help you further define custom audiences.
-	 * This behavior is the same for Server-Side API and Facebook Pixel.
+	 * This behavior is the same for Conversions API and Facebook Pixel.
 	 * @see {@link https://developers.facebook.com/docs/marketing-api/server-side-api/parameters/custom-data#custom-properties}
 	 * Eg: '{ 'warehouse_location' : 'washington', 'package_size' : 'L'}'
 	 */
@@ -444,7 +444,7 @@ export default class CustomData {
 	/**
 	 * Sets the custom properties to be included in the Custom Data.
 	 * If our predefined object properties don't suit your needs, you can include your own, custom properties. Custom properties can be used with both standard and custom events, and can help you further define custom audiences.
-	 * This behavior is the same for Server-Side API and Facebook Pixel.
+	 * This behavior is the same for Conversions API and Facebook Pixel.
 	 * @see {@link https://developers.facebook.com/docs/marketing-api/server-side-api/parameters/custom-data#custom-properties}
 	 * @param {Object} custom_properties custom properties property bag to be included in the Custom Data. Eg: '{ 'warehouse_location' : 'washington', 'package_size' : 'L'}'
 	 */
@@ -456,7 +456,7 @@ export default class CustomData {
 	 * Sets the search string for the custom data.
 	 * @param custom_properties A custom properties property bag to be included in the Custom Data.
 	 * If our predefined object properties don't suit your needs, you can include your own, custom properties. Custom properties can be used with both standard and custom events, and can help you further define custom audiences.
-	 * This behavior is the same for Server-Side API and Facebook Pixel.
+	 * This behavior is the same for Conversions API and Facebook Pixel.
 	 * @see {@link https://developers.facebook.com/docs/marketing-api/server-side-api/parameters/custom-data#custom-properties}
 	 * Eg: '{ 'warehouse_location' : 'washington', 'package_size' : 'L'}'
 	 * * @returns {Object} custom_properties property bag.

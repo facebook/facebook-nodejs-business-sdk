@@ -14,7 +14,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class CPASAdvertiserPartnershipRecommendation extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       advertiser_business_id: 'advertiser_business_id',
       brand_business_id: 'brand_business_id',

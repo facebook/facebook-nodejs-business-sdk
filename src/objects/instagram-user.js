@@ -7,7 +7,6 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import Business from './business';
 import AdAccount from './ad-account';
@@ -18,7 +17,7 @@ import AdAccount from './ad-account';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class InstagramUser extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       follow_count: 'follow_count',
       followed_by_count: 'followed_by_count',
@@ -32,13 +31,6 @@ export default class InstagramUser extends AbstractCrudObject {
     });
   }
 
-
-  deleteAgencies (params: Object = {}): Promise<*> {
-    return super.deleteEdge(
-      '/agencies',
-      params
-    );
-  }
 
   getAgencies (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(

@@ -14,7 +14,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdgroupActivity extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       ad_creative_id_new: 'ad_creative_id_new',
       ad_creative_id_old: 'ad_creative_id_old',
@@ -60,6 +60,8 @@ export default class AdgroupActivity extends AbstractCrudObject {
       stop_time_old: 'stop_time_old',
       target_spec_id_new: 'target_spec_id_new',
       target_spec_id_old: 'target_spec_id_old',
+      targets_spec_new: 'targets_spec_new',
+      targets_spec_old: 'targets_spec_old',
       tracking_pixel_ids_new: 'tracking_pixel_ids_new',
       tracking_pixel_ids_old: 'tracking_pixel_ids_old',
       tracking_specs_new: 'tracking_specs_new',

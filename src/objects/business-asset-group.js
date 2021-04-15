@@ -25,7 +25,7 @@ import ProductCatalog from './product-catalog';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class BusinessAssetGroup extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       id: 'id',
       name: 'name',
@@ -36,6 +36,7 @@ export default class BusinessAssetGroup extends AbstractCrudObject {
     return Object.freeze({
       advertise: 'ADVERTISE',
       analyze: 'ANALYZE',
+      draft: 'DRAFT',
       manage: 'MANAGE',
     });
   }
@@ -64,7 +65,6 @@ export default class BusinessAssetGroup extends AbstractCrudObject {
       profile_plus_advertise: 'PROFILE_PLUS_ADVERTISE',
       profile_plus_analyze: 'PROFILE_PLUS_ANALYZE',
       profile_plus_create_content: 'PROFILE_PLUS_CREATE_CONTENT',
-      profile_plus_live_stream_moderation: 'PROFILE_PLUS_LIVE_STREAM_MODERATION',
       profile_plus_manage: 'PROFILE_PLUS_MANAGE',
       profile_plus_messaging: 'PROFILE_PLUS_MESSAGING',
       profile_plus_moderate: 'PROFILE_PLUS_MODERATE',

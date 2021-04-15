@@ -16,7 +16,7 @@ import AdAccount from './ad-account';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class EventSourceGroup extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       business: 'business',
       event_sources: 'event_sources',

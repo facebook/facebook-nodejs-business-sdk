@@ -14,7 +14,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class InsightsResult extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       description: 'description',
       description_from_api_doc: 'description_from_api_doc',
@@ -39,7 +39,7 @@ export default class InsightsResult extends AbstractCrudObject {
       last_week_mon_sun: 'last_week_mon_sun',
       last_week_sun_sat: 'last_week_sun_sat',
       last_year: 'last_year',
-      lifetime: 'lifetime',
+      maximum: 'maximum',
       this_month: 'this_month',
       this_quarter: 'this_quarter',
       this_week_mon_today: 'this_week_mon_today',

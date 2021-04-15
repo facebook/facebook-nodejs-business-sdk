@@ -26,7 +26,7 @@ import type {SlideshowSpec} from "../video-uploader"
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdVideo extends AbstractCrudObject {
-  static get Fields() {
+  static get Fields(): Object {
     return Object.freeze({
       filepath: 'filepath',
       id: 'id',

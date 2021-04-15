@@ -12,7 +12,6 @@ import Cursor from './../cursor';
 import Comment from './comment';
 import InsightsResult from './insights-result';
 import Profile from './profile';
-import Post from './post';
 import Page from './page';
 
 /**
@@ -21,7 +20,7 @@ import Page from './page';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class Photo extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       album: 'album',
       alt_text: 'alt_text',
@@ -127,26 +126,6 @@ export default class Photo extends AbstractCrudObject {
       fields,
       params,
       Photo
-    );
-  }
-
-  getReactions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      Profile,
-      fields,
-      params,
-      fetchFirstPage,
-      '/reactions'
-    );
-  }
-
-  getSharedPosts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      Post,
-      fields,
-      params,
-      fetchFirstPage,
-      '/sharedposts'
     );
   }
 

@@ -17,7 +17,7 @@ import AdNetworkAnalyticsAsyncQueryResult from './ad-network-analytics-async-que
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdMonetizationProperty extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       id: 'id',
     });

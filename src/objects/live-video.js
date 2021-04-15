@@ -23,7 +23,7 @@ import Profile from './profile';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class LiveVideo extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       ad_break_config: 'ad_break_config',
       ad_break_failure_reason: 'ad_break_failure_reason',
@@ -55,19 +55,6 @@ export default class LiveVideo extends AbstractCrudObject {
     });
   }
 
-  static get BroadcastStatus (): Object {
-    return Object.freeze({
-      live: 'live',
-      live_stopped: 'live_stopped',
-      processing: 'processing',
-      scheduled_canceled: 'scheduled_canceled',
-      scheduled_expired: 'scheduled_expired',
-      scheduled_live: 'scheduled_live',
-      scheduled_unpublished: 'scheduled_unpublished',
-      unpublished: 'unpublished',
-      vod: 'vod',
-    });
-  }
   static get Projection (): Object {
     return Object.freeze({
       cubemap: 'CUBEMAP',
@@ -100,6 +87,19 @@ export default class LiveVideo extends AbstractCrudObject {
     return Object.freeze({
       ambient: 'AMBIENT',
       regular: 'REGULAR',
+    });
+  }
+  static get BroadcastStatus (): Object {
+    return Object.freeze({
+      live: 'LIVE',
+      live_stopped: 'LIVE_STOPPED',
+      processing: 'PROCESSING',
+      scheduled_canceled: 'SCHEDULED_CANCELED',
+      scheduled_expired: 'SCHEDULED_EXPIRED',
+      scheduled_live: 'SCHEDULED_LIVE',
+      scheduled_unpublished: 'SCHEDULED_UNPUBLISHED',
+      unpublished: 'UNPUBLISHED',
+      vod: 'VOD',
     });
   }
   static get Source (): Object {

@@ -15,7 +15,7 @@ import AbstractObject from './../abstract-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class Referral extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       id: 'id',
       invite_limit: 'invite_limit',
@@ -24,10 +24,12 @@ export default class Referral extends AbstractCrudObject {
       namespace: 'namespace',
       need_promo_code: 'need_promo_code',
       offer_origin: 'offer_origin',
+      privacy_policy_link: 'privacy_policy_link',
       promotion_text: 'promotion_text',
       receiver_benefits_text: 'receiver_benefits_text',
       referral_link_uri: 'referral_link_uri',
       sender_benefits_text: 'sender_benefits_text',
+      terms_and_condition_link: 'terms_and_condition_link',
     });
   }
 

@@ -17,7 +17,7 @@ import Profile from './profile';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class Comment extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       admin_creator: 'admin_creator',
       application: 'application',
@@ -52,6 +52,7 @@ export default class Comment extends AbstractCrudObject {
       friends_only: 'FRIENDS_ONLY',
       graphql_multiple_value_hack_do_not_use: 'GRAPHQL_MULTIPLE_VALUE_HACK_DO_NOT_USE',
       owner_or_commenter: 'OWNER_OR_COMMENTER',
+      pending_approval: 'PENDING_APPROVAL',
       side_conversation: 'SIDE_CONVERSATION',
       side_conversation_and_post_owner: 'SIDE_CONVERSATION_AND_POST_OWNER',
     });

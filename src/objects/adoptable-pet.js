@@ -14,7 +14,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdoptablePet extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       address: 'address',
       adoptable_pet_id: 'adoptable_pet_id',
@@ -25,17 +25,24 @@ export default class AdoptablePet extends AbstractCrudObject {
       availability: 'availability',
       breed: 'breed',
       category_specific_fields: 'category_specific_fields',
+      coat_length: 'coat_length',
+      color: 'color',
       currency: 'currency',
       description: 'description',
+      features: 'features',
       gender: 'gender',
       id: 'id',
       images: 'images',
       name: 'name',
       price: 'price',
       sanitized_images: 'sanitized_images',
+      secondary_color: 'secondary_color',
+      shelter_email: 'shelter_email',
       shelter_name: 'shelter_name',
       shelter_page_id: 'shelter_page_id',
+      shelter_phone: 'shelter_phone',
       size: 'size',
+      tertiary_color: 'tertiary_color',
       url: 'url',
     });
   }

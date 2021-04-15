@@ -33,6 +33,7 @@ import ExtendedCredit from './extended-credit';
 import BusinessAssetSharingAgreement from './business-asset-sharing-agreement';
 import BusinessAgreement from './business-agreement';
 import InstagramUser from './instagram-user';
+import IGUser from './ig-user';
 import OfflineConversionDataSet from './offline-conversion-data-set';
 import BusinessAdAccountRequest from './business-ad-account-request';
 import BusinessApplicationRequest from './business-application-request';
@@ -49,7 +50,7 @@ import MeasurementUploadEvent from './measurement-upload-event';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class Business extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       block_offline_analytics: 'block_offline_analytics',
       created_by: 'created_by',
@@ -110,6 +111,7 @@ export default class Business extends AbstractCrudObject {
     return Object.freeze({
       advertise: 'ADVERTISE',
       analyze: 'ANALYZE',
+      draft: 'DRAFT',
       manage: 'MANAGE',
     });
   }
@@ -138,7 +140,6 @@ export default class Business extends AbstractCrudObject {
       profile_plus_advertise: 'PROFILE_PLUS_ADVERTISE',
       profile_plus_analyze: 'PROFILE_PLUS_ANALYZE',
       profile_plus_create_content: 'PROFILE_PLUS_CREATE_CONTENT',
-      profile_plus_live_stream_moderation: 'PROFILE_PLUS_LIVE_STREAM_MODERATION',
       profile_plus_manage: 'PROFILE_PLUS_MANAGE',
       profile_plus_messaging: 'PROFILE_PLUS_MESSAGING',
       profile_plus_moderate: 'PROFILE_PLUS_MODERATE',
@@ -153,6 +154,13 @@ export default class Business extends AbstractCrudObject {
       fields,
       params,
       Business
+    );
+  }
+
+  deleteAdAccounts (params: Object = {}): Promise<*> {
+    return super.deleteEdge(
+      '/ad_accounts',
+      params
     );
   }
 
@@ -544,6 +552,15 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
+  createFranchiseProgram (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+    return this.createEdge(
+      '/franchise_programs',
+      fields,
+      params,
+      
+    );
+  }
+
   getInitiatedAudienceSharingRequests (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       BusinessAssetSharingAgreement,
@@ -578,6 +595,16 @@ export default class Business extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/instagram_accounts'
+    );
+  }
+
+  getInstagramBusinessAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      IGUser,
+      fields,
+      params,
+      fetchFirstPage,
+      '/instagram_business_accounts'
     );
   }
 
@@ -744,6 +771,16 @@ export default class Business extends AbstractCrudObject {
       fields,
       params,
       ProductCatalog
+    );
+  }
+
+  getOwnedWhatsAppBusinessAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      WhatsAppBusinessAccount,
+      fields,
+      params,
+      fetchFirstPage,
+      '/owned_whatsapp_business_accounts'
     );
   }
 

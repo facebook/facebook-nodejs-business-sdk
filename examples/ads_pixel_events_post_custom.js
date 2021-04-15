@@ -9,11 +9,11 @@
 
  'use strict';
 const bizSdk = require('facebook-nodejs-business-sdk');
-const ServerEvent = bizSdk.ServerEvent;
+const Content = bizSdk.Content;
+const CustomData = bizSdk.CustomData;
 const EventRequest = bizSdk.EventRequest;
 const UserData = bizSdk.UserData;
-const CustomData = bizSdk.CustomData;
-const Content = bizSdk.Content;
+const ServerEvent = bizSdk.ServerEvent;
 
 const access_token = '<ACCESS_TOKEN>';
 const pixel_id = '<ADS_PIXEL_ID>';
@@ -23,6 +23,9 @@ let current_timestamp = Math.floor(new Date() / 1000);
 
 const userData = (new UserData())
                 .setEmail('joe@eg.com')
+                // It is recommended to send Client IP and User Agent for Conversions API Events.
+                .setClientIpAddress(request.connection.remoteAddress)
+                .setClientUserAgent(request.headers['user-agent'])
                 .setFbp('fb.1.1558571054389.1098115397')
                 .setFbc('fb.1.1554763741205.AbCdEfGhIjKlMnOpQrStUvWxYz1234567890');
 
@@ -34,11 +37,20 @@ const serverEvent = (new ServerEvent())
                 .setEventName('Purchase')
                 .setEventTime(current_timestamp)
                 .setUserData(userData)
-                .setCustomData(customData);
+                .setCustomData(customData)
+                .setEventSourceUrl('http://jaspers-market.com/product/123')
+                .setActionSource('website');
 
 const eventsData = [serverEvent];
 const eventRequest = (new EventRequest(access_token, pixel_id))
                 .setEvents(eventsData);
 
 
-eventRequest.execute();
+eventRequest.execute().then(
+  response => {
+    console.log('Response: ', response);
+  },
+  err => {
+    console.error('Error: ', err);
+  }
+);

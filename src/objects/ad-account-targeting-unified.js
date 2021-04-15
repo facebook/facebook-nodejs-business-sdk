@@ -14,7 +14,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdAccountTargetingUnified extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       audience_size: 'audience_size',
       conversion_lift: 'conversion_lift',
@@ -203,12 +203,22 @@ export default class AdAccountTargetingUnified extends AbstractCrudObject {
       zips: 'zips',
     });
   }
-  static get Mode (): Object {
+  static get AppStore (): Object {
     return Object.freeze({
-      best_performing: 'best_performing',
-      recently_used: 'recently_used',
-      related: 'related',
-      suggestions: 'suggestions',
+      amazon_app_store: 'amazon_app_store',
+      does_not_exist: 'does_not_exist',
+      fb_android_store: 'fb_android_store',
+      fb_canvas: 'fb_canvas',
+      fb_gameroom: 'fb_gameroom',
+      galaxy_store: 'galaxy_store',
+      google_play: 'google_play',
+      instant_game: 'instant_game',
+      itunes: 'itunes',
+      itunes_ipad: 'itunes_ipad',
+      oculus_app_store: 'oculus_app_store',
+      roku_channel_store: 'roku_channel_store',
+      windows_10_store: 'windows_10_store',
+      windows_store: 'windows_store',
     });
   }
   static get Objective (): Object {
@@ -228,6 +238,14 @@ export default class AdAccountTargetingUnified extends AbstractCrudObject {
       reach: 'REACH',
       store_visits: 'STORE_VISITS',
       video_views: 'VIDEO_VIEWS',
+    });
+  }
+  static get Mode (): Object {
+    return Object.freeze({
+      best_performing: 'best_performing',
+      recently_used: 'recently_used',
+      related: 'related',
+      suggestions: 'suggestions',
     });
   }
 }

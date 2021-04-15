@@ -16,7 +16,7 @@ import Cursor from './../cursor';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class CommerceOrder extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       buyer_details: 'buyer_details',
       channel: 'channel',

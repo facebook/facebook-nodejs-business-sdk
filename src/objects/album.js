@@ -12,7 +12,6 @@ import Comment from './comment';
 import Profile from './profile';
 import Photo from './photo';
 import ProfilePictureSource from './profile-picture-source';
-import Post from './post';
 
 /**
  * Album
@@ -20,7 +19,7 @@ import Post from './post';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class Album extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       backdated_time: 'backdated_time',
       backdated_time_granularity: 'backdated_time_granularity',
@@ -113,26 +112,6 @@ export default class Album extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/picture'
-    );
-  }
-
-  getReactions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      Profile,
-      fields,
-      params,
-      fetchFirstPage,
-      '/reactions'
-    );
-  }
-
-  getSharedPosts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      Post,
-      fields,
-      params,
-      fetchFirstPage,
-      '/sharedposts'
     );
   }
 

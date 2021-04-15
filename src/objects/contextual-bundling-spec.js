@@ -9,27 +9,15 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * FriendList
+ * ContextualBundlingSpec
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class FriendList extends AbstractCrudObject {
-  static get Fields () {
+export default class ContextualBundlingSpec extends AbstractCrudObject {
+  static get Fields (): Object {
     return Object.freeze({
-      id: 'id',
-      list_type: 'list_type',
-      name: 'name',
-      owner: 'owner',
+      status: 'status',
     });
   }
 
-
-  
-  get (fields: Array<string>, params: Object = {}): FriendList {
-    // $FlowFixMe : Support Generic Types
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

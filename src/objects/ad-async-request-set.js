@@ -17,7 +17,7 @@ import AdAsyncRequest from './ad-async-request';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdAsyncRequestSet extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       canceled_count: 'canceled_count',
       created_time: 'created_time',

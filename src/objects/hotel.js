@@ -17,7 +17,7 @@ import HotelRoom from './hotel-room';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class Hotel extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       address: 'address',
       applinks: 'applinks',

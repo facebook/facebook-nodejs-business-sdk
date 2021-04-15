@@ -9,13 +9,15 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * AdCreativeInstagramBrandedContent
+ * CatalogItemChannelsToIntegrityStatus
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class AdCreativeInstagramBrandedContent extends AbstractCrudObject {
-  static get Fields () {
+export default class CatalogItemChannelsToIntegrityStatus extends AbstractCrudObject {
+  static get Fields (): Object {
     return Object.freeze({
+      channels: 'channels',
+      rejection_information: 'rejection_information',
     });
   }
 

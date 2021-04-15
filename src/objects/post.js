@@ -21,7 +21,7 @@ import Page from './page';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class Post extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       actions: 'actions',
       admin_creator: 'admin_creator',
@@ -35,22 +35,17 @@ export default class Post extends AbstractCrudObject {
       comments_mirroring_domain: 'comments_mirroring_domain',
       coordinates: 'coordinates',
       created_time: 'created_time',
-      delivery_growth_optimizations: 'delivery_growth_optimizations',
       description: 'description',
-      entities: 'entities',
       event: 'event',
       expanded_height: 'expanded_height',
       expanded_width: 'expanded_width',
       feed_targeting: 'feed_targeting',
-      formatting: 'formatting',
       from: 'from',
       full_picture: 'full_picture',
       height: 'height',
       icon: 'icon',
       id: 'id',
-      implicit_place: 'implicit_place',
       instagram_eligibility: 'instagram_eligibility',
-      instream_eligibility: 'instream_eligibility',
       is_app_share: 'is_app_share',
       is_eligible_for_promotion: 'is_eligible_for_promotion',
       is_expired: 'is_expired',
@@ -61,7 +56,6 @@ export default class Post extends AbstractCrudObject {
       is_published: 'is_published',
       is_spherical: 'is_spherical',
       link: 'link',
-      live_video_eligibility: 'live_video_eligibility',
       message: 'message',
       message_tags: 'message_tags',
       multi_share_end_card: 'multi_share_end_card',
@@ -72,12 +66,10 @@ export default class Post extends AbstractCrudObject {
       permalink_url: 'permalink_url',
       picture: 'picture',
       place: 'place',
-      poll: 'poll',
       privacy: 'privacy',
       promotable_id: 'promotable_id',
       promotion_status: 'promotion_status',
       properties: 'properties',
-      publishing_stats: 'publishing_stats',
       scheduled_publish_time: 'scheduled_publish_time',
       shares: 'shares',
       source: 'source',
@@ -88,13 +80,11 @@ export default class Post extends AbstractCrudObject {
       target: 'target',
       targeting: 'targeting',
       timeline_visibility: 'timeline_visibility',
-      translations: 'translations',
       type: 'type',
       updated_time: 'updated_time',
       via: 'via',
       video_buying_eligibility: 'video_buying_eligibility',
       width: 'width',
-      will_be_autocropped_when_deliver_to_instagram: 'will_be_autocropped_when_deliver_to_instagram',
     });
   }
 
@@ -106,6 +96,58 @@ export default class Post extends AbstractCrudObject {
       month: 'month',
       none: 'none',
       year: 'year',
+    });
+  }
+  static get CheckinEntryPoint (): Object {
+    return Object.freeze({
+      branding_checkin: 'BRANDING_CHECKIN',
+      branding_other: 'BRANDING_OTHER',
+      branding_photo: 'BRANDING_PHOTO',
+      branding_status: 'BRANDING_STATUS',
+    });
+  }
+  static get Formatting (): Object {
+    return Object.freeze({
+      markdown: 'MARKDOWN',
+      plaintext: 'PLAINTEXT',
+    });
+  }
+  static get PlaceAttachmentSetting (): Object {
+    return Object.freeze({
+      value_1: '1',
+      value_2: '2',
+    });
+  }
+  static get PostSurfacesBlacklist (): Object {
+    return Object.freeze({
+      value_1: '1',
+      value_2: '2',
+      value_3: '3',
+      value_4: '4',
+      value_5: '5',
+    });
+  }
+  static get PostingToRedspace (): Object {
+    return Object.freeze({
+      disabled: 'disabled',
+      enabled: 'enabled',
+    });
+  }
+  static get TargetSurface (): Object {
+    return Object.freeze({
+      story: 'STORY',
+      timeline: 'TIMELINE',
+    });
+  }
+  static get UnpublishedContentType (): Object {
+    return Object.freeze({
+      ads_post: 'ADS_POST',
+      draft: 'DRAFT',
+      inline_created: 'INLINE_CREATED',
+      published: 'PUBLISHED',
+      reviewable_branded_content: 'REVIEWABLE_BRANDED_CONTENT',
+      scheduled: 'SCHEDULED',
+      scheduled_recurring: 'SCHEDULED_RECURRING',
     });
   }
   static get FeedStoryVisibility (): Object {
@@ -184,15 +226,6 @@ export default class Post extends AbstractCrudObject {
       fields,
       params,
       Post
-    );
-  }
-
-  createPromotion (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
-    return this.createEdge(
-      '/promotions',
-      fields,
-      params,
-      
     );
   }
 

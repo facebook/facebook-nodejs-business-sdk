@@ -9,24 +9,32 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * ReadOnlyAnalyticsUserPropertyConfig
+ * WhatsAppBusinessProfile
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class ReadOnlyAnalyticsUserPropertyConfig extends AbstractCrudObject {
-  static get Fields () {
+export default class WhatsAppBusinessProfile extends AbstractCrudObject {
+  static get Fields (): Object {
     return Object.freeze({
-      active_properties: 'active_properties',
       id: 'id',
+      name_verification: 'name_verification',
     });
   }
 
 
   
-  get (fields: Array<string>, params: Object = {}): ReadOnlyAnalyticsUserPropertyConfig {
+  get (fields: Array<string>, params: Object = {}): WhatsAppBusinessProfile {
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
+      params
+    );
+  }
+
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): WhatsAppBusinessProfile {
+    // $FlowFixMe : Support Generic Types
+    return super.update(
       params
     );
   }

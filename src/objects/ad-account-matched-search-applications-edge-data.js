@@ -14,7 +14,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdAccountMatchedSearchApplicationsEdgeData extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       app_id: 'app_id',
       are_app_events_unavailable: 'are_app_events_unavailable',
@@ -34,6 +34,7 @@ export default class AdAccountMatchedSearchApplicationsEdgeData extends Abstract
       fb_android_store: 'FB_ANDROID_STORE',
       fb_canvas: 'FB_CANVAS',
       fb_gameroom: 'FB_GAMEROOM',
+      galaxy_store: 'GALAXY_STORE',
       google_play: 'GOOGLE_PLAY',
       instant_game: 'INSTANT_GAME',
       itunes: 'ITUNES',

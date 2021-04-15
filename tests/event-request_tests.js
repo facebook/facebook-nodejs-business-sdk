@@ -63,7 +63,7 @@ describe('EventRequest', function() {
             const expected_url =`${FacebookAdsApi.GRAPH}/${FacebookAdsApi.VERSION}/${pixel_id}/events`
             const expected_method = HttpMethod.POST;
             const expected_headers = {
-                'User-Agent': `fbbizsdk-nodejs-${FacebookAdsApi.VERSION}`,
+                'User-Agent': `fbbizsdk-nodejs-v${FacebookAdsApi.SDK_VERSION}`,
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
             };
@@ -128,7 +128,7 @@ describe('EventRequest', function() {
             const expected_url =`${FacebookAdsApi.GRAPH}/${FacebookAdsApi.VERSION}/${pixel_id}/events`
             const expected_method = HttpMethod.POST;
             const expected_headers = {
-                'User-Agent': `fbbizsdk-nodejs-${FacebookAdsApi.VERSION}`,
+                'User-Agent': `fbbizsdk-nodejs-v${FacebookAdsApi.SDK_VERSION}`,
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
             };

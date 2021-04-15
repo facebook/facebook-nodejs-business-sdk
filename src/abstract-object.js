@@ -51,7 +51,7 @@ export default class AbstractObject {
    * @param {Mixed} value
    * @return this
    */
-  set(field: string, value: mixed) {
+  set(field: string, value: mixed): AbstractObject {
     if (this._fields.indexOf(field) < 0) {
       this._defineProperty(field);
     }
@@ -65,7 +65,7 @@ export default class AbstractObject {
    * @param {Object} data
    * @return this
    */
-  setData(data: Object) {
+  setData(data: Object): AbstractObject {
     Object.keys(data).forEach(key => {
       this.set(key, data[key]);
     });

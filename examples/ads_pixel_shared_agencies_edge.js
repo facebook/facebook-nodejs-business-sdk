@@ -34,7 +34,7 @@ fields = [
 ];
 params = {
 };
-const shared_agenciess = (new AdsPixel(id)).getShareDAgencies(
+const shared_agenciess = (new AdsPixel(id)).getSharedAgencies(
   fields,
   params
 );

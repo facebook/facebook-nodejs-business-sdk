@@ -14,7 +14,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdCreativeVideoData extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       additional_image_index: 'additional_image_index',
       branded_content_shared_to_sponsor_status: 'branded_content_shared_to_sponsor_status',

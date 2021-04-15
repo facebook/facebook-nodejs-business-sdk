@@ -18,7 +18,7 @@ import IGMedia from './ig-media';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class IGUser extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       biography: 'biography',
       business_discovery: 'business_discovery',
@@ -26,7 +26,6 @@ export default class IGUser extends AbstractCrudObject {
       follows_count: 'follows_count',
       id: 'id',
       ig_id: 'ig_id',
-      is_ig_shopping_seller_policy_enabled: 'is_ig_shopping_seller_policy_enabled',
       media_count: 'media_count',
       mentioned_comment: 'mentioned_comment',
       mentioned_media: 'mentioned_media',
@@ -38,6 +37,16 @@ export default class IGUser extends AbstractCrudObject {
     });
   }
 
+
+  getContentPublishingLimit (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/content_publishing_limit'
+    );
+  }
 
   getInsights (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
