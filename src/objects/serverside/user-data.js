@@ -51,8 +51,8 @@ export default class UserData {
 	 * @param {String} date_of_birth A date of birth given as year, month, and day in YYYYMMDD format.
 	 * @param {String} city A city in lower-case without spaces or punctuation.
 	 * @param {String} state A two-letter state code in lowercase.
-	 * @param {String} country A two-letter country code in lowercase.
 	 * @param {String} zip Postal code of the city in your country standard
+	 * @param {String} country A two-letter country code in lowercase.
 	 * @param {String} external_id Any unique ID from the advertiser,
 	 * @param {String} client_ip_address The IP address of the browser corresponding to the event.
 	 * @param {String} client_user_agent The user agent for the browser corresponding to the event.
@@ -1099,7 +1099,7 @@ export default class UserData {
 		}
 
 		if (this.external_ids) {
-			userData['external_id'] = this.external_ids;
+			userData['external_id'] = this.dedupArray(this.external_ids);
 		}
 
 		if (this.client_ip_address) {
@@ -1162,9 +1162,17 @@ export default class UserData {
   * @returns {string[]} dedupped and normalized values.
   */
   normalizeAndHashMultiValues(arr: string[], fieldName: String): string[]{
-    let dedupSet = new Set(
-      arr.map(value => ServerSideUtils.normalizeAndHash(value, fieldName))
-    );
-    return Array.from(dedupSet);
+    let normalizedArray = arr.map(value => ServerSideUtils.normalizeAndHash(value, fieldName));
+    return this.dedupArray(normalizedArray);
   }
+
+	/**
+	 * Returns the deduped payload for the given array of values.
+	 * This can be applied to fields that do not require normalization or hashing.
+	 * @returns {string[]} deduped values.
+	 */
+	dedupArray(arr: string[]): string[]{
+		let dedupSet = new Set(arr);
+		return Array.from(dedupSet);
+	}
 }

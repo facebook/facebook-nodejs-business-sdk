@@ -27,20 +27,20 @@ describe('UserData', function() {
             expect(normalizedUserData.f5first).to.equal(sha256(testNameField));
         });
 
-        it('Multiple value fields should normalize and hash.', function() {
+        it('Multiple value fields should dedup, normalize, and hash.', function() {
 
             // Arrange
-            const emails = ['joe@eg.com'];
-            const phones = ['14251234567', '2062072009'];
-            const genders = ['m', 'f'];
-            const datesOfBirth = ['123456', '01/01/2010'];
-            const lastNames = ['smith', 'brown'];
-            const firstNames = ['joe', 'mary'];
-            const cities = ['seattle', 'sanfrancisco'];
-            const states = ['wa', 'ca'];
-            const zips = ['98123', '98000'];
-            const countries = ['us', 'ca'];
-            const externalIds = ['123', '456'];
+            const emails = ['joe@eg.com', 'mary@eg.com', 'joe@eg.com'];
+            const phones = ['14251234567', '2062072009', '2062072009'];
+            const genders = ['m', 'f', 'm'];
+            const datesOfBirth = ['123456', '01/01/2010', '01/01/2010'];
+            const lastNames = ['smith', 'brown', 'brown'];
+            const firstNames = ['joe', 'mary', 'mary'];
+            const cities = ['seattle', 'sanfrancisco', 'sanfrancisco'];
+            const states = ['wa', 'ca', 'ca'];
+            const zips = ['98123', '98000', '98000'];
+            const countries = ['us', 'ca', 'ca'];
+            const externalIds = ['123', '456', '456'];
 
             const userData = (new UserData()).setEmails(emails)
                 .setPhones(phones)
@@ -68,7 +68,7 @@ describe('UserData', function() {
             validateValues('states', states, normalizedUserData.st);
             validateValues('zips', zips, normalizedUserData.zp);
             validateValues('countries', countries, normalizedUserData.country);
-            expect(normalizedUserData.external_id).to.eql(externalIds);
+            expect(normalizedUserData.external_id).to.eql(externalIds.slice(0, 2));
         });
 
         it('F5 Name field, for a long name, should normalize and hash only first 5 characters', function() {
@@ -216,20 +216,78 @@ describe('UserData', function() {
             expect(userData.external_ids).to.equal(externalIds);
         });
 
-        it('Values should be deduped after normalization.', function() {
+        it('Singular constructor should work.', function () {
             // Arrange
-            const emails = ['joe@eg.com', 'smith@test.com', 'joe@eg.com'];
-            const states = ['wa', 'WA', 'CA'];
-            const userData = (new UserData())
-              .setEmails(emails)
-              .setStates(states);
+            const email = 'joe@eg.com';
+            const phone = '14251234567';
+            const gender = 'm';
+            const dateOfBirth = '123456';
+            const lastName = 'smith';
+            const firstName = 'joe';
+            const city = 'seattle';
+            const state = 'WA';
+            const zip = '98000';
+            const country = 'USA';
+            const externalId = '123';
 
             // Act
-            const normalizedUserData = userData.normalize();
+            const userData = (new UserData(
+                email, phone, gender, firstName, lastName, dateOfBirth, city, state, zip, country, externalId
+            ));
 
             // Assert
-            expect(normalizedUserData.em.length).to.equal(2);
-            expect(normalizedUserData.st.length).to.equal(2);
+            expect(userData.email).to.equal(email);
+            expect(userData.phone).to.equal(phone);
+            expect(userData.gender).to.equal(gender);
+            expect(userData.date_of_birth).to.equal(dateOfBirth);
+            expect(userData.last_name).to.equal(lastName);
+            expect(userData.first_name).to.equal(firstName);
+            expect(userData.city).to.equal(city);
+            expect(userData.state).to.equal(state);
+            expect(userData.zip).to.equal(zip);
+            expect(userData.country).to.equal(country);
+            expect(userData.external_id).to.equal(externalId);
+        });
+
+        it('Singular getters/setters should work.', function () {
+            // Arrange
+            const email = 'joe@eg.com';
+            const phone = '14251234567';
+            const gender = 'm';
+            const dateOfBirth = '123456';
+            const lastName = 'smith';
+            const firstName = 'joe';
+            const city = 'seattle';
+            const state = 'WA';
+            const zip = '98000';
+            const country = 'USA';
+            const externalId = '123';
+
+            // Act
+            const userData = (new UserData()).setEmail(email)
+                .setPhone(phone)
+                .setDateOfBirth(dateOfBirth)
+                .setGender(gender)
+                .setLastName(lastName)
+                .setFirstName(firstName)
+                .setCity(city)
+                .setState(state)
+                .setZip(zip)
+                .setCountry(country)
+                .setExternalId(externalId);
+
+            // Assert
+            expect(userData.email).to.equal(email);
+            expect(userData.phone).to.equal(phone);
+            expect(userData.gender).to.equal(gender);
+            expect(userData.date_of_birth).to.equal(dateOfBirth);
+            expect(userData.last_name).to.equal(lastName);
+            expect(userData.first_name).to.equal(firstName);
+            expect(userData.city).to.equal(city);
+            expect(userData.state).to.equal(state);
+            expect(userData.zip).to.equal(zip);
+            expect(userData.country).to.equal(country);
+            expect(userData.external_id).to.equal(externalId);
         });
     });
 });
@@ -238,9 +296,10 @@ describe('UserData', function() {
  * Helper function to assert on each value of multi-value fields
  */
 function validateValues(fieldName, rawValues, actualNormalizedValues) {
-  var expectedValues = new Array(rawValues.length);
-  for(let i in rawValues){
-    expectedValues[i] = sha256(rawValues[i]);
-  }
-  expect(actualNormalizedValues, fieldName.concat(' values do not match.')).to.eql(expectedValues);
+    var expectedValues = new Set();
+    for (let i in rawValues) {
+        expectedValues.add(sha256(rawValues[i]));
+    }
+    expect(actualNormalizedValues, fieldName.concat(' values do not match.')).to.eql(Array.from(expectedValues));
 }
+
