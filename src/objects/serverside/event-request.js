@@ -17,7 +17,7 @@ import ServerEvent from './server-event';
 
 /**
  * EventRequest
- * @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters}
+ * @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters}
  */
 
 export default class EventRequest {
@@ -124,7 +124,7 @@ export default class EventRequest {
 	 * Gets the test_event_code for the request
 	 * Code used to verify that your server events are received correctly by Facebook.
 	 * Use this code to test your server events in the Test Events feature in Events Manager.
-	 * See Test Events Tool @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/using-the-api#testEvents} for an example.
+	 * See Test Events Tool @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/main-body#test_event_code} for an example.
 	 */
 	get test_event_code() {
 		return this._test_event_code;
@@ -134,7 +134,7 @@ export default class EventRequest {
 	 * Sets the test_event_code for the request
 	 * Code used to verify that your server events are received correctly by Facebook.
 	 * Use this code to test your server events in the Test Events feature in Events Manager.
-	 * See Test Events Tool @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/using-the-api#testEvents} for an example.
+	 * See Test Events Tool @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/main-body#test_event_code} for an example.
 	 */
 	set test_event_code(test_event_code: string) {
 		this._test_event_code = test_event_code;
@@ -144,7 +144,7 @@ export default class EventRequest {
 	 * Sets the test_event_code for the request
 	 * Code used to verify that your server events are received correctly by Facebook.
 	 * Use this code to test your server events in the Test Events feature in Events Manager.
-	 * See Test Events Tool @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/using-the-api#testEvents} for an example.
+	 * See Test Events Tool @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/main-body#test_event_code} for an example.
 	 */
 	setTestEventCode(test_event_code: string) : EventRequest {
 		this._test_event_code = test_event_code;

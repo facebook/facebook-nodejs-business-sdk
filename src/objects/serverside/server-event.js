@@ -12,7 +12,7 @@ import CustomData from './custom-data';
 
 /**
  * ServerEvent
- * @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#serv}
+ * @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/server-event}
  */
 export default class ServerEvent {
 
@@ -137,8 +137,9 @@ export default class ServerEvent {
 
 	/**
 	 * Sets the event Id for the current Event.
-	 * @param {String} event_id can be any string chosen by the advertiser. This is used with event_name to determine if events are identical.Learn about Deduplicate Pixel and Conversions API Events
-	 * @see {@link https://developers.facebook.com/docs/marketing-api/server-side-api/using-the-api#dedup}
+	 * @param {String} event_id can be any string chosen by the advertiser. This is used with event_name to determine if events are identical.
+	 * Learn about Deduplicate Pixel and Conversions API Events: {@link https://developers.facebook.com/docs/marketing-api/conversions-api/deduplicate-pixel-and-server-events}
+	 * @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/server-event#event-id}
 	 */
 	set event_id(event_id: string) {
 		this._event_id = event_id;
@@ -146,8 +147,9 @@ export default class ServerEvent {
 
 	/**
 	 * Sets the event Id for the current Event.
-	 * @param {String} event_id can be any string chosen by the advertiser. This is used with event_name to determine if events are identical. Learn about Deduplicate Pixel and Conversions API Events.
-	 * @see {@link https://developers.facebook.com/docs/marketing-api/server-side-api/using-the-api#dedup}
+	 * @param {String} event_id can be any string chosen by the advertiser. This is used with event_name to determine if events are identical.
+	 * Learn about Deduplicate Pixel and Conversions API Events: {@link https://developers.facebook.com/docs/marketing-api/conversions-api/deduplicate-pixel-and-server-events}
+	 * @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/server-event#event-id}
 	 */
 	setEventId(event_id: string)  : ServerEvent{
 		this._event_id = event_id;
@@ -204,7 +206,7 @@ export default class ServerEvent {
 
 	/**
 	 * Gets the user data object for the current Server Event.
-	 * @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#user}
+	 * @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/server-event#user-data}
 	 */
 	get user_data() {
 		return this._user_data;
@@ -213,7 +215,7 @@ export default class ServerEvent {
 	/**
 	 * Sets the user data object for the current Server Event.
 	 * @param {UserData} user_data user_data is a map that contains user data. See User Data Parameter Table for options. Also see Advanced Matching with the Pixel to see comparable options available for data sent via Facebook pixel.
-	 * @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#user}
+	 * @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/server-event#user-data}
 	 */
 	set user_data(user_data: UserData) {
 		this._user_data = user_data;
@@ -222,7 +224,7 @@ export default class ServerEvent {
 	/**
 	 * Sets the user data object for the current Server Event.
 	 * @param {UserData} user_data user_data is a map that contains user data. See User Data Parameter Table for options. Also see Advanced Matching with the Pixel to see comparable options available for data sent via Facebook pixel.
-	 * @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#user}
+	 * @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/server-event#user-data}
 	 */
 	setUserData(user_data: UserData) : ServerEvent {
 		this._user_data = user_data;
@@ -231,7 +233,7 @@ export default class ServerEvent {
 
 	/**
 	 * Gets the custom data object for the current Server Event.
-	 * @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#custom}
+	 * @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/server-event#custom-data}
 	 */
 	get custom_data() {
 		return this._custom_data;
@@ -240,7 +242,7 @@ export default class ServerEvent {
 	/**
 	 * Sets the custom data object for the current Server Event.
 	 * @param {CustomData} custom_data is a map that includes additional business data about the event.
-	 * @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#custom}
+	 * @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/server-event#custom-data}
 	 */
 	set custom_data(custom_data: CustomData) {
 		this._custom_data = custom_data;
@@ -249,7 +251,7 @@ export default class ServerEvent {
 	/**
 	 * Sets the custom data object for the current Server Event.
 	 * @param {CustomData} custom_data is a map that includes additional business data about the event.
-	 * @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#custom}
+	 * @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/server-event#custom-data}
 	 */
 	setCustomData(custom_data: CustomData) : ServerEvent {
 		this._custom_data = custom_data;

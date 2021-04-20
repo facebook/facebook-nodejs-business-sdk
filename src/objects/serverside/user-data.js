@@ -12,7 +12,7 @@ import ServerSideUtils from './utils';
 /**
  * UserData represents the User Data Parameters(user_data) of a Conversions API Event Request.
  * 'user_data' is a set of identifiers Facebook can use for targeted attribution. See Custom Audiences from CRM Data for details on how to normalize and hash the data you send.
- * @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#user}
+ * @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/customer-information-parameters}
  */
 
 export default class UserData {
@@ -782,7 +782,7 @@ export default class UserData {
 	/**
 	 * Gets the fbc for the user data.
 	 * fbc is the Facebook click ID value stored in the _fbc browser cookie under your domain.
-	 * See Managing fbc and fbp Parameters for how to get this value @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#fbc},
+	 * See Managing fbc and fbp Parameters for how to get this value @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/customer-information-parameters#fbc},
 	 * You can also generate this value from a fbclid query parameter.
 	 */
 	get fbc() {
@@ -792,7 +792,7 @@ export default class UserData {
 	/**
 	 * Sets the fbc for the user data.
 	 * @param fbc is the Facebook click ID value stored in the _fbc browser cookie under your domain.
-	 * See Managing fbc and fbp Parameters for how to get this value @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#fbc},
+	 * See Managing fbc and fbp Parameters for how to get this value @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/customer-information-parameters#fbc},
 	 * You can also generate this value from a fbclid query parameter.
 	 */
 	set fbc(fbc: string) {
@@ -802,7 +802,7 @@ export default class UserData {
 	/**
 	 * Sets the fbc for the user data.
 	 * @param {String} fbc is the Facebook click ID value stored in the _fbc browser cookie under your domain.
-	 * See Managing fbc and fbp Parameters for how to get this value @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#fbc},
+	 * See Managing fbc and fbp Parameters for how to get this value @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/customer-information-parameters#fbc},
 	 * You can also generate this value from a fbclid query parameter.
 	 */
 	setFbc(fbc: string) : UserData {
@@ -814,7 +814,7 @@ export default class UserData {
 	/**
 	 * Gets the fbp for the user data.
 	 * fbp is Facebook browser ID value stored in the _fbp browser cookie under your domain.
-	 * See Managing fbc and fbp Parameters for how to get this value @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#fbc},
+	 * See Managing fbc and fbp Parameters for how to get this value @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/customer-information-parameters#fbp},
 	 */
 	get fbp() {
 		return this._fbp;
@@ -823,7 +823,7 @@ export default class UserData {
 	/**
 	 * Sets the fbp for the user data.
 	 * @param fbp is Facebook browser ID value stored in the _fbp browser cookie under your domain.
-	 * See Managing fbc and fbp Parameters for how to get this value @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#fbc},
+	 * See Managing fbc and fbp Parameters for how to get this value @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/customer-information-parameters#fbp},
 	 */
 	set fbp(fbp: string) {
 		this._fbp = fbp;
@@ -832,7 +832,7 @@ export default class UserData {
 	/**
 	 * Sets the fbp for the user data.
 	 * @param {String} fbp is Facebook browser ID value stored in the _fbp browser cookie under your domain.
-	 * See Managing fbc and fbp Parameters for how to get this value @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#fbc},
+	 * See Managing fbc and fbp Parameters for how to get this value @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/customer-information-parameters#fbp},
 	 */
 	setFbp(fbp: string) : UserData {
 		this._fbp = fbp;
