@@ -82,6 +82,44 @@ describe('CustomData', function() {
             });
           });
 
+        it('normalizes value when it is 0', function() {
+            const custom_data = (new CustomData()).setValue(0);
+            const normalized = custom_data.normalize();
+
+            expect(normalized['value']).to.equal(0);
+        });
+
+        it('normalizes value it parses a number from string', function() {
+            const custom_data = (new CustomData()).setValue('0.5');
+            const normalized = custom_data.normalize();
+
+            expect(normalized['value']).to.equal(0.5);
+        });
+
+        it('normalizes value is set to the first number in an array', function() {
+            const custom_data = (new CustomData()).setValue(['1.5', 3]);
+            const normalized = custom_data.normalize();
+
+            expect(normalized['value']).to.equal(1.5);
+        });
+
+        it('normalize skips the value when it cannot be parsed to a float', function() {
+            const custom_data1 = (new CustomData()).setValue(undefined);
+            expect(Object.keys(custom_data1.normalize())).to.deep.equal([]);
+
+            const custom_data2 = (new CustomData()).setValue(['test']);
+            expect(Object.keys(custom_data2.normalize())).to.deep.equal([]);
+
+            const custom_data3 = (new CustomData()).setValue({a: 'value'});
+            expect(Object.keys(custom_data3.normalize())).to.deep.equal([]);
+
+            const custom_data4 = (new CustomData()).setValue(true);
+            expect(Object.keys(custom_data4.normalize())).to.deep.equal([]);
+
+            const custom_data5 = (new CustomData()).setValue({'1.5': 3});
+            expect(Object.keys(custom_data5.normalize())).to.deep.equal([]);
+        });
+
         it('throws exception on invalid delivery_category', function() {
 
             const test_delivery_category = 'invalid_delivery_category';

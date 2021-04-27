@@ -5,6 +5,9 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+### Changed
+- Fixed bug where `0` for CustomData.value was normalizing to `undefined` in Conversions API.
+
 ### Added
 - Support for sending multiple values for certain UserData parameters to Conversions API.
 

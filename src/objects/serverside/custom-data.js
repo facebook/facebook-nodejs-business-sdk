@@ -512,8 +512,9 @@ export default class CustomData {
 	normalize(): Object {
 		const customData = {};
 
-		if (this.value) {
-			customData['value'] = this.value;
+		const parsedValue = Number.parseFloat(this.value);
+		if (!Number.isNaN(parsedValue)) {
+			customData['value'] = parsedValue;
 		}
 
 		if (this.currency) {
