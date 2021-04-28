@@ -9,35 +9,33 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * CPASParentCatalogSettings
+ * PrivateLiftStudyInstance
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class CPASParentCatalogSettings extends AbstractCrudObject {
+export default class PrivateLiftStudyInstance extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      attribution_windows: 'attribution_windows',
-      default_currency: 'default_currency',
-      disable_use_as_parent_catalog: 'disable_use_as_parent_catalog',
+      breakdown_key: 'breakdown_key',
+      created_time: 'created_time',
       id: 'id',
+      latest_status_update_time: 'latest_status_update_time',
+      server_ips: 'server_ips',
+      status: 'status',
     });
   }
 
-  static get AttributionWindows (): Object {
+  static get Operation (): Object {
     return Object.freeze({
-      dda: 'DDA',
-      default: 'DEFAULT',
-      x1d_click: 'X1D_CLICK',
-      x1d_view: 'X1D_VIEW',
-      x28d_click: 'X28D_CLICK',
-      x28d_view: 'X28D_VIEW',
-      x7d_click: 'X7D_CLICK',
-      x7d_view: 'X7D_VIEW',
+      aggregate: 'AGGREGATE',
+      compute: 'COMPUTE',
+      id_match: 'ID_MATCH',
+      none: 'NONE',
     });
   }
 
   
-  get (fields: Array<string>, params: Object = {}): CPASParentCatalogSettings {
+  get (fields: Array<string>, params: Object = {}): PrivateLiftStudyInstance {
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
@@ -46,7 +44,7 @@ export default class CPASParentCatalogSettings extends AbstractCrudObject {
   }
 
   // $FlowFixMe : Support Generic Types
-  update (fields: Array<string>, params: Object = {}): CPASParentCatalogSettings {
+  update (fields: Array<string>, params: Object = {}): PrivateLiftStudyInstance {
     // $FlowFixMe : Support Generic Types
     return super.update(
       params

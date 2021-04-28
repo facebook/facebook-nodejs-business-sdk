@@ -10,6 +10,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import AdStudyCell from './ad-study-cell';
+import PrivateLiftStudyInstance from './private-lift-study-instance';
 import AdStudyObjective from './ad-study-objective';
 
 /**
@@ -25,6 +26,7 @@ export default class AdStudy extends AbstractCrudObject {
       cooldown_start_time: 'cooldown_start_time',
       created_by: 'created_by',
       created_time: 'created_time',
+      datasets_information: 'datasets_information',
       description: 'description',
       end_time: 'end_time',
       id: 'id',
@@ -55,6 +57,25 @@ export default class AdStudy extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/cells'
+    );
+  }
+
+  getInstances (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      PrivateLiftStudyInstance,
+      fields,
+      params,
+      fetchFirstPage,
+      '/instances'
+    );
+  }
+
+  createInstance (fields: Array<string>, params: Object = {}): Promise<PrivateLiftStudyInstance> {
+    return this.createEdge(
+      '/instances',
+      fields,
+      params,
+      PrivateLiftStudyInstance
     );
   }
 

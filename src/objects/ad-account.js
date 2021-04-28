@@ -653,15 +653,6 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createAudienceReplace (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
-    return this.createEdge(
-      '/audiencereplace',
-      fields,
-      params,
-      
-    );
-  }
-
   createBlockListDraft (fields: Array<string>, params: Object = {}): Promise<AdAccount> {
     return this.createEdge(
       '/block_list_drafts',

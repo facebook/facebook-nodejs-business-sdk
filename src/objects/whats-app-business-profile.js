@@ -18,6 +18,7 @@ export default class WhatsAppBusinessProfile extends AbstractCrudObject {
     return Object.freeze({
       id: 'id',
       name_verification: 'name_verification',
+      whatsapp_business_api_data: 'whatsapp_business_api_data',
     });
   }
 

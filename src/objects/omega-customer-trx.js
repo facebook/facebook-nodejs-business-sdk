@@ -11,11 +11,11 @@ import Cursor from './../cursor';
 import InvoiceCampaignNew from './invoice-campaign-new';
 
 /**
- * OracleTransaction
+ * OmegaCustomerTrx
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class OracleTransaction extends AbstractCrudObject {
+export default class OmegaCustomerTrx extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       ad_account_ids: 'ad_account_ids',
@@ -23,6 +23,7 @@ export default class OracleTransaction extends AbstractCrudObject {
       amount_due: 'amount_due',
       billed_amount_details: 'billed_amount_details',
       billing_period: 'billing_period',
+      campaign: 'campaign',
       cdn_download_uri: 'cdn_download_uri',
       currency: 'currency',
       download_uri: 'download_uri',
@@ -39,6 +40,14 @@ export default class OracleTransaction extends AbstractCrudObject {
     });
   }
 
+  static get Type (): Object {
+    return Object.freeze({
+      cm: 'CM',
+      dm: 'DM',
+      inv: 'INV',
+      pro_forma: 'PRO_FORMA',
+    });
+  }
 
   getCampaigns (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
@@ -51,7 +60,7 @@ export default class OracleTransaction extends AbstractCrudObject {
   }
 
   
-  get (fields: Array<string>, params: Object = {}): OracleTransaction {
+  get (fields: Array<string>, params: Object = {}): OmegaCustomerTrx {
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,

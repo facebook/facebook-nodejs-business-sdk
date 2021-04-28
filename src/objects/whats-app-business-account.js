@@ -39,6 +39,7 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
       manage: 'MANAGE',
       manage_phone: 'MANAGE_PHONE',
       manage_templates: 'MANAGE_TEMPLATES',
+      messaging: 'MESSAGING',
       view_cost: 'VIEW_COST',
     });
   }

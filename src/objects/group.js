@@ -279,6 +279,15 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
+  createImportantPost (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+    return this.createEdge(
+      '/important_posts',
+      fields,
+      params,
+      
+    );
+  }
+
   getLiveVideos (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       LiveVideo,
@@ -340,6 +349,22 @@ export default class Group extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/picture'
+    );
+  }
+
+  deletePinnedPosts (params: Object = {}): Promise<*> {
+    return super.deleteEdge(
+      '/pinned_posts',
+      params
+    );
+  }
+
+  createPinnedPost (fields: Array<string>, params: Object = {}): Promise<Post> {
+    return this.createEdge(
+      '/pinned_posts',
+      fields,
+      params,
+      Post
     );
   }
 

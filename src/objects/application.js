@@ -153,6 +153,7 @@ export default class Application extends AbstractCrudObject {
       instant_articles: 'INSTANT_ARTICLES',
       ios: 'IOS',
       mobile_web: 'MOBILE_WEB',
+      oculus: 'OCULUS',
       unknown: 'UNKNOWN',
     });
   }
@@ -269,6 +270,25 @@ export default class Application extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/adnetworkanalytics_results'
+    );
+  }
+
+  getAemConversionConfigs (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/aem_conversion_configs'
+    );
+  }
+
+  createAemConversion (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+    return this.createEdge(
+      '/aem_conversions',
+      fields,
+      params,
+      
     );
   }
 
@@ -587,6 +607,15 @@ export default class Application extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/purchases'
+    );
+  }
+
+  createPushTokenRegister (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+    return this.createEdge(
+      '/push_token_register',
+      fields,
+      params,
+      
     );
   }
 

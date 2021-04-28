@@ -107,6 +107,7 @@ export default class AdsInsights extends AbstractCrudObject {
       location: 'location',
       mobile_app_purchase_roas: 'mobile_app_purchase_roas',
       objective: 'objective',
+      optimization_goal: 'optimization_goal',
       outbound_clicks: 'outbound_clicks',
       outbound_clicks_ctr: 'outbound_clicks_ctr',
       place_page_name: 'place_page_name',

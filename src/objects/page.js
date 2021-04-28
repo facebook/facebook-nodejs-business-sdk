@@ -9,6 +9,7 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
+import PageAdminNote from './page-admin-note';
 import PagePost from './page-post';
 import Business from './business';
 import Album from './album';
@@ -115,6 +116,7 @@ export default class Page extends AbstractCrudObject {
       global_brand_page_name: 'global_brand_page_name',
       global_brand_root_id: 'global_brand_root_id',
       has_added_app: 'has_added_app',
+      has_transitioned_to_new_page_experience: 'has_transitioned_to_new_page_experience',
       has_whatsapp_business_number: 'has_whatsapp_business_number',
       has_whatsapp_number: 'has_whatsapp_number',
       hometown: 'hometown',
@@ -310,6 +312,7 @@ export default class Page extends AbstractCrudObject {
       profile_plus_advertise: 'PROFILE_PLUS_ADVERTISE',
       profile_plus_analyze: 'PROFILE_PLUS_ANALYZE',
       profile_plus_create_content: 'PROFILE_PLUS_CREATE_CONTENT',
+      profile_plus_facebook_access: 'PROFILE_PLUS_FACEBOOK_ACCESS',
       profile_plus_manage: 'PROFILE_PLUS_MANAGE',
       profile_plus_messaging: 'PROFILE_PLUS_MESSAGING',
       profile_plus_moderate: 'PROFILE_PLUS_MODERATE',
@@ -334,6 +337,7 @@ export default class Page extends AbstractCrudObject {
       profile_plus_advertise: 'PROFILE_PLUS_ADVERTISE',
       profile_plus_analyze: 'PROFILE_PLUS_ANALYZE',
       profile_plus_create_content: 'PROFILE_PLUS_CREATE_CONTENT',
+      profile_plus_facebook_access: 'PROFILE_PLUS_FACEBOOK_ACCESS',
       profile_plus_manage: 'PROFILE_PLUS_MANAGE',
       profile_plus_messaging: 'PROFILE_PLUS_MESSAGING',
       profile_plus_moderate: 'PROFILE_PLUS_MODERATE',
@@ -548,6 +552,16 @@ export default class Page extends AbstractCrudObject {
       fields,
       params,
       Page
+    );
+  }
+
+  getAdminNotes (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      PageAdminNote,
+      fields,
+      params,
+      fetchFirstPage,
+      '/admin_notes'
     );
   }
 
@@ -1251,6 +1265,15 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
+  createPhoneDatum (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+    return this.createEdge(
+      '/phone_data',
+      fields,
+      params,
+      
+    );
+  }
+
   getPhotos (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Photo,
@@ -1504,16 +1527,6 @@ export default class Page extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/threads'
-    );
-  }
-
-  getTours (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/tours'
     );
   }
 

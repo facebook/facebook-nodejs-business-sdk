@@ -80,6 +80,7 @@ export default class ProductFeed extends AbstractCrudObject {
   static get FeedType (): Object {
     return Object.freeze({
       auto: 'AUTO',
+      automotive_model: 'AUTOMOTIVE_MODEL',
       destination: 'DESTINATION',
       flight: 'FLIGHT',
       home_listing: 'HOME_LISTING',
@@ -135,6 +136,16 @@ export default class ProductFeed extends AbstractCrudObject {
     });
   }
 
+  getAutoMarkets (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/auto_markets'
+    );
+  }
+
   getAutomotiveModels (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AutomotiveModel,
@@ -142,6 +153,16 @@ export default class ProductFeed extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/automotive_models'
+    );
+  }
+
+  getAutos (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/autos'
     );
   }
 
@@ -182,6 +203,16 @@ export default class ProductFeed extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/hotels'
+    );
+  }
+
+  getMediaTitles (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/media_titles'
     );
   }
 

@@ -7,6 +7,8 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 
 /**
  * Vehicle
@@ -38,6 +40,7 @@ export default class Vehicle extends AbstractCrudObject {
       features: 'features',
       fuel_type: 'fuel_type',
       id: 'id',
+      image_fetch_status: 'image_fetch_status',
       images: 'images',
       interior_color: 'interior_color',
       legal_disclosure_impressum_url: 'legal_disclosure_impressum_url',
@@ -64,6 +67,16 @@ export default class Vehicle extends AbstractCrudObject {
     });
   }
 
+  static get ImageFetchStatus (): Object {
+    return Object.freeze({
+      direct_upload: 'DIRECT_UPLOAD',
+      fetched: 'FETCHED',
+      fetch_failed: 'FETCH_FAILED',
+      no_status: 'NO_STATUS',
+      outdated: 'OUTDATED',
+      partial_fetch: 'PARTIAL_FETCH',
+    });
+  }
   static get Availability (): Object {
     return Object.freeze({
       available: 'AVAILABLE',
@@ -149,6 +162,26 @@ export default class Vehicle extends AbstractCrudObject {
       rv_camper: 'RV_CAMPER',
       trailer: 'TRAILER',
     });
+  }
+
+  getAugmentedRealitiesMetadata (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/augmented_realities_metadata'
+    );
+  }
+
+  getVideosMetadata (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/videos_metadata'
+    );
   }
 
   

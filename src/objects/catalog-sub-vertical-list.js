@@ -28,7 +28,6 @@ export default class CatalogSubVerticalList extends AbstractCrudObject {
       clo_offer: 'clo_offer',
       clothing: 'clothing',
       clothing_accessories: 'clothing_accessories',
-      clothing_group: 'clothing_group',
       computer_components: 'computer_components',
       computers_and_tablets: 'computers_and_tablets',
       computers_laptops_and_tablets: 'computers_laptops_and_tablets',

@@ -47,6 +47,7 @@ export default class Comment extends AbstractCrudObject {
 
   static get CommentPrivacyValue (): Object {
     return Object.freeze({
+      declined_by_admin_assistant: 'DECLINED_BY_ADMIN_ASSISTANT',
       default_privacy: 'DEFAULT_PRIVACY',
       friends_and_post_owner: 'FRIENDS_AND_POST_OWNER',
       friends_only: 'FRIENDS_ONLY',

@@ -9,11 +9,11 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * InvoiceCampaign
+ * InvoiceCampaignNew
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class InvoiceCampaign extends AbstractCrudObject {
+export default class InvoiceCampaignNew extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       ad_account_id: 'ad_account_id',

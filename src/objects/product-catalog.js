@@ -181,6 +181,16 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
+  getAutoMarkets (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/auto_markets'
+    );
+  }
+
   getAutomotiveModels (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AutomotiveModel,
@@ -197,6 +207,16 @@ export default class ProductCatalog extends AbstractCrudObject {
       fields,
       params,
       AutomotiveModel
+    );
+  }
+
+  getAutos (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/autos'
     );
   }
 
@@ -367,6 +387,16 @@ export default class ProductCatalog extends AbstractCrudObject {
       fields,
       params,
       ProductCatalog
+    );
+  }
+
+  getMediaTitles (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/media_titles'
     );
   }
 

@@ -40,6 +40,7 @@ export default class ProductItemARData extends AbstractCrudObject {
       offline_conversions: 'OFFLINE_CONVERSIONS',
       shops: 'SHOPS',
       universal_checkout: 'UNIVERSAL_CHECKOUT',
+      whatsapp: 'WHATSAPP',
     });
   }
 }

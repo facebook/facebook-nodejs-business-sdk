@@ -33,6 +33,7 @@ export default class AdsPixel extends AbstractCrudObject {
       first_party_cookie_status: 'first_party_cookie_status',
       id: 'id',
       is_created_by_business: 'is_created_by_business',
+      is_crm: 'is_crm',
       is_unavailable: 'is_unavailable',
       last_fired_time: 'last_fired_time',
       name: 'name',

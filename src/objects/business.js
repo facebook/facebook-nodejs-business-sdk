@@ -16,7 +16,7 @@ import AdNetworkAnalyticsAsyncQueryResult from './ad-network-analytics-async-que
 import AdsPixel from './ads-pixel';
 import AdPlacement from './ad-placement';
 import BusinessAssetGroup from './business-asset-group';
-import OracleTransaction from './oracle-transaction';
+import OmegaCustomerTrx from './omega-customer-trx';
 import BusinessUnit from './business-unit';
 import BusinessUser from './business-user';
 import CustomConversion from './custom-conversion';
@@ -140,6 +140,7 @@ export default class Business extends AbstractCrudObject {
       profile_plus_advertise: 'PROFILE_PLUS_ADVERTISE',
       profile_plus_analyze: 'PROFILE_PLUS_ANALYZE',
       profile_plus_create_content: 'PROFILE_PLUS_CREATE_CONTENT',
+      profile_plus_facebook_access: 'PROFILE_PLUS_FACEBOOK_ACCESS',
       profile_plus_manage: 'PROFILE_PLUS_MANAGE',
       profile_plus_messaging: 'PROFILE_PLUS_MESSAGING',
       profile_plus_moderate: 'PROFILE_PLUS_MODERATE',
@@ -297,7 +298,7 @@ export default class Business extends AbstractCrudObject {
 
   getBusinessInvoices (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      OracleTransaction,
+      OmegaCustomerTrx,
       fields,
       params,
       fetchFirstPage,
@@ -539,6 +540,16 @@ export default class Business extends AbstractCrudObject {
       fields,
       params,
       EventSourceGroup
+    );
+  }
+
+  getExtendedCreditApplications (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/extendedcreditapplications'
     );
   }
 
@@ -887,6 +898,16 @@ export default class Business extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/received_sharing_agreements'
+    );
+  }
+
+  getSpacoDataSetCollections (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/spaco_dataset_collections'
     );
   }
 

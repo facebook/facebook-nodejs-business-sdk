@@ -29,6 +29,7 @@ export default class CommerceMerchantSettings extends AbstractCrudObject {
       display_name: 'display_name',
       external_merchant_id: 'external_merchant_id',
       facebook_channel: 'facebook_channel',
+      feature_eligibility: 'feature_eligibility',
       has_discount_code: 'has_discount_code',
       has_onsite_intent: 'has_onsite_intent',
       id: 'id',

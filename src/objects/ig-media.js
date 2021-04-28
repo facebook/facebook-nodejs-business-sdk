@@ -25,6 +25,7 @@ export default class IGMedia extends AbstractCrudObject {
       ig_id: 'ig_id',
       is_comment_enabled: 'is_comment_enabled',
       like_count: 'like_count',
+      media_product_type: 'media_product_type',
       media_type: 'media_type',
       media_url: 'media_url',
       owner: 'owner',
@@ -33,6 +34,7 @@ export default class IGMedia extends AbstractCrudObject {
       thumbnail_url: 'thumbnail_url',
       timestamp: 'timestamp',
       username: 'username',
+      video_title: 'video_title',
     });
   }
 

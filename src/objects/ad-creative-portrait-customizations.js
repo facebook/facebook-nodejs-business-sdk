@@ -16,6 +16,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class AdCreativePortraitCustomizations extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
+      carousel_delivery_mode: 'carousel_delivery_mode',
       specifications: 'specifications',
     });
   }

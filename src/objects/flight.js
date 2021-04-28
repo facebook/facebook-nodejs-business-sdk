@@ -7,6 +7,8 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 
 /**
  * Flight
@@ -24,6 +26,7 @@ export default class Flight extends AbstractCrudObject {
       destination_city: 'destination_city',
       flight_id: 'flight_id',
       id: 'id',
+      image_fetch_status: 'image_fetch_status',
       images: 'images',
       oneway_currency: 'oneway_currency',
       oneway_price: 'oneway_price',
@@ -35,6 +38,36 @@ export default class Flight extends AbstractCrudObject {
     });
   }
 
+  static get ImageFetchStatus (): Object {
+    return Object.freeze({
+      direct_upload: 'DIRECT_UPLOAD',
+      fetched: 'FETCHED',
+      fetch_failed: 'FETCH_FAILED',
+      no_status: 'NO_STATUS',
+      outdated: 'OUTDATED',
+      partial_fetch: 'PARTIAL_FETCH',
+    });
+  }
+
+  getAugmentedRealitiesMetadata (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/augmented_realities_metadata'
+    );
+  }
+
+  getVideosMetadata (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/videos_metadata'
+    );
+  }
 
   
   get (fields: Array<string>, params: Object = {}): Flight {

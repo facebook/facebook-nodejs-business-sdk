@@ -48,6 +48,7 @@ export default class ProductItem extends AbstractCrudObject {
       gtin: 'gtin',
       id: 'id',
       image_cdn_urls: 'image_cdn_urls',
+      image_fetch_status: 'image_fetch_status',
       image_url: 'image_url',
       images: 'images',
       inventory: 'inventory',
@@ -118,6 +119,16 @@ export default class ProductItem extends AbstractCrudObject {
       female: 'female',
       male: 'male',
       unisex: 'unisex',
+    });
+  }
+  static get ImageFetchStatus (): Object {
+    return Object.freeze({
+      direct_upload: 'DIRECT_UPLOAD',
+      fetched: 'FETCHED',
+      fetch_failed: 'FETCH_FAILED',
+      no_status: 'NO_STATUS',
+      outdated: 'OUTDATED',
+      partial_fetch: 'PARTIAL_FETCH',
     });
   }
   static get ReviewStatus (): Object {

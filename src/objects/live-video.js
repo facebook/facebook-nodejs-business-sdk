@@ -110,12 +110,20 @@ export default class LiveVideo extends AbstractCrudObject {
   }
   static get LiveCommentModerationSetting (): Object {
     return Object.freeze({
+      default: 'DEFAULT',
       discussion: 'DISCUSSION',
       follower: 'FOLLOWER',
       protected_mode: 'PROTECTED_MODE',
       restricted: 'RESTRICTED',
       slow: 'SLOW',
       supporter: 'SUPPORTER',
+    });
+  }
+  static get PersistentStreamKeyStatus (): Object {
+    return Object.freeze({
+      disable: 'DISABLE',
+      enable: 'ENABLE',
+      regenerate: 'REGENERATE',
     });
   }
 

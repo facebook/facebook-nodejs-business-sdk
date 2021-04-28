@@ -18,6 +18,7 @@ export default class AdRuleExecutionSpec extends AbstractCrudObject {
     return Object.freeze({
       execution_options: 'execution_options',
       execution_type: 'execution_type',
+      id: 'id',
     });
   }
 
@@ -37,5 +38,14 @@ export default class AdRuleExecutionSpec extends AbstractCrudObject {
       unpause: 'UNPAUSE',
       update_creative: 'UPDATE_CREATIVE',
     });
+  }
+
+  
+  get (fields: Array<string>, params: Object = {}): AdRuleExecutionSpec {
+    // $FlowFixMe : Support Generic Types
+    return this.read(
+      fields,
+      params
+    );
   }
 }
