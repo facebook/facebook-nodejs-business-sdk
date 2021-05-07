@@ -68,18 +68,39 @@ export default class UserData {
 	constructor(email: string, phone: string, gender: string, first_name: string, last_name: string, date_of_birth: string,
 		city: string, state: string, zip: string, country: string, external_id: string, client_ip_address: string, client_user_agent: string,
 		fbp: string, fbc: string, subscription_id: string, fb_login_id: string, lead_id: string, dobd: string, dobm: string, doby: string) {
-
-		this._emails = new Array(email);
-		this._phones = new Array(phone);
-		this._genders = new Array(gender);
-		this._first_names = new Array(first_name);
-		this._last_names = new Array(last_name);
-		this._dates_of_birth = new Array(date_of_birth);
-		this._cities = new Array(city);
-		this._states = new Array(state);
-		this._countries = new Array(country);
-		this._zips = new Array(zip);
-		this._external_ids = new Array(external_id);
+		if (email != null) {
+			this._emails = new Array(email);
+		}
+		if (phone != null) {
+			this._phones = new Array(phone);
+		}
+		if (gender != null) {
+			this._genders = new Array(gender);
+		}
+		if (first_name != null) {
+			this._first_names = new Array(first_name);
+		}
+		if (last_name != null) {
+			this._last_names = new Array(last_name);
+		}
+		if (date_of_birth != null) {
+			this._dates_of_birth = new Array(date_of_birth);
+		}
+		if (city != null) {
+			this._cities = new Array(city);
+		}
+		if (state != null) {
+			this._states = new Array(state);
+		}
+		if (country != null) {
+			this._countries = new Array(country);
+		}
+		if (zip != null) {
+			this._zips = new Array(zip);
+		}
+		if (external_id != null) {
+			this._external_ids = new Array(external_id);
+		}
 		this._client_ip_address = client_ip_address;
 		this._client_user_agent = client_user_agent;
 		this._fbp = fbp;

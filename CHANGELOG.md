@@ -5,6 +5,9 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+## Changed
+- Fixed sending null values for UserData multi-value fields in Conversions API.
+
 ## v10.0.1
 
 

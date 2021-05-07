@@ -27,6 +27,16 @@ describe('UserData', function() {
             expect(normalizedUserData.f5first).to.equal(sha256(testNameField));
         });
 
+        it('normalize returns only the fields that were set', function() {
+            const phone = '12223334444';
+            const userData = (new UserData()).setPhone(phone);
+            const normalizedUserData = userData.normalize();
+
+            expect(normalizedUserData).to.deep.equal({
+                'ph': [sha256(phone)],
+            });
+        });
+
         it('Multiple value fields should dedup, normalize, and hash.', function() {
 
             // Arrange
@@ -302,4 +312,3 @@ function validateValues(fieldName, rawValues, actualNormalizedValues) {
     }
     expect(actualNormalizedValues, fieldName.concat(' values do not match.')).to.eql(Array.from(expectedValues));
 }
-
