@@ -1,7 +1,7 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('fs'), require('path')) :
-    typeof define === 'function' && define.amd ? define(['exports', 'fs', 'path'], factory) :
-    (factory((global.fb = global.fb || {}),global.fs,global.path));
+	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('fs'), require('path')) :
+	typeof define === 'function' && define.amd ? define(['exports', 'fs', 'path'], factory) :
+	(factory((global.fb = global.fb || {}),global.fs,global.path));
 }(this, (function (exports,fs,path) { 'use strict';
 
 fs = 'default' in fs ? fs['default'] : fs;
@@ -399,7 +399,12 @@ var FacebookAdsApi = function () {
   createClass(FacebookAdsApi, null, [{
     key: 'VERSION',
     get: function get() {
-      return 'v8.0';
+      return 'v10.0';
+    }
+  }, {
+    key: 'SDK_VERSION',
+    get: function get() {
+      return '10.0.1';
     }
   }, {
     key: 'GRAPH',
@@ -674,7 +679,7 @@ var Http = function () {
         method: method,
         uri: url,
         json: !useMultipartFormData,
-        headers: { 'User-Agent': 'fbbizsdk-nodejs-' + FacebookAdsApi.VERSION },
+        headers: { 'User-Agent': 'fbbizsdk-nodejs-v' + FacebookAdsApi.SDK_VERSION },
         body: Object,
         resolveWithFullResponse: showHeader
       };
@@ -1273,1410 +1278,6 @@ var FacebookAdsApiBatch = function () {
     }
   }]);
   return FacebookAdsApiBatch;
-}();
-
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the license found in the
- * LICENSE file in the root directory of this source tree.
- * 
- */
-
-/**
- * Content is part of the Custom Data Parameters of a Server Side Event Request. Content can be used to set the item/product details added in the Custom Data.
- * @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#custom}
- */
-
-var Content = function () {
-
-	/**
-  * @param {String} id Product Id of the Item.
-  * @param {Number} quantity Quantity of the Item.
-  * @param {Number} item_price Price per unit of the content/product.
-  * @param {String} title Title of the listed Item.
-  * @param {String} description Product description used for the item.
-  * @param {String} brand Brand of the item.
-  * @param {String} category Category of the Item.
-  */
-	function Content(id, quantity, item_price, title, description, brand, category) {
-		classCallCheck(this, Content);
-
-
-		this._id = id;
-		this._quantity = quantity;
-		this._item_price = item_price;
-		this._title = title;
-		this._description = description;
-		this._brand = brand;
-		this._category = category;
-	}
-
-	/**
-  * Gets the Product Id of the Item.
-  * A string representing the unique Id for the product.
-  * Example: XYZ.
-  */
-
-
-	createClass(Content, [{
-		key: 'setId',
-
-
-		/**
-  * Sets the Product Id of the Item.
-  * @param id is a string representing the unique id for the product.
-  * Example: XYZ.
-  */
-		value: function setId(id) {
-			this._id = id;
-			return this;
-		}
-
-		/**
-   * Gets the quantity of the Item.
-   * The number/quantity of the content that is being involved in the customer interaction.
-   * Example: 5
-   */
-
-	}, {
-		key: 'setQuantity',
-
-
-		/**
-  * Sets the quantity of the Content/Item.
-  * @param {Number} quantity The number/quantity of the product that is being involved in the customer interaction.
-  * Example: 5
-  */
-		value: function setQuantity(quantity) {
-			this._quantity = quantity;
-			return this;
-		}
-
-		/**
-   * Gets the item price for the Product.
-   * The item_price or price per unit of the product.
-   * Example: '123.45'
-   */
-
-	}, {
-		key: 'setItemPrice',
-
-
-		/**
-  * Sets the item price for the Content.
-  * @param {Number} item_price The item_price or price per unit of the product.
-  * Example: '123.45'
-  */
-		value: function setItemPrice(item_price) {
-			this._item_price = item_price;
-			return this;
-		}
-
-		/**
-   * Gets the Title of the listed Item.
-   * A string representing the Title for the product.
-   */
-
-	}, {
-		key: 'setTitle',
-
-
-		/**
-  * Sets the Title of the Item.
-  * @param title is a string representing listed title for the product.
-  */
-		value: function setTitle(title) {
-			this._title = title;
-			return this;
-		}
-
-		/**
-   * Gets the Description of the listed Item.
-   * A string representing the Description for the product.
-   */
-
-	}, {
-		key: 'setDescription',
-
-
-		/**
-  * Sets the Product Description of the Item.
-  * @param description is a string representing the description for the product.
-  */
-		value: function setDescription(description) {
-			this._description = description;
-			return this;
-		}
-
-		/**
-   * Gets the Brand of the listed Item.
-   * A string representing the Brand for the product.
-   */
-
-	}, {
-		key: 'setBrand',
-
-
-		/**
-   * Sets the Brand of the Product.
-   * @param brand is a string representing the Brand for the product.
-   */
-		value: function setBrand(brand) {
-			this._brand = brand;
-			return this;
-		}
-
-		/**
-   * Gets the Category of the listed Item.
-   * A string representing the Category for the product.
-   */
-
-	}, {
-		key: 'setCategory',
-
-
-		/**
-   * Sets the Category of the Product.
-   * @param category is a string representing the Category for the product.
-   */
-		value: function setCategory(category) {
-			this._category = category;
-			return this;
-		}
-
-		/**
-   * Returns the normalized payload for the Content.
-   * @returns {Object} normalized Content payload.
-   */
-
-	}, {
-		key: 'normalize',
-		value: function normalize() {
-			var content = {};
-
-			if (this.id) {
-				content['id'] = this.id;
-			}
-
-			if (this.quantity) {
-				content['quantity'] = this.quantity;
-			}
-
-			if (this.item_price) {
-				content['item_price'] = this.item_price;
-			}
-
-			if (this.title) {
-				content['title'] = this.title;
-			}
-
-			if (this.description) {
-				content['description'] = this.description;
-			}
-
-			if (this.brand) {
-				content['brand'] = this.brand;
-			}
-
-			if (this.category) {
-				content['category'] = this.category;
-			}
-
-			return content;
-		}
-	}, {
-		key: 'id',
-		get: function get() {
-			return this._id;
-		}
-
-		/**
-   * Sets the Product Id of the Item.
-   * @param id A string representing the unique Id for the product.
-   * Example: XYZ.
-   */
-		,
-		set: function set(id) {
-			this._id = id;
-		}
-	}, {
-		key: 'quantity',
-		get: function get() {
-			return this._quantity;
-		}
-
-		/**
-   * Sets the quantity of the Item.
-   * @param quantity The number/quantity of the product that is being involved in the customer interaction.
-   * Example: 5
-   */
-		,
-		set: function set(quantity) {
-			this._quantity = quantity;
-		}
-	}, {
-		key: 'item_price',
-		get: function get() {
-			return this._item_price;
-		}
-
-		/**
-   * Sets the item price for the Content.
-   * @param item_price The item_price or price per unit of the product.
-   * Example: '123.45'
-   */
-		,
-		set: function set(item_price) {
-			this._item_price = item_price;
-		}
-	}, {
-		key: 'title',
-		get: function get() {
-			return this._title;
-		}
-
-		/**
-   * Sets the Title of the listed Item.
-   * @param title A string representing the Title for the product.
-   */
-		,
-		set: function set(title) {
-			this._title = title;
-		}
-	}, {
-		key: 'description',
-		get: function get() {
-			return this._description;
-		}
-
-		/**
-   * Sets the Description of the listed Item.
-   * @param description A string representing the Description for the product.
-   */
-		,
-		set: function set(description) {
-			this._description = description;
-		}
-	}, {
-		key: 'brand',
-		get: function get() {
-			return this._brand;
-		}
-
-		/**
-   * Sets the Brand of the listed Item.
-   * @param brand A string representing the Brand for the product.
-   */
-		,
-		set: function set(brand) {
-			this._brand = brand;
-		}
-	}, {
-		key: 'category',
-		get: function get() {
-			return this._category;
-		}
-
-		/**
-   * Sets the Category of the listed Item.
-   * @param category A string representing the Category for the product.
-   */
-		,
-		set: function set(category) {
-			this._category = category;
-		}
-	}]);
-	return Content;
-}();
-
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the license found in the
- * LICENSE file in the root directory of this source tree.
- * 
- */
-
-/**
- * Type of delivery for a purchase event.
- */
-
-var DeliveryCategory = Object.freeze({
-
-  /**
-  * Customer needs to enter the store to get the purchased product.
-  */
-  IN_STORE: 'in_store',
-
-  /**
-  * Customer picks up their order by driving to a store and waiting inside their vehicle.
-  */
-  CURBSIDE: 'curbside',
-
-  /**
-  * Purchase is delivered to the customer's home.
-  */
-  HOME_DELIVERY: 'home_delivery'
-});
-
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the license found in the
- * LICENSE file in the root directory of this source tree.
- * 
- */
-
-var sha256 = require('js-sha256');
-var currency_codes = require('currency-codes');
-var country_codes = require('iso-3166-1-alpha-2');
-
-var PHONE_NUMBER_IGNORE_CHAR_SET = /[\-@#<>'",; ]|\(|\)|\+|[a-z]/g;
-var PHONE_NUMBER_DROP_PREFIX_ZEROS = /^\+?0{0,2}/;
-var US_PHONE_NUMBER_REGEX = /^1\(?\d{3}\)?\d{7}$/;
-var INTL_PHONE_NUMBER_REGEX = /^\d{1,4}\(?\d{2,3}\)?\d{4,}$/;
-
-/**
- * ServerSideUtils contains the Utility modules used for sending Server Side Events
- */
-
-var ServerSideUtils = function () {
-  function ServerSideUtils() {
-    classCallCheck(this, ServerSideUtils);
-  }
-
-  createClass(ServerSideUtils, null, [{
-    key: 'normalizeAndHash',
-
-    /**
-     * Normalizes and hashes the input given the field name.
-     * @param  {String} [input] Value to be normalized. eg: `foo@bar.com` for email input.
-     * @param  {String} [field] Key(Type) of Value to be normalized eg: 'em' for email field.
-     * @return {String} Normalized and hashed value for the string.
-     */
-    value: function normalizeAndHash(input, field) {
-      if (field == null || input == null) {
-        return null;
-      }
-
-      var normalized_input = input.trim().toLowerCase();
-
-      if (normalized_input.length === 0) {
-        return null;
-      }
-
-      switch (field) {
-        case 'country':
-          normalized_input = ServerSideUtils.normalizeCountry(normalized_input);
-          break;
-        case 'ct':
-          normalized_input = ServerSideUtils.normalizeCity(normalized_input);
-          break;
-        case 'em':
-          normalized_input = ServerSideUtils.normalizeEmail(normalized_input);
-          break;
-        case 'ge':
-          normalized_input = ServerSideUtils.normalizeGender(normalized_input);
-          break;
-        case 'ph':
-          normalized_input = ServerSideUtils.normalizePhone(normalized_input);
-          break;
-        case 'st':
-          normalized_input = ServerSideUtils.normalizeState(normalized_input);
-          break;
-        case 'zp':
-          normalized_input = ServerSideUtils.normalizeZip(normalized_input);
-          break;
-        case 'f5first':
-        case 'f5last':
-          normalized_input = ServerSideUtils.normalizeF5NameField(normalized_input);
-          break;
-        case 'fi':
-          normalized_input = normalized_input.charAt(0);
-          break;
-        case 'dobd':
-          normalized_input = ServerSideUtils.normalizeDobd(normalized_input);
-          break;
-        case 'dobm':
-          normalized_input = ServerSideUtils.normalizeDobm(normalized_input);
-          break;
-        case 'doby':
-          normalized_input = ServerSideUtils.normalizeDoby(normalized_input);
-          break;
-      }
-
-      // Hashing the normalized input with SHA 256
-      var hashed_input = ServerSideUtils.toSHA256(normalized_input);
-      return hashed_input;
-    }
-
-    /**
-     * Normalizes the given country token and returns acceptable two letter ISO country code
-     * @param  {String} [country] country value to be normalized.
-     * @return {String} Normalized ISO country code.
-     */
-
-  }, {
-    key: 'normalizeCountry',
-    value: function normalizeCountry(country) {
-      if (country_codes.getCountry(country.toUpperCase()) == null) {
-        throw new Error("Invalid country code: '" + country + "'. Please follow ISO 3166-1 2-letter standard for representing country. eg: US");
-      }
-
-      return country;
-    }
-
-    /**
-     * Normalizes the given city and returns acceptable city value
-     * @param  {String} [city] city value to be normalized.
-     * @return {String} Normalized city value.
-     */
-
-  }, {
-    key: 'normalizeCity',
-    value: function normalizeCity(city) {
-      city = city.replace(/[0-9\s().-]/g, '');
-      return city;
-    }
-
-    /**
-     * Normalizes the given currency string and returns acceptable three letter  ISO code
-     * @param  {String} [currency] country value to be normalized.
-     * @return {String} Normalized ISO currency code.
-     */
-
-  }, {
-    key: 'normalizeCurrency',
-    value: function normalizeCurrency(currency) {
-      currency = currency.trim().toLowerCase();
-
-      // Retain only alpha characters bounded for ISO code.
-      currency = currency.replace(/[^a-zA-Z]/g, '');
-
-      if (!currency_codes.codes().includes(currency.toUpperCase())) {
-        throw new Error("Invalid format for currency:'" + currency + "'.Please follow ISO 4217 3-letter standard for representing currency. Eg: usd");
-      }
-
-      return currency;
-    }
-
-    /**
-     * Normalizes the given delivery category value and returns a valid string.
-     * @param  {String} [input] delivery_category input to be validated.
-     * @return {String} Valid delivery_category value.
-     */
-
-  }, {
-    key: 'normalizeDeliveryCategory',
-    value: function normalizeDeliveryCategory(input) {
-
-      var delivery_category = input.trim().toLowerCase();
-
-      if (!Object.values(DeliveryCategory).includes(delivery_category)) {
-        throw new Error("Invalid delivery_category passed: " + input + ". Allowed values are one of " + Object.values(DeliveryCategory).join(','));
-      }
-
-      return delivery_category;
-    }
-
-    /**
-     * Normalizes the given email to RFC 822 standard and returns acceptable email value
-     * @param  {String} [email] email value to be normalized.
-     * @return {String} Normalized email value.
-     */
-
-  }, {
-    key: 'normalizeEmail',
-    value: function normalizeEmail(email) {
-      // RFC 2822 REGEX approximation
-      var EMAIL_RE = /^[\w!#\$%&'\*\+\/\=\?\^`\{\|\}~\-]+(:?\.[\w!#\$%&'\*\+\/\=\?\^`\{\|\}~\-]+)*@(?:[a-z0-9](?:[a-z0-9\-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9\-]*[a-z0-9])?$/i;
-
-      if (!EMAIL_RE.test(email)) {
-        throw new Error("Invalid email format for the passed email:'" + email + "'.Please check the passed email format.");
-      }
-
-      return email;
-    }
-
-    /**
-     * Normalizes the given gender and returns acceptable('f' or 'm') gender value
-     * @param  {String} [gender] gender value to be normalized.
-     * @return {String} Normalized gender value.
-     */
-
-  }, {
-    key: 'normalizeGender',
-    value: function normalizeGender(gender) {
-      gender = gender.replace(/[^a-z]/g, '');
-
-      if (gender === 'female' || gender === 'f') {
-        gender = 'f';
-      } else if (gender === 'male' || gender === 'm') {
-        gender = 'm';
-      } else {
-        return null;
-      }
-
-      return gender;
-    }
-
-    /**
-    * Normalizes the 5 character name field.
-    * @param  {String} [name] name value to be normalized.
-    * @return {String} Normalized 5 character {first,last}name field value.
-    */
-
-  }, {
-    key: 'normalizeF5NameField',
-    value: function normalizeF5NameField(name) {
-
-      return name.length <= 5 ? name : name.substring(0, 5);
-    }
-
-    /**
-     * Normalizes the given phone and returns acceptable phone value
-     * @param  {String} [phone_number] phone number value to be normalized.
-     * @return {String} Normalized phone number value.
-     */
-
-  }, {
-    key: 'normalizePhone',
-    value: function normalizePhone(phone_number) {
-      // Remove common characters occuring as part of the phone numbers.
-      phone_number = phone_number.replace(PHONE_NUMBER_IGNORE_CHAR_SET, '');
-
-      if (ServerSideUtils.isInternationalPhoneNumber(phone_number)) {
-        phone_number = phone_number.replace(PHONE_NUMBER_DROP_PREFIX_ZEROS, '');
-      }
-
-      if (phone_number.length < 7 || phone_number.length > 15) {
-        throw new Error("Invalid phone number format for the passed phone number:'" + phone_number + "'.Please check the passed phone number format.");
-      }
-
-      return phone_number;
-    }
-
-    /**
-     * Normalizes the given state and returns acceptable city value
-     * @param  {String} [state] state value to be normalized.
-     * @return {String} Normalized state value.
-     */
-
-  }, {
-    key: 'normalizeState',
-    value: function normalizeState(state) {
-      state = state.replace(/[0-9\s().-]/g, '');
-      return state;
-    }
-
-    /**
-     * Normalizes the given zip/postal code and returns acceptable zip code value
-     * @param  {String} [zip] zip value to be normalized.
-     * @return {String} Normalized zip code value.
-     */
-
-  }, {
-    key: 'normalizeZip',
-    value: function normalizeZip(zip) {
-      zip = zip.replace(/[\s]/g, '');
-
-      // If the zip code '-', we retain just the first part alone.
-      zip = zip.split('-', 1)[0];
-
-      if (zip.length < 2) {
-        return null;
-      }
-
-      return zip;
-    }
-
-    /**
-     * Normalizes the given date of birth day
-     * @param  {String} [dobd] value to be normalized.
-     * @return {String} Normalized value.
-     */
-
-  }, {
-    key: 'normalizeDobd',
-    value: function normalizeDobd(dobd) {
-      if (dobd.length === 1) {
-        dobd = '0' + dobd;
-      }
-
-      var dobd_int = parseInt(dobd);
-      if (dobd_int < 1 || dobd_int > 31) {
-        throw new Error("Invalid format for dobd:'" + dobd + "'.Please use 'DD' format for dobd.");
-      }
-
-      return dobd;
-    }
-
-    /**
-     * Normalizes the given date of birth month
-     * @param  {String} [dobm] value to be normalized.
-     * @return {String} Normalized value.
-     */
-
-  }, {
-    key: 'normalizeDobm',
-    value: function normalizeDobm(dobm) {
-      if (dobm.length === 1) {
-        dobm = '0' + dobm;
-      }
-
-      var dobm_int = parseInt(dobm);
-      if (dobm_int < 1 || dobm_int > 12) {
-        throw new Error("Invalid format for dobm:'" + dobm + "'.Please use 'MM' format for dobm.");
-      }
-
-      return dobm;
-    }
-
-    /**
-     * Normalizes the given date of birth year
-     * @param  {String} [doby] value to be normalized.
-     * @return {String} Normalized value.
-     */
-
-  }, {
-    key: 'normalizeDoby',
-    value: function normalizeDoby(doby) {
-      if (!doby.match(/^[0-9]{4}$/)) {
-        throw new Error("Invalid format for doby:'" + doby + "'.Please use 'YYYY' format for doby.");
-      }
-
-      return doby;
-    }
-
-    /**
-     * Boolean method which checks if a given number is represented in international format
-     * @param  {String} phone_number that has to be tested.
-     * @return {Boolean} value if a number is represented international format
-     */
-
-  }, {
-    key: 'isInternationalPhoneNumber',
-    value: function isInternationalPhoneNumber(phone_number) {
-      // strip up to 2 leading 0s and +
-      phone_number = phone_number.replace(PHONE_NUMBER_DROP_PREFIX_ZEROS, '');
-
-      if (phone_number.startsWith('0')) {
-        return false;
-      }
-
-      if (phone_number.startsWith('1')) {
-        return US_PHONE_NUMBER_REGEX.test(phone_number);
-      }
-
-      return INTL_PHONE_NUMBER_REGEX.test(phone_number);
-    }
-
-    /**
-     * Calculates the SHA 256 hash of a given non-null string.
-     * @param  {String} [input] String to be hashed
-     * @return {String} SHA 256 Hash of the string
-     */
-
-  }, {
-    key: 'toSHA256',
-    value: function toSHA256(input) {
-      if (input === null) return input;
-
-      return sha256(input);
-    }
-  }]);
-  return ServerSideUtils;
-}();
-
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the license found in the
- * LICENSE file in the root directory of this source tree.
- * 
- */
-
-/**
- * CustomData represents the Custom Data Parameters of a Server Side Event Request. Use these parameters to send additional data we can use for ads delivery optimization.
- * @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#custom}
- */
-
-var CustomData = function () {
-
-	/**
-  * @param {Number} value value of the item Eg: 123.45
-  * @param {String} currency currency involved in the transaction Eg: usd
-  * @param {String} content_name name of the Content Eg: lettuce
-  * @param {String} content_category category of the content Eg: grocery
-  * @param {Array<String>} content_ids list of content unique ids involved in the event
-  * @param {Array<Content>} contents Array of Content Objects. Use {Content} class to define a content.
-  * @param {String} content_type Type of the Content group or Product SKU
-  * @param {String} order_id Unique id representing the order
-  * @param {Number} predicted_ltv Predicted LifeTime Value for the customer involved in the event
-  * @param {Number} num_items Number of items involved
-  * @param {String} search_string query string used for the Search event
-  * @param {String} status Status of the registration in Registration event
-  * @param {String} item_number The item number
-  * @param {String} delivery_category The type of delivery for a purchase event
-  * @param {Object} custom_properties Custom Properties to be added to the Custom Data
-  */
-	function CustomData(value, currency, content_name, content_category, content_ids, contents, content_type, order_id, predicted_ltv, num_items, search_string, status, item_number, delivery_category, custom_properties) {
-		classCallCheck(this, CustomData);
-
-
-		this._value = value;
-		this._currency = currency;
-		this._content_name = content_name;
-		this._content_category = content_category;
-		this._content_ids = content_ids;
-		this._contents = contents;
-		this._content_type = content_type;
-		this._order_id = order_id;
-		this._predicted_ltv = predicted_ltv;
-		this._num_items = num_items;
-		this._search_string = search_string;
-		this._status = status;
-		this._item_number = item_number;
-		this._delivery_category = delivery_category;
-		this._custom_properties = custom_properties;
-	}
-
-	/**
-  * Gets the value of the custom data.
-  * A numeric value associated with this event. This could be a monetary value or a value in some other metric.
-  * Example: 142.54.
-  */
-
-
-	createClass(CustomData, [{
-		key: 'setValue',
-
-
-		/**
-   * Sets the value of the custom data.
-   * @param {Number} value A numeric value associated with this event. This could be a monetary value or a value in some other metric.
-   * Example: 142.54.
-   */
-		value: function setValue(value) {
-			this._value = value;
-			return this;
-		}
-
-		/**
-   * Gets the currency for the custom data.
-   * The currency for the value specified, if applicable. Currency must be a valid ISO 4217 three digit currency code.
-   * Example: 'usd'
-   */
-
-	}, {
-		key: 'setCurrency',
-
-
-		/**
-   * Sets the currency for the custom data.
-   * @param {String} currency The currency for the value specified, if applicable. Currency must be a valid ISO 4217 three digit currency code.
-   * Example: 'usd'
-   */
-		value: function setCurrency(currency) {
-			this._currency = currency;
-			return this;
-		}
-
-		/**
-   * Gets the content name for the custom data. The name of the page or product associated with the event.
-   * The name of the page or product associated with the event.
-   * Example: 'lettuce'
-   */
-
-	}, {
-		key: 'setContentName',
-
-
-		/**
-   * Sets the content name for the custom data.
-   * @param content_name The name of the page or product associated with the event.
-   * Example: 'lettuce'
-   */
-		value: function setContentName(content_name) {
-			this._content_name = content_name;
-			return this;
-		}
-
-		/**
-   * Gets the content category for the custom data.
-   * The category of the content associated with the event.
-   * Example: 'grocery'
-   */
-
-	}, {
-		key: 'setContentCategory',
-
-
-		/**
-   * Sets the content_category for the custom data.
-   * @param content_category The category of the content associated with the event.
-   * Example: 'grocery'
-   */
-		value: function setContentCategory(content_category) {
-			this._content_category = content_category;
-			return this;
-		}
-
-		/**
-   * Gets the content_ids for the custom data.
-   * The content IDs associated with the event, such as product SKUs for items in an AddToCart, represented as Array of string.
-   * If content_type is a product, then your content IDs must be an array with a single string value. Otherwise, this array can contain any number of string values.
-   * Example: ['ABC123', 'XYZ789']
-   */
-
-	}, {
-		key: 'setContentIds',
-
-
-		/**
-   * Sets the content_ids for the custom data.
-   * @param {Array} content_ids The content IDs associated with the event, such as product SKUs for items in an AddToCart, represented as Array of string.
-   * If content_type is a product, then your content IDs must be an array with a single string value. Otherwise, this array can contain any number of string values.
-   * Example: ['ABC123', 'XYZ789']
-   */
-		value: function setContentIds(content_ids) {
-			this._content_ids = content_ids;
-			return this;
-		}
-
-		/**
-   * Gets the contents for the custom data.
-   * An array of Content objects that contain the product IDs associated with the event plus information about the products. id, quantity, and item_price are available fields.
-   * Example: [{'id':'ABC123','quantity' :2,'item_price':5.99}, {'id':'XYZ789','quantity':2, 'item_price':9.99}]
-   */
-
-	}, {
-		key: 'setContents',
-
-
-		/**
-   * Sets the contents for the custom data.
-   * @param {Array<Content>} contents An array of Content objects that contain the product IDs associated with the event plus information about the products. id, quantity, and item_price are available fields.
-   * Example: [{'id':'ABC123','quantity' :2,'item_price':5.99}, {'id':'XYZ789','quantity':2, 'item_price':9.99}]
-   */
-		value: function setContents(contents) {
-			this._contents = contents;
-			return this;
-		}
-
-		/**
-   * Gets the content type for the custom data.
-   * A String equal to either product or product_group. Set to product if the keys you send content_ids or contents represent products.
-   * Set to product_group if the keys you send in content_ids represent product groups.
-   */
-
-	}, {
-		key: 'setContentType',
-
-
-		/**
-   * Sets the content type for the custom data.
-   * @param {String} content_type A string equal to either product or product_group. Set to product if the keys you send content_ids or contents represent products.
-   * Set to product_group if the keys you send in content_ids represent product groups.
-   */
-		value: function setContentType(content_type) {
-			this._content_type = content_type;
-			return this;
-		}
-
-		/**
-   * Gets the order id for the custom data.
-   * order_id is the order ID for this transaction as a String.
-   * Example: 'order1234'
-   */
-
-	}, {
-		key: 'setOrderId',
-
-
-		/**
-   * Sets the order_id for the custom data.
-   * @param {String} order_id The order ID for this transaction as a String.
-   * Example: 'order1234'
-   */
-		value: function setOrderId(order_id) {
-			this._order_id = order_id;
-			return this;
-		}
-
-		/**
-   * Gets the predicted LifeTimeValue for the (user) in custom data.
-   * The predicted lifetime value of a conversion event, as a String.
-   * Example: '432.12'
-   */
-
-	}, {
-		key: 'setPredictedLtv',
-
-
-		/**
-   * Sets the predicted LifeTimeValue for the custom data.
-   * @param {Number} predicted_ltv The predicted lifetime value of a conversion event, as a String.
-   * Example: '432.12'
-   */
-		value: function setPredictedLtv(predicted_ltv) {
-			this._predicted_ltv = predicted_ltv;
-			return this;
-		}
-
-		/**
-   * Gets the number of items for the custom data.
-   * The number of items that a user tries to buy during checkout. Use only with InitiateCheckout type events.
-   * Example: 5
-   */
-
-	}, {
-		key: 'setNumItems',
-
-
-		/**
-   * Sets the number of items for the custom data.
-   * @param {Number} num_items The number of items that a user tries to buy during checkout. Use only with InitiateCheckout type events.
-   * Example: 5
-   */
-		value: function setNumItems(num_items) {
-			this._num_items = num_items;
-			return this;
-		}
-
-		/**
-   * Gets the search string for the custom data.
-   * A search query made by a user.Use only with Search events.
-   * Eg: 'lettuce'
-   */
-
-	}, {
-		key: 'setSearchString',
-
-
-		/**
-   * Sets the search string for the custom data.
-   * @param search_string A search query made by a user.Use only with Search events.
-   * Eg: 'lettuce'
-   */
-		value: function setSearchString(search_string) {
-			this._search_string = search_string;
-			return this;
-		}
-
-		/**
-   * Gets the item number.
-   */
-
-	}, {
-		key: 'setItemNumber',
-
-
-		/**
-   * Sets the item number.
-   * @param {String} item_number The item number.
-   */
-		value: function setItemNumber(item_number) {
-			this._item_number = item_number;
-			return this;
-		}
-
-		/**
-   * Gets the delivery category.
-   */
-
-	}, {
-		key: 'setDeliveryCategory',
-
-
-		/**
-   * Sets the type of delivery for a purchase event.
-   * @param {String} delivery_category The delivery category.
-   */
-		value: function setDeliveryCategory(delivery_category) {
-			this._delivery_category = delivery_category;
-			return this;
-		}
-
-		/**
-   * Gets the custom properties to be included in the Custom Data.
-   * If our predefined object properties don't suit your needs, you can include your own, custom properties. Custom properties can be used with both standard and custom events, and can help you further define custom audiences.
-   * This behavior is the same for Server-Side API and Facebook Pixel.
-   * @see {@link https://developers.facebook.com/docs/marketing-api/server-side-api/parameters/custom-data#custom-properties}
-   * Eg: '{ 'warehouse_location' : 'washington', 'package_size' : 'L'}'
-   */
-
-	}, {
-		key: 'setCustomProperties',
-
-
-		/**
-   * Sets the search string for the custom data.
-   * @param custom_properties A custom properties property bag to be included in the Custom Data.
-   * If our predefined object properties don't suit your needs, you can include your own, custom properties. Custom properties can be used with both standard and custom events, and can help you further define custom audiences.
-   * This behavior is the same for Server-Side API and Facebook Pixel.
-   * @see {@link https://developers.facebook.com/docs/marketing-api/server-side-api/parameters/custom-data#custom-properties}
-   * Eg: '{ 'warehouse_location' : 'washington', 'package_size' : 'L'}'
-   * * @returns {Object} custom_properties property bag.
-   */
-		value: function setCustomProperties(custom_properties) {
-			this._custom_properties = custom_properties;
-			return this;
-		}
-
-		/**
-   * Gets the status of the registration event.
-   * Status of the registration event, as a String.Use only with CompleteRegistration events.
-   */
-
-	}, {
-		key: 'setStatus',
-
-
-		/**
-   * Sets the status of the registration event.
-   * @param {String} status Status of the registration event, as a String. Use only with CompleteRegistration events.
-   */
-		value: function setStatus(status) {
-			this._status = status;
-			return this;
-		}
-
-		/**
-   * Adds the custom property (key, value) to the custom property bag.
-   * @param {string} key The Key for the property to be added.
-   * @param {string} value The Value for the property to be added.
-   */
-
-	}, {
-		key: 'add_custom_property',
-		value: function add_custom_property(key, value) {
-
-			if (this.custom_properties == null) {
-				this.custom_properties = {};
-			}
-
-			this.custom_properties[key] = value;
-		}
-
-		/**
-   * Returns the normalized payload for the custom_data.
-   * @returns {Object} normalized custom_data payload.
-   */
-
-	}, {
-		key: 'normalize',
-		value: function normalize() {
-			var customData = {};
-
-			if (this.value) {
-				customData['value'] = this.value;
-			}
-
-			if (this.currency) {
-				customData['currency'] = ServerSideUtils.normalizeCurrency(this.currency);
-			}
-
-			if (this.content_name) {
-				customData['content_name'] = this.content_name;
-			}
-
-			if (this.content_category) {
-				customData['content_category'] = this.content_category;
-			}
-
-			if (this.content_ids) {
-				customData['content_ids'] = this.content_ids;
-			}
-
-			if (this.contents) {
-				var normalized_contents = [];
-
-				for (var i = 0; i < this.contents.length; i++) {
-					var content = this.contents[i];
-					var normalized_content = content.normalize.call(content);
-					normalized_contents.push(normalized_content);
-				}
-
-				customData['contents'] = normalized_contents;
-			}
-
-			if (this.content_type) {
-				customData['content_type'] = this.content_type;
-			}
-
-			if (this.order_id) {
-				customData['order_id'] = this.order_id;
-			}
-
-			if (this.predicted_ltv) {
-				customData['predicted_ltv'] = this.predicted_ltv;
-			}
-
-			if (this.num_items) {
-				customData['num_items'] = this.num_items;
-			}
-
-			if (this.search_string) {
-				customData['search_string'] = this.search_string;
-			}
-
-			if (this.status) {
-				customData['status'] = this.status;
-			}
-
-			if (this.item_number) {
-				customData['item_number'] = this.item_number;
-			}
-
-			if (this.delivery_category) {
-				customData['delivery_category'] = ServerSideUtils.normalizeDeliveryCategory(this.delivery_category);
-			}
-
-			if (this.custom_properties) {
-				for (var key in this.custom_properties) {
-					if (customData.hasOwnProperty(key)) {
-						throw new Error('Duplicate key in custom_properties:"' + key + '". Please make sure the keys defined in the custom_properties are not already available in standard custom_data property list.');
-					}
-
-					customData[key] = this.custom_properties[key];
-				}
-			}
-
-			return customData;
-		}
-	}, {
-		key: 'value',
-		get: function get() {
-			return this._value;
-		}
-
-		/**
-   * Sets the value of the custom data.
-   * @param value A numeric value associated with this event. This could be a monetary value or a value in some other metric.
-   * Example: 142.54.
-   */
-		,
-		set: function set(value) {
-			this._value = value;
-		}
-	}, {
-		key: 'currency',
-		get: function get() {
-			return this._currency;
-		}
-
-		/**
-   * Sets the currency for the custom data.
-   * @param currency The currency for the value specified, if applicable. Currency must be a valid ISO 4217 three digit currency code.
-   * Example: 'usd'
-   */
-		,
-		set: function set(currency) {
-			this._currency = currency;
-		}
-	}, {
-		key: 'content_name',
-		get: function get() {
-			return this._content_name;
-		}
-
-		/**
-   * Sets the content name for the custom data.
-   * @param content_name The name of the page or product associated with the event.
-   * Example: 'lettuce'
-   */
-		,
-		set: function set(content_name) {
-			this._content_name = content_name;
-		}
-	}, {
-		key: 'content_category',
-		get: function get() {
-			return this._content_category;
-		}
-
-		/**
-   * Sets the content_category for the custom data.
-   * @param content_category The category of the content associated with the event.
-   * Example: 'grocery'
-   */
-		,
-		set: function set(content_category) {
-			this._content_category = content_category;
-		}
-	}, {
-		key: 'content_ids',
-		get: function get() {
-			return this._content_ids;
-		}
-
-		/**
-   * Sets the content_ids for the custom data.
-   * @param content_ids The content IDs associated with the event, such as product SKUs for items in an AddToCart, represented as Array of string.
-   * If content_type is a product, then your content IDs must be an array with a single string value. Otherwise, this array can contain any number of string values.
-   * Example: ['ABC123', 'XYZ789']
-   */
-		,
-		set: function set(content_ids) {
-			this._content_ids = content_ids;
-		}
-	}, {
-		key: 'contents',
-		get: function get() {
-			return this._contents;
-		}
-
-		/**
-   * Sets the contents for the custom data.
-   * @param contents An array of Content objects that contain the product IDs associated with the event plus information about the products. id, quantity, and item_price are available fields.
-   * Example: [{'id':'ABC123','quantity' :2,'item_price':5.99}, {'id':'XYZ789','quantity':2, 'item_price':9.99}]
-   */
-		,
-		set: function set(contents) {
-			this._contents = contents;
-		}
-	}, {
-		key: 'content_type',
-		get: function get() {
-			return this._content_type;
-		}
-
-		/**
-   * Sets the content type for the custom data.
-   * A String equal to either product or product_group. Set to product if the keys you send content_ids or contents represent products.
-   * Set to product_group if the keys you send in content_ids represent product groups.
-   */
-		,
-		set: function set(content_type) {
-			this._content_type = content_type;
-		}
-	}, {
-		key: 'order_id',
-		get: function get() {
-			return this._order_id;
-		}
-
-		/**
-   * Sets the order_id for the custom data.
-   * @param order_id The order ID for this transaction as a String.
-   * Example: 'order1234'
-   */
-		,
-		set: function set(order_id) {
-			this._order_id = order_id;
-		}
-	}, {
-		key: 'predicted_ltv',
-		get: function get() {
-			return this._predicted_ltv;
-		}
-
-		/**
-   * Sets the predicted LifeTimeValue for the custom data.
-   * @param predicted_ltv The predicted lifetime value of a conversion event, as a String.
-   * Example: '432.12'
-   */
-		,
-		set: function set(predicted_ltv) {
-			this._predicted_ltv = predicted_ltv;
-		}
-	}, {
-		key: 'num_items',
-		get: function get() {
-			return this._num_items;
-		}
-
-		/**
-   * Sets the number of items for the custom data.
-   * @param num_items The number of items that a user tries to buy during checkout. Use only with InitiateCheckout type events.
-   * Example: 5
-   */
-		,
-		set: function set(num_items) {
-			this._num_items = num_items;
-		}
-	}, {
-		key: 'search_string',
-		get: function get() {
-			return this._search_string;
-		}
-
-		/**
-   * Sets the search string for the custom data.
-   * @param {Number} search_string A search query made by a user.Use only with Search events.
-   * Eg: 'lettuce'
-   */
-		,
-		set: function set(search_string) {
-			this._search_string = search_string;
-		}
-	}, {
-		key: 'item_number',
-		get: function get() {
-			return this._item_number;
-		}
-
-		/**
-   * Sets the item number.
-   * @param item_number The item number.
-   */
-		,
-		set: function set(item_number) {
-			this._item_number = item_number;
-		}
-	}, {
-		key: 'delivery_category',
-		get: function get() {
-			return this._delivery_category;
-		}
-
-		/**
-   * Sets the type of delivery for a purchase event.
-   * @param delivery_category The delivery category.
-   */
-		,
-		set: function set(delivery_category) {
-			this._delivery_category = delivery_category;
-		}
-	}, {
-		key: 'custom_properties',
-		get: function get() {
-			return this._custom_properties;
-		}
-
-		/**
-   * Sets the custom properties to be included in the Custom Data.
-   * If our predefined object properties don't suit your needs, you can include your own, custom properties. Custom properties can be used with both standard and custom events, and can help you further define custom audiences.
-   * This behavior is the same for Server-Side API and Facebook Pixel.
-   * @see {@link https://developers.facebook.com/docs/marketing-api/server-side-api/parameters/custom-data#custom-properties}
-   * @param {Object} custom_properties custom properties property bag to be included in the Custom Data. Eg: '{ 'warehouse_location' : 'washington', 'package_size' : 'L'}'
-   */
-		,
-		set: function set(custom_properties) {
-			this._custom_properties = custom_properties;
-		}
-	}, {
-		key: 'status',
-		get: function get() {
-			return this._status;
-		}
-
-		/**
-   * Sets the status of the registration event.
-   * @param status Status of the registration event, as a String.Use only with CompleteRegistration events.
-   */
-		,
-		set: function set(status) {
-			this._status = status;
-		}
-	}]);
-	return CustomData;
 }();
 
 /**
@@ -3293,6 +1894,1454 @@ var AbstractCrudObject = function (_AbstractObject) {
  * LICENSE file in the root directory of this source tree.
  * 
  */
+
+/**
+ * Type of delivery for a purchase event.
+ */
+
+var DeliveryCategory = Object.freeze({
+
+  /**
+  * Customer needs to enter the store to get the purchased product.
+  */
+  IN_STORE: 'in_store',
+
+  /**
+  * Customer picks up their order by driving to a store and waiting inside their vehicle.
+  */
+  CURBSIDE: 'curbside',
+
+  /**
+  * Purchase is delivered to the customer's home.
+  */
+  HOME_DELIVERY: 'home_delivery'
+});
+
+/**
+ * Copyright (c) 2017-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
+ * 
+ */
+
+var sha256 = require('js-sha256');
+var currency_codes = require('currency-codes');
+var country_codes = require('iso-3166-1-alpha-2');
+
+var PHONE_NUMBER_IGNORE_CHAR_SET = /[\-@#<>'",; ]|\(|\)|\+|[a-z]/g;
+var PHONE_NUMBER_DROP_PREFIX_ZEROS = /^\+?0{0,2}/;
+var US_PHONE_NUMBER_REGEX = /^1\(?\d{3}\)?\d{7}$/;
+var INTL_PHONE_NUMBER_REGEX = /^\d{1,4}\(?\d{2,3}\)?\d{4,}$/;
+var SHA256_REGEX = /^[a-f0-9]{64}$/;
+var MD5_REGEX = /^[a-f0-9]{32}$/;
+
+/**
+ * ServerSideUtils contains the Utility modules used for sending Conversions API Events
+ */
+
+var ServerSideUtils = function () {
+  function ServerSideUtils() {
+    classCallCheck(this, ServerSideUtils);
+  }
+
+  createClass(ServerSideUtils, null, [{
+    key: 'normalizeAndHash',
+
+    /**
+     * Normalizes and hashes the input given the field name.
+     * @param  {String} [input] Value to be normalized. eg: `foo@bar.com` for email input.
+     * @param  {String} [field] Key(Type) of Value to be normalized eg: 'em' for email field.
+     * @return {String} Normalized and hashed value for the string.
+     */
+    value: function normalizeAndHash(input, field) {
+      if (field == null || input == null) {
+        return null;
+      }
+
+      var normalized_input = input.trim().toLowerCase();
+
+      if (normalized_input.length === 0) {
+        return null;
+      }
+
+      if (normalized_input.match(SHA256_REGEX) || normalized_input.match(MD5_REGEX)) {
+        return normalized_input;
+      }
+
+      switch (field) {
+        case 'country':
+          normalized_input = ServerSideUtils.normalizeCountry(normalized_input);
+          break;
+        case 'ct':
+          normalized_input = ServerSideUtils.normalizeCity(normalized_input);
+          break;
+        case 'em':
+          normalized_input = ServerSideUtils.normalizeEmail(normalized_input);
+          break;
+        case 'ge':
+          normalized_input = ServerSideUtils.normalizeGender(normalized_input);
+          break;
+        case 'ph':
+          normalized_input = ServerSideUtils.normalizePhone(normalized_input);
+          break;
+        case 'st':
+          normalized_input = ServerSideUtils.normalizeState(normalized_input);
+          break;
+        case 'zp':
+          normalized_input = ServerSideUtils.normalizeZip(normalized_input);
+          break;
+        case 'f5first':
+        case 'f5last':
+          normalized_input = ServerSideUtils.normalizeF5NameField(normalized_input);
+          break;
+        case 'fi':
+          normalized_input = normalized_input.charAt(0);
+          break;
+        case 'dobd':
+          normalized_input = ServerSideUtils.normalizeDobd(normalized_input);
+          break;
+        case 'dobm':
+          normalized_input = ServerSideUtils.normalizeDobm(normalized_input);
+          break;
+        case 'doby':
+          normalized_input = ServerSideUtils.normalizeDoby(normalized_input);
+          break;
+      }
+
+      // Hashing the normalized input with SHA 256
+      var hashed_input = ServerSideUtils.toSHA256(normalized_input);
+      return hashed_input;
+    }
+
+    /**
+     * Normalizes the given country token and returns acceptable two letter ISO country code
+     * @param  {String} [country] country value to be normalized.
+     * @return {String} Normalized ISO country code.
+     */
+
+  }, {
+    key: 'normalizeCountry',
+    value: function normalizeCountry(country) {
+      if (country_codes.getCountry(country.toUpperCase()) == null) {
+        throw new Error("Invalid country code: '" + country + "'. Please follow ISO 3166-1 2-letter standard for representing country. eg: US");
+      }
+
+      return country;
+    }
+
+    /**
+     * Normalizes the given city and returns acceptable city value
+     * @param  {String} [city] city value to be normalized.
+     * @return {String} Normalized city value.
+     */
+
+  }, {
+    key: 'normalizeCity',
+    value: function normalizeCity(city) {
+      city = city.replace(/[0-9\s().-]/g, '');
+      return city;
+    }
+
+    /**
+     * Normalizes the given currency string and returns acceptable three letter  ISO code
+     * @param  {String} [currency] country value to be normalized.
+     * @return {String} Normalized ISO currency code.
+     */
+
+  }, {
+    key: 'normalizeCurrency',
+    value: function normalizeCurrency(currency) {
+      currency = currency.trim().toLowerCase();
+
+      // Retain only alpha characters bounded for ISO code.
+      currency = currency.replace(/[^a-zA-Z]/g, '');
+
+      if (!currency_codes.codes().includes(currency.toUpperCase())) {
+        throw new Error("Invalid format for currency:'" + currency + "'.Please follow ISO 4217 3-letter standard for representing currency. Eg: usd");
+      }
+
+      return currency;
+    }
+
+    /**
+     * Normalizes the given delivery category value and returns a valid string.
+     * @param  {String} [input] delivery_category input to be validated.
+     * @return {String} Valid delivery_category value.
+     */
+
+  }, {
+    key: 'normalizeDeliveryCategory',
+    value: function normalizeDeliveryCategory(input) {
+
+      var delivery_category = input.trim().toLowerCase();
+
+      if (!Object.values(DeliveryCategory).includes(delivery_category)) {
+        throw new Error("Invalid delivery_category passed: " + input + ". Allowed values are one of " + Object.values(DeliveryCategory).join(','));
+      }
+
+      return delivery_category;
+    }
+
+    /**
+     * Normalizes the given email to RFC 822 standard and returns acceptable email value
+     * @param  {String} [email] email value to be normalized.
+     * @return {String} Normalized email value.
+     */
+
+  }, {
+    key: 'normalizeEmail',
+    value: function normalizeEmail(email) {
+      // RFC 2822 REGEX approximation
+      var EMAIL_RE = /^[\w!#\$%&'\*\+\/\=\?\^`\{\|\}~\-]+(:?\.[\w!#\$%&'\*\+\/\=\?\^`\{\|\}~\-]+)*@(?:[a-z0-9](?:[a-z0-9\-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9\-]*[a-z0-9])?$/i;
+
+      if (!EMAIL_RE.test(email)) {
+        throw new Error("Invalid email format for the passed email:'" + email + "'.Please check the passed email format.");
+      }
+
+      return email;
+    }
+
+    /**
+     * Normalizes the given gender and returns acceptable('f' or 'm') gender value
+     * @param  {String} [gender] gender value to be normalized.
+     * @return {String} Normalized gender value.
+     */
+
+  }, {
+    key: 'normalizeGender',
+    value: function normalizeGender(gender) {
+      gender = gender.replace(/[^a-z]/g, '');
+
+      if (gender === 'female' || gender === 'f') {
+        gender = 'f';
+      } else if (gender === 'male' || gender === 'm') {
+        gender = 'm';
+      } else {
+        return null;
+      }
+
+      return gender;
+    }
+
+    /**
+    * Normalizes the 5 character name field.
+    * @param  {String} [name] name value to be normalized.
+    * @return {String} Normalized 5 character {first,last}name field value.
+    */
+
+  }, {
+    key: 'normalizeF5NameField',
+    value: function normalizeF5NameField(name) {
+
+      return name.length <= 5 ? name : name.substring(0, 5);
+    }
+
+    /**
+     * Normalizes the given phone and returns acceptable phone value
+     * @param  {String} [phone_number] phone number value to be normalized.
+     * @return {String} Normalized phone number value.
+     */
+
+  }, {
+    key: 'normalizePhone',
+    value: function normalizePhone(phone_number) {
+      // Remove common characters occuring as part of the phone numbers.
+      phone_number = phone_number.replace(PHONE_NUMBER_IGNORE_CHAR_SET, '');
+
+      if (ServerSideUtils.isInternationalPhoneNumber(phone_number)) {
+        phone_number = phone_number.replace(PHONE_NUMBER_DROP_PREFIX_ZEROS, '');
+      }
+
+      if (phone_number.length < 7 || phone_number.length > 15) {
+        throw new Error("Invalid phone number format for the passed phone number:'" + phone_number + "'.Please check the passed phone number format.");
+      }
+
+      return phone_number;
+    }
+
+    /**
+     * Normalizes the given state and returns acceptable city value
+     * @param  {String} [state] state value to be normalized.
+     * @return {String} Normalized state value.
+     */
+
+  }, {
+    key: 'normalizeState',
+    value: function normalizeState(state) {
+      state = state.replace(/[0-9\s().-]/g, '');
+      return state;
+    }
+
+    /**
+     * Normalizes the given zip/postal code and returns acceptable zip code value
+     * @param  {String} [zip] zip value to be normalized.
+     * @return {String} Normalized zip code value.
+     */
+
+  }, {
+    key: 'normalizeZip',
+    value: function normalizeZip(zip) {
+      zip = zip.replace(/[\s]/g, '');
+
+      // If the zip code '-', we retain just the first part alone.
+      zip = zip.split('-', 1)[0];
+
+      if (zip.length < 2) {
+        return null;
+      }
+
+      return zip;
+    }
+
+    /**
+     * Normalizes the given date of birth day
+     * @param  {String} [dobd] value to be normalized.
+     * @return {String} Normalized value.
+     */
+
+  }, {
+    key: 'normalizeDobd',
+    value: function normalizeDobd(dobd) {
+      if (dobd.length === 1) {
+        dobd = '0' + dobd;
+      }
+
+      var dobd_int = parseInt(dobd);
+      if (dobd_int < 1 || dobd_int > 31) {
+        throw new Error("Invalid format for dobd:'" + dobd + "'.Please use 'DD' format for dobd.");
+      }
+
+      return dobd;
+    }
+
+    /**
+     * Normalizes the given date of birth month
+     * @param  {String} [dobm] value to be normalized.
+     * @return {String} Normalized value.
+     */
+
+  }, {
+    key: 'normalizeDobm',
+    value: function normalizeDobm(dobm) {
+      if (dobm.length === 1) {
+        dobm = '0' + dobm;
+      }
+
+      var dobm_int = parseInt(dobm);
+      if (dobm_int < 1 || dobm_int > 12) {
+        throw new Error("Invalid format for dobm:'" + dobm + "'.Please use 'MM' format for dobm.");
+      }
+
+      return dobm;
+    }
+
+    /**
+     * Normalizes the given date of birth year
+     * @param  {String} [doby] value to be normalized.
+     * @return {String} Normalized value.
+     */
+
+  }, {
+    key: 'normalizeDoby',
+    value: function normalizeDoby(doby) {
+      if (!doby.match(/^[0-9]{4}$/)) {
+        throw new Error("Invalid format for doby:'" + doby + "'.Please use 'YYYY' format for doby.");
+      }
+
+      return doby;
+    }
+
+    /**
+     * Boolean method which checks if a given number is represented in international format
+     * @param  {String} phone_number that has to be tested.
+     * @return {Boolean} value if a number is represented international format
+     */
+
+  }, {
+    key: 'isInternationalPhoneNumber',
+    value: function isInternationalPhoneNumber(phone_number) {
+      // strip up to 2 leading 0s and +
+      phone_number = phone_number.replace(PHONE_NUMBER_DROP_PREFIX_ZEROS, '');
+
+      if (phone_number.startsWith('0')) {
+        return false;
+      }
+
+      if (phone_number.startsWith('1')) {
+        return US_PHONE_NUMBER_REGEX.test(phone_number);
+      }
+
+      return INTL_PHONE_NUMBER_REGEX.test(phone_number);
+    }
+
+    /**
+     * Calculates the SHA 256 hash of a given non-null string.
+     * @param  {String} [input] String to be hashed
+     * @return {String} SHA 256 Hash of the string
+     */
+
+  }, {
+    key: 'toSHA256',
+    value: function toSHA256(input) {
+      if (input === null) return input;
+
+      return sha256(input);
+    }
+  }]);
+  return ServerSideUtils;
+}();
+
+/**
+ * Copyright (c) 2017-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
+ * 
+ */
+
+/**
+ * Content is part of the Custom Data Parameters of a Conversions API Event Request. Content can be used to set the item/product details added in the Custom Data.
+ * @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/custom-data#contents}
+ */
+
+var Content = function () {
+
+	/**
+  * @param {String} id Product Id of the Item.
+  * @param {Number} quantity Quantity of the Item.
+  * @param {Number} item_price Price per unit of the content/product.
+  * @param {String} title Title of the listed Item.
+  * @param {String} description Product description used for the item.
+  * @param {String} brand Brand of the item.
+  * @param {String} category Category of the Item.
+  * @param {String} delivery_category The type of delivery for a purchase event
+  */
+	function Content(id, quantity, item_price, title, description, brand, category, delivery_category) {
+		classCallCheck(this, Content);
+
+
+		this._id = id;
+		this._quantity = quantity;
+		this._item_price = item_price;
+		this._title = title;
+		this._description = description;
+		this._brand = brand;
+		this._category = category;
+		this._delivery_category = delivery_category;
+	}
+
+	/**
+  * Gets the Product Id of the Item.
+  * A string representing the unique Id for the product.
+  * Example: XYZ.
+  */
+
+
+	createClass(Content, [{
+		key: 'setId',
+
+
+		/**
+  * Sets the Product Id of the Item.
+  * @param id is a string representing the unique id for the product.
+  * Example: XYZ.
+  */
+		value: function setId(id) {
+			this._id = id;
+			return this;
+		}
+
+		/**
+   * Gets the quantity of the Item.
+   * The number/quantity of the content that is being involved in the customer interaction.
+   * Example: 5
+   */
+
+	}, {
+		key: 'setQuantity',
+
+
+		/**
+  * Sets the quantity of the Content/Item.
+  * @param {Number} quantity The number/quantity of the product that is being involved in the customer interaction.
+  * Example: 5
+  */
+		value: function setQuantity(quantity) {
+			this._quantity = quantity;
+			return this;
+		}
+
+		/**
+   * Gets the item price for the Product.
+   * The item_price or price per unit of the product.
+   * Example: '123.45'
+   */
+
+	}, {
+		key: 'setItemPrice',
+
+
+		/**
+  * Sets the item price for the Content.
+  * @param {Number} item_price The item_price or price per unit of the product.
+  * Example: '123.45'
+  */
+		value: function setItemPrice(item_price) {
+			this._item_price = item_price;
+			return this;
+		}
+
+		/**
+   * Gets the Title of the listed Item.
+   * A string representing the Title for the product.
+   */
+
+	}, {
+		key: 'setTitle',
+
+
+		/**
+  * Sets the Title of the Item.
+  * @param title is a string representing listed title for the product.
+  */
+		value: function setTitle(title) {
+			this._title = title;
+			return this;
+		}
+
+		/**
+   * Gets the Description of the listed Item.
+   * A string representing the Description for the product.
+   */
+
+	}, {
+		key: 'setDescription',
+
+
+		/**
+  * Sets the Product Description of the Item.
+  * @param description is a string representing the description for the product.
+  */
+		value: function setDescription(description) {
+			this._description = description;
+			return this;
+		}
+
+		/**
+   * Gets the Brand of the listed Item.
+   * A string representing the Brand for the product.
+   */
+
+	}, {
+		key: 'setBrand',
+
+
+		/**
+   * Sets the Brand of the Product.
+   * @param brand is a string representing the Brand for the product.
+   */
+		value: function setBrand(brand) {
+			this._brand = brand;
+			return this;
+		}
+
+		/**
+   * Gets the Category of the listed Item.
+   * A string representing the Category for the product.
+   */
+
+	}, {
+		key: 'setCategory',
+
+
+		/**
+   * Sets the Category of the Product.
+   * @param category is a string representing the Category for the product.
+   */
+		value: function setCategory(category) {
+			this._category = category;
+			return this;
+		}
+
+		/**
+   * Gets the delivery category.
+   */
+
+	}, {
+		key: 'setDeliveryCategory',
+
+
+		/**
+   * Sets the type of delivery for a purchase event.
+   * @param {String} delivery_category The delivery category.
+   */
+		value: function setDeliveryCategory(delivery_category) {
+			this._delivery_category = delivery_category;
+			return this;
+		}
+
+		/**
+   * Returns the normalized payload for the Content.
+   * @returns {Object} normalized Content payload.
+   */
+
+	}, {
+		key: 'normalize',
+		value: function normalize() {
+			var content = {};
+
+			if (this.id) {
+				content['id'] = this.id;
+			}
+
+			if (this.quantity) {
+				content['quantity'] = this.quantity;
+			}
+
+			if (this.item_price) {
+				content['item_price'] = this.item_price;
+			}
+
+			if (this.title) {
+				content['title'] = this.title;
+			}
+
+			if (this.description) {
+				content['description'] = this.description;
+			}
+
+			if (this.brand) {
+				content['brand'] = this.brand;
+			}
+
+			if (this.category) {
+				content['category'] = this.category;
+			}
+
+			if (this.delivery_category) {
+				content['delivery_category'] = ServerSideUtils.normalizeDeliveryCategory(this.delivery_category);
+			}
+
+			return content;
+		}
+	}, {
+		key: 'id',
+		get: function get() {
+			return this._id;
+		}
+
+		/**
+   * Sets the Product Id of the Item.
+   * @param id A string representing the unique Id for the product.
+   * Example: XYZ.
+   */
+		,
+		set: function set(id) {
+			this._id = id;
+		}
+	}, {
+		key: 'quantity',
+		get: function get() {
+			return this._quantity;
+		}
+
+		/**
+   * Sets the quantity of the Item.
+   * @param quantity The number/quantity of the product that is being involved in the customer interaction.
+   * Example: 5
+   */
+		,
+		set: function set(quantity) {
+			this._quantity = quantity;
+		}
+	}, {
+		key: 'item_price',
+		get: function get() {
+			return this._item_price;
+		}
+
+		/**
+   * Sets the item price for the Content.
+   * @param item_price The item_price or price per unit of the product.
+   * Example: '123.45'
+   */
+		,
+		set: function set(item_price) {
+			this._item_price = item_price;
+		}
+	}, {
+		key: 'title',
+		get: function get() {
+			return this._title;
+		}
+
+		/**
+   * Sets the Title of the listed Item.
+   * @param title A string representing the Title for the product.
+   */
+		,
+		set: function set(title) {
+			this._title = title;
+		}
+	}, {
+		key: 'description',
+		get: function get() {
+			return this._description;
+		}
+
+		/**
+   * Sets the Description of the listed Item.
+   * @param description A string representing the Description for the product.
+   */
+		,
+		set: function set(description) {
+			this._description = description;
+		}
+	}, {
+		key: 'brand',
+		get: function get() {
+			return this._brand;
+		}
+
+		/**
+   * Sets the Brand of the listed Item.
+   * @param brand A string representing the Brand for the product.
+   */
+		,
+		set: function set(brand) {
+			this._brand = brand;
+		}
+	}, {
+		key: 'category',
+		get: function get() {
+			return this._category;
+		}
+
+		/**
+   * Sets the Category of the listed Item.
+   * @param category A string representing the Category for the product.
+   */
+		,
+		set: function set(category) {
+			this._category = category;
+		}
+	}, {
+		key: 'delivery_category',
+		get: function get() {
+			return this._delivery_category;
+		}
+
+		/**
+   * Sets the type of delivery for a purchase event.
+   * @param delivery_category The delivery category.
+   */
+		,
+		set: function set(delivery_category) {
+			this._delivery_category = delivery_category;
+		}
+	}]);
+	return Content;
+}();
+
+/**
+ * Copyright (c) 2017-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
+ * 
+ */
+
+/**
+ * CustomData represents the Custom Data Parameters of a Conversions API Event Request. Use these parameters to send additional data we can use for ads delivery optimization.
+ * @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/custom-data}
+ */
+
+var CustomData = function () {
+
+	/**
+  * @param {Number} value value of the item Eg: 123.45
+  * @param {String} currency currency involved in the transaction Eg: usd
+  * @param {String} content_name name of the Content Eg: lettuce
+  * @param {String} content_category category of the content Eg: grocery
+  * @param {Array<String>} content_ids list of content unique ids involved in the event
+  * @param {Array<Content>} contents Array of Content Objects. Use {Content} class to define a content.
+  * @param {String} content_type Type of the Content group or Product SKU
+  * @param {String} order_id Unique id representing the order
+  * @param {Number} predicted_ltv Predicted LifeTime Value for the customer involved in the event
+  * @param {Number} num_items Number of items involved
+  * @param {String} search_string query string used for the Search event
+  * @param {String} status Status of the registration in Registration event
+  * @param {String} item_number The item number
+  * @param {String} delivery_category The type of delivery for a purchase event
+  * @param {Object} custom_properties Custom Properties to be added to the Custom Data
+  */
+	function CustomData(value, currency, content_name, content_category, content_ids, contents, content_type, order_id, predicted_ltv, num_items, search_string, status, item_number, delivery_category, custom_properties) {
+		classCallCheck(this, CustomData);
+
+
+		this._value = value;
+		this._currency = currency;
+		this._content_name = content_name;
+		this._content_category = content_category;
+		this._content_ids = content_ids;
+		this._contents = contents;
+		this._content_type = content_type;
+		this._order_id = order_id;
+		this._predicted_ltv = predicted_ltv;
+		this._num_items = num_items;
+		this._search_string = search_string;
+		this._status = status;
+		this._item_number = item_number;
+		this._delivery_category = delivery_category;
+		this._custom_properties = custom_properties;
+	}
+
+	/**
+  * Gets the value of the custom data.
+  * A numeric value associated with this event. This could be a monetary value or a value in some other metric.
+  * Example: 142.54.
+  */
+
+
+	createClass(CustomData, [{
+		key: 'setValue',
+
+
+		/**
+   * Sets the value of the custom data.
+   * @param {Number} value A numeric value associated with this event. This could be a monetary value or a value in some other metric.
+   * Example: 142.54.
+   */
+		value: function setValue(value) {
+			this._value = value;
+			return this;
+		}
+
+		/**
+   * Gets the currency for the custom data.
+   * The currency for the value specified, if applicable. Currency must be a valid ISO 4217 three digit currency code.
+   * Example: 'usd'
+   */
+
+	}, {
+		key: 'setCurrency',
+
+
+		/**
+   * Sets the currency for the custom data.
+   * @param {String} currency The currency for the value specified, if applicable. Currency must be a valid ISO 4217 three digit currency code.
+   * Example: 'usd'
+   */
+		value: function setCurrency(currency) {
+			this._currency = currency;
+			return this;
+		}
+
+		/**
+   * Gets the content name for the custom data. The name of the page or product associated with the event.
+   * The name of the page or product associated with the event.
+   * Example: 'lettuce'
+   */
+
+	}, {
+		key: 'setContentName',
+
+
+		/**
+   * Sets the content name for the custom data.
+   * @param content_name The name of the page or product associated with the event.
+   * Example: 'lettuce'
+   */
+		value: function setContentName(content_name) {
+			this._content_name = content_name;
+			return this;
+		}
+
+		/**
+   * Gets the content category for the custom data.
+   * The category of the content associated with the event.
+   * Example: 'grocery'
+   */
+
+	}, {
+		key: 'setContentCategory',
+
+
+		/**
+   * Sets the content_category for the custom data.
+   * @param content_category The category of the content associated with the event.
+   * Example: 'grocery'
+   */
+		value: function setContentCategory(content_category) {
+			this._content_category = content_category;
+			return this;
+		}
+
+		/**
+   * Gets the content_ids for the custom data.
+   * The content IDs associated with the event, such as product SKUs for items in an AddToCart, represented as Array of string.
+   * If content_type is a product, then your content IDs must be an array with a single string value. Otherwise, this array can contain any number of string values.
+   * Example: ['ABC123', 'XYZ789']
+   */
+
+	}, {
+		key: 'setContentIds',
+
+
+		/**
+   * Sets the content_ids for the custom data.
+   * @param {Array} content_ids The content IDs associated with the event, such as product SKUs for items in an AddToCart, represented as Array of string.
+   * If content_type is a product, then your content IDs must be an array with a single string value. Otherwise, this array can contain any number of string values.
+   * Example: ['ABC123', 'XYZ789']
+   */
+		value: function setContentIds(content_ids) {
+			this._content_ids = content_ids;
+			return this;
+		}
+
+		/**
+   * Gets the contents for the custom data.
+   * An array of Content objects that contain the product IDs associated with the event plus information about the products. id, quantity, and item_price are available fields.
+   * Example: [{'id':'ABC123','quantity' :2,'item_price':5.99}, {'id':'XYZ789','quantity':2, 'item_price':9.99}]
+   */
+
+	}, {
+		key: 'setContents',
+
+
+		/**
+   * Sets the contents for the custom data.
+   * @param {Array<Content>} contents An array of Content objects that contain the product IDs associated with the event plus information about the products. id, quantity, and item_price are available fields.
+   * Example: [{'id':'ABC123','quantity' :2,'item_price':5.99}, {'id':'XYZ789','quantity':2, 'item_price':9.99}]
+   */
+		value: function setContents(contents) {
+			this._contents = contents;
+			return this;
+		}
+
+		/**
+   * Gets the content type for the custom data.
+   * A String equal to either product or product_group. Set to product if the keys you send content_ids or contents represent products.
+   * Set to product_group if the keys you send in content_ids represent product groups.
+   */
+
+	}, {
+		key: 'setContentType',
+
+
+		/**
+   * Sets the content type for the custom data.
+   * @param {String} content_type A string equal to either product or product_group. Set to product if the keys you send content_ids or contents represent products.
+   * Set to product_group if the keys you send in content_ids represent product groups.
+   */
+		value: function setContentType(content_type) {
+			this._content_type = content_type;
+			return this;
+		}
+
+		/**
+   * Gets the order id for the custom data.
+   * order_id is the order ID for this transaction as a String.
+   * Example: 'order1234'
+   */
+
+	}, {
+		key: 'setOrderId',
+
+
+		/**
+   * Sets the order_id for the custom data.
+   * @param {String} order_id The order ID for this transaction as a String.
+   * Example: 'order1234'
+   */
+		value: function setOrderId(order_id) {
+			this._order_id = order_id;
+			return this;
+		}
+
+		/**
+   * Gets the predicted LifeTimeValue for the (user) in custom data.
+   * The predicted lifetime value of a conversion event, as a String.
+   * Example: '432.12'
+   */
+
+	}, {
+		key: 'setPredictedLtv',
+
+
+		/**
+   * Sets the predicted LifeTimeValue for the custom data.
+   * @param {Number} predicted_ltv The predicted lifetime value of a conversion event, as a String.
+   * Example: '432.12'
+   */
+		value: function setPredictedLtv(predicted_ltv) {
+			this._predicted_ltv = predicted_ltv;
+			return this;
+		}
+
+		/**
+   * Gets the number of items for the custom data.
+   * The number of items that a user tries to buy during checkout. Use only with InitiateCheckout type events.
+   * Example: 5
+   */
+
+	}, {
+		key: 'setNumItems',
+
+
+		/**
+   * Sets the number of items for the custom data.
+   * @param {Number} num_items The number of items that a user tries to buy during checkout. Use only with InitiateCheckout type events.
+   * Example: 5
+   */
+		value: function setNumItems(num_items) {
+			this._num_items = num_items;
+			return this;
+		}
+
+		/**
+   * Gets the search string for the custom data.
+   * A search query made by a user.Use only with Search events.
+   * Eg: 'lettuce'
+   */
+
+	}, {
+		key: 'setSearchString',
+
+
+		/**
+   * Sets the search string for the custom data.
+   * @param search_string A search query made by a user.Use only with Search events.
+   * Eg: 'lettuce'
+   */
+		value: function setSearchString(search_string) {
+			this._search_string = search_string;
+			return this;
+		}
+
+		/**
+   * Gets the item number.
+   */
+
+	}, {
+		key: 'setItemNumber',
+
+
+		/**
+   * Sets the item number.
+   * @param {String} item_number The item number.
+   */
+		value: function setItemNumber(item_number) {
+			this._item_number = item_number;
+			return this;
+		}
+
+		/**
+   * Gets the delivery category.
+   */
+
+	}, {
+		key: 'setDeliveryCategory',
+
+
+		/**
+   * Sets the type of delivery for a purchase event.
+   * @param {String} delivery_category The delivery category.
+   */
+		value: function setDeliveryCategory(delivery_category) {
+			this._delivery_category = delivery_category;
+			return this;
+		}
+
+		/**
+   * Gets the custom properties to be included in the Custom Data.
+   * If our predefined object properties don't suit your needs, you can include your own, custom properties. Custom properties can be used with both standard and custom events, and can help you further define custom audiences.
+   * This behavior is the same for Conversions API and Facebook Pixel.
+   * @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/custom-data#custom-properties}
+   * Eg: '{ 'warehouse_location' : 'washington', 'package_size' : 'L'}'
+   */
+
+	}, {
+		key: 'setCustomProperties',
+
+
+		/**
+   * Sets the search string for the custom data.
+   * @param custom_properties A custom properties property bag to be included in the Custom Data.
+   * If our predefined object properties don't suit your needs, you can include your own, custom properties. Custom properties can be used with both standard and custom events, and can help you further define custom audiences.
+   * This behavior is the same for Conversions API and Facebook Pixel.
+   * @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/custom-data#custom-properties}
+   * Eg: '{ 'warehouse_location' : 'washington', 'package_size' : 'L'}'
+   * * @returns {Object} custom_properties property bag.
+   */
+		value: function setCustomProperties(custom_properties) {
+			this._custom_properties = custom_properties;
+			return this;
+		}
+
+		/**
+   * Gets the status of the registration event.
+   * Status of the registration event, as a String.Use only with CompleteRegistration events.
+   */
+
+	}, {
+		key: 'setStatus',
+
+
+		/**
+   * Sets the status of the registration event.
+   * @param {String} status Status of the registration event, as a String. Use only with CompleteRegistration events.
+   */
+		value: function setStatus(status) {
+			this._status = status;
+			return this;
+		}
+
+		/**
+   * Adds the custom property (key, value) to the custom property bag.
+   * @param {string} key The Key for the property to be added.
+   * @param {string} value The Value for the property to be added.
+   */
+
+	}, {
+		key: 'add_custom_property',
+		value: function add_custom_property(key, value) {
+
+			if (this.custom_properties == null) {
+				this.custom_properties = {};
+			}
+
+			this.custom_properties[key] = value;
+		}
+
+		/**
+   * Returns the normalized payload for the custom_data.
+   * @returns {Object} normalized custom_data payload.
+   */
+
+	}, {
+		key: 'normalize',
+		value: function normalize() {
+			var customData = {};
+
+			var parsedValue = Number.parseFloat(this.value);
+			if (!Number.isNaN(parsedValue)) {
+				customData['value'] = parsedValue;
+			}
+
+			if (this.currency) {
+				customData['currency'] = ServerSideUtils.normalizeCurrency(this.currency);
+			}
+
+			if (this.content_name) {
+				customData['content_name'] = this.content_name;
+			}
+
+			if (this.content_category) {
+				customData['content_category'] = this.content_category;
+			}
+
+			if (this.content_ids) {
+				customData['content_ids'] = this.content_ids;
+			}
+
+			if (this.contents) {
+				var normalized_contents = [];
+
+				for (var i = 0; i < this.contents.length; i++) {
+					var content = this.contents[i];
+					var normalized_content = content.normalize.call(content);
+					normalized_contents.push(normalized_content);
+				}
+
+				customData['contents'] = normalized_contents;
+			}
+
+			if (this.content_type) {
+				customData['content_type'] = this.content_type;
+			}
+
+			if (this.order_id) {
+				customData['order_id'] = this.order_id;
+			}
+
+			if (this.predicted_ltv) {
+				customData['predicted_ltv'] = this.predicted_ltv;
+			}
+
+			if (this.num_items) {
+				customData['num_items'] = this.num_items;
+			}
+
+			if (this.search_string) {
+				customData['search_string'] = this.search_string;
+			}
+
+			if (this.status) {
+				customData['status'] = this.status;
+			}
+
+			if (this.item_number) {
+				customData['item_number'] = this.item_number;
+			}
+
+			if (this.delivery_category) {
+				customData['delivery_category'] = ServerSideUtils.normalizeDeliveryCategory(this.delivery_category);
+			}
+
+			if (this.custom_properties) {
+				for (var key in this.custom_properties) {
+					if (customData.hasOwnProperty(key)) {
+						throw new Error('Duplicate key in custom_properties:"' + key + '". Please make sure the keys defined in the custom_properties are not already available in standard custom_data property list.');
+					}
+
+					customData[key] = this.custom_properties[key];
+				}
+			}
+
+			return customData;
+		}
+	}, {
+		key: 'value',
+		get: function get() {
+			return this._value;
+		}
+
+		/**
+   * Sets the value of the custom data.
+   * @param value A numeric value associated with this event. This could be a monetary value or a value in some other metric.
+   * Example: 142.54.
+   */
+		,
+		set: function set(value) {
+			this._value = value;
+		}
+	}, {
+		key: 'currency',
+		get: function get() {
+			return this._currency;
+		}
+
+		/**
+   * Sets the currency for the custom data.
+   * @param currency The currency for the value specified, if applicable. Currency must be a valid ISO 4217 three digit currency code.
+   * Example: 'usd'
+   */
+		,
+		set: function set(currency) {
+			this._currency = currency;
+		}
+	}, {
+		key: 'content_name',
+		get: function get() {
+			return this._content_name;
+		}
+
+		/**
+   * Sets the content name for the custom data.
+   * @param content_name The name of the page or product associated with the event.
+   * Example: 'lettuce'
+   */
+		,
+		set: function set(content_name) {
+			this._content_name = content_name;
+		}
+	}, {
+		key: 'content_category',
+		get: function get() {
+			return this._content_category;
+		}
+
+		/**
+   * Sets the content_category for the custom data.
+   * @param content_category The category of the content associated with the event.
+   * Example: 'grocery'
+   */
+		,
+		set: function set(content_category) {
+			this._content_category = content_category;
+		}
+	}, {
+		key: 'content_ids',
+		get: function get() {
+			return this._content_ids;
+		}
+
+		/**
+   * Sets the content_ids for the custom data.
+   * @param content_ids The content IDs associated with the event, such as product SKUs for items in an AddToCart, represented as Array of string.
+   * If content_type is a product, then your content IDs must be an array with a single string value. Otherwise, this array can contain any number of string values.
+   * Example: ['ABC123', 'XYZ789']
+   */
+		,
+		set: function set(content_ids) {
+			this._content_ids = content_ids;
+		}
+	}, {
+		key: 'contents',
+		get: function get() {
+			return this._contents;
+		}
+
+		/**
+   * Sets the contents for the custom data.
+   * @param contents An array of Content objects that contain the product IDs associated with the event plus information about the products. id, quantity, and item_price are available fields.
+   * Example: [{'id':'ABC123','quantity' :2,'item_price':5.99}, {'id':'XYZ789','quantity':2, 'item_price':9.99}]
+   */
+		,
+		set: function set(contents) {
+			this._contents = contents;
+		}
+	}, {
+		key: 'content_type',
+		get: function get() {
+			return this._content_type;
+		}
+
+		/**
+   * Sets the content type for the custom data.
+   * A String equal to either product or product_group. Set to product if the keys you send content_ids or contents represent products.
+   * Set to product_group if the keys you send in content_ids represent product groups.
+   */
+		,
+		set: function set(content_type) {
+			this._content_type = content_type;
+		}
+	}, {
+		key: 'order_id',
+		get: function get() {
+			return this._order_id;
+		}
+
+		/**
+   * Sets the order_id for the custom data.
+   * @param order_id The order ID for this transaction as a String.
+   * Example: 'order1234'
+   */
+		,
+		set: function set(order_id) {
+			this._order_id = order_id;
+		}
+	}, {
+		key: 'predicted_ltv',
+		get: function get() {
+			return this._predicted_ltv;
+		}
+
+		/**
+   * Sets the predicted LifeTimeValue for the custom data.
+   * @param predicted_ltv The predicted lifetime value of a conversion event, as a String.
+   * Example: '432.12'
+   */
+		,
+		set: function set(predicted_ltv) {
+			this._predicted_ltv = predicted_ltv;
+		}
+	}, {
+		key: 'num_items',
+		get: function get() {
+			return this._num_items;
+		}
+
+		/**
+   * Sets the number of items for the custom data.
+   * @param num_items The number of items that a user tries to buy during checkout. Use only with InitiateCheckout type events.
+   * Example: 5
+   */
+		,
+		set: function set(num_items) {
+			this._num_items = num_items;
+		}
+	}, {
+		key: 'search_string',
+		get: function get() {
+			return this._search_string;
+		}
+
+		/**
+   * Sets the search string for the custom data.
+   * @param {Number} search_string A search query made by a user.Use only with Search events.
+   * Eg: 'lettuce'
+   */
+		,
+		set: function set(search_string) {
+			this._search_string = search_string;
+		}
+	}, {
+		key: 'item_number',
+		get: function get() {
+			return this._item_number;
+		}
+
+		/**
+   * Sets the item number.
+   * @param item_number The item number.
+   */
+		,
+		set: function set(item_number) {
+			this._item_number = item_number;
+		}
+	}, {
+		key: 'delivery_category',
+		get: function get() {
+			return this._delivery_category;
+		}
+
+		/**
+   * Sets the type of delivery for a purchase event.
+   * @param delivery_category The delivery category.
+   */
+		,
+		set: function set(delivery_category) {
+			this._delivery_category = delivery_category;
+		}
+	}, {
+		key: 'custom_properties',
+		get: function get() {
+			return this._custom_properties;
+		}
+
+		/**
+   * Sets the custom properties to be included in the Custom Data.
+   * If our predefined object properties don't suit your needs, you can include your own, custom properties. Custom properties can be used with both standard and custom events, and can help you further define custom audiences.
+   * This behavior is the same for Conversions API and Facebook Pixel.
+   * @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/custom-data#custom-properties}
+   * @param {Object} custom_properties custom properties property bag to be included in the Custom Data. Eg: '{ 'warehouse_location' : 'washington', 'package_size' : 'L'}'
+   */
+		,
+		set: function set(custom_properties) {
+			this._custom_properties = custom_properties;
+		}
+	}, {
+		key: 'status',
+		get: function get() {
+			return this._status;
+		}
+
+		/**
+   * Sets the status of the registration event.
+   * @param status Status of the registration event, as a String.Use only with CompleteRegistration events.
+   */
+		,
+		set: function set(status) {
+			this._status = status;
+		}
+	}]);
+	return CustomData;
+}();
+
+/**
+ * Copyright (c) 2017-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
+ * 
+ */
 /**
  * AssignedUser
  * @extends AbstractCrudObject
@@ -3482,7 +3531,6 @@ var AdActivity = function (_AbstractCrudObject) {
         update_campaign_budget: 'update_campaign_budget',
         update_campaign_budget_optimization_toggling_status: 'update_campaign_budget_optimization_toggling_status',
         update_campaign_delivery_type: 'update_campaign_delivery_type',
-        update_campaign_duration: 'update_campaign_duration',
         update_campaign_group_ad_scheduling: 'update_campaign_group_ad_scheduling',
         update_campaign_group_delivery_type: 'update_campaign_group_delivery_type',
         update_campaign_group_spend_cap: 'update_campaign_group_spend_cap',
@@ -3664,12 +3712,16 @@ var AdPreview = function (_AbstractCrudObject) {
         audience_network_rewarded_video: 'AUDIENCE_NETWORK_REWARDED_VIDEO',
         desktop_feed_standard: 'DESKTOP_FEED_STANDARD',
         facebook_story_mobile: 'FACEBOOK_STORY_MOBILE',
+        facebook_story_sticker_mobile: 'FACEBOOK_STORY_STICKER_MOBILE',
         instagram_explore_contextual: 'INSTAGRAM_EXPLORE_CONTEXTUAL',
         instagram_explore_immersive: 'INSTAGRAM_EXPLORE_IMMERSIVE',
+        instagram_reels: 'INSTAGRAM_REELS',
         instagram_standard: 'INSTAGRAM_STANDARD',
         instagram_story: 'INSTAGRAM_STORY',
         instant_article_recirculation_ad: 'INSTANT_ARTICLE_RECIRCULATION_AD',
         instant_article_standard: 'INSTANT_ARTICLE_STANDARD',
+        instream_banner_desktop: 'INSTREAM_BANNER_DESKTOP',
+        instream_banner_mobile: 'INSTREAM_BANNER_MOBILE',
         instream_video_desktop: 'INSTREAM_VIDEO_DESKTOP',
         instream_video_image: 'INSTREAM_VIDEO_IMAGE',
         instream_video_mobile: 'INSTREAM_VIDEO_MOBILE',
@@ -3688,6 +3740,7 @@ var AdPreview = function (_AbstractCrudObject) {
         right_column_standard: 'RIGHT_COLUMN_STANDARD',
         suggested_video_desktop: 'SUGGESTED_VIDEO_DESKTOP',
         suggested_video_mobile: 'SUGGESTED_VIDEO_MOBILE',
+        watch_feed_home: 'WATCH_FEED_HOME',
         watch_feed_mobile: 'WATCH_FEED_MOBILE'
       });
     }
@@ -3809,6 +3862,7 @@ var AdCreative = function (_AbstractCrudObject) {
         instagram_actor_id: 'instagram_actor_id',
         instagram_permalink_url: 'instagram_permalink_url',
         instagram_story_id: 'instagram_story_id',
+        instagram_user_id: 'instagram_user_id',
         interactive_components_spec: 'interactive_components_spec',
         link_deep_link_url: 'link_deep_link_url',
         link_destination_display_url: 'link_destination_display_url',
@@ -3828,6 +3882,7 @@ var AdCreative = function (_AbstractCrudObject) {
         portrait_customizations: 'portrait_customizations',
         product_set_id: 'product_set_id',
         recommender_settings: 'recommender_settings',
+        source_instagram_media_id: 'source_instagram_media_id',
         status: 'status',
         template_url: 'template_url',
         template_url_spec: 'template_url_spec',
@@ -3836,15 +3891,6 @@ var AdCreative = function (_AbstractCrudObject) {
         url_tags: 'url_tags',
         use_page_actor_override: 'use_page_actor_override',
         video_id: 'video_id'
-      });
-    }
-  }, {
-    key: 'ApplinkTreatment',
-    get: function get() {
-      return Object.freeze({
-        deeplink_with_appstore_fallback: 'deeplink_with_appstore_fallback',
-        deeplink_with_web_fallback: 'deeplink_with_web_fallback',
-        web_only: 'web_only'
       });
     }
   }, {
@@ -3891,20 +3937,26 @@ var AdCreative = function (_AbstractCrudObject) {
         play_game: 'PLAY_GAME',
         purchase_gift_cards: 'PURCHASE_GIFT_CARDS',
         record_now: 'RECORD_NOW',
+        refer_friends: 'REFER_FRIENDS',
         request_time: 'REQUEST_TIME',
         say_thanks: 'SAY_THANKS',
         see_more: 'SEE_MORE',
         sell_now: 'SELL_NOW',
         send_a_gift: 'SEND_A_GIFT',
+        send_gift_money: 'SEND_GIFT_MONEY',
         share: 'SHARE',
         shop_now: 'SHOP_NOW',
         sign_up: 'SIGN_UP',
         sotto_subscribe: 'SOTTO_SUBSCRIBE',
+        start_order: 'START_ORDER',
         subscribe: 'SUBSCRIBE',
+        swipe_up_product: 'SWIPE_UP_PRODUCT',
+        swipe_up_shop: 'SWIPE_UP_SHOP',
         update_app: 'UPDATE_APP',
         use_app: 'USE_APP',
         use_mobile_app: 'USE_MOBILE_APP',
         video_annotation: 'VIDEO_ANNOTATION',
+        video_call: 'VIDEO_CALL',
         visit_pages_feed: 'VISIT_PAGES_FEED',
         watch_more: 'WATCH_MORE',
         watch_video: 'WATCH_VIDEO',
@@ -3939,6 +3991,15 @@ var AdCreative = function (_AbstractCrudObject) {
         deleted: 'DELETED',
         in_process: 'IN_PROCESS',
         with_issues: 'WITH_ISSUES'
+      });
+    }
+  }, {
+    key: 'ApplinkTreatment',
+    get: function get() {
+      return Object.freeze({
+        deeplink_with_appstore_fallback: 'deeplink_with_appstore_fallback',
+        deeplink_with_web_fallback: 'deeplink_with_web_fallback',
+        web_only: 'web_only'
       });
     }
   }, {
@@ -4204,6 +4265,7 @@ var AdsInsights = function (_AbstractCrudObject) {
         adset_name: 'adset_name',
         adset_start: 'adset_start',
         age_targeting: 'age_targeting',
+        attribution_setting: 'attribution_setting',
         auction_bid: 'auction_bid',
         auction_competitiveness: 'auction_competitiveness',
         auction_max_competitor_bid: 'auction_max_competitor_bid',
@@ -4272,6 +4334,7 @@ var AdsInsights = function (_AbstractCrudObject) {
         location: 'location',
         mobile_app_purchase_roas: 'mobile_app_purchase_roas',
         objective: 'objective',
+        optimization_goal: 'optimization_goal',
         outbound_clicks: 'outbound_clicks',
         outbound_clicks_ctr: 'outbound_clicks_ctr',
         place_page_name: 'place_page_name',
@@ -4353,7 +4416,8 @@ var AdsInsights = function (_AbstractCrudObject) {
     get: function get() {
       return Object.freeze({
         conversion: 'conversion',
-        impression: 'impression'
+        impression: 'impression',
+        mixed: 'mixed'
       });
     }
   }, {
@@ -4399,7 +4463,7 @@ var AdsInsights = function (_AbstractCrudObject) {
         last_week_mon_sun: 'last_week_mon_sun',
         last_week_sun_sat: 'last_week_sun_sat',
         last_year: 'last_year',
-        lifetime: 'lifetime',
+        maximum: 'maximum',
         this_month: 'this_month',
         this_quarter: 'this_quarter',
         this_week_mon_today: 'this_week_mon_today',
@@ -4755,6 +4819,7 @@ var Ad = function (_AbstractCrudObject) {
         campaign: 'campaign',
         campaign_id: 'campaign_id',
         configured_status: 'configured_status',
+        conversion_domain: 'conversion_domain',
         conversion_specs: 'conversion_specs',
         created_time: 'created_time',
         creative: 'creative',
@@ -4843,7 +4908,7 @@ var Ad = function (_AbstractCrudObject) {
         last_week_mon_sun: 'last_week_mon_sun',
         last_week_sun_sat: 'last_week_sun_sat',
         last_year: 'last_year',
-        lifetime: 'lifetime',
+        maximum: 'maximum',
         this_month: 'this_month',
         this_quarter: 'this_quarter',
         this_week_mon_today: 'this_week_mon_today',
@@ -4951,6 +5016,8 @@ var AdAsyncRequest = function (_AbstractCrudObject) {
         initial: 'INITIAL',
         in_progress: 'IN_PROGRESS',
         pending_dependency: 'PENDING_DEPENDENCY',
+        process_by_ad_async_engine: 'PROCESS_BY_AD_ASYNC_ENGINE',
+        process_by_event_processor: 'PROCESS_BY_EVENT_PROCESSOR',
         success: 'SUCCESS',
         user_canceled: 'USER_CANCELED',
         user_canceled_dependency: 'USER_CANCELED_DEPENDENCY'
@@ -5002,6 +5069,7 @@ var ContentDeliveryReport = function (_AbstractCrudObject) {
         hidden_aaa: 'HIDDEN_AAA',
         instagram: 'INSTAGRAM',
         messenger: 'MESSENGER',
+        oculus: 'OCULUS',
         unknown: 'UNKNOWN',
         whatsapp: 'WHATSAPP'
       });
@@ -5019,6 +5087,7 @@ var ContentDeliveryReport = function (_AbstractCrudObject) {
         hidden_aaa: 'HIDDEN_AAA',
         instagram_explore: 'INSTAGRAM_EXPLORE',
         instagram_igtv: 'INSTAGRAM_IGTV',
+        instagram_reels: 'INSTAGRAM_REELS',
         instagram_stories: 'INSTAGRAM_STORIES',
         instant_article: 'INSTANT_ARTICLE',
         instream_video: 'INSTREAM_VIDEO',
@@ -5026,11 +5095,13 @@ var ContentDeliveryReport = function (_AbstractCrudObject) {
         marketplace: 'MARKETPLACE',
         messenger_inbox: 'MESSENGER_INBOX',
         messenger_stories: 'MESSENGER_STORIES',
+        oculus_twilight_feed: 'OCULUS_TWILIGHT_FEED',
         others: 'OTHERS',
         rewarded_video: 'REWARDED_VIDEO',
         right_hand_column: 'RIGHT_HAND_COLUMN',
         search: 'SEARCH',
         status: 'STATUS',
+        stickers: 'STICKERS',
         suggested_video: 'SUGGESTED_VIDEO',
         unknown: 'UNKNOWN',
         video_feeds: 'VIDEO_FEEDS'
@@ -5094,6 +5165,7 @@ var AdCampaignDeliveryEstimate = function (_AbstractCrudObject) {
         page_engagement: 'PAGE_ENGAGEMENT',
         page_likes: 'PAGE_LIKES',
         post_engagement: 'POST_ENGAGEMENT',
+        quality_call: 'QUALITY_CALL',
         quality_lead: 'QUALITY_LEAD',
         reach: 'REACH',
         replies: 'REPLIES',
@@ -5341,8 +5413,7 @@ var AdSet = function (_AbstractCrudObject) {
       return Object.freeze({
         cost_cap: 'COST_CAP',
         lowest_cost_without_cap: 'LOWEST_COST_WITHOUT_CAP',
-        lowest_cost_with_bid_cap: 'LOWEST_COST_WITH_BID_CAP',
-        target_cost: 'TARGET_COST'
+        lowest_cost_with_bid_cap: 'LOWEST_COST_WITH_BID_CAP'
       });
     }
   }, {
@@ -5353,10 +5424,12 @@ var AdSet = function (_AbstractCrudObject) {
         clicks: 'CLICKS',
         impressions: 'IMPRESSIONS',
         link_clicks: 'LINK_CLICKS',
+        listing_interaction: 'LISTING_INTERACTION',
         none: 'NONE',
         offer_claims: 'OFFER_CLAIMS',
         page_likes: 'PAGE_LIKES',
         post_engagement: 'POST_ENGAGEMENT',
+        purchase: 'PURCHASE',
         thruplay: 'THRUPLAY'
       });
     }
@@ -5405,6 +5478,7 @@ var AdSet = function (_AbstractCrudObject) {
         page_engagement: 'PAGE_ENGAGEMENT',
         page_likes: 'PAGE_LIKES',
         post_engagement: 'POST_ENGAGEMENT',
+        quality_call: 'QUALITY_CALL',
         quality_lead: 'QUALITY_LEAD',
         reach: 'REACH',
         replies: 'REPLIES',
@@ -5440,7 +5514,7 @@ var AdSet = function (_AbstractCrudObject) {
         last_week_mon_sun: 'last_week_mon_sun',
         last_week_sun_sat: 'last_week_sun_sat',
         last_year: 'last_year',
-        lifetime: 'lifetime',
+        maximum: 'maximum',
         this_month: 'this_month',
         this_quarter: 'this_quarter',
         this_week_mon_today: 'this_week_mon_today',
@@ -5671,6 +5745,7 @@ var Campaign = function (_AbstractCrudObject) {
     get: function get() {
       return Object.freeze({
         account_id: 'account_id',
+        ad_strategy_id: 'ad_strategy_id',
         adlabels: 'adlabels',
         bid_strategy: 'bid_strategy',
         boosted_object_id: 'boosted_object_id',
@@ -5685,6 +5760,7 @@ var Campaign = function (_AbstractCrudObject) {
         daily_budget: 'daily_budget',
         effective_status: 'effective_status',
         id: 'id',
+        is_skadnetwork_attribution: 'is_skadnetwork_attribution',
         issues_info: 'issues_info',
         last_budget_toggling_time: 'last_budget_toggling_time',
         lifetime_budget: 'lifetime_budget',
@@ -5693,6 +5769,7 @@ var Campaign = function (_AbstractCrudObject) {
         pacing_type: 'pacing_type',
         promoted_object: 'promoted_object',
         recommendations: 'recommendations',
+        smart_promotion_type: 'smart_promotion_type',
         source_campaign: 'source_campaign',
         source_campaign_id: 'source_campaign_id',
         special_ad_categories: 'special_ad_categories',
@@ -5712,8 +5789,7 @@ var Campaign = function (_AbstractCrudObject) {
       return Object.freeze({
         cost_cap: 'COST_CAP',
         lowest_cost_without_cap: 'LOWEST_COST_WITHOUT_CAP',
-        lowest_cost_with_bid_cap: 'LOWEST_COST_WITH_BID_CAP',
-        target_cost: 'TARGET_COST'
+        lowest_cost_with_bid_cap: 'LOWEST_COST_WITH_BID_CAP'
       });
     }
   }, {
@@ -5763,7 +5839,7 @@ var Campaign = function (_AbstractCrudObject) {
         last_week_mon_sun: 'last_week_mon_sun',
         last_week_sun_sat: 'last_week_sun_sat',
         last_year: 'last_year',
-        lifetime: 'lifetime',
+        maximum: 'maximum',
         this_month: 'this_month',
         this_quarter: 'this_quarter',
         this_week_mon_today: 'this_week_mon_today',
@@ -5800,6 +5876,14 @@ var Campaign = function (_AbstractCrudObject) {
         reach: 'REACH',
         store_visits: 'STORE_VISITS',
         video_views: 'VIDEO_VIEWS'
+      });
+    }
+  }, {
+    key: 'SmartPromotionType',
+    get: function get() {
+      return Object.freeze({
+        guided_creation: 'GUIDED_CREATION',
+        smart_app_promotion: 'SMART_APP_PROMOTION'
       });
     }
   }, {
@@ -6226,6 +6310,73 @@ var AdStudyCell = function (_AbstractCrudObject) {
  * 
  */
 /**
+ * PrivateLiftStudyInstance
+ * @extends AbstractCrudObject
+ * @see {@link https://developers.facebook.com/docs/marketing-api/}
+ */
+
+var PrivateLiftStudyInstance = function (_AbstractCrudObject) {
+  inherits(PrivateLiftStudyInstance, _AbstractCrudObject);
+
+  function PrivateLiftStudyInstance() {
+    classCallCheck(this, PrivateLiftStudyInstance);
+    return possibleConstructorReturn(this, (PrivateLiftStudyInstance.__proto__ || Object.getPrototypeOf(PrivateLiftStudyInstance)).apply(this, arguments));
+  }
+
+  createClass(PrivateLiftStudyInstance, [{
+    key: 'get',
+    value: function get(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+      // $FlowFixMe : Support Generic Types
+      return this.read(fields, params);
+    }
+
+    // $FlowFixMe : Support Generic Types
+
+  }, {
+    key: 'update',
+    value: function update(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+      // $FlowFixMe : Support Generic Types
+      return get$1(PrivateLiftStudyInstance.prototype.__proto__ || Object.getPrototypeOf(PrivateLiftStudyInstance.prototype), 'update', this).call(this, params);
+    }
+  }], [{
+    key: 'Fields',
+    get: function get() {
+      return Object.freeze({
+        breakdown_key: 'breakdown_key',
+        created_time: 'created_time',
+        id: 'id',
+        latest_status_update_time: 'latest_status_update_time',
+        server_ips: 'server_ips',
+        status: 'status'
+      });
+    }
+  }, {
+    key: 'Operation',
+    get: function get() {
+      return Object.freeze({
+        aggregate: 'AGGREGATE',
+        compute: 'COMPUTE',
+        id_match: 'ID_MATCH',
+        none: 'NONE'
+      });
+    }
+  }]);
+  return PrivateLiftStudyInstance;
+}(AbstractCrudObject);
+
+/**
+ * Copyright (c) 2017-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
+ * 
+ */
+/**
  * AdNetworkAnalyticsSyncQueryResult
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
@@ -6601,13 +6752,6 @@ var InstagramUser = function (_AbstractCrudObject) {
   }
 
   createClass(InstagramUser, [{
-    key: 'deleteAgencies',
-    value: function deleteAgencies() {
-      var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-
-      return get$1(InstagramUser.prototype.__proto__ || Object.getPrototypeOf(InstagramUser.prototype), 'deleteEdge', this).call(this, '/agencies', params);
-    }
-  }, {
     key: 'getAgencies',
     value: function getAgencies(fields) {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
@@ -6815,6 +6959,13 @@ var CustomAudience = function (_AbstractCrudObject) {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
       return this.createEdge('/users', fields, params, CustomAudience);
+    }
+  }, {
+    key: 'createUsersReplace',
+    value: function createUsersReplace(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+      return this.createEdge('/usersreplace', fields, params, CustomAudience);
     }
 
     // $FlowFixMe : Support Generic Types
@@ -7147,6 +7298,51 @@ var OfflineConversionDataSet = function (_AbstractCrudObject) {
  * 
  */
 /**
+ * PageAdminNote
+ * @extends AbstractCrudObject
+ * @see {@link https://developers.facebook.com/docs/marketing-api/}
+ */
+
+var PageAdminNote = function (_AbstractCrudObject) {
+  inherits(PageAdminNote, _AbstractCrudObject);
+
+  function PageAdminNote() {
+    classCallCheck(this, PageAdminNote);
+    return possibleConstructorReturn(this, (PageAdminNote.__proto__ || Object.getPrototypeOf(PageAdminNote)).apply(this, arguments));
+  }
+
+  createClass(PageAdminNote, [{
+    key: 'get',
+    value: function get(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+      // $FlowFixMe : Support Generic Types
+      return this.read(fields, params);
+    }
+  }], [{
+    key: 'Fields',
+    get: function get() {
+      return Object.freeze({
+        body: 'body',
+        from: 'from',
+        id: 'id',
+        note_label: 'note_label',
+        user: 'user'
+      });
+    }
+  }]);
+  return PageAdminNote;
+}(AbstractCrudObject);
+
+/**
+ * Copyright (c) 2017-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
+ * 
+ */
+/**
  * ProfilePictureSource
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
@@ -7411,11 +7607,13 @@ var Comment = function (_AbstractCrudObject) {
     key: 'CommentPrivacyValue',
     get: function get() {
       return Object.freeze({
+        declined_by_admin_assistant: 'DECLINED_BY_ADMIN_ASSISTANT',
         default_privacy: 'DEFAULT_PRIVACY',
         friends_and_post_owner: 'FRIENDS_AND_POST_OWNER',
         friends_only: 'FRIENDS_ONLY',
         graphql_multiple_value_hack_do_not_use: 'GRAPHQL_MULTIPLE_VALUE_HACK_DO_NOT_USE',
         owner_or_commenter: 'OWNER_OR_COMMENTER',
+        pending_approval: 'PENDING_APPROVAL',
         side_conversation: 'SIDE_CONVERSATION',
         side_conversation_and_post_owner: 'SIDE_CONVERSATION_AND_POST_OWNER'
       });
@@ -7565,7 +7763,7 @@ var InsightsResult = function (_AbstractCrudObject) {
         last_week_mon_sun: 'last_week_mon_sun',
         last_week_sun_sat: 'last_week_sun_sat',
         last_year: 'last_year',
-        lifetime: 'lifetime',
+        maximum: 'maximum',
         this_month: 'this_month',
         this_quarter: 'this_quarter',
         this_week_mon_today: 'this_week_mon_today',
@@ -7666,13 +7864,6 @@ var Post = function (_AbstractCrudObject) {
       return this.createEdge('/likes', fields, params, Post);
     }
   }, {
-    key: 'createPromotion',
-    value: function createPromotion(fields) {
-      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-      return this.createEdge('/promotions', fields, params);
-    }
-  }, {
     key: 'getReactions',
     value: function getReactions(fields) {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
@@ -7750,22 +7941,17 @@ var Post = function (_AbstractCrudObject) {
         comments_mirroring_domain: 'comments_mirroring_domain',
         coordinates: 'coordinates',
         created_time: 'created_time',
-        delivery_growth_optimizations: 'delivery_growth_optimizations',
         description: 'description',
-        entities: 'entities',
         event: 'event',
         expanded_height: 'expanded_height',
         expanded_width: 'expanded_width',
         feed_targeting: 'feed_targeting',
-        formatting: 'formatting',
         from: 'from',
         full_picture: 'full_picture',
         height: 'height',
         icon: 'icon',
         id: 'id',
-        implicit_place: 'implicit_place',
         instagram_eligibility: 'instagram_eligibility',
-        instream_eligibility: 'instream_eligibility',
         is_app_share: 'is_app_share',
         is_eligible_for_promotion: 'is_eligible_for_promotion',
         is_expired: 'is_expired',
@@ -7776,7 +7962,6 @@ var Post = function (_AbstractCrudObject) {
         is_published: 'is_published',
         is_spherical: 'is_spherical',
         link: 'link',
-        live_video_eligibility: 'live_video_eligibility',
         message: 'message',
         message_tags: 'message_tags',
         multi_share_end_card: 'multi_share_end_card',
@@ -7787,12 +7972,10 @@ var Post = function (_AbstractCrudObject) {
         permalink_url: 'permalink_url',
         picture: 'picture',
         place: 'place',
-        poll: 'poll',
         privacy: 'privacy',
         promotable_id: 'promotable_id',
         promotion_status: 'promotion_status',
         properties: 'properties',
-        publishing_stats: 'publishing_stats',
         scheduled_publish_time: 'scheduled_publish_time',
         shares: 'shares',
         source: 'source',
@@ -7803,13 +7986,11 @@ var Post = function (_AbstractCrudObject) {
         target: 'target',
         targeting: 'targeting',
         timeline_visibility: 'timeline_visibility',
-        translations: 'translations',
         type: 'type',
         updated_time: 'updated_time',
         via: 'via',
         video_buying_eligibility: 'video_buying_eligibility',
-        width: 'width',
-        will_be_autocropped_when_deliver_to_instagram: 'will_be_autocropped_when_deliver_to_instagram'
+        width: 'width'
       });
     }
   }, {
@@ -7822,6 +8003,72 @@ var Post = function (_AbstractCrudObject) {
         month: 'month',
         none: 'none',
         year: 'year'
+      });
+    }
+  }, {
+    key: 'CheckinEntryPoint',
+    get: function get() {
+      return Object.freeze({
+        branding_checkin: 'BRANDING_CHECKIN',
+        branding_other: 'BRANDING_OTHER',
+        branding_photo: 'BRANDING_PHOTO',
+        branding_status: 'BRANDING_STATUS'
+      });
+    }
+  }, {
+    key: 'Formatting',
+    get: function get() {
+      return Object.freeze({
+        markdown: 'MARKDOWN',
+        plaintext: 'PLAINTEXT'
+      });
+    }
+  }, {
+    key: 'PlaceAttachmentSetting',
+    get: function get() {
+      return Object.freeze({
+        value_1: '1',
+        value_2: '2'
+      });
+    }
+  }, {
+    key: 'PostSurfacesBlacklist',
+    get: function get() {
+      return Object.freeze({
+        value_1: '1',
+        value_2: '2',
+        value_3: '3',
+        value_4: '4',
+        value_5: '5'
+      });
+    }
+  }, {
+    key: 'PostingToRedspace',
+    get: function get() {
+      return Object.freeze({
+        disabled: 'disabled',
+        enabled: 'enabled'
+      });
+    }
+  }, {
+    key: 'TargetSurface',
+    get: function get() {
+      return Object.freeze({
+        story: 'STORY',
+        timeline: 'TIMELINE'
+      });
+    }
+  }, {
+    key: 'UnpublishedContentType',
+    get: function get() {
+      return Object.freeze({
+        ads_post: 'ADS_POST',
+        draft: 'DRAFT',
+        inline_created: 'INLINE_CREATED',
+        published: 'PUBLISHED',
+        reviewable_branded_content: 'REVIEWABLE_BRANDED_CONTENT',
+        scheduled: 'SCHEDULED',
+        scheduled_recurring: 'SCHEDULED_RECURRING'
       });
     }
   }, {
@@ -8005,21 +8252,16 @@ var PagePost = function (_AbstractCrudObject) {
         comments_mirroring_domain: 'comments_mirroring_domain',
         coordinates: 'coordinates',
         created_time: 'created_time',
-        delivery_growth_optimizations: 'delivery_growth_optimizations',
-        entities: 'entities',
         event: 'event',
         expanded_height: 'expanded_height',
         expanded_width: 'expanded_width',
         feed_targeting: 'feed_targeting',
-        formatting: 'formatting',
         from: 'from',
         full_picture: 'full_picture',
         height: 'height',
         icon: 'icon',
         id: 'id',
-        implicit_place: 'implicit_place',
         instagram_eligibility: 'instagram_eligibility',
-        instream_eligibility: 'instream_eligibility',
         is_app_share: 'is_app_share',
         is_eligible_for_promotion: 'is_eligible_for_promotion',
         is_expired: 'is_expired',
@@ -8029,7 +8271,6 @@ var PagePost = function (_AbstractCrudObject) {
         is_popular: 'is_popular',
         is_published: 'is_published',
         is_spherical: 'is_spherical',
-        live_video_eligibility: 'live_video_eligibility',
         message: 'message',
         message_tags: 'message_tags',
         multi_share_end_card: 'multi_share_end_card',
@@ -8038,12 +8279,10 @@ var PagePost = function (_AbstractCrudObject) {
         permalink_url: 'permalink_url',
         picture: 'picture',
         place: 'place',
-        poll: 'poll',
         privacy: 'privacy',
         promotable_id: 'promotable_id',
         promotion_status: 'promotion_status',
         properties: 'properties',
-        publishing_stats: 'publishing_stats',
         scheduled_publish_time: 'scheduled_publish_time',
         shares: 'shares',
         status_type: 'status_type',
@@ -8053,12 +8292,10 @@ var PagePost = function (_AbstractCrudObject) {
         target: 'target',
         targeting: 'targeting',
         timeline_visibility: 'timeline_visibility',
-        translations: 'translations',
         updated_time: 'updated_time',
         via: 'via',
         video_buying_eligibility: 'video_buying_eligibility',
-        width: 'width',
-        will_be_autocropped_when_deliver_to_instagram: 'will_be_autocropped_when_deliver_to_instagram'
+        width: 'width'
       });
     }
   }, {
@@ -8160,22 +8397,6 @@ var Photo = function (_AbstractCrudObject) {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
       return this.createEdge('/likes', fields, params, Photo);
-    }
-  }, {
-    key: 'getReactions',
-    value: function getReactions(fields) {
-      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
-
-      return this.getEdge(Profile, fields, params, fetchFirstPage, '/reactions');
-    }
-  }, {
-    key: 'getSharedPosts',
-    value: function getSharedPosts(fields) {
-      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
-
-      return this.getEdge(Post, fields, params, fetchFirstPage, '/sharedposts');
     }
   }, {
     key: 'getSponsorTags',
@@ -8351,22 +8572,6 @@ var Album = function (_AbstractCrudObject) {
       return this.getEdge(ProfilePictureSource, fields, params, fetchFirstPage, '/picture');
     }
   }, {
-    key: 'getReactions',
-    value: function getReactions(fields) {
-      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
-
-      return this.getEdge(Profile, fields, params, fetchFirstPage, '/reactions');
-    }
-  }, {
-    key: 'getSharedPosts',
-    value: function getSharedPosts(fields) {
-      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
-
-      return this.getEdge(Post, fields, params, fetchFirstPage, '/sharedposts');
-    }
-  }, {
     key: 'get',
     value: function get(fields) {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
@@ -8496,6 +8701,7 @@ var PageCallToAction = function (_AbstractCrudObject) {
         marketplace_inventory_page: 'MARKETPLACE_INVENTORY_PAGE',
         messenger: 'MESSENGER',
         mini_shop: 'MINI_SHOP',
+        mobile_center: 'MOBILE_CENTER',
         none: 'NONE',
         phone_call: 'PHONE_CALL',
         shop_on_facebook: 'SHOP_ON_FACEBOOK',
@@ -8542,6 +8748,7 @@ var PageCallToAction = function (_AbstractCrudObject) {
         listen: 'LISTEN',
         local_dev_platform: 'LOCAL_DEV_PLATFORM',
         message: 'MESSAGE',
+        mobile_center: 'MOBILE_CENTER',
         open_app: 'OPEN_APP',
         order_food: 'ORDER_FOOD',
         play_music: 'PLAY_MUSIC',
@@ -8568,6 +8775,7 @@ var PageCallToAction = function (_AbstractCrudObject) {
         email: 'EMAIL',
         follow: 'FOLLOW',
         messenger: 'MESSENGER',
+        mobile_center: 'MOBILE_CENTER',
         none: 'NONE',
         shop_on_facebook: 'SHOP_ON_FACEBOOK',
         website: 'WEBSITE'
@@ -8771,6 +8979,40 @@ var URL = function (_AbstractCrudObject) {
  * 
  */
 /**
+ * PageCommerceEligibility
+ * @extends AbstractCrudObject
+ * @see {@link https://developers.facebook.com/docs/marketing-api/}
+ */
+
+var PageCommerceEligibility = function (_AbstractCrudObject) {
+  inherits(PageCommerceEligibility, _AbstractCrudObject);
+
+  function PageCommerceEligibility() {
+    classCallCheck(this, PageCommerceEligibility);
+    return possibleConstructorReturn(this, (PageCommerceEligibility.__proto__ || Object.getPrototypeOf(PageCommerceEligibility)).apply(this, arguments));
+  }
+
+  createClass(PageCommerceEligibility, null, [{
+    key: 'Fields',
+    get: function get() {
+      return Object.freeze({
+        offsite: 'offsite',
+        onsite: 'onsite'
+      });
+    }
+  }]);
+  return PageCommerceEligibility;
+}(AbstractCrudObject);
+
+/**
+ * Copyright (c) 2017-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
+ * 
+ */
+/**
  * AutomotiveModel
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
@@ -8785,6 +9027,22 @@ var AutomotiveModel = function (_AbstractCrudObject) {
   }
 
   createClass(AutomotiveModel, [{
+    key: 'getAugmentedRealitiesMetadata',
+    value: function getAugmentedRealitiesMetadata(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+      return this.getEdge(AbstractObject, fields, params, fetchFirstPage, '/augmented_realities_metadata');
+    }
+  }, {
+    key: 'getVideosMetadata',
+    value: function getVideosMetadata(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+      return this.getEdge(AbstractObject, fields, params, fetchFirstPage, '/videos_metadata');
+    }
+  }, {
     key: 'get',
     value: function get(fields) {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
@@ -8811,6 +9069,7 @@ var AutomotiveModel = function (_AbstractCrudObject) {
         fuel_type: 'fuel_type',
         generation: 'generation',
         id: 'id',
+        image_fetch_status: 'image_fetch_status',
         images: 'images',
         interior_color: 'interior_color',
         interior_upholstery: 'interior_upholstery',
@@ -8823,6 +9082,46 @@ var AutomotiveModel = function (_AbstractCrudObject) {
         trim: 'trim',
         url: 'url',
         year: 'year'
+      });
+    }
+  }, {
+    key: 'ImageFetchStatus',
+    get: function get() {
+      return Object.freeze({
+        direct_upload: 'DIRECT_UPLOAD',
+        fetched: 'FETCHED',
+        fetch_failed: 'FETCH_FAILED',
+        no_status: 'NO_STATUS',
+        outdated: 'OUTDATED',
+        partial_fetch: 'PARTIAL_FETCH'
+      });
+    }
+  }, {
+    key: 'BodyStyle',
+    get: function get() {
+      return Object.freeze({
+        convertible: 'CONVERTIBLE',
+        coupe: 'COUPE',
+        crossover: 'CROSSOVER',
+        estate: 'ESTATE',
+        grandtourer: 'GRANDTOURER',
+        hatchback: 'HATCHBACK',
+        minibus: 'MINIBUS',
+        minivan: 'MINIVAN',
+        mpv: 'MPV',
+        none: 'NONE',
+        other: 'OTHER',
+        pickup: 'PICKUP',
+        roadster: 'ROADSTER',
+        saloon: 'SALOON',
+        sedan: 'SEDAN',
+        sportscar: 'SPORTSCAR',
+        supercar: 'SUPERCAR',
+        supermini: 'SUPERMINI',
+        suv: 'SUV',
+        truck: 'TRUCK',
+        van: 'VAN',
+        wagon: 'WAGON'
       });
     }
   }]);
@@ -8996,6 +9295,22 @@ var Destination = function (_AbstractCrudObject) {
   }
 
   createClass(Destination, [{
+    key: 'getAugmentedRealitiesMetadata',
+    value: function getAugmentedRealitiesMetadata(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+      return this.getEdge(AbstractObject, fields, params, fetchFirstPage, '/augmented_realities_metadata');
+    }
+  }, {
+    key: 'getVideosMetadata',
+    value: function getVideosMetadata(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+      return this.getEdge(AbstractObject, fields, params, fetchFirstPage, '/videos_metadata');
+    }
+  }, {
     key: 'get',
     value: function get(fields) {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
@@ -9014,6 +9329,7 @@ var Destination = function (_AbstractCrudObject) {
         description: 'description',
         destination_id: 'destination_id',
         id: 'id',
+        image_fetch_status: 'image_fetch_status',
         images: 'images',
         name: 'name',
         price: 'price',
@@ -9021,6 +9337,18 @@ var Destination = function (_AbstractCrudObject) {
         sanitized_images: 'sanitized_images',
         types: 'types',
         url: 'url'
+      });
+    }
+  }, {
+    key: 'ImageFetchStatus',
+    get: function get() {
+      return Object.freeze({
+        direct_upload: 'DIRECT_UPLOAD',
+        fetched: 'FETCHED',
+        fetch_failed: 'FETCH_FAILED',
+        no_status: 'NO_STATUS',
+        outdated: 'OUTDATED',
+        partial_fetch: 'PARTIAL_FETCH'
       });
     }
   }]);
@@ -9165,6 +9493,22 @@ var Flight = function (_AbstractCrudObject) {
   }
 
   createClass(Flight, [{
+    key: 'getAugmentedRealitiesMetadata',
+    value: function getAugmentedRealitiesMetadata(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+      return this.getEdge(AbstractObject, fields, params, fetchFirstPage, '/augmented_realities_metadata');
+    }
+  }, {
+    key: 'getVideosMetadata',
+    value: function getVideosMetadata(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+      return this.getEdge(AbstractObject, fields, params, fetchFirstPage, '/videos_metadata');
+    }
+  }, {
     key: 'get',
     value: function get(fields) {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
@@ -9195,6 +9539,7 @@ var Flight = function (_AbstractCrudObject) {
         destination_city: 'destination_city',
         flight_id: 'flight_id',
         id: 'id',
+        image_fetch_status: 'image_fetch_status',
         images: 'images',
         oneway_currency: 'oneway_currency',
         oneway_price: 'oneway_price',
@@ -9203,6 +9548,18 @@ var Flight = function (_AbstractCrudObject) {
         price: 'price',
         sanitized_images: 'sanitized_images',
         url: 'url'
+      });
+    }
+  }, {
+    key: 'ImageFetchStatus',
+    get: function get() {
+      return Object.freeze({
+        direct_upload: 'DIRECT_UPLOAD',
+        fetched: 'FETCHED',
+        fetch_failed: 'FETCH_FAILED',
+        no_status: 'NO_STATUS',
+        outdated: 'OUTDATED',
+        partial_fetch: 'PARTIAL_FETCH'
       });
     }
   }]);
@@ -9232,10 +9589,26 @@ var HomeListing = function (_AbstractCrudObject) {
   }
 
   createClass(HomeListing, [{
-    key: 'delete',
+    key: 'getAugmentedRealitiesMetadata',
+    value: function getAugmentedRealitiesMetadata(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
 
+      return this.getEdge(AbstractObject, fields, params, fetchFirstPage, '/augmented_realities_metadata');
+    }
+  }, {
+    key: 'getVideosMetadata',
+    value: function getVideosMetadata(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+      return this.getEdge(AbstractObject, fields, params, fetchFirstPage, '/videos_metadata');
+    }
 
     // $FlowFixMe : Support Generic Types
+
+  }, {
+    key: 'delete',
     value: function _delete(fields) {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
@@ -9288,6 +9661,7 @@ var HomeListing = function (_AbstractCrudObject) {
         heating_type: 'heating_type',
         home_listing_id: 'home_listing_id',
         id: 'id',
+        image_fetch_status: 'image_fetch_status',
         images: 'images',
         laundry_type: 'laundry_type',
         listing_type: 'listing_type',
@@ -9308,6 +9682,18 @@ var HomeListing = function (_AbstractCrudObject) {
         sanitized_images: 'sanitized_images',
         url: 'url',
         year_built: 'year_built'
+      });
+    }
+  }, {
+    key: 'ImageFetchStatus',
+    get: function get() {
+      return Object.freeze({
+        direct_upload: 'DIRECT_UPLOAD',
+        fetched: 'FETCHED',
+        fetch_failed: 'FETCH_FAILED',
+        no_status: 'NO_STATUS',
+        outdated: 'OUTDATED',
+        partial_fetch: 'PARTIAL_FETCH'
       });
     }
   }]);
@@ -9424,17 +9810,6 @@ var HotelRoom = function (_AbstractCrudObject) {
 
       return this.getEdge(DynamicPriceConfigByDate, fields, params, fetchFirstPage, '/pricing_variables');
     }
-
-    // $FlowFixMe : Support Generic Types
-
-  }, {
-    key: 'delete',
-    value: function _delete(fields) {
-      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-      // $FlowFixMe : Support Generic Types
-      return get$1(HotelRoom.prototype.__proto__ || Object.getPrototypeOf(HotelRoom.prototype), 'delete', this).call(this, params);
-    }
   }, {
     key: 'get',
     value: function get(fields) {
@@ -9498,12 +9873,28 @@ var Hotel = function (_AbstractCrudObject) {
   }
 
   createClass(Hotel, [{
+    key: 'getAugmentedRealitiesMetadata',
+    value: function getAugmentedRealitiesMetadata(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+      return this.getEdge(AbstractObject, fields, params, fetchFirstPage, '/augmented_realities_metadata');
+    }
+  }, {
     key: 'getHotelRooms',
     value: function getHotelRooms(fields) {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
       var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
 
       return this.getEdge(HotelRoom, fields, params, fetchFirstPage, '/hotel_rooms');
+    }
+  }, {
+    key: 'getVideosMetadata',
+    value: function getVideosMetadata(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+      return this.getEdge(AbstractObject, fields, params, fetchFirstPage, '/videos_metadata');
     }
 
     // $FlowFixMe : Support Generic Types
@@ -9549,6 +9940,7 @@ var Hotel = function (_AbstractCrudObject) {
         guest_ratings: 'guest_ratings',
         hotel_id: 'hotel_id',
         id: 'id',
+        image_fetch_status: 'image_fetch_status',
         images: 'images',
         lowest_base_price: 'lowest_base_price',
         loyalty_program: 'loyalty_program',
@@ -9559,6 +9951,18 @@ var Hotel = function (_AbstractCrudObject) {
         sanitized_images: 'sanitized_images',
         star_rating: 'star_rating',
         url: 'url'
+      });
+    }
+  }, {
+    key: 'ImageFetchStatus',
+    get: function get() {
+      return Object.freeze({
+        direct_upload: 'DIRECT_UPLOAD',
+        fetched: 'FETCHED',
+        fetch_failed: 'FETCH_FAILED',
+        no_status: 'NO_STATUS',
+        outdated: 'OUTDATED',
+        partial_fetch: 'PARTIAL_FETCH'
       });
     }
   }]);
@@ -9610,6 +10014,40 @@ var ProductCatalogPricingVariablesBatch = function (_AbstractCrudObject) {
  * 
  */
 /**
+ * CatalogItemChannelsToIntegrityStatus
+ * @extends AbstractCrudObject
+ * @see {@link https://developers.facebook.com/docs/marketing-api/}
+ */
+
+var CatalogItemChannelsToIntegrityStatus = function (_AbstractCrudObject) {
+  inherits(CatalogItemChannelsToIntegrityStatus, _AbstractCrudObject);
+
+  function CatalogItemChannelsToIntegrityStatus() {
+    classCallCheck(this, CatalogItemChannelsToIntegrityStatus);
+    return possibleConstructorReturn(this, (CatalogItemChannelsToIntegrityStatus.__proto__ || Object.getPrototypeOf(CatalogItemChannelsToIntegrityStatus)).apply(this, arguments));
+  }
+
+  createClass(CatalogItemChannelsToIntegrityStatus, null, [{
+    key: 'Fields',
+    get: function get() {
+      return Object.freeze({
+        channels: 'channels',
+        rejection_information: 'rejection_information'
+      });
+    }
+  }]);
+  return CatalogItemChannelsToIntegrityStatus;
+}(AbstractCrudObject);
+
+/**
+ * Copyright (c) 2017-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
+ * 
+ */
+/**
  * VehicleOffer
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
@@ -9624,6 +10062,22 @@ var VehicleOffer = function (_AbstractCrudObject) {
   }
 
   createClass(VehicleOffer, [{
+    key: 'getAugmentedRealitiesMetadata',
+    value: function getAugmentedRealitiesMetadata(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+      return this.getEdge(AbstractObject, fields, params, fetchFirstPage, '/augmented_realities_metadata');
+    }
+  }, {
+    key: 'getVideosMetadata',
+    value: function getVideosMetadata(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+      return this.getEdge(AbstractObject, fields, params, fetchFirstPage, '/videos_metadata');
+    }
+  }, {
     key: 'get',
     value: function get(fields) {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
@@ -9652,6 +10106,7 @@ var VehicleOffer = function (_AbstractCrudObject) {
         end_date: 'end_date',
         end_time: 'end_time',
         id: 'id',
+        image_fetch_status: 'image_fetch_status',
         images: 'images',
         make: 'make',
         model: 'model',
@@ -9669,6 +10124,18 @@ var VehicleOffer = function (_AbstractCrudObject) {
         url: 'url',
         vehicle_offer_id: 'vehicle_offer_id',
         year: 'year'
+      });
+    }
+  }, {
+    key: 'ImageFetchStatus',
+    get: function get() {
+      return Object.freeze({
+        direct_upload: 'DIRECT_UPLOAD',
+        fetched: 'FETCHED',
+        fetch_failed: 'FETCH_FAILED',
+        no_status: 'NO_STATUS',
+        outdated: 'OUTDATED',
+        partial_fetch: 'PARTIAL_FETCH'
       });
     }
   }]);
@@ -9698,6 +10165,22 @@ var Vehicle = function (_AbstractCrudObject) {
   }
 
   createClass(Vehicle, [{
+    key: 'getAugmentedRealitiesMetadata',
+    value: function getAugmentedRealitiesMetadata(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+      return this.getEdge(AbstractObject, fields, params, fetchFirstPage, '/augmented_realities_metadata');
+    }
+  }, {
+    key: 'getVideosMetadata',
+    value: function getVideosMetadata(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+      return this.getEdge(AbstractObject, fields, params, fetchFirstPage, '/videos_metadata');
+    }
+  }, {
     key: 'get',
     value: function get(fields) {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
@@ -9742,6 +10225,7 @@ var Vehicle = function (_AbstractCrudObject) {
         features: 'features',
         fuel_type: 'fuel_type',
         id: 'id',
+        image_fetch_status: 'image_fetch_status',
         images: 'images',
         interior_color: 'interior_color',
         legal_disclosure_impressum_url: 'legal_disclosure_impressum_url',
@@ -9768,11 +10252,24 @@ var Vehicle = function (_AbstractCrudObject) {
       });
     }
   }, {
+    key: 'ImageFetchStatus',
+    get: function get() {
+      return Object.freeze({
+        direct_upload: 'DIRECT_UPLOAD',
+        fetched: 'FETCHED',
+        fetch_failed: 'FETCH_FAILED',
+        no_status: 'NO_STATUS',
+        outdated: 'OUTDATED',
+        partial_fetch: 'PARTIAL_FETCH'
+      });
+    }
+  }, {
     key: 'Availability',
     get: function get() {
       return Object.freeze({
         available: 'AVAILABLE',
-        not_available: 'NOT_AVAILABLE'
+        not_available: 'NOT_AVAILABLE',
+        pending: 'PENDING'
       });
     }
   }, {
@@ -9935,6 +10432,14 @@ var ProductSet = function (_AbstractCrudObject) {
       return this.getEdge(Hotel, fields, params, fetchFirstPage, '/hotels');
     }
   }, {
+    key: 'getMediaTitles',
+    value: function getMediaTitles(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+      return this.getEdge(AbstractObject, fields, params, fetchFirstPage, '/media_titles');
+    }
+  }, {
     key: 'getProducts',
     value: function getProducts(fields) {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
@@ -10030,6 +10535,14 @@ var ProductItem = function (_AbstractCrudObject) {
   }
 
   createClass(ProductItem, [{
+    key: 'getChannelsToIntegrityStatus',
+    value: function getChannelsToIntegrityStatus(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+      return this.getEdge(CatalogItemChannelsToIntegrityStatus, fields, params, fetchFirstPage, '/channels_to_integrity_status');
+    }
+  }, {
     key: 'getProductSets',
     value: function getProductSets(fields) {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
@@ -10076,6 +10589,7 @@ var ProductItem = function (_AbstractCrudObject) {
         additional_variant_attributes: 'additional_variant_attributes',
         age_group: 'age_group',
         applinks: 'applinks',
+        ar_data: 'ar_data',
         availability: 'availability',
         brand: 'brand',
         capability_to_review_status: 'capability_to_review_status',
@@ -10098,13 +10612,16 @@ var ProductItem = function (_AbstractCrudObject) {
         gtin: 'gtin',
         id: 'id',
         image_cdn_urls: 'image_cdn_urls',
+        image_fetch_status: 'image_fetch_status',
         image_url: 'image_url',
+        images: 'images',
         inventory: 'inventory',
         manufacturer_part_number: 'manufacturer_part_number',
         material: 'material',
         mobile_link: 'mobile_link',
         name: 'name',
         ordering_index: 'ordering_index',
+        parent_product_id: 'parent_product_id',
         pattern: 'pattern',
         price: 'price',
         product_catalog: 'product_catalog',
@@ -10176,6 +10693,18 @@ var ProductItem = function (_AbstractCrudObject) {
       });
     }
   }, {
+    key: 'ImageFetchStatus',
+    get: function get() {
+      return Object.freeze({
+        direct_upload: 'DIRECT_UPLOAD',
+        fetched: 'FETCHED',
+        fetch_failed: 'FETCH_FAILED',
+        no_status: 'NO_STATUS',
+        outdated: 'OUTDATED',
+        partial_fetch: 'PARTIAL_FETCH'
+      });
+    }
+  }, {
     key: 'ReviewStatus',
     get: function get() {
       return Object.freeze({
@@ -10216,6 +10745,7 @@ var ProductItem = function (_AbstractCrudObject) {
         fb_aprl_clothing: 'FB_APRL_CLOTHING',
         fb_aprl_costume: 'FB_APRL_COSTUME',
         fb_aprl_cstm: 'FB_APRL_CSTM',
+        fb_aprl_formal: 'FB_APRL_FORMAL',
         fb_aprl_handbag: 'FB_APRL_HANDBAG',
         fb_aprl_jewelry: 'FB_APRL_JEWELRY',
         fb_aprl_shoe: 'FB_APRL_SHOE',
@@ -10515,34 +11045,12 @@ var ProductFeedSchedule = function (_AbstractCrudObject) {
   }
 
   createClass(ProductFeedSchedule, [{
-    key: 'delete',
-
-
-    // $FlowFixMe : Support Generic Types
-    value: function _delete(fields) {
-      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-      // $FlowFixMe : Support Generic Types
-      return get$1(ProductFeedSchedule.prototype.__proto__ || Object.getPrototypeOf(ProductFeedSchedule.prototype), 'delete', this).call(this, params);
-    }
-  }, {
     key: 'get',
     value: function get(fields) {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
       // $FlowFixMe : Support Generic Types
       return this.read(fields, params);
-    }
-
-    // $FlowFixMe : Support Generic Types
-
-  }, {
-    key: 'update',
-    value: function update(fields) {
-      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-      // $FlowFixMe : Support Generic Types
-      return get$1(ProductFeedSchedule.prototype.__proto__ || Object.getPrototypeOf(ProductFeedSchedule.prototype), 'update', this).call(this, params);
     }
   }], [{
     key: 'Fields',
@@ -10847,12 +11355,28 @@ var ProductFeed = function (_AbstractCrudObject) {
   }
 
   createClass(ProductFeed, [{
+    key: 'getAutoMarkets',
+    value: function getAutoMarkets(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+      return this.getEdge(AbstractObject, fields, params, fetchFirstPage, '/auto_markets');
+    }
+  }, {
     key: 'getAutomotiveModels',
     value: function getAutomotiveModels(fields) {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
       var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
 
       return this.getEdge(AutomotiveModel, fields, params, fetchFirstPage, '/automotive_models');
+    }
+  }, {
+    key: 'getAutos',
+    value: function getAutos(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+      return this.getEdge(AbstractObject, fields, params, fetchFirstPage, '/autos');
     }
   }, {
     key: 'getDestinations',
@@ -10885,6 +11409,14 @@ var ProductFeed = function (_AbstractCrudObject) {
       var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
 
       return this.getEdge(Hotel, fields, params, fetchFirstPage, '/hotels');
+    }
+  }, {
+    key: 'getMediaTitles',
+    value: function getMediaTitles(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+      return this.getEdge(AbstractObject, fields, params, fetchFirstPage, '/media_titles');
     }
   }, {
     key: 'getProducts',
@@ -10999,6 +11531,7 @@ var ProductFeed = function (_AbstractCrudObject) {
         id: 'id',
         item_sub_type: 'item_sub_type',
         latest_upload: 'latest_upload',
+        migrated_from_feed_id: 'migrated_from_feed_id',
         name: 'name',
         override_type: 'override_type',
         product_count: 'product_count',
@@ -11046,6 +11579,7 @@ var ProductFeed = function (_AbstractCrudObject) {
     get: function get() {
       return Object.freeze({
         auto: 'AUTO',
+        automotive_model: 'AUTOMOTIVE_MODEL',
         destination: 'DESTINATION',
         flight: 'FLIGHT',
         home_listing: 'HOME_LISTING',
@@ -11292,12 +11826,35 @@ var ProductCatalog = function (_AbstractCrudObject) {
       return this.createEdge('/assigned_users', fields, params, ProductCatalog);
     }
   }, {
+    key: 'getAutoMarkets',
+    value: function getAutoMarkets(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+      return this.getEdge(AbstractObject, fields, params, fetchFirstPage, '/auto_markets');
+    }
+  }, {
     key: 'getAutomotiveModels',
     value: function getAutomotiveModels(fields) {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
       var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
 
       return this.getEdge(AutomotiveModel, fields, params, fetchFirstPage, '/automotive_models');
+    }
+  }, {
+    key: 'createAutomotiveModel',
+    value: function createAutomotiveModel(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+      return this.createEdge('/automotive_models', fields, params, AutomotiveModel);
+    }
+  }, {
+    key: 'getAutos',
+    value: function getAutos(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+      return this.getEdge(AbstractObject, fields, params, fetchFirstPage, '/autos');
     }
   }, {
     key: 'createBatch',
@@ -11436,11 +11993,12 @@ var ProductCatalog = function (_AbstractCrudObject) {
       return this.createEdge('/items_batch', fields, params, ProductCatalog);
     }
   }, {
-    key: 'createOnsiteCommerceMerchant',
-    value: function createOnsiteCommerceMerchant(fields) {
+    key: 'getMediaTitles',
+    value: function getMediaTitles(fields) {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
 
-      return this.createEdge('/onsite_commerce_merchant', fields, params, ProductCatalog);
+      return this.getEdge(AbstractObject, fields, params, fetchFirstPage, '/media_titles');
     }
   }, {
     key: 'getPricingVariablesBatch',
@@ -11608,6 +12166,7 @@ var ProductCatalog = function (_AbstractCrudObject) {
         home_listings: 'home_listings',
         hotels: 'hotels',
         jobs: 'jobs',
+        local_delivery_shipping_profiles: 'local_delivery_shipping_profiles',
         local_service_businesses: 'local_service_businesses',
         offer_items: 'offer_items',
         offline_commerce: 'offline_commerce',
@@ -11715,6 +12274,7 @@ var CommerceMerchantSettingsSetupStatus = function (_AbstractCrudObject) {
         marketplace_approval_status: 'marketplace_approval_status',
         marketplace_approval_status_details: 'marketplace_approval_status_details',
         payment_setup: 'payment_setup',
+        review_status: 'review_status',
         shop_setup: 'shop_setup'
       });
     }
@@ -11745,27 +12305,6 @@ var CommerceMerchantSettings = function (_AbstractCrudObject) {
   }
 
   createClass(CommerceMerchantSettings, [{
-    key: 'createFacebookChannel',
-    value: function createFacebookChannel(fields) {
-      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-      return this.createEdge('/facebook_channel', fields, params, CommerceMerchantSettings);
-    }
-  }, {
-    key: 'deleteInstagramChannel',
-    value: function deleteInstagramChannel() {
-      var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-
-      return get$1(CommerceMerchantSettings.prototype.__proto__ || Object.getPrototypeOf(CommerceMerchantSettings.prototype), 'deleteEdge', this).call(this, '/instagram_channel', params);
-    }
-  }, {
-    key: 'createInstagramChannel',
-    value: function createInstagramChannel(fields) {
-      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-      return this.createEdge('/instagram_channel', fields, params, CommerceMerchantSettings);
-    }
-  }, {
     key: 'getOrderManagementApps',
     value: function getOrderManagementApps(fields) {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
@@ -11842,17 +12381,6 @@ var CommerceMerchantSettings = function (_AbstractCrudObject) {
       // $FlowFixMe : Support Generic Types
       return this.read(fields, params);
     }
-
-    // $FlowFixMe : Support Generic Types
-
-  }, {
-    key: 'update',
-    value: function update(fields) {
-      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-      // $FlowFixMe : Support Generic Types
-      return get$1(CommerceMerchantSettings.prototype.__proto__ || Object.getPrototypeOf(CommerceMerchantSettings.prototype), 'update', this).call(this, params);
-    }
   }], [{
     key: 'Fields',
     get: function get() {
@@ -11863,8 +12391,11 @@ var CommerceMerchantSettings = function (_AbstractCrudObject) {
         cta: 'cta',
         disable_checkout_urls: 'disable_checkout_urls',
         display_name: 'display_name',
+        external_merchant_id: 'external_merchant_id',
         facebook_channel: 'facebook_channel',
+        feature_eligibility: 'feature_eligibility',
         has_discount_code: 'has_discount_code',
+        has_onsite_intent: 'has_onsite_intent',
         id: 'id',
         instagram_channel: 'instagram_channel',
         merchant_alert_email: 'merchant_alert_email',
@@ -11880,22 +12411,6 @@ var CommerceMerchantSettings = function (_AbstractCrudObject) {
         terms: 'terms',
         terms_url_by_locale: 'terms_url_by_locale',
         whatsapp_channel: 'whatsapp_channel'
-      });
-    }
-  }, {
-    key: 'Cta',
-    get: function get() {
-      return Object.freeze({
-        contact_merchant: 'CONTACT_MERCHANT',
-        offsite_link: 'OFFSITE_LINK'
-      });
-    }
-  }, {
-    key: 'MerchantStatus',
-    get: function get() {
-      return Object.freeze({
-        enabled: 'ENABLED',
-        externally_disabled: 'EXTERNALLY_DISABLED'
       });
     }
   }]);
@@ -12233,7 +12748,6 @@ var UnifiedThread = function (_AbstractCrudObject) {
         id: 'id',
         is_subscribed: 'is_subscribed',
         link: 'link',
-        linked_group: 'linked_group',
         message_count: 'message_count',
         name: 'name',
         participants: 'participants',
@@ -12585,14 +13099,14 @@ var BusinessUser = function (_AbstractCrudObject) {
       return Object.freeze({
         admin: 'ADMIN',
         ads_rights_reviewer: 'ADS_RIGHTS_REVIEWER',
+        default: 'DEFAULT',
         developer: 'DEVELOPER',
         employee: 'EMPLOYEE',
         finance_analyst: 'FINANCE_ANALYST',
+        finance_edit: 'FINANCE_EDIT',
         finance_editor: 'FINANCE_EDITOR',
-        finance_edit_task: 'FINANCE_EDIT_TASK',
-        finance_view_task: 'FINANCE_VIEW_TASK',
-        moderate_task: 'MODERATE_TASK',
-        operate_task: 'OPERATE_TASK',
+        finance_view: 'FINANCE_VIEW',
+        manage: 'MANAGE',
         partner_center_admin: 'PARTNER_CENTER_ADMIN',
         partner_center_analyst: 'PARTNER_CENTER_ANALYST',
         partner_center_education: 'PARTNER_CENTER_EDUCATION',
@@ -13349,11 +13863,27 @@ var Group = function (_AbstractCrudObject) {
       return this.getEdge(Event, fields, params, fetchFirstPage, '/events');
     }
   }, {
+    key: 'getFeed',
+    value: function getFeed(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+      return this.getEdge(Post, fields, params, fetchFirstPage, '/feed');
+    }
+  }, {
     key: 'createFeed',
     value: function createFeed(fields) {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
-      return this.createEdge('/feed', fields, params);
+      return this.createEdge('/feed', fields, params, Post);
+    }
+  }, {
+    key: 'getFiles',
+    value: function getFiles(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+      return this.getEdge(AbstractObject, fields, params, fetchFirstPage, '/files');
     }
   }, {
     key: 'getGroups',
@@ -13369,6 +13899,13 @@ var Group = function (_AbstractCrudObject) {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
       return this.createEdge('/groups', fields, params, Group);
+    }
+  }, {
+    key: 'createImportantPost',
+    value: function createImportantPost(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+      return this.createEdge('/important_posts', fields, params);
     }
   }, {
     key: 'getLiveVideos',
@@ -13423,6 +13960,20 @@ var Group = function (_AbstractCrudObject) {
       return this.getEdge(ProfilePictureSource, fields, params, fetchFirstPage, '/picture');
     }
   }, {
+    key: 'deletePinnedPosts',
+    value: function deletePinnedPosts() {
+      var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+      return get$1(Group.prototype.__proto__ || Object.getPrototypeOf(Group.prototype), 'deleteEdge', this).call(this, '/pinned_posts', params);
+    }
+  }, {
+    key: 'createPinnedPost',
+    value: function createPinnedPost(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+      return this.createEdge('/pinned_posts', fields, params, Post);
+    }
+  }, {
     key: 'getVideos',
     value: function getVideos(fields) {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
@@ -13471,7 +14022,6 @@ var Group = function (_AbstractCrudObject) {
         member_count: 'member_count',
         member_request_count: 'member_request_count',
         name: 'name',
-        owner: 'owner',
         parent: 'parent',
         permissions: 'permissions',
         privacy: 'privacy',
@@ -13534,6 +14084,7 @@ var Group = function (_AbstractCrudObject) {
         school_class: 'SCHOOL_CLASS',
         sorority: 'SORORITY',
         sports: 'SPORTS',
+        streamer: 'STREAMER',
         study_group: 'STUDY_GROUP',
         support: 'SUPPORT',
         teammates: 'TEAMMATES',
@@ -13592,6 +14143,7 @@ var Group = function (_AbstractCrudObject) {
         school_class: 'SCHOOL_CLASS',
         sorority: 'SORORITY',
         sports: 'SPORTS',
+        streamer: 'STREAMER',
         study_group: 'STUDY_GROUP',
         support: 'SUPPORT',
         teammates: 'TEAMMATES',
@@ -13613,18 +14165,6 @@ var Group = function (_AbstractCrudObject) {
         work_team: 'WORK_TEAM',
         work_teamwork: 'WORK_TEAMWORK',
         work_vc_call: 'WORK_VC_CALL'
-      });
-    }
-  }, {
-    key: 'SuggestionCategory',
-    get: function get() {
-      return Object.freeze({
-        event: 'EVENT',
-        messenger: 'MESSENGER',
-        work: 'WORK',
-        workplace: 'WORKPLACE',
-        workplace_1_1: 'WORKPLACE_1_1',
-        workplace_manager: 'WORKPLACE_MANAGER'
       });
     }
   }]);
@@ -13812,6 +14352,88 @@ var LiveEncoder = function (_AbstractCrudObject) {
     }
   }]);
   return LiveEncoder;
+}(AbstractCrudObject);
+
+/**
+ * Copyright (c) 2017-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
+ * 
+ */
+/**
+ * PaymentEnginePayment
+ * @extends AbstractCrudObject
+ * @see {@link https://developers.facebook.com/docs/marketing-api/}
+ */
+
+var PaymentEnginePayment = function (_AbstractCrudObject) {
+  inherits(PaymentEnginePayment, _AbstractCrudObject);
+
+  function PaymentEnginePayment() {
+    classCallCheck(this, PaymentEnginePayment);
+    return possibleConstructorReturn(this, (PaymentEnginePayment.__proto__ || Object.getPrototypeOf(PaymentEnginePayment)).apply(this, arguments));
+  }
+
+  createClass(PaymentEnginePayment, [{
+    key: 'createDispute',
+    value: function createDispute(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+      return this.createEdge('/dispute', fields, params, PaymentEnginePayment);
+    }
+  }, {
+    key: 'createRefund',
+    value: function createRefund(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+      return this.createEdge('/refunds', fields, params, PaymentEnginePayment);
+    }
+  }, {
+    key: 'get',
+    value: function get(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+      // $FlowFixMe : Support Generic Types
+      return this.read(fields, params);
+    }
+  }], [{
+    key: 'Fields',
+    get: function get() {
+      return Object.freeze({
+        actions: 'actions',
+        application: 'application',
+        country: 'country',
+        created_time: 'created_time',
+        disputes: 'disputes',
+        fraud_status: 'fraud_status',
+        fulfillment_status: 'fulfillment_status',
+        id: 'id',
+        is_from_ad: 'is_from_ad',
+        is_from_page_post: 'is_from_page_post',
+        items: 'items',
+        payout_foreign_exchange_rate: 'payout_foreign_exchange_rate',
+        phone_support_eligible: 'phone_support_eligible',
+        refundable_amount: 'refundable_amount',
+        request_id: 'request_id',
+        tax: 'tax',
+        tax_country: 'tax_country',
+        test: 'test',
+        user: 'user'
+      });
+    }
+  }, {
+    key: 'Reason',
+    get: function get() {
+      return Object.freeze({
+        banned_user: 'BANNED_USER',
+        denied_refund: 'DENIED_REFUND',
+        granted_replacement_item: 'GRANTED_REPLACEMENT_ITEM'
+      });
+    }
+  }]);
+  return PaymentEnginePayment;
 }(AbstractCrudObject);
 
 /**
@@ -14049,11 +14671,19 @@ var User = function (_AbstractCrudObject) {
       return this.getEdge(Event, fields, params, fetchFirstPage, '/events');
     }
   }, {
+    key: 'getFeed',
+    value: function getFeed(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+      return this.getEdge(Post, fields, params, fetchFirstPage, '/feed');
+    }
+  }, {
     key: 'createFeed',
     value: function createFeed(fields) {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
-      return this.createEdge('/feed', fields, params);
+      return this.createEdge('/feed', fields, params, Post);
     }
   }, {
     key: 'getFriends',
@@ -14170,12 +14800,12 @@ var User = function (_AbstractCrudObject) {
       return this.createEdge('/notifications', fields, params, User);
     }
   }, {
-    key: 'getOwnedProductCatalogs',
-    value: function getOwnedProductCatalogs(fields) {
+    key: 'getPaymentTransactions',
+    value: function getPaymentTransactions(fields) {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
       var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
 
-      return this.getEdge(ProductCatalog, fields, params, fetchFirstPage, '/owned_product_catalogs');
+      return this.getEdge(PaymentEnginePayment, fields, params, fetchFirstPage, '/payment_transactions');
     }
   }, {
     key: 'deletePermissions',
@@ -14222,6 +14852,14 @@ var User = function (_AbstractCrudObject) {
       var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
 
       return this.getEdge(ProfilePictureSource, fields, params, fetchFirstPage, '/picture');
+    }
+  }, {
+    key: 'getPosts',
+    value: function getPosts(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+      return this.getEdge(Post, fields, params, fetchFirstPage, '/posts');
     }
   }, {
     key: 'getRichMediaDocuments',
@@ -14288,14 +14926,10 @@ var User = function (_AbstractCrudObject) {
     get: function get() {
       return Object.freeze({
         about: 'about',
-        address: 'address',
-        admin_notes: 'admin_notes',
         age_range: 'age_range',
-        auth_method: 'auth_method',
         birthday: 'birthday',
         cover: 'cover',
         currency: 'currency',
-        devices: 'devices',
         education: 'education',
         email: 'email',
         favorite_athletes: 'favorite_athletes',
@@ -14324,7 +14958,6 @@ var User = function (_AbstractCrudObject) {
         payment_pricepoints: 'payment_pricepoints',
         political: 'political',
         profile_pic: 'profile_pic',
-        public_key: 'public_key',
         quotes: 'quotes',
         relationship_status: 'relationship_status',
         religion: 'religion',
@@ -14339,8 +14972,7 @@ var User = function (_AbstractCrudObject) {
         updated_time: 'updated_time',
         verified: 'verified',
         video_upload_limits: 'video_upload_limits',
-        website: 'website',
-        work: 'work'
+        website: 'website'
       });
     }
   }, {
@@ -14716,21 +15348,6 @@ var LiveVideo = function (_AbstractCrudObject) {
       });
     }
   }, {
-    key: 'BroadcastStatus',
-    get: function get() {
-      return Object.freeze({
-        live: 'live',
-        live_stopped: 'live_stopped',
-        processing: 'processing',
-        scheduled_canceled: 'scheduled_canceled',
-        scheduled_expired: 'scheduled_expired',
-        scheduled_live: 'scheduled_live',
-        scheduled_unpublished: 'scheduled_unpublished',
-        unpublished: 'unpublished',
-        vod: 'vod'
-      });
-    }
-  }, {
     key: 'Projection',
     get: function get() {
       return Object.freeze({
@@ -14775,6 +15392,21 @@ var LiveVideo = function (_AbstractCrudObject) {
       });
     }
   }, {
+    key: 'BroadcastStatus',
+    get: function get() {
+      return Object.freeze({
+        live: 'LIVE',
+        live_stopped: 'LIVE_STOPPED',
+        processing: 'PROCESSING',
+        scheduled_canceled: 'SCHEDULED_CANCELED',
+        scheduled_expired: 'SCHEDULED_EXPIRED',
+        scheduled_live: 'SCHEDULED_LIVE',
+        scheduled_unpublished: 'SCHEDULED_UNPUBLISHED',
+        unpublished: 'UNPUBLISHED',
+        vod: 'VOD'
+      });
+    }
+  }, {
     key: 'Source',
     get: function get() {
       return Object.freeze({
@@ -14786,12 +15418,22 @@ var LiveVideo = function (_AbstractCrudObject) {
     key: 'LiveCommentModerationSetting',
     get: function get() {
       return Object.freeze({
+        default: 'DEFAULT',
         discussion: 'DISCUSSION',
         follower: 'FOLLOWER',
         protected_mode: 'PROTECTED_MODE',
         restricted: 'RESTRICTED',
         slow: 'SLOW',
         supporter: 'SUPPORTER'
+      });
+    }
+  }, {
+    key: 'PersistentStreamKeyStatus',
+    get: function get() {
+      return Object.freeze({
+        disable: 'DISABLE',
+        enable: 'ENABLE',
+        regenerate: 'REGENERATE'
       });
     }
   }]);
@@ -15011,6 +15653,341 @@ var Event = function (_AbstractCrudObject) {
     }
   }]);
   return Event;
+}(AbstractCrudObject);
+
+/**
+ * Copyright (c) 2017-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
+ * 
+ */
+/**
+ * ImageCopyright
+ * @extends AbstractCrudObject
+ * @see {@link https://developers.facebook.com/docs/marketing-api/}
+ */
+
+var ImageCopyright = function (_AbstractCrudObject) {
+  inherits(ImageCopyright, _AbstractCrudObject);
+
+  function ImageCopyright() {
+    classCallCheck(this, ImageCopyright);
+    return possibleConstructorReturn(this, (ImageCopyright.__proto__ || Object.getPrototypeOf(ImageCopyright)).apply(this, arguments));
+  }
+
+  createClass(ImageCopyright, [{
+    key: 'delete',
+
+
+    // $FlowFixMe : Support Generic Types
+    value: function _delete(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+      // $FlowFixMe : Support Generic Types
+      return get$1(ImageCopyright.prototype.__proto__ || Object.getPrototypeOf(ImageCopyright.prototype), 'delete', this).call(this, params);
+    }
+  }, {
+    key: 'get',
+    value: function get(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+      // $FlowFixMe : Support Generic Types
+      return this.read(fields, params);
+    }
+
+    // $FlowFixMe : Support Generic Types
+
+  }, {
+    key: 'update',
+    value: function update(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+      // $FlowFixMe : Support Generic Types
+      return get$1(ImageCopyright.prototype.__proto__ || Object.getPrototypeOf(ImageCopyright.prototype), 'update', this).call(this, params);
+    }
+  }], [{
+    key: 'Fields',
+    get: function get() {
+      return Object.freeze({
+        artist: 'artist',
+        copyright_monitoring_status: 'copyright_monitoring_status',
+        creation_time: 'creation_time',
+        creator: 'creator',
+        custom_id: 'custom_id',
+        description: 'description',
+        filename: 'filename',
+        id: 'id',
+        image: 'image',
+        matches_count: 'matches_count',
+        original_content_creation_date: 'original_content_creation_date',
+        ownership_countries: 'ownership_countries',
+        tags: 'tags',
+        title: 'title',
+        update_time: 'update_time'
+      });
+    }
+  }, {
+    key: 'GeoOwnership',
+    get: function get() {
+      return Object.freeze({
+        ad: 'AD',
+        ae: 'AE',
+        af: 'AF',
+        ag: 'AG',
+        ai: 'AI',
+        al: 'AL',
+        am: 'AM',
+        an: 'AN',
+        ao: 'AO',
+        aq: 'AQ',
+        ar: 'AR',
+        as: 'AS',
+        at: 'AT',
+        au: 'AU',
+        aw: 'AW',
+        ax: 'AX',
+        az: 'AZ',
+        ba: 'BA',
+        bb: 'BB',
+        bd: 'BD',
+        be: 'BE',
+        bf: 'BF',
+        bg: 'BG',
+        bh: 'BH',
+        bi: 'BI',
+        bj: 'BJ',
+        bl: 'BL',
+        bm: 'BM',
+        bn: 'BN',
+        bo: 'BO',
+        bq: 'BQ',
+        br: 'BR',
+        bs: 'BS',
+        bt: 'BT',
+        bv: 'BV',
+        bw: 'BW',
+        by: 'BY',
+        bz: 'BZ',
+        ca: 'CA',
+        cc: 'CC',
+        cd: 'CD',
+        cf: 'CF',
+        cg: 'CG',
+        ch: 'CH',
+        ci: 'CI',
+        ck: 'CK',
+        cl: 'CL',
+        cm: 'CM',
+        cn: 'CN',
+        co: 'CO',
+        cr: 'CR',
+        cu: 'CU',
+        cv: 'CV',
+        cw: 'CW',
+        cx: 'CX',
+        cy: 'CY',
+        cz: 'CZ',
+        de: 'DE',
+        dj: 'DJ',
+        dk: 'DK',
+        dm: 'DM',
+        do: 'DO',
+        dz: 'DZ',
+        ec: 'EC',
+        ee: 'EE',
+        eg: 'EG',
+        eh: 'EH',
+        er: 'ER',
+        es: 'ES',
+        et: 'ET',
+        fi: 'FI',
+        fj: 'FJ',
+        fk: 'FK',
+        fm: 'FM',
+        fo: 'FO',
+        fr: 'FR',
+        ga: 'GA',
+        gb: 'GB',
+        gd: 'GD',
+        ge: 'GE',
+        gf: 'GF',
+        gg: 'GG',
+        gh: 'GH',
+        gi: 'GI',
+        gl: 'GL',
+        gm: 'GM',
+        gn: 'GN',
+        gp: 'GP',
+        gq: 'GQ',
+        gr: 'GR',
+        gs: 'GS',
+        gt: 'GT',
+        gu: 'GU',
+        gw: 'GW',
+        gy: 'GY',
+        hk: 'HK',
+        hm: 'HM',
+        hn: 'HN',
+        hr: 'HR',
+        ht: 'HT',
+        hu: 'HU',
+        id: 'ID',
+        ie: 'IE',
+        il: 'IL',
+        im: 'IM',
+        in: 'IN',
+        io: 'IO',
+        iq: 'IQ',
+        ir: 'IR',
+        is: 'IS',
+        it: 'IT',
+        je: 'JE',
+        jm: 'JM',
+        jo: 'JO',
+        jp: 'JP',
+        ke: 'KE',
+        kg: 'KG',
+        kh: 'KH',
+        ki: 'KI',
+        km: 'KM',
+        kn: 'KN',
+        kp: 'KP',
+        kr: 'KR',
+        kw: 'KW',
+        ky: 'KY',
+        kz: 'KZ',
+        la: 'LA',
+        lb: 'LB',
+        lc: 'LC',
+        li: 'LI',
+        lk: 'LK',
+        lr: 'LR',
+        ls: 'LS',
+        lt: 'LT',
+        lu: 'LU',
+        lv: 'LV',
+        ly: 'LY',
+        ma: 'MA',
+        mc: 'MC',
+        md: 'MD',
+        me: 'ME',
+        mf: 'MF',
+        mg: 'MG',
+        mh: 'MH',
+        mk: 'MK',
+        ml: 'ML',
+        mm: 'MM',
+        mn: 'MN',
+        mo: 'MO',
+        mp: 'MP',
+        mq: 'MQ',
+        mr: 'MR',
+        ms: 'MS',
+        mt: 'MT',
+        mu: 'MU',
+        mv: 'MV',
+        mw: 'MW',
+        mx: 'MX',
+        my: 'MY',
+        mz: 'MZ',
+        na: 'NA',
+        nc: 'NC',
+        ne: 'NE',
+        nf: 'NF',
+        ng: 'NG',
+        ni: 'NI',
+        nl: 'NL',
+        no: 'NO',
+        np: 'NP',
+        nr: 'NR',
+        nu: 'NU',
+        nz: 'NZ',
+        om: 'OM',
+        pa: 'PA',
+        pe: 'PE',
+        pf: 'PF',
+        pg: 'PG',
+        ph: 'PH',
+        pk: 'PK',
+        pl: 'PL',
+        pm: 'PM',
+        pn: 'PN',
+        pr: 'PR',
+        ps: 'PS',
+        pt: 'PT',
+        pw: 'PW',
+        py: 'PY',
+        qa: 'QA',
+        re: 'RE',
+        ro: 'RO',
+        rs: 'RS',
+        ru: 'RU',
+        rw: 'RW',
+        sa: 'SA',
+        sb: 'SB',
+        sc: 'SC',
+        sd: 'SD',
+        se: 'SE',
+        sg: 'SG',
+        sh: 'SH',
+        si: 'SI',
+        sj: 'SJ',
+        sk: 'SK',
+        sl: 'SL',
+        sm: 'SM',
+        sn: 'SN',
+        so: 'SO',
+        sr: 'SR',
+        ss: 'SS',
+        st: 'ST',
+        sv: 'SV',
+        sx: 'SX',
+        sy: 'SY',
+        sz: 'SZ',
+        tc: 'TC',
+        td: 'TD',
+        tf: 'TF',
+        tg: 'TG',
+        th: 'TH',
+        tj: 'TJ',
+        tk: 'TK',
+        tl: 'TL',
+        tm: 'TM',
+        tn: 'TN',
+        to: 'TO',
+        tp: 'TP',
+        tr: 'TR',
+        tt: 'TT',
+        tv: 'TV',
+        tw: 'TW',
+        tz: 'TZ',
+        ua: 'UA',
+        ug: 'UG',
+        um: 'UM',
+        us: 'US',
+        uy: 'UY',
+        uz: 'UZ',
+        va: 'VA',
+        vc: 'VC',
+        ve: 'VE',
+        vg: 'VG',
+        vi: 'VI',
+        vn: 'VN',
+        vu: 'VU',
+        wf: 'WF',
+        ws: 'WS',
+        xk: 'XK',
+        ye: 'YE',
+        yt: 'YT',
+        za: 'ZA',
+        zm: 'ZM',
+        zw: 'ZW'
+      });
+    }
+  }]);
+  return ImageCopyright;
 }(AbstractCrudObject);
 
 /**
@@ -15409,52 +16386,6 @@ var MessagingFeatureReview = function (_AbstractCrudObject) {
  * 
  */
 /**
- * MessengerDestinationPageWelcomeMessage
- * @extends AbstractCrudObject
- * @see {@link https://developers.facebook.com/docs/marketing-api/}
- */
-
-var MessengerDestinationPageWelcomeMessage = function (_AbstractCrudObject) {
-  inherits(MessengerDestinationPageWelcomeMessage, _AbstractCrudObject);
-
-  function MessengerDestinationPageWelcomeMessage() {
-    classCallCheck(this, MessengerDestinationPageWelcomeMessage);
-    return possibleConstructorReturn(this, (MessengerDestinationPageWelcomeMessage.__proto__ || Object.getPrototypeOf(MessengerDestinationPageWelcomeMessage)).apply(this, arguments));
-  }
-
-  createClass(MessengerDestinationPageWelcomeMessage, [{
-    key: 'get',
-    value: function get(fields) {
-      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-      // $FlowFixMe : Support Generic Types
-      return this.read(fields, params);
-    }
-  }], [{
-    key: 'Fields',
-    get: function get() {
-      return Object.freeze({
-        id: 'id',
-        page_welcome_message_body: 'page_welcome_message_body',
-        page_welcome_message_type: 'page_welcome_message_type',
-        template_name: 'template_name',
-        time_created: 'time_created',
-        time_last_used: 'time_last_used'
-      });
-    }
-  }]);
-  return MessengerDestinationPageWelcomeMessage;
-}(AbstractCrudObject);
-
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the license found in the
- * LICENSE file in the root directory of this source tree.
- * 
- */
-/**
  * MessengerProfile
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
@@ -15478,6 +16409,7 @@ var MessengerProfile = function (_AbstractCrudObject) {
         ice_breakers: 'ice_breakers',
         payment_settings: 'payment_settings',
         persistent_menu: 'persistent_menu',
+        subject_to_new_eu_privacy_rules: 'subject_to_new_eu_privacy_rules',
         target_audience: 'target_audience',
         whitelisted_domains: 'whitelisted_domains'
       });
@@ -15895,76 +16827,6 @@ var PageThreadOwner = function (_AbstractCrudObject) {
  * 
  */
 /**
- * EventTour
- * @extends AbstractCrudObject
- * @see {@link https://developers.facebook.com/docs/marketing-api/}
- */
-
-var EventTour = function (_AbstractCrudObject) {
-  inherits(EventTour, _AbstractCrudObject);
-
-  function EventTour() {
-    classCallCheck(this, EventTour);
-    return possibleConstructorReturn(this, (EventTour.__proto__ || Object.getPrototypeOf(EventTour)).apply(this, arguments));
-  }
-
-  createClass(EventTour, [{
-    key: 'getEvents',
-    value: function getEvents(fields) {
-      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
-
-      return this.getEdge(Event, fields, params, fetchFirstPage, '/events');
-    }
-  }, {
-    key: 'getPages',
-    value: function getPages(fields) {
-      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
-
-      return this.getEdge(Page, fields, params, fetchFirstPage, '/pages');
-    }
-  }, {
-    key: 'get',
-    value: function get(fields) {
-      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-      // $FlowFixMe : Support Generic Types
-      return this.read(fields, params);
-    }
-  }], [{
-    key: 'Fields',
-    get: function get() {
-      return Object.freeze({
-        description: 'description',
-        dominant_color: 'dominant_color',
-        end_time: 'end_time',
-        id: 'id',
-        is_past: 'is_past',
-        last_event_timestamp: 'last_event_timestamp',
-        name: 'name',
-        num_events: 'num_events',
-        photo: 'photo',
-        publishing_state: 'publishing_state',
-        scheduled_publish_timestamp: 'scheduled_publish_timestamp',
-        start_time: 'start_time',
-        ticketing_uri: 'ticketing_uri',
-        video: 'video'
-      });
-    }
-  }]);
-  return EventTour;
-}(AbstractCrudObject);
-
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the license found in the
- * LICENSE file in the root directory of this source tree.
- * 
- */
-/**
  * VideoCopyrightRule
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
@@ -16184,6 +17046,14 @@ var Page = function (_AbstractCrudObject) {
       return this.createEdge('/acknowledge_orders', fields, params, Page);
     }
   }, {
+    key: 'getAdminNotes',
+    value: function getAdminNotes(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+      return this.getEdge(PageAdminNote, fields, params, fetchFirstPage, '/admin_notes');
+    }
+  }, {
     key: 'getAdsPosts',
     value: function getAdsPosts(fields) {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
@@ -16266,6 +17136,13 @@ var Page = function (_AbstractCrudObject) {
       return this.createEdge('/blocked', fields, params);
     }
   }, {
+    key: 'deleteBusinessData',
+    value: function deleteBusinessData() {
+      var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+      return get$1(Page.prototype.__proto__ || Object.getPrototypeOf(Page.prototype), 'deleteEdge', this).call(this, '/business_data', params);
+    }
+  }, {
     key: 'createBusinessDatum',
     value: function createBusinessDatum(fields) {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
@@ -16311,13 +17188,6 @@ var Page = function (_AbstractCrudObject) {
       return this.createEdge('/canvases', fields, params, Canvas);
     }
   }, {
-    key: 'deleteClaimedUrls',
-    value: function deleteClaimedUrls() {
-      var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-
-      return get$1(Page.prototype.__proto__ || Object.getPrototypeOf(Page.prototype), 'deleteEdge', this).call(this, '/claimed_urls', params);
-    }
-  }, {
     key: 'getClaimedUrls',
     value: function getClaimedUrls(fields) {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
@@ -16326,11 +17196,12 @@ var Page = function (_AbstractCrudObject) {
       return this.getEdge(URL, fields, params, fetchFirstPage, '/claimed_urls');
     }
   }, {
-    key: 'createClaimedUrl',
-    value: function createClaimedUrl(fields) {
+    key: 'getCommerceEligibility',
+    value: function getCommerceEligibility(fields) {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
 
-      return this.createEdge('/claimed_urls', fields, params, Page);
+      return this.getEdge(PageCommerceEligibility, fields, params, fetchFirstPage, '/commerce_eligibility');
     }
   }, {
     key: 'getCommerceMerchantSettings',
@@ -16469,6 +17340,21 @@ var Page = function (_AbstractCrudObject) {
       var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
 
       return this.getEdge(Page, fields, params, fetchFirstPage, '/global_brand_children');
+    }
+  }, {
+    key: 'getImageCopyrights',
+    value: function getImageCopyrights(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+      return this.getEdge(ImageCopyright, fields, params, fetchFirstPage, '/image_copyrights');
+    }
+  }, {
+    key: 'createImageCopyright',
+    value: function createImageCopyright(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+      return this.createEdge('/image_copyrights', fields, params, ImageCopyright);
     }
   }, {
     key: 'getIndexedVideos',
@@ -16637,14 +17523,6 @@ var Page = function (_AbstractCrudObject) {
       return this.getEdge(MessagingFeatureReview, fields, params, fetchFirstPage, '/messaging_feature_review');
     }
   }, {
-    key: 'getMessengerAdsPageWelcomeMessages',
-    value: function getMessengerAdsPageWelcomeMessages(fields) {
-      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
-
-      return this.getEdge(MessengerDestinationPageWelcomeMessage, fields, params, fetchFirstPage, '/messenger_ads_page_welcome_messages');
-    }
-  }, {
     key: 'deleteMessengerProfile',
     value: function deleteMessengerProfile() {
       var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
@@ -16718,6 +17596,13 @@ var Page = function (_AbstractCrudObject) {
       return this.createEdge('/pass_thread_control', fields, params, Page);
     }
   }, {
+    key: 'createPassThreadMetadatum',
+    value: function createPassThreadMetadatum(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+      return this.createEdge('/pass_thread_metadata', fields, params, Page);
+    }
+  }, {
     key: 'getPersonas',
     value: function getPersonas(fields) {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
@@ -16731,6 +17616,13 @@ var Page = function (_AbstractCrudObject) {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
       return this.createEdge('/personas', fields, params, Persona);
+    }
+  }, {
+    key: 'createPhoneDatum',
+    value: function createPhoneDatum(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+      return this.createEdge('/phone_data', fields, params);
     }
   }, {
     key: 'getPhotos',
@@ -16793,6 +17685,13 @@ var Page = function (_AbstractCrudObject) {
       var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
 
       return this.getEdge(Recommendation, fields, params, fetchFirstPage, '/ratings');
+    }
+  }, {
+    key: 'createReleaseThreadControl',
+    value: function createReleaseThreadControl(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+      return this.createEdge('/release_thread_control', fields, params, Page);
     }
   }, {
     key: 'createRequestThreadControl',
@@ -16879,6 +17778,13 @@ var Page = function (_AbstractCrudObject) {
       return this.createEdge('/subscribed_apps', fields, params, Page);
     }
   }, {
+    key: 'deleteTabs',
+    value: function deleteTabs() {
+      var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+      return get$1(Page.prototype.__proto__ || Object.getPrototypeOf(Page.prototype), 'deleteEdge', this).call(this, '/tabs', params);
+    }
+  }, {
     key: 'getTabs',
     value: function getTabs(fields) {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
@@ -16925,14 +17831,6 @@ var Page = function (_AbstractCrudObject) {
       return this.getEdge(UnifiedThread, fields, params, fetchFirstPage, '/threads');
     }
   }, {
-    key: 'getTours',
-    value: function getTours(fields) {
-      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
-
-      return this.getEdge(EventTour, fields, params, fetchFirstPage, '/tours');
-    }
-  }, {
     key: 'createUnlinkAccount',
     value: function createUnlinkAccount(fields) {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
@@ -16946,6 +17844,13 @@ var Page = function (_AbstractCrudObject) {
       var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
 
       return this.getEdge(VideoCopyrightRule, fields, params, fetchFirstPage, '/video_copyright_rules');
+    }
+  }, {
+    key: 'createVideoCopyrightRule',
+    value: function createVideoCopyrightRule(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+      return this.createEdge('/video_copyright_rules', fields, params, VideoCopyrightRule);
     }
   }, {
     key: 'createVideoCopyright',
@@ -17031,6 +17936,7 @@ var Page = function (_AbstractCrudObject) {
         checkins: 'checkins',
         company_overview: 'company_overview',
         connected_instagram_account: 'connected_instagram_account',
+        connected_page_backed_instagram_account: 'connected_page_backed_instagram_account',
         contact_address: 'contact_address',
         copyright_whitelisted_ig_partners: 'copyright_whitelisted_ig_partners',
         country_page_likes: 'country_page_likes',
@@ -17049,6 +17955,7 @@ var Page = function (_AbstractCrudObject) {
         fan_count: 'fan_count',
         featured_video: 'featured_video',
         features: 'features',
+        followers_count: 'followers_count',
         food_styles: 'food_styles',
         founded: 'founded',
         general_info: 'general_info',
@@ -17057,6 +17964,7 @@ var Page = function (_AbstractCrudObject) {
         global_brand_page_name: 'global_brand_page_name',
         global_brand_root_id: 'global_brand_root_id',
         has_added_app: 'has_added_app',
+        has_transitioned_to_new_page_experience: 'has_transitioned_to_new_page_experience',
         has_whatsapp_business_number: 'has_whatsapp_business_number',
         has_whatsapp_number: 'has_whatsapp_number',
         hometown: 'hometown',
@@ -17261,7 +18169,7 @@ var Page = function (_AbstractCrudObject) {
         profile_plus_advertise: 'PROFILE_PLUS_ADVERTISE',
         profile_plus_analyze: 'PROFILE_PLUS_ANALYZE',
         profile_plus_create_content: 'PROFILE_PLUS_CREATE_CONTENT',
-        profile_plus_live_stream_moderation: 'PROFILE_PLUS_LIVE_STREAM_MODERATION',
+        profile_plus_facebook_access: 'PROFILE_PLUS_FACEBOOK_ACCESS',
         profile_plus_manage: 'PROFILE_PLUS_MANAGE',
         profile_plus_messaging: 'PROFILE_PLUS_MESSAGING',
         profile_plus_moderate: 'PROFILE_PLUS_MODERATE',
@@ -17288,7 +18196,7 @@ var Page = function (_AbstractCrudObject) {
         profile_plus_advertise: 'PROFILE_PLUS_ADVERTISE',
         profile_plus_analyze: 'PROFILE_PLUS_ANALYZE',
         profile_plus_create_content: 'PROFILE_PLUS_CREATE_CONTENT',
-        profile_plus_live_stream_moderation: 'PROFILE_PLUS_LIVE_STREAM_MODERATION',
+        profile_plus_facebook_access: 'PROFILE_PLUS_FACEBOOK_ACCESS',
         profile_plus_manage: 'PROFILE_PLUS_MANAGE',
         profile_plus_messaging: 'PROFILE_PLUS_MESSAGING',
         profile_plus_moderate: 'PROFILE_PLUS_MODERATE',
@@ -17471,6 +18379,7 @@ var Page = function (_AbstractCrudObject) {
         leadgen: 'leadgen',
         leadgen_fat: 'leadgen_fat',
         live_videos: 'live_videos',
+        local_delivery: 'local_delivery',
         location: 'location',
         mcom_invoice_change: 'mcom_invoice_change',
         members: 'members',
@@ -17780,6 +18689,7 @@ var BusinessAssetGroup = function (_AbstractCrudObject) {
       return Object.freeze({
         advertise: 'ADVERTISE',
         analyze: 'ANALYZE',
+        draft: 'DRAFT',
         manage: 'MANAGE'
       });
     }
@@ -17812,7 +18722,7 @@ var BusinessAssetGroup = function (_AbstractCrudObject) {
         profile_plus_advertise: 'PROFILE_PLUS_ADVERTISE',
         profile_plus_analyze: 'PROFILE_PLUS_ANALYZE',
         profile_plus_create_content: 'PROFILE_PLUS_CREATE_CONTENT',
-        profile_plus_live_stream_moderation: 'PROFILE_PLUS_LIVE_STREAM_MODERATION',
+        profile_plus_facebook_access: 'PROFILE_PLUS_FACEBOOK_ACCESS',
         profile_plus_manage: 'PROFILE_PLUS_MANAGE',
         profile_plus_messaging: 'PROFILE_PLUS_MESSAGING',
         profile_plus_moderate: 'PROFILE_PLUS_MODERATE',
@@ -17841,20 +18751,20 @@ var BusinessAssetGroup = function (_AbstractCrudObject) {
  * 
  */
 /**
- * InvoiceCampaign
+ * InvoiceCampaignNew
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 
-var InvoiceCampaign = function (_AbstractCrudObject) {
-  inherits(InvoiceCampaign, _AbstractCrudObject);
+var InvoiceCampaignNew = function (_AbstractCrudObject) {
+  inherits(InvoiceCampaignNew, _AbstractCrudObject);
 
-  function InvoiceCampaign() {
-    classCallCheck(this, InvoiceCampaign);
-    return possibleConstructorReturn(this, (InvoiceCampaign.__proto__ || Object.getPrototypeOf(InvoiceCampaign)).apply(this, arguments));
+  function InvoiceCampaignNew() {
+    classCallCheck(this, InvoiceCampaignNew);
+    return possibleConstructorReturn(this, (InvoiceCampaignNew.__proto__ || Object.getPrototypeOf(InvoiceCampaignNew)).apply(this, arguments));
   }
 
-  createClass(InvoiceCampaign, null, [{
+  createClass(InvoiceCampaignNew, null, [{
     key: 'Fields',
     get: function get() {
       return Object.freeze({
@@ -17869,7 +18779,7 @@ var InvoiceCampaign = function (_AbstractCrudObject) {
       });
     }
   }]);
-  return InvoiceCampaign;
+  return InvoiceCampaignNew;
 }(AbstractCrudObject);
 
 /**
@@ -17881,26 +18791,26 @@ var InvoiceCampaign = function (_AbstractCrudObject) {
  * 
  */
 /**
- * OracleTransaction
+ * OmegaCustomerTrx
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 
-var OracleTransaction = function (_AbstractCrudObject) {
-  inherits(OracleTransaction, _AbstractCrudObject);
+var OmegaCustomerTrx = function (_AbstractCrudObject) {
+  inherits(OmegaCustomerTrx, _AbstractCrudObject);
 
-  function OracleTransaction() {
-    classCallCheck(this, OracleTransaction);
-    return possibleConstructorReturn(this, (OracleTransaction.__proto__ || Object.getPrototypeOf(OracleTransaction)).apply(this, arguments));
+  function OmegaCustomerTrx() {
+    classCallCheck(this, OmegaCustomerTrx);
+    return possibleConstructorReturn(this, (OmegaCustomerTrx.__proto__ || Object.getPrototypeOf(OmegaCustomerTrx)).apply(this, arguments));
   }
 
-  createClass(OracleTransaction, [{
+  createClass(OmegaCustomerTrx, [{
     key: 'getCampaigns',
     value: function getCampaigns(fields) {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
       var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
 
-      return this.getEdge(InvoiceCampaign, fields, params, fetchFirstPage, '/campaigns');
+      return this.getEdge(InvoiceCampaignNew, fields, params, fetchFirstPage, '/campaigns');
     }
   }, {
     key: 'get',
@@ -17919,6 +18829,7 @@ var OracleTransaction = function (_AbstractCrudObject) {
         amount_due: 'amount_due',
         billed_amount_details: 'billed_amount_details',
         billing_period: 'billing_period',
+        campaign: 'campaign',
         cdn_download_uri: 'cdn_download_uri',
         currency: 'currency',
         download_uri: 'download_uri',
@@ -17939,11 +18850,13 @@ var OracleTransaction = function (_AbstractCrudObject) {
     get: function get() {
       return Object.freeze({
         cm: 'CM',
-        inv: 'INV'
+        dm: 'DM',
+        inv: 'INV',
+        pro_forma: 'PRO_FORMA'
       });
     }
   }]);
-  return OracleTransaction;
+  return OmegaCustomerTrx;
 }(AbstractCrudObject);
 
 /**
@@ -18019,14 +18932,6 @@ var AtlasCampaign = function (_AbstractCrudObject) {
         cost_per_visit: 'cost_per_visit',
         created_by: 'created_by',
         created_date: 'created_date',
-        data_driven_convs: 'data_driven_convs',
-        data_driven_convs_per_1k_impress: 'data_driven_convs_per_1k_impress',
-        data_driven_convs_per_click: 'data_driven_convs_per_click',
-        data_driven_convs_per_visit: 'data_driven_convs_per_visit',
-        data_driven_cpa: 'data_driven_cpa',
-        data_driven_nullable_convs: 'data_driven_nullable_convs',
-        data_driven_revenue: 'data_driven_revenue',
-        data_driven_roas: 'data_driven_roas',
         even_credit_convs: 'even_credit_convs',
         even_credit_convs_per_1k_impress: 'even_credit_convs_per_1k_impress',
         even_credit_convs_per_click: 'even_credit_convs_per_click',
@@ -18343,6 +19248,21 @@ var WhatsAppBusinessAccount = function (_AbstractCrudObject) {
       return this.getEdge(AbstractObject, fields, params, fetchFirstPage, '/phone_numbers');
     }
   }, {
+    key: 'deleteSubscribedApps',
+    value: function deleteSubscribedApps() {
+      var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+      return get$1(WhatsAppBusinessAccount.prototype.__proto__ || Object.getPrototypeOf(WhatsAppBusinessAccount.prototype), 'deleteEdge', this).call(this, '/subscribed_apps', params);
+    }
+  }, {
+    key: 'getSubscribedApps',
+    value: function getSubscribedApps(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+      return this.getEdge(AbstractObject, fields, params, fetchFirstPage, '/subscribed_apps');
+    }
+  }, {
     key: 'createSubscribedApp',
     value: function createSubscribedApp(fields) {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
@@ -18367,6 +19287,7 @@ var WhatsAppBusinessAccount = function (_AbstractCrudObject) {
         message_template_namespace: 'message_template_namespace',
         name: 'name',
         on_behalf_of_business_info: 'on_behalf_of_business_info',
+        owner_business_info: 'owner_business_info',
         primary_funding_id: 'primary_funding_id',
         purchase_order_number: 'purchase_order_number',
         status: 'status',
@@ -18381,6 +19302,7 @@ var WhatsAppBusinessAccount = function (_AbstractCrudObject) {
         manage: 'MANAGE',
         manage_phone: 'MANAGE_PHONE',
         manage_templates: 'MANAGE_TEMPLATES',
+        messaging: 'MESSAGING',
         view_cost: 'VIEW_COST'
       });
     }
@@ -18848,7 +19770,6 @@ var ExtendedCredit = function (_AbstractCrudObject) {
         id: 'id',
         is_access_revoked: 'is_access_revoked',
         is_automated_experience: 'is_automated_experience',
-        last_payment_time: 'last_payment_time',
         legal_entity_name: 'legal_entity_name',
         liable_biz_name: 'liable_biz_name',
         max_balance: 'max_balance',
@@ -18994,6 +19915,381 @@ var BusinessAgreement = function (_AbstractCrudObject) {
     }
   }]);
   return BusinessAgreement;
+}(AbstractCrudObject);
+
+/**
+ * Copyright (c) 2017-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
+ * 
+ */
+/**
+ * InstagramInsightsResult
+ * @extends AbstractCrudObject
+ * @see {@link https://developers.facebook.com/docs/marketing-api/}
+ */
+
+var InstagramInsightsResult = function (_AbstractCrudObject) {
+  inherits(InstagramInsightsResult, _AbstractCrudObject);
+
+  function InstagramInsightsResult() {
+    classCallCheck(this, InstagramInsightsResult);
+    return possibleConstructorReturn(this, (InstagramInsightsResult.__proto__ || Object.getPrototypeOf(InstagramInsightsResult)).apply(this, arguments));
+  }
+
+  createClass(InstagramInsightsResult, null, [{
+    key: 'Fields',
+    get: function get() {
+      return Object.freeze({
+        description: 'description',
+        id: 'id',
+        name: 'name',
+        period: 'period',
+        title: 'title',
+        values: 'values'
+      });
+    }
+  }, {
+    key: 'Metric',
+    get: function get() {
+      return Object.freeze({
+        carousel_album_engagement: 'carousel_album_engagement',
+        carousel_album_impressions: 'carousel_album_impressions',
+        carousel_album_reach: 'carousel_album_reach',
+        carousel_album_saved: 'carousel_album_saved',
+        carousel_album_video_views: 'carousel_album_video_views',
+        engagement: 'engagement',
+        exits: 'exits',
+        impressions: 'impressions',
+        reach: 'reach',
+        replies: 'replies',
+        saved: 'saved',
+        taps_back: 'taps_back',
+        taps_forward: 'taps_forward',
+        video_views: 'video_views'
+      });
+    }
+  }, {
+    key: 'Period',
+    get: function get() {
+      return Object.freeze({
+        day: 'day',
+        days_28: 'days_28',
+        lifetime: 'lifetime',
+        month: 'month',
+        week: 'week'
+      });
+    }
+  }]);
+  return InstagramInsightsResult;
+}(AbstractCrudObject);
+
+/**
+ * Copyright (c) 2017-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
+ * 
+ */
+/**
+ * IGComment
+ * @extends AbstractCrudObject
+ * @see {@link https://developers.facebook.com/docs/marketing-api/}
+ */
+
+var IGComment = function (_AbstractCrudObject) {
+  inherits(IGComment, _AbstractCrudObject);
+
+  function IGComment() {
+    classCallCheck(this, IGComment);
+    return possibleConstructorReturn(this, (IGComment.__proto__ || Object.getPrototypeOf(IGComment)).apply(this, arguments));
+  }
+
+  createClass(IGComment, [{
+    key: 'getReplies',
+    value: function getReplies(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+      return this.getEdge(IGComment, fields, params, fetchFirstPage, '/replies');
+    }
+  }, {
+    key: 'createReply',
+    value: function createReply(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+      return this.createEdge('/replies', fields, params, IGComment);
+    }
+
+    // $FlowFixMe : Support Generic Types
+
+  }, {
+    key: 'delete',
+    value: function _delete(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+      // $FlowFixMe : Support Generic Types
+      return get$1(IGComment.prototype.__proto__ || Object.getPrototypeOf(IGComment.prototype), 'delete', this).call(this, params);
+    }
+  }, {
+    key: 'get',
+    value: function get(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+      // $FlowFixMe : Support Generic Types
+      return this.read(fields, params);
+    }
+
+    // $FlowFixMe : Support Generic Types
+
+  }, {
+    key: 'update',
+    value: function update(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+      // $FlowFixMe : Support Generic Types
+      return get$1(IGComment.prototype.__proto__ || Object.getPrototypeOf(IGComment.prototype), 'update', this).call(this, params);
+    }
+  }], [{
+    key: 'Fields',
+    get: function get() {
+      return Object.freeze({
+        hidden: 'hidden',
+        id: 'id',
+        like_count: 'like_count',
+        media: 'media',
+        text: 'text',
+        timestamp: 'timestamp',
+        user: 'user',
+        username: 'username'
+      });
+    }
+  }]);
+  return IGComment;
+}(AbstractCrudObject);
+
+/**
+ * Copyright (c) 2017-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
+ * 
+ */
+/**
+ * IGMedia
+ * @extends AbstractCrudObject
+ * @see {@link https://developers.facebook.com/docs/marketing-api/}
+ */
+
+var IGMedia = function (_AbstractCrudObject) {
+  inherits(IGMedia, _AbstractCrudObject);
+
+  function IGMedia() {
+    classCallCheck(this, IGMedia);
+    return possibleConstructorReturn(this, (IGMedia.__proto__ || Object.getPrototypeOf(IGMedia)).apply(this, arguments));
+  }
+
+  createClass(IGMedia, [{
+    key: 'getChildren',
+    value: function getChildren(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+      return this.getEdge(IGMedia, fields, params, fetchFirstPage, '/children');
+    }
+  }, {
+    key: 'getComments',
+    value: function getComments(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+      return this.getEdge(IGComment, fields, params, fetchFirstPage, '/comments');
+    }
+  }, {
+    key: 'createComment',
+    value: function createComment(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+      return this.createEdge('/comments', fields, params, IGComment);
+    }
+  }, {
+    key: 'getInsights',
+    value: function getInsights(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+      return this.getEdge(InstagramInsightsResult, fields, params, fetchFirstPage, '/insights');
+    }
+  }, {
+    key: 'get',
+    value: function get(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+      // $FlowFixMe : Support Generic Types
+      return this.read(fields, params);
+    }
+
+    // $FlowFixMe : Support Generic Types
+
+  }, {
+    key: 'update',
+    value: function update(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+      // $FlowFixMe : Support Generic Types
+      return get$1(IGMedia.prototype.__proto__ || Object.getPrototypeOf(IGMedia.prototype), 'update', this).call(this, params);
+    }
+  }], [{
+    key: 'Fields',
+    get: function get() {
+      return Object.freeze({
+        caption: 'caption',
+        comments_count: 'comments_count',
+        id: 'id',
+        ig_id: 'ig_id',
+        is_comment_enabled: 'is_comment_enabled',
+        like_count: 'like_count',
+        media_product_type: 'media_product_type',
+        media_type: 'media_type',
+        media_url: 'media_url',
+        owner: 'owner',
+        permalink: 'permalink',
+        shortcode: 'shortcode',
+        thumbnail_url: 'thumbnail_url',
+        timestamp: 'timestamp',
+        username: 'username',
+        video_title: 'video_title'
+      });
+    }
+  }]);
+  return IGMedia;
+}(AbstractCrudObject);
+
+/**
+ * Copyright (c) 2017-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
+ * 
+ */
+/**
+ * IGUser
+ * @extends AbstractCrudObject
+ * @see {@link https://developers.facebook.com/docs/marketing-api/}
+ */
+
+var IGUser = function (_AbstractCrudObject) {
+  inherits(IGUser, _AbstractCrudObject);
+
+  function IGUser() {
+    classCallCheck(this, IGUser);
+    return possibleConstructorReturn(this, (IGUser.__proto__ || Object.getPrototypeOf(IGUser)).apply(this, arguments));
+  }
+
+  createClass(IGUser, [{
+    key: 'getContentPublishingLimit',
+    value: function getContentPublishingLimit(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+      return this.getEdge(AbstractObject, fields, params, fetchFirstPage, '/content_publishing_limit');
+    }
+  }, {
+    key: 'getInsights',
+    value: function getInsights(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+      return this.getEdge(InstagramInsightsResult, fields, params, fetchFirstPage, '/insights');
+    }
+  }, {
+    key: 'getMedia',
+    value: function getMedia(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+      return this.getEdge(IGMedia, fields, params, fetchFirstPage, '/media');
+    }
+  }, {
+    key: 'createMedia',
+    value: function createMedia(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+      return this.createEdge('/media', fields, params, IGMedia);
+    }
+  }, {
+    key: 'createMediaPublish',
+    value: function createMediaPublish(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+      return this.createEdge('/media_publish', fields, params, IGMedia);
+    }
+  }, {
+    key: 'createMention',
+    value: function createMention(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+      return this.createEdge('/mentions', fields, params);
+    }
+  }, {
+    key: 'getRecentlySearchedHashtags',
+    value: function getRecentlySearchedHashtags(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+      return this.getEdge(AbstractObject, fields, params, fetchFirstPage, '/recently_searched_hashtags');
+    }
+  }, {
+    key: 'getStories',
+    value: function getStories(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+      return this.getEdge(IGMedia, fields, params, fetchFirstPage, '/stories');
+    }
+  }, {
+    key: 'getTags',
+    value: function getTags(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+      return this.getEdge(IGMedia, fields, params, fetchFirstPage, '/tags');
+    }
+  }, {
+    key: 'get',
+    value: function get(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+      // $FlowFixMe : Support Generic Types
+      return this.read(fields, params);
+    }
+  }], [{
+    key: 'Fields',
+    get: function get() {
+      return Object.freeze({
+        biography: 'biography',
+        business_discovery: 'business_discovery',
+        followers_count: 'followers_count',
+        follows_count: 'follows_count',
+        id: 'id',
+        ig_id: 'ig_id',
+        media_count: 'media_count',
+        mentioned_comment: 'mentioned_comment',
+        mentioned_media: 'mentioned_media',
+        name: 'name',
+        profile_picture_url: 'profile_picture_url',
+        shopping_review_status: 'shopping_review_status',
+        username: 'username',
+        website: 'website'
+      });
+    }
+  }]);
+  return IGUser;
 }(AbstractCrudObject);
 
 /**
@@ -19176,14 +20472,14 @@ var BusinessRoleRequest = function (_AbstractCrudObject) {
       return Object.freeze({
         admin: 'ADMIN',
         ads_rights_reviewer: 'ADS_RIGHTS_REVIEWER',
+        default: 'DEFAULT',
         developer: 'DEVELOPER',
         employee: 'EMPLOYEE',
         finance_analyst: 'FINANCE_ANALYST',
+        finance_edit: 'FINANCE_EDIT',
         finance_editor: 'FINANCE_EDITOR',
-        finance_edit_task: 'FINANCE_EDIT_TASK',
-        finance_view_task: 'FINANCE_VIEW_TASK',
-        moderate_task: 'MODERATE_TASK',
-        operate_task: 'OPERATE_TASK',
+        finance_view: 'FINANCE_VIEW',
+        manage: 'MANAGE',
         partner_center_admin: 'PARTNER_CENTER_ADMIN',
         partner_center_analyst: 'PARTNER_CENTER_ANALYST',
         partner_center_education: 'PARTNER_CENTER_EDUCATION',
@@ -19275,14 +20571,14 @@ var SystemUser = function (_AbstractCrudObject) {
       return Object.freeze({
         admin: 'ADMIN',
         ads_rights_reviewer: 'ADS_RIGHTS_REVIEWER',
+        default: 'DEFAULT',
         developer: 'DEVELOPER',
         employee: 'EMPLOYEE',
         finance_analyst: 'FINANCE_ANALYST',
+        finance_edit: 'FINANCE_EDIT',
         finance_editor: 'FINANCE_EDITOR',
-        finance_edit_task: 'FINANCE_EDIT_TASK',
-        finance_view_task: 'FINANCE_VIEW_TASK',
-        moderate_task: 'MODERATE_TASK',
-        operate_task: 'OPERATE_TASK',
+        finance_view: 'FINANCE_VIEW',
+        manage: 'MANAGE',
         partner_center_admin: 'PARTNER_CENTER_ADMIN',
         partner_center_analyst: 'PARTNER_CENTER_ANALYST',
         partner_center_education: 'PARTNER_CENTER_EDUCATION',
@@ -19323,6 +20619,17 @@ var ThirdPartyMeasurementReportDataset = function (_AbstractCrudObject) {
 
       // $FlowFixMe : Support Generic Types
       return this.read(fields, params);
+    }
+
+    // $FlowFixMe : Support Generic Types
+
+  }, {
+    key: 'update',
+    value: function update(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+      // $FlowFixMe : Support Generic Types
+      return get$1(ThirdPartyMeasurementReportDataset.prototype.__proto__ || Object.getPrototypeOf(ThirdPartyMeasurementReportDataset.prototype), 'update', this).call(this, params);
     }
   }], [{
     key: 'Fields',
@@ -19622,6 +20929,13 @@ var Business = function (_AbstractCrudObject) {
       return this.createEdge('/access_token', fields, params, Business);
     }
   }, {
+    key: 'deleteAdAccounts',
+    value: function deleteAdAccounts() {
+      var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+      return get$1(Business.prototype.__proto__ || Object.getPrototypeOf(Business.prototype), 'deleteEdge', this).call(this, '/ad_accounts', params);
+    }
+  }, {
     key: 'getAdStudies',
     value: function getAdStudies(fields) {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
@@ -19732,7 +21046,7 @@ var Business = function (_AbstractCrudObject) {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
       var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
 
-      return this.getEdge(OracleTransaction, fields, params, fetchFirstPage, '/business_invoices');
+      return this.getEdge(OmegaCustomerTrx, fields, params, fetchFirstPage, '/business_invoices');
     }
   }, {
     key: 'getBusinessUnits',
@@ -19924,12 +21238,27 @@ var Business = function (_AbstractCrudObject) {
       return this.createEdge('/event_source_groups', fields, params, EventSourceGroup);
     }
   }, {
+    key: 'getExtendedCreditApplications',
+    value: function getExtendedCreditApplications(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+      return this.getEdge(AbstractObject, fields, params, fetchFirstPage, '/extendedcreditapplications');
+    }
+  }, {
     key: 'getExtendedCredits',
     value: function getExtendedCredits(fields) {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
       var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
 
       return this.getEdge(ExtendedCredit, fields, params, fetchFirstPage, '/extendedcredits');
+    }
+  }, {
+    key: 'createFranchiseProgram',
+    value: function createFranchiseProgram(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+      return this.createEdge('/franchise_programs', fields, params);
     }
   }, {
     key: 'getInitiatedAudienceSharingRequests',
@@ -19961,6 +21290,14 @@ var Business = function (_AbstractCrudObject) {
       var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
 
       return this.getEdge(InstagramUser, fields, params, fetchFirstPage, '/instagram_accounts');
+    }
+  }, {
+    key: 'getInstagramBusinessAccounts',
+    value: function getInstagramBusinessAccounts(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+      return this.getEdge(IGUser, fields, params, fetchFirstPage, '/instagram_business_accounts');
     }
   }, {
     key: 'deleteManagedBusinesses',
@@ -20097,6 +21434,14 @@ var Business = function (_AbstractCrudObject) {
       return this.createEdge('/owned_product_catalogs', fields, params, ProductCatalog);
     }
   }, {
+    key: 'getOwnedWhatsAppBusinessAccounts',
+    value: function getOwnedWhatsAppBusinessAccounts(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+      return this.getEdge(WhatsAppBusinessAccount, fields, params, fetchFirstPage, '/owned_whatsapp_business_accounts');
+    }
+  }, {
     key: 'deletePages',
     value: function deletePages() {
       var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
@@ -20181,6 +21526,14 @@ var Business = function (_AbstractCrudObject) {
       var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
 
       return this.getEdge(BusinessAgreement, fields, params, fetchFirstPage, '/received_sharing_agreements');
+    }
+  }, {
+    key: 'getSpacoDataSetCollections',
+    value: function getSpacoDataSetCollections(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+      return this.getEdge(AbstractObject, fields, params, fetchFirstPage, '/spaco_dataset_collections');
     }
   }, {
     key: 'getSystemUsers',
@@ -20299,6 +21652,7 @@ var Business = function (_AbstractCrudObject) {
       return Object.freeze({
         advertise: 'ADVERTISE',
         analyze: 'ANALYZE',
+        draft: 'DRAFT',
         manage: 'MANAGE'
       });
     }
@@ -20331,7 +21685,7 @@ var Business = function (_AbstractCrudObject) {
         profile_plus_advertise: 'PROFILE_PLUS_ADVERTISE',
         profile_plus_analyze: 'PROFILE_PLUS_ANALYZE',
         profile_plus_create_content: 'PROFILE_PLUS_CREATE_CONTENT',
-        profile_plus_live_stream_moderation: 'PROFILE_PLUS_LIVE_STREAM_MODERATION',
+        profile_plus_facebook_access: 'PROFILE_PLUS_FACEBOOK_ACCESS',
         profile_plus_manage: 'PROFILE_PLUS_MANAGE',
         profile_plus_messaging: 'PROFILE_PLUS_MESSAGING',
         profile_plus_moderate: 'PROFILE_PLUS_MODERATE',
@@ -20416,6 +21770,21 @@ var Application = function (_AbstractCrudObject) {
       var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
 
       return this.getEdge(AdNetworkAnalyticsAsyncQueryResult, fields, params, fetchFirstPage, '/adnetworkanalytics_results');
+    }
+  }, {
+    key: 'getAemConversionConfigs',
+    value: function getAemConversionConfigs(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+      return this.getEdge(AbstractObject, fields, params, fetchFirstPage, '/aem_conversion_configs');
+    }
+  }, {
+    key: 'createAemConversion',
+    value: function createAemConversion(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+      return this.createEdge('/aem_conversions', fields, params);
     }
   }, {
     key: 'getAgencies',
@@ -20605,14 +21974,6 @@ var Application = function (_AbstractCrudObject) {
       return this.createEdge('/leaderboards_set_score', fields, params, Application);
     }
   }, {
-    key: 'getLiveVideos',
-    value: function getLiveVideos(fields) {
-      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
-
-      return this.getEdge(LiveVideo, fields, params, fetchFirstPage, '/live_videos');
-    }
-  }, {
     key: 'createMmpAuditing',
     value: function createMmpAuditing(fields) {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
@@ -20633,14 +21994,6 @@ var Application = function (_AbstractCrudObject) {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
       return this.createEdge('/occludespopups', fields, params);
-    }
-  }, {
-    key: 'getOzoneRelease',
-    value: function getOzoneRelease(fields) {
-      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
-
-      return this.getEdge(AbstractObject, fields, params, fetchFirstPage, '/ozone_release');
     }
   }, {
     key: 'createPageActivity',
@@ -20686,6 +22039,13 @@ var Application = function (_AbstractCrudObject) {
       var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
 
       return this.getEdge(AbstractObject, fields, params, fetchFirstPage, '/purchases');
+    }
+  }, {
+    key: 'createPushTokenRegister',
+    value: function createPushTokenRegister(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+      return this.createEdge('/push_token_register', fields, params);
     }
   }, {
     key: 'getRoles',
@@ -20782,6 +22142,7 @@ var Application = function (_AbstractCrudObject) {
         android_key_hash: 'android_key_hash',
         android_sdk_error_categories: 'android_sdk_error_categories',
         app_domains: 'app_domains',
+        app_events_config: 'app_events_config',
         app_events_feature_bitmask: 'app_events_feature_bitmask',
         app_events_session_timeout: 'app_events_session_timeout',
         app_install_tracked: 'app_install_tracked',
@@ -20891,6 +22252,7 @@ var Application = function (_AbstractCrudObject) {
         iphone: 'IPHONE',
         mobile_web: 'MOBILE_WEB',
         oculus: 'OCULUS',
+        samsung: 'SAMSUNG',
         supplementary_images: 'SUPPLEMENTARY_IMAGES',
         web: 'WEB',
         windows: 'WINDOWS'
@@ -20905,6 +22267,7 @@ var Application = function (_AbstractCrudObject) {
         instant_articles: 'INSTANT_ARTICLES',
         ios: 'IOS',
         mobile_web: 'MOBILE_WEB',
+        oculus: 'OCULUS',
         unknown: 'UNKNOWN'
       });
     }
@@ -20977,52 +22340,6 @@ var Application = function (_AbstractCrudObject) {
     }
   }]);
   return Application;
-}(AbstractCrudObject);
-
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the license found in the
- * LICENSE file in the root directory of this source tree.
- * 
- */
-/**
- * OffsitePixel
- * @extends AbstractCrudObject
- * @see {@link https://developers.facebook.com/docs/marketing-api/}
- */
-
-var OffsitePixel = function (_AbstractCrudObject) {
-  inherits(OffsitePixel, _AbstractCrudObject);
-
-  function OffsitePixel() {
-    classCallCheck(this, OffsitePixel);
-    return possibleConstructorReturn(this, (OffsitePixel.__proto__ || Object.getPrototypeOf(OffsitePixel)).apply(this, arguments));
-  }
-
-  createClass(OffsitePixel, [{
-    key: 'get',
-    value: function get(fields) {
-      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-      // $FlowFixMe : Support Generic Types
-      return this.read(fields, params);
-    }
-  }], [{
-    key: 'Fields',
-    get: function get() {
-      return Object.freeze({
-        creator: 'creator',
-        id: 'id',
-        js_pixel: 'js_pixel',
-        last_firing_time: 'last_firing_time',
-        name: 'name',
-        tag: 'tag'
-      });
-    }
-  }]);
-  return OffsitePixel;
 }(AbstractCrudObject);
 
 /**
@@ -21146,31 +22463,12 @@ var AdStudyObjective = function (_AbstractCrudObject) {
       return this.getEdge(OfflineConversionDataSet, fields, params, fetchFirstPage, '/offline_conversion_data_sets');
     }
   }, {
-    key: 'getOffsitePixels',
-    value: function getOffsitePixels(fields) {
-      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
-
-      return this.getEdge(OffsitePixel, fields, params, fetchFirstPage, '/offsitepixels');
-    }
-  }, {
     key: 'getPartnerStudies',
     value: function getPartnerStudies(fields) {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
       var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
 
       return this.getEdge(PartnerStudy, fields, params, fetchFirstPage, '/partnerstudies');
-    }
-
-    // $FlowFixMe : Support Generic Types
-
-  }, {
-    key: 'delete',
-    value: function _delete(fields) {
-      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-      // $FlowFixMe : Support Generic Types
-      return get$1(AdStudyObjective.prototype.__proto__ || Object.getPrototypeOf(AdStudyObjective.prototype), 'delete', this).call(this, params);
     }
   }, {
     key: 'get',
@@ -21207,11 +22505,13 @@ var AdStudyObjective = function (_AbstractCrudObject) {
     key: 'Type',
     get: function get() {
       return Object.freeze({
+        aep_conversion: 'AEP_CONVERSION',
         brand: 'BRAND',
         brandlift: 'BRANDLIFT',
         ftl: 'FTL',
         mae: 'MAE',
         mai: 'MAI',
+        mpc_conversion: 'MPC_CONVERSION',
         nonsales: 'NONSALES',
         partner: 'PARTNER',
         sales: 'SALES',
@@ -21253,19 +22553,27 @@ var AdStudy = function (_AbstractCrudObject) {
       return this.getEdge(AdStudyCell, fields, params, fetchFirstPage, '/cells');
     }
   }, {
+    key: 'getInstances',
+    value: function getInstances(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+      return this.getEdge(PrivateLiftStudyInstance, fields, params, fetchFirstPage, '/instances');
+    }
+  }, {
+    key: 'createInstance',
+    value: function createInstance(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+      return this.createEdge('/instances', fields, params, PrivateLiftStudyInstance);
+    }
+  }, {
     key: 'getObjectives',
     value: function getObjectives(fields) {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
       var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
 
       return this.getEdge(AdStudyObjective, fields, params, fetchFirstPage, '/objectives');
-    }
-  }, {
-    key: 'createObjective',
-    value: function createObjective(fields) {
-      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-      return this.createEdge('/objectives', fields, params, AdStudyObjective);
     }
 
     // $FlowFixMe : Support Generic Types
@@ -21306,6 +22614,7 @@ var AdStudy = function (_AbstractCrudObject) {
         cooldown_start_time: 'cooldown_start_time',
         created_by: 'created_by',
         created_time: 'created_time',
+        datasets_information: 'datasets_information',
         description: 'description',
         end_time: 'end_time',
         id: 'id',
@@ -21649,6 +22958,7 @@ var AdAccountAdVolume = function (_AbstractCrudObject) {
     key: 'RecommendationType',
     get: function get() {
       return Object.freeze({
+        aco_toggle: 'ACO_TOGGLE',
         aggregated_bid_limited: 'AGGREGATED_BID_LIMITED',
         aggregated_budget_limited: 'AGGREGATED_BUDGET_LIMITED',
         aggregated_cost_limited: 'AGGREGATED_COST_LIMITED',
@@ -21956,6 +23266,7 @@ var AdAccountDeliveryEstimate = function (_AbstractCrudObject) {
         page_engagement: 'PAGE_ENGAGEMENT',
         page_likes: 'PAGE_LIKES',
         post_engagement: 'POST_ENGAGEMENT',
+        quality_call: 'QUALITY_CALL',
         quality_lead: 'QUALITY_LEAD',
         reach: 'REACH',
         replies: 'REPLIES',
@@ -22015,6 +23326,7 @@ var AdAccountMatchedSearchApplicationsEdgeData = function (_AbstractCrudObject) 
         fb_android_store: 'FB_ANDROID_STORE',
         fb_canvas: 'FB_CANVAS',
         fb_gameroom: 'FB_GAMEROOM',
+        galaxy_store: 'GALAXY_STORE',
         google_play: 'GOOGLE_PLAY',
         instant_game: 'INSTANT_GAME',
         itunes: 'ITUNES',
@@ -22448,67 +23760,6 @@ var ReachFrequencyPrediction = function (_AbstractCrudObject) {
  * 
  */
 /**
- * AdAccountRoas
- * @extends AbstractCrudObject
- * @see {@link https://developers.facebook.com/docs/marketing-api/}
- */
-
-var AdAccountRoas = function (_AbstractCrudObject) {
-  inherits(AdAccountRoas, _AbstractCrudObject);
-
-  function AdAccountRoas() {
-    classCallCheck(this, AdAccountRoas);
-    return possibleConstructorReturn(this, (AdAccountRoas.__proto__ || Object.getPrototypeOf(AdAccountRoas)).apply(this, arguments));
-  }
-
-  createClass(AdAccountRoas, null, [{
-    key: 'Fields',
-    get: function get() {
-      return Object.freeze({
-        adgroup_id: 'adgroup_id',
-        arpu_180d: 'arpu_180d',
-        arpu_1d: 'arpu_1d',
-        arpu_30d: 'arpu_30d',
-        arpu_365d: 'arpu_365d',
-        arpu_3d: 'arpu_3d',
-        arpu_7d: 'arpu_7d',
-        arpu_90d: 'arpu_90d',
-        campaign_group_id: 'campaign_group_id',
-        campaign_id: 'campaign_id',
-        date_start: 'date_start',
-        date_stop: 'date_stop',
-        installs: 'installs',
-        revenue: 'revenue',
-        revenue_180d: 'revenue_180d',
-        revenue_1d: 'revenue_1d',
-        revenue_30d: 'revenue_30d',
-        revenue_365d: 'revenue_365d',
-        revenue_3d: 'revenue_3d',
-        revenue_7d: 'revenue_7d',
-        revenue_90d: 'revenue_90d',
-        spend: 'spend',
-        yield_180d: 'yield_180d',
-        yield_1d: 'yield_1d',
-        yield_30d: 'yield_30d',
-        yield_365d: 'yield_365d',
-        yield_3d: 'yield_3d',
-        yield_7d: 'yield_7d',
-        yield_90d: 'yield_90d'
-      });
-    }
-  }]);
-  return AdAccountRoas;
-}(AbstractCrudObject);
-
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the license found in the
- * LICENSE file in the root directory of this source tree.
- * 
- */
-/**
  * SavedAudience
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
@@ -22536,6 +23787,7 @@ var SavedAudience = function (_AbstractCrudObject) {
       return Object.freeze({
         account: 'account',
         approximate_count: 'approximate_count',
+        approximate_count_64bit: 'approximate_count_64bit',
         description: 'description',
         extra_info: 'extra_info',
         id: 'id',
@@ -22714,6 +23966,7 @@ var AdAccountTargetingUnified = function (_AbstractCrudObject) {
         effective_facebook_positions: 'effective_facebook_positions',
         effective_instagram_positions: 'effective_instagram_positions',
         effective_messenger_positions: 'effective_messenger_positions',
+        effective_oculus_positions: 'effective_oculus_positions',
         effective_publisher_platforms: 'effective_publisher_platforms',
         effective_whatsapp_positions: 'effective_whatsapp_positions',
         engagement_specs: 'engagement_specs',
@@ -22772,6 +24025,7 @@ var AdAccountTargetingUnified = function (_AbstractCrudObject) {
         mobile_device_model: 'mobile_device_model',
         moms: 'moms',
         net_worth: 'net_worth',
+        oculus_positions: 'oculus_positions',
         office_type: 'office_type',
         page_types: 'page_types',
         place_page_set_ids: 'place_page_set_ids',
@@ -22805,13 +24059,23 @@ var AdAccountTargetingUnified = function (_AbstractCrudObject) {
       });
     }
   }, {
-    key: 'Mode',
+    key: 'AppStore',
     get: function get() {
       return Object.freeze({
-        best_performing: 'best_performing',
-        recently_used: 'recently_used',
-        related: 'related',
-        suggestions: 'suggestions'
+        amazon_app_store: 'amazon_app_store',
+        does_not_exist: 'does_not_exist',
+        fb_android_store: 'fb_android_store',
+        fb_canvas: 'fb_canvas',
+        fb_gameroom: 'fb_gameroom',
+        galaxy_store: 'galaxy_store',
+        google_play: 'google_play',
+        instant_game: 'instant_game',
+        itunes: 'itunes',
+        itunes_ipad: 'itunes_ipad',
+        oculus_app_store: 'oculus_app_store',
+        roku_channel_store: 'roku_channel_store',
+        windows_10_store: 'windows_10_store',
+        windows_store: 'windows_store'
       });
     }
   }, {
@@ -22833,6 +24097,16 @@ var AdAccountTargetingUnified = function (_AbstractCrudObject) {
         reach: 'REACH',
         store_visits: 'STORE_VISITS',
         video_views: 'VIDEO_VIEWS'
+      });
+    }
+  }, {
+    key: 'Mode',
+    get: function get() {
+      return Object.freeze({
+        best_performing: 'best_performing',
+        recently_used: 'recently_used',
+        related: 'related',
+        suggestions: 'suggestions'
       });
     }
   }]);
@@ -23255,13 +24529,6 @@ var AdAccount = function (_AbstractCrudObject) {
       return this.createEdge('/asyncadrequestsets', fields, params, AdAsyncRequestSet);
     }
   }, {
-    key: 'createAudienceReplace',
-    value: function createAudienceReplace(fields) {
-      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-      return this.createEdge('/audiencereplace', fields, params);
-    }
-  }, {
     key: 'createBlockListDraft',
     value: function createBlockListDraft(fields) {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
@@ -23305,6 +24572,14 @@ var AdAccount = function (_AbstractCrudObject) {
       var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
 
       return this.getEdge(Campaign, fields, params, fetchFirstPage, '/campaignsbylabels');
+    }
+  }, {
+    key: 'getConnectedInstagramAccounts',
+    value: function getConnectedInstagramAccounts(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+      return this.getEdge(IGUser, fields, params, fetchFirstPage, '/connected_instagram_accounts');
     }
   }, {
     key: 'getContentDeliveryReport',
@@ -23515,27 +24790,12 @@ var AdAccount = function (_AbstractCrudObject) {
       return this.createEdge('/reachfrequencypredictions', fields, params, ReachFrequencyPrediction);
     }
   }, {
-    key: 'getRoas',
-    value: function getRoas(fields) {
-      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
-
-      return this.getEdge(AdAccountRoas, fields, params, fetchFirstPage, '/roas');
-    }
-  }, {
     key: 'getSavedAudiences',
     value: function getSavedAudiences(fields) {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
       var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
 
       return this.getEdge(SavedAudience, fields, params, fetchFirstPage, '/saved_audiences');
-    }
-  }, {
-    key: 'createSponsoredMessageAd',
-    value: function createSponsoredMessageAd(fields) {
-      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-      return this.createEdge('/sponsored_message_ads', fields, params);
     }
   }, {
     key: 'deleteSubscribedApps',
@@ -23600,13 +24860,6 @@ var AdAccount = function (_AbstractCrudObject) {
       return this.getEdge(AdAccountTargetingUnified, fields, params, fetchFirstPage, '/targetingvalidation');
     }
   }, {
-    key: 'deleteTracking',
-    value: function deleteTracking() {
-      var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-
-      return get$1(AdAccount.prototype.__proto__ || Object.getPrototypeOf(AdAccount.prototype), 'deleteEdge', this).call(this, '/tracking', params);
-    }
-  }, {
     key: 'getTracking',
     value: function getTracking(fields) {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
@@ -23661,7 +24914,6 @@ var AdAccount = function (_AbstractCrudObject) {
       return Object.freeze({
         account_id: 'account_id',
         account_status: 'account_status',
-        ad_account_creation_request: 'ad_account_creation_request',
         ad_account_promotable_objects: 'ad_account_promotable_objects',
         age: 'age',
         agency_client_declaration: 'agency_client_declaration',
@@ -23789,6 +25041,7 @@ var AdAccount = function (_AbstractCrudObject) {
       return Object.freeze({
         advertise: 'ADVERTISE',
         analyze: 'ANALYZE',
+        draft: 'DRAFT',
         manage: 'MANAGE'
       });
     }
@@ -23798,6 +25051,7 @@ var AdAccount = function (_AbstractCrudObject) {
       return Object.freeze({
         advertise: 'ADVERTISE',
         analyze: 'ANALYZE',
+        draft: 'DRAFT',
         manage: 'MANAGE'
       });
     }
@@ -23968,6 +25222,13 @@ var AdsPixel = function (_AbstractCrudObject) {
       return this.createEdge('/events', fields, params, AdsPixel);
     }
   }, {
+    key: 'createShadowTrafficHelper',
+    value: function createShadowTrafficHelper(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+      return this.createEdge('/shadowtraffichelper', fields, params);
+    }
+  }, {
     key: 'deleteSharedAccounts',
     value: function deleteSharedAccounts() {
       var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
@@ -24038,6 +25299,7 @@ var AdsPixel = function (_AbstractCrudObject) {
         first_party_cookie_status: 'first_party_cookie_status',
         id: 'id',
         is_created_by_business: 'is_created_by_business',
+        is_crm: 'is_crm',
         is_unavailable: 'is_unavailable',
         last_fired_time: 'last_fired_time',
         name: 'name',
@@ -24061,6 +25323,7 @@ var AdsPixel = function (_AbstractCrudObject) {
         ct: 'ct',
         db: 'db',
         em: 'em',
+        external_id: 'external_id',
         fn: 'fn',
         ge: 'ge',
         ln: 'ln',
@@ -24110,7 +25373,7 @@ var AdsPixel = function (_AbstractCrudObject) {
 
 /**
  * EventResponse
- * @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters}
+ * @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters}
  */
 
 var EventResponse = function () {
@@ -24388,9 +25651,9 @@ var HttpServiceClientConfig = function () {
  */
 
 /**
- * UserData represents the User Data Parameters(user_data) of a Server Side Event Request.
+ * UserData represents the User Data Parameters(user_data) of a Conversions API Event Request.
  * 'user_data' is a set of identifiers Facebook can use for targeted attribution. See Custom Audiences from CRM Data for details on how to normalize and hash the data you send.
- * @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#user}
+ * @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/customer-information-parameters}
  */
 
 var UserData = function () {
@@ -24404,8 +25667,8 @@ var UserData = function () {
   * @param {String} date_of_birth A date of birth given as year, month, and day in YYYYMMDD format.
   * @param {String} city A city in lower-case without spaces or punctuation.
   * @param {String} state A two-letter state code in lowercase.
-  * @param {String} country A two-letter country code in lowercase.
   * @param {String} zip Postal code of the city in your country standard
+  * @param {String} country A two-letter country code in lowercase.
   * @param {String} external_id Any unique ID from the advertiser,
   * @param {String} client_ip_address The IP address of the browser corresponding to the event.
   * @param {String} client_user_agent The user agent for the browser corresponding to the event.
@@ -24421,18 +25684,39 @@ var UserData = function () {
 	function UserData(email, phone, gender, first_name, last_name, date_of_birth, city, state, zip, country, external_id, client_ip_address, client_user_agent, fbp, fbc, subscription_id, fb_login_id, lead_id, dobd, dobm, doby) {
 		classCallCheck(this, UserData);
 
-
-		this._email = email;
-		this._phone = phone;
-		this._gender = gender;
-		this._first_name = first_name;
-		this._last_name = last_name;
-		this._date_of_birth = date_of_birth;
-		this._city = city;
-		this._state = state;
-		this._country = country;
-		this._zip = zip;
-		this._external_id = external_id;
+		if (email != null) {
+			this._emails = new Array(email);
+		}
+		if (phone != null) {
+			this._phones = new Array(phone);
+		}
+		if (gender != null) {
+			this._genders = new Array(gender);
+		}
+		if (first_name != null) {
+			this._first_names = new Array(first_name);
+		}
+		if (last_name != null) {
+			this._last_names = new Array(last_name);
+		}
+		if (date_of_birth != null) {
+			this._dates_of_birth = new Array(date_of_birth);
+		}
+		if (city != null) {
+			this._cities = new Array(city);
+		}
+		if (state != null) {
+			this._states = new Array(state);
+		}
+		if (country != null) {
+			this._countries = new Array(country);
+		}
+		if (zip != null) {
+			this._zips = new Array(zip);
+		}
+		if (external_id != null) {
+			this._external_ids = new Array(external_id);
+		}
 		this._client_ip_address = client_ip_address;
 		this._client_user_agent = client_user_agent;
 		this._fbp = fbp;
@@ -24455,7 +25739,20 @@ var UserData = function () {
    * Example: joe@eg.com
    */
 		value: function setEmail(email) {
-			this._email = email;
+			this._emails = new Array(email);
+			return this;
+		}
+
+		/**
+   * Sets email addresses for the user data field.
+   * @param emails Email addresses, in lowercase.
+   * Example: ['joe@eg.com', 'smith@test.com']
+   */
+
+	}, {
+		key: 'setEmails',
+		value: function setEmails(emails) {
+			this._emails = emails;
 			return this;
 		}
 
@@ -24475,7 +25772,20 @@ var UserData = function () {
    * Example: 16505551212
    */
 		value: function setPhone(phone) {
-			this._phone = phone;
+			this._phones = new Array(phone);
+			return this;
+		}
+
+		/**
+   * Sets the phone numbers for the user data.
+   * @param phones Phone numbers. Include only digits with country code, area code, and number.
+   * Example: ['16505551212', '12062072008']
+   */
+
+	}, {
+		key: 'setPhones',
+		value: function setPhones(phones) {
+			this._phones = phones;
 			return this;
 		}
 
@@ -24495,7 +25805,20 @@ var UserData = function () {
    * Example: f
    */
 		value: function setGender(gender) {
-			this._gender = gender;
+			this._genders = new Array(gender);
+			return this;
+		}
+
+		/**
+   * Sets the gender values for the user data.
+   * @param genders Genders in lowercase. Either f for FEMALE or m for MALE.
+   * Example: [f, m]
+   */
+
+	}, {
+		key: 'setGenders',
+		value: function setGenders(genders) {
+			this._genders = genders;
 			return this;
 		}
 
@@ -24515,7 +25838,20 @@ var UserData = function () {
    * Example: 19971226 for December 26, 1997.
    */
 		value: function setDateOfBirth(date_of_birth) {
-			this._date_of_birth = date_of_birth;
+			this._dates_of_birth = new Array(date_of_birth);
+			return this;
+		}
+
+		/**
+   * Sets the dates of birth for the user data.
+   * @param {String} dates_of_birth A date of birth given as year, month, and day in the Format YYYYMMDD
+   * Example: 19971226 for December 26, 1997.
+   */
+
+	}, {
+		key: 'setDatesOfBirth',
+		value: function setDatesOfBirth(dates_of_birth) {
+			this._dates_of_birth = dates_of_birth;
 			return this;
 		}
 
@@ -24535,7 +25871,20 @@ var UserData = function () {
    * Example: smith
    */
 		value: function setLastName(last_name) {
-			this._last_name = last_name;
+			this._last_names = new Array(last_name);
+			return this;
+		}
+
+		/**
+   * Sets the last name for the user data.
+   * @param last_names is last name in lowercase.
+   * Example: ['smith', 'wilson']
+   */
+
+	}, {
+		key: 'setLastNames',
+		value: function setLastNames(last_names) {
+			this._last_names = last_names;
 			return this;
 		}
 
@@ -24555,7 +25904,20 @@ var UserData = function () {
    * Example: joe
    */
 		value: function setFirstName(first_name) {
-			this._first_name = first_name;
+			this._first_names = new Array(first_name);
+			return this;
+		}
+
+		/**
+   * Sets the first names for the user data.
+   * @param {String} first_names is first name in lowercase.
+   * Example: joe
+   */
+
+	}, {
+		key: 'setFirstNames',
+		value: function setFirstNames(first_names) {
+			this._first_names = first_names;
 			return this;
 		}
 
@@ -24575,7 +25937,20 @@ var UserData = function () {
    * Example: menlopark
    */
 		value: function setCity(city) {
-			this._city = city;
+			this._cities = new Array(city);
+			return this;
+		}
+
+		/**
+   * Sets the cities for the user data.
+   * @param cities is city in lower-case without spaces or punctuation.
+   * Example: ['menlopark', 'seattle']
+   */
+
+	}, {
+		key: 'setCities',
+		value: function setCities(cities) {
+			this._cities = cities;
 			return this;
 		}
 
@@ -24595,7 +25970,20 @@ var UserData = function () {
    * Example: 98121 (for United States zip code)
    */
 		value: function setZip(zip) {
-			this._zip = zip;
+			this._zips = new Array(zip);
+			return this;
+		}
+
+		/**
+   * Sets the zip/postal codes for the user data.
+   * @param zips is a five-digit zip code for United States.For other locations, follow each country's standards.
+   * Example: 98121 (for United States zip code)
+   */
+
+	}, {
+		key: 'setZips',
+		value: function setZips(zips) {
+			this._zips = zips;
 			return this;
 		}
 
@@ -24615,7 +26003,20 @@ var UserData = function () {
    * Example: ca
    */
 		value: function setState(state) {
-			this._state = state;
+			this._states = new Array(state);
+			return this;
+		}
+
+		/**
+   * Sets the states for the user data.
+   * @param states is state in lower-case without spaces or punctuation.
+   * Example: ca
+   */
+
+	}, {
+		key: 'setStates',
+		value: function setStates(states) {
+			this._states = states;
 			return this;
 		}
 
@@ -24635,7 +26036,20 @@ var UserData = function () {
    * Example: usa
    */
 		value: function setCountry(country) {
-			this._country = country;
+			this._countries = new Array(country);
+			return this;
+		}
+
+		/**
+   * Sets the countries for the user data.
+   * @param countries is A two-letter country code in lowercase.
+   * Example: usa
+   */
+
+	}, {
+		key: 'setCountries',
+		value: function setCountries(countries) {
+			this._countries = countries;
 			return this;
 		}
 
@@ -24643,7 +26057,7 @@ var UserData = function () {
    * Gets the external id for the user data.
    * external_id is a unique ID from the advertiser, such as loyalty membership IDs, user IDs, and external cookie IDs.
    * In the Offline Conversions API this is known as extern_id. For more information, see Offline Conversions.
-   * If External ID is being sent via other channels, then it should be sent in the same format via the server-side API
+   * If External ID is being sent via other channels, then it should be sent in the same format via the Conversions API
    * @see {@link https://www.facebook.com/business/help/104039186799009}
    */
 
@@ -24655,11 +26069,26 @@ var UserData = function () {
    * Sets the external id for the user data.
    * @param {String} external_id is a unique ID from the advertiser, such as loyalty membership IDs, user IDs, and external cookie IDs.
    * In the Offline Conversions API this is known as extern_id. For more information, see Offline Conversions.
-   * If External ID is being sent via other channels, then it should be sent in the same format via the server-side API
+   * If External ID is being sent via other channels, then it should be sent in the same format via the Conversions API
    * @see {@link https://www.facebook.com/business/help/104039186799009}
    */
 		value: function setExternalId(external_id) {
-			this._external_id = external_id;
+			this._external_ids = new Array(external_id);
+			return this;
+		}
+
+		/**
+   * Sets the external ids for the user data.
+   * @param external_ids is a unique ID from the advertiser, such as loyalty membership IDs, user IDs, and external cookie IDs.
+   * In the Offline Conversions API this is known as extern_id. For more information, see Offline Conversions.
+   * If External ID is being sent via other channels, then it should be sent in the same format via the Conversions API
+   * @see {@link https://www.facebook.com/business/help/104039186799009}
+   */
+
+	}, {
+		key: 'setExternalIds',
+		value: function setExternalIds(external_ids) {
+			this._external_ids = external_ids;
 			return this;
 		}
 
@@ -24702,7 +26131,7 @@ var UserData = function () {
 		/**
    * Gets the fbc for the user data.
    * fbc is the Facebook click ID value stored in the _fbc browser cookie under your domain.
-   * See Managing fbc and fbp Parameters for how to get this value @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#fbc},
+   * See Managing fbc and fbp Parameters for how to get this value @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/customer-information-parameters#fbc},
    * You can also generate this value from a fbclid query parameter.
    */
 
@@ -24713,7 +26142,7 @@ var UserData = function () {
 		/**
    * Sets the fbc for the user data.
    * @param {String} fbc is the Facebook click ID value stored in the _fbc browser cookie under your domain.
-   * See Managing fbc and fbp Parameters for how to get this value @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#fbc},
+   * See Managing fbc and fbp Parameters for how to get this value @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/customer-information-parameters#fbc},
    * You can also generate this value from a fbclid query parameter.
    */
 		value: function setFbc(fbc) {
@@ -24724,7 +26153,7 @@ var UserData = function () {
 		/**
    * Gets the fbp for the user data.
    * fbp is Facebook browser ID value stored in the _fbp browser cookie under your domain.
-   * See Managing fbc and fbp Parameters for how to get this value @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#fbc},
+   * See Managing fbc and fbp Parameters for how to get this value @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/customer-information-parameters#fbp},
    */
 
 	}, {
@@ -24734,7 +26163,7 @@ var UserData = function () {
 		/**
    * Sets the fbp for the user data.
    * @param {String} fbp is Facebook browser ID value stored in the _fbp browser cookie under your domain.
-   * See Managing fbc and fbp Parameters for how to get this value @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#fbc},
+   * See Managing fbc and fbp Parameters for how to get this value @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/customer-information-parameters#fbp},
    */
 		value: function setFbp(fbp) {
 			this._fbp = fbp;
@@ -24907,48 +26336,48 @@ var UserData = function () {
 		value: function normalize() {
 			var userData = {};
 
-			if (this.email) {
-				userData['em'] = ServerSideUtils.normalizeAndHash(this.email, 'em');
+			if (this.emails) {
+				userData['em'] = this.normalizeAndHashMultiValues(this.emails, 'em');
 			}
 
-			if (this.phone) {
-				userData['ph'] = ServerSideUtils.normalizeAndHash(this.phone, 'ph');
+			if (this.phones) {
+				userData['ph'] = this.normalizeAndHashMultiValues(this.phones, 'ph');
 			}
 
-			if (this.gender) {
-				userData['ge'] = ServerSideUtils.normalizeAndHash(this.gender, 'ge');
+			if (this.genders) {
+				userData['ge'] = this.normalizeAndHashMultiValues(this.genders, 'ge');
 			}
 
-			if (this.date_of_birth) {
-				userData['db'] = ServerSideUtils.normalizeAndHash(this.date_of_birth, 'db');
+			if (this.dates_of_birth) {
+				userData['db'] = this.normalizeAndHashMultiValues(this.dates_of_birth, 'db');
 			}
 
-			if (this.last_name) {
-				userData['ln'] = ServerSideUtils.normalizeAndHash(this.last_name, 'ln');
+			if (this.last_names) {
+				userData['ln'] = this.normalizeAndHashMultiValues(this.last_names, 'ln');
 			}
 
-			if (this.first_name) {
-				userData['fn'] = ServerSideUtils.normalizeAndHash(this.first_name, 'fn');
+			if (this.first_names) {
+				userData['fn'] = this.normalizeAndHashMultiValues(this.first_names, 'fn');
 			}
 
-			if (this.city) {
-				userData['ct'] = ServerSideUtils.normalizeAndHash(this.city, 'ct');
+			if (this.cities) {
+				userData['ct'] = this.normalizeAndHashMultiValues(this.cities, 'ct');
 			}
 
-			if (this.state) {
-				userData['st'] = ServerSideUtils.normalizeAndHash(this.state, 'st');
+			if (this.states) {
+				userData['st'] = this.normalizeAndHashMultiValues(this.states, 'st');
 			}
 
-			if (this.zip) {
-				userData['zp'] = ServerSideUtils.normalizeAndHash(this.zip, 'zp');
+			if (this.zips) {
+				userData['zp'] = this.normalizeAndHashMultiValues(this.zips, 'zp');
 			}
 
-			if (this.country) {
-				userData['country'] = ServerSideUtils.normalizeAndHash(this.country, 'country');
+			if (this.countries) {
+				userData['country'] = this.normalizeAndHashMultiValues(this.countries, 'country');
 			}
 
-			if (this.external_id) {
-				userData['external_id'] = this.external_id;
+			if (this.external_ids) {
+				userData['external_id'] = this.dedupArray(this.external_ids);
 			}
 
 			if (this.client_ip_address) {
@@ -25005,6 +26434,33 @@ var UserData = function () {
 
 			return userData;
 		}
+
+		/**
+  * Returns the deduped and normalized payload for the given array of values and the field.
+  * @returns {string[]} dedupped and normalized values.
+  */
+
+	}, {
+		key: 'normalizeAndHashMultiValues',
+		value: function normalizeAndHashMultiValues(arr, fieldName) {
+			var normalizedArray = arr.map(function (value) {
+				return ServerSideUtils.normalizeAndHash(value, fieldName);
+			});
+			return this.dedupArray(normalizedArray);
+		}
+
+		/**
+   * Returns the deduped payload for the given array of values.
+   * This can be applied to fields that do not require normalization or hashing.
+   * @returns {string[]} deduped values.
+   */
+
+	}, {
+		key: 'dedupArray',
+		value: function dedupArray(arr) {
+			var dedupSet = new Set(arr);
+			return Array.from(dedupSet);
+		}
 	}, {
 		key: 'email',
 
@@ -25015,169 +26471,415 @@ var UserData = function () {
    * Example: joe@eg.com
    */
 		get: function get() {
-			return this._email;
+			return this._emails == null ? null : this._emails[0];
 		}
+
+		/**
+   * Gets email addresses for the user data field.
+   * Email addresses, in lowercase.
+   * Example: ['joe@eg.com', 'smith@test.com']
+   */
+		,
+
 
 		/**
    * Sets the email address for the user data field.
    * @param email An email address, in lowercase.
    * Example: joe@eg.com
    */
-		,
 		set: function set(email) {
-			this._email = email;
+			this._emails = new Array(email);
+		}
+
+		/**
+   * Sets email addresses for the user data field.
+   * @param emails Email addresses, in lowercase.
+   * Example: ['joe@eg.com', 'smith@test.com']
+   */
+
+	}, {
+		key: 'emails',
+		get: function get() {
+			return this._emails;
+		},
+		set: function set(emails) {
+			this._emails = emails;
 		}
 	}, {
 		key: 'phone',
 		get: function get() {
-			return this._phone;
+			return this._phones == null ? null : this._phones[0];
 		}
+
+		/**
+   * Gets the phone numbers for the user data.
+   * Phone numbers. Include only digits with country code, area code, and number.
+   * Example: ['16505551212', '12062072008']
+   */
+		,
+
 
 		/**
    * Sets the phone number for the user data.
    * @param phone A phone number. Include only digits with country code, area code, and number.
    * Example: 16505551212
    */
-		,
 		set: function set(phone) {
-			this._phone = phone;
+			this._phones = new Array(phone);
+		}
+
+		/**
+   * Sets the phone numbers for the user data.
+   * @param phones Phone numbers. Include only digits with country code, area code, and number.
+   * Example: ['16505551212', '12062072008']
+   */
+
+	}, {
+		key: 'phones',
+		get: function get() {
+			return this._phones;
+		},
+		set: function set(phones) {
+			this._phones = phones;
 		}
 	}, {
 		key: 'gender',
 		get: function get() {
-			return this._gender;
+			return this._genders == null ? null : this.genders[0];
 		}
+
+		/**
+   * Gets the gender values for the user data.
+   * Genders in lowercase. Either f for FEMALE or m for MALE.
+   * Example: [f, m]
+   */
+		,
+
 
 		/**
    * Sets the gender value for the user data.
    * @param gender Gender in lowercase. Either f for FEMALE or m for MALE.
    * Example: f
    */
-		,
 		set: function set(gender) {
-			this._gender = gender;
+			this._genders = new Array(gender);
+		}
+
+		/**
+   * Sets the gender values for the user data.
+   * @param genders Genders in lowercase. Either f for FEMALE or m for MALE.
+   * Example: [f, m]
+   */
+
+	}, {
+		key: 'genders',
+		get: function get() {
+			return this._genders;
+		},
+		set: function set(genders) {
+			this._genders = genders;
 		}
 	}, {
 		key: 'date_of_birth',
 		get: function get() {
-			return this._date_of_birth;
+			return this._dates_of_birth == null ? null : this._dates_of_birth[0];
 		}
+
+		/**
+   * Gets the dates of birth for the user data.
+   * A date of birth given as year, month, and day in the Format YYYYMMDD
+   * Example: 19971226 for December 26, 1997.
+   */
+		,
+
 
 		/**
    * Sets the date of birth for the user data.
    * @param date_of_birth A date of birth given as year, month, and day in the Format YYYYMMDD
    * Example: 19971226 for December 26, 1997.
    */
-		,
 		set: function set(date_of_birth) {
-			this._date_of_birth = date_of_birth;
+			this._dates_of_birth = new Array(date_of_birth);
+		}
+
+		/**
+   * Sets the dates of birth for the user data.
+   * @param dates_of_birth A date of birth given as year, month, and day in the Format YYYYMMDD
+   * Example: 19971226 for December 26, 1997.
+   */
+
+	}, {
+		key: 'dates_of_birth',
+		get: function get() {
+			return this._dates_of_birth;
+		},
+		set: function set(dates_of_birth) {
+			this._dates_of_birth = dates_of_birth;
 		}
 	}, {
 		key: 'last_name',
 		get: function get() {
-			return this._last_name;
+			return this._last_names == null ? null : this._last_names[0];
 		}
+
+		/**
+   * Gets the last names for the user data.
+   * last_name is the last name in lowercase.
+   * Example: ['smith', 'wilson']
+   */
+		,
+
 
 		/**
    * Sets the last name for the user data.
    * @param last_name is last name in lowercase.
    * Example: smith
    */
-		,
 		set: function set(last_name) {
-			this._last_name = last_name;
+			this._last_names = new Array(last_name);
+		}
+
+		/**
+   * Sets the last names for the user data.
+   * @param last_names is last name in lowercase.
+   * Example: ['smith', 'wilson']
+   */
+
+	}, {
+		key: 'last_names',
+		get: function get() {
+			return this._last_names;
+		},
+		set: function set(last_names) {
+			this._last_names = last_names;
 		}
 	}, {
 		key: 'first_name',
 		get: function get() {
-			return this._first_name;
+			return this._first_names == null ? null : this._first_names[0];
 		}
+
+		/**
+  * Gets the first names for the user data.
+  * first_name is first name in lowercase.
+  * Example: ['joe', 'mary']
+  */
+		,
+
 
 		/**
    * Sets the first name for the user data.
    * @param first_name is first name in lowercase.
    * Example: joe
    */
-		,
 		set: function set(first_name) {
-			this._first_name = first_name;
+			this._first_names = new Array(first_name);
+		}
+
+		/**
+  * Sets the first names for the user data.
+  * @param first_names is first name in lowercase.
+  * Example: ['joe', 'mary']
+  */
+
+	}, {
+		key: 'first_names',
+		get: function get() {
+			return this._first_names;
+		},
+		set: function set(first_names) {
+			this._first_names = first_names;
 		}
 	}, {
 		key: 'city',
 		get: function get() {
-			return this._city;
+			return this._cities == null ? null : this._cities[0];
 		}
+
+		/**
+   * Gets the cities for the user data.
+   * city is city in lower-case without spaces or punctuation.
+   * Example:['menlopark', 'seattle']
+   */
+		,
+
 
 		/**
    * Sets the city for the user data.
    * @param city is city in lower-case without spaces or punctuation.
    * Example: menlopark
    */
-		,
 		set: function set(city) {
-			this._city = city;
+			this._cities = new Array(city);
+		}
+
+		/**
+   * Sets the cities for the user data.
+   * @param cities is city in lower-case without spaces or punctuation.
+   * Example: ['menlopark', 'seattle']
+   */
+
+	}, {
+		key: 'cities',
+		get: function get() {
+			return this._cities;
+		},
+		set: function set(cities) {
+			this._cities = cities;
 		}
 	}, {
 		key: 'zip',
 		get: function get() {
-			return this._zip;
+			return this._zips == null ? null : this._zips[0];
 		}
+
+		/**
+   * Gets the zip/postal codes for the user data.
+   * zip is a five-digit zip code for United States.For other locations, follow each country's standards.
+   * Example: 98121 (for United States zip code)
+   */
+		,
+
 
 		/**
    * Sets the zip/postal code for the user data.
    * @param zip is a five-digit zip code for United States.For other locations, follow each country's standards.
    * Example: 98121 (for United States zip code)
    */
-		,
 		set: function set(zip) {
-			this._zip = zip;
+			this._zips = new Array(zip);
+		}
+
+		/**
+   * Sets the zip/postal codes for the user data.
+   * @param zips is a five-digit zip code for United States.For other locations, follow each country's standards.
+   * Example: 98121 (for United States zip code)
+   */
+
+	}, {
+		key: 'zips',
+		get: function get() {
+			return this._zips;
+		},
+		set: function set(zips) {
+			this._zips = zips;
 		}
 	}, {
 		key: 'state',
 		get: function get() {
-			return this._state;
+			return this._states == null ? null : this._states[0];
 		}
+
+		/**
+   * Gets the states for the user data.
+   * state is state in lower-case without spaces or punctuation.
+   * Example: ca
+   */
+		,
+
 
 		/**
    * Sets the state for the user data.
    * @param state is state in lower-case without spaces or punctuation.
    * Example: ca
    */
-		,
 		set: function set(state) {
-			this._state = state;
+			this._states = new Array(state);
+		}
+
+		/**
+   * Sets the states for the user data.
+   * @param states is state in lower-case without spaces or punctuation.
+   * Example: ca
+   */
+
+	}, {
+		key: 'states',
+		get: function get() {
+			return this._states;
+		},
+		set: function set(states) {
+			this._states = states;
 		}
 	}, {
 		key: 'country',
 		get: function get() {
-			return this._country;
+			return this._countries == null ? null : this._countries[0];
 		}
+
+		/**
+   * Gets the countries for the user data.
+   * country is A two-letter country code in lowercase.
+   * Example: usa
+   */
+		,
+
 
 		/**
    * Sets the country for the user data.
    * @param country is A two-letter country code in lowercase.
    * Example: usa
    */
-		,
 		set: function set(country) {
-			this._country = country;
+			this._countries = new Array(country);
+		}
+
+		/**
+   * Sets the countries for the user data.
+   * @param countries is A two-letter country code in lowercase.
+   * Example: usa
+   */
+
+	}, {
+		key: 'countries',
+		get: function get() {
+			return this._countries;
+		},
+		set: function set(countries) {
+			this._countries = countries;
 		}
 	}, {
 		key: 'external_id',
 		get: function get() {
-			return this._external_id;
+			return this._external_ids == null ? null : this._external_ids[0];
 		}
+
+		/**
+   * Gets the external ids for the user data.
+   * external_id is a unique ID from the advertiser, such as loyalty membership IDs, user IDs, and external cookie IDs.
+   * In the Offline Conversions API this is known as extern_id. For more information, see Offline Conversions.
+   * If External ID is being sent via other channels, then it should be sent in the same format via the Conversions API
+   * @see {@link https://www.facebook.com/business/help/104039186799009}
+   */
+		,
+
 
 		/**
    * Sets the external id for the user data.
    * @param external_id is a unique ID from the advertiser, such as loyalty membership IDs, user IDs, and external cookie IDs.
    * In the Offline Conversions API this is known as extern_id. For more information, see Offline Conversions.
-   * If External ID is being sent via other channels, then it should be sent in the same format via the server-side API
+   * If External ID is being sent via other channels, then it should be sent in the same format via the Conversions API
    * @see {@link https://www.facebook.com/business/help/104039186799009}
    */
-		,
 		set: function set(external_id) {
-			this._external_id = external_id;
+			this._external_ids = new Array(external_id);
+		}
+
+		/**
+   * Sets the external id for the user data.
+   * @param external_ids is a unique ID from the advertiser, such as loyalty membership IDs, user IDs, and external cookie IDs.
+   * In the Offline Conversions API this is known as extern_id. For more information, see Offline Conversions.
+   * If External ID is being sent via other channels, then it should be sent in the same format via the Conversions API
+   * @see {@link https://www.facebook.com/business/help/104039186799009}
+   */
+
+	}, {
+		key: 'external_ids',
+		get: function get() {
+			return this._external_ids;
+		},
+		set: function set(external_ids) {
+			this._external_ids = external_ids;
 		}
 	}, {
 		key: 'client_ip_address',
@@ -25216,7 +26918,7 @@ var UserData = function () {
 		/**
    * Sets the fbc for the user data.
    * @param fbc is the Facebook click ID value stored in the _fbc browser cookie under your domain.
-   * See Managing fbc and fbp Parameters for how to get this value @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#fbc},
+   * See Managing fbc and fbp Parameters for how to get this value @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/customer-information-parameters#fbc},
    * You can also generate this value from a fbclid query parameter.
    */
 		,
@@ -25232,7 +26934,7 @@ var UserData = function () {
 		/**
    * Sets the fbp for the user data.
    * @param fbp is Facebook browser ID value stored in the _fbp browser cookie under your domain.
-   * See Managing fbc and fbp Parameters for how to get this value @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#fbc},
+   * See Managing fbc and fbp Parameters for how to get this value @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/customer-information-parameters#fbp},
    */
 		,
 		set: function set(fbp) {
@@ -25380,7 +27082,7 @@ var UserData = function () {
 
 /**
  * ServerEvent
- * @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#serv}
+ * @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/server-event}
  */
 
 var ServerEvent = function () {
@@ -25477,8 +27179,9 @@ var ServerEvent = function () {
 
 		/**
    * Sets the event Id for the current Event.
-   * @param {String} event_id can be any string chosen by the advertiser. This is used with event_name to determine if events are identical. Learn about Deduplicate Pixel and Server-Side Events.
-   * @see {@link https://developers.facebook.com/docs/marketing-api/server-side-api/using-the-api#dedup}
+   * @param {String} event_id can be any string chosen by the advertiser. This is used with event_name to determine if events are identical.
+   * Learn about Deduplicate Pixel and Conversions API Events: {@link https://developers.facebook.com/docs/marketing-api/conversions-api/deduplicate-pixel-and-server-events}
+   * @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/server-event#event-id}
    */
 		value: function setEventId(event_id) {
 			this._event_id = event_id;
@@ -25521,7 +27224,7 @@ var ServerEvent = function () {
 
 		/**
    * Gets the user data object for the current Server Event.
-   * @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#user}
+   * @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/server-event#user-data}
    */
 
 	}, {
@@ -25531,7 +27234,7 @@ var ServerEvent = function () {
 		/**
    * Sets the user data object for the current Server Event.
    * @param {UserData} user_data user_data is a map that contains user data. See User Data Parameter Table for options. Also see Advanced Matching with the Pixel to see comparable options available for data sent via Facebook pixel.
-   * @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#user}
+   * @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/server-event#user-data}
    */
 		value: function setUserData(user_data) {
 			this._user_data = user_data;
@@ -25540,7 +27243,7 @@ var ServerEvent = function () {
 
 		/**
    * Gets the custom data object for the current Server Event.
-   * @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#custom}
+   * @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/server-event#custom-data}
    */
 
 	}, {
@@ -25550,7 +27253,7 @@ var ServerEvent = function () {
 		/**
    * Sets the custom data object for the current Server Event.
    * @param {CustomData} custom_data is a map that includes additional business data about the event.
-   * @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#custom}
+   * @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/server-event#custom-data}
    */
 		value: function setCustomData(custom_data) {
 			this._custom_data = custom_data;
@@ -25721,8 +27424,9 @@ var ServerEvent = function () {
 
 		/**
    * Sets the event Id for the current Event.
-   * @param {String} event_id can be any string chosen by the advertiser. This is used with event_name to determine if events are identical.Learn about Deduplicate Pixel and Server-Side Events
-   * @see {@link https://developers.facebook.com/docs/marketing-api/server-side-api/using-the-api#dedup}
+   * @param {String} event_id can be any string chosen by the advertiser. This is used with event_name to determine if events are identical.
+   * Learn about Deduplicate Pixel and Conversions API Events: {@link https://developers.facebook.com/docs/marketing-api/conversions-api/deduplicate-pixel-and-server-events}
+   * @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/server-event#event-id}
    */
 		,
 		set: function set(event_id) {
@@ -25765,7 +27469,7 @@ var ServerEvent = function () {
 		/**
    * Sets the user data object for the current Server Event.
    * @param {UserData} user_data user_data is a map that contains user data. See User Data Parameter Table for options. Also see Advanced Matching with the Pixel to see comparable options available for data sent via Facebook pixel.
-   * @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#user}
+   * @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/server-event#user-data}
    */
 		,
 		set: function set(user_data) {
@@ -25780,7 +27484,7 @@ var ServerEvent = function () {
 		/**
    * Sets the custom data object for the current Server Event.
    * @param {CustomData} custom_data is a map that includes additional business data about the event.
-   * @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#custom}
+   * @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/server-event#custom-data}
    */
 		,
 		set: function set(custom_data) {
@@ -25844,7 +27548,7 @@ var ServerEvent = function () {
 
 /**
  * EventRequest
- * @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters}
+ * @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters}
  */
 
 var EventRequest = function () {
@@ -25852,7 +27556,7 @@ var EventRequest = function () {
 	/**
   * @param {String} access_token Access Token for the user calling Graph API
   * @param {String} pixel_id Pixel Id to which you are sending the events
-  * @param {Array<ServerEvent>} events Data for the request Payload for a Server Side Event
+  * @param {Array<ServerEvent>} events Data for the request Payload for a Conversions API Event
   * @param {?String} partner_agent Platform from which the event is sent e.g. wordpress
   * @param {?String} test_event_code Test Event Code used to verify that your server events are received correctly by Facebook.
   * @param {?String} namespace_id Scope used to resolve extern_id or Third-party ID. Can be another data set or data partner ID.
@@ -25890,7 +27594,7 @@ var EventRequest = function () {
 	}
 
 	/**
-  * Gets the data for the request Payload for a Server Side Event. events is represented by a list/array of ServerEvent objects.
+  * Gets the data for the request Payload for a Conversions API Event. events is represented by a list/array of ServerEvent objects.
   */
 
 
@@ -25899,7 +27603,7 @@ var EventRequest = function () {
 
 
 		/**
-   * Sets the events for the request Payload for a Server Side Event.
+   * Sets the events for the request Payload for a Conversions API Event.
    * events is represented by a list/array of ServerEvent objects.
    * @param events for the current server event
    */
@@ -25931,7 +27635,7 @@ var EventRequest = function () {
    * Gets the test_event_code for the request
    * Code used to verify that your server events are received correctly by Facebook.
    * Use this code to test your server events in the Test Events feature in Events Manager.
-   * See Test Events Tool @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/using-the-api#testEvents} for an example.
+   * See Test Events Tool @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/main-body#test_event_code} for an example.
    */
 
 	}, {
@@ -25942,7 +27646,7 @@ var EventRequest = function () {
    * Sets the test_event_code for the request
    * Code used to verify that your server events are received correctly by Facebook.
    * Use this code to test your server events in the Test Events feature in Events Manager.
-   * See Test Events Tool @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/using-the-api#testEvents} for an example.
+   * See Test Events Tool @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/main-body#test_event_code} for an example.
    */
 		value: function setTestEventCode(test_event_code) {
 			this._test_event_code = test_event_code;
@@ -26130,7 +27834,7 @@ var EventRequest = function () {
 			if (http_service != null) {
 				var url = [FacebookAdsApi.GRAPH, FacebookAdsApi.VERSION, this._pixel_id, 'events'].join('/');
 				var headers = {
-					'User-Agent': 'fbbizsdk-nodejs-' + FacebookAdsApi.VERSION,
+					'User-Agent': 'fbbizsdk-nodejs-v' + FacebookAdsApi.SDK_VERSION,
 					'Content-Type': 'application/json',
 					'Accept': 'application/json'
 				};
@@ -26155,7 +27859,7 @@ var EventRequest = function () {
 		}
 
 		/**
-   * Sets the events for the request Payload for a Server Side Event.
+   * Sets the events for the request Payload for a Conversions API Event.
    * events is represented by a list/array of ServerEvent objects.
    * @param events for the current server event
    */
@@ -26188,7 +27892,7 @@ var EventRequest = function () {
    * Sets the test_event_code for the request
    * Code used to verify that your server events are received correctly by Facebook.
    * Use this code to test your server events in the Test Events feature in Events Manager.
-   * See Test Events Tool @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/using-the-api#testEvents} for an example.
+   * See Test Events Tool @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/main-body#test_event_code} for an example.
    */
 		,
 		set: function set(test_event_code) {
@@ -26418,6 +28122,4743 @@ var BatchProcessor = function () {
  * LICENSE file in the root directory of this source tree.
  * 
  */
+
+/**
+ * UserData represents the User Data Parameters(user_data) of a Business Data Event Request.
+ */
+
+var UserData$3 = function () {
+
+    /**
+     * @param {String} email An email address, in lowercase.
+     * @param {String} phone A phone number. Include only digits with country code, area code, and number.
+     * @param {String} first_name A first name in lowercase.
+     * @param {String} last_name A last name in lowercase.
+     * @param {String} date_of_birth A date of birth given as year, month, and day in YYYYMMDD format.
+     * @param {String} city A city in lower-case without spaces or punctuation.
+     * @param {String} state A two-letter state code in lowercase.
+     * @param {String} country A two-letter country code in lowercase.
+     * @param {String} zip Postal code of the city in your country standard.
+     * @param {String} external_id Any unique ID from the business.
+     * @param {String} address An physical address.
+     */
+    function UserData(email, phone, first_name, last_name, date_of_birth, city, state, zip, country, external_id, address) {
+        classCallCheck(this, UserData);
+
+        this._email = email;
+        this._phone = phone;
+        this._first_name = first_name;
+        this._last_name = last_name;
+        this._date_of_birth = date_of_birth;
+        this._city = city;
+        this._state = state;
+        this._country = country;
+        this._zip = zip;
+        this._external_id = external_id;
+        this._address = address;
+    }
+
+    /**
+     * Gets the email address for the user data field.
+     * An email address, in lowercase.
+     * Example: joe@eg.com
+     */
+
+
+    createClass(UserData, [{
+        key: 'setEmail',
+
+
+        /**
+         * Sets the email address for the user data field.
+         * @param {String} email An email address, in lowercase.
+         * Example: joe@eg.com
+         */
+        value: function setEmail(email) {
+            this._email = email;
+            return this;
+        }
+
+        /**
+         * Gets the phone number for the user data.
+         * A phone number. Include only digits with country code, area code, and number.
+         * Example: 16505551212
+         */
+
+    }, {
+        key: 'setPhone',
+
+
+        /**
+         * Sets the phone number for the user data.
+         * @param {String} phone A phone number. Include only digits with country code, area code, and number.
+         * Example: 16505551212
+         */
+        value: function setPhone(phone) {
+            this._phone = phone;
+            return this;
+        }
+
+        /**
+         * Gets the date of birth for the user data.
+         * A date of birth given as year, month, and day in the Format YYYYMMDD
+         * Example: 19971226 for December 26, 1997.
+         */
+
+    }, {
+        key: 'setDateOfBirth',
+
+
+        /**
+         * Sets the date of birth for the user data.
+         * @param {String} date_of_birth A date of birth given as year, month, and day in the Format YYYYMMDD
+         * Example: 19971226 for December 26, 1997.
+         */
+        value: function setDateOfBirth(date_of_birth) {
+            this._date_of_birth = date_of_birth;
+            return this;
+        }
+
+        /**
+         * Gets the last name for the user data.
+         * last_name is the last name in lowercase.
+         * Example: smith
+         */
+
+    }, {
+        key: 'setLastName',
+
+
+        /**
+         * Sets the last name for the user data.
+         * @param {String} last_name is last name in lowercase.
+         * Example: smith
+         */
+        value: function setLastName(last_name) {
+            this._last_name = last_name;
+            return this;
+        }
+
+        /**
+         * Gets the first name for the user data.
+         * first_name is first name in lowercase.
+         * Example: joe
+         */
+
+    }, {
+        key: 'setFirstName',
+
+
+        /**
+         * Sets the first name for the user data.
+         * @param {String} first_name is first name in lowercase.
+         * Example: joe
+         */
+        value: function setFirstName(first_name) {
+            this._first_name = first_name;
+            return this;
+        }
+
+        /**
+         * Gets the city for the user data.
+         * city is city in lower-case without spaces or punctuation.
+         * Example: menlopark
+         */
+
+    }, {
+        key: 'setCity',
+
+
+        /**
+         * Sets the city for the user data.
+         * @param {String} city is city in lower-case without spaces or punctuation.
+         * Example: menlopark
+         */
+        value: function setCity(city) {
+            this._city = city;
+            return this;
+        }
+
+        /**
+         * Gets the zip/postal code for the user data.
+         * zip is a five-digit zip code for United States.For other locations, follow each country's standards.
+         * Example: 98121 (for United States zip code)
+         */
+
+    }, {
+        key: 'setZip',
+
+
+        /**
+         * Sets the zip/postal code for the user data.
+         * @param {String} zip is a five-digit zip code for United States.For other locations, follow each country's standards.
+         * Example: 98121 (for United States zip code)
+         */
+        value: function setZip(zip) {
+            this._zip = zip;
+            return this;
+        }
+
+        /**
+         * Gets the state for the user data.
+         * state is state in lower-case without spaces or punctuation.
+         * Example: ca
+         */
+
+    }, {
+        key: 'setState',
+
+
+        /**
+         * Sets the state for the user data.
+         * @param {String} state is state in lower-case without spaces or punctuation.
+         * Example: ca
+         */
+        value: function setState(state) {
+            this._state = state;
+            return this;
+        }
+
+        /**
+         * Gets the country for the user data.
+         * country is A two-letter country code in lowercase.
+         * Example: usa
+         */
+
+    }, {
+        key: 'setCountry',
+
+
+        /**
+         * Sets the country for the user data.
+         * @param {String} country is A two-letter country code in lowercase.
+         * Example: usa
+         */
+        value: function setCountry(country) {
+            this._country = country;
+            return this;
+        }
+
+        /**
+         * Gets the external id for the user data.
+         * external_id is a unique ID from the business, such as loyalty membership IDs, user IDs, and external cookie IDs.
+         */
+
+    }, {
+        key: 'setExternalId',
+
+
+        /**
+         * Sets the external id for the user data.
+         * @param {String} external_id is a unique ID from the business, such as loyalty membership IDs, user IDs, and external cookie IDs.
+         */
+        value: function setExternalId(external_id) {
+            this._external_id = external_id;
+            return this;
+        }
+
+        /**
+         * Gets the address for the user data.
+         * address is a physical address
+         */
+
+    }, {
+        key: 'setAddress',
+
+
+        /**
+         * Sets the address for the user data.
+         * @param {String} address is a physical address
+         */
+        value: function setAddress(address) {
+            this._address = address;
+        }
+
+        /**
+         * Convert to Json object for api call
+         */
+
+    }, {
+        key: 'toJson',
+        value: function toJson() {
+            return {
+                'em': this._email,
+                'ph': this._phone,
+                'fn': this._first_name,
+                'ln': this._last_name,
+                'db': this._date_of_birth,
+                'ct': this._city,
+                'st': this._state,
+                'country': this._country,
+                'zp': this._zip,
+                'external_id': this._external_id,
+                'addr': this._address
+            };
+        }
+    }, {
+        key: 'email',
+        get: function get() {
+            return this._email;
+        }
+
+        /**
+         * Sets the email address for the user data field.
+         * @param email An email address, in lowercase.
+         * Example: joe@eg.com
+         */
+        ,
+        set: function set(email) {
+            this._email = email;
+        }
+    }, {
+        key: 'phone',
+        get: function get() {
+            return this._phone;
+        }
+
+        /**
+         * Sets the phone number for the user data.
+         * @param phone A phone number. Include only digits with country code, area code, and number.
+         * Example: 16505551212
+         */
+        ,
+        set: function set(phone) {
+            this._phone = phone;
+        }
+    }, {
+        key: 'date_of_birth',
+        get: function get() {
+            return this._date_of_birth;
+        }
+
+        /**
+         * Sets the date of birth for the user data.
+         * @param date_of_birth A date of birth given as year, month, and day in the Format YYYYMMDD
+         * Example: 19971226 for December 26, 1997.
+         */
+        ,
+        set: function set(date_of_birth) {
+            this._date_of_birth = date_of_birth;
+        }
+    }, {
+        key: 'last_name',
+        get: function get() {
+            return this._last_name;
+        }
+
+        /**
+         * Sets the last name for the user data.
+         * @param last_name is last name in lowercase.
+         * Example: smith
+         */
+        ,
+        set: function set(last_name) {
+            this._last_name = last_name;
+        }
+    }, {
+        key: 'first_name',
+        get: function get() {
+            return this._first_name;
+        }
+
+        /**
+         * Sets the first name for the user data.
+         * @param first_name is first name in lowercase.
+         * Example: joe
+         */
+        ,
+        set: function set(first_name) {
+            this._first_name = first_name;
+        }
+    }, {
+        key: 'city',
+        get: function get() {
+            return this._city;
+        }
+
+        /**
+         * Sets the city for the user data.
+         * @param city is city in lower-case without spaces or punctuation.
+         * Example: menlopark
+         */
+        ,
+        set: function set(city) {
+            this._city = city;
+        }
+    }, {
+        key: 'zip',
+        get: function get() {
+            return this._zip;
+        }
+
+        /**
+         * Sets the zip/postal code for the user data.
+         * @param zip is a five-digit zip code for United States.For other locations, follow each country's standards.
+         * Example: 98121 (for United States zip code)
+         */
+        ,
+        set: function set(zip) {
+            this._zip = zip;
+        }
+    }, {
+        key: 'state',
+        get: function get() {
+            return this._state;
+        }
+
+        /**
+         * Sets the state for the user data.
+         * @param state is state in lower-case without spaces or punctuation.
+         * Example: ca
+         */
+        ,
+        set: function set(state) {
+            this._state = state;
+        }
+    }, {
+        key: 'country',
+        get: function get() {
+            return this._country;
+        }
+
+        /**
+         * Sets the country for the user data.
+         * @param country is A two-letter country code in lowercase.
+         * Example: usa
+         */
+        ,
+        set: function set(country) {
+            this._country = country;
+        }
+    }, {
+        key: 'external_id',
+        get: function get() {
+            return this._external_id;
+        }
+
+        /**
+         * Sets the external id for the user data.
+         * @param external_id is a unique ID from the business, such as loyalty membership IDs, user IDs, and external cookie IDs.
+         */
+        ,
+        set: function set(external_id) {
+            this._external_id = external_id;
+        }
+    }, {
+        key: 'address',
+        get: function get() {
+            return this._address;
+        }
+
+        /**
+         * Sets the address for the user data.
+         * @param address is a physical address
+         */
+        ,
+        set: function set(address) {
+            this._address = address;
+        }
+    }]);
+    return UserData;
+}();
+
+/**
+ * Copyright (c) 2017-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
+ * 
+ */
+
+/**
+ * Utils contains the Utility modules used for sending Signal Events
+ */
+
+var Utils$2 = function () {
+  function Utils() {
+    classCallCheck(this, Utils);
+  }
+
+  createClass(Utils, null, [{
+    key: 'constructResponse',
+
+
+    /**
+     * construct set method return
+     * @param any server_return
+     * @param any bdapi_return
+     * @return {Object} combined server field and business data field return
+     */
+    value: function constructResponse(server_return, bdapi_return) {
+      return {
+        'conversion_api': server_return,
+        'business_data_api': bdapi_return
+      };
+    }
+  }]);
+  return Utils;
+}();
+
+/**
+ * Copyright (c) 2017-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
+ * 
+ */
+
+/**
+ * UserData represents the User Data Parameters(user_data) of Business Data API and Conversion API Request.
+ */
+
+var UserData$1 = function () {
+
+    /**
+     * @param {String} email An email address, in lowercase.
+     * @param {String} phone A phone number. Include only digits with country code, area code, and number.
+     * @param {String} first_name A first name in lowercase.
+     * @param {String} last_name A last name in lowercase.
+     * @param {String} date_of_birth A date of birth given as year, month, and day in YYYYMMDD format.
+     * @param {String} city A city in lower-case without spaces or punctuation.
+     * @param {String} state A two-letter state code in lowercase.
+     * @param {String} country A two-letter country code in lowercase.
+     * @param {String} zip Postal code of the city in your country standard
+     * @param {String} external_id Any unique ID from the advertiser,
+     * @param {String} gender Gender, in lowercase. Either f or m.
+     * @param {String} client_ip_address The IP address of the browser corresponding to the event.
+     * @param {String} client_user_agent The user agent for the browser corresponding to the event.
+     * @param {String} fbp The Facebook click ID value stored in the _fbc browser cookie under your domain.
+     * @param {String} fbc The Facebook browser ID value stored in the _fbp browser cookie under your domain.
+     * @param {String} subscription_id The subscription ID for the user in this transaction.
+     * @param {String} fb_login_id The FB login ID for the user.
+     * @param {String} lead_id The Id associated with a lead generated by Facebook's Lead Ads.
+     * @param {String} dobd The date of birth day in DD format.
+     * @param {String} dobm The date of birth month in MM format.
+     * @param {String} doby The date of birth year in YYYY format.
+     * @param {String} f5first The first 5 characters of the first name.
+     * @param {String} f5last The first 5 characters of the last name.
+     * @param {String} fi The first Name Initial
+     * @param {String} address An physical address.
+     */
+    function UserData$$1(email, phone, first_name, last_name, date_of_birth, city, state, zip, country, external_id, gender, client_ip_address, client_user_agent, fbp, fbc, subscription_id, fb_login_id, lead_id, dobd, dobm, doby, f5first, f5last, fi, address) {
+        classCallCheck(this, UserData$$1);
+
+        this._business_data_user_data = new UserData$3(email, phone, first_name, last_name, date_of_birth, city, state, zip, country, external_id, address);
+        this._server_user_data = new UserData(email, phone, gender, first_name, last_name, date_of_birth, city, state, zip, country, external_id, client_ip_address, client_user_agent, fbp, fbc, subscription_id, fb_login_id, lead_id, dobd, dobm, doby);
+
+        // conversion api
+        this._server_user_data.f5first = f5first;
+        this._server_user_data.f5last = f5last;
+        this._server_user_data.fi = fi;
+    }
+
+    /**
+     * Gets the email address for the user data field.
+     * An email address, in lowercase.
+     * Example: joe@eg.com
+     */
+
+
+    createClass(UserData$$1, [{
+        key: 'setEmail',
+
+
+        /**
+         * Sets the email address for the user data field.
+         * @param {String} email An email address, in lowercase.
+         * Example: joe@eg.com
+         */
+        value: function setEmail(email) {
+            this._business_data_user_data.email = email;
+            this._server_user_data.email = email;
+            return this;
+        }
+
+        /**
+         * Gets the phone number for the user data.
+         * A phone number. Include only digits with country code, area code, and number.
+         * Example: 16505551212
+         */
+
+    }, {
+        key: 'setPhone',
+
+
+        /**
+         * Sets the phone number for the user data.
+         * @param {String} phone A phone number. Include only digits with country code, area code, and number.
+         * Example: 16505551212
+         */
+        value: function setPhone(phone) {
+            this._business_data_user_data.phone = phone;
+            this._server_user_data.phone = phone;
+            return this;
+        }
+
+        /**
+         * Gets the date of birth for the user data.
+         * A date of birth given as year, month, and day in the Format YYYYMMDD
+         * Example: 19971226 for December 26, 1997.
+         */
+
+    }, {
+        key: 'setDateOfBirth',
+
+
+        /**
+         * Sets the date of birth for the user data.
+         * @param {String} date_of_birth A date of birth given as year, month, and day in the Format YYYYMMDD
+         * Example: 19971226 for December 26, 1997.
+         */
+        value: function setDateOfBirth(date_of_birth) {
+            this._business_data_user_data.date_of_birth = date_of_birth;
+            this._server_user_data.date_of_birth = date_of_birth;
+            return this;
+        }
+
+        /**
+         * Gets the last name for the user data.
+         * last_name is the last name in lowercase.
+         * Example: smith
+         */
+
+    }, {
+        key: 'setLastName',
+
+
+        /**
+         * Sets the last name for the user data.
+         * @param {String} last_name is last name in lowercase.
+         * Example: smith
+         */
+        value: function setLastName(last_name) {
+            this._business_data_user_data.last_name = last_name;
+            this._server_user_data.last_name = last_name;
+            return this;
+        }
+
+        /**
+         * Gets the first name for the user data.
+         * first_name is first name in lowercase.
+         * Example: joe
+         */
+
+    }, {
+        key: 'setFirstName',
+
+
+        /**
+         * Sets the first name for the user data.
+         * @param {String} first_name is first name in lowercase.
+         * Example: joe
+         */
+        value: function setFirstName(first_name) {
+            this._business_data_user_data.first_name = first_name;
+            this._server_user_data.first_name = first_name;
+            return this;
+        }
+
+        /**
+         * Gets the city for the user data.
+         * city is city in lower-case without spaces or punctuation.
+         * Example: menlopark
+         */
+
+    }, {
+        key: 'setCity',
+
+
+        /**
+         * Sets the city for the user data.
+         * @param {String} city is city in lower-case without spaces or punctuation.
+         * Example: menlopark
+         */
+        value: function setCity(city) {
+            this._business_data_user_data.city = city;
+            this._server_user_data.city = city;
+            return this;
+        }
+
+        /**
+         * Gets the zip/postal code for the user data.
+         * zip is a five-digit zip code for United States.For other locations, follow each country's standards.
+         * Example: 98121 (for United States zip code)
+         */
+
+    }, {
+        key: 'setZip',
+
+
+        /**
+         * Sets the zip/postal code for the user data.
+         * @param {String} zip is a five-digit zip code for United States.For other locations, follow each country's standards.
+         * Example: 98121 (for United States zip code)
+         */
+        value: function setZip(zip) {
+            this._business_data_user_data.zip = zip;
+            this._server_user_data.zip = zip;
+            return this;
+        }
+
+        /**
+         * Gets the state for the user data.
+         * state is state in lower-case without spaces or punctuation.
+         * Example: ca
+         */
+
+    }, {
+        key: 'setState',
+
+
+        /**
+         * Sets the state for the user data.
+         * @param {String} state is state in lower-case without spaces or punctuation.
+         * Example: ca
+         */
+        value: function setState(state) {
+            this._business_data_user_data.state = state;
+            this._server_user_data.state = state;
+            return this;
+        }
+
+        /**
+         * Gets the country for the user data.
+         * country is A two-letter country code in lowercase.
+         * Example: usa
+         */
+
+    }, {
+        key: 'setCountry',
+
+
+        /**
+         * Sets the country for the user data.
+         * @param {String} country is A two-letter country code in lowercase.
+         * Example: usa
+         */
+        value: function setCountry(country) {
+            this._business_data_user_data.country = country;
+            this._server_user_data.country = country;
+            return this;
+        }
+
+        /**
+         * Gets the external id for the user data.
+         * external_id is a unique ID from the advertiser, such as loyalty membership IDs, user IDs, and external cookie IDs.
+         * In the Offline Conversions API this is known as extern_id. For more information, see Offline Conversions.
+         * If External ID is being sent via other channels, then it should be sent in the same format via the server-side API
+         * @see {@link https://www.facebook.com/business/help/104039186799009}
+         */
+
+    }, {
+        key: 'setExternalId',
+
+
+        /**
+         * Sets the external id for the user data.
+         * @param {String} external_id is a unique ID from the advertiser, such as loyalty membership IDs, user IDs, and external cookie IDs.
+         * In the Offline Conversions API this is known as extern_id. For more information, see Offline Conversions.
+         * If External ID is being sent via other channels, then it should be sent in the same format via the server-side API
+         * @see {@link https://www.facebook.com/business/help/104039186799009}
+         */
+        value: function setExternalId(external_id) {
+            this._business_data_user_data.external_id = external_id;
+            this._server_user_data.external_id = external_id;
+            return this;
+        }
+
+        /**
+         * Gets the gender value for the user data.
+         * Gender in lowercase. Either f for FEMALE or m for MALE.
+         * Example: f
+         */
+
+    }, {
+        key: 'setGender',
+
+
+        /**
+         * Sets the gender value for the user data.
+         * @param {String} gender Gender in lowercase. Either f for FEMALE or m for MALE.
+         * Example: f
+         */
+        value: function setGender(gender) {
+            this._server_user_data.gender = gender;
+            return this;
+        }
+
+        /**
+         * Gets the client ip address for the user data.
+         * client_ip_address is the IP address of the browser corresponding to the event.
+         */
+
+    }, {
+        key: 'setClientIpAddress',
+
+
+        /**
+         * Sets the client ip address for the user data.
+         * @param {String} client_ip_address is the IP address of the browser corresponding to the event.
+         */
+        value: function setClientIpAddress(client_ip_address) {
+            this._server_user_data.client_ip_address = client_ip_address;
+            return this;
+        }
+
+        /**
+         * Gets the client user agent for the user data.
+         * client_user_agent is the user agent for the browser corresponding to the event.
+         */
+
+    }, {
+        key: 'setClientUserAgent',
+
+
+        /**
+         * Sets the client user agent for the user data.
+         * @param {String} client_user_agent is the user agent for the browser corresponding to the event.
+         */
+        value: function setClientUserAgent(client_user_agent) {
+            this._server_user_data.client_user_agent = client_user_agent;
+            return this;
+        }
+
+        /**
+         * Gets the fbc for the user data.
+         * fbc is the Facebook click ID value stored in the _fbc browser cookie under your domain.
+         * See Managing fbc and fbp Parameters for how to get this value @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#fbc},
+         * You can also generate this value from a fbclid query parameter.
+         */
+
+    }, {
+        key: 'setFbc',
+
+
+        /**
+         * Sets the fbc for the user data.
+         * @param {String} fbc is the Facebook click ID value stored in the _fbc browser cookie under your domain.
+         * See Managing fbc and fbp Parameters for how to get this value @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#fbc},
+         * You can also generate this value from a fbclid query parameter.
+         */
+        value: function setFbc(fbc) {
+            this._server_user_data.fbc = fbc;
+            return this;
+        }
+
+        /**
+         * Gets the fbp for the user data.
+         * fbp is Facebook browser ID value stored in the _fbp browser cookie under your domain.
+         * See Managing fbc and fbp Parameters for how to get this value @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#fbc},
+         */
+
+    }, {
+        key: 'setFbp',
+
+
+        /**
+         * Sets the fbp for the user data.
+         * @param {String} fbp is Facebook browser ID value stored in the _fbp browser cookie under your domain.
+         * See Managing fbc and fbp Parameters for how to get this value @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#fbc},
+         */
+        value: function setFbp(fbp) {
+            this._server_user_data.fbp = fbp;
+            return this;
+        }
+
+        /**
+         * Gets the subscription id for the user data.
+         * @return subscription_id is the subscription ID for the user in this transaction. This is similar to the order ID for an individual product.
+         * Example: anid1234.
+         */
+
+    }, {
+        key: 'setSubscriptionId',
+
+
+        /**
+         * Sets the subscription id for the user data.
+         * @param {String} subscription_id is the subscription ID for the user in this transaction. This is similar to the order ID for an individual product.
+         * Example: anid1234.
+         */
+        value: function setSubscriptionId(subscription_id) {
+            this._server_user_data.subscription_id = subscription_id;
+            return this;
+        }
+
+        /**
+         * Gets the fb_login_id for the user data.
+         */
+
+    }, {
+        key: 'setFbLoginId',
+
+
+        /**
+         * Sets the fb_login_id for the user data.
+         * @param {String} fb_login_id
+         */
+        value: function setFbLoginId(fb_login_id) {
+            this._server_user_data.fb_login_id = fb_login_id;
+            return this;
+        }
+
+        /**
+         * Gets the lead_id for the user data. Lead ID is associated with a lead generated by Facebook's Lead Ads.
+         */
+
+    }, {
+        key: 'setLeadId',
+
+
+        /**
+         * Sets the lead_id for the user data. Lead ID is associated with a lead generated by Facebook's Lead Ads.
+         * @param {String} lead_id
+         */
+        value: function setLeadId(lead_id) {
+            this._server_user_data.lead_id = lead_id;
+            return this;
+        }
+
+        /**
+         * Gets the first 5 characters of the FirstName.
+         */
+
+    }, {
+        key: 'setF5First',
+
+
+        /**
+         * Sets the first 5 characters of the FirstName.
+         * @param {String} f5first
+         */
+        value: function setF5First(f5first) {
+            this._server_user_data.f5first = f5first;
+            return this;
+        }
+
+        /**
+         * Gets the first 5 characters of the LastName.
+         */
+
+    }, {
+        key: 'setF5Last',
+
+
+        /**
+         * Sets the first 5 characters of the LastName.
+         * @param {String} f5last
+         */
+        value: function setF5Last(f5last) {
+            this._server_user_data.f5last = f5last;
+            return this;
+        }
+
+        /**
+         * Gets the first Name Initial.
+         */
+
+    }, {
+        key: 'setFi',
+
+
+        /**
+         * Sets the first Name Initial.
+         * @param {String} fi
+         */
+        value: function setFi(fi) {
+            this._server_user_data.fi = fi;
+            return this;
+        }
+
+        /**
+         * Gets the date of birth day.
+         */
+
+    }, {
+        key: 'setDobd',
+
+
+        /**
+         * Sets the date of birth day.
+         * @param {String} dobd
+         */
+        value: function setDobd(dobd) {
+            this._server_user_data.dobd = dobd;
+            return this;
+        }
+
+        /**
+         * Gets the date of birth month.
+         */
+
+    }, {
+        key: 'setDobm',
+
+
+        /**
+         * Sets the date of birth month.
+         * @param {String} dobm
+         */
+        value: function setDobm(dobm) {
+            this._server_user_data.dobm = dobm;
+            return this;
+        }
+
+        /**
+         * Gets the date of birth year.
+         */
+
+    }, {
+        key: 'setDoby',
+
+
+        /**
+         * Sets the date of birth year.
+         * @param {String} doby
+         */
+        value: function setDoby(doby) {
+            this._server_user_data.doby = doby;
+            return this;
+        }
+
+        /**
+         * Gets the address for the user data.
+         * address is a physical address
+         */
+
+    }, {
+        key: 'setAddress',
+
+
+        /**
+         * Sets the date of birth year.
+         * @param {String} address
+         */
+        value: function setAddress(address) {
+            this._business_data_user_data.address = address;
+            return this;
+        }
+
+        /**
+         * Gets the user_data for the Business Data API.
+         */
+
+    }, {
+        key: 'email',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_user_data.email, this._business_data_user_data.email);
+        }
+
+        /**
+         * Sets the email address for the user data field.
+         * @param email An email address, in lowercase.
+         * Example: joe@eg.com
+         */
+        ,
+        set: function set(email) {
+            this._business_data_user_data._email = email;
+            this._server_user_data._email = email;
+        }
+    }, {
+        key: 'phone',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_user_data.phone, this._business_data_user_data.phone);
+        }
+
+        /**
+         * Sets the phone number for the user data.
+         * @param phone A phone number. Include only digits with country code, area code, and number.
+         * Example: 16505551212
+         */
+        ,
+        set: function set(phone) {
+            this._business_data_user_data.phone = phone;
+            this._server_user_data.phone = phone;
+        }
+    }, {
+        key: 'date_of_birth',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_user_data.date_of_birth, this._business_data_user_data.date_of_birth);
+        }
+
+        /**
+         * Sets the date of birth for the user data.
+         * @param date_of_birth A date of birth given as year, month, and day in the Format YYYYMMDD
+         * Example: 19971226 for December 26, 1997.
+         */
+        ,
+        set: function set(date_of_birth) {
+            this._business_data_user_data.date_of_birth = date_of_birth;
+            this._server_user_data.date_of_birth = date_of_birth;
+        }
+    }, {
+        key: 'last_name',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_user_data.last_name, this._business_data_user_data.last_name);
+        }
+
+        /**
+         * Sets the last name for the user data.
+         * @param last_name is last name in lowercase.
+         * Example: smith
+         */
+        ,
+        set: function set(last_name) {
+            this._business_data_user_data.last_name = last_name;
+            this._server_user_data.last_name = last_name;
+        }
+    }, {
+        key: 'first_name',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_user_data.first_name, this._business_data_user_data.first_name);
+        }
+
+        /**
+         * Sets the first name for the user data.
+         * @param first_name is first name in lowercase.
+         * Example: joe
+         */
+        ,
+        set: function set(first_name) {
+            this._business_data_user_data.first_name = first_name;
+            this._server_user_data.first_name = first_name;
+        }
+    }, {
+        key: 'city',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_user_data.city, this._business_data_user_data.city);
+        }
+
+        /**
+         * Sets the city for the user data.
+         * @param city is city in lower-case without spaces or punctuation.
+         * Example: menlopark
+         */
+        ,
+        set: function set(city) {
+            this._business_data_user_data.city = city;
+            this._server_user_data.city = city;
+        }
+    }, {
+        key: 'zip',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_user_data.zip, this._business_data_user_data.zip);
+        }
+
+        /**
+         * Sets the zip/postal code for the user data.
+         * @param zip is a five-digit zip code for United States.For other locations, follow each country's standards.
+         * Example: 98121 (for United States zip code)
+         */
+        ,
+        set: function set(zip) {
+            this._business_data_user_data.zip = zip;
+            this._server_user_data.zip = zip;
+        }
+    }, {
+        key: 'state',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_user_data.state, this._business_data_user_data.state);
+        }
+
+        /**
+         * Sets the state for the user data.
+         * @param state is state in lower-case without spaces or punctuation.
+         * Example: ca
+         */
+        ,
+        set: function set(state) {
+            this._business_data_user_data.state = state;
+            this._server_user_data.state = state;
+        }
+    }, {
+        key: 'country',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_user_data.country, this._business_data_user_data.country);
+        }
+
+        /**
+         * Sets the country for the user data.
+         * @param country is A two-letter country code in lowercase.
+         * Example: usa
+         */
+        ,
+        set: function set(country) {
+            this._business_data_user_data.country = country;
+            this._server_user_data.country = country;
+        }
+    }, {
+        key: 'external_id',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_user_data.external_id, this._business_data_user_data.external_id);
+        }
+
+        /**
+         * Sets the external id for the user data.
+         * @param external_id is a unique ID from the advertiser, such as loyalty membership IDs, user IDs, and external cookie IDs.
+         * In the Offline Conversions API this is known as extern_id. For more information, see Offline Conversions.
+         * If External ID is being sent via other channels, then it should be sent in the same format via the server-side API
+         * @see {@link https://www.facebook.com/business/help/104039186799009}
+         */
+        ,
+        set: function set(external_id) {
+            this._business_data_user_data.external_id = external_id;
+            this._server_user_data.external_id = external_id;
+        }
+    }, {
+        key: 'gender',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_user_data.gender, null);
+        }
+
+        /**
+         * Sets the gender value for the user data.
+         * @param gender Gender in lowercase. Either f for FEMALE or m for MALE.
+         * Example: f
+         */
+        ,
+        set: function set(gender) {
+            this._server_user_data.gender = gender;
+        }
+    }, {
+        key: 'client_ip_address',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_user_data.client_ip_address, null);
+        }
+
+        /**
+         * Sets the client ip address for the user data.
+         * @param client_ip_address is the IP address of the browser corresponding to the event.
+         */
+        ,
+        set: function set(client_ip_address) {
+            this._server_user_data.client_ip_address = client_ip_address;
+        }
+    }, {
+        key: 'client_user_agent',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_user_data.client_user_agent, null);
+        }
+
+        /**
+         * Sets the client user agent for the user data.
+         * @param client_user_agent is the user agent for the browser corresponding to the event.
+         */
+        ,
+        set: function set(client_user_agent) {
+            this._server_user_data.client_user_agent = client_user_agent;
+        }
+    }, {
+        key: 'fbc',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_user_data.fbc, null);
+        }
+
+        /**
+         * Sets the fbc for the user data.
+         * @param fbc is the Facebook click ID value stored in the _fbc browser cookie under your domain.
+         * See Managing fbc and fbp Parameters for how to get this value @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#fbc},
+         * You can also generate this value from a fbclid query parameter.
+         */
+        ,
+        set: function set(fbc) {
+            this._server_user_data.fbc = fbc;
+        }
+    }, {
+        key: 'fbp',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_user_data.fbp, null);
+        }
+
+        /**
+         * Sets the fbp for the user data.
+         * @param fbp is Facebook browser ID value stored in the _fbp browser cookie under your domain.
+         * See Managing fbc and fbp Parameters for how to get this value @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#fbc},
+         */
+        ,
+        set: function set(fbp) {
+            this._server_user_data.fbp = fbp;
+        }
+    }, {
+        key: 'subscription_id',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_user_data.subscription_id, null);
+        }
+
+        /**
+         * Sets the subscription id for the user data.
+         * @param {String} subscription_id is the subscription ID for the user in this transaction. This is similar to the order ID for an individual product.
+         * Example: anid1234.
+         */
+        ,
+        set: function set(subscription_id) {
+            this._server_user_data.subscription_id = subscription_id;
+        }
+    }, {
+        key: 'fb_login_id',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_user_data.fb_login_id, null);
+        }
+
+        /**
+         * Sets the fb_login_id for the user data.
+         * @param fb_login_id
+         */
+        ,
+        set: function set(fb_login_id) {
+            this._server_user_data.fb_login_id = fb_login_id;
+        }
+    }, {
+        key: 'lead_id',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_user_data.lead_id, null);
+        }
+
+        /**
+         * Sets the lead_id for the user data. Lead ID is associated with a lead generated by Facebook's Lead Ads.
+         * @param lead_id
+         */
+        ,
+        set: function set(lead_id) {
+            this._server_user_data.lead_id = lead_id;
+        }
+    }, {
+        key: 'f5first',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_user_data.f5first, null);
+        }
+
+        /**
+         * Sets the Gets the first 5 characters of the FirstName.
+         * @param f5first
+         */
+        ,
+        set: function set(f5first) {
+            this._server_user_data.f5first = f5first;
+        }
+    }, {
+        key: 'f5last',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_user_data.f5last, null);
+        }
+
+        /**
+         * Sets the first 5 characters of the LastName.
+         * @param f5last
+         */
+        ,
+        set: function set(f5last) {
+            this._server_user_data.f5last = f5last;
+        }
+    }, {
+        key: 'fi',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_user_data.fi, null);
+        }
+
+        /**
+         * Sets the first Name Initial.
+         * @param fi
+         */
+        ,
+        set: function set(fi) {
+            this._server_user_data.fi = fi;
+        }
+    }, {
+        key: 'dobd',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_user_data.dobd, null);
+        }
+
+        /**
+         * Sets the date of birth day.
+         * @param dobd
+         */
+        ,
+        set: function set(dobd) {
+            this._server_user_data.dobd = dobd;
+        }
+    }, {
+        key: 'dobm',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_user_data.dobm, null);
+        }
+
+        /**
+         * Sets the date of birth month.
+         * @param dobm
+         */
+        ,
+        set: function set(dobm) {
+            this._server_user_data.dobm = dobm;
+        }
+    }, {
+        key: 'doby',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_user_data.doby, null);
+        }
+
+        /**
+         * Sets the date of birth year.
+         * @param {String} doby
+         */
+        ,
+        set: function set(doby) {
+            this._server_user_data.doby = doby;
+        }
+    }, {
+        key: 'address',
+        get: function get() {
+            return Utils$2.constructResponse(null, this._business_data_user_data.address);
+        }
+
+        /**
+         * Sets the address for the user data.
+         * @param address is a physical address
+         */
+        ,
+        set: function set(address) {
+            this._business_data_user_data.address = address;
+        }
+    }, {
+        key: 'business_data_user_data',
+        get: function get() {
+            return this._business_data_user_data;
+        }
+
+        /**
+         * Gets the user_data for the Conversion API.
+         */
+
+    }, {
+        key: 'server_user_data',
+        get: function get() {
+            return this._server_user_data;
+        }
+    }]);
+    return UserData$$1;
+}();
+
+/**
+ * Copyright (c) 2017-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
+ * 
+ */
+
+/**
+ * Content is part of the Custom Data Parameters of a Business Data Event Request. Content can be used to set the item/product details added in the Custom Data.
+ */
+
+var Content$3 = function () {
+
+    /**
+     * @param {String} id Product Id of the Item.
+     * @param {Number} quantity Quantity of the Item.
+     * @param {Number} price Subtotal for the content/product.
+     * @param {String} title Title of the listed Item.
+     * @param {Number} tax Subtotal tax for the content/product.
+     * @param {String} external_content_id Unique ID for the contents/products that are being involved in the customer interaction.
+     */
+    function Content(id, quantity, price, title, tax, external_content_id) {
+        classCallCheck(this, Content);
+
+
+        this._id = id;
+        this._quantity = quantity;
+        this._price = price;
+        this._title = title;
+        this._external_content_id = external_content_id;
+        this._tax = tax;
+    }
+
+    /**
+     * Gets the Product Id of the Item.
+     * A string representing the unique Id for the product.
+     * Example: XYZ.
+     */
+
+
+    createClass(Content, [{
+        key: 'setId',
+
+
+        /**
+         * Sets the Product Id of the Item.
+         * @param {String} id is a string representing the unique id for the product.
+         * Example: XYZ.
+         */
+        value: function setId(id) {
+            this._id = id;
+            return this;
+        }
+
+        /**
+         * Gets the quantity of the Item.
+         * The number/quantity of the content that is being involved in the customer interaction.
+         * Example: 5
+         */
+
+    }, {
+        key: 'setQuantity',
+
+
+        /**
+         * Sets the quantity of the Content/Item.
+         * @param {Number} quantity The number/quantity of the product that is being involved in the customer interaction.
+         * Example: 5
+         */
+        value: function setQuantity(quantity) {
+            this._quantity = quantity;
+            return this;
+        }
+
+        /**
+         * Gets the total price of the Item.
+         * The total price for the products that are being involved in the customer interaction.
+         * Example: '123.45'
+         */
+
+    }, {
+        key: 'setPrice',
+
+
+        /**
+         * Sets the total price of the Item.
+         * @param {Number} price The total price for the products that are being involved in the customer interaction.
+         * Example: '123.45'
+         */
+        value: function setPrice(price) {
+            this._price = price;
+            return this;
+        }
+
+        /**
+         * Gets the Title of the listed Item.
+         * A string representing the Title for the product.
+         */
+
+    }, {
+        key: 'setTitle',
+
+
+        /**
+         * Sets the Title of the Item.
+         * @param {String} title is a string representing listed title for the product.
+         */
+        value: function setTitle(title) {
+            this._title = title;
+            return this;
+        }
+
+        /**
+         * Gets the total tax of the Item.
+         * The total tax for the products that are being involved in the customer interaction.
+         * Example: 45.5
+         */
+
+    }, {
+        key: 'setTax',
+
+
+        /**
+         * Sets the total tax of the Item.
+         * @param {Number} tax The total tax for the products that are being involved in the customer interaction.
+         * Example: 45.5
+         */
+        value: function setTax(tax) {
+            this._tax = tax;
+            return this;
+        }
+
+        /**
+         * Gets the external id for this order item
+         * The external id for the products that are being involved in the customer interaction.
+         */
+
+    }, {
+        key: 'setExternalContentID',
+
+
+        /**
+         * Sets the external id for this order item
+         * @param {String} external_content_id The external id for the products that are being involved in the customer interaction.
+         */
+        value: function setExternalContentID(external_content_id) {
+            this._external_content_id = external_content_id;
+            return this;
+        }
+
+        /**
+         * Convert to Json object for api call
+         */
+
+    }, {
+        key: 'toJson',
+        value: function toJson() {
+            return {
+                'id': this._id,
+                'quantity': this._quantity,
+                'price': this._price,
+                'title': this._title,
+                'tax': this._tax,
+                'external_content_id': this._external_content_id
+            };
+        }
+    }, {
+        key: 'id',
+        get: function get() {
+            return this._id;
+        }
+
+        /**
+         * Sets the Product Id of the Item.
+         * @param id A string representing the unique Id for the product.
+         * Example: XYZ.
+         */
+        ,
+        set: function set(id) {
+            this._id = id;
+        }
+    }, {
+        key: 'quantity',
+        get: function get() {
+            return this._quantity;
+        }
+
+        /**
+         * Sets the quantity of the Item.
+         * @param quantity The number/quantity of the product that is being involved in the customer interaction.
+         * Example: 5
+         */
+        ,
+        set: function set(quantity) {
+            this._quantity = quantity;
+        }
+    }, {
+        key: 'price',
+        get: function get() {
+            return this._price;
+        }
+
+        /**
+         * Sets the total price of the Item.
+         * @param price The total price for the products that are being involved in the customer interaction.
+         * Example: '123.45'
+         */
+        ,
+        set: function set(price) {
+            this._price = price;
+        }
+    }, {
+        key: 'title',
+        get: function get() {
+            return this._title;
+        }
+
+        /**
+         * Sets the Title of the listed Item.
+         * @param title A string representing the Title for the product.
+         */
+        ,
+        set: function set(title) {
+            this._title = title;
+        }
+    }, {
+        key: 'tax',
+        get: function get() {
+            return this._tax;
+        }
+
+        /**
+         * Sets the total tax of the Item.
+         * @param tax The total tax for the products that are being involved in the customer interaction.
+         * Example: 45.5
+         */
+        ,
+        set: function set(tax) {
+            this._tax = tax;
+        }
+    }, {
+        key: 'external_content_id',
+        get: function get() {
+            return this._external_content_id;
+        }
+
+        /**
+         * Sets the external id for this order item
+         * @param external_content_id The external id for the products that are being involved in the customer interaction.
+         */
+        ,
+        set: function set(external_content_id) {
+            this._external_content_id = external_content_id;
+        }
+    }]);
+    return Content;
+}();
+
+/**
+ * Copyright (c) 2017-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
+ * 
+ */
+
+/**
+ * UserData represents the User Data Parameters(user_data) of Business Data API and Conversion API Request.
+ */
+
+var Content$1 = function () {
+
+    /**
+     * @param {String} id Product Id of the Item.
+     * @param {Number} quantity Quantity of the Item.
+     * @param {Number} price Subtotal for the content/product.
+     * @param {Number} item_price Price per unit of the content/product.
+     * @param {String} title Title of the listed Item.
+     * @param {String} description Product description used for the item.
+     * @param {String} brand Brand of the item.
+     * @param {String} category Category of the Item.
+     * @param {String} delivery_category The type of delivery for a purchase event
+     * @param {Number} tax Subtotal tax for the content/product.
+     * @param {String} external_content_id Unique ID for the contents/products that are being involved in the customer interaction.
+     */
+    function Content$$1(id, quantity, price, item_price, title, description, brand, category, delivery_category, tax, external_content_id) {
+        classCallCheck(this, Content$$1);
+
+        this._business_data_content = new Content$3(id, quantity, price, title, tax, external_content_id);
+        this._server_content = new Content(id, quantity, item_price, title, description, brand, category, delivery_category);
+    }
+
+    /**
+     * Gets the Product Id of the Item.
+     * A string representing the unique Id for the product.
+     * Example: XYZ.
+     */
+
+
+    createClass(Content$$1, [{
+        key: 'setId',
+
+
+        /**
+         * Sets the Product Id of the Item.
+         * @param id is a string representing the unique id for the product.
+         * Example: XYZ.
+         */
+        value: function setId(id) {
+            this._server_content.id = id;
+            this._business_data_content.id = id;
+            return this;
+        }
+
+        /**
+         * Gets the quantity of the Item.
+         * The number/quantity of the content that is being involved in the customer interaction.
+         * Example: 5
+         */
+
+    }, {
+        key: 'setQuantity',
+
+
+        /**
+         * Sets the quantity of the Content/Item.
+         * @param {Number} quantity The number/quantity of the product that is being involved in the customer interaction.
+         * Example: 5
+         */
+        value: function setQuantity(quantity) {
+            this._server_content.quantity = quantity;
+            this._business_data_content.quantity = quantity;
+            return this;
+        }
+
+        /**
+         * Gets the item price for the Product.
+         * The item_price or price per unit of the product.
+         * Example: '123.45'
+         */
+
+    }, {
+        key: 'setItemPrice',
+
+
+        /**
+         * Sets the item price for the Content.
+         * @param {Number} item_price The item_price or price per unit of the product.
+         * Example: '123.45'
+         */
+        value: function setItemPrice(item_price) {
+            this._server_content.item_price = item_price;
+            return this;
+        }
+
+        /**
+         * Gets the Title of the listed Item.
+         * A string representing the Title for the product.
+         */
+
+    }, {
+        key: 'setTitle',
+
+
+        /**
+         * Sets the Title of the Item.
+         * @param title is a string representing listed title for the product.
+         */
+        value: function setTitle(title) {
+            this._server_content.title = title;
+            this._business_data_content.title = title;
+            return this;
+        }
+
+        /**
+         * Gets the Description of the listed Item.
+         * A string representing the Description for the product.
+         */
+
+    }, {
+        key: 'setDescription',
+
+
+        /**
+         * Sets the Product Description of the Item.
+         * @param description is a string representing the description for the product.
+         */
+        value: function setDescription(description) {
+            this._server_content.description = description;
+            return this;
+        }
+
+        /**
+         * Gets the Brand of the listed Item.
+         * A string representing the Brand for the product.
+         */
+
+    }, {
+        key: 'setBrand',
+
+
+        /**
+         * Sets the Brand of the Product.
+         * @param brand is a string representing the Brand for the product.
+         */
+        value: function setBrand(brand) {
+            this._server_content.brand = brand;
+            return this;
+        }
+
+        /**
+         * Gets the Category of the listed Item.
+         * A string representing the Category for the product.
+         */
+
+    }, {
+        key: 'setCategory',
+
+
+        /**
+         * Sets the Category of the Product.
+         * @param category is a string representing the Category for the product.
+         */
+        value: function setCategory(category) {
+            this._server_content.category = category;
+            return this;
+        }
+
+        /**
+         * Gets the delivery category.
+         */
+
+    }, {
+        key: 'setDeliveryCategory',
+
+
+        /**
+         * Sets the type of delivery for a purchase event.
+         * @param {String} delivery_category The delivery category.
+         */
+        value: function setDeliveryCategory(delivery_category) {
+            this._server_content.delivery_category = delivery_category;
+            return this;
+        }
+
+        /**
+         * Gets the total tax of the Item.
+         * The total tax for the products that are being involved in the customer interaction.
+         * Example: 45.5
+         */
+
+    }, {
+        key: 'setTax',
+
+
+        /**
+         * Sets the total tax of the Item.
+         * @param {Number} tax The total tax for the products that are being involved in the customer interaction.
+         * Example: 45.5
+         */
+        value: function setTax(tax) {
+            this._business_data_content.tax = tax;
+            return this;
+        }
+
+        /**
+         * Gets the external id for this order item
+         * The external id for the products that are being involved in the customer interaction.
+         */
+
+    }, {
+        key: 'setExternalContentId',
+
+
+        /**
+         * Sets the total tax of the Item.
+         * @param {String} external_content_id The total tax for the products that are being involved in the customer interaction.
+         */
+        value: function setExternalContentId(external_content_id) {
+            this._business_data_content.external_content_id = external_content_id;
+            return this;
+        }
+
+        /**
+         * Gets the total price of the Item.
+         * The total price for the products that are being involved in the customer interaction.
+         * Example: '123.45'
+         */
+
+    }, {
+        key: 'setPrice',
+
+
+        /**
+         * Sets the total price of the Item.
+         * @param {Number} price The total price for the products that are being involved in the customer interaction.
+         * Example: '123.45'
+         */
+        value: function setPrice(price) {
+            this._business_data_content.price = price;
+            return this;
+        }
+
+        /**
+         * Gets the constructed content for Business Data API
+         */
+
+    }, {
+        key: 'id',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_content.id, this._business_data_content.id);
+        }
+
+        /**
+         * Sets the Product Id of the Item.
+         * @param id A string representing the unique Id for the product.
+         * Example: XYZ.
+         */
+        ,
+        set: function set(id) {
+            this._server_content.id = id;
+            this._business_data_content.id = id;
+        }
+    }, {
+        key: 'quantity',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_content.quantity, this._business_data_content.quantity);
+        }
+
+        /**
+         * Sets the quantity of the Item.
+         * @param quantity The number/quantity of the product that is being involved in the customer interaction.
+         * Example: 5
+         */
+        ,
+        set: function set(quantity) {
+            this._server_content.quantity = quantity;
+            this._business_data_content.quantity = quantity;
+        }
+    }, {
+        key: 'item_price',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_content.item_price, null);
+        }
+
+        /**
+         * Sets the item price for the Content.
+         * @param item_price The item_price or price per unit of the product.
+         * Example: '123.45'
+         */
+        ,
+        set: function set(item_price) {
+            this._server_content.item_price = item_price;
+        }
+    }, {
+        key: 'title',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_content.title, this._business_data_content.title);
+        }
+
+        /**
+         * Sets the Title of the listed Item.
+         * @param title A string representing the Title for the product.
+         */
+        ,
+        set: function set(title) {
+            this._server_content.title = title;
+            this._business_data_content.title = title;
+        }
+    }, {
+        key: 'description',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_content.description, null);
+        }
+
+        /**
+         * Sets the Description of the listed Item.
+         * @param description A string representing the Description for the product.
+         */
+        ,
+        set: function set(description) {
+            this._server_content.description = description;
+        }
+    }, {
+        key: 'brand',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_content.brand, null);
+        }
+
+        /**
+         * Sets the Brand of the listed Item.
+         * @param brand A string representing the Brand for the product.
+         */
+        ,
+        set: function set(brand) {
+            this._server_content.brand = brand;
+        }
+    }, {
+        key: 'category',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_content.category, null);
+        }
+
+        /**
+         * Sets the Category of the listed Item.
+         * @param category A string representing the Category for the product.
+         */
+        ,
+        set: function set(category) {
+            this._server_content.category = category;
+        }
+    }, {
+        key: 'delivery_category',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_content.delivery_category, null);
+        }
+
+        /**
+         * Sets the type of delivery for a purchase event.
+         * @param delivery_category The delivery category.
+         */
+        ,
+        set: function set(delivery_category) {
+            this._server_content.delivery_category = delivery_category;
+        }
+    }, {
+        key: 'tax',
+        get: function get() {
+            return Utils$2.constructResponse(null, this._business_data_content.tax);
+        }
+
+        /**
+         * Sets the total tax of the Item.
+         * @param tax The total tax for the products that are being involved in the customer interaction.
+         * Example: 45.5
+         */
+        ,
+        set: function set(tax) {
+            this._business_data_content.tax = tax;
+        }
+    }, {
+        key: 'external_content_id',
+        get: function get() {
+            return Utils$2.constructResponse(null, this._business_data_content.external_content_id);
+        }
+
+        /**
+         * Sets the external id for this order item
+         * @param external_content_id The external id for the products that are being involved in the customer interaction.
+         */
+        ,
+        set: function set(external_content_id) {
+            this._business_data_content.external_content_id = external_content_id;
+        }
+    }, {
+        key: 'price',
+        get: function get() {
+            return Utils$2.constructResponse(null, this._business_data_content.price);
+        }
+
+        /**
+         * Sets the total price of the Item.
+         * @param price The total price for the products that are being involved in the customer interaction.
+         * Example: '123.45'
+         */
+        ,
+        set: function set(price) {
+            this._business_data_content.price = price;
+        }
+    }, {
+        key: 'business_data_content',
+        get: function get() {
+            return this._business_data_content;
+        }
+
+        /**
+         * Gets the constructed content for Conversion API
+         */
+
+    }, {
+        key: 'server_content',
+        get: function get() {
+            return this._server_content;
+        }
+    }]);
+    return Content$$1;
+}();
+
+/**
+ * Copyright (c) 2017-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
+ * 
+ */
+
+/**
+ * CustomData represents the Custom Data Parameters of a Business Data Event Request.
+ */
+
+var CustomData$3 = function () {
+
+    /**
+     * @param {Number} value value of the order Eg: 123.45
+     * @param {String} currency currency involved in the transaction Eg: usd
+     * @param {Array<Content>} contents Array of Content Objects. Use {Content} class to define a content.
+     * @param {String} order_id Unique id representing the order
+     * @param {String} status Status of order
+     * @param {String} shipping_contact Shipping contact information. User {UserData} class to define a contact.
+     * @param {String} billing_contact Billing contact information. User {UserData} class to define a contact.
+     * @param {String} external_order_id Unique ID representing the order, universal across multiple categories from the business
+     * @param {String} original_order_id Original order id for refund. For Refund event only.
+     * @param {String} message Reason for refund. For Refund event only.
+     */
+    function CustomData(value, currency, contents, order_id, status, shipping_contact, billing_contact, external_order_id, original_order_id, message) {
+        classCallCheck(this, CustomData);
+
+        this._value = value;
+        this._currency = currency;
+        this._contents = contents;
+        this._order_id = order_id;
+        this._status = status;
+        this._shipping_contact = shipping_contact;
+        this._billing_contact = billing_contact;
+        this._external_order_id = external_order_id;
+        this._original_order_id = original_order_id;
+        this._message = message;
+    }
+
+    /**
+     * Gets the total value of the order.
+     * A numeric value associated with this event. This could be a monetary value or a value in some other metric.
+     * Example: 142.54.
+     */
+
+
+    createClass(CustomData, [{
+        key: 'setValue',
+
+
+        /**
+         * Sets the value of the custom data.
+         * @param {Number} value A numeric value associated with this event. This could be a monetary value or a value in some other metric.
+         * Example: 142.54.
+         */
+        value: function setValue(value) {
+            this._value = value;
+            return this;
+        }
+
+        /**
+         * Gets the currency for the custom data.
+         * The currency for the value specified, if applicable. Currency must be a valid ISO 4217 three digit currency code.
+         * Example: 'usd'
+         */
+
+    }, {
+        key: 'setCurrency',
+
+
+        /**
+         * Sets the currency for the custom data.
+         * @param {String} currency The currency for the value specified, if applicable. Currency must be a valid ISO 4217 three digit currency code.
+         * Example: 'usd'
+         */
+        value: function setCurrency(currency) {
+            this._currency = currency;
+            return this;
+        }
+
+        /**
+         * Gets the contents for the custom data.
+         * An array of Content objects that contain the product IDs associated with the event plus information about the products.
+         * Example: [{'id':'ABC123','quantity' :2,'price':5.99}, {'id':'XYZ789','quantity':2, 'price':9.99}]
+         */
+
+    }, {
+        key: 'setContents',
+
+
+        /**
+         * Sets the contents for the custom data.
+         * @param { Array< Content >} contents An array of Content objects that contain the product IDs associated with the event plus information about the products.
+         * Example: [{'id':'ABC123','quantity' :2,'item_price':5.99}, {'id':'XYZ789','quantity':2, 'item_price':9.99}]
+         */
+        value: function setContents(contents) {
+            this._contents = contents;
+            return this;
+        }
+
+        /**
+         * Gets the order id for the custom data.
+         * order_id is the order ID for this transaction as a String.
+         * Example: 'order1234'
+         */
+
+    }, {
+        key: 'setOrderId',
+
+
+        /**
+         * Sets the order_id for the custom data.
+         * @param {String} order_id The order ID for this transaction as a String.
+         * Example: 'order1234'
+         */
+        value: function setOrderId(order_id) {
+            this._order_id = order_id;
+            return this;
+        }
+
+        /**
+         * Gets the status of order.
+         * Status of the order, as a String.
+         */
+
+    }, {
+        key: 'setStatus',
+
+
+        /**
+         * Sets the status of the registration event.
+         * @param {String} status Status of the registration event, as a String.
+         */
+        value: function setStatus(status) {
+            this._status = status;
+            return this;
+        }
+
+        /**
+         * Gets the shipping contact of the order.
+         * An Object contains the user data of shipping contact. Use {UserData} to construct the object.
+         */
+
+    }, {
+        key: 'setShippingContact',
+
+
+        /**
+         * Sets the shipping contact of the order.
+         * @param {UserData} shipping_contact An Object contains the user data of shipping contact. Use {UserData} to construct the object.
+         */
+        value: function setShippingContact(shipping_contact) {
+            this._shipping_contact = shipping_contact;
+            return this;
+        }
+
+        /**
+         * Gets the billing contact of the order.
+         * An Object contains the user data of billing contact. Use {UserData} to construct the object.
+         */
+
+    }, {
+        key: 'setBillingContact',
+
+
+        /**
+         * Sets the billing contact of the order.
+         * @param {UserData} billing_contact An Object contains the user data of billing contact. Use {UserData} to construct the object.
+         */
+        value: function setBillingContact(billing_contact) {
+            this._billing_contact = billing_contact;
+            return this;
+        }
+
+        /**
+         * Gets the unique id of the order.
+         * Unique ID representing the order, universal across multiple categories from the business.
+         */
+
+    }, {
+        key: 'setExternalOrderId',
+
+
+        /**
+         * Sets the unique id of the order.
+         * @param {String} external_order_id Unique ID representing the order, universal across multiple categories from the business.
+         */
+        value: function setExternalOrderId(external_order_id) {
+            this._external_order_id = external_order_id;
+            return this;
+        }
+
+        /**
+         * Gets the unique id of the original order.
+         * Original order id for refund. For Refund event only.
+         */
+
+    }, {
+        key: 'setOriginalOrderId',
+
+
+        /**
+         * Sets the unique id of the original order.
+         * @param {String} original_order_id Original order id for refund. For Refund event only.
+         */
+        value: function setOriginalOrderId(original_order_id) {
+            this._original_order_id = original_order_id;
+            return this;
+        }
+
+        /**
+         * Gets the unique id of the original order.
+         * Reason for refund. For Refund event only.
+         */
+
+    }, {
+        key: 'setMessage',
+
+
+        /**
+         * Sets the unique id of the original order.
+         * @param {String} message Reason for refund. For Refund event only.
+         */
+        value: function setMessage(message) {
+            this._message = message;
+            return this;
+        }
+
+        /**
+         * Convert to Json object for api call
+         */
+
+    }, {
+        key: 'toJson',
+        value: function toJson() {
+            var contents = this._contents ? this._contents.map(function (content) {
+                return content.toJson();
+            }) : [];
+            return {
+                'value': this._value,
+                'currency': this._currency,
+                'contents': contents,
+                'order_id': this._order_id,
+                'status': this._status,
+                'shipping_contact': this._shipping_contact.toJson(),
+                'billing_contact': this._billing_contact.toJson(),
+                'external_order_id': this._external_order_id,
+                'original_order_id': this._original_order_id,
+                'message': this._message
+            };
+        }
+    }, {
+        key: 'value',
+        get: function get() {
+            return this._value;
+        }
+
+        /**
+         * Sets the value of the custom data.
+         * @param value A numeric value associated with this event. This could be a monetary value or a value in some other metric.
+         * Example: 142.54.
+         */
+        ,
+        set: function set(value) {
+            this._value = value;
+        }
+    }, {
+        key: 'currency',
+        get: function get() {
+            return this._currency;
+        }
+
+        /**
+         * Sets the currency for the custom data.
+         * @param currency The currency for the value specified, if applicable. Currency must be a valid ISO 4217 three digit currency code.
+         * Example: 'usd'
+         */
+        ,
+        set: function set(currency) {
+            this._currency = currency;
+        }
+    }, {
+        key: 'contents',
+        get: function get() {
+            return this._contents;
+        }
+
+        /**
+         * Sets the contents for the custom data.
+         * @param contents An array of Content objects that contain the product IDs associated with the event plus information about the products.
+         * Example: [{'id':'ABC123','quantity' :2,'price':5.99}, {'id':'XYZ789','quantity':2, 'price':9.99}]
+         */
+        ,
+        set: function set(contents) {
+            this._contents = contents;
+        }
+    }, {
+        key: 'order_id',
+        get: function get() {
+            return this._order_id;
+        }
+
+        /**
+         * Sets the order_id for the custom data.
+         * @param order_id The order ID for this transaction as a String.
+         * Example: 'order1234'
+         */
+        ,
+        set: function set(order_id) {
+            this._order_id = order_id;
+        }
+    }, {
+        key: 'status',
+        get: function get() {
+            return this._status;
+        }
+
+        /**
+         * Gets the status of order.
+         * @param status Status of the order, as a String.
+         */
+        ,
+        set: function set(status) {
+            this._status = status;
+        }
+    }, {
+        key: 'shipping_contact',
+        get: function get() {
+            return this._shipping_contact;
+        }
+
+        /**
+         * Sets the shipping contact of the order.
+         * @param shipping_contact An Object contains the user data of shipping contact. Use {UserData} to construct the object.
+         */
+        ,
+        set: function set(shipping_contact) {
+            this._shipping_contact = shipping_contact;
+        }
+    }, {
+        key: 'billing_contact',
+        get: function get() {
+            return this._billing_contact;
+        }
+
+        /**
+         * Sets the billing contact of the order.
+         * @param billing_contact An Object contains the user data of billing contact. Use {UserData} to construct the object.
+         */
+        ,
+        set: function set(billing_contact) {
+            this._billing_contact = billing_contact;
+        }
+    }, {
+        key: 'external_order_id',
+        get: function get() {
+            return this._external_order_id;
+        }
+
+        /**
+         * Sets the unique id of the order.
+         * @param external_order_id Unique ID representing the order, universal across multiple categories from the business.
+         */
+        ,
+        set: function set(external_order_id) {
+            this._external_order_id = external_order_id;
+        }
+    }, {
+        key: 'original_order_id',
+        get: function get() {
+            return this._original_order_id;
+        }
+
+        /**
+         * Sets the unique id of the original order.
+         * @param original_order_id Original order id for refund. For Refund event only.
+         */
+        ,
+        set: function set(original_order_id) {
+            this._original_order_id = original_order_id;
+        }
+    }, {
+        key: 'message',
+        get: function get() {
+            return this._message;
+        }
+
+        /**
+         * Sets the unique id of the original order.
+         * @param message Reason for refund. For Refund event only.
+         */
+        ,
+        set: function set(message) {
+            this._message = message;
+        }
+    }]);
+    return CustomData;
+}();
+
+/**
+ * Copyright (c) 2017-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
+ * 
+ */
+
+/**
+ * CustomData represents the Custom Data Parameters for both Conversion API and Business Data API.
+ */
+
+var CustomData$1 = function () {
+
+    /**
+     * params both Business Data API & Conversion API consume
+     * @param {Number} value value of the item Eg: 123.45
+     * @param {String} currency currency involved in the transaction Eg: usd
+     * @param {Array<SignalContent>} contents Array of Content Objects. Use {Content} class to define a content.
+     * @param {String} order_id Unique id representing the order
+     * @param {String} status Status of the registration in Registration event.
+     *                        Use only with CompleteRegistration events for Conversion API.
+     *                        Use only with Purchase or UpdateOrder events for Business Data API
+     * params only Conversion API consumes
+     * @param {String} content_name name of the Content Eg: lettuce
+     * @param {String} content_category category of the content Eg: grocery
+     * @param {Array<String>} content_ids list of content unique ids involved in the event
+     * @param {String} content_type Type of the Content group or Product SKU
+     * @param {Number} predicted_ltv Predicted LifeTime Value for the customer involved in the event
+     * @param {Number} num_items Number of items involved
+     * @param {String} search_string query string used for the Search event
+     * @param {String} item_number The item number
+     * @param {String} delivery_category The type of delivery for a purchase event
+     * @param {Object} custom_properties Custom Properties to be added to the Custom Data
+     * params only Business Data API consumes
+     * @param {SignalUserData} shipping_contact Shipping contact information. User {UserData} class to define a contact.
+     * @param {SignalUserData} billing_contact Billing contact information. User {UserData} class to define a contact.
+     * @param {String} external_order_id Unique ID representing the order, universal across multiple categories from the business
+     * @param {String} original_order_id Original order id for refund. For Refund event only.
+     * @param {String} message Reason for refund. For Refund event only.
+     */
+    function CustomData$$1(value, currency, content_name, content_category, content_ids, contents, content_type, order_id, predicted_ltv, num_items, search_string, status, item_number, delivery_category, custom_properties, shipping_contact, billing_contact, external_order_id, original_order_id, message) {
+        classCallCheck(this, CustomData$$1);
+
+
+        var business_data_contents = contents != undefined ? contents.map(function (content) {
+            return content.business_data_content;
+        }) : [];
+        var server_contents = contents != undefined ? contents.map(function (content) {
+            return content.server_content;
+        }) : [];
+        var business_data_shipping_contact = shipping_contact != undefined ? shipping_contact.business_data_user_data : shipping_contact;
+        var business_data_billing_contact = billing_contact != undefined ? billing_contact.business_data_user_data : billing_contact;
+
+        this._business_data_custom_data = new CustomData$3(value, currency, business_data_contents, order_id, status, business_data_shipping_contact, business_data_billing_contact, external_order_id, original_order_id, message);
+        this._server_custom_data = new CustomData(value, currency, content_name, content_category, content_ids, server_contents, content_type, order_id, predicted_ltv, num_items, search_string, status, item_number, delivery_category, custom_properties);
+    }
+
+    /**
+     * Gets the value of the custom data.
+     * A numeric value associated with this event. This could be a monetary value or a value in some other metric.
+     * Example: 142.54.
+     */
+
+
+    createClass(CustomData$$1, [{
+        key: 'setValue',
+
+
+        /**
+         * Sets the value of the custom data.
+         * @param {Number} value A numeric value associated with this event. This could be a monetary value or a value in some other metric.
+         * Example: 142.54.
+         */
+        value: function setValue(value) {
+            this._business_data_custom_data.value = value;
+            this._server_custom_data.value = value;
+            return this;
+        }
+
+        /**
+         * Gets the currency for the custom data.
+         * The currency for the value specified, if applicable. Currency must be a valid ISO 4217 three digit currency code.
+         * Example: 'usd'
+         */
+
+    }, {
+        key: 'setCurrency',
+
+
+        /**
+         * Sets the currency for the custom data.
+         * @param {String} currency The currency for the value specified, if applicable. Currency must be a valid ISO 4217 three digit currency code.
+         * Example: 'usd'
+         */
+        value: function setCurrency(currency) {
+            this._business_data_custom_data.currency = currency;
+            this._server_custom_data.currency = currency;
+            return this;
+        }
+
+        /**
+         * Gets the contents for the custom data.
+         * An array of Content objects that contain the product IDs associated with the event plus information about the products. id, quantity, and item_price are available fields.
+         * Example: [{'id':'ABC123','quantity' :2,'item_price':5.99}, {'id':'XYZ789','quantity':2, 'item_price':9.99}]
+         */
+
+    }, {
+        key: 'setContents',
+
+
+        /**
+         * Sets the contents for the custom data.
+         * @param {Array<Content>} contents An array of Content objects that contain the product IDs associated with the event plus information about the products. id, quantity, and item_price are available fields.
+         * Example: [{'id':'ABC123','quantity' :2,'item_price':5.99}, {'id':'XYZ789','quantity':2, 'item_price':9.99}]
+         */
+        value: function setContents(contents) {
+            var business_data_contents = contents.map(function (content) {
+                return content.business_data_content;
+            });
+            var server_contents = contents.map(function (content) {
+                return content.server_content;
+            });
+            this._business_data_custom_data.contents = business_data_contents;
+            this._server_custom_data.contents = server_contents;
+            return this;
+        }
+
+        /**
+         * Gets the order id for the custom data.
+         * order_id is the order ID for this transaction as a String.
+         * Example: 'order1234'
+         */
+
+    }, {
+        key: 'setOrderId',
+
+
+        /**
+         * Sets the order_id for the custom data.
+         * @param {String} order_id The order ID for this transaction as a String.
+         * Example: 'order1234'
+         */
+        value: function setOrderId(order_id) {
+            this._business_data_custom_data.order_id = order_id;
+            this._server_custom_data.order_id = order_id;
+            return this;
+        }
+
+        /**
+         * Status of the registration in Registration event or Status of the order in Purchase/UpdateOrder event.
+         * - Used only with CompleteRegistration events for Conversion API.
+         * - Used only with Purchase or UpdateOrder events for Business Data API
+         */
+
+    }, {
+        key: 'setStatus',
+
+
+        /**
+         * Sets status of the registration in Registration event or status of the order in Purchase/UpdateOrder event.
+         * - Used only with CompleteRegistration events for Conversion API.
+         * - Used only with Purchase or UpdateOrder events for Business Data API
+         * @param {String} status status, as a String.
+         */
+        value: function setStatus(status) {
+            this._server_custom_data.status = status;
+            this._business_data_custom_data.status = status;
+            return this;
+        }
+
+        /**
+         * Gets the content name for the custom data. The name of the page or product associated with the event.
+         * The name of the page or product associated with the event.
+         * Example: 'lettuce'
+         */
+
+    }, {
+        key: 'setContentName',
+
+
+        /**
+         * Sets the content name for the custom data.
+         * @param content_name The name of the page or product associated with the event.
+         * Example: 'lettuce'
+         */
+        value: function setContentName(content_name) {
+            this._server_custom_data.content_name = content_name;
+            return this;
+        }
+
+        /**
+         * Gets the content category for the custom data.
+         * The category of the content associated with the event.
+         * Example: 'grocery'
+         */
+
+    }, {
+        key: 'setContentCategory',
+
+
+        /**
+         * Sets the content_category for the custom data.
+         * @param content_category The category of the content associated with the event.
+         * Example: 'grocery'
+         */
+        value: function setContentCategory(content_category) {
+            this._server_custom_data.content_category = content_category;
+            return this;
+        }
+
+        /**
+         * Gets the content_ids for the custom data.
+         * The content IDs associated with the event, such as product SKUs for items in an AddToCart, represented as Array of string.
+         * If content_type is a product, then your content IDs must be an array with a single string value. Otherwise, this array can contain any number of string values.
+         * Example: ['ABC123', 'XYZ789']
+         */
+
+    }, {
+        key: 'setContentIds',
+
+
+        /**
+         * Sets the content_ids for the custom data.
+         * @param {Array} content_ids The content IDs associated with the event, such as product SKUs for items in an AddToCart, represented as Array of string.
+         * If content_type is a product, then your content IDs must be an array with a single string value. Otherwise, this array can contain any number of string values.
+         * Example: ['ABC123', 'XYZ789']
+         */
+        value: function setContentIds(content_ids) {
+            this._server_custom_data.content_ids = content_ids;
+            return this;
+        }
+
+        /**
+         * Gets the content type for the custom data.
+         * A String equal to either product or product_group. Set to product if the keys you send content_ids or contents represent products.
+         * Set to product_group if the keys you send in content_ids represent product groups.
+         */
+
+    }, {
+        key: 'setContentType',
+
+
+        /**
+         * Sets the content type for the custom data.
+         * @param {String} content_type A string equal to either product or product_group. Set to product if the keys you send content_ids or contents represent products.
+         * Set to product_group if the keys you send in content_ids represent product groups.
+         */
+        value: function setContentType(content_type) {
+            this._server_custom_data.content_type = content_type;
+            return this;
+        }
+
+        /**
+         * Gets the predicted LifeTimeValue for the (user) in custom data.
+         * The predicted lifetime value of a conversion event, as a String.
+         * Example: '432.12'
+         */
+
+    }, {
+        key: 'setPredictedLtv',
+
+
+        /**
+         * Sets the predicted LifeTimeValue for the custom data.
+         * @param {Number} predicted_ltv The predicted lifetime value of a conversion event, as a String.
+         * Example: '432.12'
+         */
+        value: function setPredictedLtv(predicted_ltv) {
+            this._server_custom_data.predicted_ltv = predicted_ltv;
+            return this;
+        }
+
+        /**
+         * Gets the number of items for the custom data.
+         * The number of items that a user tries to buy during checkout. Use only with InitiateCheckout type events.
+         * Example: 5
+         */
+
+    }, {
+        key: 'setNumItems',
+
+
+        /**
+         * Sets the number of items for the custom data.
+         * @param {Number} num_items The number of items that a user tries to buy during checkout. Use only with InitiateCheckout type events.
+         * Example: 5
+         */
+        value: function setNumItems(num_items) {
+            this._server_custom_data.num_items = num_items;
+            return this;
+        }
+
+        /**
+         * Gets the search string for the custom data.
+         * A search query made by a user.Use only with Search events.
+         * Eg: 'lettuce'
+         */
+
+    }, {
+        key: 'setSearchString',
+
+
+        /**
+         * Sets the search string for the custom data.
+         * @param search_string A search query made by a user.Use only with Search events.
+         * Eg: 'lettuce'
+         */
+        value: function setSearchString(search_string) {
+            this._server_custom_data.search_string = search_string;
+            return this;
+        }
+
+        /**
+         * Gets the item number.
+         */
+
+    }, {
+        key: 'setItemNumber',
+
+
+        /**
+         * Sets the item number.
+         * @param {String} item_number The item number.
+         */
+        value: function setItemNumber(item_number) {
+            this._server_custom_data.item_number = item_number;
+            return this;
+        }
+
+        /**
+         * Gets the delivery category.
+         */
+
+    }, {
+        key: 'setDeliveryCategory',
+
+
+        /**
+         * Sets the type of delivery for a purchase event.
+         * @param {String} delivery_category The delivery category.
+         */
+        value: function setDeliveryCategory(delivery_category) {
+            this._server_custom_data.delivery_category = delivery_category;
+            return this;
+        }
+
+        /**
+         * Gets the custom properties to be included in the Custom Data.
+         * If our predefined object properties don't suit your needs, you can include your own, custom properties. Custom properties can be used with both standard and custom events, and can help you further define custom audiences.
+         * This behavior is the same for Server-Side API and Facebook Pixel.
+         * @see {@link https://developers.facebook.com/docs/marketing-api/server-side-api/parameters/custom-data#custom-properties}
+         * Eg: '{ 'warehouse_location' : 'washington', 'package_size' : 'L'}'
+         */
+
+    }, {
+        key: 'setCustomProperties',
+
+
+        /**
+         * Sets the search string for the custom data.
+         * @param custom_properties A custom properties property bag to be included in the Custom Data.
+         * If our predefined object properties don't suit your needs, you can include your own, custom properties. Custom properties can be used with both standard and custom events, and can help you further define custom audiences.
+         * This behavior is the same for Server-Side API and Facebook Pixel.
+         * @see {@link https://developers.facebook.com/docs/marketing-api/server-side-api/parameters/custom-data#custom-properties}
+         * Eg: '{ 'warehouse_location' : 'washington', 'package_size' : 'L'}'
+         * * @returns {Object} custom_properties property bag.
+         */
+        value: function setCustomProperties(custom_properties) {
+            this._server_custom_data.custom_properties = custom_properties;
+            return this;
+        }
+
+        /**
+         * Adds the custom property (key, value) to the custom property bag.
+         * @param {string} key The Key for the property to be added.
+         * @param {string} value The Value for the property to be added.
+         */
+
+    }, {
+        key: 'add_custom_property',
+        value: function add_custom_property(key, value) {
+
+            if (this._server_custom_data.custom_properties == null) {
+                this._server_custom_data.custom_properties = {};
+            }
+
+            this._server_custom_data.custom_properties[key] = value;
+        }
+
+        /**
+         * Gets the shipping_contact for Purchase/Update Order event.
+         * shipping_contact of an order
+         */
+
+    }, {
+        key: 'setShippingContact',
+
+
+        /**
+         * Sets the shipping_contact for Purchase/Update Order event.
+         * @param {SignalUserData} shipping_contact shipping contact of an order, use {SignalUserData} to build
+         */
+        value: function setShippingContact(shipping_contact) {
+            this._business_data_custom_data.shipping_contact = shipping_contact.business_data_user_data;
+            return this;
+        }
+
+        /**
+         * Gets the billing_contact for Purchase/Update Order event.
+         * billing_contact of an order
+         */
+
+    }, {
+        key: 'setBillingContact',
+
+
+        /**
+         * Sets the billing_contact for Purchase/Update Order event.
+         * @param {SignalUserData} billing_contact billing contact of an order, use {SignalUserData} to build
+         */
+        value: function setBillingContact(billing_contact) {
+            this._business_data_custom_data.billing_contact = billing_contact.business_data_user_data;
+            return this;
+        }
+
+        /**
+         * Gets the unique id of the order.
+         * Unique ID representing the order, universal across multiple categories from the business.
+         */
+
+    }, {
+        key: 'setExternalOrderId',
+
+
+        /**
+         * Sets the unique id of the order.
+         * @param {String} external_order_id Unique ID representing the order, universal across multiple categories from the business.
+         */
+        value: function setExternalOrderId(external_order_id) {
+            this._business_data_custom_data.external_order_id = external_order_id;
+            return this;
+        }
+
+        /**
+         * Gets the unique id of the original order.
+         * Original order id for refund. For Refund event only.
+         */
+
+    }, {
+        key: 'setOriginalOrderId',
+
+
+        /**
+         * Sets the unique id of the original order.
+         * @param {String} original_order_id Original order id for refund. For Refund event only.
+         */
+        value: function setOriginalOrderId(original_order_id) {
+            this._business_data_custom_data.original_order_id = original_order_id;
+            return this;
+        }
+
+        /**
+         * Gets the unique id of the original order.
+         * Reason for refund. For Refund event only.
+         */
+
+    }, {
+        key: 'setMessage',
+
+
+        /**
+         * Sets the unique id of the original order.
+         * @param {String} message Reason for refund. For Refund event only.
+         */
+        value: function setMessage(message) {
+            this._business_data_custom_data.message = message;
+            return this;
+        }
+
+        /**
+         * Gets the constructed custom data for Business Data API
+         */
+
+    }, {
+        key: 'value',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_custom_data.value, this._business_data_custom_data.value);
+        }
+
+        /**
+         * Sets the value of the custom data.
+         * @param value A numeric value associated with this event. This could be a monetary value or a value in some other metric.
+         * Example: 142.54.
+         */
+        ,
+        set: function set(value) {
+            this._business_data_custom_data.value = value;
+            this._server_custom_data.value = value;
+        }
+    }, {
+        key: 'currency',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_custom_data.currency, this._business_data_custom_data.currency);
+        }
+
+        /**
+         * Sets the currency for the custom data.
+         * @param currency The currency for the value specified, if applicable. Currency must be a valid ISO 4217 three digit currency code.
+         * Example: 'usd'
+         */
+        ,
+        set: function set(currency) {
+            this._business_data_custom_data.currency = currency;
+            this._server_custom_data.currency = currency;
+        }
+    }, {
+        key: 'contents',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_custom_data.contents, this._business_data_custom_data.contents);
+        }
+
+        /**
+         * Sets the contents for the custom data.
+         * @param contents An array of Content objects that contain the product IDs associated with the event plus information about the products. id, quantity, and item_price are available fields.
+         * Example: [{'id':'ABC123','quantity' :2,'item_price':5.99}, {'id':'XYZ789','quantity':2, 'item_price':9.99}]
+         */
+        ,
+        set: function set(contents) {
+            var business_data_contents = contents.map(function (content) {
+                return content.business_data_content;
+            });
+            var server_contents = contents.map(function (content) {
+                return content.server_content;
+            });
+            this._business_data_custom_data.contents = business_data_contents;
+            this._server_custom_data.contents = server_contents;
+        }
+    }, {
+        key: 'order_id',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_custom_data.order_id, this._business_data_custom_data.order_id);
+        }
+
+        /**
+         * Sets the order_id for the custom data.
+         * @param order_id The order ID for this transaction as a String.
+         * Example: 'order1234'
+         */
+        ,
+        set: function set(order_id) {
+            this._business_data_custom_data.order_id = order_id;
+            this._server_custom_data.order_id = order_id;
+        }
+    }, {
+        key: 'status',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_custom_data.status, this._business_data_custom_data.status);
+        }
+
+        /**
+         * Sets status of the registration in Registration event or status of the order in Purchase/UpdateOrder event.
+         * - Used only with CompleteRegistration events for Conversion API.
+         * - Used only with Purchase or UpdateOrder events for Business Data API
+         * @param status status, as a String.
+         */
+        ,
+        set: function set(status) {
+            this._server_custom_data.status = status;
+            this._business_data_custom_data.status = status;
+        }
+    }, {
+        key: 'content_name',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_custom_data.content_name, null);
+        }
+
+        /**
+         * Sets the content name for the custom data.
+         * @param content_name The name of the page or product associated with the event.
+         * Example: 'lettuce'
+         */
+        ,
+        set: function set(content_name) {
+            this._server_custom_data.content_name = content_name;
+        }
+    }, {
+        key: 'content_category',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_custom_data.content_category, null);
+        }
+
+        /**
+         * Sets the content_category for the custom data.
+         * @param content_category The category of the content associated with the event.
+         * Example: 'grocery'
+         */
+        ,
+        set: function set(content_category) {
+            this._server_custom_data.content_category = content_category;
+        }
+    }, {
+        key: 'content_ids',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_custom_data.content_ids, null);
+        }
+
+        /**
+         * Sets the content_ids for the custom data.
+         * @param content_ids The content IDs associated with the event, such as product SKUs for items in an AddToCart, represented as Array of string.
+         * If content_type is a product, then your content IDs must be an array with a single string value. Otherwise, this array can contain any number of string values.
+         * Example: ['ABC123', 'XYZ789']
+         */
+        ,
+        set: function set(content_ids) {
+            this._server_custom_data.content_ids = content_ids;
+        }
+    }, {
+        key: 'content_type',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_custom_data.content_type, null);
+        }
+
+        /**
+         * Sets the content type for the custom data.
+         * A String equal to either product or product_group. Set to product if the keys you send content_ids or contents represent products.
+         * Set to product_group if the keys you send in content_ids represent product groups.
+         */
+        ,
+        set: function set(content_type) {
+            this._server_custom_data.content_type = content_type;
+        }
+    }, {
+        key: 'predicted_ltv',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_custom_data.predicted_ltv, null);
+        }
+
+        /**
+         * Sets the predicted LifeTimeValue for the custom data.
+         * @param predicted_ltv The predicted lifetime value of a conversion event, as a String.
+         * Example: '432.12'
+         */
+        ,
+        set: function set(predicted_ltv) {
+            this._server_custom_data.predicted_ltv = predicted_ltv;
+        }
+    }, {
+        key: 'num_items',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_custom_data.num_items, null);
+        }
+
+        /**
+         * Sets the number of items for the custom data.
+         * @param num_items The number of items that a user tries to buy during checkout. Use only with InitiateCheckout type events.
+         * Example: 5
+         */
+        ,
+        set: function set(num_items) {
+            this._server_custom_data.num_items = num_items;
+        }
+    }, {
+        key: 'search_string',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_custom_data.search_string, null);
+        }
+
+        /**
+         * Sets the search string for the custom data.
+         * @param {Number} search_string A search query made by a user.Use only with Search events.
+         * Eg: 'lettuce'
+         */
+        ,
+        set: function set(search_string) {
+            this._server_custom_data.search_string = search_string;
+        }
+    }, {
+        key: 'item_number',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_custom_data.item_number, null);
+        }
+
+        /**
+         * Sets the item number.
+         * @param item_number The item number.
+         */
+        ,
+        set: function set(item_number) {
+            this._server_custom_data.item_number = item_number;
+        }
+    }, {
+        key: 'delivery_category',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_custom_data.delivery_category, null);
+        }
+
+        /**
+         * Sets the type of delivery for a purchase event.
+         * @param delivery_category The delivery category.
+         */
+        ,
+        set: function set(delivery_category) {
+            this._server_custom_data.delivery_category = delivery_category;
+        }
+    }, {
+        key: 'custom_properties',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_custom_data.custom_properties, null);
+        }
+
+        /**
+         * Sets the custom properties to be included in the Custom Data.
+         * If our predefined object properties don't suit your needs, you can include your own, custom properties. Custom properties can be used with both standard and custom events, and can help you further define custom audiences.
+         * This behavior is the same for Server-Side API and Facebook Pixel.
+         * @see {@link https://developers.facebook.com/docs/marketing-api/server-side-api/parameters/custom-data#custom-properties}
+         * @param {Object} custom_properties custom properties property bag to be included in the Custom Data. Eg: '{ 'warehouse_location' : 'washington', 'package_size' : 'L'}'
+         */
+        ,
+        set: function set(custom_properties) {
+            this._server_custom_data.custom_properties = custom_properties;
+        }
+    }, {
+        key: 'shipping_contact',
+        get: function get() {
+            return Utils$2.constructResponse(null, this._business_data_custom_data.shipping_contact);
+        }
+
+        /**
+         * Sets the shipping_contact for Purchase/Update Order event.
+         * @param shipping_contact shipping contact of an order, use {SignalUserData} to build
+         */
+        ,
+        set: function set(shipping_contact) {
+            this._business_data_custom_data.shipping_contact = shipping_contact.business_data_user_data;
+        }
+    }, {
+        key: 'billing_contact',
+        get: function get() {
+            return Utils$2.constructResponse(null, this._business_data_custom_data.billing_contact);
+        }
+
+        /**
+         * Sets the billing_contact for Purchase/Update Order event.
+         * @param billing_contact billing contact of an order, use {SignalUserData} to build
+         */
+        ,
+        set: function set(billing_contact) {
+            this._business_data_custom_data.billing_contact = billing_contact.business_data_user_data;
+        }
+    }, {
+        key: 'external_order_id',
+        get: function get() {
+            return Utils$2.constructResponse(null, this._business_data_custom_data.external_order_id);
+        }
+
+        /**
+         * Sets the unique id of the order.
+         * @param external_order_id Unique ID representing the order, universal across multiple categories from the business.
+         */
+        ,
+        set: function set(external_order_id) {
+            this._business_data_custom_data.external_order_id = external_order_id;
+        }
+    }, {
+        key: 'original_order_id',
+        get: function get() {
+            return Utils$2.constructResponse(null, this._business_data_custom_data.original_order_id);
+        }
+
+        /**
+         * Sets the unique id of the original order.
+         * @param original_order_id Original order id for refund. For Refund event only.
+         */
+        ,
+        set: function set(original_order_id) {
+            this._business_data_custom_data.original_order_id = original_order_id;
+        }
+    }, {
+        key: 'message',
+        get: function get() {
+            return Utils$2.constructResponse(null, this._business_data_custom_data.message);
+        }
+
+        /**
+         * Sets the unique id of the original order.
+         * @param message Reason for refund. For Refund event only.
+         */
+        ,
+        set: function set(message) {
+            this._business_data_custom_data.message = message;
+        }
+    }, {
+        key: 'business_data_custom_data',
+        get: function get() {
+            return this._business_data_custom_data;
+        }
+
+        /**
+         * Gets the constructed custom data for Business Data API
+         */
+
+    }, {
+        key: 'server_custom_data',
+        get: function get() {
+            return this._server_custom_data;
+        }
+    }]);
+    return CustomData$$1;
+}();
+
+/**
+ * Copyright (c) 2017-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
+ * 
+ */
+
+/**
+ * Event for Business Data API
+ */
+
+var Event$4 = function () {
+
+    /**
+     * @param {String} event_name A Facebook pixel Standard Event or Custom Event name.
+     * @param {Number} event_time A Unix timestamp in seconds indicating when the actual event occurred.
+     * @param {String} event_id This ID can be any string chosen by the advertiser.
+     * @param {UserData} user_data A map that contains user data. See UserData Class for options.
+     * @param {CustomData} custom_data A map that contains user data. See CustomData Class for options.
+     * @param {Array<string>} data_processing_options Processing options you would like to enable for a specific event.
+     * @param {Number} data_processing_options_country A country that you want to associate to this data processing option.
+     * @param {Number} data_processing_options_state A state that you want to associate with this data processing option.
+     */
+    function Event(event_name, event_time, user_data, custom_data, event_id, data_processing_options, data_processing_options_country, data_processing_options_state) {
+        classCallCheck(this, Event);
+
+
+        this._event_name = event_name;
+        this._event_time = event_time;
+        this._user_data = user_data;
+        this._custom_data = custom_data;
+        this.event_id = event_id;
+        this._data_processing_options = data_processing_options;
+        this._data_processing_options_country = data_processing_options_country;
+        this._data_processing_options_state = data_processing_options_state;
+    }
+
+    /**
+     * Gets the Event Name for the current Event.
+     */
+
+
+    createClass(Event, [{
+        key: 'toJson',
+
+
+        /**
+         * Convert to Json object for api call
+         */
+        value: function toJson() {
+            return {
+                'event_name': this._event_name,
+                'event_time': this._event_time,
+                'event_id': this._event_id,
+                'user_data': this._user_data.toJson(),
+                'custom_data': this._custom_data.toJson(),
+                'data_processing_options': this._data_processing_options,
+                'data_processing_options_country': this._data_processing_options_country,
+                'data_processing_options_state': this._data_processing_options_state
+            };
+        }
+    }, {
+        key: 'event_name',
+        get: function get() {
+            return this._event_name;
+        }
+
+        /**
+         * Sets the Event Name for the current Event.
+         * @param {String} event_name a Facebook pixel Standard Event or Custom Event name.
+         */
+        ,
+        set: function set(event_name) {
+            this._event_name = event_name;
+        }
+
+        /**
+         * Gets the Event Time when the current Event happened.
+         */
+
+    }, {
+        key: 'event_time',
+        get: function get() {
+            return this._event_time;
+        }
+
+        /**
+         * Sets the Event Time when the current Event happened.
+         * @param {Number} event_time is a Unix timestamp in seconds indicating when the actual event occurred.
+         */
+        ,
+        set: function set(event_time) {
+            this._event_time = event_time;
+        }
+
+        /**
+         * Gets the event_id for the current Event.
+         */
+
+    }, {
+        key: 'event_id',
+        get: function get() {
+            return this._event_id;
+        }
+
+        /**
+         * Sets the event Id for the current Event.
+         * @param {String} event_id Unique id for the event.
+         */
+        ,
+        set: function set(event_id) {
+            this._event_id = event_id;
+        }
+
+        /**
+         * Gets the user data object for the current Event.
+         */
+
+    }, {
+        key: 'user_data',
+        get: function get() {
+            return this._user_data;
+        }
+
+        /**
+         * Sets the user data object for the current Event.
+         * @param {UserData} user_data user_data is an object that contains user data.
+         */
+        ,
+        set: function set(user_data) {
+            this._user_data = user_data;
+        }
+
+        /**
+         * Gets the custom data object for the current Event.
+         */
+
+    }, {
+        key: 'custom_data',
+        get: function get() {
+            return this._custom_data;
+        }
+
+        /**
+         * Sets the custom data object for the current Event.
+         * @param {CustomData} custom_data is an object that includes additional business data about the event.
+         */
+        ,
+        set: function set(custom_data) {
+            this._custom_data = custom_data;
+        }
+
+        /**
+         * Gets the data_processing_options for the current event.
+         * Processing options you would like to enable for a specific event.
+         */
+
+    }, {
+        key: 'data_processing_options',
+        get: function get() {
+            return this._data_processing_options;
+        }
+
+        /**
+         * Sets the data_processing_options for the current event.
+         * @param {Array<string>} data_processing_options represents Data processing options you would like to enable for a specific event, e.g. [] or ['LDU']
+         * @see {@link https://developers.facebook.com/docs/marketing-apis/data-processing-options}
+         */
+        ,
+        set: function set(data_processing_options) {
+            this._data_processing_options = data_processing_options;
+        }
+
+        /**
+         * Gets the data_processing_options_country for the current event.
+         * A country that you want to associate to this data processing option.
+         * @see {@link https://developers.facebook.com/docs/marketing-apis/data-processing-options}
+         */
+
+    }, {
+        key: 'data_processing_options_country',
+        get: function get() {
+            return this._data_processing_options_country;
+        }
+
+        /**
+         * Sets the data_processing_options_country for the current event.
+         * @param {number} data_processing_options_country represents country that you want to associate to this data processing option.
+         */
+        ,
+        set: function set(data_processing_options_country) {
+            this._data_processing_options_country = data_processing_options_country;
+        }
+
+        /**
+         * Gets the data_processing_options_state for the current event.
+         * A state that you want to associate with this data processing option.
+         */
+
+    }, {
+        key: 'data_processing_options_state',
+        get: function get() {
+            return this._data_processing_options_state;
+        }
+
+        /**
+         * Sets the data_processing_options_state for the current event.
+         * @param {number} data_processing_options_state represents state that you want to associate with this data processing option.
+         */
+        ,
+        set: function set(data_processing_options_state) {
+            this._data_processing_options_state = data_processing_options_state;
+        }
+    }]);
+    return Event;
+}();
+
+/**
+ * Copyright (c) 2017-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
+ * 
+ */
+
+/**
+ * SignalEvent, event data for both Conversion API and Business Data API
+ */
+
+var Event$2 = function () {
+
+    /**
+     * @param {String} event_name A Facebook pixel Standard Event or Custom Event name.
+     * @param {Number} event_time A Unix timestamp in seconds indicating when the actual event occurred.
+     * @param {String} event_source_url The browser URL where the event happened.
+     * @param {String} event_id This ID can be any string chosen by the advertiser.
+     * @param {String} action_source A string that indicates where the event took place.
+     * @param {Boolean} opt_out A flag that indicates we should not use this event for ads delivery optimization.
+     * @param {SignalUserData} user_data SignalUserData contains user data for both Business Data API and Conversion API
+     * @param {SignalCustomData} custom_data SignalCustomData contains custom data for both Business Data API and Conversion API
+     * @param {Array<string>} data_processing_options Processing options you would like to enable for a specific event.
+     * @param {Number} data_processing_options_country A country that you want to associate to this data processing option.
+     * @param {Number} data_processing_options_state A state that you want to associate with this data processing option.
+     */
+    function Event(event_name, event_time, event_source_url, user_data, custom_data, event_id, opt_out, action_source, data_processing_options, data_processing_options_country, data_processing_options_state) {
+        classCallCheck(this, Event);
+
+        var business_data_user_data = user_data != undefined ? user_data.business_data_user_data : user_data;
+        var server_user_data = user_data != undefined ? user_data.server_user_data : user_data;
+        var business_data_custom_data = custom_data != undefined ? custom_data.business_data_custom_data : custom_data;
+        var server_custom_data = custom_data != undefined ? custom_data.server_custom_data : custom_data;
+        this._business_data_event = new Event$4(event_name, event_time, business_data_user_data, business_data_custom_data, event_id, data_processing_options, data_processing_options_country, data_processing_options_state);
+
+        this._server_event = new ServerEvent(event_name, event_time, event_source_url, server_user_data, server_custom_data, event_id, opt_out, action_source, data_processing_options, data_processing_options_country, data_processing_options_state);
+    }
+
+    /**
+     * Gets the Event Name for the current Event.
+     */
+
+
+    createClass(Event, [{
+        key: 'setEventName',
+
+
+        /**
+         * Sets the Event Name for the current Event.
+         * @param {String} event_name Facebook pixel Standard Event or Custom Event name.
+         */
+        value: function setEventName(event_name) {
+            this._server_event.event_name = event_name;
+            this._business_data_event.event_name = event_name;
+            return this;
+        }
+
+        /**
+         * Gets the Event Time when the current Event happened.
+         */
+
+    }, {
+        key: 'setEventTime',
+
+
+        /**
+         * Sets the Event Time when the current Event happened.
+         * @param {Number} event_time is a Unix timestamp in seconds indicating when the actual event occurred.
+         */
+        value: function setEventTime(event_time) {
+            this._server_event.event_time = event_time;
+            this._business_data_event.event_time = event_time;
+            return this;
+        }
+
+        /**
+         * Gets the browser url source for the current event.
+         */
+
+    }, {
+        key: 'setEventSourceUrl',
+
+
+        /**
+         * Sets the browser url source for the current event.
+         * @param {String} event_source_url The browser URL where the event happened.
+         */
+        value: function setEventSourceUrl(event_source_url) {
+            this._server_event.event_source_url = event_source_url;
+            return this;
+        }
+
+        /**
+         * Gets the event_id for the current Event.
+         */
+
+    }, {
+        key: 'setEventId',
+
+
+        /**
+         * Sets the event Id for the current Event.
+         * @param {String} event_id can be any string chosen by the advertiser. This is used with event_name to determine if events are identical for Conversion API.
+         */
+        value: function setEventId(event_id) {
+            this._server_event.event_id = event_id;
+            this._business_data_event.event_id = event_id;
+            return this;
+        }
+
+        /**
+         * Gets the action_source for the current event. The Action Source represents where the action took place.
+         */
+
+    }, {
+        key: 'setActionSource',
+
+
+        /**
+         * Sets the action_source for the current event.
+         * @param {String} action_source represents where the action took place. One of {'physical_store','app','chat','email','other','phone_call','system_generated','website'}
+         */
+        value: function setActionSource(action_source) {
+            this._server_event.action_source = action_source;
+            return this;
+        }
+
+        /**
+         * Gets the opt_out feature for the current event.opt_out is a boolean flag that indicates we should not use this event for ads delivery optimization. If set to true, we only use the event for attribution.
+         */
+
+    }, {
+        key: 'setOptOut',
+
+
+        /**
+         * Sets the opt_out feature for the current event.
+         * @param {Boolean} opt_out is a boolean flag that indicates we should not use this event for ads delivery optimization. If set to true, we only use the event for attribution.
+         */
+        value: function setOptOut(opt_out) {
+            this._server_event.opt_out = opt_out;
+            return this;
+        }
+
+        /**
+         * Gets the user data objects for Business Data API and Conversion API.
+         * @param user_data contains user data, use SignalUserData to construct
+         */
+
+    }, {
+        key: 'setUserData',
+
+
+        /**
+         * Sets the user data objects for Business Data API and Conversion API.
+         * @param {SignalUserData} user_data contains user data, use SignalUserData to construct
+         */
+        value: function setUserData(user_data) {
+            this._server_event.user_data = user_data.server_user_data;
+            this._business_data_event.user_data = user_data.business_data_user_data;
+            return this;
+        }
+
+        /**
+         * Gets the custom data objects for Business Data API and Conversion API.
+         */
+
+    }, {
+        key: 'setCustomData',
+
+
+        /**
+         * Sets the custom data objects for Business Data API and Conversion API.
+         * @param {SignalCustomData} custom_data contains custom data, use SignalCustomData to construct
+         */
+        value: function setCustomData(custom_data) {
+            this._server_event.custom_data = custom_data.server_custom_data;
+            this._business_data_event.custom_data = custom_data.business_data_custom_data;
+            return this;
+        }
+
+        /**
+         * Gets the data_processing_options for the current event.
+         * Processing options you would like to enable for a specific event.
+         */
+
+    }, {
+        key: 'setDataProcessingOptions',
+
+
+        /**
+         * Sets the data_processing_options for the current event.
+         * @param {Array<string>} data_processing_options represents Data processing options you would like to enable for a specific event, e.g. [] or ['LDU']
+         */
+        value: function setDataProcessingOptions(data_processing_options) {
+            this._server_event.data_processing_options = data_processing_options;
+            this._business_data_event.data_processing_options = data_processing_options;
+            return this;
+        }
+
+        /**
+         * Gets the data_processing_options_country for the current event.
+         * A country that you want to associate to this data processing option.
+         */
+
+    }, {
+        key: 'setDataProcessingOptionsCountry',
+
+
+        /**
+         * Sets the data_processing_options_country for the current event.
+         * @param {number} data_processing_options_country represents country that you want to associate to this data processing option.
+         */
+        value: function setDataProcessingOptionsCountry(data_processing_options_country) {
+            this._server_event.data_processing_options_country = data_processing_options_country;
+            this._business_data_event.data_processing_options_country = data_processing_options_country;
+            return this;
+        }
+
+        /**
+         * Gets the data_processing_options_state for the current event.
+         * A state that you want to associate with this data processing option.
+         */
+
+    }, {
+        key: 'setDataProcessingOptionsState',
+
+
+        /**
+         * Sets the data_processing_options_state for the current event.
+         * @param {number} data_processing_options_state represents state that you want to associate with this data processing option.
+         */
+        value: function setDataProcessingOptionsState(data_processing_options_state) {
+            this._server_event.data_processing_options_state = data_processing_options_state;
+            this._business_data_event.data_processing_options_state = data_processing_options_state;
+            return this;
+        }
+
+        /**
+         * Gets the constructed custom data for Business Data API
+         */
+
+    }, {
+        key: 'toJson',
+
+
+        /**
+         * Convert to Json object for api call
+         */
+        value: function toJson() {
+            var business_data_event = this._business_data_event.toJson();
+            var server_event = this._server_event.normalize();
+
+            return Utils$2.constructResponse(server_event, business_data_event);
+        }
+    }, {
+        key: 'event_name',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_event.event_name, this._business_data_event.event_name);
+        }
+
+        /**
+         * Sets the Event Name for the current Event.
+         * @param {String} event_name a Facebook pixel Standard Event or Custom Event name.
+         */
+        ,
+        set: function set(event_name) {
+            this._server_event.event_name = event_name;
+            this._business_data_event.event_name = event_name;
+        }
+    }, {
+        key: 'event_time',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_event.event_time, this._business_data_event.event_time);
+        }
+
+        /**
+         * Sets the Event Time when the current Event happened.
+         * @param {Number} event_time is a Unix timestamp in seconds indicating when the actual event occurred.
+         */
+        ,
+        set: function set(event_time) {
+            this._server_event.event_time = event_time;
+            this._business_data_event.event_time = event_time;
+        }
+    }, {
+        key: 'event_source_url',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_event.event_source_url, null);
+        }
+
+        /**
+         * Sets the browser url source for the current event.
+         * @param {String} event_source_url The browser URL where the event happened.
+         */
+        ,
+        set: function set(event_source_url) {
+            this._server_event.event_source_url = event_source_url;
+        }
+    }, {
+        key: 'event_id',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_event.event_id, this._business_data_event.event_id);
+        }
+
+        /**
+         * Sets the event Id for the current Event.
+         * @param {String} event_id can be any string chosen by the advertiser. This is used with event_name to determine if events are identical for Conversion API.
+         */
+        ,
+        set: function set(event_id) {
+            this._server_event.event_id = event_id;
+            this._business_data_event.event_id = event_id;
+        }
+    }, {
+        key: 'action_source',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_event.action_source, null);
+        }
+
+        /**
+         * Sets the action_source for the current event.
+         * @param {String} action_source represents where the action took place. One of {'physical_store','app','chat','email','other','phone_call','system_generated','website'}
+         */
+        ,
+        set: function set(action_source) {
+            this._server_event.action_source = action_source;
+        }
+    }, {
+        key: 'opt_out',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_event.opt_out, null);
+        }
+
+        /**
+         * Sets the opt_out feature for the current event.
+         * @param {Boolean} opt_out is a boolean flag that indicates we should not use this event for ads delivery optimization. If set to true, we only use the event for attribution.
+         */
+        ,
+        set: function set(opt_out) {
+            this._server_event.opt_out = opt_out;
+        }
+    }, {
+        key: 'user_data',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_event.user_data, this._business_data_event.user_data);
+        }
+
+        /**
+         * Sets the user data objects for Business Data API and Conversion API.
+         * @param user_data contains user data, use SignalUserData to construct
+         */
+        ,
+        set: function set(user_data) {
+            this._server_event.user_data = user_data.server_user_data;
+            this._business_data_event.user_data = user_data.business_data_user_data;
+        }
+    }, {
+        key: 'custom_data',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_event.custom_data, this._business_data_event.custom_data);
+        }
+
+        /**
+         * Sets the custom data objects for Business Data API and Conversion API.
+         * @param custom_data contains custom data, use SignalCustomData to construct
+         */
+        ,
+        set: function set(custom_data) {
+            this._server_event.custom_data = custom_data.server_custom_data;
+            this._business_data_event.custom_data = custom_data.business_data_custom_data;
+        }
+    }, {
+        key: 'data_processing_options',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_event.data_processing_options, this._business_data_event.data_processing_options);
+        }
+
+        /**
+         * Sets the data_processing_options for the current event.
+         * @param {Array<string>} data_processing_options represents Data processing options you would like to enable for a specific event, e.g. [] or ['LDU']
+         */
+        ,
+        set: function set(data_processing_options) {
+            this._server_event.data_processing_options = data_processing_options;
+            this._business_data_event.data_processing_options = data_processing_options;
+        }
+    }, {
+        key: 'data_processing_options_country',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_event.data_processing_options_country, this._business_data_event.data_processing_options_country);
+        }
+
+        /**
+         * Sets the data_processing_options_country for the current event.
+         * @param {number} data_processing_options_country represents country that you want to associate to this data processing option.
+         */
+        ,
+        set: function set(data_processing_options_country) {
+            this._server_event.data_processing_options_country = data_processing_options_country;
+            this._business_data_event.data_processing_options_country = data_processing_options_country;
+        }
+    }, {
+        key: 'data_processing_options_state',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_event.data_processing_options_state, this._business_data_event.data_processing_options_state);
+        }
+
+        /**
+         * Sets the data_processing_options_state for the current event.
+         * @param {number} data_processing_options_state represents state that you want to associate with this data processing option.
+         */
+        ,
+        set: function set(data_processing_options_state) {
+            this._server_event.data_processing_options_state = data_processing_options_state;
+            this._business_data_event.data_processing_options_state = data_processing_options_state;
+        }
+    }, {
+        key: 'business_data_event',
+        get: function get() {
+            return this._business_data_event;
+        }
+
+        /**
+         * Gets the constructed custom data for Business Data API
+         */
+
+    }, {
+        key: 'server_event',
+        get: function get() {
+            return this._server_event;
+        }
+    }]);
+    return Event;
+}();
+
+/**
+ * Copyright (c) 2017-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
+ * 
+ */
+
+/**
+ * EventResponse
+ */
+
+var EventResponse$2 = function () {
+
+    /**
+     * @param {Number} events_received
+     * @param {Number} events_dropped
+     * @param {Array<Object>} message
+     */
+    function EventResponse(events_received, events_dropped) {
+        var message = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [];
+        classCallCheck(this, EventResponse);
+
+        this._events_received = events_received;
+        this._events_dropped = events_dropped;
+        this._message = message;
+    }
+
+    /**
+     * Gets the events received number from the Graph API Response.
+     */
+
+
+    createClass(EventResponse, [{
+        key: "setEventsReceived",
+
+
+        /**
+         * Sets the events received number for the Graph API Response.
+         * events_received is represented by integer.
+         * @param {Number} events_received representing the number of events received for the event Request
+         */
+        value: function setEventsReceived(events_received) {
+            this._events_received = events_received;
+            return this;
+        }
+
+        /**
+         * Gets the events dropped number from the Graph API Response.
+         */
+
+    }, {
+        key: "setEventsDropped",
+
+
+        /**
+         * Sets the events dropped number for the Graph API Response.
+         * events_dropped is represented by integer.
+         * @param {Number} events_dropped representing the number of events dropped during events processing
+         */
+        value: function setEventsDropped(events_dropped) {
+            this._events_dropped = events_dropped;
+            return this;
+        }
+
+        /**
+         * Gets the messages from the response received from Graph API.
+         * @return messages in the event Response
+         */
+
+    }, {
+        key: "setMessage",
+
+
+        /**
+         * Sets the messages as array for the response received from Graph API.
+         * @param {Array} message in the event Response
+         */
+        value: function setMessage(message) {
+            this._message = message;
+            return this;
+        }
+    }, {
+        key: "events_received",
+        get: function get() {
+            return this._events_received;
+        }
+
+        /**
+         * Sets the events received number for the Graph API Response.
+         * events_received is represented by integer.
+         * @param events_received representing the number of events received for the event Request
+         */
+        ,
+        set: function set(events_received) {
+            this._events_received = events_received;
+        }
+    }, {
+        key: "events_dropped",
+        get: function get() {
+            return this._events_dropped;
+        }
+
+        /**
+         * Sets the events dropped number for the Graph API Response.
+         * events_dropped is represented by integer.
+         * @param events_dropped representing the number of events dropped during events processing
+         */
+        ,
+        set: function set(events_dropped) {
+            this._events_dropped = events_dropped;
+        }
+    }, {
+        key: "message",
+        get: function get() {
+            return this._message;
+        }
+
+        /**
+         * Sets the messages as array for the response received from Graph API.
+         * @param message in the event Response
+         */
+        ,
+        set: function set(message) {
+            this._message = message;
+        }
+    }]);
+    return EventResponse;
+}();
+
+/**
+ * Copyright (c) 2017-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
+ * 
+ */
+
+/**
+ * EventRequest for Business Data API
+ */
+
+var EventRequest$3 = function () {
+
+    /**
+     * @param {String} access_token Access Token for the user calling Graph API
+     * @param {String} page_id Page Id to which you are sending the events
+     * @param {Array<Event>} events Data for the request Payload for a Business Data Event
+     * @param {String} partner_agent Platform from which the event is sent e.g. Zapier
+     */
+    function EventRequest(access_token, page_id) {
+        var events = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [];
+        var partner_agent = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
+        classCallCheck(this, EventRequest);
+
+        this._access_token = access_token;
+        this._page_id = page_id;
+        this._events = events;
+        this._partner_agent = partner_agent;
+
+        this._api = FacebookAdsApi.init(this._access_token);
+    }
+
+    /**
+     * Gets the data for the request Payload for a Business Data Event.
+     */
+
+
+    createClass(EventRequest, [{
+        key: 'setEvents',
+
+
+        /**
+         * Sets the events for the request Payload for a Business Data Event.
+         * @param events for the current event
+         */
+        value: function setEvents(events) {
+            this._events = events;
+            return this;
+        }
+
+        /**
+         * Gets the partner_agent for the request
+         * Allows you to specify the platform from which the event is sent e.g. Zapier
+         */
+
+    }, {
+        key: 'setPartnerAgent',
+
+
+        /**
+         * Sets the partner_agent for the request
+         * Allows you to specify the platform from which the event is sent e.g. Zapier
+         * @param {String} partner_agent String value for the partner agent
+         */
+        value: function setPartnerAgent(partner_agent) {
+            this._partner_agent = partner_agent;
+            return this;
+        }
+
+        /**
+         * Gets the access token for the Graph API request
+         */
+
+    }, {
+        key: 'setAccessToken',
+
+
+        /**
+         * Sets the access token for the Graph API request
+         * @param {String} access_token string representing the access token that is used to make the Graph API.
+         */
+        value: function setAccessToken(access_token) {
+            this._access_token = access_token;
+            return this;
+        }
+
+        /**
+         * Gets the page id against which we send the events
+         */
+
+    }, {
+        key: 'setPageId',
+
+
+        /**
+         * Sets the page id against which we send the events
+         * @param {String} page_id string value representing the page id to which you are sending the events.
+         */
+        value: function setPageId(page_id) {
+            this._page_id = page_id;
+            return this;
+        }
+
+        /**
+         * Executes the current event_request data by making a call to the Facebook Graph API.
+         */
+
+    }, {
+        key: 'execute',
+        value: function execute() {
+            var events_json = this._events.map(function (event) {
+                return event.toJson();
+            });
+            var params = {
+                'data': events_json,
+                'partner_agent': this._partner_agent,
+                'access_token': this._access_token
+            };
+
+            var pagePromise = new Page(this._page_id).createBusinessDatum([], params);
+
+            return pagePromise.then(function (response) {
+                return new EventResponse$2(response._data['events_received'], response._data['events_dropped'], response._data['message']);
+            });
+        }
+    }, {
+        key: 'events',
+        get: function get() {
+            return this._events;
+        }
+
+        /**
+         * Sets the events for the request Payload for a Business Data Event.
+         * @param events for the current event
+         */
+        ,
+        set: function set(events) {
+            this._events = events;
+        }
+    }, {
+        key: 'partner_agent',
+        get: function get() {
+            return this._partner_agent;
+        }
+
+        /**
+         * Sets the partner_agent for the request
+         * Allows you to specify the platform from which the event is sent e.g. Zapier
+         * @param {String} partner_agent String value for the partner agent
+         */
+        ,
+        set: function set(partner_agent) {
+            this._partner_agent = partner_agent;
+        }
+    }, {
+        key: 'access_token',
+        get: function get() {
+            return this._access_token;
+        }
+
+        /**
+         * Sets the access token for the Graph API request
+         * @param access_token string representing the access token that is used to make the Graph API.
+         */
+        ,
+        set: function set(access_token) {
+            this._access_token = access_token;
+        }
+    }, {
+        key: 'page_id',
+        get: function get() {
+            return this._page_id;
+        }
+
+        /**
+         * Sets the page id against which we send the events
+         * @param {String} page_id string value representing the page id to which you are sending the events.
+         */
+        ,
+        set: function set(page_id) {
+            this._page_id = page_id;
+        }
+    }]);
+    return EventRequest;
+}();
+
+/**
+ * Copyright (c) 2017-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
+ * 
+ */
+
+/**
+ * EventRequest
+ */
+
+var EventRequest$1 = function () {
+
+    /**
+     * @param {String} access_token Access Token for the user calling Graph API
+     * @param {String} pixel_id Pixel Id to which you are sending the events
+     * @param {String} page_id Page Id to which you are sending the events
+     * @param {Array<SignalEvent>} events Data for the request Payload for a Server Side Event
+     * @param {?String} partner_agent Platform from which the event is sent e.g. wordpress
+     * @param {?String} test_event_code Test Event Code used to verify that your server events are received correctly by Facebook.
+     * @param {?String} namespace_id Scope used to resolve extern_id or Third-party ID. Can be another data set or data partner ID.
+     * @param {?String} upload_id Unique id used to denote the current set being uploaded.
+     * @param {?String} upload_tag Tag string added to track your Offline event uploads.
+     * @param {?String} upload_source The origin/source of data for the dataset to be uploaded.
+     * @param {Boolean} debug_mode_flag Set to true if you want to enable more logging in SDK
+     * @param {?HttpServiceInterface} http_service Override the default http request method by setting an object that implements HttpServiceInterface
+     */
+    function EventRequest$$1(access_token, pixel_id, page_id) {
+        var events = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : [];
+        var partner_agent = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : null;
+        var test_event_code = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : null;
+        var namespace_id = arguments.length > 6 && arguments[6] !== undefined ? arguments[6] : null;
+        var upload_id = arguments.length > 7 && arguments[7] !== undefined ? arguments[7] : null;
+        var upload_tag = arguments.length > 8 && arguments[8] !== undefined ? arguments[8] : null;
+        var upload_source = arguments.length > 9 && arguments[9] !== undefined ? arguments[9] : null;
+        var debug_mode_flag = arguments.length > 10 && arguments[10] !== undefined ? arguments[10] : false;
+        var http_service = arguments.length > 11 && arguments[11] !== undefined ? arguments[11] : null;
+        classCallCheck(this, EventRequest$$1);
+
+        var business_data_events = events.map(function (event) {
+            return event.business_data_event;
+        });
+        this._business_data_event_request = new EventRequest$3(access_token, page_id, business_data_events, partner_agent);
+
+        var server_events = events.map(function (event) {
+            return event.server_event;
+        });
+        this._server_event_request = new EventRequest(access_token, pixel_id, server_events, partner_agent, test_event_code, namespace_id, upload_id, upload_tag, upload_source, debug_mode_flag, http_service);
+    }
+
+    /**
+     * Gets the data for the request Payload for a Server Side Event and Business Data Event.
+     */
+
+
+    createClass(EventRequest$$1, [{
+        key: 'setEvents',
+
+
+        /**
+         * Sets the events for the request Payload for a Server Side Event and Business Data Event.
+         * @param {Array<SignalEvent>} events for the current event
+         */
+        value: function setEvents(events) {
+            var business_data_events = events.map(function (event) {
+                return event.business_data_event;
+            });
+            var server_events = events.map(function (event) {
+                return event.server_event;
+            });
+            this._server_event_request.events = server_events;
+            this._business_data_event_request.events = business_data_events;
+            return this;
+        }
+
+        /**
+         * Gets the partner_agent for the request
+         * Allows you to specify the platform from which the event is sent e.g. wordpress, Zapier
+         */
+
+    }, {
+        key: 'setPartnerAgent',
+
+
+        /**
+         * Sets the partner_agent for the request
+         * Allows you to specify the platform from which the event is sent e.g. wordpress
+         * @param {String} partner_agent String value for the partner agent
+         */
+        value: function setPartnerAgent(partner_agent) {
+            this._server_event_request.partner_agent = partner_agent;
+            this._business_data_event_request.partner_agent = partner_agent;
+            return this;
+        }
+
+        /**
+         * Gets the test_event_code for the request
+         */
+
+    }, {
+        key: 'setTestEventCode',
+
+
+        /**
+         * Sets the test_event_code for the request
+         */
+        value: function setTestEventCode(test_event_code) {
+            this._server_event_request.test_event_code = test_event_code;
+            return this;
+        }
+
+        /**
+         * Gets the debug mode flag for the Graph API request
+         */
+
+    }, {
+        key: 'setDebugMode',
+
+
+        /**
+         * Sets the debug mode flag for the Graph API request
+         * @param {Boolean} debug_mode boolean value representing whether you want to send the request in debug mode to get detailed logging.
+         */
+        value: function setDebugMode(debug_mode) {
+            this._server_event_request.debug_mode = debug_mode;
+            return this;
+        }
+
+        /**
+         * Gets the access token for the Graph API request
+         */
+
+    }, {
+        key: 'setAccessToken',
+
+
+        /**
+         * Sets the access token for the Graph API request
+         * @param {String} access_token string representing the access token that is used to make the Graph API.
+         */
+        value: function setAccessToken(access_token) {
+            this._server_event_request.access_token = access_token;
+            this._business_data_event_request.access_token = access_token;
+            return this;
+        }
+
+        /**
+         * Gets the pixel against which we send the events
+         */
+
+    }, {
+        key: 'setPixelId',
+
+
+        /**
+         * Sets the pixel against which we send the events
+         * @param {String} pixel_id String value for the pixel_id against which you want to send the events.
+         */
+        value: function setPixelId(pixel_id) {
+            this._server_event_request.pixel_id = pixel_id;
+            return this;
+        }
+
+        /* Region Offline Conversion Fields */
+        /**
+         * Gets the NamespaceId for the events
+         */
+
+    }, {
+        key: 'setNamespaceId',
+
+
+        /**
+         * Sets the namespace_id for the events
+         * @param {String} namespace_id Scope used to resolve extern_id or Third-party ID. Can be another data set or data partner ID.
+         */
+        value: function setNamespaceId(namespace_id) {
+            this._server_event_request.namespace_id = namespace_id;
+            return this;
+        }
+
+        /**
+         * Gets the Upload Tag for the current events upload
+         */
+
+    }, {
+        key: 'setUploadTag',
+
+
+        /**
+         * Sets the upload_tag for the current events upload
+         * @param {String} upload_tag Tag string added to Track your Offline event uploads
+         */
+        value: function setUploadTag(upload_tag) {
+            this._server_event_request.upload_tag = upload_tag;
+            return this;
+        }
+
+        /**
+         * Gets the Upload Tag for the current events upload
+         */
+
+    }, {
+        key: 'setUploadId',
+
+
+        /**
+         * Sets the upload_id for the current events upload
+         * @param {String} upload_id Unique id used to denote the current set being uploaded
+         */
+        value: function setUploadId(upload_id) {
+            this._server_event_request.upload_id = upload_id;
+            return this;
+        }
+
+        /**
+         * Gets the Upload Tag for the current events upload
+         */
+
+    }, {
+        key: 'setUploadSource',
+
+
+        /**
+         * Sets the upload_source for the current events upload
+         * @param {String} upload_source origin/source of data for the dataset to be uploaded.
+         */
+        value: function setUploadSource(upload_source) {
+            this._server_event_request.upload_source = upload_source;
+            return this;
+        }
+
+        /**
+         * Gets the http_service object for making the events request
+         */
+
+    }, {
+        key: 'setHttpService',
+
+
+        /**
+         * Sets the http_service object for making the events request
+         * @param {HttpServiceInterface} http_service
+         */
+        value: function setHttpService(http_service) {
+            this._server_event_request.http_service = http_service;
+            return this;
+        }
+
+        /**
+         * Executes the current event_request data by making a call to the Facebook Graph API.
+         */
+
+    }, {
+        key: 'execute',
+        value: function execute() {
+            return Promise.all([this._server_event_request.execute().catch(Error), this._business_data_event_request.execute().catch(Error)]).then(function (response) {
+                return Utils$2.constructResponse(response[0], response[1]);
+            });
+        }
+    }, {
+        key: 'events',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_event_request.events, this._business_data_event_request.events);
+        }
+
+        /**
+         * Sets the events for the request Payload for a Server Side Event and Business Data Event.
+         * @param events for the current event
+         */
+        ,
+        set: function set(events) {
+            var business_data_events = events.map(function (event) {
+                return event.business_data_event;
+            });
+            var server_events = events.map(function (event) {
+                return event.server_event;
+            });
+            this._server_event_request.events = server_events;
+            this._business_data_event_request.events = business_data_events;
+        }
+    }, {
+        key: 'partner_agent',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_event_request.partner_agent, this._business_data_event_request.partner_agent);
+        }
+
+        /**
+         * Sets the partner_agent for the request
+         * Allows you to specify the platform from which the event is sent e.g. wordpress, Zapier
+         * @param {String} partner_agent String value for the partner agent
+         */
+        ,
+        set: function set(partner_agent) {
+            this._server_event_request.partner_agent = partner_agent;
+            this._business_data_event_request.partner_agent = partner_agent;
+        }
+    }, {
+        key: 'test_event_code',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_event_request.partner_agent, null);
+        }
+
+        /**
+         * Sets the test_event_code for the request
+         */
+        ,
+        set: function set(test_event_code) {
+            this._server_event_request.test_event_code = test_event_code;
+        }
+    }, {
+        key: 'debug_mode',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_event_request.debug_mode, null);
+        }
+
+        /**
+         * Sets the debug mode flag for the Graph API request
+         * @param debug_mode boolean value representing whether you want to send the request in debug mode to get detailed logging.
+         */
+        ,
+        set: function set(debug_mode) {
+            this._server_event_request.debug_mode = debug_mode;
+        }
+    }, {
+        key: 'access_token',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_event_request.access_token, this._business_data_event_request.access_token);
+        }
+
+        /**
+         * Sets the access token for the Graph API request
+         * @param access_token string representing the access token that is used to make the Graph API.
+         */
+        ,
+        set: function set(access_token) {
+            this._server_event_request.access_token = access_token;
+            this._business_data_event_request.access_token = access_token;
+        }
+    }, {
+        key: 'pixel_id',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_event_request.pixel, null);
+        }
+
+        /**
+         * Sets the pixel against which we send the events
+         * @param {String} pixel_id string value representing the Pixel's Id to which you are sending the events.
+         */
+        ,
+        set: function set(pixel_id) {
+            this._server_event_request.pixel_id = pixel_id;
+        }
+    }, {
+        key: 'namespace_id',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_event_request.namespace_id, null);
+        }
+
+        /**
+         * Sets the namespace_id for the events
+         * @param {String} namespace_id Scope used to resolve extern_id or Third-party ID. Can be another data set or data partner ID.
+         */
+        ,
+        set: function set(namespace_id) {
+            this._server_event_request.namespace_id = namespace_id;
+        }
+    }, {
+        key: 'upload_tag',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_event_request.upload_tag, null);
+        }
+
+        /**
+         * Sets the upload_tag for the current events upload
+         * @param {String} upload_tag Tag string added to Track your Offline event uploads
+         */
+        ,
+        set: function set(upload_tag) {
+            this._server_event_request.upload_tag = upload_tag;
+        }
+    }, {
+        key: 'upload_id',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_event_request.upload_id, null);
+        }
+
+        /**
+         * Sets the upload_id for the current events upload
+         * @param {String} upload_id Unique id used to denote the current set being uploaded
+         */
+        ,
+        set: function set(upload_id) {
+            this._server_event_request.upload_id = upload_id;
+        }
+    }, {
+        key: 'upload_source',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_event_request.upload_source, null);
+        }
+
+        /**
+         * Sets the upload_source for the current events upload
+         * @param {String} upload_source origin/source of data for the dataset to be uploaded.
+         */
+        ,
+        set: function set(upload_source) {
+            this._server_event_request.upload_source = upload_source;
+        }
+    }, {
+        key: 'http_service',
+        get: function get() {
+            return Utils$2.constructResponse(this._server_event_request.http_service, null);
+        }
+
+        /**
+         * Sets the http_service object for making the events request
+         * @param {HttpServiceInterface} http_service
+         */
+        ,
+        set: function set(http_service) {
+            this._server_event_request.http_service = http_service;
+        }
+    }]);
+    return EventRequest$$1;
+}();
+
+/**
+ * Copyright (c) 2017-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
+ * 
+ */
 /**
  * AdAccountActivity
  * @extends AbstractCrudObject
@@ -26513,87 +32954,6 @@ var AdAccountContentFilterLevelsInheritance = function (_AbstractCrudObject) {
     }
   }]);
   return AdAccountContentFilterLevelsInheritance;
-}(AbstractCrudObject);
-
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the license found in the
- * LICENSE file in the root directory of this source tree.
- * 
- */
-/**
- * AdAccountCreationRequest
- * @extends AbstractCrudObject
- * @see {@link https://developers.facebook.com/docs/marketing-api/}
- */
-
-var AdAccountCreationRequest = function (_AbstractCrudObject) {
-  inherits(AdAccountCreationRequest, _AbstractCrudObject);
-
-  function AdAccountCreationRequest() {
-    classCallCheck(this, AdAccountCreationRequest);
-    return possibleConstructorReturn(this, (AdAccountCreationRequest.__proto__ || Object.getPrototypeOf(AdAccountCreationRequest)).apply(this, arguments));
-  }
-
-  createClass(AdAccountCreationRequest, [{
-    key: 'getAdAccounts',
-    value: function getAdAccounts(fields) {
-      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
-
-      return this.getEdge(AdAccount, fields, params, fetchFirstPage, '/adaccounts');
-    }
-  }, {
-    key: 'get',
-    value: function get(fields) {
-      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-      // $FlowFixMe : Support Generic Types
-      return this.read(fields, params);
-    }
-  }], [{
-    key: 'Fields',
-    get: function get() {
-      return Object.freeze({
-        ad_accounts_currency: 'ad_accounts_currency',
-        ad_accounts_info: 'ad_accounts_info',
-        additional_comment: 'additional_comment',
-        address_in_chinese: 'address_in_chinese',
-        address_in_english: 'address_in_english',
-        address_in_local_language: 'address_in_local_language',
-        advertiser_business: 'advertiser_business',
-        appeal_reason: 'appeal_reason',
-        business: 'business',
-        business_registration_id: 'business_registration_id',
-        chinese_legal_entity_name: 'chinese_legal_entity_name',
-        contact: 'contact',
-        creator: 'creator',
-        credit_card_id: 'credit_card_id',
-        disapproval_reasons: 'disapproval_reasons',
-        english_legal_entity_name: 'english_legal_entity_name',
-        extended_credit_id: 'extended_credit_id',
-        id: 'id',
-        is_smb: 'is_smb',
-        is_test: 'is_test',
-        legal_entity_name_in_local_language: 'legal_entity_name_in_local_language',
-        oe_request_id: 'oe_request_id',
-        official_website_url: 'official_website_url',
-        planning_agency_business: 'planning_agency_business',
-        planning_agency_business_id: 'planning_agency_business_id',
-        promotable_app_ids: 'promotable_app_ids',
-        promotable_page_ids: 'promotable_page_ids',
-        promotable_urls: 'promotable_urls',
-        request_change_reasons: 'request_change_reasons',
-        status: 'status',
-        subvertical: 'subvertical',
-        time_created: 'time_created',
-        vertical: 'vertical'
-      });
-    }
-  }]);
-  return AdAccountCreationRequest;
 }(AbstractCrudObject);
 
 /**
@@ -26821,6 +33181,7 @@ var AdAssetFeedSpec = function (_AbstractCrudObject) {
         groups: 'groups',
         images: 'images',
         link_urls: 'link_urls',
+        onsite_destinations: 'onsite_destinations',
         optimization_type: 'optimization_type',
         posts: 'posts',
         titles: 'titles',
@@ -26871,20 +33232,26 @@ var AdAssetFeedSpec = function (_AbstractCrudObject) {
         play_game: 'PLAY_GAME',
         purchase_gift_cards: 'PURCHASE_GIFT_CARDS',
         record_now: 'RECORD_NOW',
+        refer_friends: 'REFER_FRIENDS',
         request_time: 'REQUEST_TIME',
         say_thanks: 'SAY_THANKS',
         see_more: 'SEE_MORE',
         sell_now: 'SELL_NOW',
         send_a_gift: 'SEND_A_GIFT',
+        send_gift_money: 'SEND_GIFT_MONEY',
         share: 'SHARE',
         shop_now: 'SHOP_NOW',
         sign_up: 'SIGN_UP',
         sotto_subscribe: 'SOTTO_SUBSCRIBE',
+        start_order: 'START_ORDER',
         subscribe: 'SUBSCRIBE',
+        swipe_up_product: 'SWIPE_UP_PRODUCT',
+        swipe_up_shop: 'SWIPE_UP_SHOP',
         update_app: 'UPDATE_APP',
         use_app: 'USE_APP',
         use_mobile_app: 'USE_MOBILE_APP',
         video_annotation: 'VIDEO_ANNOTATION',
+        video_call: 'VIDEO_CALL',
         visit_pages_feed: 'VISIT_PAGES_FEED',
         watch_more: 'WATCH_MORE',
         watch_video: 'WATCH_VIDEO',
@@ -27365,6 +33732,8 @@ var AdCampaignActivity = function (_AbstractCrudObject) {
         optimization_goal_old: 'optimization_goal_old',
         pacing_type_new: 'pacing_type_new',
         pacing_type_old: 'pacing_type_old',
+        promoted_object_id_new: 'promoted_object_id_new',
+        promoted_object_id_old: 'promoted_object_id_old',
         run_status_new: 'run_status_new',
         run_status_old: 'run_status_old',
         schedule_new: 'schedule_new',
@@ -27377,6 +33746,8 @@ var AdCampaignActivity = function (_AbstractCrudObject) {
         stop_time_old: 'stop_time_old',
         targeting_expansion_new: 'targeting_expansion_new',
         targeting_expansion_old: 'targeting_expansion_old',
+        targeting_new: 'targeting_new',
+        targeting_old: 'targeting_old',
         updated_time_new: 'updated_time_new',
         updated_time_old: 'updated_time_old'
       });
@@ -27387,8 +33758,7 @@ var AdCampaignActivity = function (_AbstractCrudObject) {
       return Object.freeze({
         cost_cap: 'COST_CAP',
         lowest_cost_without_cap: 'LOWEST_COST_WITHOUT_CAP',
-        lowest_cost_with_bid_cap: 'LOWEST_COST_WITH_BID_CAP',
-        target_cost: 'TARGET_COST'
+        lowest_cost_with_bid_cap: 'LOWEST_COST_WITH_BID_CAP'
       });
     }
   }, {
@@ -27397,8 +33767,7 @@ var AdCampaignActivity = function (_AbstractCrudObject) {
       return Object.freeze({
         cost_cap: 'COST_CAP',
         lowest_cost_without_cap: 'LOWEST_COST_WITHOUT_CAP',
-        lowest_cost_with_bid_cap: 'LOWEST_COST_WITH_BID_CAP',
-        target_cost: 'TARGET_COST'
+        lowest_cost_with_bid_cap: 'LOWEST_COST_WITH_BID_CAP'
       });
     }
   }, {
@@ -27409,10 +33778,12 @@ var AdCampaignActivity = function (_AbstractCrudObject) {
         clicks: 'CLICKS',
         impressions: 'IMPRESSIONS',
         link_clicks: 'LINK_CLICKS',
+        listing_interaction: 'LISTING_INTERACTION',
         none: 'NONE',
         offer_claims: 'OFFER_CLAIMS',
         page_likes: 'PAGE_LIKES',
         post_engagement: 'POST_ENGAGEMENT',
+        purchase: 'PURCHASE',
         thruplay: 'THRUPLAY'
       });
     }
@@ -27424,10 +33795,12 @@ var AdCampaignActivity = function (_AbstractCrudObject) {
         clicks: 'CLICKS',
         impressions: 'IMPRESSIONS',
         link_clicks: 'LINK_CLICKS',
+        listing_interaction: 'LISTING_INTERACTION',
         none: 'NONE',
         offer_claims: 'OFFER_CLAIMS',
         page_likes: 'PAGE_LIKES',
         post_engagement: 'POST_ENGAGEMENT',
+        purchase: 'PURCHASE',
         thruplay: 'THRUPLAY'
       });
     }
@@ -27453,6 +33826,7 @@ var AdCampaignActivity = function (_AbstractCrudObject) {
         page_engagement: 'PAGE_ENGAGEMENT',
         page_likes: 'PAGE_LIKES',
         post_engagement: 'POST_ENGAGEMENT',
+        quality_call: 'QUALITY_CALL',
         quality_lead: 'QUALITY_LEAD',
         reach: 'REACH',
         replies: 'REPLIES',
@@ -27485,6 +33859,7 @@ var AdCampaignActivity = function (_AbstractCrudObject) {
         page_engagement: 'PAGE_ENGAGEMENT',
         page_likes: 'PAGE_LIKES',
         post_engagement: 'POST_ENGAGEMENT',
+        quality_call: 'QUALITY_CALL',
         quality_lead: 'QUALITY_LEAD',
         reach: 'REACH',
         replies: 'REPLIES',
@@ -27932,37 +34307,6 @@ var AdCreativeCollectionThumbnailInfo = function (_AbstractCrudObject) {
  * 
  */
 /**
- * AdCreativeInstagramBrandedContent
- * @extends AbstractCrudObject
- * @see {@link https://developers.facebook.com/docs/marketing-api/}
- */
-
-var AdCreativeInstagramBrandedContent = function (_AbstractCrudObject) {
-  inherits(AdCreativeInstagramBrandedContent, _AbstractCrudObject);
-
-  function AdCreativeInstagramBrandedContent() {
-    classCallCheck(this, AdCreativeInstagramBrandedContent);
-    return possibleConstructorReturn(this, (AdCreativeInstagramBrandedContent.__proto__ || Object.getPrototypeOf(AdCreativeInstagramBrandedContent)).apply(this, arguments));
-  }
-
-  createClass(AdCreativeInstagramBrandedContent, null, [{
-    key: 'Fields',
-    get: function get() {
-      return Object.freeze({});
-    }
-  }]);
-  return AdCreativeInstagramBrandedContent;
-}(AbstractCrudObject);
-
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the license found in the
- * LICENSE file in the root directory of this source tree.
- * 
- */
-/**
  * AdCreativeInteractiveComponentsSpec
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
@@ -28180,20 +34524,26 @@ var AdCreativeLinkDataCallToAction = function (_AbstractCrudObject) {
         play_game: 'PLAY_GAME',
         purchase_gift_cards: 'PURCHASE_GIFT_CARDS',
         record_now: 'RECORD_NOW',
+        refer_friends: 'REFER_FRIENDS',
         request_time: 'REQUEST_TIME',
         say_thanks: 'SAY_THANKS',
         see_more: 'SEE_MORE',
         sell_now: 'SELL_NOW',
         send_a_gift: 'SEND_A_GIFT',
+        send_gift_money: 'SEND_GIFT_MONEY',
         share: 'SHARE',
         shop_now: 'SHOP_NOW',
         sign_up: 'SIGN_UP',
         sotto_subscribe: 'SOTTO_SUBSCRIBE',
+        start_order: 'START_ORDER',
         subscribe: 'SUBSCRIBE',
+        swipe_up_product: 'SWIPE_UP_PRODUCT',
+        swipe_up_shop: 'SWIPE_UP_SHOP',
         update_app: 'UPDATE_APP',
         use_app: 'USE_APP',
         use_mobile_app: 'USE_MOBILE_APP',
         video_annotation: 'VIDEO_ANNOTATION',
+        video_call: 'VIDEO_CALL',
         visit_pages_feed: 'VISIT_PAGES_FEED',
         watch_more: 'WATCH_MORE',
         watch_video: 'WATCH_VIDEO',
@@ -28644,6 +34994,40 @@ var AdCreativeObjectStorySpec = function (_AbstractCrudObject) {
  * 
  */
 /**
+ * AdCreativeOmnichannelLinkSpec
+ * @extends AbstractCrudObject
+ * @see {@link https://developers.facebook.com/docs/marketing-api/}
+ */
+
+var AdCreativeOmnichannelLinkSpec = function (_AbstractCrudObject) {
+  inherits(AdCreativeOmnichannelLinkSpec, _AbstractCrudObject);
+
+  function AdCreativeOmnichannelLinkSpec() {
+    classCallCheck(this, AdCreativeOmnichannelLinkSpec);
+    return possibleConstructorReturn(this, (AdCreativeOmnichannelLinkSpec.__proto__ || Object.getPrototypeOf(AdCreativeOmnichannelLinkSpec)).apply(this, arguments));
+  }
+
+  createClass(AdCreativeOmnichannelLinkSpec, null, [{
+    key: 'Fields',
+    get: function get() {
+      return Object.freeze({
+        app: 'app',
+        web: 'web'
+      });
+    }
+  }]);
+  return AdCreativeOmnichannelLinkSpec;
+}(AbstractCrudObject);
+
+/**
+ * Copyright (c) 2017-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
+ * 
+ */
+/**
  * AdCreativePhotoData
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
@@ -28806,6 +35190,7 @@ var AdCreativePortraitCustomizations = function (_AbstractCrudObject) {
     key: 'Fields',
     get: function get() {
       return Object.freeze({
+        carousel_delivery_mode: 'carousel_delivery_mode',
         specifications: 'specifications'
       });
     }
@@ -29541,13 +35926,22 @@ var AdRuleEvaluationSpec = function (_AbstractCrudObject) {
     return possibleConstructorReturn(this, (AdRuleEvaluationSpec.__proto__ || Object.getPrototypeOf(AdRuleEvaluationSpec)).apply(this, arguments));
   }
 
-  createClass(AdRuleEvaluationSpec, null, [{
+  createClass(AdRuleEvaluationSpec, [{
+    key: 'get',
+    value: function get(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+      // $FlowFixMe : Support Generic Types
+      return this.read(fields, params);
+    }
+  }], [{
     key: 'Fields',
     get: function get() {
       return Object.freeze({
         evaluation_type: 'evaluation_type',
         filters: 'filters',
-        trigger: 'trigger'
+        trigger: 'trigger',
+        id: 'id'
       });
     }
   }, {
@@ -29627,27 +36021,40 @@ var AdRuleExecutionSpec = function (_AbstractCrudObject) {
     return possibleConstructorReturn(this, (AdRuleExecutionSpec.__proto__ || Object.getPrototypeOf(AdRuleExecutionSpec)).apply(this, arguments));
   }
 
-  createClass(AdRuleExecutionSpec, null, [{
+  createClass(AdRuleExecutionSpec, [{
+    key: 'get',
+    value: function get(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+      // $FlowFixMe : Support Generic Types
+      return this.read(fields, params);
+    }
+  }], [{
     key: 'Fields',
     get: function get() {
       return Object.freeze({
         execution_options: 'execution_options',
-        execution_type: 'execution_type'
+        execution_type: 'execution_type',
+        id: 'id'
       });
     }
   }, {
     key: 'ExecutionType',
     get: function get() {
       return Object.freeze({
+        add_interest_relaxation: 'ADD_INTEREST_RELAXATION',
+        add_questionnaire_interests: 'ADD_QUESTIONNAIRE_INTERESTS',
         change_bid: 'CHANGE_BID',
         change_budget: 'CHANGE_BUDGET',
         change_campaign_budget: 'CHANGE_CAMPAIGN_BUDGET',
+        increase_radius: 'INCREASE_RADIUS',
         notification: 'NOTIFICATION',
         pause: 'PAUSE',
         ping_endpoint: 'PING_ENDPOINT',
         rebalance_budget: 'REBALANCE_BUDGET',
         rotate: 'ROTATE',
-        unpause: 'UNPAUSE'
+        unpause: 'UNPAUSE',
+        update_creative: 'UPDATE_CREATIVE'
       });
     }
   }]);
@@ -30036,8 +36443,8 @@ var AdgroupActivity = function (_AbstractCrudObject) {
         stop_time_old: 'stop_time_old',
         target_spec_id_new: 'target_spec_id_new',
         target_spec_id_old: 'target_spec_id_old',
-        tracking_pixel_ids_new: 'tracking_pixel_ids_new',
-        tracking_pixel_ids_old: 'tracking_pixel_ids_old',
+        targets_spec_new: 'targets_spec_new',
+        targets_spec_old: 'targets_spec_old',
         tracking_specs_new: 'tracking_specs_new',
         tracking_specs_old: 'tracking_specs_old',
         update_time_new: 'update_time_new',
@@ -30178,6 +36585,7 @@ var AdgroupPlacementSpecificReviewFeedback = function (_AbstractCrudObject) {
         facebook_pages_live_shopping: 'facebook_pages_live_shopping',
         instagram: 'instagram',
         instagram_shop: 'instagram_shop',
+        job_search: 'job_search',
         lead_gen_honeypot: 'lead_gen_honeypot',
         marketplace: 'marketplace',
         marketplace_home_rentals: 'marketplace_home_rentals',
@@ -30292,6 +36700,22 @@ var AdoptablePet = function (_AbstractCrudObject) {
   }
 
   createClass(AdoptablePet, [{
+    key: 'getAugmentedRealitiesMetadata',
+    value: function getAugmentedRealitiesMetadata(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+      return this.getEdge(AbstractObject, fields, params, fetchFirstPage, '/augmented_realities_metadata');
+    }
+  }, {
+    key: 'getVideosMetadata',
+    value: function getVideosMetadata(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+      return this.getEdge(AbstractObject, fields, params, fetchFirstPage, '/videos_metadata');
+    }
+  }, {
     key: 'get',
     value: function get(fields) {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
@@ -30312,18 +36736,38 @@ var AdoptablePet = function (_AbstractCrudObject) {
         availability: 'availability',
         breed: 'breed',
         category_specific_fields: 'category_specific_fields',
+        coat_length: 'coat_length',
+        color: 'color',
         currency: 'currency',
         description: 'description',
+        features: 'features',
         gender: 'gender',
         id: 'id',
+        image_fetch_status: 'image_fetch_status',
         images: 'images',
         name: 'name',
         price: 'price',
         sanitized_images: 'sanitized_images',
+        secondary_color: 'secondary_color',
+        shelter_email: 'shelter_email',
         shelter_name: 'shelter_name',
         shelter_page_id: 'shelter_page_id',
+        shelter_phone: 'shelter_phone',
         size: 'size',
+        tertiary_color: 'tertiary_color',
         url: 'url'
+      });
+    }
+  }, {
+    key: 'ImageFetchStatus',
+    get: function get() {
+      return Object.freeze({
+        direct_upload: 'DIRECT_UPLOAD',
+        fetched: 'FETCHED',
+        fetch_failed: 'FETCH_FAILED',
+        no_status: 'NO_STATUS',
+        outdated: 'OUTDATED',
+        partial_fetch: 'PARTIAL_FETCH'
       });
     }
   }]);
@@ -30362,10 +36806,12 @@ var AdsActionStats = function (_AbstractCrudObject) {
         value_28d_view: '28d_view',
         value_7d_click: '7d_click',
         value_7d_view: '7d_view',
+        action_brand: 'action_brand',
         action_canvas_component_id: 'action_canvas_component_id',
         action_canvas_component_name: 'action_canvas_component_name',
         action_carousel_card_id: 'action_carousel_card_id',
         action_carousel_card_name: 'action_carousel_card_name',
+        action_category: 'action_category',
         action_converted_product_id: 'action_converted_product_id',
         action_destination: 'action_destination',
         action_device: 'action_device',
@@ -30952,6 +37398,7 @@ var CPASParentCatalogSettings = function (_AbstractCrudObject) {
       return Object.freeze({
         attribution_windows: 'attribution_windows',
         default_currency: 'default_currency',
+        disable_use_as_parent_catalog: 'disable_use_as_parent_catalog',
         id: 'id'
       });
     }
@@ -31260,11 +37707,11 @@ var CatalogSubVerticalList = function (_AbstractCrudObject) {
         clo_offer: 'clo_offer',
         clothing: 'clothing',
         clothing_accessories: 'clothing_accessories',
-        clothing_group: 'clothing_group',
         computer_components: 'computer_components',
         computers_and_tablets: 'computers_and_tablets',
         computers_laptops_and_tablets: 'computers_laptops_and_tablets',
         diapering_and_potty_training: 'diapering_and_potty_training',
+        digital_product_offer: 'digital_product_offer',
         electronic_accessories_and_cables: 'electronic_accessories_and_cables',
         electronics_accessories: 'electronics_accessories',
         furniture: 'furniture',
@@ -31274,6 +37721,8 @@ var CatalogSubVerticalList = function (_AbstractCrudObject) {
         household_and_cleaning_supplies: 'household_and_cleaning_supplies',
         jewelry: 'jewelry',
         large_appliances: 'large_appliances',
+        local_service_business_item: 'local_service_business_item',
+        local_service_business_restaurant: 'local_service_business_restaurant',
         loyalty_offer: 'loyalty_offer',
         meetup_space: 'meetup_space',
         nursery: 'nursery',
@@ -31439,6 +37888,39 @@ var ConnectionsTargeting = function (_AbstractCrudObject) {
     }
   }]);
   return ConnectionsTargeting;
+}(AbstractCrudObject);
+
+/**
+ * Copyright (c) 2017-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
+ * 
+ */
+/**
+ * ContextualBundlingSpec
+ * @extends AbstractCrudObject
+ * @see {@link https://developers.facebook.com/docs/marketing-api/}
+ */
+
+var ContextualBundlingSpec = function (_AbstractCrudObject) {
+  inherits(ContextualBundlingSpec, _AbstractCrudObject);
+
+  function ContextualBundlingSpec() {
+    classCallCheck(this, ContextualBundlingSpec);
+    return possibleConstructorReturn(this, (ContextualBundlingSpec.__proto__ || Object.getPrototypeOf(ContextualBundlingSpec)).apply(this, arguments));
+  }
+
+  createClass(ContextualBundlingSpec, null, [{
+    key: 'Fields',
+    get: function get() {
+      return Object.freeze({
+        status: 'status'
+      });
+    }
+  }]);
+  return ContextualBundlingSpec;
 }(AbstractCrudObject);
 
 /**
@@ -31804,6 +38286,7 @@ var CustomAudienceDataSource = function (_AbstractCrudObject) {
         expanded_audience: 'EXPANDED_AUDIENCE',
         external_ids: 'EXTERNAL_IDS',
         external_ids_mix: 'EXTERNAL_IDS_MIX',
+        facebook_wifi_events: 'FACEBOOK_WIFI_EVENTS',
         fb_event_signals: 'FB_EVENT_SIGNALS',
         fb_pixel_hits: 'FB_PIXEL_HITS',
         hashes: 'HASHES',
@@ -32035,6 +38518,290 @@ var DeliveryCheckExtraInfo = function (_AbstractCrudObject) {
     }
   }]);
   return DeliveryCheckExtraInfo;
+}(AbstractCrudObject);
+
+/**
+ * Copyright (c) 2017-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
+ * 
+ */
+/**
+ * DeliveryWindow
+ * @extends AbstractCrudObject
+ * @see {@link https://developers.facebook.com/docs/marketing-api/}
+ */
+
+var DeliveryWindow = function (_AbstractCrudObject) {
+  inherits(DeliveryWindow, _AbstractCrudObject);
+
+  function DeliveryWindow() {
+    classCallCheck(this, DeliveryWindow);
+    return possibleConstructorReturn(this, (DeliveryWindow.__proto__ || Object.getPrototypeOf(DeliveryWindow)).apply(this, arguments));
+  }
+
+  createClass(DeliveryWindow, null, [{
+    key: 'Fields',
+    get: function get() {
+      return Object.freeze({
+        ad: 'ad',
+        ae: 'ae',
+        af: 'af',
+        ag: 'ag',
+        ai: 'ai',
+        al: 'al',
+        all: 'all',
+        am: 'am',
+        an: 'an',
+        ao: 'ao',
+        aq: 'aq',
+        ar: 'ar',
+        as: 'as',
+        at: 'at',
+        au: 'au',
+        aw: 'aw',
+        ax: 'ax',
+        az: 'az',
+        ba: 'ba',
+        bb: 'bb',
+        bd: 'bd',
+        be: 'be',
+        bf: 'bf',
+        bg: 'bg',
+        bh: 'bh',
+        bi: 'bi',
+        bj: 'bj',
+        bl: 'bl',
+        bm: 'bm',
+        bn: 'bn',
+        bo: 'bo',
+        bq: 'bq',
+        br: 'br',
+        bs: 'bs',
+        bt: 'bt',
+        bv: 'bv',
+        bw: 'bw',
+        by: 'by',
+        bz: 'bz',
+        ca: 'ca',
+        cc: 'cc',
+        cd: 'cd',
+        cf: 'cf',
+        cg: 'cg',
+        ch: 'ch',
+        ci: 'ci',
+        ck: 'ck',
+        cl: 'cl',
+        cm: 'cm',
+        cn: 'cn',
+        co: 'co',
+        cr: 'cr',
+        cu: 'cu',
+        cv: 'cv',
+        cw: 'cw',
+        cx: 'cx',
+        cy: 'cy',
+        cz: 'cz',
+        de: 'de',
+        dj: 'dj',
+        dk: 'dk',
+        dm: 'dm',
+        do: 'do',
+        dz: 'dz',
+        ec: 'ec',
+        ee: 'ee',
+        eg: 'eg',
+        eh: 'eh',
+        er: 'er',
+        es: 'es',
+        et: 'et',
+        fi: 'fi',
+        fj: 'fj',
+        fk: 'fk',
+        fm: 'fm',
+        fo: 'fo',
+        fr: 'fr',
+        ga: 'ga',
+        gb: 'gb',
+        gd: 'gd',
+        ge: 'ge',
+        gf: 'gf',
+        gg: 'gg',
+        gh: 'gh',
+        gi: 'gi',
+        gl: 'gl',
+        gm: 'gm',
+        gn: 'gn',
+        gp: 'gp',
+        gq: 'gq',
+        gr: 'gr',
+        gs: 'gs',
+        gt: 'gt',
+        gu: 'gu',
+        gw: 'gw',
+        gy: 'gy',
+        hk: 'hk',
+        hm: 'hm',
+        hn: 'hn',
+        hr: 'hr',
+        ht: 'ht',
+        hu: 'hu',
+        id: 'id',
+        ie: 'ie',
+        il: 'il',
+        im: 'im',
+        in: 'in',
+        io: 'io',
+        iq: 'iq',
+        ir: 'ir',
+        is: 'is',
+        it: 'it',
+        je: 'je',
+        jm: 'jm',
+        jo: 'jo',
+        jp: 'jp',
+        ke: 'ke',
+        kg: 'kg',
+        kh: 'kh',
+        ki: 'ki',
+        km: 'km',
+        kn: 'kn',
+        kp: 'kp',
+        kr: 'kr',
+        kw: 'kw',
+        ky: 'ky',
+        kz: 'kz',
+        la: 'la',
+        lb: 'lb',
+        lc: 'lc',
+        li: 'li',
+        lk: 'lk',
+        lr: 'lr',
+        ls: 'ls',
+        lt: 'lt',
+        lu: 'lu',
+        lv: 'lv',
+        ly: 'ly',
+        ma: 'ma',
+        mc: 'mc',
+        md: 'md',
+        me: 'me',
+        mf: 'mf',
+        mg: 'mg',
+        mh: 'mh',
+        mk: 'mk',
+        ml: 'ml',
+        mm: 'mm',
+        mn: 'mn',
+        mo: 'mo',
+        mp: 'mp',
+        mq: 'mq',
+        mr: 'mr',
+        ms: 'ms',
+        mt: 'mt',
+        mu: 'mu',
+        mv: 'mv',
+        mw: 'mw',
+        mx: 'mx',
+        my: 'my',
+        mz: 'mz',
+        na: 'na',
+        nc: 'nc',
+        ne: 'ne',
+        nf: 'nf',
+        ng: 'ng',
+        ni: 'ni',
+        nl: 'nl',
+        no: 'no',
+        np: 'np',
+        nr: 'nr',
+        nu: 'nu',
+        nz: 'nz',
+        om: 'om',
+        pa: 'pa',
+        pe: 'pe',
+        pf: 'pf',
+        pg: 'pg',
+        ph: 'ph',
+        pk: 'pk',
+        pl: 'pl',
+        pm: 'pm',
+        pn: 'pn',
+        pr: 'pr',
+        ps: 'ps',
+        pt: 'pt',
+        pw: 'pw',
+        py: 'py',
+        qa: 'qa',
+        re: 're',
+        ro: 'ro',
+        rs: 'rs',
+        ru: 'ru',
+        rw: 'rw',
+        sa: 'sa',
+        sb: 'sb',
+        sc: 'sc',
+        sd: 'sd',
+        se: 'se',
+        sg: 'sg',
+        sh: 'sh',
+        si: 'si',
+        sj: 'sj',
+        sk: 'sk',
+        sl: 'sl',
+        sm: 'sm',
+        sn: 'sn',
+        so: 'so',
+        sr: 'sr',
+        ss: 'ss',
+        st: 'st',
+        sv: 'sv',
+        sx: 'sx',
+        sy: 'sy',
+        sz: 'sz',
+        tc: 'tc',
+        td: 'td',
+        tf: 'tf',
+        tg: 'tg',
+        th: 'th',
+        tj: 'tj',
+        tk: 'tk',
+        tl: 'tl',
+        tm: 'tm',
+        tn: 'tn',
+        to: 'to',
+        tr: 'tr',
+        tt: 'tt',
+        tv: 'tv',
+        tw: 'tw',
+        tz: 'tz',
+        ua: 'ua',
+        ug: 'ug',
+        um: 'um',
+        us: 'us',
+        uy: 'uy',
+        uz: 'uz',
+        va: 'va',
+        vc: 'vc',
+        ve: 've',
+        vg: 'vg',
+        vi: 'vi',
+        vn: 'vn',
+        vu: 'vu',
+        wf: 'wf',
+        ws: 'ws',
+        xk: 'xk',
+        ye: 'ye',
+        yt: 'yt',
+        za: 'za',
+        zm: 'zm',
+        zw: 'zw'
+      });
+    }
+  }]);
+  return DeliveryWindow;
 }(AbstractCrudObject);
 
 /**
@@ -32433,50 +39200,6 @@ var FlexibleTargeting = function (_AbstractCrudObject) {
  * 
  */
 /**
- * FriendList
- * @extends AbstractCrudObject
- * @see {@link https://developers.facebook.com/docs/marketing-api/}
- */
-
-var FriendList = function (_AbstractCrudObject) {
-  inherits(FriendList, _AbstractCrudObject);
-
-  function FriendList() {
-    classCallCheck(this, FriendList);
-    return possibleConstructorReturn(this, (FriendList.__proto__ || Object.getPrototypeOf(FriendList)).apply(this, arguments));
-  }
-
-  createClass(FriendList, [{
-    key: 'get',
-    value: function get(fields) {
-      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-      // $FlowFixMe : Support Generic Types
-      return this.read(fields, params);
-    }
-  }], [{
-    key: 'Fields',
-    get: function get() {
-      return Object.freeze({
-        id: 'id',
-        list_type: 'list_type',
-        name: 'name',
-        owner: 'owner'
-      });
-    }
-  }]);
-  return FriendList;
-}(AbstractCrudObject);
-
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the license found in the
- * LICENSE file in the root directory of this source tree.
- * 
- */
-/**
  * FundingSourceDetails
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
@@ -32572,373 +39295,6 @@ var IDName = function (_AbstractCrudObject) {
     }
   }]);
   return IDName;
-}(AbstractCrudObject);
-
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the license found in the
- * LICENSE file in the root directory of this source tree.
- * 
- */
-/**
- * IGComment
- * @extends AbstractCrudObject
- * @see {@link https://developers.facebook.com/docs/marketing-api/}
- */
-
-var IGComment = function (_AbstractCrudObject) {
-  inherits(IGComment, _AbstractCrudObject);
-
-  function IGComment() {
-    classCallCheck(this, IGComment);
-    return possibleConstructorReturn(this, (IGComment.__proto__ || Object.getPrototypeOf(IGComment)).apply(this, arguments));
-  }
-
-  createClass(IGComment, [{
-    key: 'getReplies',
-    value: function getReplies(fields) {
-      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
-
-      return this.getEdge(IGComment, fields, params, fetchFirstPage, '/replies');
-    }
-  }, {
-    key: 'createReply',
-    value: function createReply(fields) {
-      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-      return this.createEdge('/replies', fields, params, IGComment);
-    }
-
-    // $FlowFixMe : Support Generic Types
-
-  }, {
-    key: 'delete',
-    value: function _delete(fields) {
-      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-      // $FlowFixMe : Support Generic Types
-      return get$1(IGComment.prototype.__proto__ || Object.getPrototypeOf(IGComment.prototype), 'delete', this).call(this, params);
-    }
-  }, {
-    key: 'get',
-    value: function get(fields) {
-      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-      // $FlowFixMe : Support Generic Types
-      return this.read(fields, params);
-    }
-
-    // $FlowFixMe : Support Generic Types
-
-  }, {
-    key: 'update',
-    value: function update(fields) {
-      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-      // $FlowFixMe : Support Generic Types
-      return get$1(IGComment.prototype.__proto__ || Object.getPrototypeOf(IGComment.prototype), 'update', this).call(this, params);
-    }
-  }], [{
-    key: 'Fields',
-    get: function get() {
-      return Object.freeze({
-        hidden: 'hidden',
-        id: 'id',
-        like_count: 'like_count',
-        media: 'media',
-        text: 'text',
-        timestamp: 'timestamp',
-        user: 'user',
-        username: 'username'
-      });
-    }
-  }]);
-  return IGComment;
-}(AbstractCrudObject);
-
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the license found in the
- * LICENSE file in the root directory of this source tree.
- * 
- */
-/**
- * InstagramInsightsResult
- * @extends AbstractCrudObject
- * @see {@link https://developers.facebook.com/docs/marketing-api/}
- */
-
-var InstagramInsightsResult = function (_AbstractCrudObject) {
-  inherits(InstagramInsightsResult, _AbstractCrudObject);
-
-  function InstagramInsightsResult() {
-    classCallCheck(this, InstagramInsightsResult);
-    return possibleConstructorReturn(this, (InstagramInsightsResult.__proto__ || Object.getPrototypeOf(InstagramInsightsResult)).apply(this, arguments));
-  }
-
-  createClass(InstagramInsightsResult, null, [{
-    key: 'Fields',
-    get: function get() {
-      return Object.freeze({
-        description: 'description',
-        id: 'id',
-        name: 'name',
-        period: 'period',
-        title: 'title',
-        values: 'values'
-      });
-    }
-  }, {
-    key: 'Metric',
-    get: function get() {
-      return Object.freeze({
-        carousel_album_engagement: 'carousel_album_engagement',
-        carousel_album_impressions: 'carousel_album_impressions',
-        carousel_album_reach: 'carousel_album_reach',
-        carousel_album_saved: 'carousel_album_saved',
-        carousel_album_video_views: 'carousel_album_video_views',
-        engagement: 'engagement',
-        exits: 'exits',
-        impressions: 'impressions',
-        reach: 'reach',
-        replies: 'replies',
-        saved: 'saved',
-        taps_back: 'taps_back',
-        taps_forward: 'taps_forward',
-        video_views: 'video_views'
-      });
-    }
-  }, {
-    key: 'Period',
-    get: function get() {
-      return Object.freeze({
-        day: 'day',
-        days_28: 'days_28',
-        lifetime: 'lifetime',
-        month: 'month',
-        week: 'week'
-      });
-    }
-  }]);
-  return InstagramInsightsResult;
-}(AbstractCrudObject);
-
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the license found in the
- * LICENSE file in the root directory of this source tree.
- * 
- */
-/**
- * IGMedia
- * @extends AbstractCrudObject
- * @see {@link https://developers.facebook.com/docs/marketing-api/}
- */
-
-var IGMedia = function (_AbstractCrudObject) {
-  inherits(IGMedia, _AbstractCrudObject);
-
-  function IGMedia() {
-    classCallCheck(this, IGMedia);
-    return possibleConstructorReturn(this, (IGMedia.__proto__ || Object.getPrototypeOf(IGMedia)).apply(this, arguments));
-  }
-
-  createClass(IGMedia, [{
-    key: 'getChildren',
-    value: function getChildren(fields) {
-      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
-
-      return this.getEdge(IGMedia, fields, params, fetchFirstPage, '/children');
-    }
-  }, {
-    key: 'getComments',
-    value: function getComments(fields) {
-      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
-
-      return this.getEdge(IGComment, fields, params, fetchFirstPage, '/comments');
-    }
-  }, {
-    key: 'createComment',
-    value: function createComment(fields) {
-      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-      return this.createEdge('/comments', fields, params, IGComment);
-    }
-  }, {
-    key: 'getInsights',
-    value: function getInsights(fields) {
-      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
-
-      return this.getEdge(InstagramInsightsResult, fields, params, fetchFirstPage, '/insights');
-    }
-  }, {
-    key: 'get',
-    value: function get(fields) {
-      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-      // $FlowFixMe : Support Generic Types
-      return this.read(fields, params);
-    }
-
-    // $FlowFixMe : Support Generic Types
-
-  }, {
-    key: 'update',
-    value: function update(fields) {
-      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-      // $FlowFixMe : Support Generic Types
-      return get$1(IGMedia.prototype.__proto__ || Object.getPrototypeOf(IGMedia.prototype), 'update', this).call(this, params);
-    }
-  }], [{
-    key: 'Fields',
-    get: function get() {
-      return Object.freeze({
-        alt_text: 'alt_text',
-        caption: 'caption',
-        comments_count: 'comments_count',
-        id: 'id',
-        ig_id: 'ig_id',
-        is_comment_enabled: 'is_comment_enabled',
-        like_count: 'like_count',
-        media_type: 'media_type',
-        media_url: 'media_url',
-        owner: 'owner',
-        permalink: 'permalink',
-        shortcode: 'shortcode',
-        thumbnail_url: 'thumbnail_url',
-        timestamp: 'timestamp',
-        username: 'username'
-      });
-    }
-  }]);
-  return IGMedia;
-}(AbstractCrudObject);
-
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the license found in the
- * LICENSE file in the root directory of this source tree.
- * 
- */
-/**
- * IGUser
- * @extends AbstractCrudObject
- * @see {@link https://developers.facebook.com/docs/marketing-api/}
- */
-
-var IGUser = function (_AbstractCrudObject) {
-  inherits(IGUser, _AbstractCrudObject);
-
-  function IGUser() {
-    classCallCheck(this, IGUser);
-    return possibleConstructorReturn(this, (IGUser.__proto__ || Object.getPrototypeOf(IGUser)).apply(this, arguments));
-  }
-
-  createClass(IGUser, [{
-    key: 'getInsights',
-    value: function getInsights(fields) {
-      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
-
-      return this.getEdge(InstagramInsightsResult, fields, params, fetchFirstPage, '/insights');
-    }
-  }, {
-    key: 'getMedia',
-    value: function getMedia(fields) {
-      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
-
-      return this.getEdge(IGMedia, fields, params, fetchFirstPage, '/media');
-    }
-  }, {
-    key: 'createMedia',
-    value: function createMedia(fields) {
-      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-      return this.createEdge('/media', fields, params, IGMedia);
-    }
-  }, {
-    key: 'createMediaPublish',
-    value: function createMediaPublish(fields) {
-      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-      return this.createEdge('/media_publish', fields, params, IGMedia);
-    }
-  }, {
-    key: 'createMention',
-    value: function createMention(fields) {
-      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-      return this.createEdge('/mentions', fields, params);
-    }
-  }, {
-    key: 'getRecentlySearchedHashtags',
-    value: function getRecentlySearchedHashtags(fields) {
-      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
-
-      return this.getEdge(AbstractObject, fields, params, fetchFirstPage, '/recently_searched_hashtags');
-    }
-  }, {
-    key: 'getStories',
-    value: function getStories(fields) {
-      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
-
-      return this.getEdge(IGMedia, fields, params, fetchFirstPage, '/stories');
-    }
-  }, {
-    key: 'getTags',
-    value: function getTags(fields) {
-      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
-
-      return this.getEdge(IGMedia, fields, params, fetchFirstPage, '/tags');
-    }
-  }, {
-    key: 'get',
-    value: function get(fields) {
-      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-      // $FlowFixMe : Support Generic Types
-      return this.read(fields, params);
-    }
-  }], [{
-    key: 'Fields',
-    get: function get() {
-      return Object.freeze({
-        biography: 'biography',
-        business_discovery: 'business_discovery',
-        followers_count: 'followers_count',
-        follows_count: 'follows_count',
-        id: 'id',
-        ig_id: 'ig_id',
-        is_ig_shopping_seller_policy_enabled: 'is_ig_shopping_seller_policy_enabled',
-        media_count: 'media_count',
-        mentioned_comment: 'mentioned_comment',
-        mentioned_media: 'mentioned_media',
-        name: 'name',
-        profile_picture_url: 'profile_picture_url',
-        shopping_review_status: 'shopping_review_status',
-        username: 'username',
-        website: 'website'
-      });
-    }
-  }]);
-  return IGUser;
 }(AbstractCrudObject);
 
 /**
@@ -33401,14 +39757,6 @@ var Link = function (_AbstractCrudObject) {
       return this.getEdge(Profile, fields, params, fetchFirstPage, '/likes');
     }
   }, {
-    key: 'getSharedPosts',
-    value: function getSharedPosts(fields) {
-      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
-
-      return this.getEdge(Post, fields, params, fetchFirstPage, '/sharedposts');
-    }
-  }, {
     key: 'get',
     value: function get(fields) {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
@@ -33662,6 +40010,52 @@ var MailingAddress = function (_AbstractCrudObject) {
  * 
  */
 /**
+ * MessengerDestinationPageWelcomeMessage
+ * @extends AbstractCrudObject
+ * @see {@link https://developers.facebook.com/docs/marketing-api/}
+ */
+
+var MessengerDestinationPageWelcomeMessage = function (_AbstractCrudObject) {
+  inherits(MessengerDestinationPageWelcomeMessage, _AbstractCrudObject);
+
+  function MessengerDestinationPageWelcomeMessage() {
+    classCallCheck(this, MessengerDestinationPageWelcomeMessage);
+    return possibleConstructorReturn(this, (MessengerDestinationPageWelcomeMessage.__proto__ || Object.getPrototypeOf(MessengerDestinationPageWelcomeMessage)).apply(this, arguments));
+  }
+
+  createClass(MessengerDestinationPageWelcomeMessage, [{
+    key: 'get',
+    value: function get(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+      // $FlowFixMe : Support Generic Types
+      return this.read(fields, params);
+    }
+  }], [{
+    key: 'Fields',
+    get: function get() {
+      return Object.freeze({
+        id: 'id',
+        page_welcome_message_body: 'page_welcome_message_body',
+        page_welcome_message_type: 'page_welcome_message_type',
+        template_name: 'template_name',
+        time_created: 'time_created',
+        time_last_used: 'time_last_used'
+      });
+    }
+  }]);
+  return MessengerDestinationPageWelcomeMessage;
+}(AbstractCrudObject);
+
+/**
+ * Copyright (c) 2017-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
+ * 
+ */
+/**
  * MusicVideoCopyright
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
@@ -33754,20 +40148,20 @@ var NativeOfferDiscount = function (_AbstractCrudObject) {
  * 
  */
 /**
- * OfflineTermsOfService
+ * OffsitePixel
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 
-var OfflineTermsOfService = function (_AbstractCrudObject) {
-  inherits(OfflineTermsOfService, _AbstractCrudObject);
+var OffsitePixel = function (_AbstractCrudObject) {
+  inherits(OffsitePixel, _AbstractCrudObject);
 
-  function OfflineTermsOfService() {
-    classCallCheck(this, OfflineTermsOfService);
-    return possibleConstructorReturn(this, (OfflineTermsOfService.__proto__ || Object.getPrototypeOf(OfflineTermsOfService)).apply(this, arguments));
+  function OffsitePixel() {
+    classCallCheck(this, OffsitePixel);
+    return possibleConstructorReturn(this, (OffsitePixel.__proto__ || Object.getPrototypeOf(OffsitePixel)).apply(this, arguments));
   }
 
-  createClass(OfflineTermsOfService, [{
+  createClass(OffsitePixel, [{
     key: 'get',
     value: function get(fields) {
       var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
@@ -33779,13 +40173,16 @@ var OfflineTermsOfService = function (_AbstractCrudObject) {
     key: 'Fields',
     get: function get() {
       return Object.freeze({
-        accept_time: 'accept_time',
+        creator: 'creator',
         id: 'id',
-        signed_by_user: 'signed_by_user'
+        js_pixel: 'js_pixel',
+        last_firing_time: 'last_firing_time',
+        name: 'name',
+        tag: 'tag'
       });
     }
   }]);
-  return OfflineTermsOfService;
+  return OffsitePixel;
 }(AbstractCrudObject);
 
 /**
@@ -33838,6 +40235,72 @@ var OpenGraphContext = function (_AbstractCrudObject) {
  * 
  */
 /**
+ * OracleTransaction
+ * @extends AbstractCrudObject
+ * @see {@link https://developers.facebook.com/docs/marketing-api/}
+ */
+
+var OracleTransaction = function (_AbstractCrudObject) {
+  inherits(OracleTransaction, _AbstractCrudObject);
+
+  function OracleTransaction() {
+    classCallCheck(this, OracleTransaction);
+    return possibleConstructorReturn(this, (OracleTransaction.__proto__ || Object.getPrototypeOf(OracleTransaction)).apply(this, arguments));
+  }
+
+  createClass(OracleTransaction, [{
+    key: 'getCampaigns',
+    value: function getCampaigns(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var fetchFirstPage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+      return this.getEdge(InvoiceCampaignNew, fields, params, fetchFirstPage, '/campaigns');
+    }
+  }, {
+    key: 'get',
+    value: function get(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+      // $FlowFixMe : Support Generic Types
+      return this.read(fields, params);
+    }
+  }], [{
+    key: 'Fields',
+    get: function get() {
+      return Object.freeze({
+        ad_account_ids: 'ad_account_ids',
+        amount: 'amount',
+        amount_due: 'amount_due',
+        billed_amount_details: 'billed_amount_details',
+        billing_period: 'billing_period',
+        cdn_download_uri: 'cdn_download_uri',
+        currency: 'currency',
+        download_uri: 'download_uri',
+        due_date: 'due_date',
+        entity: 'entity',
+        id: 'id',
+        invoice_date: 'invoice_date',
+        invoice_id: 'invoice_id',
+        invoice_type: 'invoice_type',
+        liability_type: 'liability_type',
+        payment_status: 'payment_status',
+        payment_term: 'payment_term',
+        type: 'type'
+      });
+    }
+  }]);
+  return OracleTransaction;
+}(AbstractCrudObject);
+
+/**
+ * Copyright (c) 2017-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
+ * 
+ */
+/**
  * OutcomePredictionPoint
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
@@ -33863,51 +40326,6 @@ var OutcomePredictionPoint = function (_AbstractCrudObject) {
     }
   }]);
   return OutcomePredictionPoint;
-}(AbstractCrudObject);
-
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the license found in the
- * LICENSE file in the root directory of this source tree.
- * 
- */
-/**
- * PageAdminNote
- * @extends AbstractCrudObject
- * @see {@link https://developers.facebook.com/docs/marketing-api/}
- */
-
-var PageAdminNote = function (_AbstractCrudObject) {
-  inherits(PageAdminNote, _AbstractCrudObject);
-
-  function PageAdminNote() {
-    classCallCheck(this, PageAdminNote);
-    return possibleConstructorReturn(this, (PageAdminNote.__proto__ || Object.getPrototypeOf(PageAdminNote)).apply(this, arguments));
-  }
-
-  createClass(PageAdminNote, [{
-    key: 'get',
-    value: function get(fields) {
-      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-      // $FlowFixMe : Support Generic Types
-      return this.read(fields, params);
-    }
-  }], [{
-    key: 'Fields',
-    get: function get() {
-      return Object.freeze({
-        body: 'body',
-        from: 'from',
-        id: 'id',
-        note_label: 'note_label',
-        user: 'user'
-      });
-    }
-  }]);
-  return PageAdminNote;
 }(AbstractCrudObject);
 
 /**
@@ -34715,6 +41133,64 @@ var ProductFeedUploadErrorReport = function (_AbstractCrudObject) {
  * 
  */
 /**
+ * ProductItemARData
+ * @extends AbstractCrudObject
+ * @see {@link https://developers.facebook.com/docs/marketing-api/}
+ */
+
+var ProductItemARData = function (_AbstractCrudObject) {
+  inherits(ProductItemARData, _AbstractCrudObject);
+
+  function ProductItemARData() {
+    classCallCheck(this, ProductItemARData);
+    return possibleConstructorReturn(this, (ProductItemARData.__proto__ || Object.getPrototypeOf(ProductItemARData)).apply(this, arguments));
+  }
+
+  createClass(ProductItemARData, null, [{
+    key: 'Fields',
+    get: function get() {
+      return Object.freeze({
+        container_effect: 'container_effect',
+        effect_icon: 'effect_icon',
+        effect_parameters: 'effect_parameters',
+        picker_icon: 'picker_icon',
+        product_ar_link: 'product_ar_link',
+        state: 'state',
+        surfaces: 'surfaces'
+      });
+    }
+  }, {
+    key: 'Surfaces',
+    get: function get() {
+      return Object.freeze({
+        b2c_marketplace: 'B2C_MARKETPLACE',
+        c2c_marketplace: 'C2C_MARKETPLACE',
+        da: 'DA',
+        daily_deals: 'DAILY_DEALS',
+        daily_deals_legacy: 'DAILY_DEALS_LEGACY',
+        ig_product_tagging: 'IG_PRODUCT_TAGGING',
+        marketplace: 'MARKETPLACE',
+        marketplace_ads_deprecated: 'MARKETPLACE_ADS_DEPRECATED',
+        marketplace_shops: 'MARKETPLACE_SHOPS',
+        offline_conversions: 'OFFLINE_CONVERSIONS',
+        shops: 'SHOPS',
+        universal_checkout: 'UNIVERSAL_CHECKOUT',
+        whatsapp: 'WHATSAPP'
+      });
+    }
+  }]);
+  return ProductItemARData;
+}(AbstractCrudObject);
+
+/**
+ * Copyright (c) 2017-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
+ * 
+ */
+/**
  * ProductItemCommerceInsights
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
@@ -35162,48 +41638,6 @@ var ReachFrequencySpec = function (_AbstractCrudObject) {
  * 
  */
 /**
- * ReadOnlyAnalyticsUserPropertyConfig
- * @extends AbstractCrudObject
- * @see {@link https://developers.facebook.com/docs/marketing-api/}
- */
-
-var ReadOnlyAnalyticsUserPropertyConfig = function (_AbstractCrudObject) {
-  inherits(ReadOnlyAnalyticsUserPropertyConfig, _AbstractCrudObject);
-
-  function ReadOnlyAnalyticsUserPropertyConfig() {
-    classCallCheck(this, ReadOnlyAnalyticsUserPropertyConfig);
-    return possibleConstructorReturn(this, (ReadOnlyAnalyticsUserPropertyConfig.__proto__ || Object.getPrototypeOf(ReadOnlyAnalyticsUserPropertyConfig)).apply(this, arguments));
-  }
-
-  createClass(ReadOnlyAnalyticsUserPropertyConfig, [{
-    key: 'get',
-    value: function get(fields) {
-      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-      // $FlowFixMe : Support Generic Types
-      return this.read(fields, params);
-    }
-  }], [{
-    key: 'Fields',
-    get: function get() {
-      return Object.freeze({
-        active_properties: 'active_properties',
-        id: 'id'
-      });
-    }
-  }]);
-  return ReadOnlyAnalyticsUserPropertyConfig;
-}(AbstractCrudObject);
-
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the license found in the
- * LICENSE file in the root directory of this source tree.
- * 
- */
-/**
  * Referral
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
@@ -35258,10 +41692,12 @@ var Referral = function (_AbstractCrudObject) {
         namespace: 'namespace',
         need_promo_code: 'need_promo_code',
         offer_origin: 'offer_origin',
+        privacy_policy_link: 'privacy_policy_link',
         promotion_text: 'promotion_text',
         receiver_benefits_text: 'receiver_benefits_text',
         referral_link_uri: 'referral_link_uri',
-        sender_benefits_text: 'sender_benefits_text'
+        sender_benefits_text: 'sender_benefits_text',
+        terms_and_condition_link: 'terms_and_condition_link'
       });
     }
   }]);
@@ -35634,7 +42070,6 @@ var Targeting = function (_AbstractCrudObject) {
     key: 'DevicePlatforms',
     get: function get() {
       return Object.freeze({
-        connected_tv: 'connected_tv',
         desktop: 'desktop',
         mobile: 'mobile'
       });
@@ -35643,7 +42078,6 @@ var Targeting = function (_AbstractCrudObject) {
     key: 'EffectiveDevicePlatforms',
     get: function get() {
       return Object.freeze({
-        connected_tv: 'connected_tv',
         desktop: 'desktop',
         mobile: 'mobile'
       });
@@ -36470,45 +42904,6 @@ var UserLeadGenFieldData = function (_AbstractCrudObject) {
  * 
  */
 /**
- * UserPaymentMethodsInfo
- * @extends AbstractCrudObject
- * @see {@link https://developers.facebook.com/docs/marketing-api/}
- */
-
-var UserPaymentMethodsInfo = function (_AbstractCrudObject) {
-  inherits(UserPaymentMethodsInfo, _AbstractCrudObject);
-
-  function UserPaymentMethodsInfo() {
-    classCallCheck(this, UserPaymentMethodsInfo);
-    return possibleConstructorReturn(this, (UserPaymentMethodsInfo.__proto__ || Object.getPrototypeOf(UserPaymentMethodsInfo)).apply(this, arguments));
-  }
-
-  createClass(UserPaymentMethodsInfo, null, [{
-    key: 'Fields',
-    get: function get() {
-      return Object.freeze({
-        account_id: 'account_id',
-        available_card_types: 'available_card_types',
-        available_payment_methods: 'available_payment_methods',
-        available_payment_methods_details: 'available_payment_methods_details',
-        country: 'country',
-        currency: 'currency',
-        existing_payment_methods: 'existing_payment_methods'
-      });
-    }
-  }]);
-  return UserPaymentMethodsInfo;
-}(AbstractCrudObject);
-
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the license found in the
- * LICENSE file in the root directory of this source tree.
- * 
- */
-/**
  * UserPaymentMobilePricepoints
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
@@ -36534,42 +42929,6 @@ var UserPaymentMobilePricepoints = function (_AbstractCrudObject) {
     }
   }]);
   return UserPaymentMobilePricepoints;
-}(AbstractCrudObject);
-
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the license found in the
- * LICENSE file in the root directory of this source tree.
- * 
- */
-/**
- * UserPaymentModulesOptions
- * @extends AbstractCrudObject
- * @see {@link https://developers.facebook.com/docs/marketing-api/}
- */
-
-var UserPaymentModulesOptions = function (_AbstractCrudObject) {
-  inherits(UserPaymentModulesOptions, _AbstractCrudObject);
-
-  function UserPaymentModulesOptions() {
-    classCallCheck(this, UserPaymentModulesOptions);
-    return possibleConstructorReturn(this, (UserPaymentModulesOptions.__proto__ || Object.getPrototypeOf(UserPaymentModulesOptions)).apply(this, arguments));
-  }
-
-  createClass(UserPaymentModulesOptions, null, [{
-    key: 'Fields',
-    get: function get() {
-      return Object.freeze({
-        account_id: 'account_id',
-        available_payment_options: 'available_payment_options',
-        country: 'country',
-        currency: 'currency'
-      });
-    }
-  }]);
-  return UserPaymentModulesOptions;
 }(AbstractCrudObject);
 
 /**
@@ -36827,6 +43186,60 @@ var WebAppLink = function (_AbstractCrudObject) {
  * 
  */
 /**
+ * WhatsAppBusinessProfile
+ * @extends AbstractCrudObject
+ * @see {@link https://developers.facebook.com/docs/marketing-api/}
+ */
+
+var WhatsAppBusinessProfile = function (_AbstractCrudObject) {
+  inherits(WhatsAppBusinessProfile, _AbstractCrudObject);
+
+  function WhatsAppBusinessProfile() {
+    classCallCheck(this, WhatsAppBusinessProfile);
+    return possibleConstructorReturn(this, (WhatsAppBusinessProfile.__proto__ || Object.getPrototypeOf(WhatsAppBusinessProfile)).apply(this, arguments));
+  }
+
+  createClass(WhatsAppBusinessProfile, [{
+    key: 'get',
+    value: function get(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+      // $FlowFixMe : Support Generic Types
+      return this.read(fields, params);
+    }
+
+    // $FlowFixMe : Support Generic Types
+
+  }, {
+    key: 'update',
+    value: function update(fields) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+      // $FlowFixMe : Support Generic Types
+      return get$1(WhatsAppBusinessProfile.prototype.__proto__ || Object.getPrototypeOf(WhatsAppBusinessProfile.prototype), 'update', this).call(this, params);
+    }
+  }], [{
+    key: 'Fields',
+    get: function get() {
+      return Object.freeze({
+        id: 'id',
+        name_verification: 'name_verification',
+        whatsapp_business_api_data: 'whatsapp_business_api_data'
+      });
+    }
+  }]);
+  return WhatsAppBusinessProfile;
+}(AbstractCrudObject);
+
+/**
+ * Copyright (c) 2017-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
+ * 
+ */
+/**
  * WindowsAppLink
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
@@ -36934,6 +43347,7 @@ var WorkUserFrontline = function (_AbstractCrudObject) {
 exports.Http = Http;
 exports.FacebookAdsApi = FacebookAdsApi;
 exports.FacebookAdsApiBatch = FacebookAdsApiBatch;
+exports.AbstractCrudObject = AbstractCrudObject;
 exports.APIRequest = APIRequest;
 exports.APIResponse = APIResponse;
 exports.CrashReporter = CrashReporter;
@@ -36948,13 +43362,18 @@ exports.HttpMethod = HttpMethod;
 exports.HttpServiceClientConfig = HttpServiceClientConfig;
 exports.HttpServiceInterface = HttpServiceInterface;
 exports.BatchProcessor = BatchProcessor;
+exports.ServerSideUtils = ServerSideUtils;
+exports.SignalUserData = UserData$1;
+exports.SignalContent = Content$1;
+exports.SignalCustomData = CustomData$1;
+exports.SignalEvent = Event$2;
+exports.SignalEventRequest = EventRequest$1;
 exports.Ad = Ad;
 exports.AdAccount = AdAccount;
 exports.AdAccountActivity = AdAccountActivity;
 exports.AdAccountAdRulesHistory = AdAccountAdRulesHistory;
 exports.AdAccountAdVolume = AdAccountAdVolume;
 exports.AdAccountContentFilterLevelsInheritance = AdAccountContentFilterLevelsInheritance;
-exports.AdAccountCreationRequest = AdAccountCreationRequest;
 exports.AdAccountDefaultDestination = AdAccountDefaultDestination;
 exports.AdAccountDefaultObjective = AdAccountDefaultObjective;
 exports.AdAccountDeliveryEstimate = AdAccountDeliveryEstimate;
@@ -36963,7 +43382,6 @@ exports.AdAccountMaxBid = AdAccountMaxBid;
 exports.AdAccountPromotableObjects = AdAccountPromotableObjects;
 exports.AdAccountReachEstimate = AdAccountReachEstimate;
 exports.AdAccountRecommendedCamapaignBudget = AdAccountRecommendedCamapaignBudget;
-exports.AdAccountRoas = AdAccountRoas;
 exports.AdAccountSubscribedApps = AdAccountSubscribedApps;
 exports.AdAccountTargetingUnified = AdAccountTargetingUnified;
 exports.AdAccountTrackingData = AdAccountTrackingData;
@@ -36997,7 +43415,6 @@ exports.AdCreative = AdCreative;
 exports.AdCreativeAdDisclaimer = AdCreativeAdDisclaimer;
 exports.AdCreativeCollectionThumbnailInfo = AdCreativeCollectionThumbnailInfo;
 exports.AdCreativeInsights = AdCreativeInsights;
-exports.AdCreativeInstagramBrandedContent = AdCreativeInstagramBrandedContent;
 exports.AdCreativeInteractiveComponentsSpec = AdCreativeInteractiveComponentsSpec;
 exports.AdCreativeLinkData = AdCreativeLinkData;
 exports.AdCreativeLinkDataAppLinkSpec = AdCreativeLinkDataAppLinkSpec;
@@ -37009,6 +43426,7 @@ exports.AdCreativeLinkDataImageOverlaySpec = AdCreativeLinkDataImageOverlaySpec;
 exports.AdCreativeLinkDataSponsorshipInfoSpec = AdCreativeLinkDataSponsorshipInfoSpec;
 exports.AdCreativeLinkDataTemplateVideoSpec = AdCreativeLinkDataTemplateVideoSpec;
 exports.AdCreativeObjectStorySpec = AdCreativeObjectStorySpec;
+exports.AdCreativeOmnichannelLinkSpec = AdCreativeOmnichannelLinkSpec;
 exports.AdCreativePhotoData = AdCreativePhotoData;
 exports.AdCreativePhotoDataMediaElements = AdCreativePhotoDataMediaElements;
 exports.AdCreativePlaceData = AdCreativePlaceData;
@@ -37111,6 +43529,7 @@ exports.CanvasCollectionThumbnail = CanvasCollectionThumbnail;
 exports.CatalogBasedTargeting = CatalogBasedTargeting;
 exports.CatalogItemAppLinks = CatalogItemAppLinks;
 exports.CatalogItemAppealStatus = CatalogItemAppealStatus;
+exports.CatalogItemChannelsToIntegrityStatus = CatalogItemChannelsToIntegrityStatus;
 exports.CatalogSubVerticalList = CatalogSubVerticalList;
 exports.CheckBatchRequestStatus = CheckBatchRequestStatus;
 exports.ChildEvent = ChildEvent;
@@ -37125,6 +43544,7 @@ exports.CommercePayout = CommercePayout;
 exports.CommerceSettings = CommerceSettings;
 exports.ConnectionsTargeting = ConnectionsTargeting;
 exports.ContentDeliveryReport = ContentDeliveryReport;
+exports.ContextualBundlingSpec = ContextualBundlingSpec;
 exports.ConversionActionQuery = ConversionActionQuery;
 exports.CopyrightReferenceContainer = CopyrightReferenceContainer;
 exports.CoverPhoto = CoverPhoto;
@@ -37147,6 +43567,7 @@ exports.DACheck = DACheck;
 exports.DayPart = DayPart;
 exports.DeliveryCheck = DeliveryCheck;
 exports.DeliveryCheckExtraInfo = DeliveryCheckExtraInfo;
+exports.DeliveryWindow = DeliveryWindow;
 exports.Destination = Destination;
 exports.DestinationCatalogSettings = DestinationCatalogSettings;
 exports.Domain = Domain;
@@ -37157,7 +43578,6 @@ exports.Engagement = Engagement;
 exports.EntityAtTextRange = EntityAtTextRange;
 exports.Event = Event;
 exports.EventSourceGroup = EventSourceGroup;
-exports.EventTour = EventTour;
 exports.Experience = Experience;
 exports.ExtendedCredit = ExtendedCredit;
 exports.ExtendedCreditAllocationConfig = ExtendedCreditAllocationConfig;
@@ -37166,7 +43586,6 @@ exports.ExternalEventSource = ExternalEventSource;
 exports.FAMEExportConfig = FAMEExportConfig;
 exports.FlexibleTargeting = FlexibleTargeting;
 exports.Flight = Flight;
-exports.FriendList = FriendList;
 exports.FundingSourceDetails = FundingSourceDetails;
 exports.FundingSourceDetailsCoupon = FundingSourceDetailsCoupon;
 exports.Group = Group;
@@ -37177,13 +43596,14 @@ exports.IDName = IDName;
 exports.IGComment = IGComment;
 exports.IGMedia = IGMedia;
 exports.IGUser = IGUser;
+exports.ImageCopyright = ImageCopyright;
 exports.InsightsResult = InsightsResult;
 exports.InstagramInsightsResult = InstagramInsightsResult;
 exports.InstagramInsightsValue = InstagramInsightsValue;
 exports.InstagramUser = InstagramUser;
 exports.InstantArticle = InstantArticle;
 exports.InstantArticleInsightsQueryResult = InstantArticleInsightsQueryResult;
-exports.InvoiceCampaign = InvoiceCampaign;
+exports.InvoiceCampaignNew = InvoiceCampaignNew;
 exports.IosAppLink = IosAppLink;
 exports.KeyValue = KeyValue;
 exports.Lead = Lead;
@@ -37218,8 +43638,8 @@ exports.NativeOfferDiscount = NativeOfferDiscount;
 exports.NativeOfferView = NativeOfferView;
 exports.NullNode = NullNode;
 exports.OfflineConversionDataSet = OfflineConversionDataSet;
-exports.OfflineTermsOfService = OfflineTermsOfService;
 exports.OffsitePixel = OffsitePixel;
+exports.OmegaCustomerTrx = OmegaCustomerTrx;
 exports.OpenGraphContext = OpenGraphContext;
 exports.OracleTransaction = OracleTransaction;
 exports.OutcomePredictionPoint = OutcomePredictionPoint;
@@ -37228,6 +43648,7 @@ exports.PageAdminNote = PageAdminNote;
 exports.PageCallToAction = PageCallToAction;
 exports.PageCategory = PageCategory;
 exports.PageChangeProposal = PageChangeProposal;
+exports.PageCommerceEligibility = PageCommerceEligibility;
 exports.PageParking = PageParking;
 exports.PagePaymentOptions = PagePaymentOptions;
 exports.PagePost = PagePost;
@@ -37240,6 +43661,7 @@ exports.PageThreadOwner = PageThreadOwner;
 exports.PageUpcomingChange = PageUpcomingChange;
 exports.PageUserMessageThreadLabel = PageUserMessageThreadLabel;
 exports.PartnerStudy = PartnerStudy;
+exports.PaymentEnginePayment = PaymentEnginePayment;
 exports.PaymentPricepoints = PaymentPricepoints;
 exports.PaymentSubscription = PaymentSubscription;
 exports.Permission = Permission;
@@ -37251,6 +43673,7 @@ exports.PlatformImageSource = PlatformImageSource;
 exports.PlayableContent = PlayableContent;
 exports.Post = Post;
 exports.Privacy = Privacy;
+exports.PrivateLiftStudyInstance = PrivateLiftStudyInstance;
 exports.ProductCatalog = ProductCatalog;
 exports.ProductCatalogCategory = ProductCatalogCategory;
 exports.ProductCatalogHotelRoomsBatch = ProductCatalogHotelRoomsBatch;
@@ -37271,6 +43694,7 @@ exports.ProductFeedUploadErrorReport = ProductFeedUploadErrorReport;
 exports.ProductFeedUploadErrorSample = ProductFeedUploadErrorSample;
 exports.ProductGroup = ProductGroup;
 exports.ProductItem = ProductItem;
+exports.ProductItemARData = ProductItemARData;
 exports.ProductItemCommerceInsights = ProductItemCommerceInsights;
 exports.ProductSet = ProductSet;
 exports.ProductSetMetadata = ProductSetMetadata;
@@ -37289,7 +43713,6 @@ exports.ReachFrequencyEstimatesCurve = ReachFrequencyEstimatesCurve;
 exports.ReachFrequencyEstimatesPlacementBreakdown = ReachFrequencyEstimatesPlacementBreakdown;
 exports.ReachFrequencyPrediction = ReachFrequencyPrediction;
 exports.ReachFrequencySpec = ReachFrequencySpec;
-exports.ReadOnlyAnalyticsUserPropertyConfig = ReadOnlyAnalyticsUserPropertyConfig;
 exports.Recommendation = Recommendation;
 exports.Referral = Referral;
 exports.RevSharePolicy = RevSharePolicy;
@@ -37331,9 +43754,7 @@ exports.UserIDForApp = UserIDForApp;
 exports.UserIDForPage = UserIDForPage;
 exports.UserLeadGenDisclaimerResponse = UserLeadGenDisclaimerResponse;
 exports.UserLeadGenFieldData = UserLeadGenFieldData;
-exports.UserPaymentMethodsInfo = UserPaymentMethodsInfo;
 exports.UserPaymentMobilePricepoints = UserPaymentMobilePricepoints;
-exports.UserPaymentModulesOptions = UserPaymentModulesOptions;
 exports.ValueBasedEligibleSource = ValueBasedEligibleSource;
 exports.Vehicle = Vehicle;
 exports.VehicleOffer = VehicleOffer;
@@ -37349,6 +43770,7 @@ exports.VideoUploadLimits = VideoUploadLimits;
 exports.VoipInfo = VoipInfo;
 exports.WebAppLink = WebAppLink;
 exports.WhatsAppBusinessAccount = WhatsAppBusinessAccount;
+exports.WhatsAppBusinessProfile = WhatsAppBusinessProfile;
 exports.WindowsAppLink = WindowsAppLink;
 exports.WindowsPhoneAppLink = WindowsPhoneAppLink;
 exports.WorkUserFrontline = WorkUserFrontline;
