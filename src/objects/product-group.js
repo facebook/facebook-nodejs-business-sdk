@@ -17,7 +17,7 @@ import ProductItem from './product-item';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class ProductGroup extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       id: 'id',
       product_catalog: 'product_catalog',

@@ -24,7 +24,7 @@ import Vehicle from './vehicle';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class ProductSet extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       auto_creation_url: 'auto_creation_url',
       filter: 'filter',
@@ -86,6 +86,16 @@ export default class ProductSet extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/hotels'
+    );
+  }
+
+  getMediaTitles (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/media_titles'
     );
   }
 

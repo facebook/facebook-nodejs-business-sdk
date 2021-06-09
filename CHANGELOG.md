@@ -5,6 +5,36 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+## Changed
+- Fixed sending null values for UserData multi-value fields in Conversions API.
+
+## v10.0.1
+
+
+### Changed
+- Fixed bug where `0` for CustomData.value was normalizing to `undefined` in Conversions API.
+
+### Added
+- Support for sending multiple values for certain UserData parameters to Conversions API.
+
+## v10.0.0
+
+### Changed
+- Graph API call upgrade to [v10.0](https://developers.facebook.com/docs/graph-api/changelog/version10.0)
+
+## v9.0.0
+### Changed
+- Graph API call upgrade to [v9.0](https://developers.facebook.com/docs/graph-api/changelog/version9.0)
+
+### Added
+- `delivery_category` field to Content for Conversions API.
+
+## v8.0.3
+
+
+### Changed
+- Stop validating and hashing already hashed input values for Conversions API
+
 ## v8.0.2
 
 ### Added

@@ -14,7 +14,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdAccountAdVolume extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       actor_id: 'actor_id',
       actor_name: 'actor_name',
@@ -33,6 +33,7 @@ export default class AdAccountAdVolume extends AbstractCrudObject {
 
   static get RecommendationType (): Object {
     return Object.freeze({
+      aco_toggle: 'ACO_TOGGLE',
       aggregated_bid_limited: 'AGGREGATED_BID_LIMITED',
       aggregated_budget_limited: 'AGGREGATED_BUDGET_LIMITED',
       aggregated_cost_limited: 'AGGREGATED_COST_LIMITED',

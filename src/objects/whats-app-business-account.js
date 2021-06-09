@@ -17,7 +17,7 @@ import AssignedUser from './assigned-user';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class WhatsAppBusinessAccount extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       analytics: 'analytics',
       currency: 'currency',
@@ -25,6 +25,7 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
       message_template_namespace: 'message_template_namespace',
       name: 'name',
       on_behalf_of_business_info: 'on_behalf_of_business_info',
+      owner_business_info: 'owner_business_info',
       primary_funding_id: 'primary_funding_id',
       purchase_order_number: 'purchase_order_number',
       status: 'status',
@@ -38,6 +39,7 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
       manage: 'MANAGE',
       manage_phone: 'MANAGE_PHONE',
       manage_templates: 'MANAGE_TEMPLATES',
+      messaging: 'MESSAGING',
       view_cost: 'VIEW_COST',
     });
   }
@@ -116,6 +118,23 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/phone_numbers'
+    );
+  }
+
+  deleteSubscribedApps (params: Object = {}): Promise<*> {
+    return super.deleteEdge(
+      '/subscribed_apps',
+      params
+    );
+  }
+
+  getSubscribedApps (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/subscribed_apps'
     );
   }
 

@@ -14,7 +14,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class Targeting extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       adgroup_id: 'adgroup_id',
       age_max: 'age_max',
@@ -110,14 +110,12 @@ export default class Targeting extends AbstractCrudObject {
 
   static get DevicePlatforms (): Object {
     return Object.freeze({
-      connected_tv: 'connected_tv',
       desktop: 'desktop',
       mobile: 'mobile',
     });
   }
   static get EffectiveDevicePlatforms (): Object {
     return Object.freeze({
-      connected_tv: 'connected_tv',
       desktop: 'desktop',
       mobile: 'mobile',
     });

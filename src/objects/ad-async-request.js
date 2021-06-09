@@ -15,7 +15,7 @@ import AbstractObject from './../abstract-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdAsyncRequest extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       async_request_set: 'async_request_set',
       created_time: 'created_time',
@@ -39,6 +39,8 @@ export default class AdAsyncRequest extends AbstractCrudObject {
       initial: 'INITIAL',
       in_progress: 'IN_PROGRESS',
       pending_dependency: 'PENDING_DEPENDENCY',
+      process_by_ad_async_engine: 'PROCESS_BY_AD_ASYNC_ENGINE',
+      process_by_event_processor: 'PROCESS_BY_EVENT_PROCESSOR',
       success: 'SUCCESS',
       user_canceled: 'USER_CANCELED',
       user_canceled_dependency: 'USER_CANCELED_DEPENDENCY',

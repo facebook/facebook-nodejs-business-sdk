@@ -27,7 +27,7 @@ import TargetingSentenceLine from './targeting-sentence-line';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdSet extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       account_id: 'account_id',
       adlabels: 'adlabels',
@@ -90,7 +90,6 @@ export default class AdSet extends AbstractCrudObject {
       cost_cap: 'COST_CAP',
       lowest_cost_without_cap: 'LOWEST_COST_WITHOUT_CAP',
       lowest_cost_with_bid_cap: 'LOWEST_COST_WITH_BID_CAP',
-      target_cost: 'TARGET_COST',
     });
   }
   static get BillingEvent (): Object {
@@ -99,10 +98,12 @@ export default class AdSet extends AbstractCrudObject {
       clicks: 'CLICKS',
       impressions: 'IMPRESSIONS',
       link_clicks: 'LINK_CLICKS',
+      listing_interaction: 'LISTING_INTERACTION',
       none: 'NONE',
       offer_claims: 'OFFER_CLAIMS',
       page_likes: 'PAGE_LIKES',
       post_engagement: 'POST_ENGAGEMENT',
+      purchase: 'PURCHASE',
       thruplay: 'THRUPLAY',
     });
   }
@@ -145,6 +146,7 @@ export default class AdSet extends AbstractCrudObject {
       page_engagement: 'PAGE_ENGAGEMENT',
       page_likes: 'PAGE_LIKES',
       post_engagement: 'POST_ENGAGEMENT',
+      quality_call: 'QUALITY_CALL',
       quality_lead: 'QUALITY_LEAD',
       reach: 'REACH',
       replies: 'REPLIES',
@@ -176,7 +178,7 @@ export default class AdSet extends AbstractCrudObject {
       last_week_mon_sun: 'last_week_mon_sun',
       last_week_sun_sat: 'last_week_sun_sat',
       last_year: 'last_year',
-      lifetime: 'lifetime',
+      maximum: 'maximum',
       this_month: 'this_month',
       this_quarter: 'this_quarter',
       this_week_mon_today: 'this_week_mon_today',

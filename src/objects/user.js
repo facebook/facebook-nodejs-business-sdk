@@ -22,11 +22,13 @@ import Business from './business';
 import UnifiedThread from './unified-thread';
 import PageUserMessageThreadLabel from './page-user-message-thread-label';
 import Event from './event';
+import Post from './post';
 import Group from './group';
 import UserIDForApp from './user-id-for-app';
 import UserIDForPage from './user-id-for-page';
 import LiveEncoder from './live-encoder';
 import LiveVideo from './live-video';
+import PaymentEnginePayment from './payment-engine-payment';
 import Permission from './permission';
 import Photo from './photo';
 import ProfilePictureSource from './profile-picture-source';
@@ -39,17 +41,13 @@ import AdVideo from './ad-video';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class User extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       about: 'about',
-      address: 'address',
-      admin_notes: 'admin_notes',
       age_range: 'age_range',
-      auth_method: 'auth_method',
       birthday: 'birthday',
       cover: 'cover',
       currency: 'currency',
-      devices: 'devices',
       education: 'education',
       email: 'email',
       favorite_athletes: 'favorite_athletes',
@@ -78,7 +76,6 @@ export default class User extends AbstractCrudObject {
       payment_pricepoints: 'payment_pricepoints',
       political: 'political',
       profile_pic: 'profile_pic',
-      public_key: 'public_key',
       quotes: 'quotes',
       relationship_status: 'relationship_status',
       religion: 'religion',
@@ -94,7 +91,6 @@ export default class User extends AbstractCrudObject {
       verified: 'verified',
       video_upload_limits: 'video_upload_limits',
       website: 'website',
-      work: 'work',
     });
   }
 
@@ -333,12 +329,22 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  createFeed (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+  getFeed (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      Post,
+      fields,
+      params,
+      fetchFirstPage,
+      '/feed'
+    );
+  }
+
+  createFeed (fields: Array<string>, params: Object = {}): Promise<Post> {
     return this.createEdge(
       '/feed',
       fields,
       params,
-      
+      Post
     );
   }
 
@@ -486,13 +492,13 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  getOwnedProductCatalogs (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+  getPaymentTransactions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      ProductCatalog,
+      PaymentEnginePayment,
       fields,
       params,
       fetchFirstPage,
-      '/owned_product_catalogs'
+      '/payment_transactions'
     );
   }
 
@@ -549,6 +555,16 @@ export default class User extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/picture'
+    );
+  }
+
+  getPosts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      Post,
+      fields,
+      params,
+      fetchFirstPage,
+      '/posts'
     );
   }
 

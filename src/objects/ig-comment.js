@@ -16,7 +16,7 @@ import Cursor from './../cursor';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class IGComment extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       hidden: 'hidden',
       id: 'id',

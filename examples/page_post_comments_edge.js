@@ -9,12 +9,13 @@
 
  'use strict';
 const bizSdk = require('facebook-nodejs-business-sdk');
-const AdsPixel = bizSdk.AdsPixel;
+const PagePost = bizSdk.PagePost;
+const Comment = bizSdk.Comment;
 
 const access_token = '<ACCESS_TOKEN>';
 const app_secret = '<APP_SECRET>';
 const app_id = '<APP_ID>';
-const id = '<ADS_PIXEL_ID>';
+const id = '<PAGE_POST_ID>';
 const api = bizSdk.FacebookAdsApi.init(access_token);
 const showDebugingInfo = true; // Setting this to true shows more debugging info.
 if (showDebugingInfo) {
@@ -30,12 +31,11 @@ const logApiCallResult = (apiCallName, data) => {
 
 let fields, params;
 fields = [
-  'code',
 ];
 params = {
 };
-const sample_code = (new AdsPixel(id)).get(
+const commentss = (new PagePost(id)).getComments(
   fields,
   params
 );
-logApiCallResult('sample_code api call complete.', sample_code);
+logApiCallResult('commentss api call complete.', commentss);

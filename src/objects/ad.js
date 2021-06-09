@@ -23,7 +23,7 @@ import TargetingSentenceLine from './targeting-sentence-line';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class Ad extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       account_id: 'account_id',
       ad_review_feedback: 'ad_review_feedback',
@@ -36,6 +36,7 @@ export default class Ad extends AbstractCrudObject {
       campaign: 'campaign',
       campaign_id: 'campaign_id',
       configured_status: 'configured_status',
+      conversion_domain: 'conversion_domain',
       conversion_specs: 'conversion_specs',
       created_time: 'created_time',
       creative: 'creative',
@@ -115,7 +116,7 @@ export default class Ad extends AbstractCrudObject {
       last_week_mon_sun: 'last_week_mon_sun',
       last_week_sun_sat: 'last_week_sun_sat',
       last_year: 'last_year',
-      lifetime: 'lifetime',
+      maximum: 'maximum',
       this_month: 'this_month',
       this_quarter: 'this_quarter',
       this_week_mon_today: 'this_week_mon_today',

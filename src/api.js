@@ -21,7 +21,10 @@ export default class FacebookAdsApi {
   locale: string;
   static _defaultApi: FacebookAdsApi;
   static get VERSION() {
-    return 'v8.0';
+    return 'v10.0';
+  }
+  static get SDK_VERSION() {
+    return '10.0.1';
   }
   static get GRAPH() {
     return 'https://graph.facebook.com';
@@ -54,7 +57,7 @@ export default class FacebookAdsApi {
    * @param  {String} [locale]
    * @return {FacebookAdsApi}
    */
-  static init(accessToken: string, locale: string = 'en_US', crash_log: bool = true) {
+  static init(accessToken: string, locale: string = 'en_US', crash_log: bool = true) : FacebookAdsApi {
     const api = new this(accessToken, locale, crash_log);
     this.setDefaultApi(api);
     return api;
@@ -79,12 +82,12 @@ export default class FacebookAdsApi {
     return Http.request('GET', url, {}, {}, false);
   }
 
-  setDebug(flag: boolean) {
+  setDebug(flag: boolean): FacebookAdsApi {
     this._debug = flag;
     return this;
   }
 
-  setShowHeader(flag: boolean) {
+  setShowHeader(flag: boolean): FacebookAdsApi {
     this._showHeader = flag;
     return this;
   }

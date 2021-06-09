@@ -20,7 +20,7 @@ import CustomAudiencesharedAccountInfo from './custom-audienceshared-account-inf
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class CustomAudience extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       account_id: 'account_id',
       approximate_count: 'approximate_count',
@@ -181,6 +181,15 @@ export default class CustomAudience extends AbstractCrudObject {
   createUser (fields: Array<string>, params: Object = {}): Promise<CustomAudience> {
     return this.createEdge(
       '/users',
+      fields,
+      params,
+      CustomAudience
+    );
+  }
+
+  createUsersReplace (fields: Array<string>, params: Object = {}): Promise<CustomAudience> {
+    return this.createEdge(
+      '/usersreplace',
       fields,
       params,
       CustomAudience

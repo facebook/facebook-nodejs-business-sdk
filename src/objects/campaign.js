@@ -23,9 +23,10 @@ import AdReportRun from './ad-report-run';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class Campaign extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       account_id: 'account_id',
+      ad_strategy_id: 'ad_strategy_id',
       adlabels: 'adlabels',
       bid_strategy: 'bid_strategy',
       boosted_object_id: 'boosted_object_id',
@@ -40,6 +41,7 @@ export default class Campaign extends AbstractCrudObject {
       daily_budget: 'daily_budget',
       effective_status: 'effective_status',
       id: 'id',
+      is_skadnetwork_attribution: 'is_skadnetwork_attribution',
       issues_info: 'issues_info',
       last_budget_toggling_time: 'last_budget_toggling_time',
       lifetime_budget: 'lifetime_budget',
@@ -48,6 +50,7 @@ export default class Campaign extends AbstractCrudObject {
       pacing_type: 'pacing_type',
       promoted_object: 'promoted_object',
       recommendations: 'recommendations',
+      smart_promotion_type: 'smart_promotion_type',
       source_campaign: 'source_campaign',
       source_campaign_id: 'source_campaign_id',
       special_ad_categories: 'special_ad_categories',
@@ -67,7 +70,6 @@ export default class Campaign extends AbstractCrudObject {
       cost_cap: 'COST_CAP',
       lowest_cost_without_cap: 'LOWEST_COST_WITHOUT_CAP',
       lowest_cost_with_bid_cap: 'LOWEST_COST_WITH_BID_CAP',
-      target_cost: 'TARGET_COST',
     });
   }
   static get ConfiguredStatus (): Object {
@@ -109,7 +111,7 @@ export default class Campaign extends AbstractCrudObject {
       last_week_mon_sun: 'last_week_mon_sun',
       last_week_sun_sat: 'last_week_sun_sat',
       last_year: 'last_year',
-      lifetime: 'lifetime',
+      maximum: 'maximum',
       this_month: 'this_month',
       this_quarter: 'this_quarter',
       this_week_mon_today: 'this_week_mon_today',
@@ -142,6 +144,12 @@ export default class Campaign extends AbstractCrudObject {
       reach: 'REACH',
       store_visits: 'STORE_VISITS',
       video_views: 'VIDEO_VIEWS',
+    });
+  }
+  static get SmartPromotionType (): Object {
+    return Object.freeze({
+      guided_creation: 'GUIDED_CREATION',
+      smart_app_promotion: 'SMART_APP_PROMOTION',
     });
   }
   static get SpecialAdCategories (): Object {

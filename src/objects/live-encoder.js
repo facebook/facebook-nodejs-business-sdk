@@ -15,7 +15,7 @@ import AbstractObject from './../abstract-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class LiveEncoder extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       brand: 'brand',
       creation_time: 'creation_time',

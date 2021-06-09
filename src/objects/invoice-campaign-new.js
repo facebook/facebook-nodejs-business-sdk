@@ -9,13 +9,21 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * AdCreativeInstagramBrandedContent
+ * InvoiceCampaignNew
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class AdCreativeInstagramBrandedContent extends AbstractCrudObject {
-  static get Fields () {
+export default class InvoiceCampaignNew extends AbstractCrudObject {
+  static get Fields (): Object {
     return Object.freeze({
+      ad_account_id: 'ad_account_id',
+      billed_amount_details: 'billed_amount_details',
+      campaign_id: 'campaign_id',
+      campaign_name: 'campaign_name',
+      clicks: 'clicks',
+      conversions: 'conversions',
+      impressions: 'impressions',
+      tags: 'tags',
     });
   }
 

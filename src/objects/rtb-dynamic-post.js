@@ -17,7 +17,7 @@ import Profile from './profile';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class RTBDynamicPost extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       child_attachments: 'child_attachments',
       created: 'created',

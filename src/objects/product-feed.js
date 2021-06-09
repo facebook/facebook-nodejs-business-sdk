@@ -27,7 +27,7 @@ import Vehicle from './vehicle';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class ProductFeed extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       country: 'country',
       created_time: 'created_time',
@@ -39,6 +39,7 @@ export default class ProductFeed extends AbstractCrudObject {
       id: 'id',
       item_sub_type: 'item_sub_type',
       latest_upload: 'latest_upload',
+      migrated_from_feed_id: 'migrated_from_feed_id',
       name: 'name',
       override_type: 'override_type',
       product_count: 'product_count',
@@ -79,6 +80,7 @@ export default class ProductFeed extends AbstractCrudObject {
   static get FeedType (): Object {
     return Object.freeze({
       auto: 'AUTO',
+      automotive_model: 'AUTOMOTIVE_MODEL',
       destination: 'DESTINATION',
       flight: 'FLIGHT',
       home_listing: 'HOME_LISTING',
@@ -134,6 +136,16 @@ export default class ProductFeed extends AbstractCrudObject {
     });
   }
 
+  getAutoMarkets (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/auto_markets'
+    );
+  }
+
   getAutomotiveModels (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AutomotiveModel,
@@ -141,6 +153,16 @@ export default class ProductFeed extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/automotive_models'
+    );
+  }
+
+  getAutos (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/autos'
     );
   }
 
@@ -181,6 +203,16 @@ export default class ProductFeed extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/hotels'
+    );
+  }
+
+  getMediaTitles (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/media_titles'
     );
   }
 

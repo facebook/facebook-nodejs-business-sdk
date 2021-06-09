@@ -7,14 +7,12 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import AdPlacePageSet from './ad-place-page-set';
 import AdsPixel from './ads-pixel';
 import Application from './application';
 import CustomConversion from './custom-conversion';
 import OfflineConversionDataSet from './offline-conversion-data-set';
-import OffsitePixel from './offsite-pixel';
 import PartnerStudy from './partner-study';
 
 /**
@@ -23,7 +21,7 @@ import PartnerStudy from './partner-study';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdStudyObjective extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       id: 'id',
       is_primary: 'is_primary',
@@ -36,11 +34,13 @@ export default class AdStudyObjective extends AbstractCrudObject {
 
   static get Type (): Object {
     return Object.freeze({
+      aep_conversion: 'AEP_CONVERSION',
       brand: 'BRAND',
       brandlift: 'BRANDLIFT',
       ftl: 'FTL',
       mae: 'MAE',
       mai: 'MAI',
+      mpc_conversion: 'MPC_CONVERSION',
       nonsales: 'NONSALES',
       partner: 'PARTNER',
       sales: 'SALES',
@@ -98,16 +98,6 @@ export default class AdStudyObjective extends AbstractCrudObject {
     );
   }
 
-  getOffsitePixels (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      OffsitePixel,
-      fields,
-      params,
-      fetchFirstPage,
-      '/offsitepixels'
-    );
-  }
-
   getPartnerStudies (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       PartnerStudy,
@@ -115,14 +105,6 @@ export default class AdStudyObjective extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/partnerstudies'
-    );
-  }
-
-  // $FlowFixMe : Support Generic Types
-  delete (fields: Array<string>, params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
-    return super.delete(
-      params
     );
   }
 

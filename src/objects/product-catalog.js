@@ -37,7 +37,7 @@ import Vehicle from './vehicle';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class ProductCatalog extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       business: 'business',
       commerce_merchant_settings: 'commerce_merchant_settings',
@@ -64,6 +64,7 @@ export default class ProductCatalog extends AbstractCrudObject {
       home_listings: 'home_listings',
       hotels: 'hotels',
       jobs: 'jobs',
+      local_delivery_shipping_profiles: 'local_delivery_shipping_profiles',
       local_service_businesses: 'local_service_businesses',
       offer_items: 'offer_items',
       offline_commerce: 'offline_commerce',
@@ -180,6 +181,16 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
+  getAutoMarkets (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/auto_markets'
+    );
+  }
+
   getAutomotiveModels (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AutomotiveModel,
@@ -187,6 +198,25 @@ export default class ProductCatalog extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/automotive_models'
+    );
+  }
+
+  createAutomotiveModel (fields: Array<string>, params: Object = {}): Promise<AutomotiveModel> {
+    return this.createEdge(
+      '/automotive_models',
+      fields,
+      params,
+      AutomotiveModel
+    );
+  }
+
+  getAutos (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/autos'
     );
   }
 
@@ -360,12 +390,13 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  createOnsiteCommerceMerchant (fields: Array<string>, params: Object = {}): Promise<ProductCatalog> {
-    return this.createEdge(
-      '/onsite_commerce_merchant',
+  getMediaTitles (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
       fields,
       params,
-      ProductCatalog
+      fetchFirstPage,
+      '/media_titles'
     );
   }
 

@@ -14,10 +14,11 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class SavedAudience extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       account: 'account',
       approximate_count: 'approximate_count',
+      approximate_count_64bit: 'approximate_count_64bit',
       description: 'description',
       extra_info: 'extra_info',
       id: 'id',

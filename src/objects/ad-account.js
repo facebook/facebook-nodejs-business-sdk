@@ -30,6 +30,7 @@ import Campaign from './campaign';
 import AsyncRequest from './async-request';
 import AdAsyncRequestSet from './ad-async-request-set';
 import BroadTargetingCategories from './broad-targeting-categories';
+import IGUser from './ig-user';
 import ContentDeliveryReport from './content-delivery-report';
 import CustomAudience from './custom-audience';
 import CustomAudiencesTOS from './custom-audiences-tos';
@@ -48,7 +49,6 @@ import Page from './page';
 import PublisherBlockList from './publisher-block-list';
 import AdAccountReachEstimate from './ad-account-reach-estimate';
 import ReachFrequencyPrediction from './reach-frequency-prediction';
-import AdAccountRoas from './ad-account-roas';
 import SavedAudience from './saved-audience';
 import AdAccountSubscribedApps from './ad-account-subscribed-apps';
 import AdAccountTargetingUnified from './ad-account-targeting-unified';
@@ -62,11 +62,10 @@ import AdAccountUser from './ad-account-user';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdAccount extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       account_id: 'account_id',
       account_status: 'account_status',
-      ad_account_creation_request: 'ad_account_creation_request',
       ad_account_promotable_objects: 'ad_account_promotable_objects',
       age: 'age',
       agency_client_declaration: 'agency_client_declaration',
@@ -191,6 +190,7 @@ export default class AdAccount extends AbstractCrudObject {
     return Object.freeze({
       advertise: 'ADVERTISE',
       analyze: 'ANALYZE',
+      draft: 'DRAFT',
       manage: 'MANAGE',
     });
   }
@@ -198,6 +198,7 @@ export default class AdAccount extends AbstractCrudObject {
     return Object.freeze({
       advertise: 'ADVERTISE',
       analyze: 'ANALYZE',
+      draft: 'DRAFT',
       manage: 'MANAGE',
     });
   }
@@ -652,15 +653,6 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createAudienceReplace (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
-    return this.createEdge(
-      '/audiencereplace',
-      fields,
-      params,
-      
-    );
-  }
-
   createBlockListDraft (fields: Array<string>, params: Object = {}): Promise<AdAccount> {
     return this.createEdge(
       '/block_list_drafts',
@@ -713,6 +705,16 @@ export default class AdAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/campaignsbylabels'
+    );
+  }
+
+  getConnectedInstagramAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      IGUser,
+      fields,
+      params,
+      fetchFirstPage,
+      '/connected_instagram_accounts'
     );
   }
 
@@ -978,16 +980,6 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getRoas (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AdAccountRoas,
-      fields,
-      params,
-      fetchFirstPage,
-      '/roas'
-    );
-  }
-
   getSavedAudiences (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       SavedAudience,
@@ -995,15 +987,6 @@ export default class AdAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/saved_audiences'
-    );
-  }
-
-  createSponsoredMessageAd (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
-    return this.createEdge(
-      '/sponsored_message_ads',
-      fields,
-      params,
-      
     );
   }
 
@@ -1080,13 +1063,6 @@ export default class AdAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/targetingvalidation'
-    );
-  }
-
-  deleteTracking (params: Object = {}): Promise<*> {
-    return super.deleteEdge(
-      '/tracking',
-      params
     );
   }
 

@@ -9,26 +9,33 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * FriendList
+ * WhatsAppBusinessProfile
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class FriendList extends AbstractCrudObject {
-  static get Fields () {
+export default class WhatsAppBusinessProfile extends AbstractCrudObject {
+  static get Fields (): Object {
     return Object.freeze({
       id: 'id',
-      list_type: 'list_type',
-      name: 'name',
-      owner: 'owner',
+      name_verification: 'name_verification',
+      whatsapp_business_api_data: 'whatsapp_business_api_data',
     });
   }
 
 
   
-  get (fields: Array<string>, params: Object = {}): FriendList {
+  get (fields: Array<string>, params: Object = {}): WhatsAppBusinessProfile {
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
+      params
+    );
+  }
+
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): WhatsAppBusinessProfile {
+    // $FlowFixMe : Support Generic Types
+    return super.update(
       params
     );
   }

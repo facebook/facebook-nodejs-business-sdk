@@ -16,7 +16,7 @@ import NativeOfferView from './native-offer-view';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class NativeOffer extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       barcode_photo: 'barcode_photo',
       barcode_photo_uri: 'barcode_photo_uri',

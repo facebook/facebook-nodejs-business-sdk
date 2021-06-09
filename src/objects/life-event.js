@@ -17,7 +17,7 @@ import Profile from './profile';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class LifeEvent extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       description: 'description',
       end_time: 'end_time',

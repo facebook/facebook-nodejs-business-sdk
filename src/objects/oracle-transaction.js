@@ -8,7 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import Cursor from './../cursor';
-import InvoiceCampaign from './invoice-campaign';
+import InvoiceCampaignNew from './invoice-campaign-new';
 
 /**
  * OracleTransaction
@@ -16,7 +16,7 @@ import InvoiceCampaign from './invoice-campaign';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class OracleTransaction extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       ad_account_ids: 'ad_account_ids',
       amount: 'amount',
@@ -39,16 +39,10 @@ export default class OracleTransaction extends AbstractCrudObject {
     });
   }
 
-  static get Type (): Object {
-    return Object.freeze({
-      cm: 'CM',
-      inv: 'INV',
-    });
-  }
 
   getCampaigns (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      InvoiceCampaign,
+      InvoiceCampaignNew,
       fields,
       params,
       fetchFirstPage,

@@ -17,7 +17,7 @@ import AdRuleHistory from './ad-rule-history';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdRule extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       account_id: 'account_id',
       created_by: 'created_by',

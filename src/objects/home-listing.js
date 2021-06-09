@@ -8,6 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 
 /**
  * HomeListing
@@ -15,7 +16,7 @@ import AbstractObject from './../abstract-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class HomeListing extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       ac_type: 'ac_type',
       additional_fees_description: 'additional_fees_description',
@@ -40,6 +41,7 @@ export default class HomeListing extends AbstractCrudObject {
       heating_type: 'heating_type',
       home_listing_id: 'home_listing_id',
       id: 'id',
+      image_fetch_status: 'image_fetch_status',
       images: 'images',
       laundry_type: 'laundry_type',
       listing_type: 'listing_type',
@@ -63,6 +65,36 @@ export default class HomeListing extends AbstractCrudObject {
     });
   }
 
+  static get ImageFetchStatus (): Object {
+    return Object.freeze({
+      direct_upload: 'DIRECT_UPLOAD',
+      fetched: 'FETCHED',
+      fetch_failed: 'FETCH_FAILED',
+      no_status: 'NO_STATUS',
+      outdated: 'OUTDATED',
+      partial_fetch: 'PARTIAL_FETCH',
+    });
+  }
+
+  getAugmentedRealitiesMetadata (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/augmented_realities_metadata'
+    );
+  }
+
+  getVideosMetadata (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/videos_metadata'
+    );
+  }
 
   // $FlowFixMe : Support Generic Types
   delete (fields: Array<string>, params: Object = {}): AbstractObject {

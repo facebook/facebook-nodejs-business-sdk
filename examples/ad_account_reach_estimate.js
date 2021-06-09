@@ -10,7 +10,7 @@
  'use strict';
 const bizSdk = require('facebook-nodejs-business-sdk');
 const AdAccount = bizSdk.AdAccount;
-const ReachEstimate = bizSdk.ReachEstimate;
+const AdAccountReachEstimate = bizSdk.AdAccountReachEstimate;
 
 const access_token = '<ACCESS_TOKEN>';
 const app_secret = '<APP_SECRET>';

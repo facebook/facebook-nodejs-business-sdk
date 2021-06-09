@@ -16,7 +16,7 @@ import ProductFeedUploadError from './product-feed-upload-error';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class ProductFeedUpload extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       end_time: 'end_time',
       error_count: 'error_count',

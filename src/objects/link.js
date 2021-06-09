@@ -10,7 +10,6 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 import Cursor from './../cursor';
 import Comment from './comment';
 import Profile from './profile';
-import Post from './post';
 
 /**
  * Link
@@ -18,7 +17,7 @@ import Post from './post';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class Link extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       caption: 'caption',
       created_time: 'created_time',
@@ -52,16 +51,6 @@ export default class Link extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/likes'
-    );
-  }
-
-  getSharedPosts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      Post,
-      fields,
-      params,
-      fetchFirstPage,
-      '/sharedposts'
     );
   }
 

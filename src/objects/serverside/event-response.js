@@ -9,7 +9,7 @@
 
 /**
  * EventResponse
- * @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters}
+ * @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters}
  */
 
 export default class EventResponse {

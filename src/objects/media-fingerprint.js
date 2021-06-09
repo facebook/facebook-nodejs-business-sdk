@@ -15,7 +15,7 @@ import AbstractObject from './../abstract-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class MediaFingerprint extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       duration_in_sec: 'duration_in_sec',
       fingerprint_content_type: 'fingerprint_content_type',

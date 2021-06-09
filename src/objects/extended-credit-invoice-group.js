@@ -17,7 +17,7 @@ import AdAccount from './ad-account';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class ExtendedCreditInvoiceGroup extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       auto_enroll: 'auto_enroll',
       customer_po_number: 'customer_po_number',

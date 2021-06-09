@@ -21,7 +21,7 @@ import AdsPixelStatsResult from './ads-pixel-stats-result';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdsPixel extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       automatic_matching_fields: 'automatic_matching_fields',
       can_proxy: 'can_proxy',
@@ -33,6 +33,7 @@ export default class AdsPixel extends AbstractCrudObject {
       first_party_cookie_status: 'first_party_cookie_status',
       id: 'id',
       is_created_by_business: 'is_created_by_business',
+      is_crm: 'is_crm',
       is_unavailable: 'is_unavailable',
       last_fired_time: 'last_fired_time',
       name: 'name',
@@ -53,6 +54,7 @@ export default class AdsPixel extends AbstractCrudObject {
       ct: 'ct',
       db: 'db',
       em: 'em',
+      external_id: 'external_id',
       fn: 'fn',
       ge: 'ge',
       ln: 'ln',
@@ -117,6 +119,15 @@ export default class AdsPixel extends AbstractCrudObject {
       fields,
       params,
       AdsPixel
+    );
+  }
+
+  createShadowTrafficHelper (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+    return this.createEdge(
+      '/shadowtraffichelper',
+      fields,
+      params,
+      
     );
   }
 
