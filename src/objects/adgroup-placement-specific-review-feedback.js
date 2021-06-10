@@ -31,6 +31,7 @@ export default class AdgroupPlacementSpecificReviewFeedback extends AbstractCrud
       dri_counterfeit: 'dri_counterfeit',
       facebook: 'facebook',
       facebook_pages_live_shopping: 'facebook_pages_live_shopping',
+      independent_work: 'independent_work',
       instagram: 'instagram',
       instagram_shop: 'instagram_shop',
       job_search: 'job_search',

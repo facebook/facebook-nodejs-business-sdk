@@ -9,21 +9,16 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * InvoiceCampaignNew
+ * AdAccountIosFourteenCampaignLimits
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class InvoiceCampaignNew extends AbstractCrudObject {
+export default class AdAccountIosFourteenCampaignLimits extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      ad_account_id: 'ad_account_id',
-      billed_amount_details: 'billed_amount_details',
-      campaign_id: 'campaign_id',
-      campaign_name: 'campaign_name',
-      clicks: 'clicks',
-      conversions: 'conversions',
-      impressions: 'impressions',
-      tags: 'tags',
+      campaign_group_limit: 'campaign_group_limit',
+      campaign_group_limits_details: 'campaign_group_limits_details',
+      campaign_limit: 'campaign_limit',
     });
   }
 

@@ -53,6 +53,7 @@ export default class ProductItem extends AbstractCrudObject {
       images: 'images',
       inventory: 'inventory',
       manufacturer_part_number: 'manufacturer_part_number',
+      marked_for_product_launch: 'marked_for_product_launch',
       material: 'material',
       mobile_link: 'mobile_link',
       name: 'name',
@@ -64,6 +65,7 @@ export default class ProductItem extends AbstractCrudObject {
       product_feed: 'product_feed',
       product_group: 'product_group',
       product_type: 'product_type',
+      quantity_to_sell_on_facebook: 'quantity_to_sell_on_facebook',
       retailer_id: 'retailer_id',
       retailer_product_group_id: 'retailer_product_group_id',
       review_rejection_reasons: 'review_rejection_reasons',
@@ -358,6 +360,13 @@ export default class ProductItem extends AbstractCrudObject {
       fb_toys_toys: 'FB_TOYS_TOYS',
       fb_vehi: 'FB_VEHI',
       fb_vehi_part: 'FB_VEHI_PART',
+    });
+  }
+  static get MarkedForProductLaunch (): Object {
+    return Object.freeze({
+      default: 'default',
+      marked: 'marked',
+      not_marked: 'not_marked',
     });
   }
 

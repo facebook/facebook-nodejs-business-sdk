@@ -40,6 +40,7 @@ import AdPreview from './ad-preview';
 import AdsInsights from './ads-insights';
 import AdReportRun from './ad-report-run';
 import InstagramUser from './instagram-user';
+import AdAccountIosFourteenCampaignLimits from './ad-account-ios-fourteen-campaign-limits';
 import AdAccountMatchedSearchApplicationsEdgeData from './ad-account-matched-search-applications-edge-data';
 import AdAccountMaxBid from './ad-account-max-bid';
 import MinimumBudget from './minimum-budget';
@@ -186,14 +187,6 @@ export default class AdAccount extends AbstractCrudObject {
       zar: 'ZAR',
     });
   }
-  static get PermittedTasks (): Object {
-    return Object.freeze({
-      advertise: 'ADVERTISE',
-      analyze: 'ANALYZE',
-      draft: 'DRAFT',
-      manage: 'MANAGE',
-    });
-  }
   static get Tasks (): Object {
     return Object.freeze({
       advertise: 'ADVERTISE',
@@ -288,6 +281,16 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
+  getAdSavedKeywords (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/ad_saved_keywords'
+    );
+  }
+
   getAdStudies (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdStudy,
@@ -295,6 +298,16 @@ export default class AdAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/ad_studies'
+    );
+  }
+
+  getAdCloudPlayables (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/adcloudplayables'
     );
   }
 
@@ -567,15 +580,6 @@ export default class AdAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/agencies'
-    );
-  }
-
-  createAgency (fields: Array<string>, params: Object = {}): Promise<AdAccount> {
-    return this.createEdge(
-      '/agencies',
-      fields,
-      params,
-      AdAccount
     );
   }
 
@@ -860,6 +864,16 @@ export default class AdAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/instagram_accounts'
+    );
+  }
+
+  getIosFourteenCampaignLimits (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AdAccountIosFourteenCampaignLimits,
+      fields,
+      params,
+      fetchFirstPage,
+      '/ios_fourteen_campaign_limits'
     );
   }
 

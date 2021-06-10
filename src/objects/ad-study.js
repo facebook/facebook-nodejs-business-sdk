@@ -26,7 +26,6 @@ export default class AdStudy extends AbstractCrudObject {
       cooldown_start_time: 'cooldown_start_time',
       created_by: 'created_by',
       created_time: 'created_time',
-      datasets_information: 'datasets_information',
       description: 'description',
       end_time: 'end_time',
       id: 'id',

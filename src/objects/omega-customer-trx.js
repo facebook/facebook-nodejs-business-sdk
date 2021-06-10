@@ -8,7 +8,7 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import Cursor from './../cursor';
-import InvoiceCampaignNew from './invoice-campaign-new';
+import InvoiceCampaign from './invoice-campaign';
 
 /**
  * OmegaCustomerTrx
@@ -51,7 +51,7 @@ export default class OmegaCustomerTrx extends AbstractCrudObject {
 
   getCampaigns (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      InvoiceCampaignNew,
+      InvoiceCampaign,
       fields,
       params,
       fetchFirstPage,

@@ -24,8 +24,10 @@ export default class Canvas extends AbstractCrudObject {
       is_hidden: 'is_hidden',
       is_published: 'is_published',
       last_editor: 'last_editor',
+      linked_documents: 'linked_documents',
       name: 'name',
       owner: 'owner',
+      source_template: 'source_template',
       update_time: 'update_time',
     });
   }

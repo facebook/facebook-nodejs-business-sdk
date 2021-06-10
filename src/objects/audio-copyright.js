@@ -7,6 +7,8 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 
 /**
  * AudioCopyright
@@ -32,6 +34,16 @@ export default class AudioCopyright extends AbstractCrudObject {
     });
   }
 
+
+  getUpdateRecords (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/update_records'
+    );
+  }
 
   
   get (fields: Array<string>, params: Object = {}): AudioCopyright {

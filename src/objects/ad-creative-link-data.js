@@ -16,6 +16,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class AdCreativeLinkData extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
+      ad_context: 'ad_context',
       additional_image_index: 'additional_image_index',
       app_link_spec: 'app_link_spec',
       attachment_style: 'attachment_style',

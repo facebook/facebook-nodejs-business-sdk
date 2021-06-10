@@ -37,6 +37,7 @@ export default class AdRule extends AbstractCrudObject {
       deleted: 'DELETED',
       disabled: 'DISABLED',
       enabled: 'ENABLED',
+      has_issues: 'HAS_ISSUES',
     });
   }
 

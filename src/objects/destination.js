@@ -9,6 +9,7 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
+import CatalogItemChannelsToIntegrityStatus from './catalog-item-channels-to-integrity-status';
 
 /**
  * Destination
@@ -54,6 +55,16 @@ export default class Destination extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/augmented_realities_metadata'
+    );
+  }
+
+  getChannelsToIntegrityStatus (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      CatalogItemChannelsToIntegrityStatus,
+      fields,
+      params,
+      fetchFirstPage,
+      '/channels_to_integrity_status'
     );
   }
 

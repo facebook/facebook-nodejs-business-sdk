@@ -5,6 +5,9 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+## v11.0.0
+
+
 ### Changed
 - Fixed sending null values for UserData multi-value fields in Conversions API.
 - Graph API call upgrade to [v11.0]https://developers.facebook.com/docs/graph-api/changelog/version11.0
@@ -98,3 +101,4 @@ All notable changes to this project will be documented in this file.
 ## v3.3.0
 ### Changed
 - Graph API call upgrade to [v3.3](https://developers.facebook.com/docs/graph-api/changelog/version3.3)
+

@@ -8,7 +8,6 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import Cursor from './../cursor';
-import AdPlacePageSet from './ad-place-page-set';
 import AdsPixel from './ads-pixel';
 import Application from './application';
 import CustomConversion from './custom-conversion';
@@ -46,16 +45,6 @@ export default class AdStudyObjective extends AbstractCrudObject {
       sales: 'SALES',
       telco: 'TELCO',
     });
-  }
-
-  getAdPlacePageSets (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AdPlacePageSet,
-      fields,
-      params,
-      fetchFirstPage,
-      '/ad_place_page_sets'
-    );
   }
 
   getAdsPixels (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {

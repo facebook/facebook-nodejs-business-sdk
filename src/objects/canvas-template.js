@@ -9,34 +9,33 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * SavedAudience
+ * CanvasTemplate
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class SavedAudience extends AbstractCrudObject {
+export default class CanvasTemplate extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      account: 'account',
-      approximate_count: 'approximate_count',
-      approximate_count_64bit: 'approximate_count_64bit',
-      delete_time: 'delete_time',
+      channels: 'channels',
       description: 'description',
-      extra_info: 'extra_info',
+      document: 'document',
       id: 'id',
+      is_multi_tab_supportable: 'is_multi_tab_supportable',
+      is_new: 'is_new',
       name: 'name',
-      operation_status: 'operation_status',
-      permission_for_actions: 'permission_for_actions',
-      run_status: 'run_status',
-      sentence_lines: 'sentence_lines',
-      targeting: 'targeting',
-      time_created: 'time_created',
-      time_updated: 'time_updated',
+      objectives: 'objectives',
+      owner_id: 'owner_id',
+      required_capabilities: 'required_capabilities',
+      snapshot_photo: 'snapshot_photo',
+      status: 'status',
+      sub_verticals: 'sub_verticals',
+      verticals: 'verticals',
     });
   }
 
 
   
-  get (fields: Array<string>, params: Object = {}): SavedAudience {
+  get (fields: Array<string>, params: Object = {}): CanvasTemplate {
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,

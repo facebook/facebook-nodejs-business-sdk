@@ -321,16 +321,6 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  getAppEventTypes (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/app_event_types'
-    );
-  }
-
   createAppIndexing (fields: Array<string>, params: Object = {}): Promise<Application> {
     return this.createEdge(
       '/app_indexing',
@@ -626,6 +616,15 @@ export default class Application extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/roles'
+    );
+  }
+
+  createSendNotification (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+    return this.createEdge(
+      '/send_notification',
+      fields,
+      params,
+      
     );
   }
 
