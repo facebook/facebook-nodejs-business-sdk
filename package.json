@@ -1,14 +1,14 @@
 {
-  "name": "facebook-nodejs-business-sdk",
-  "version": "11.0.0",
+  "name": "@shinez-io/facebook-nodejs-business-sdk",
+  "version": "11.0.3",
   "description": "SDK for the Facebook Ads API in Javascript and Node.js",
-  "author": "Facebook",
+  "author": "Olexiy Buyanskyy <olexiyb@gmail.com>",
   "maintainers": [
     "Ellen Tao <ellentao@fb.com>, Yonghong Shi <yongshi@fb.com>, Moyang He <hemoyang@fb.com>, Zain Aziz <zaziz@fb.com>, Neil Chen <xiaotchen@fb.com>, Supasate Choochaisri <supasate@fb.com>, lucascosta <lucas@lucascosta.com>"
   ],
-  "homepage": "https://github.com/facebook/facebook-nodejs-business-sdk",
+  "homepage": "https://github.com/Shinez-io/facebook-nodejs-business-sdk",
   "bugs": {
-    "url": "https://github.com/facebook/facebook-nodejs-business-sdk/issues"
+    "url": "https://github.com/Shinez-io/facebook-nodejs-business-sdk/issues"
   },
   "keywords": [
     "facebook",
@@ -27,13 +27,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/facebook/facebook-nodejs-business-sdk.git"
+    "url": "git://github.com/Shinez-io/facebook-nodejs-business-sdk.git"
   },
   "dependencies": {
     "currency-codes": "^1.5.1",
     "iso-3166-1-alpha-2": "1.0.0",
     "js-sha256": "^0.9.0",
     "mixwith": "~0.1.1",
+    "promise-retry": "^2.0.1",
     "request": "^2.88.0",
     "request-promise": "~4.1.1"
   },
@@ -72,6 +73,7 @@
     "vinyl-source-stream": "~2.0.0"
   },
   "scripts": {
+    "publish": "npm run prepublish && npm publish",
     "prepublish": "gulp dist",
     "start": "semistandard --fix",
     "flow": "flow"
