@@ -1,6 +1,6 @@
 {
   "name": "@shinez-io/facebook-nodejs-business-sdk",
-  "version": "11.0.3",
+  "version": "11.0.4",
   "description": "SDK for the Facebook Ads API in Javascript and Node.js",
   "author": "Olexiy Buyanskyy <olexiyb@gmail.com>",
   "maintainers": [
@@ -51,6 +51,7 @@
     "babel-preset-stage-2": "^6.24.1",
     "babelrc-rollup": "^3.0.0",
     "chai": "~3.5.0",
+    "dts-gen": "^0.6.0",
     "eslint": "^4.18.2",
     "eslint-plugin-flowtype": "^2.50.3",
     "flow-bin": "^0.138.0",
@@ -73,12 +74,14 @@
     "vinyl-source-stream": "~2.0.0"
   },
   "scripts": {
+    "dts": "dts-gen -m @shinez-io/facebook-nodejs-business-sdk -o -f dist/index.d.ts",
     "publish": "npm run prepublish && npm publish",
     "prepublish": "gulp dist",
     "start": "semistandard --fix",
     "flow": "flow"
   },
   "main": "./dist/cjs.js",
+  "types": "./dist/index.d.ts",
   "license": "Platform License",
   "semistandard": {
     "globals": [
