@@ -8,13 +8,12 @@
 
 'use strict';
 const {UserData} = require('facebook-nodejs-business-sdk');
-const {describe} = require('mocha');
 const sha256 = require('js-sha256');
-const { expect } = require('chai');
+
 
 describe('UserData', function() {
     describe('normalize', function() {
-        it('F5 Name field should normalize and hash first 5 characters', function() {
+        test('F5 Name field should normalize and hash first 5 characters', function() {
 
             // Arrange
             const testNameField = 'smith';
@@ -24,20 +23,20 @@ describe('UserData', function() {
             const normalizedUserData = userData.normalize();
 
             // Assert
-            expect(normalizedUserData.f5first).to.equal(sha256(testNameField));
+            expect(normalizedUserData.f5first).toBe(sha256(testNameField));
         });
 
-        it('normalize returns only the fields that were set', function() {
+        test('normalize returns only the fields that were set', function() {
             const phone = '12223334444';
             const userData = (new UserData()).setPhone(phone);
             const normalizedUserData = userData.normalize();
 
-            expect(normalizedUserData).to.deep.equal({
+            expect(normalizedUserData).toEqual({
                 'ph': [sha256(phone)],
             });
         });
 
-        it('Multiple value fields should dedup, normalize, and hash.', function() {
+        test('Multiple value fields should dedup, normalize, and hash.', function() {
 
             // Arrange
             const emails = ['joe@eg.com', 'mary@eg.com', 'joe@eg.com'];
@@ -78,10 +77,10 @@ describe('UserData', function() {
             validateValues('states', states, normalizedUserData.st);
             validateValues('zips', zips, normalizedUserData.zp);
             validateValues('countries', countries, normalizedUserData.country);
-            expect(normalizedUserData.external_id).to.eql(externalIds.slice(0, 2));
+            expect(normalizedUserData.external_id).toEqual(externalIds.slice(0, 2));
         });
 
-        it('F5 Name field, for a long name, should normalize and hash only first 5 characters', function() {
+        test('F5 Name field, for a long name, should normalize and hash only first 5 characters', function() {
 
             // Arrange
             const testNameField = 'smithsonian';
@@ -93,10 +92,10 @@ describe('UserData', function() {
             // Assert
             const actual = normalizedUserData.f5first;
             const expected = sha256(testNameField.substring(0,5));
-            expect(actual).to.equal(expected);
+            expect(actual).toBe(expected);
         });
 
-        it('First Initial field should normalize and hash only the first character', function() {
+        test('First Initial field should normalize and hash only the first character', function() {
 
             // Arrange
             const fi = 'john smith';
@@ -108,10 +107,10 @@ describe('UserData', function() {
             // Assert
             const actual = normalizedUserData.fi;
             const expected = sha256(fi.charAt(0));
-            expect(actual).to.equal(expected);
+            expect(actual).toBe(expected);
         });
 
-        it('dobd gets normalized', function() {
+        test('dobd gets normalized', function() {
             const cases = [
                 ['1', '01'],
                 ['09', '09'],
@@ -122,20 +121,20 @@ describe('UserData', function() {
                 const value = pair[0];
                 const expected = pair[1];
                 const userData = (new UserData()).setDobd(value);
-                expect(userData.normalize().dobd).to.equal(sha256(expected));
+                expect(userData.normalize().dobd).toBe(sha256(expected));
             });
         });
 
-        it('throws an error when dobd is not valid', function() {
+        test('throws an error when dobd is not valid', function() {
             const cases = ['0', '32', '-1', '0a'];
 
             cases.forEach(value => {
                 const userData = (new UserData()).setDobd(value);
-                expect(() => userData.normalize()).to.throw(Error);
+                expect(() => userData.normalize()).toThrow(Error);
             });
         });
 
-        it('dobm gets normalized', function() {
+        test('dobm gets normalized', function() {
             const cases = [
                 ['1', '01'],
                 ['09', '09'],
@@ -146,20 +145,20 @@ describe('UserData', function() {
                 const value = pair[0];
                 const expected = pair[1];
                 const userData = (new UserData()).setDobm(value);
-                expect(userData.normalize().dobm).to.equal(sha256(expected));
+                expect(userData.normalize().dobm).toBe(sha256(expected));
             });
         });
 
-        it('throws an error when dobm is not valid', function() {
+        test('throws an error when dobm is not valid', function() {
             const cases = ['0', '13', '-1', '0a'];
 
             cases.forEach(value => {
                 const userData = (new UserData()).setDobm(value);
-                expect(() => userData.normalize()).to.throw(Error);
+                expect(() => userData.normalize()).toThrow(Error);
             });
         });
 
-        it('doby gets normalized', function() {
+        test('doby gets normalized', function() {
             const cases = [
                 ['1900', '1900'],
                 ['0000', '0000'],
@@ -170,22 +169,22 @@ describe('UserData', function() {
                 const value = pair[0];
                 const expected = pair[1];
                 const userData = (new UserData()).setDoby(value);
-                expect(userData.normalize().doby).to.equal(sha256(expected));
+                expect(userData.normalize().doby).toBe(sha256(expected));
             });
         });
 
-        it('throws an error when doby is not valid', function() {
+        test('throws an error when doby is not valid', function() {
             const cases = ['0', '12345', '-1', '199a'];
 
             cases.forEach(value => {
                 const userData = (new UserData()).setDoby(value);
-                expect(() => userData.normalize()).to.throw(Error);
+                expect(() => userData.normalize()).toThrow(Error);
             });
         });
     });
 
     describe('Multiple values of customer information parameters', function() {
-        it('Getters and setters should work.', function() {
+        test('Getters and setters should work.', function() {
             // Arrange
             const emails = ['joe@eg.com', 'smith@test.com'];
             const phones = ['14251234567', '2062072009'];
@@ -213,20 +212,20 @@ describe('UserData', function() {
                 .setExternalIds(externalIds);
 
             // Assert
-            expect(userData.emails).to.equal(emails);
-            expect(userData.phones).to.equal(phones);
-            expect(userData.genders).to.equal(genders);
-            expect(userData.dates_of_birth).to.equal(datesOfBirth);
-            expect(userData.last_names).to.equal(lastNames);
-            expect(userData.first_names).to.equal(firstNames);
-            expect(userData.cities).to.equal(cities);
-            expect(userData.states).to.equal(states);
-            expect(userData.zips).to.equal(zips);
-            expect(userData.countries).to.equal(countries);
-            expect(userData.external_ids).to.equal(externalIds);
+            expect(userData.emails).toBe(emails);
+            expect(userData.phones).toBe(phones);
+            expect(userData.genders).toBe(genders);
+            expect(userData.dates_of_birth).toBe(datesOfBirth);
+            expect(userData.last_names).toBe(lastNames);
+            expect(userData.first_names).toBe(firstNames);
+            expect(userData.cities).toBe(cities);
+            expect(userData.states).toBe(states);
+            expect(userData.zips).toBe(zips);
+            expect(userData.countries).toBe(countries);
+            expect(userData.external_ids).toBe(externalIds);
         });
 
-        it('Singular constructor should work.', function () {
+        test('Singular constructor should work.', function () {
             // Arrange
             const email = 'joe@eg.com';
             const phone = '14251234567';
@@ -246,20 +245,20 @@ describe('UserData', function() {
             ));
 
             // Assert
-            expect(userData.email).to.equal(email);
-            expect(userData.phone).to.equal(phone);
-            expect(userData.gender).to.equal(gender);
-            expect(userData.date_of_birth).to.equal(dateOfBirth);
-            expect(userData.last_name).to.equal(lastName);
-            expect(userData.first_name).to.equal(firstName);
-            expect(userData.city).to.equal(city);
-            expect(userData.state).to.equal(state);
-            expect(userData.zip).to.equal(zip);
-            expect(userData.country).to.equal(country);
-            expect(userData.external_id).to.equal(externalId);
+            expect(userData.email).toBe(email);
+            expect(userData.phone).toBe(phone);
+            expect(userData.gender).toBe(gender);
+            expect(userData.date_of_birth).toBe(dateOfBirth);
+            expect(userData.last_name).toBe(lastName);
+            expect(userData.first_name).toBe(firstName);
+            expect(userData.city).toBe(city);
+            expect(userData.state).toBe(state);
+            expect(userData.zip).toBe(zip);
+            expect(userData.country).toBe(country);
+            expect(userData.external_id).toBe(externalId);
         });
 
-        it('Singular getters/setters should work.', function () {
+        test('Singular getters/setters should work.', function () {
             // Arrange
             const email = 'joe@eg.com';
             const phone = '14251234567';
@@ -287,17 +286,17 @@ describe('UserData', function() {
                 .setExternalId(externalId);
 
             // Assert
-            expect(userData.email).to.equal(email);
-            expect(userData.phone).to.equal(phone);
-            expect(userData.gender).to.equal(gender);
-            expect(userData.date_of_birth).to.equal(dateOfBirth);
-            expect(userData.last_name).to.equal(lastName);
-            expect(userData.first_name).to.equal(firstName);
-            expect(userData.city).to.equal(city);
-            expect(userData.state).to.equal(state);
-            expect(userData.zip).to.equal(zip);
-            expect(userData.country).to.equal(country);
-            expect(userData.external_id).to.equal(externalId);
+            expect(userData.email).toBe(email);
+            expect(userData.phone).toBe(phone);
+            expect(userData.gender).toBe(gender);
+            expect(userData.date_of_birth).toBe(dateOfBirth);
+            expect(userData.last_name).toBe(lastName);
+            expect(userData.first_name).toBe(firstName);
+            expect(userData.city).toBe(city);
+            expect(userData.state).toBe(state);
+            expect(userData.zip).toBe(zip);
+            expect(userData.country).toBe(country);
+            expect(userData.external_id).toBe(externalId);
         });
     });
 });
@@ -310,5 +309,5 @@ function validateValues(fieldName, rawValues, actualNormalizedValues) {
     for (let i in rawValues) {
         expectedValues.add(sha256(rawValues[i]));
     }
-    expect(actualNormalizedValues, fieldName.concat(' values do not match.')).to.eql(Array.from(expectedValues));
+    expect(actualNormalizedValues).toEqual(Array.from(expectedValues));
 }
