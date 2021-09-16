@@ -9,38 +9,28 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * AdPlacePageSet
+ * CloudGame
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class AdPlacePageSet extends AbstractCrudObject {
+export default class CloudGame extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      account_id: 'account_id',
       id: 'id',
-      location_types: 'location_types',
       name: 'name',
-      pages_count: 'pages_count',
-      parent_page: 'parent_page',
+      owner: 'owner',
+      playable_ad_file_size: 'playable_ad_file_size',
+      playable_ad_orientation: 'playable_ad_orientation',
+      playable_ad_package_name: 'playable_ad_package_name',
+      playable_ad_reject_reason: 'playable_ad_reject_reason',
+      playable_ad_status: 'playable_ad_status',
+      playable_ad_upload_time: 'playable_ad_upload_time',
     });
   }
 
-  static get LocationTypes (): Object {
-    return Object.freeze({
-      home: 'home',
-      recent: 'recent',
-    });
-  }
-  static get TargetedAreaType (): Object {
-    return Object.freeze({
-      custom_radius: 'CUSTOM_RADIUS',
-      marketing_area: 'MARKETING_AREA',
-      none: 'NONE',
-    });
-  }
 
   
-  get (fields: Array<string>, params: Object = {}): AdPlacePageSet {
+  get (fields: Array<string>, params: Object = {}): CloudGame {
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,

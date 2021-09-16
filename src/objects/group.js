@@ -73,6 +73,7 @@ export default class Group extends AbstractCrudObject {
       ephemeral: 'EPHEMERAL',
       event_planning: 'EVENT_PLANNING',
       family: 'FAMILY',
+      fantasy_league: 'FANTASY_LEAGUE',
       fitness: 'FITNESS',
       for_sale: 'FOR_SALE',
       for_work: 'FOR_WORK',
@@ -130,6 +131,7 @@ export default class Group extends AbstractCrudObject {
       ephemeral: 'EPHEMERAL',
       event_planning: 'EVENT_PLANNING',
       family: 'FAMILY',
+      fantasy_league: 'FANTASY_LEAGUE',
       fitness: 'FITNESS',
       for_sale: 'FOR_SALE',
       for_work: 'FOR_WORK',
@@ -340,6 +342,15 @@ export default class Group extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/picture'
+    );
+  }
+
+  createShiftSetting (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+    return this.createEdge(
+      '/shift_settings',
+      fields,
+      params,
+      
     );
   }
 

@@ -61,6 +61,7 @@ export default class HomeListing extends AbstractCrudObject {
       price: 'price',
       property_type: 'property_type',
       sanitized_images: 'sanitized_images',
+      unit_price: 'unit_price',
       url: 'url',
       year_built: 'year_built',
     });

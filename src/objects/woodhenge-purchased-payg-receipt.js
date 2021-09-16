@@ -9,18 +9,27 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * AdAccountContentFilterLevelsInheritance
+ * WoodhengePurchasedPAYGReceipt
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class AdAccountContentFilterLevelsInheritance extends AbstractCrudObject {
+export default class WoodhengePurchasedPAYGReceipt extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      an_business_ids: 'an_business_ids',
-      an_level: 'an_level',
-      facebook_business_ids: 'facebook_business_ids',
-      facebook_level: 'facebook_level',
+      id: 'id',
+      number_of_subscriptions_purchased: 'number_of_subscriptions_purchased',
+      purchase_time: 'purchase_time',
+      user: 'user',
     });
   }
 
+
+  
+  get (fields: Array<string>, params: Object = {}): WoodhengePurchasedPAYGReceipt {
+    // $FlowFixMe : Support Generic Types
+    return this.read(
+      fields,
+      params
+    );
+  }
 }

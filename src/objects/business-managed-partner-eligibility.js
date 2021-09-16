@@ -9,15 +9,16 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * ProductFeedUploadDiagnosticsReport
+ * BusinessManagedPartnerEligibility
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class ProductFeedUploadDiagnosticsReport extends AbstractCrudObject {
+export default class BusinessManagedPartnerEligibility extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      last_updated_time: 'last_updated_time',
-      report_url: 'report_url',
+      is_eligible: 'is_eligible',
+      reason_code: 'reason_code',
+      reason_description: 'reason_description',
     });
   }
 

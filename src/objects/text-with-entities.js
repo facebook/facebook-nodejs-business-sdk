@@ -9,22 +9,14 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * InvoiceCampaign
+ * TextWithEntities
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class InvoiceCampaign extends AbstractCrudObject {
+export default class TextWithEntities extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      ad_account_id: 'ad_account_id',
-      billed_amount_details: 'billed_amount_details',
-      campaign_id: 'campaign_id',
-      campaign_name: 'campaign_name',
-      clicks: 'clicks',
-      conversions: 'conversions',
-      description: 'description',
-      impressions: 'impressions',
-      tags: 'tags',
+      text: 'text',
     });
   }
 

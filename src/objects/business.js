@@ -42,7 +42,6 @@ import BusinessRoleRequest from './business-role-request';
 import ProfilePictureSource from './profile-picture-source';
 import SystemUser from './system-user';
 import ThirdPartyMeasurementReportDataset from './third-party-measurement-report-dataset';
-import MeasurementUploadEvent from './measurement-upload-event';
 
 /**
  * Business
@@ -53,12 +52,13 @@ export default class Business extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       block_offline_analytics: 'block_offline_analytics',
+      collaborative_ads_managed_partner_business_info: 'collaborative_ads_managed_partner_business_info',
+      collaborative_ads_managed_partner_eligibility: 'collaborative_ads_managed_partner_eligibility',
       created_by: 'created_by',
       created_time: 'created_time',
       extended_updated_time: 'extended_updated_time',
       id: 'id',
       is_hidden: 'is_hidden',
-      is_instagram_enabled_in_fb_analytics: 'is_instagram_enabled_in_fb_analytics',
       link: 'link',
       name: 'name',
       payment_account_id: 'payment_account_id',
@@ -129,6 +129,7 @@ export default class Business extends AbstractCrudObject {
       profile_plus_manage: 'PROFILE_PLUS_MANAGE',
       profile_plus_messaging: 'PROFILE_PLUS_MESSAGING',
       profile_plus_moderate: 'PROFILE_PLUS_MODERATE',
+      profile_plus_revenue: 'PROFILE_PLUS_REVENUE',
       read_page_mailboxes: 'READ_PAGE_MAILBOXES',
       view_monetization_insights: 'VIEW_MONETIZATION_INSIGHTS',
     });
@@ -163,6 +164,7 @@ export default class Business extends AbstractCrudObject {
       profile_plus_manage: 'PROFILE_PLUS_MANAGE',
       profile_plus_messaging: 'PROFILE_PLUS_MESSAGING',
       profile_plus_moderate: 'PROFILE_PLUS_MODERATE',
+      profile_plus_revenue: 'PROFILE_PLUS_REVENUE',
       read_page_mailboxes: 'READ_PAGE_MAILBOXES',
       view_monetization_insights: 'VIEW_MONETIZATION_INSIGHTS',
     });
@@ -277,15 +279,6 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createAggregateRevenue (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
-    return this.createEdge(
-      '/aggregate_revenue',
-      fields,
-      params,
-      
-    );
-  }
-
   getAnPlacements (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdPlacement,
@@ -360,6 +353,16 @@ export default class Business extends AbstractCrudObject {
       fields,
       params,
       BusinessUser
+    );
+  }
+
+  getBusinessProjects (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/businessprojects'
     );
   }
 
@@ -630,6 +633,33 @@ export default class Business extends AbstractCrudObject {
   createManagedBusiness (fields: Array<string>, params: Object = {}): Promise<Business> {
     return this.createEdge(
       '/managed_businesses',
+      fields,
+      params,
+      Business
+    );
+  }
+
+  createManagedPartnerBusinessSetup (fields: Array<string>, params: Object = {}): Promise<Business> {
+    return this.createEdge(
+      '/managed_partner_business_setup',
+      fields,
+      params,
+      Business
+    );
+  }
+
+  createManagedPartnerBusiness (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+    return this.createEdge(
+      '/managed_partner_businesses',
+      fields,
+      params,
+      
+    );
+  }
+
+  createManagedPartnerChildBusinessAsset (fields: Array<string>, params: Object = {}): Promise<Business> {
+    return this.createEdge(
+      '/managed_partner_child_business_assets',
       fields,
       params,
       Business
@@ -938,15 +968,6 @@ export default class Business extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/third_party_measurement_report_dataset'
-    );
-  }
-
-  createUploadEvent (fields: Array<string>, params: Object = {}): Promise<MeasurementUploadEvent> {
-    return this.createEdge(
-      '/upload_event',
-      fields,
-      params,
-      MeasurementUploadEvent
     );
   }
 

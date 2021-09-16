@@ -42,6 +42,7 @@ export default class AdgroupPlacementSpecificReviewFeedback extends AbstractCrud
       marketplace_motors: 'marketplace_motors',
       marketplace_shops: 'marketplace_shops',
       max_review_placements: 'max_review_placements',
+      neighborhoods: 'neighborhoods',
       page_admin: 'page_admin',
       product: 'product',
       product_service: 'product_service',

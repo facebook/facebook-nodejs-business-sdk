@@ -35,6 +35,7 @@ export default class Flight extends AbstractCrudObject {
       origin_city: 'origin_city',
       price: 'price',
       sanitized_images: 'sanitized_images',
+      unit_price: 'unit_price',
       url: 'url',
     });
   }

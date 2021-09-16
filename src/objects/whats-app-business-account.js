@@ -10,6 +10,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import AssignedUser from './assigned-user';
+import ProductCatalog from './product-catalog';
 
 /**
  * WhatsAppBusinessAccount
@@ -120,6 +121,41 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/phone_numbers'
+    );
+  }
+
+  createPhoneNumber (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+    return this.createEdge(
+      '/phone_numbers',
+      fields,
+      params,
+      
+    );
+  }
+
+  deleteProductCatalogs (params: Object = {}): Promise<*> {
+    return super.deleteEdge(
+      '/product_catalogs',
+      params
+    );
+  }
+
+  getProductCatalogs (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      ProductCatalog,
+      fields,
+      params,
+      fetchFirstPage,
+      '/product_catalogs'
+    );
+  }
+
+  createProductCatalog (fields: Array<string>, params: Object = {}): Promise<ProductCatalog> {
+    return this.createEdge(
+      '/product_catalogs',
+      fields,
+      params,
+      ProductCatalog
     );
   }
 

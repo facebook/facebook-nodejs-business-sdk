@@ -376,15 +376,6 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  createGamesPlay (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
-    return this.createEdge(
-      '/games_plays',
-      fields,
-      params,
-      
-    );
-  }
-
   getGroups (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Group,

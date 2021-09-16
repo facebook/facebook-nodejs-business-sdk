@@ -47,6 +47,7 @@ export default class AdoptablePet extends AbstractCrudObject {
       shelter_phone: 'shelter_phone',
       size: 'size',
       tertiary_color: 'tertiary_color',
+      unit_price: 'unit_price',
       url: 'url',
     });
   }

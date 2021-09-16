@@ -10,6 +10,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import Business from './business';
+import AREffectsBatchStatus from './ar-effects-batch-status';
 import AssignedUser from './assigned-user';
 import AutomotiveModel from './automotive-model';
 import ProductCatalogCategory from './product-catalog-category';
@@ -156,6 +157,16 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
+  getArEffectsBatchStatus (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AREffectsBatchStatus,
+      fields,
+      params,
+      fetchFirstPage,
+      '/ar_effects_batch_status'
+    );
+  }
+
   deleteAssignedUsers (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/assigned_users',
@@ -208,16 +219,6 @@ export default class ProductCatalog extends AbstractCrudObject {
       fields,
       params,
       AutomotiveModel
-    );
-  }
-
-  getAutos (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/autos'
     );
   }
 

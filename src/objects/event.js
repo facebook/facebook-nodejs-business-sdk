@@ -25,6 +25,7 @@ export default class Event extends AbstractCrudObject {
       can_guests_invite: 'can_guests_invite',
       category: 'category',
       cover: 'cover',
+      created_time: 'created_time',
       declined_count: 'declined_count',
       description: 'description',
       discount_code_enabled: 'discount_code_enabled',

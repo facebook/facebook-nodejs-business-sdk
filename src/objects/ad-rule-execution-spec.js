@@ -26,6 +26,7 @@ export default class AdRuleExecutionSpec extends AbstractCrudObject {
     return Object.freeze({
       add_interest_relaxation: 'ADD_INTEREST_RELAXATION',
       add_questionnaire_interests: 'ADD_QUESTIONNAIRE_INTERESTS',
+      audience_consolidation: 'AUDIENCE_CONSOLIDATION',
       change_bid: 'CHANGE_BID',
       change_budget: 'CHANGE_BUDGET',
       change_campaign_budget: 'CHANGE_CAMPAIGN_BUDGET',
@@ -37,6 +38,8 @@ export default class AdRuleExecutionSpec extends AbstractCrudObject {
       rotate: 'ROTATE',
       unpause: 'UNPAUSE',
       update_creative: 'UPDATE_CREATIVE',
+      update_lax_budget: 'UPDATE_LAX_BUDGET',
+      update_lax_duration: 'UPDATE_LAX_DURATION',
     });
   }
 

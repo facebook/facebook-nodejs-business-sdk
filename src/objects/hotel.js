@@ -40,6 +40,7 @@ export default class Hotel extends AbstractCrudObject {
       sale_price: 'sale_price',
       sanitized_images: 'sanitized_images',
       star_rating: 'star_rating',
+      unit_price: 'unit_price',
       url: 'url',
     });
   }

@@ -58,6 +58,7 @@ export default class Vehicle extends AbstractCrudObject {
       title: 'title',
       transmission: 'transmission',
       trim: 'trim',
+      unit_price: 'unit_price',
       url: 'url',
       vehicle_id: 'vehicle_id',
       vehicle_registration_plate: 'vehicle_registration_plate',

@@ -90,6 +90,7 @@ export default class AdCreative extends AbstractCrudObject {
       buy_tickets: 'BUY_TICKETS',
       call: 'CALL',
       call_me: 'CALL_ME',
+      call_now: 'CALL_NOW',
       contact: 'CONTACT',
       contact_us: 'CONTACT_US',
       donate: 'DONATE',
@@ -176,6 +177,7 @@ export default class AdCreative extends AbstractCrudObject {
   }
   static get ApplinkTreatment (): Object {
     return Object.freeze({
+      automatic: 'automatic',
       deeplink_with_appstore_fallback: 'deeplink_with_appstore_fallback',
       deeplink_with_web_fallback: 'deeplink_with_web_fallback',
       web_only: 'web_only',

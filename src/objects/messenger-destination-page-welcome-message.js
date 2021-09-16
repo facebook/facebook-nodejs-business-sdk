@@ -25,13 +25,4 @@ export default class MessengerDestinationPageWelcomeMessage extends AbstractCrud
     });
   }
 
-
-  
-  get (fields: Array<string>, params: Object = {}): MessengerDestinationPageWelcomeMessage {
-    // $FlowFixMe : Support Generic Types
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

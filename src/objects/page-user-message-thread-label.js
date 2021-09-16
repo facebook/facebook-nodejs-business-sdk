@@ -18,7 +18,7 @@ export default class PageUserMessageThreadLabel extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       id: 'id',
-      name: 'name',
+      page_label_name: 'page_label_name',
     });
   }
 

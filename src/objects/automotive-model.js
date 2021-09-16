@@ -45,6 +45,7 @@ export default class AutomotiveModel extends AbstractCrudObject {
       title: 'title',
       transmission: 'transmission',
       trim: 'trim',
+      unit_price: 'unit_price',
       url: 'url',
       year: 'year',
     });
