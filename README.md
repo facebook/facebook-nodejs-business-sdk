@@ -1,6 +1,6 @@
 # Facebook Business SDK for NodeJS
 
-[![License](https://img.shields.io/badge/license-Facebook%20Platform-blue.svg?style=flat-square)](https://github.com/facebook/facebook-nodejs-business-sdk/blob/master/LICENSE)
+[![License](https://img.shields.io/badge/license-Facebook%20Platform-blue.svg?style=flat-square)](https://github.com/facebook/facebook-nodejs-business-sdk/blob/main/LICENSE)
 
 ### Introduction
 
