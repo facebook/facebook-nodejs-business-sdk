@@ -10,6 +10,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import AssignedUser from './assigned-user';
+import ProductCatalog from './product-catalog';
 
 /**
  * WhatsAppBusinessAccount
@@ -19,7 +20,9 @@ import AssignedUser from './assigned-user';
 export default class WhatsAppBusinessAccount extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
+      account_review_status: 'account_review_status',
       analytics: 'analytics',
+      creation_time: 'creation_time',
       currency: 'currency',
       id: 'id',
       message_template_namespace: 'message_template_namespace',
@@ -118,6 +121,41 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/phone_numbers'
+    );
+  }
+
+  createPhoneNumber (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+    return this.createEdge(
+      '/phone_numbers',
+      fields,
+      params,
+      
+    );
+  }
+
+  deleteProductCatalogs (params: Object = {}): Promise<*> {
+    return super.deleteEdge(
+      '/product_catalogs',
+      params
+    );
+  }
+
+  getProductCatalogs (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      ProductCatalog,
+      fields,
+      params,
+      fetchFirstPage,
+      '/product_catalogs'
+    );
+  }
+
+  createProductCatalog (fields: Array<string>, params: Object = {}): Promise<ProductCatalog> {
+    return this.createEdge(
+      '/product_catalogs',
+      fields,
+      params,
+      ProductCatalog
     );
   }
 

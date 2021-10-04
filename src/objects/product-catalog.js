@@ -10,12 +10,14 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import Business from './business';
+import AREffectsBatchStatus from './ar-effects-batch-status';
 import AssignedUser from './assigned-user';
 import AutomotiveModel from './automotive-model';
 import ProductCatalogCategory from './product-catalog-category';
 import CheckBatchRequestStatus from './check-batch-request-status';
 import CollaborativeAdsShareSettings from './collaborative-ads-share-settings';
 import Destination from './destination';
+import ProductCatalogDiagnosticGroup from './product-catalog-diagnostic-group';
 import ProductEventStat from './product-event-stat';
 import ExternalEventSource from './external-event-source';
 import Flight from './flight';
@@ -155,6 +157,16 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
+  getArEffectsBatchStatus (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AREffectsBatchStatus,
+      fields,
+      params,
+      fetchFirstPage,
+      '/ar_effects_batch_status'
+    );
+  }
+
   deleteAssignedUsers (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/assigned_users',
@@ -207,16 +219,6 @@ export default class ProductCatalog extends AbstractCrudObject {
       fields,
       params,
       AutomotiveModel
-    );
-  }
-
-  getAutos (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/autos'
     );
   }
 
@@ -275,6 +277,16 @@ export default class ProductCatalog extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/destinations'
+    );
+  }
+
+  getDiagnostics (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      ProductCatalogDiagnosticGroup,
+      fields,
+      params,
+      fetchFirstPage,
+      '/diagnostics'
     );
   }
 
@@ -384,6 +396,15 @@ export default class ProductCatalog extends AbstractCrudObject {
   createItemsBatch (fields: Array<string>, params: Object = {}): Promise<ProductCatalog> {
     return this.createEdge(
       '/items_batch',
+      fields,
+      params,
+      ProductCatalog
+    );
+  }
+
+  createLocalizedItemsBatch (fields: Array<string>, params: Object = {}): Promise<ProductCatalog> {
+    return this.createEdge(
+      '/localized_items_batch',
       fields,
       params,
       ProductCatalog

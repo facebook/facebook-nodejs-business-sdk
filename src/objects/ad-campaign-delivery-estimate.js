@@ -20,6 +20,7 @@ export default class AdCampaignDeliveryEstimate extends AbstractCrudObject {
       estimate_dau: 'estimate_dau',
       estimate_mau: 'estimate_mau',
       estimate_ready: 'estimate_ready',
+      targeting_optimization_types: 'targeting_optimization_types',
     });
   }
 

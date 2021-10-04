@@ -23,7 +23,8 @@ const api = bizSdk.FacebookAdsApi.init(access_token);
 let current_timestamp = Math.floor(new Date() / 1000);
 
 const userData = (new UserData())
-                .setEmail('joe@eg.com')
+                .setEmails(['joe@eg.com'])
+                .setPhones(['12345678901', '14251234567'])
                 // It is recommended to send Client IP and User Agent for Conversions API Events.
                 .setClientIpAddress(request.connection.remoteAddress)
                 .setClientUserAgent(request.headers['user-agent'])

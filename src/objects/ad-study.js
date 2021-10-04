@@ -26,7 +26,6 @@ export default class AdStudy extends AbstractCrudObject {
       cooldown_start_time: 'cooldown_start_time',
       created_by: 'created_by',
       created_time: 'created_time',
-      datasets_information: 'datasets_information',
       description: 'description',
       end_time: 'end_time',
       id: 'id',
@@ -45,7 +44,6 @@ export default class AdStudy extends AbstractCrudObject {
       continuous_lift_config: 'CONTINUOUS_LIFT_CONFIG',
       geo_lift: 'GEO_LIFT',
       lift: 'LIFT',
-      private_lift: 'PRIVATE_LIFT',
       split_test: 'SPLIT_TEST',
     });
   }

@@ -8,12 +8,11 @@
 
 'use strict';
 const {Content, CustomData, DeliveryCategory} = require('facebook-nodejs-business-sdk');
-const {describe} = require('mocha');
-const { expect } = require('chai');
+
 
 describe('CustomData', function() {
     describe('normalize', function() {
-        it('normalizes the fields', function() {
+        test('normalizes the fields', function() {
             const expected = {
               'value': 1,
               'currency': 'usd',
@@ -56,10 +55,10 @@ describe('CustomData', function() {
                     'k2': 'v2'
                 });
 
-            expect(custom_data.normalize()).to.deep.equal(expected);
+            expect(custom_data.normalize()).toEqual(expected);
         });
 
-        it('normalizes delivery_category values', function() {
+        test('normalizes delivery_category values', function() {
           const delivery_category_cases = [
                 [DeliveryCategory.CURBSIDE, 'curbside'],
                 ['IN_STORE', 'in_store'],
@@ -78,56 +77,56 @@ describe('CustomData', function() {
               const normalized = custom_data.normalize();
 
               //Assert
-              expect(normalized['delivery_category']).to.deep.equal(expected);
+              expect(normalized['delivery_category']).toEqual(expected);
             });
           });
 
-        it('normalizes value when it is 0', function() {
+        test('normalizes value when it is 0', function() {
             const custom_data = (new CustomData()).setValue(0);
             const normalized = custom_data.normalize();
 
-            expect(normalized['value']).to.equal(0);
+            expect(normalized['value']).toBe(0);
         });
 
-        it('normalizes value it parses a number from string', function() {
+        test('normalizes value it parses a number from string', function() {
             const custom_data = (new CustomData()).setValue('0.5');
             const normalized = custom_data.normalize();
 
-            expect(normalized['value']).to.equal(0.5);
+            expect(normalized['value']).toBe(0.5);
         });
 
-        it('normalizes value is set to the first number in an array', function() {
+        test('normalizes value is set to the first number in an array', function() {
             const custom_data = (new CustomData()).setValue(['1.5', 3]);
             const normalized = custom_data.normalize();
 
-            expect(normalized['value']).to.equal(1.5);
+            expect(normalized['value']).toBe(1.5);
         });
 
-        it('normalize skips the value when it cannot be parsed to a float', function() {
+        test('normalize skips the value when it cannot be parsed to a float', function() {
             const custom_data1 = (new CustomData()).setValue(undefined);
-            expect(Object.keys(custom_data1.normalize())).to.deep.equal([]);
+            expect(Object.keys(custom_data1.normalize())).toEqual([]);
 
             const custom_data2 = (new CustomData()).setValue(['test']);
-            expect(Object.keys(custom_data2.normalize())).to.deep.equal([]);
+            expect(Object.keys(custom_data2.normalize())).toEqual([]);
 
             const custom_data3 = (new CustomData()).setValue({a: 'value'});
-            expect(Object.keys(custom_data3.normalize())).to.deep.equal([]);
+            expect(Object.keys(custom_data3.normalize())).toEqual([]);
 
             const custom_data4 = (new CustomData()).setValue(true);
-            expect(Object.keys(custom_data4.normalize())).to.deep.equal([]);
+            expect(Object.keys(custom_data4.normalize())).toEqual([]);
 
             const custom_data5 = (new CustomData()).setValue({'1.5': 3});
-            expect(Object.keys(custom_data5.normalize())).to.deep.equal([]);
+            expect(Object.keys(custom_data5.normalize())).toEqual([]);
         });
 
-        it('throws exception on invalid delivery_category', function() {
+        test('throws exception on invalid delivery_category', function() {
 
             const test_delivery_category = 'invalid_delivery_category';
 
             const custom_data = (new CustomData())
               .setDeliveryCategory(test_delivery_category);
 
-            expect(() => custom_data.normalize()).to.throw(Error);
+            expect(() => custom_data.normalize()).toThrow(Error);
         });
     })
 });

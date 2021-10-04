@@ -30,6 +30,11 @@ export default class AdAccountMatchedSearchApplicationsEdgeData extends Abstract
   static get AppStore (): Object {
     return Object.freeze({
       amazon_app_store: 'AMAZON_APP_STORE',
+      apk_mirror: 'APK_MIRROR',
+      apk_monk: 'APK_MONK',
+      apk_pure: 'APK_PURE',
+      aptoide_a1_store: 'APTOIDE_A1_STORE',
+      bemobi_mobile_store: 'BEMOBI_MOBILE_STORE',
       does_not_exist: 'DOES_NOT_EXIST',
       fb_android_store: 'FB_ANDROID_STORE',
       fb_canvas: 'FB_CANVAS',
@@ -40,9 +45,13 @@ export default class AdAccountMatchedSearchApplicationsEdgeData extends Abstract
       itunes: 'ITUNES',
       itunes_ipad: 'ITUNES_IPAD',
       oculus_app_store: 'OCULUS_APP_STORE',
+      oppo: 'OPPO',
       roku_store: 'ROKU_STORE',
+      uptodown: 'UPTODOWN',
+      vivo: 'VIVO',
       windows_10_store: 'WINDOWS_10_STORE',
       windows_store: 'WINDOWS_STORE',
+      xiaomi: 'XIAOMI',
     });
   }
 }

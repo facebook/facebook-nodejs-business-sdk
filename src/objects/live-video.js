@@ -112,11 +112,14 @@ export default class LiveVideo extends AbstractCrudObject {
     return Object.freeze({
       default: 'DEFAULT',
       discussion: 'DISCUSSION',
+      followed: 'FOLLOWED',
       follower: 'FOLLOWER',
+      no_hyperlink: 'NO_HYPERLINK',
       protected_mode: 'PROTECTED_MODE',
       restricted: 'RESTRICTED',
       slow: 'SLOW',
       supporter: 'SUPPORTER',
+      tagged: 'TAGGED',
     });
   }
   static get PersistentStreamKeyStatus (): Object {

@@ -8,12 +8,11 @@
 
 'use strict';
 const {Content, DeliveryCategory} = require('facebook-nodejs-business-sdk');
-const {describe} = require('mocha');
-const { expect } = require('chai');
+
 
 describe('Content', function() {
     describe('normalize', function() {
-        it('normalizes the fields', function() {
+        test('normalizes the fields', function() {
             const id = 'id-0',
             quantity = 1,
             item_price = 2.50,
@@ -32,7 +31,7 @@ describe('Content', function() {
                 .setCategory(category)
                 .setDeliveryCategory(delivery_category);
 
-            expect(content.normalize()).to.deep.eq({
+            expect(content.normalize()).toEqual({
                 id,
                 quantity,
                 item_price,
@@ -44,12 +43,12 @@ describe('Content', function() {
             });
         });
 
-        it('throws exception on invalid delivery_category', function() {
+        test('throws exception on invalid delivery_category', function() {
             const delivery_category = 'unsupported-delivery-category';
             const content = (new Content())
                 .setDeliveryCategory(delivery_category);
 
-            expect(() => content.normalize()).to.throw(Error);
+            expect(() => content.normalize()).toThrow(Error);
         });
     });
 });

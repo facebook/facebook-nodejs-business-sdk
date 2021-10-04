@@ -9,17 +9,16 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * AdAccountContentFilterLevelsInheritance
+ * AdAccountIosFourteenCampaignLimits
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class AdAccountContentFilterLevelsInheritance extends AbstractCrudObject {
+export default class AdAccountIosFourteenCampaignLimits extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      an_business_ids: 'an_business_ids',
-      an_level: 'an_level',
-      facebook_business_ids: 'facebook_business_ids',
-      facebook_level: 'facebook_level',
+      campaign_group_limit: 'campaign_group_limit',
+      campaign_group_limits_details: 'campaign_group_limits_details',
+      campaign_limit: 'campaign_limit',
     });
   }
 

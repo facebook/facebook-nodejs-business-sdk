@@ -34,6 +34,7 @@ export default class BusinessAssetGroup extends AbstractCrudObject {
 
   static get AdaccountTasks (): Object {
     return Object.freeze({
+      aa_analyze: 'AA_ANALYZE',
       advertise: 'ADVERTISE',
       analyze: 'ANALYZE',
       draft: 'DRAFT',
@@ -42,6 +43,7 @@ export default class BusinessAssetGroup extends AbstractCrudObject {
   }
   static get OfflineConversionDataSetTasks (): Object {
     return Object.freeze({
+      aa_analyze: 'AA_ANALYZE',
       advertise: 'ADVERTISE',
       manage: 'MANAGE',
       upload: 'UPLOAD',
@@ -66,17 +68,22 @@ export default class BusinessAssetGroup extends AbstractCrudObject {
       profile_plus_analyze: 'PROFILE_PLUS_ANALYZE',
       profile_plus_create_content: 'PROFILE_PLUS_CREATE_CONTENT',
       profile_plus_facebook_access: 'PROFILE_PLUS_FACEBOOK_ACCESS',
+      profile_plus_full_control: 'PROFILE_PLUS_FULL_CONTROL',
       profile_plus_manage: 'PROFILE_PLUS_MANAGE',
       profile_plus_messaging: 'PROFILE_PLUS_MESSAGING',
       profile_plus_moderate: 'PROFILE_PLUS_MODERATE',
+      profile_plus_revenue: 'PROFILE_PLUS_REVENUE',
       read_page_mailboxes: 'READ_PAGE_MAILBOXES',
       view_monetization_insights: 'VIEW_MONETIZATION_INSIGHTS',
     });
   }
   static get PixelTasks (): Object {
     return Object.freeze({
+      aa_analyze: 'AA_ANALYZE',
+      advertise: 'ADVERTISE',
       analyze: 'ANALYZE',
       edit: 'EDIT',
+      upload: 'UPLOAD',
     });
   }
 

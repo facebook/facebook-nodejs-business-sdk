@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import NullNode from './null-node';
 import LiveVideo from './live-video';
@@ -24,6 +25,7 @@ export default class Event extends AbstractCrudObject {
       can_guests_invite: 'can_guests_invite',
       category: 'category',
       cover: 'cover',
+      created_time: 'created_time',
       declined_count: 'declined_count',
       description: 'description',
       discount_code_enabled: 'discount_code_enabled',
@@ -194,6 +196,16 @@ export default class Event extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/roles'
+    );
+  }
+
+  getTicketTiers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/ticket_tiers'
     );
   }
 

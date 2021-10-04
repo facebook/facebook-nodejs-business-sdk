@@ -9,6 +9,7 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
+import CatalogItemChannelsToIntegrityStatus from './catalog-item-channels-to-integrity-status';
 
 /**
  * Flight
@@ -34,6 +35,7 @@ export default class Flight extends AbstractCrudObject {
       origin_city: 'origin_city',
       price: 'price',
       sanitized_images: 'sanitized_images',
+      unit_price: 'unit_price',
       url: 'url',
     });
   }
@@ -56,6 +58,16 @@ export default class Flight extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/augmented_realities_metadata'
+    );
+  }
+
+  getChannelsToIntegrityStatus (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      CatalogItemChannelsToIntegrityStatus,
+      fields,
+      params,
+      fetchFirstPage,
+      '/channels_to_integrity_status'
     );
   }
 

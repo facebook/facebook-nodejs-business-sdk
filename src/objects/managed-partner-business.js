@@ -9,19 +9,20 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * MessengerDestinationPageWelcomeMessage
+ * ManagedPartnerBusiness
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class MessengerDestinationPageWelcomeMessage extends AbstractCrudObject {
+export default class ManagedPartnerBusiness extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      id: 'id',
-      page_welcome_message_body: 'page_welcome_message_body',
-      page_welcome_message_type: 'page_welcome_message_type',
-      template_name: 'template_name',
-      time_created: 'time_created',
-      time_last_used: 'time_last_used',
+      ad_account: 'ad_account',
+      catalog_segment: 'catalog_segment',
+      extended_credit: 'extended_credit',
+      page: 'page',
+      seller_business_info: 'seller_business_info',
+      seller_business_status: 'seller_business_status',
+      template: 'template',
     });
   }
 

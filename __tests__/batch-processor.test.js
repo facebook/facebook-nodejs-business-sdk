@@ -8,20 +8,19 @@
 
 'use strict';
 const {BatchProcessor, Content, CustomData, DeliveryCategory} = require('facebook-nodejs-business-sdk');
-const {describe} = require('mocha');
-const {expect} = require('chai');
+
 
 
 describe('BatchProcessor', function() {
-    it('processEventRequests processes all event requests', async function() {
+    test('processEventRequests processes all event requests', async function() {
         const event_requests = getEventRequests(5);
         const batchProcessor = new BatchProcessor(2, 2);
         await batchProcessor.processEventRequests(event_requests);
 
-        event_requests.forEach(event_request => expect(event_request.called_execute_count).to.equal(1));
+        event_requests.forEach(event_request => expect(event_request.called_execute_count).toBe(1));
     });
 
-    it('processEventRequestsGenerator returns event request promises in batches', async function() {
+    test('processEventRequestsGenerator returns event request promises in batches', async function() {
         const event_requests = getEventRequests(5);
         const batchProcessor = new BatchProcessor(2, 2);
         let iterations = 0;
@@ -39,11 +38,11 @@ describe('BatchProcessor', function() {
         }
         await Promise.all(promises);
 
-        event_requests.forEach(event_request => expect(event_request.called_execute_count).to.equal(1));
-        expect(iterations).to.equal(3);
+        event_requests.forEach(event_request => expect(event_request.called_execute_count).toBe(1));
+        expect(iterations).toBe(3);
     });
 
-    it('processEventsGenerator returns event request promises in batches', async function() {
+    test('processEventsGenerator returns event request promises in batches', async function() {
         const event_request = new EventRequestMock();
         const events = getEvents(19);
         const batchProcessor = new BatchProcessor(2, 2);
@@ -62,21 +61,21 @@ describe('BatchProcessor', function() {
         }
         await Promise.all(promises);
 
-        expect(iterations).to.equal(5);
+        expect(iterations).toBe(5);
     });
 
-    it('processEvents processes all events', async function() {
+    test('processEvents processes all events', async function() {
         const event_request = new EventRequestMock();
         const events = getEvents(11);
         const batchProcessor = new BatchProcessor(2, 3);
         await batchProcessor.processEvents(event_request, events);
 
-        expect(event_request.cloned_event_requests.length).to.equal(6);
+        expect(event_request.cloned_event_requests.length).toBe(6);
         event_request.cloned_event_requests.forEach(event_request => {
-            expect(event_request.called_execute_count).to.equal(1)
+            expect(event_request.called_execute_count).toBe(1)
         });
         const event_batches = event_request.cloned_event_requests.map(request => request.set_events);
-        expect(event_batches).to.deep.equal([
+        expect(event_batches).toEqual([
             [events.slice(0, 2)],
             [events.slice(2, 4)],
             [events.slice(4, 6)],

@@ -18,12 +18,11 @@ const {
     ServerEvent,
     UserData,
 } = require('facebook-nodejs-business-sdk');
-const {describe} = require('mocha');
-const { expect } = require('chai');
+
 
 describe('EventRequest', function() {
     describe('setHttpService', function() {
-        it('event_request setClient overrides the HttpServiceClientConfig client', async function() {
+        test('event_request setClient overrides the HttpServiceClientConfig client', async function() {
             const expected_response = new EventResponse(
                 0,
                 ['messages-1'],
@@ -87,14 +86,14 @@ describe('EventRequest', function() {
                     console.error(exception);
                 });
 
-            expect(actual_response).to.deep.equal(expected_response);
-            expect(actual_url).to.equal(expected_url);
-            expect(actual_method).to.equal(HttpMethod.POST);
-            expect(actual_headers).to.deep.equal(expected_headers);
-            expect(actual_params).to.deep.equal(expected_params);
+            expect(actual_response).toEqual(expected_response);
+            expect(actual_url).toBe(expected_url);
+            expect(actual_method).toBe(HttpMethod.POST);
+            expect(actual_headers).toEqual(expected_headers);
+            expect(actual_params).toEqual(expected_params);
         });
 
-        it('HttpServiceClientConfig client gets used', async function() {
+        test('HttpServiceClientConfig client gets used', async function() {
             const expected_response = new EventResponse(
                 0,
                 ['messages-1'],
@@ -152,15 +151,15 @@ describe('EventRequest', function() {
                     console.error(exception);
                 });
 
-            expect(actual_response).to.deep.equal(expected_response);
-            expect(actual_url).to.equal(expected_url);
-            expect(actual_method).to.equal(HttpMethod.POST);
-            expect(actual_headers).to.deep.equal(expected_headers);
-            expect(actual_params).to.deep.equal(expected_params);
+            expect(actual_response).toEqual(expected_response);
+            expect(actual_url).toBe(expected_url);
+            expect(actual_method).toBe(HttpMethod.POST);
+            expect(actual_headers).toEqual(expected_headers);
+            expect(actual_params).toEqual(expected_params);
         });
     });
 
-    it('cloneWithoutEvents clones the EventRequest object without the events', async function() {
+    test('cloneWithoutEvents clones the EventRequest object without the events', async function() {
         const event_request = new EventRequest(
             'access_token-1',
             'pixel_id-2',
@@ -175,16 +174,16 @@ describe('EventRequest', function() {
         );
         const cloned = event_request.cloneWithoutEvents();
 
-        expect(cloned.access_token).to.equal(event_request.access_token);
-        expect(cloned.pixel_id).to.equal(event_request.pixel_id);
-        expect(cloned.events).to.deep.equal([]);
-        expect(cloned.partner_agent).to.equal(event_request.partner_agent);
-        expect(cloned.test_event_code).to.equal(event_request.test_event_code);
-        expect(cloned.namespace_id).to.equal(event_request.namespace_id);
-        expect(cloned.upload_id).to.equal(event_request.upload_id);
-        expect(cloned.upload_tag).to.equal(event_request.upload_tag);
-        expect(cloned.upload_source).to.equal(event_request.upload_source);
-        expect(cloned.debug_mode).to.equal(event_request.debug_mode);
-        expect(cloned === event_request).to.equal(false);
+        expect(cloned.access_token).toBe(event_request.access_token);
+        expect(cloned.pixel_id).toBe(event_request.pixel_id);
+        expect(cloned.events).toEqual([]);
+        expect(cloned.partner_agent).toBe(event_request.partner_agent);
+        expect(cloned.test_event_code).toBe(event_request.test_event_code);
+        expect(cloned.namespace_id).toBe(event_request.namespace_id);
+        expect(cloned.upload_id).toBe(event_request.upload_id);
+        expect(cloned.upload_tag).toBe(event_request.upload_tag);
+        expect(cloned.upload_source).toBe(event_request.upload_source);
+        expect(cloned.debug_mode).toBe(event_request.debug_mode);
+        expect(cloned === event_request).toBe(false);
     });
 });

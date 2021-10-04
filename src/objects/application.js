@@ -9,6 +9,7 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
+import AdPlacement from './ad-placement';
 import AdNetworkAnalyticsSyncQueryResult from './ad-network-analytics-sync-query-result';
 import AdNetworkAnalyticsAsyncQueryResult from './ad-network-analytics-async-query-result';
 import Business from './business';
@@ -155,6 +156,7 @@ export default class Application extends AbstractCrudObject {
       mobile_web: 'MOBILE_WEB',
       oculus: 'OCULUS',
       unknown: 'UNKNOWN',
+      xiaomi: 'XIAOMI',
     });
   }
   static get Platform (): Object {
@@ -244,6 +246,16 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
+  getAdNetworkPlacements (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AdPlacement,
+      fields,
+      params,
+      fetchFirstPage,
+      '/adnetwork_placements'
+    );
+  }
+
   getAdNetworkAnalytics (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdNetworkAnalyticsSyncQueryResult,
@@ -321,16 +333,6 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  getAppEventTypes (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/app_event_types'
-    );
-  }
-
   createAppIndexing (fields: Array<string>, params: Object = {}): Promise<Application> {
     return this.createEdge(
       '/app_indexing',
@@ -346,16 +348,6 @@ export default class Application extends AbstractCrudObject {
       fields,
       params,
       Application
-    );
-  }
-
-  getAppInsights (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/app_insights'
     );
   }
 
@@ -421,15 +413,6 @@ export default class Application extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/button_auto_detection_device_selection'
-    );
-  }
-
-  createButtonIndexing (fields: Array<string>, params: Object = {}): Promise<Application> {
-    return this.createEdge(
-      '/button_indexing',
-      fields,
-      params,
-      Application
     );
   }
 
@@ -512,15 +495,6 @@ export default class Application extends AbstractCrudObject {
   createLeaderboardsReset (fields: Array<string>, params: Object = {}): Promise<Application> {
     return this.createEdge(
       '/leaderboards_reset',
-      fields,
-      params,
-      Application
-    );
-  }
-
-  createLeaderboardsSetScore (fields: Array<string>, params: Object = {}): Promise<Application> {
-    return this.createEdge(
-      '/leaderboards_set_score',
       fields,
       params,
       Application
@@ -626,6 +600,15 @@ export default class Application extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/roles'
+    );
+  }
+
+  createSendNotification (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+    return this.createEdge(
+      '/send_notification',
+      fields,
+      params,
+      
     );
   }
 

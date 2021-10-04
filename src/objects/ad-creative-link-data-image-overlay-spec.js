@@ -63,6 +63,7 @@ export default class AdCreativeLinkDataImageOverlaySpec extends AbstractCrudObje
   }
   static get TextType (): Object {
     return Object.freeze({
+      automated_personalize: 'automated_personalize',
       custom: 'custom',
       disclaimer: 'disclaimer',
       from_price: 'from_price',

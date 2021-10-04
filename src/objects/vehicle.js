@@ -9,6 +9,7 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
+import CatalogItemChannelsToIntegrityStatus from './catalog-item-channels-to-integrity-status';
 
 /**
  * Vehicle
@@ -57,6 +58,7 @@ export default class Vehicle extends AbstractCrudObject {
       title: 'title',
       transmission: 'transmission',
       trim: 'trim',
+      unit_price: 'unit_price',
       url: 'url',
       vehicle_id: 'vehicle_id',
       vehicle_registration_plate: 'vehicle_registration_plate',
@@ -171,6 +173,16 @@ export default class Vehicle extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/augmented_realities_metadata'
+    );
+  }
+
+  getChannelsToIntegrityStatus (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      CatalogItemChannelsToIntegrityStatus,
+      fields,
+      params,
+      fetchFirstPage,
+      '/channels_to_integrity_status'
     );
   }
 

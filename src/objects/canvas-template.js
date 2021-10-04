@@ -9,38 +9,33 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * AdPlacePageSet
+ * CanvasTemplate
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class AdPlacePageSet extends AbstractCrudObject {
+export default class CanvasTemplate extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      account_id: 'account_id',
+      channels: 'channels',
+      description: 'description',
+      document: 'document',
       id: 'id',
-      location_types: 'location_types',
+      is_multi_tab_supportable: 'is_multi_tab_supportable',
+      is_new: 'is_new',
       name: 'name',
-      pages_count: 'pages_count',
-      parent_page: 'parent_page',
+      objectives: 'objectives',
+      owner_id: 'owner_id',
+      required_capabilities: 'required_capabilities',
+      snapshot_photo: 'snapshot_photo',
+      status: 'status',
+      sub_verticals: 'sub_verticals',
+      verticals: 'verticals',
     });
   }
 
-  static get LocationTypes (): Object {
-    return Object.freeze({
-      home: 'home',
-      recent: 'recent',
-    });
-  }
-  static get TargetedAreaType (): Object {
-    return Object.freeze({
-      custom_radius: 'CUSTOM_RADIUS',
-      marketing_area: 'MARKETING_AREA',
-      none: 'NONE',
-    });
-  }
 
   
-  get (fields: Array<string>, params: Object = {}): AdPlacePageSet {
+  get (fields: Array<string>, params: Object = {}): CanvasTemplate {
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,

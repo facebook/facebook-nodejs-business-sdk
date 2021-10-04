@@ -37,12 +37,12 @@ export default class ProductGroup extends AbstractCrudObject {
     );
   }
 
-  createProduct (fields: Array<string>, params: Object = {}): Promise<ProductItem> {
+  createProduct (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/products',
       fields,
       params,
-      ProductItem
+      
     );
   }
 

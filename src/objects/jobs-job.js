@@ -12,27 +12,28 @@ import Cursor from './../cursor';
 import CatalogItemChannelsToIntegrityStatus from './catalog-item-channels-to-integrity-status';
 
 /**
- * Destination
+ * JobsJob
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class Destination extends AbstractCrudObject {
+export default class JobsJob extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       address: 'address',
       applinks: 'applinks',
       category_specific_fields: 'category_specific_fields',
-      currency: 'currency',
-      description: 'description',
-      destination_id: 'destination_id',
+      custom_label_0: 'custom_label_0',
+      custom_label_1: 'custom_label_1',
+      custom_label_2: 'custom_label_2',
+      custom_label_3: 'custom_label_3',
+      custom_label_4: 'custom_label_4',
+      custom_label_5: 'custom_label_5',
+      custom_label_6: 'custom_label_6',
       id: 'id',
       image_fetch_status: 'image_fetch_status',
       images: 'images',
-      name: 'name',
-      price: 'price',
-      price_change: 'price_change',
+      jobs_job_id: 'jobs_job_id',
       sanitized_images: 'sanitized_images',
-      types: 'types',
       unit_price: 'unit_price',
       url: 'url',
     });
@@ -80,7 +81,7 @@ export default class Destination extends AbstractCrudObject {
   }
 
   
-  get (fields: Array<string>, params: Object = {}): Destination {
+  get (fields: Array<string>, params: Object = {}): JobsJob {
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,

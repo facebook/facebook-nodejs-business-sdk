@@ -5,8 +5,18 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
-## Changed
+## v12.0.0
+
+
+### Changed
+- Moved NodeJs sdk to use jest library for unit testing.
+
+## v11.0.0
+
+
+### Changed
 - Fixed sending null values for UserData multi-value fields in Conversions API.
+- Graph API call upgrade to [v11.0]https://developers.facebook.com/docs/graph-api/changelog/version11.0
 
 ## v10.0.1
 

@@ -73,6 +73,7 @@ export default class Group extends AbstractCrudObject {
       ephemeral: 'EPHEMERAL',
       event_planning: 'EVENT_PLANNING',
       family: 'FAMILY',
+      fantasy_league: 'FANTASY_LEAGUE',
       fitness: 'FITNESS',
       for_sale: 'FOR_SALE',
       for_work: 'FOR_WORK',
@@ -130,6 +131,7 @@ export default class Group extends AbstractCrudObject {
       ephemeral: 'EPHEMERAL',
       event_planning: 'EVENT_PLANNING',
       family: 'FAMILY',
+      fantasy_league: 'FANTASY_LEAGUE',
       fitness: 'FITNESS',
       for_sale: 'FOR_SALE',
       for_work: 'FOR_WORK',
@@ -279,15 +281,6 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  createImportantPost (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
-    return this.createEdge(
-      '/important_posts',
-      fields,
-      params,
-      
-    );
-  }
-
   getLiveVideos (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       LiveVideo,
@@ -352,19 +345,12 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  deletePinnedPosts (params: Object = {}): Promise<*> {
-    return super.deleteEdge(
-      '/pinned_posts',
-      params
-    );
-  }
-
-  createPinnedPost (fields: Array<string>, params: Object = {}): Promise<Post> {
+  createShiftSetting (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
-      '/pinned_posts',
+      '/shift_settings',
       fields,
       params,
-      Post
+      
     );
   }
 

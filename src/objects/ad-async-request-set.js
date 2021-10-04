@@ -44,13 +44,6 @@ export default class AdAsyncRequestSet extends AbstractCrudObject {
       on_complete: 'ON_COMPLETE',
     });
   }
-  static get NotificationStatus (): Object {
-    return Object.freeze({
-      not_sent: 'NOT_SENT',
-      sending: 'SENDING',
-      sent: 'SENT',
-    });
-  }
 
   getRequests (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
