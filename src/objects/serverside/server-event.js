@@ -32,11 +32,11 @@ export default class ServerEvent {
 	 * @param {String} event_name A Facebook pixel Standard Event or Custom Event name.
 	 * @param {Number} event_time A Unix timestamp in seconds indicating when the actual event occurred.
 	 * @param {String} event_source_url The browser URL where the event happened.
-	 * @param {String} event_id This ID can be any string chosen by the advertiser.
-	 * @param {String} action_source A string that indicates where the event took place.
-	 * @param {Boolean} opt_out A flag that indicates we should not use this event for ads delivery optimization.
 	 * @param {UserData} user_data A map that contains user data. See UserData Class for options.
 	 * @param {CustomData} custom_data A map that contains user data. See CustomData Class for options.
+	 * @param {String} event_id This ID can be any string chosen by the advertiser.
+	 * @param {Boolean} opt_out A flag that indicates we should not use this event for ads delivery optimization.
+	 * @param {String} action_source A string that indicates where the event took place.
 	 * @param {Array<string>} data_processing_options Processing options you would like to enable for a specific event.
 	 * @param {Number} data_processing_options_country A country that you want to associate to this data processing option.
 	 * @param {Number} data_processing_options_state A state that you want to associate with this data processing option.
