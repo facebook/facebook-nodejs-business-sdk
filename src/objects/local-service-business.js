@@ -18,6 +18,7 @@ import CatalogItemChannelsToIntegrityStatus from './catalog-item-channels-to-int
 export default class LocalServiceBusiness extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
+      address: 'address',
       applinks: 'applinks',
       brand: 'brand',
       category_specific_fields: 'category_specific_fields',
@@ -35,6 +36,7 @@ export default class LocalServiceBusiness extends AbstractCrudObject {
       price: 'price',
       sanitized_images: 'sanitized_images',
       title: 'title',
+      unit_price: 'unit_price',
       url: 'url',
     });
   }

@@ -37,14 +37,17 @@ export default class ProductFeed extends AbstractCrudObject {
       encoding: 'encoding',
       file_name: 'file_name',
       id: 'id',
+      ingestion_source_type: 'ingestion_source_type',
       item_sub_type: 'item_sub_type',
       latest_upload: 'latest_upload',
       migrated_from_feed_id: 'migrated_from_feed_id',
       name: 'name',
       override_type: 'override_type',
+      primary_feeds: 'primary_feeds',
       product_count: 'product_count',
       quoted_fields_mode: 'quoted_fields_mode',
       schedule: 'schedule',
+      supplementary_feeds: 'supplementary_feeds',
       update_schedule: 'update_schedule',
     });
   }
@@ -94,6 +97,12 @@ export default class ProductFeed extends AbstractCrudObject {
       transactable_items: 'TRANSACTABLE_ITEMS',
       vehicles: 'VEHICLES',
       vehicle_offer: 'VEHICLE_OFFER',
+    });
+  }
+  static get IngestionSourceType (): Object {
+    return Object.freeze({
+      primary_feed: 'PRIMARY_FEED',
+      supplementary_feed: 'SUPPLEMENTARY_FEED',
     });
   }
   static get ItemSubType (): Object {
@@ -232,6 +241,15 @@ export default class ProductFeed extends AbstractCrudObject {
       fields,
       params,
       ProductFeedRule
+    );
+  }
+
+  createSupplementaryFeedAssoc (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+    return this.createEdge(
+      '/supplementary_feed_assocs',
+      fields,
+      params,
+      
     );
   }
 

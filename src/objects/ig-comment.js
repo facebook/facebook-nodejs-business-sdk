@@ -18,10 +18,12 @@ import Cursor from './../cursor';
 export default class IGComment extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
+      from: 'from',
       hidden: 'hidden',
       id: 'id',
       like_count: 'like_count',
       media: 'media',
+      parent_id: 'parent_id',
       text: 'text',
       timestamp: 'timestamp',
       user: 'user',

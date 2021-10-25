@@ -19,6 +19,8 @@ export default class SavedAudience extends AbstractCrudObject {
       account: 'account',
       approximate_count: 'approximate_count',
       approximate_count_64bit: 'approximate_count_64bit',
+      approximate_count_lower_bound: 'approximate_count_lower_bound',
+      approximate_count_upper_bound: 'approximate_count_upper_bound',
       delete_time: 'delete_time',
       description: 'description',
       extra_info: 'extra_info',

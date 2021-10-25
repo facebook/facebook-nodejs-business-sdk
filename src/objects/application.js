@@ -145,12 +145,14 @@ export default class Application extends AbstractCrudObject {
       supplementary_images: 'SUPPLEMENTARY_IMAGES',
       web: 'WEB',
       windows: 'WINDOWS',
+      xiaomi: 'XIAOMI',
     });
   }
   static get AnPlatforms (): Object {
     return Object.freeze({
       android: 'ANDROID',
       desktop: 'DESKTOP',
+      galaxy: 'GALAXY',
       instant_articles: 'INSTANT_ARTICLES',
       ios: 'IOS',
       mobile_web: 'MOBILE_WEB',
@@ -535,13 +537,6 @@ export default class Application extends AbstractCrudObject {
       fields,
       params,
       Application
-    );
-  }
-
-  deletePaymentCurrencies (params: Object = {}): Promise<*> {
-    return super.deleteEdge(
-      '/payment_currencies',
-      params
     );
   }
 

@@ -537,6 +537,15 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
+  createDraftNegativeKeywordList (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+    return this.createEdge(
+      '/draft_negative_keyword_lists',
+      fields,
+      params,
+      
+    );
+  }
+
   getEventSourceGroups (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       EventSourceGroup,
@@ -672,6 +681,16 @@ export default class Business extends AbstractCrudObject {
       fields,
       params,
       Business
+    );
+  }
+
+  getNegativeKeywordLists (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/negative_keyword_lists'
     );
   }
 

@@ -9,17 +9,16 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * AdAccountReachEstimate
+ * LiveVideoRecommendedEncoderSettings
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class AdAccountReachEstimate extends AbstractCrudObject {
+export default class LiveVideoRecommendedEncoderSettings extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      estimate_ready: 'estimate_ready',
-      users: 'users',
-      users_lower_bound: 'users_lower_bound',
-      users_upper_bound: 'users_upper_bound',
+      audio_codec_settings: 'audio_codec_settings',
+      streaming_protocol: 'streaming_protocol',
+      video_codec_settings: 'video_codec_settings',
     });
   }
 

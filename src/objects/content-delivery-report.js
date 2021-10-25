@@ -43,6 +43,7 @@ export default class ContentDeliveryReport extends AbstractCrudObject {
       biz_disco_feed: 'BIZ_DISCO_FEED',
       facebook_groups_feed: 'FACEBOOK_GROUPS_FEED',
       facebook_reels: 'FACEBOOK_REELS',
+      facebook_reels_overlay: 'FACEBOOK_REELS_OVERLAY',
       facebook_stories: 'FACEBOOK_STORIES',
       feed: 'FEED',
       groups: 'GROUPS',

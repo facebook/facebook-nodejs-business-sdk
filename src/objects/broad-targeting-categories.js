@@ -22,6 +22,8 @@ export default class BroadTargetingCategories extends AbstractCrudObject {
       parent_category: 'parent_category',
       path: 'path',
       size: 'size',
+      size_lower_bound: 'size_lower_bound',
+      size_upper_bound: 'size_upper_bound',
       source: 'source',
       type: 'type',
       type_name: 'type_name',

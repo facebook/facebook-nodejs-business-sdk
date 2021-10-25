@@ -231,6 +231,15 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
+  createCatalogWebsiteSetting (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+    return this.createEdge(
+      '/catalog_website_settings',
+      fields,
+      params,
+      
+    );
+  }
+
   getCategories (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       ProductCatalogCategory,

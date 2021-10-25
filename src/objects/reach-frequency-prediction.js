@@ -20,6 +20,8 @@ export default class ReachFrequencyPrediction extends AbstractCrudObject {
       activity_status: 'activity_status',
       ad_formats: 'ad_formats',
       auction_entry_option_index: 'auction_entry_option_index',
+      audience_size_lower_bound: 'audience_size_lower_bound',
+      audience_size_upper_bound: 'audience_size_upper_bound',
       business_id: 'business_id',
       buying_type: 'buying_type',
       campaign_group_id: 'campaign_group_id',

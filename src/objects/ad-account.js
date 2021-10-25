@@ -16,7 +16,6 @@ import CloudGame from './cloud-game';
 import AdCreative from './ad-creative';
 import AdImage from './ad-image';
 import AdLabel from './ad-label';
-import PlayableContent from './playable-content';
 import AdAccountAdRulesHistory from './ad-account-ad-rules-history';
 import AdRule from './ad-rule';
 import Ad from './ad';
@@ -391,7 +390,7 @@ export default class AdAccount extends AbstractCrudObject {
 
   getAdPlayables (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      PlayableContent,
+      AbstractObject,
       fields,
       params,
       fetchFirstPage,
@@ -399,12 +398,12 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createAdPlayable (fields: Array<string>, params: Object = {}): Promise<PlayableContent> {
+  createAdPlayable (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/adplayables',
       fields,
       params,
-      PlayableContent
+      
     );
   }
 
@@ -515,12 +514,12 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createAdsPixel (fields: Array<string>, params: Object = {}): Promise<AdsPixel> {
+  createAdsPixel (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/adspixels',
       fields,
       params,
-      AdsPixel
+      
     );
   }
 

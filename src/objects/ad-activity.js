@@ -130,6 +130,7 @@ export default class AdActivity extends AbstractCrudObject {
     return Object.freeze({
       calypso: 'CALYPSO',
       tao: 'TAO',
+      tao_ad_account: 'TAO_AD_ACCOUNT',
     });
   }
 }

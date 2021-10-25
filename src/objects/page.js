@@ -149,10 +149,12 @@ export default class Page extends AbstractCrudObject {
       members: 'members',
       merchant_id: 'merchant_id',
       merchant_review_status: 'merchant_review_status',
+      messaging_feature_status: 'messaging_feature_status',
       messenger_ads_default_icebreakers: 'messenger_ads_default_icebreakers',
       messenger_ads_default_page_welcome_message: 'messenger_ads_default_page_welcome_message',
       messenger_ads_default_quick_replies: 'messenger_ads_default_quick_replies',
       messenger_ads_quick_replies_type: 'messenger_ads_quick_replies_type',
+      mini_shop_storefront: 'mini_shop_storefront',
       mission: 'mission',
       mpg: 'mpg',
       name: 'name',
@@ -717,12 +719,12 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createBusinessDatum (fields: Array<string>, params: Object = {}): Promise<Page> {
+  createBusinessDatum (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/business_data',
       fields,
       params,
-      Page
+      
     );
   }
 

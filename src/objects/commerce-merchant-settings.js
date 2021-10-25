@@ -15,6 +15,7 @@ import CommerceOrderTransactionDetail from './commerce-order-transaction-detail'
 import Application from './application';
 import ProductCatalog from './product-catalog';
 import CommerceMerchantSettingsSetupStatus from './commerce-merchant-settings-setup-status';
+import Shop from './shop';
 
 /**
  * CommerceMerchantSettings
@@ -157,6 +158,16 @@ export default class CommerceMerchantSettings extends AbstractCrudObject {
       fields,
       params,
       
+    );
+  }
+
+  getShops (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      Shop,
+      fields,
+      params,
+      fetchFirstPage,
+      '/shops'
     );
   }
 
