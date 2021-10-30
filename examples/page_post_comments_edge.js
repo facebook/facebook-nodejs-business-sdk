@@ -34,8 +34,8 @@ fields = [
 ];
 params = {
 };
-const commentss = (new PagePost(id)).getComments(
+const comments = (new PagePost(id)).getComments(
   fields,
   params
 );
-logApiCallResult('commentss api call complete.', commentss);
+logApiCallResult('comments api call complete.', comments);
