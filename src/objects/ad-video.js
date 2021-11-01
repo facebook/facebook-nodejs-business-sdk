@@ -52,7 +52,7 @@ export default class AdVideo extends AbstractCrudObject {
     batch: FacebookAdsBatchApi,
     failureHandler: Function,
     successHandler: Function,
-  ) {
+  ): any {
     let response = null;
     var spec = this.slideshow_spec;
     if (spec) {

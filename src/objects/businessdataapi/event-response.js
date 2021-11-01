@@ -31,7 +31,7 @@ export default class EventResponse {
     /**
      * Gets the events received number from the Graph API Response.
      */
-    get events_received() {
+    get events_received(): number {
         return this._events_received;
     }
 
@@ -57,7 +57,7 @@ export default class EventResponse {
     /**
      * Gets the events dropped number from the Graph API Response.
      */
-    get events_dropped() {
+    get events_dropped(): number {
         return this._events_dropped;
     }
 
@@ -85,7 +85,7 @@ export default class EventResponse {
      * Gets the messages from the response received from Graph API.
      * @return messages in the event Response
      */
-    get message() {
+    get message(): Array<Object> {
         return this._message;
     }
 

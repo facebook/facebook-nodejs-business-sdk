@@ -61,7 +61,7 @@ class VideoUploadSession {
   _video: AdVideo;
   _waitForEncoding: boolean;
 
-  constructor(video: AdVideo, waitForEncoding: boolean = false) {
+  constructor(video: AdVideo, waitForEncoding: boolean = false): void {
     this._video = video;
     this._api = video.getApi();
 
@@ -162,7 +162,7 @@ class VideoUploadSession {
 class VideoUploadRequestManager {
   _api: FacebookAdsApi;
 
-  constructor(api: FacebookAdsApi) {
+  constructor(api: FacebookAdsApi): void {
     this._api = api;
   }
 
@@ -240,7 +240,7 @@ class VideoUploadTransferRequestManager extends VideoUploadRequestManager {
       });
       // Send the request
       try {
-        const response = await request.send([context.accountId, 'advideos']);
+        response = await request.send([context.accountId, 'advideos']);
         start_offset = parseInt(response['start_offset']);
         end_offset = parseInt(response['end_offset']);
       } catch (error) {
@@ -306,7 +306,7 @@ class VideoUploadRequestContext {
     return this._accountId;
   }
 
-  set accountId(accountId: string) {
+  set accountId(accountId: string): void {
     this._accountId = accountId;
   }
 
@@ -314,7 +314,7 @@ class VideoUploadRequestContext {
     return this._fileName;
   }
 
-  set fileName(fileName: string) {
+  set fileName(fileName: string): void {
     this._fileName = fileName;
   }
 
@@ -322,7 +322,7 @@ class VideoUploadRequestContext {
     return this._filePath;
   }
 
-  set filePath(filePath: string) {
+  set filePath(filePath: string): void {
     this._filePath = filePath;
   }
 
@@ -330,14 +330,14 @@ class VideoUploadRequestContext {
     return this._fileSize;
   }
 
-  set fileSize(fileSize: number) {
+  set fileSize(fileSize: number): void {
     this._fileSize = fileSize;
   }
   get name(): string {
     return this._name;
   }
 
-  set name(name: string) {
+  set name(name: string): void {
     this._name = name;
   }
 
@@ -345,7 +345,7 @@ class VideoUploadRequestContext {
     return this._sessionId;
   }
 
-  set sessionId(sessionId: string) {
+  set sessionId(sessionId: string): void {
     this._sessionId = sessionId;
   }
 
@@ -353,7 +353,7 @@ class VideoUploadRequestContext {
     return this._startOffset;
   }
 
-  set startOffset(startOffset: number) {
+  set startOffset(startOffset: number): void {
     this._startOffset = startOffset;
   }
 
@@ -361,7 +361,7 @@ class VideoUploadRequestContext {
     return this._endOffset;
   }
 
-  set endOffset(endOffset: number) {
+  set endOffset(endOffset: number): void {
     this._endOffset = endOffset;
   }
 
@@ -369,7 +369,7 @@ class VideoUploadRequestContext {
     return this._slideshowSpec;
   }
 
-  set slideshowSpec(slideshowSpec: SlideshowSpec) {
+  set slideshowSpec(slideshowSpec: SlideshowSpec): void {
     this._slideshowSpec = slideshowSpec;
   }
 
@@ -377,7 +377,7 @@ class VideoUploadRequestContext {
     return this._videoFileChunk;
   }
 
-  set videoFileChunk(videoFileChunk: string) {
+  set videoFileChunk(videoFileChunk: string): void {
     this._videoFileChunk = videoFileChunk;
   }
 }
@@ -455,7 +455,7 @@ class VideoEncodingStatusChecker {
     return;
   }
 
-  static getStatus(api: FacebookAdsApi, videoId: number) {
+  static getStatus(api: FacebookAdsApi, videoId: number): any {
     const result = api.call('GET', [videoId.toString()], {fields: 'status'});
     // $FlowFixMe
     return result['status'];
