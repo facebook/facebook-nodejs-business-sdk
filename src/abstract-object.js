@@ -14,9 +14,14 @@
 export default class AbstractObject {
   _data: any;
   _fields: Array<string>;
-  static get Fields() {
+  // This is a Flow workaround for setting `this[field]` in the set() function.
+  $key: string;
+  $value: mixed;
+
+  static get Fields(): {} {
     return Object.freeze({});
   }
+
   constructor() {
     this._data = {};
     if (this.constructor.Fields === undefined) {
@@ -55,8 +60,7 @@ export default class AbstractObject {
     if (this._fields.indexOf(field) < 0) {
       this._defineProperty(field);
     }
-    var that: {[key: string]: any} = this;
-    that[field] = value;
+    this[field] = value;
     return this;
   }
 

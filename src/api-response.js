@@ -20,7 +20,7 @@ class APIResponse {
   _call: Object;
   _response: Object;
 
-  constructor(response: Object, call?: Object) {
+  constructor(response: Object, call?: Object): void {
     response.body = JSON.parse(response.body);
     this._body = response.body;
     this._httpStatus = response.code;
@@ -32,23 +32,23 @@ class APIResponse {
   /**
    * @return {Object} The response body
    */
-  get body() {
+  get body(): any {
     return this._body;
   }
 
-  get headers() {
+  get headers(): any {
     return this._headers;
   }
 
-  get etag() {
+  get etag(): any {
     return this._headers['ETag'];
   }
 
-  get status() {
+  get status(): string {
     return this._httpStatus;
   }
 
-  get isSuccess() {
+  get isSuccess(): boolean {
     const body = this._body;
 
     if ('error' in body) {
@@ -70,7 +70,7 @@ class APIResponse {
     }
   }
 
-  get error() {
+  get error(): any {
     if (this.isSuccess) {
       return null;
     }

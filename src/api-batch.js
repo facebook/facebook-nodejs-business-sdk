@@ -31,7 +31,7 @@ class FacebookAdsApiBatch {
     api: FacebookAdsApi,
     successCallback?: Function,
     failureCallback?: Function,
-  ) {
+  ): void {
     this._api = api;
     this._files = [];
     this._batch = [];
@@ -75,7 +75,13 @@ class FacebookAdsApiBatch {
     successCallback?: Function,
     failureCallback?: Function,
     request?: APIRequest,
-  ) {
+  ): {|
+    attachedFiles: (void | string),
+    body: (void | string),
+    method: string,
+    name: (void | any),
+    relative_url: string
+  |} {
     // Construct a relaitveUrl from relateivePath by assuming that
     // relativePath can only be a string or an array of strings
     var relativeUrl =
@@ -143,7 +149,13 @@ class FacebookAdsApiBatch {
     request: APIRequest,
     successCallback?: Function,
     failureCallback?: Function,
-  ) {
+  ): {|
+    attachedFiles: (void | string),
+    body: (void | string),
+    method: string,
+    name: (void | any),
+    relative_url: string
+  |} {
     const updatedParams = request.params;
     updatedParams['fields'] = request.fields.join();
 
@@ -169,7 +181,7 @@ class FacebookAdsApiBatch {
    *   returns a new FacebookAdsApiBatch object with those calls.
    *   Otherwise, returns None.
    */
-  execute() {
+  execute(): void | Promise<mixed> {
     if (this._batch.length < 1) {
       return;
     }
