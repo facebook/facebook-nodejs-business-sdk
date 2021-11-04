@@ -35,12 +35,13 @@ export default class Link extends AbstractCrudObject {
   }
 
 
-  createComment (fields: Array<string>, params: Object = {}): Promise<Comment> {
+  createComment (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Comment> {
     return this.createEdge(
       '/comments',
       fields,
       params,
-      Comment
+      Comment,
+      pathOverride,
     );
   }
 

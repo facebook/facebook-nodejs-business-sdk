@@ -235,21 +235,23 @@ export default class ProductFeed extends AbstractCrudObject {
     );
   }
 
-  createRule (fields: Array<string>, params: Object = {}): Promise<ProductFeedRule> {
+  createRule (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<ProductFeedRule> {
     return this.createEdge(
       '/rules',
       fields,
       params,
-      ProductFeedRule
+      ProductFeedRule,
+      pathOverride,
     );
   }
 
-  createSupplementaryFeedAssoc (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+  createSupplementaryFeedAssoc (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
     return this.createEdge(
       '/supplementary_feed_assocs',
       fields,
       params,
-      
+      null,
+      pathOverride,
     );
   }
 
@@ -263,12 +265,13 @@ export default class ProductFeed extends AbstractCrudObject {
     );
   }
 
-  createUploadSchedule (fields: Array<string>, params: Object = {}): Promise<ProductFeed> {
+  createUploadSchedule (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<ProductFeed> {
     return this.createEdge(
       '/upload_schedules',
       fields,
       params,
-      ProductFeed
+      ProductFeed,
+      pathOverride,
     );
   }
 
@@ -282,12 +285,13 @@ export default class ProductFeed extends AbstractCrudObject {
     );
   }
 
-  createUpload (fields: Array<string>, params: Object = {}): Promise<ProductFeedUpload> {
+  createUpload (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<ProductFeedUpload> {
     return this.createEdge(
       '/uploads',
       fields,
       params,
-      ProductFeedUpload
+      ProductFeedUpload,
+      pathOverride,
     );
   }
 

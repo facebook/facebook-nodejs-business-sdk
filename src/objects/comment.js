@@ -87,12 +87,13 @@ export default class Comment extends AbstractCrudObject {
     );
   }
 
-  createComment (fields: Array<string>, params: Object = {}): Promise<Comment> {
+  createComment (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Comment> {
     return this.createEdge(
       '/comments',
       fields,
       params,
-      Comment
+      Comment,
+      pathOverride,
     );
   }
 
@@ -113,12 +114,13 @@ export default class Comment extends AbstractCrudObject {
     );
   }
 
-  createLike (fields: Array<string>, params: Object = {}): Promise<Comment> {
+  createLike (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Comment> {
     return this.createEdge(
       '/likes',
       fields,
       params,
-      Comment
+      Comment,
+      pathOverride,
     );
   }
 

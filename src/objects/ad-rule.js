@@ -68,12 +68,13 @@ export default class AdRule extends AbstractCrudObject {
     });
   }
 
-  createExecute (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+  createExecute (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
     return this.createEdge(
       '/execute',
       fields,
       params,
-      
+      null,
+      pathOverride,
     );
   }
 
@@ -87,12 +88,13 @@ export default class AdRule extends AbstractCrudObject {
     );
   }
 
-  createPreview (fields: Array<string>, params: Object = {}): Promise<AdRule> {
+  createPreview (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdRule> {
     return this.createEdge(
       '/preview',
       fields,
       params,
-      AdRule
+      AdRule,
+      pathOverride,
     );
   }
 

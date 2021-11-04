@@ -4,23 +4,19 @@ All notable changes to this project will be documented in this file.
 
 
 ## Unreleased
+### Added
+- Support POST request path override for ad objects
 
 ## v12.0.0
-
-
 ### Changed
 - Moved NodeJs sdk to use jest library for unit testing.
 
 ## v11.0.0
-
-
 ### Changed
 - Fixed sending null values for UserData multi-value fields in Conversions API.
 - Graph API call upgrade to [v11.0]https://developers.facebook.com/docs/graph-api/changelog/version11.0
 
 ## v10.0.1
-
-
 ### Changed
 - Fixed bug where `0` for CustomData.value was normalizing to `undefined` in Conversions API.
 
@@ -28,7 +24,6 @@ All notable changes to this project will be documented in this file.
 - Support for sending multiple values for certain UserData parameters to Conversions API.
 
 ## v10.0.0
-
 ### Changed
 - Graph API call upgrade to [v10.0](https://developers.facebook.com/docs/graph-api/changelog/version10.0)
 
@@ -40,19 +35,15 @@ All notable changes to this project will be documented in this file.
 - `delivery_category` field to Content for Conversions API.
 
 ## v8.0.3
-
-
 ### Changed
 - Stop validating and hashing already hashed input values for Conversions API
 
 ## v8.0.2
-
 ### Added
 - Added HttpServiceInterface to enable the default request object to be overridden by a user-defined HTTP Request Service object. Available for Conversions API create event requests.
 - Added batching support to Conversions API. Create batched event requests by using BatchProcessor.
 
 ## v8.0.0
-
 ### Changed
 - Graph API call upgrade to [v8.0](https://developers.facebook.com/docs/graph-api/changelog/version8.0)
 
@@ -107,4 +98,3 @@ All notable changes to this project will be documented in this file.
 ## v3.3.0
 ### Changed
 - Graph API call upgrade to [v3.3](https://developers.facebook.com/docs/graph-api/changelog/version3.3)
-

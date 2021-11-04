@@ -46,21 +46,23 @@ export default class PaymentEnginePayment extends AbstractCrudObject {
     });
   }
 
-  createDispute (fields: Array<string>, params: Object = {}): Promise<PaymentEnginePayment> {
+  createDispute (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<PaymentEnginePayment> {
     return this.createEdge(
       '/dispute',
       fields,
       params,
-      PaymentEnginePayment
+      PaymentEnginePayment,
+      pathOverride,
     );
   }
 
-  createRefund (fields: Array<string>, params: Object = {}): Promise<PaymentEnginePayment> {
+  createRefund (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<PaymentEnginePayment> {
     return this.createEdge(
       '/refunds',
       fields,
       params,
-      PaymentEnginePayment
+      PaymentEnginePayment,
+      pathOverride,
     );
   }
 

@@ -59,12 +59,13 @@ export default class LiveEncoder extends AbstractCrudObject {
     });
   }
 
-  createTelemetry (fields: Array<string>, params: Object = {}): Promise<LiveEncoder> {
+  createTelemetry (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<LiveEncoder> {
     return this.createEdge(
       '/telemetry',
       fields,
       params,
-      LiveEncoder
+      LiveEncoder,
+      pathOverride,
     );
   }
 

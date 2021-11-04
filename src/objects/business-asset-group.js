@@ -104,12 +104,13 @@ export default class BusinessAssetGroup extends AbstractCrudObject {
     );
   }
 
-  createAssignedUser (fields: Array<string>, params: Object = {}): Promise<BusinessAssetGroup> {
+  createAssignedUser (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<BusinessAssetGroup> {
     return this.createEdge(
       '/assigned_users',
       fields,
       params,
-      BusinessAssetGroup
+      BusinessAssetGroup,
+      pathOverride,
     );
   }
 
@@ -130,12 +131,13 @@ export default class BusinessAssetGroup extends AbstractCrudObject {
     );
   }
 
-  createContainedAdAccount (fields: Array<string>, params: Object = {}): Promise<BusinessAssetGroup> {
+  createContainedAdAccount (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<BusinessAssetGroup> {
     return this.createEdge(
       '/contained_adaccounts',
       fields,
       params,
-      BusinessAssetGroup
+      BusinessAssetGroup,
+      pathOverride,
     );
   }
 
@@ -156,12 +158,13 @@ export default class BusinessAssetGroup extends AbstractCrudObject {
     );
   }
 
-  createContainedApplication (fields: Array<string>, params: Object = {}): Promise<BusinessAssetGroup> {
+  createContainedApplication (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<BusinessAssetGroup> {
     return this.createEdge(
       '/contained_applications',
       fields,
       params,
-      BusinessAssetGroup
+      BusinessAssetGroup,
+      pathOverride,
     );
   }
 
@@ -182,12 +185,13 @@ export default class BusinessAssetGroup extends AbstractCrudObject {
     );
   }
 
-  createContainedCustomConversion (fields: Array<string>, params: Object = {}): Promise<BusinessAssetGroup> {
+  createContainedCustomConversion (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<BusinessAssetGroup> {
     return this.createEdge(
       '/contained_custom_conversions',
       fields,
       params,
-      BusinessAssetGroup
+      BusinessAssetGroup,
+      pathOverride,
     );
   }
 
@@ -208,12 +212,13 @@ export default class BusinessAssetGroup extends AbstractCrudObject {
     );
   }
 
-  createContainedInstagramAccount (fields: Array<string>, params: Object = {}): Promise<BusinessAssetGroup> {
+  createContainedInstagramAccount (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<BusinessAssetGroup> {
     return this.createEdge(
       '/contained_instagram_accounts',
       fields,
       params,
-      BusinessAssetGroup
+      BusinessAssetGroup,
+      pathOverride,
     );
   }
 
@@ -234,12 +239,13 @@ export default class BusinessAssetGroup extends AbstractCrudObject {
     );
   }
 
-  createContainedOfflineConversionDataSet (fields: Array<string>, params: Object = {}): Promise<BusinessAssetGroup> {
+  createContainedOfflineConversionDataSet (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<BusinessAssetGroup> {
     return this.createEdge(
       '/contained_offline_conversion_data_sets',
       fields,
       params,
-      BusinessAssetGroup
+      BusinessAssetGroup,
+      pathOverride,
     );
   }
 
@@ -260,12 +266,13 @@ export default class BusinessAssetGroup extends AbstractCrudObject {
     );
   }
 
-  createContainedPage (fields: Array<string>, params: Object = {}): Promise<BusinessAssetGroup> {
+  createContainedPage (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<BusinessAssetGroup> {
     return this.createEdge(
       '/contained_pages',
       fields,
       params,
-      BusinessAssetGroup
+      BusinessAssetGroup,
+      pathOverride,
     );
   }
 
@@ -286,12 +293,13 @@ export default class BusinessAssetGroup extends AbstractCrudObject {
     );
   }
 
-  createContainedPixel (fields: Array<string>, params: Object = {}): Promise<BusinessAssetGroup> {
+  createContainedPixel (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<BusinessAssetGroup> {
     return this.createEdge(
       '/contained_pixels',
       fields,
       params,
-      BusinessAssetGroup
+      BusinessAssetGroup,
+      pathOverride,
     );
   }
 
@@ -312,12 +320,13 @@ export default class BusinessAssetGroup extends AbstractCrudObject {
     );
   }
 
-  createContainedProductCatalog (fields: Array<string>, params: Object = {}): Promise<BusinessAssetGroup> {
+  createContainedProductCatalog (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<BusinessAssetGroup> {
     return this.createEdge(
       '/contained_product_catalogs',
       fields,
       params,
-      BusinessAssetGroup
+      BusinessAssetGroup,
+      pathOverride,
     );
   }
 

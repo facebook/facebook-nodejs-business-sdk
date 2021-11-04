@@ -72,12 +72,13 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
     );
   }
 
-  createAdAccount (fields: Array<string>, params: Object = {}): Promise<OfflineConversionDataSet> {
+  createAdAccount (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<OfflineConversionDataSet> {
     return this.createEdge(
       '/adaccounts',
       fields,
       params,
-      OfflineConversionDataSet
+      OfflineConversionDataSet,
+      pathOverride,
     );
   }
 
@@ -91,12 +92,13 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
     );
   }
 
-  createAgency (fields: Array<string>, params: Object = {}): Promise<OfflineConversionDataSet> {
+  createAgency (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<OfflineConversionDataSet> {
     return this.createEdge(
       '/agencies',
       fields,
       params,
-      OfflineConversionDataSet
+      OfflineConversionDataSet,
+      pathOverride,
     );
   }
 
@@ -120,12 +122,13 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
     );
   }
 
-  createEvent (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+  createEvent (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
     return this.createEdge(
       '/events',
       fields,
       params,
-      
+      null,
+      pathOverride,
     );
   }
 
@@ -149,21 +152,23 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
     );
   }
 
-  createUpload (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+  createUpload (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
     return this.createEdge(
       '/uploads',
       fields,
       params,
-      
+      null,
+      pathOverride,
     );
   }
 
-  createValidate (fields: Array<string>, params: Object = {}): Promise<OfflineConversionDataSet> {
+  createValidate (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<OfflineConversionDataSet> {
     return this.createEdge(
       '/validate',
       fields,
       params,
-      OfflineConversionDataSet
+      OfflineConversionDataSet,
+      pathOverride,
     );
   }
 

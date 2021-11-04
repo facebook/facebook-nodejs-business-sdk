@@ -46,12 +46,13 @@ export default class ExtendedCreditInvoiceGroup extends AbstractCrudObject {
     );
   }
 
-  createAdAccount (fields: Array<string>, params: Object = {}): Promise<AdAccount> {
+  createAdAccount (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdAccount> {
     return this.createEdge(
       '/ad_accounts',
       fields,
       params,
-      AdAccount
+      AdAccount,
+      pathOverride,
     );
   }
 

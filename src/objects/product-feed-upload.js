@@ -44,12 +44,13 @@ export default class ProductFeedUpload extends AbstractCrudObject {
     });
   }
 
-  createErrorReport (fields: Array<string>, params: Object = {}): Promise<ProductFeedUpload> {
+  createErrorReport (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<ProductFeedUpload> {
     return this.createEdge(
       '/error_report',
       fields,
       params,
-      ProductFeedUpload
+      ProductFeedUpload,
+      pathOverride,
     );
   }
 

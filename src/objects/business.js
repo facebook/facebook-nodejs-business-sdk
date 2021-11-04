@@ -170,12 +170,13 @@ export default class Business extends AbstractCrudObject {
     });
   }
 
-  createAccessToken (fields: Array<string>, params: Object = {}): Promise<Business> {
+  createAccessToken (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Business> {
     return this.createEdge(
       '/access_token',
       fields,
       params,
-      Business
+      Business,
+      pathOverride,
     );
   }
 
@@ -196,21 +197,23 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createAdStudy (fields: Array<string>, params: Object = {}): Promise<AdStudy> {
+  createAdStudy (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdStudy> {
     return this.createEdge(
       '/ad_studies',
       fields,
       params,
-      AdStudy
+      AdStudy,
+      pathOverride,
     );
   }
 
-  createAdAccount (fields: Array<string>, params: Object = {}): Promise<AdAccount> {
+  createAdAccount (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdAccount> {
     return this.createEdge(
       '/adaccount',
       fields,
       params,
-      AdAccount
+      AdAccount,
+      pathOverride,
     );
   }
 
@@ -224,12 +227,13 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createAdNetworkAnalytic (fields: Array<string>, params: Object = {}): Promise<Business> {
+  createAdNetworkAnalytic (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Business> {
     return this.createEdge(
       '/adnetworkanalytics',
       fields,
       params,
-      Business
+      Business,
+      pathOverride,
     );
   }
 
@@ -253,12 +257,13 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createAdsPixel (fields: Array<string>, params: Object = {}): Promise<AdsPixel> {
+  createAdsPixel (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdsPixel> {
     return this.createEdge(
       '/adspixels',
       fields,
       params,
-      AdsPixel
+      AdsPixel,
+      pathOverride,
     );
   }
 
@@ -289,12 +294,13 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createBlockListDraft (fields: Array<string>, params: Object = {}): Promise<Business> {
+  createBlockListDraft (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Business> {
     return this.createEdge(
       '/block_list_drafts',
       fields,
       params,
-      Business
+      Business,
+      pathOverride,
     );
   }
 
@@ -328,12 +334,13 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createBusinessUnit (fields: Array<string>, params: Object = {}): Promise<BusinessUnit> {
+  createBusinessUnit (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<BusinessUnit> {
     return this.createEdge(
       '/business_units',
       fields,
       params,
-      BusinessUnit
+      BusinessUnit,
+      pathOverride,
     );
   }
 
@@ -347,12 +354,13 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createBusinessUser (fields: Array<string>, params: Object = {}): Promise<BusinessUser> {
+  createBusinessUser (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<BusinessUser> {
     return this.createEdge(
       '/business_users',
       fields,
       params,
-      BusinessUser
+      BusinessUser,
+      pathOverride,
     );
   }
 
@@ -366,12 +374,13 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createClaimCustomConversion (fields: Array<string>, params: Object = {}): Promise<CustomConversion> {
+  createClaimCustomConversion (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<CustomConversion> {
     return this.createEdge(
       '/claim_custom_conversions',
       fields,
       params,
-      CustomConversion
+      CustomConversion,
+      pathOverride,
     );
   }
 
@@ -395,12 +404,13 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createClientApp (fields: Array<string>, params: Object = {}): Promise<Business> {
+  createClientApp (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Business> {
     return this.createEdge(
       '/client_apps',
       fields,
       params,
-      Business
+      Business,
+      pathOverride,
     );
   }
 
@@ -414,12 +424,13 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createClientPage (fields: Array<string>, params: Object = {}): Promise<Business> {
+  createClientPage (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Business> {
     return this.createEdge(
       '/client_pages',
       fields,
       params,
-      Business
+      Business,
+      pathOverride,
     );
   }
 
@@ -480,12 +491,13 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createCollaborativeAdsCollaborationRequest (fields: Array<string>, params: Object = {}): Promise<CPASCollaborationRequest> {
+  createCollaborativeAdsCollaborationRequest (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<CPASCollaborationRequest> {
     return this.createEdge(
       '/collaborative_ads_collaboration_requests',
       fields,
       params,
-      CPASCollaborationRequest
+      CPASCollaborationRequest,
+      pathOverride,
     );
   }
 
@@ -519,30 +531,33 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createCreateAndApplyPublisherBlockList (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+  createCreateAndApplyPublisherBlockList (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
     return this.createEdge(
       '/create_and_apply_publisher_block_list',
       fields,
       params,
-      
+      null,
+      pathOverride,
     );
   }
 
-  createCustomConversion (fields: Array<string>, params: Object = {}): Promise<CustomConversion> {
+  createCustomConversion (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<CustomConversion> {
     return this.createEdge(
       '/customconversions',
       fields,
       params,
-      CustomConversion
+      CustomConversion,
+      pathOverride,
     );
   }
 
-  createDraftNegativeKeywordList (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+  createDraftNegativeKeywordList (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
     return this.createEdge(
       '/draft_negative_keyword_lists',
       fields,
       params,
-      
+      null,
+      pathOverride,
     );
   }
 
@@ -556,12 +571,13 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createEventSourceGroup (fields: Array<string>, params: Object = {}): Promise<EventSourceGroup> {
+  createEventSourceGroup (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<EventSourceGroup> {
     return this.createEdge(
       '/event_source_groups',
       fields,
       params,
-      EventSourceGroup
+      EventSourceGroup,
+      pathOverride,
     );
   }
 
@@ -639,48 +655,53 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createManagedBusiness (fields: Array<string>, params: Object = {}): Promise<Business> {
+  createManagedBusiness (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Business> {
     return this.createEdge(
       '/managed_businesses',
       fields,
       params,
-      Business
+      Business,
+      pathOverride,
     );
   }
 
-  createManagedPartnerBusinessSetup (fields: Array<string>, params: Object = {}): Promise<Business> {
+  createManagedPartnerBusinessSetup (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Business> {
     return this.createEdge(
       '/managed_partner_business_setup',
       fields,
       params,
-      Business
+      Business,
+      pathOverride,
     );
   }
 
-  createManagedPartnerBusiness (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+  createManagedPartnerBusiness (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
     return this.createEdge(
       '/managed_partner_businesses',
       fields,
       params,
-      
+      null,
+      pathOverride,
     );
   }
 
-  createManagedPartnerChildBusinessAsset (fields: Array<string>, params: Object = {}): Promise<Business> {
+  createManagedPartnerChildBusinessAsset (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Business> {
     return this.createEdge(
       '/managed_partner_child_business_assets',
       fields,
       params,
-      Business
+      Business,
+      pathOverride,
     );
   }
 
-  createMoveAsset (fields: Array<string>, params: Object = {}): Promise<Business> {
+  createMoveAsset (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Business> {
     return this.createEdge(
       '/move_asset',
       fields,
       params,
-      Business
+      Business,
+      pathOverride,
     );
   }
 
@@ -704,12 +725,13 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createOfflineConversionDataSet (fields: Array<string>, params: Object = {}): Promise<OfflineConversionDataSet> {
+  createOfflineConversionDataSet (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<OfflineConversionDataSet> {
     return this.createEdge(
       '/offline_conversion_data_sets',
       fields,
       params,
-      OfflineConversionDataSet
+      OfflineConversionDataSet,
+      pathOverride,
     );
   }
 
@@ -723,12 +745,13 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createOwnedAdAccount (fields: Array<string>, params: Object = {}): Promise<Business> {
+  createOwnedAdAccount (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Business> {
     return this.createEdge(
       '/owned_ad_accounts',
       fields,
       params,
-      Business
+      Business,
+      pathOverride,
     );
   }
 
@@ -742,12 +765,13 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createOwnedApp (fields: Array<string>, params: Object = {}): Promise<Business> {
+  createOwnedApp (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Business> {
     return this.createEdge(
       '/owned_apps',
       fields,
       params,
-      Business
+      Business,
+      pathOverride,
     );
   }
 
@@ -768,12 +792,13 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createOwnedBusiness (fields: Array<string>, params: Object = {}): Promise<Business> {
+  createOwnedBusiness (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Business> {
     return this.createEdge(
       '/owned_businesses',
       fields,
       params,
-      Business
+      Business,
+      pathOverride,
     );
   }
 
@@ -797,12 +822,13 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createOwnedPage (fields: Array<string>, params: Object = {}): Promise<Business> {
+  createOwnedPage (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Business> {
     return this.createEdge(
       '/owned_pages',
       fields,
       params,
-      Business
+      Business,
+      pathOverride,
     );
   }
 
@@ -826,12 +852,13 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createOwnedProductCatalog (fields: Array<string>, params: Object = {}): Promise<ProductCatalog> {
+  createOwnedProductCatalog (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<ProductCatalog> {
     return this.createEdge(
       '/owned_product_catalogs',
       fields,
       params,
-      ProductCatalog
+      ProductCatalog,
+      pathOverride,
     );
   }
 
@@ -922,12 +949,13 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createPixelTo (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+  createPixelTo (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
     return this.createEdge(
       '/pixel_tos',
       fields,
       params,
-      
+      null,
+      pathOverride,
     );
   }
 
@@ -971,12 +999,13 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createSystemUser (fields: Array<string>, params: Object = {}): Promise<SystemUser> {
+  createSystemUser (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<SystemUser> {
     return this.createEdge(
       '/system_users',
       fields,
       params,
-      SystemUser
+      SystemUser,
+      pathOverride,
     );
   }
 

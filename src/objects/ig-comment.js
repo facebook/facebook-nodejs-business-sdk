@@ -42,12 +42,13 @@ export default class IGComment extends AbstractCrudObject {
     );
   }
 
-  createReply (fields: Array<string>, params: Object = {}): Promise<IGComment> {
+  createReply (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<IGComment> {
     return this.createEdge(
       '/replies',
       fields,
       params,
-      IGComment
+      IGComment,
+      pathOverride,
     );
   }
 

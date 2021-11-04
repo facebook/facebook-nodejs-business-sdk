@@ -59,12 +59,13 @@ export default class IGMedia extends AbstractCrudObject {
     );
   }
 
-  createComment (fields: Array<string>, params: Object = {}): Promise<IGComment> {
+  createComment (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<IGComment> {
     return this.createEdge(
       '/comments',
       fields,
       params,
-      IGComment
+      IGComment,
+      pathOverride,
     );
   }
 

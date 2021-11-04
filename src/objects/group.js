@@ -185,12 +185,13 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  createAdmin (fields: Array<string>, params: Object = {}): Promise<Group> {
+  createAdmin (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Group> {
     return this.createEdge(
       '/admins',
       fields,
       params,
-      Group
+      Group,
+      pathOverride,
     );
   }
 
@@ -204,12 +205,13 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  createAlbum (fields: Array<string>, params: Object = {}): Promise<Album> {
+  createAlbum (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Album> {
     return this.createEdge(
       '/albums',
       fields,
       params,
-      Album
+      Album,
+      pathOverride,
     );
   }
 
@@ -243,12 +245,13 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  createFeed (fields: Array<string>, params: Object = {}): Promise<Post> {
+  createFeed (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Post> {
     return this.createEdge(
       '/feed',
       fields,
       params,
-      Post
+      Post,
+      pathOverride,
     );
   }
 
@@ -272,12 +275,13 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  createGroup (fields: Array<string>, params: Object = {}): Promise<Group> {
+  createGroup (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Group> {
     return this.createEdge(
       '/groups',
       fields,
       params,
-      Group
+      Group,
+      pathOverride,
     );
   }
 
@@ -291,12 +295,13 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  createLiveVideo (fields: Array<string>, params: Object = {}): Promise<LiveVideo> {
+  createLiveVideo (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<LiveVideo> {
     return this.createEdge(
       '/live_videos',
       fields,
       params,
-      LiveVideo
+      LiveVideo,
+      pathOverride,
     );
   }
 
@@ -307,12 +312,13 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  createMember (fields: Array<string>, params: Object = {}): Promise<Group> {
+  createMember (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Group> {
     return this.createEdge(
       '/members',
       fields,
       params,
-      Group
+      Group,
+      pathOverride,
     );
   }
 
@@ -326,12 +332,13 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  createPhoto (fields: Array<string>, params: Object = {}): Promise<Photo> {
+  createPhoto (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Photo> {
     return this.createEdge(
       '/photos',
       fields,
       params,
-      Photo
+      Photo,
+      pathOverride,
     );
   }
 
@@ -345,12 +352,13 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  createShiftSetting (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+  createShiftSetting (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
     return this.createEdge(
       '/shift_settings',
       fields,
       params,
-      
+      null,
+      pathOverride,
     );
   }
 
@@ -364,12 +372,13 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  createVideo (fields: Array<string>, params: Object = {}): Promise<AdVideo> {
+  createVideo (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdVideo> {
     return this.createEdge(
       '/videos',
       fields,
       params,
-      AdVideo
+      AdVideo,
+      pathOverride,
     );
   }
 

@@ -52,12 +52,13 @@ export default class InstagramUser extends AbstractCrudObject {
     );
   }
 
-  createAuthorizedAdAccount (fields: Array<string>, params: Object = {}): Promise<InstagramUser> {
+  createAuthorizedAdAccount (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<InstagramUser> {
     return this.createEdge(
       '/authorized_adaccounts',
       fields,
       params,
-      InstagramUser
+      InstagramUser,
+      pathOverride,
     );
   }
 

@@ -34,12 +34,13 @@ export default class AdMonetizationProperty extends AbstractCrudObject {
     );
   }
 
-  createAdNetworkAnalytic (fields: Array<string>, params: Object = {}): Promise<AdMonetizationProperty> {
+  createAdNetworkAnalytic (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdMonetizationProperty> {
     return this.createEdge(
       '/adnetworkanalytics',
       fields,
       params,
-      AdMonetizationProperty
+      AdMonetizationProperty,
+      pathOverride,
     );
   }
 

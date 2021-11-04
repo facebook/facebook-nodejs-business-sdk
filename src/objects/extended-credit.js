@@ -50,12 +50,13 @@ export default class ExtendedCredit extends AbstractCrudObject {
     );
   }
 
-  createExtendedCreditInvoiceGroup (fields: Array<string>, params: Object = {}): Promise<ExtendedCreditInvoiceGroup> {
+  createExtendedCreditInvoiceGroup (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<ExtendedCreditInvoiceGroup> {
     return this.createEdge(
       '/extended_credit_invoice_groups',
       fields,
       params,
-      ExtendedCreditInvoiceGroup
+      ExtendedCreditInvoiceGroup,
+      pathOverride,
     );
   }
 
@@ -69,21 +70,23 @@ export default class ExtendedCredit extends AbstractCrudObject {
     );
   }
 
-  createOwningCreditAllocationConfig (fields: Array<string>, params: Object = {}): Promise<ExtendedCreditAllocationConfig> {
+  createOwningCreditAllocationConfig (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<ExtendedCreditAllocationConfig> {
     return this.createEdge(
       '/owning_credit_allocation_configs',
       fields,
       params,
-      ExtendedCreditAllocationConfig
+      ExtendedCreditAllocationConfig,
+      pathOverride,
     );
   }
 
-  createWhatsappCreditSharingAndAttach (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+  createWhatsappCreditSharingAndAttach (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
     return this.createEdge(
       '/whatsapp_credit_sharing_and_attach',
       fields,
       params,
-      
+      null,
+      pathOverride,
     );
   }
 

@@ -32,12 +32,13 @@ export default class PublisherBlockList extends AbstractCrudObject {
   }
 
 
-  createAppendPublisherUrl (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+  createAppendPublisherUrl (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
     return this.createEdge(
       '/append_publisher_urls',
       fields,
       params,
-      
+      null,
+      pathOverride,
     );
   }
 

@@ -68,12 +68,13 @@ export default class CommerceOrder extends AbstractCrudObject {
     });
   }
 
-  createAcknowledgeOrder (fields: Array<string>, params: Object = {}): Promise<CommerceOrder> {
+  createAcknowledgeOrder (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<CommerceOrder> {
     return this.createEdge(
       '/acknowledge_order',
       fields,
       params,
-      CommerceOrder
+      CommerceOrder,
+      pathOverride,
     );
   }
 
@@ -87,12 +88,13 @@ export default class CommerceOrder extends AbstractCrudObject {
     );
   }
 
-  createCancellation (fields: Array<string>, params: Object = {}): Promise<CommerceOrder> {
+  createCancellation (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<CommerceOrder> {
     return this.createEdge(
       '/cancellations',
       fields,
       params,
-      CommerceOrder
+      CommerceOrder,
+      pathOverride,
     );
   }
 
@@ -146,12 +148,13 @@ export default class CommerceOrder extends AbstractCrudObject {
     );
   }
 
-  createRefund (fields: Array<string>, params: Object = {}): Promise<CommerceOrder> {
+  createRefund (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<CommerceOrder> {
     return this.createEdge(
       '/refunds',
       fields,
       params,
-      CommerceOrder
+      CommerceOrder,
+      pathOverride,
     );
   }
 
@@ -175,21 +178,23 @@ export default class CommerceOrder extends AbstractCrudObject {
     );
   }
 
-  createShipment (fields: Array<string>, params: Object = {}): Promise<CommerceOrder> {
+  createShipment (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<CommerceOrder> {
     return this.createEdge(
       '/shipments',
       fields,
       params,
-      CommerceOrder
+      CommerceOrder,
+      pathOverride,
     );
   }
 
-  createUpdateShipment (fields: Array<string>, params: Object = {}): Promise<CommerceOrder> {
+  createUpdateShipment (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<CommerceOrder> {
     return this.createEdge(
       '/update_shipment',
       fields,
       params,
-      CommerceOrder
+      CommerceOrder,
+      pathOverride,
     );
   }
 

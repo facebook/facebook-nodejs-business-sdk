@@ -290,12 +290,13 @@ export default class AdSet extends AbstractCrudObject {
     );
   }
 
-  createAdLabel (fields: Array<string>, params: Object = {}): Promise<AdSet> {
+  createAdLabel (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdSet> {
     return this.createEdge(
       '/adlabels',
       fields,
       params,
-      AdSet
+      AdSet,
+      pathOverride,
     );
   }
 
@@ -349,12 +350,13 @@ export default class AdSet extends AbstractCrudObject {
     );
   }
 
-  createCopy (fields: Array<string>, params: Object = {}): Promise<AdSet> {
+  createCopy (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdSet> {
     return this.createEdge(
       '/copies',
       fields,
       params,
-      AdSet
+      AdSet,
+      pathOverride,
     );
   }
 
@@ -378,12 +380,13 @@ export default class AdSet extends AbstractCrudObject {
     );
   }
 
-  getInsightsAsync (fields: Array<string>, params: Object = {}): Promise<AdReportRun> {
+  getInsightsAsync (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdReportRun> {
     return this.createEdge(
       '/insights',
       fields,
       params,
-      AdReportRun
+      AdReportRun,
+      pathOverride,
     );
   }
 

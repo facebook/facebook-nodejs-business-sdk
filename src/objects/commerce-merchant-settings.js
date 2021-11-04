@@ -54,12 +54,13 @@ export default class CommerceMerchantSettings extends AbstractCrudObject {
   }
 
 
-  createAcknowledgeOrder (fields: Array<string>, params: Object = {}): Promise<CommerceMerchantSettings> {
+  createAcknowledgeOrder (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<CommerceMerchantSettings> {
     return this.createEdge(
       '/acknowledge_orders',
       fields,
       params,
-      CommerceMerchantSettings
+      CommerceMerchantSettings,
+      pathOverride,
     );
   }
 
@@ -103,12 +104,13 @@ export default class CommerceMerchantSettings extends AbstractCrudObject {
     );
   }
 
-  createOrderManagementApp (fields: Array<string>, params: Object = {}): Promise<CommerceMerchantSettings> {
+  createOrderManagementApp (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<CommerceMerchantSettings> {
     return this.createEdge(
       '/order_management_apps',
       fields,
       params,
-      CommerceMerchantSettings
+      CommerceMerchantSettings,
+      pathOverride,
     );
   }
 
@@ -152,12 +154,13 @@ export default class CommerceMerchantSettings extends AbstractCrudObject {
     );
   }
 
-  createShippingProfile (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+  createShippingProfile (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
     return this.createEdge(
       '/shipping_profiles',
       fields,
       params,
-      
+      null,
+      pathOverride,
     );
   }
 
@@ -181,12 +184,13 @@ export default class CommerceMerchantSettings extends AbstractCrudObject {
     );
   }
 
-  createWhatsappChannel (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+  createWhatsappChannel (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
     return this.createEdge(
       '/whatsapp_channel',
       fields,
       params,
-      
+      null,
+      pathOverride,
     );
   }
 

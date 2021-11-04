@@ -137,12 +137,13 @@ export default class CustomAudience extends AbstractCrudObject {
     );
   }
 
-  createAdAccount (fields: Array<string>, params: Object = {}): Promise<CustomAudience> {
+  createAdAccount (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<CustomAudience> {
     return this.createEdge(
       '/adaccounts',
       fields,
       params,
-      CustomAudience
+      CustomAudience,
+      pathOverride,
     );
   }
 
@@ -183,21 +184,23 @@ export default class CustomAudience extends AbstractCrudObject {
     );
   }
 
-  createUser (fields: Array<string>, params: Object = {}): Promise<CustomAudience> {
+  createUser (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<CustomAudience> {
     return this.createEdge(
       '/users',
       fields,
       params,
-      CustomAudience
+      CustomAudience,
+      pathOverride,
     );
   }
 
-  createUsersReplace (fields: Array<string>, params: Object = {}): Promise<CustomAudience> {
+  createUsersReplace (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<CustomAudience> {
     return this.createEdge(
       '/usersreplace',
       fields,
       params,
-      CustomAudience
+      CustomAudience,
+      pathOverride,
     );
   }
 

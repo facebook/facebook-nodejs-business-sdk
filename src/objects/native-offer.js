@@ -83,21 +83,23 @@ export default class NativeOffer extends AbstractCrudObject {
     });
   }
 
-  createCode (fields: Array<string>, params: Object = {}): Promise<NativeOffer> {
+  createCode (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<NativeOffer> {
     return this.createEdge(
       '/codes',
       fields,
       params,
-      NativeOffer
+      NativeOffer,
+      pathOverride,
     );
   }
 
-  createNativeOfferView (fields: Array<string>, params: Object = {}): Promise<NativeOffer> {
+  createNativeOfferView (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<NativeOffer> {
     return this.createEdge(
       '/nativeofferviews',
       fields,
       params,
-      NativeOffer
+      NativeOffer,
+      pathOverride,
     );
   }
 

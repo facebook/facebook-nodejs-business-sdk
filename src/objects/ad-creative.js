@@ -223,12 +223,13 @@ export default class AdCreative extends AbstractCrudObject {
     });
   }
 
-  createAdLabel (fields: Array<string>, params: Object = {}): Promise<AdCreative> {
+  createAdLabel (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdCreative> {
     return this.createEdge(
       '/adlabels',
       fields,
       params,
-      AdCreative
+      AdCreative,
+      pathOverride,
     );
   }
 

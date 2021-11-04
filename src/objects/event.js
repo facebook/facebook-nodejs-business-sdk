@@ -151,12 +151,13 @@ export default class Event extends AbstractCrudObject {
     );
   }
 
-  createLiveVideo (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+  createLiveVideo (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
     return this.createEdge(
       '/livevideos',
       fields,
       params,
-      
+      null,
+      pathOverride,
     );
   }
 

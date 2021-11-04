@@ -68,30 +68,33 @@ export default class IGUser extends AbstractCrudObject {
     );
   }
 
-  createMedia (fields: Array<string>, params: Object = {}): Promise<IGMedia> {
+  createMedia (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<IGMedia> {
     return this.createEdge(
       '/media',
       fields,
       params,
-      IGMedia
+      IGMedia,
+      pathOverride,
     );
   }
 
-  createMediaPublish (fields: Array<string>, params: Object = {}): Promise<IGMedia> {
+  createMediaPublish (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<IGMedia> {
     return this.createEdge(
       '/media_publish',
       fields,
       params,
-      IGMedia
+      IGMedia,
+      pathOverride,
     );
   }
 
-  createMention (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+  createMention (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
     return this.createEdge(
       '/mentions',
       fields,
       params,
-      
+      null,
+      pathOverride,
     );
   }
 

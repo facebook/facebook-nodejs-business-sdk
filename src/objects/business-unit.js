@@ -64,12 +64,13 @@ export default class BusinessUnit extends AbstractCrudObject {
     );
   }
 
-  createAtlasSalesAccess (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+  createAtlasSalesAccess (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
     return this.createEdge(
       '/atlas_sales_accesses',
       fields,
       params,
-      
+      null,
+      pathOverride,
     );
   }
 

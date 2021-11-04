@@ -49,21 +49,23 @@ export default class Canvas extends AbstractCrudObject {
   }
 
 
-  createDuplicateCanva (fields: Array<string>, params: Object = {}): Promise<Canvas> {
+  createDuplicateCanva (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Canvas> {
     return this.createEdge(
       '/duplicate_canvas',
       fields,
       params,
-      Canvas
+      Canvas,
+      pathOverride,
     );
   }
 
-  createPreviewNotification (fields: Array<string>, params: Object = {}): Promise<Canvas> {
+  createPreviewNotification (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Canvas> {
     return this.createEdge(
       '/preview_notifications',
       fields,
       params,
-      Canvas
+      Canvas,
+      pathOverride,
     );
   }
 

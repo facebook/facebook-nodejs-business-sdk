@@ -181,12 +181,13 @@ export default class LiveVideo extends AbstractCrudObject {
     );
   }
 
-  createInputStream (fields: Array<string>, params: Object = {}): Promise<LiveVideoInputStream> {
+  createInputStream (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<LiveVideoInputStream> {
     return this.createEdge(
       '/input_streams',
       fields,
       params,
-      LiveVideoInputStream
+      LiveVideoInputStream,
+      pathOverride,
     );
   }
 
@@ -200,12 +201,13 @@ export default class LiveVideo extends AbstractCrudObject {
     );
   }
 
-  createPoll (fields: Array<string>, params: Object = {}): Promise<VideoPoll> {
+  createPoll (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<VideoPoll> {
     return this.createEdge(
       '/polls',
       fields,
       params,
-      VideoPoll
+      VideoPoll,
+      pathOverride,
     );
   }
 

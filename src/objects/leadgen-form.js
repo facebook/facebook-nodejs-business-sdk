@@ -107,12 +107,13 @@ export default class LeadgenForm extends AbstractCrudObject {
     );
   }
 
-  createTestLead (fields: Array<string>, params: Object = {}): Promise<Lead> {
+  createTestLead (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Lead> {
     return this.createEdge(
       '/test_leads',
       fields,
       params,
-      Lead
+      Lead,
+      pathOverride,
     );
   }
 
