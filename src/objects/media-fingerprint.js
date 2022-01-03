@@ -7,6 +7,7 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
 
 /**
  * MediaFingerprint
@@ -14,7 +15,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class MediaFingerprint extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       duration_in_sec: 'duration_in_sec',
       fingerprint_content_type: 'fingerprint_content_type',
@@ -34,6 +35,14 @@ export default class MediaFingerprint extends AbstractCrudObject {
       other: 'OTHER',
       songtrack: 'SONGTRACK',
     });
+  }
+
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
+    return super.delete(
+      params
+    );
   }
 
   

@@ -36,14 +36,14 @@ params = {
   'name' : 'A CPA Ad Set optimized for App Events',
   'campaign_id' : '<adCampaignAppInstallsID>',
   'daily_budget' : '300',
-  'start_time' : '2019-05-06T08:48:58-0700',
-  'end_time' : '2019-05-13T08:48:58-0700',
+  'start_time' : '2021-08-05T11:40:06-0700',
+  'end_time' : '2021-08-12T11:40:06-0700',
   'billing_event' : 'IMPRESSIONS',
   'optimization_goal' : 'OFFSITE_CONVERSIONS',
   'bid_amount' : '100',
   'status' : 'PAUSED',
   'promoted_object' : {'application_id':'<appID>','object_store_url':'<appLink>','custom_event_type':'PURCHASE'},
-  'targeting' : {'geo_locations':{'countries':['US']},'user_os':['iOS']},
+  'targeting' : {'facebook_positions':['feed'],'geo_locations':{'countries':['US']},'user_os':['iOS']},
 };
 const adsets = (new AdAccount(id)).createAdSet(
   fields,

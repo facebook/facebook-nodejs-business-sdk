@@ -14,11 +14,12 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class PageAdminNote extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       body: 'body',
       from: 'from',
       id: 'id',
+      note_label: 'note_label',
       user: 'user',
     });
   }

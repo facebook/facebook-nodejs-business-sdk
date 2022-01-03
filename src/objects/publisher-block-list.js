@@ -16,7 +16,7 @@ import Cursor from './../cursor';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class PublisherBlockList extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       app_publishers: 'app_publishers',
       business_owner_id: 'business_owner_id',
@@ -32,13 +32,13 @@ export default class PublisherBlockList extends AbstractCrudObject {
   }
 
 
-  getPagedAppPublishers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
+  createAppendPublisherUrl (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+    return this.createEdge(
+      '/append_publisher_urls',
       fields,
       params,
-      fetchFirstPage,
-      '/paged_app_publishers'
+      null,
+      pathOverride,
     );
   }
 

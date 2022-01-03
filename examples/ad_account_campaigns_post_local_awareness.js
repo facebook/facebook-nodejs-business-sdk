@@ -36,6 +36,7 @@ params = {
   'name' : 'Local ad campaign',
   'objective' : 'REACH',
   'status' : 'PAUSED',
+  'special_ad_categories' : [],
 };
 const campaigns = (new AdAccount(id)).createCampaign(
   fields,

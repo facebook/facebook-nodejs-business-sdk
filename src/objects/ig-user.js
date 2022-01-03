@@ -18,7 +18,7 @@ import IGMedia from './ig-media';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class IGUser extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       biography: 'biography',
       business_discovery: 'business_discovery',
@@ -31,11 +31,22 @@ export default class IGUser extends AbstractCrudObject {
       mentioned_media: 'mentioned_media',
       name: 'name',
       profile_picture_url: 'profile_picture_url',
+      shopping_review_status: 'shopping_review_status',
       username: 'username',
       website: 'website',
     });
   }
 
+
+  getContentPublishingLimit (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/content_publishing_limit'
+    );
+  }
 
   getInsights (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
@@ -57,30 +68,33 @@ export default class IGUser extends AbstractCrudObject {
     );
   }
 
-  createMedia (fields: Array<string>, params: Object = {}): Promise<IGMedia> {
+  createMedia (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<IGMedia> {
     return this.createEdge(
       '/media',
       fields,
       params,
-      IGMedia
+      IGMedia,
+      pathOverride,
     );
   }
 
-  createMediaPublish (fields: Array<string>, params: Object = {}): Promise<IGMedia> {
+  createMediaPublish (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<IGMedia> {
     return this.createEdge(
       '/media_publish',
       fields,
       params,
-      IGMedia
+      IGMedia,
+      pathOverride,
     );
   }
 
-  createMention (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+  createMention (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
     return this.createEdge(
       '/mentions',
       fields,
       params,
-      
+      null,
+      pathOverride,
     );
   }
 

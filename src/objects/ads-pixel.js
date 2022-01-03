@@ -10,7 +10,6 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import AssignedUser from './assigned-user';
-import CustomAudience from './custom-audience';
 import DACheck from './da-check';
 import AdAccount from './ad-account';
 import Business from './business';
@@ -22,7 +21,7 @@ import AdsPixelStatsResult from './ads-pixel-stats-result';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdsPixel extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       automatic_matching_fields: 'automatic_matching_fields',
       can_proxy: 'can_proxy',
@@ -34,6 +33,7 @@ export default class AdsPixel extends AbstractCrudObject {
       first_party_cookie_status: 'first_party_cookie_status',
       id: 'id',
       is_created_by_business: 'is_created_by_business',
+      is_crm: 'is_crm',
       is_unavailable: 'is_unavailable',
       last_fired_time: 'last_fired_time',
       name: 'name',
@@ -50,8 +50,11 @@ export default class AdsPixel extends AbstractCrudObject {
   }
   static get AutomaticMatchingFields (): Object {
     return Object.freeze({
+      country: 'country',
       ct: 'ct',
+      db: 'db',
       em: 'em',
+      external_id: 'external_id',
       fn: 'fn',
       ge: 'ge',
       ln: 'ln',
@@ -76,16 +79,12 @@ export default class AdsPixel extends AbstractCrudObject {
   }
   static get Tasks (): Object {
     return Object.freeze({
+      aa_analyze: 'AA_ANALYZE',
+      advertise: 'ADVERTISE',
       analyze: 'ANALYZE',
       edit: 'EDIT',
+      upload: 'UPLOAD',
     });
-  }
-
-  deleteAssignedUsers (params: Object = {}): Promise<*> {
-    return super.deleteEdge(
-      '/assigned_users',
-      params
-    );
   }
 
   getAssignedUsers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
@@ -98,22 +97,13 @@ export default class AdsPixel extends AbstractCrudObject {
     );
   }
 
-  createAssignedUser (fields: Array<string>, params: Object = {}): Promise<AdsPixel> {
+  createAssignedUser (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdsPixel> {
     return this.createEdge(
       '/assigned_users',
       fields,
       params,
-      AdsPixel
-    );
-  }
-
-  getAudiences (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      CustomAudience,
-      fields,
-      params,
-      fetchFirstPage,
-      '/audiences'
+      AdsPixel,
+      pathOverride,
     );
   }
 
@@ -124,6 +114,26 @@ export default class AdsPixel extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/da_checks'
+    );
+  }
+
+  createEvent (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdsPixel> {
+    return this.createEdge(
+      '/events',
+      fields,
+      params,
+      AdsPixel,
+      pathOverride,
+    );
+  }
+
+  createShadowTrafficHelper (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+    return this.createEdge(
+      '/shadowtraffichelper',
+      fields,
+      params,
+      null,
+      pathOverride,
     );
   }
 
@@ -144,12 +154,13 @@ export default class AdsPixel extends AbstractCrudObject {
     );
   }
 
-  createSharedAccount (fields: Array<string>, params: Object = {}): Promise<AdsPixel> {
+  createSharedAccount (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdsPixel> {
     return this.createEdge(
       '/shared_accounts',
       fields,
       params,
-      AdsPixel
+      AdsPixel,
+      pathOverride,
     );
   }
 
@@ -170,6 +181,16 @@ export default class AdsPixel extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/stats'
+    );
+  }
+
+  createTelemetry (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+    return this.createEdge(
+      '/telemetry',
+      fields,
+      params,
+      null,
+      pathOverride,
     );
   }
 

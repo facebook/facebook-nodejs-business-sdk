@@ -8,6 +8,8 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
+import CatalogItemChannelsToIntegrityStatus from './catalog-item-channels-to-integrity-status';
 
 /**
  * HomeListing
@@ -15,7 +17,7 @@ import AbstractObject from './../abstract-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class HomeListing extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       ac_type: 'ac_type',
       additional_fees_description: 'additional_fees_description',
@@ -29,6 +31,7 @@ export default class HomeListing extends AbstractCrudObject {
       area_size: 'area_size',
       area_unit: 'area_unit',
       availability: 'availability',
+      category_specific_fields: 'category_specific_fields',
       co_2_emission_rating_eu: 'co_2_emission_rating_eu',
       currency: 'currency',
       days_on_market: 'days_on_market',
@@ -39,6 +42,7 @@ export default class HomeListing extends AbstractCrudObject {
       heating_type: 'heating_type',
       home_listing_id: 'home_listing_id',
       id: 'id',
+      image_fetch_status: 'image_fetch_status',
       images: 'images',
       laundry_type: 'laundry_type',
       listing_type: 'listing_type',
@@ -57,11 +61,52 @@ export default class HomeListing extends AbstractCrudObject {
       price: 'price',
       property_type: 'property_type',
       sanitized_images: 'sanitized_images',
+      unit_price: 'unit_price',
       url: 'url',
       year_built: 'year_built',
     });
   }
 
+  static get ImageFetchStatus (): Object {
+    return Object.freeze({
+      direct_upload: 'DIRECT_UPLOAD',
+      fetched: 'FETCHED',
+      fetch_failed: 'FETCH_FAILED',
+      no_status: 'NO_STATUS',
+      outdated: 'OUTDATED',
+      partial_fetch: 'PARTIAL_FETCH',
+    });
+  }
+
+  getAugmentedRealitiesMetadata (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/augmented_realities_metadata'
+    );
+  }
+
+  getChannelsToIntegrityStatus (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      CatalogItemChannelsToIntegrityStatus,
+      fields,
+      params,
+      fetchFirstPage,
+      '/channels_to_integrity_status'
+    );
+  }
+
+  getVideosMetadata (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/videos_metadata'
+    );
+  }
 
   // $FlowFixMe : Support Generic Types
   delete (fields: Array<string>, params: Object = {}): AbstractObject {

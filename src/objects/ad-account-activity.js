@@ -14,16 +14,12 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdAccountActivity extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
-      billing_address_new: 'billing_address_new',
-      billing_address_old: 'billing_address_old',
       created_by: 'created_by',
       created_time: 'created_time',
       credit_new: 'credit_new',
       credit_old: 'credit_old',
-      credit_status_new: 'credit_status_new',
-      credit_status_old: 'credit_status_old',
       currency_new: 'currency_new',
       currency_old: 'currency_old',
       daily_spend_limit_new: 'daily_spend_limit_new',

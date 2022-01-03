@@ -13,7 +13,6 @@ import Comment from './comment';
 import RTBDynamicPost from './rtb-dynamic-post';
 import InsightsResult from './insights-result';
 import Profile from './profile';
-import User from './user';
 import Post from './post';
 import Page from './page';
 
@@ -23,7 +22,7 @@ import Page from './page';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class PagePost extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       actions: 'actions',
       admin_creator: 'admin_creator',
@@ -50,6 +49,7 @@ export default class PagePost extends AbstractCrudObject {
       is_eligible_for_promotion: 'is_eligible_for_promotion',
       is_expired: 'is_expired',
       is_hidden: 'is_hidden',
+      is_inline_created: 'is_inline_created',
       is_instagram_eligible: 'is_instagram_eligible',
       is_popular: 'is_popular',
       is_published: 'is_published',
@@ -82,6 +82,11 @@ export default class PagePost extends AbstractCrudObject {
     });
   }
 
+  static get With (): Object {
+    return Object.freeze({
+      location: 'LOCATION',
+    });
+  }
   static get BackdatedTimeGranularity (): Object {
     return Object.freeze({
       day: 'day',
@@ -90,62 +95,6 @@ export default class PagePost extends AbstractCrudObject {
       month: 'month',
       none: 'none',
       year: 'year',
-    });
-  }
-  static get CheckinEntryPoint (): Object {
-    return Object.freeze({
-      branding_checkin: 'BRANDING_CHECKIN',
-      branding_other: 'BRANDING_OTHER',
-      branding_photo: 'BRANDING_PHOTO',
-      branding_status: 'BRANDING_STATUS',
-    });
-  }
-  static get Formatting (): Object {
-    return Object.freeze({
-      markdown: 'MARKDOWN',
-      plaintext: 'PLAINTEXT',
-    });
-  }
-  static get PlaceAttachmentSetting (): Object {
-    return Object.freeze({
-      value_1: '1',
-      value_2: '2',
-    });
-  }
-  static get PostSurfacesBlacklist (): Object {
-    return Object.freeze({
-      value_1: '1',
-      value_2: '2',
-      value_3: '3',
-      value_4: '4',
-      value_5: '5',
-    });
-  }
-  static get PostingToRedspace (): Object {
-    return Object.freeze({
-      disabled: 'disabled',
-      enabled: 'enabled',
-    });
-  }
-  static get TargetSurface (): Object {
-    return Object.freeze({
-      story: 'STORY',
-      timeline: 'TIMELINE',
-    });
-  }
-  static get UnpublishedContentType (): Object {
-    return Object.freeze({
-      ads_post: 'ADS_POST',
-      draft: 'DRAFT',
-      inline_created: 'INLINE_CREATED',
-      published: 'PUBLISHED',
-      scheduled: 'SCHEDULED',
-      scheduled_recurring: 'SCHEDULED_RECURRING',
-    });
-  }
-  static get With (): Object {
-    return Object.freeze({
-      location: 'LOCATION',
     });
   }
   static get FeedStoryVisibility (): Object {
@@ -182,12 +131,13 @@ export default class PagePost extends AbstractCrudObject {
     );
   }
 
-  createComment (fields: Array<string>, params: Object = {}): Promise<Comment> {
+  createComment (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Comment> {
     return this.createEdge(
       '/comments',
       fields,
       params,
-      Comment
+      Comment,
+      pathOverride,
     );
   }
 
@@ -198,16 +148,6 @@ export default class PagePost extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/dynamic_posts'
-    );
-  }
-
-  getEditActions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/edit_actions'
     );
   }
 
@@ -238,21 +178,13 @@ export default class PagePost extends AbstractCrudObject {
     );
   }
 
-  createLike (fields: Array<string>, params: Object = {}): Promise<PagePost> {
+  createLike (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<PagePost> {
     return this.createEdge(
       '/likes',
       fields,
       params,
-      PagePost
-    );
-  }
-
-  createPrivateReply (fields: Array<string>, params: Object = {}): Promise<PagePost> {
-    return this.createEdge(
-      '/private_replies',
-      fields,
-      params,
-      PagePost
+      PagePost,
+      pathOverride,
     );
   }
 
@@ -263,16 +195,6 @@ export default class PagePost extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/reactions'
-    );
-  }
-
-  getSeen (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      User,
-      fields,
-      params,
-      fetchFirstPage,
-      '/seen'
     );
   }
 
@@ -303,16 +225,6 @@ export default class PagePost extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/to'
-    );
-  }
-
-  getWithTags (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      Profile,
-      fields,
-      params,
-      fetchFirstPage,
-      '/with_tags'
     );
   }
 

@@ -43,7 +43,15 @@ function roll(format, entry, name, entry_dir, dest_dir) {
       babel(
         babelrc.default({
           config: {
-            presets: [['es2015', {modules: false}]],
+            presets: [
+              [
+                'babel-preset-env',
+                {
+                  'targets': 'defaults',
+                  'exclude': ['transform-regenerator']
+                }
+              ]
+            ],
             plugins: [
               'external-helpers',
               'syntax-flow',

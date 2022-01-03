@@ -14,7 +14,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdCreativeLinkDataImageOverlaySpec extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       custom_text_type: 'custom_text_type',
       float_with_margin: 'float_with_margin',
@@ -63,11 +63,14 @@ export default class AdCreativeLinkDataImageOverlaySpec extends AbstractCrudObje
   }
   static get TextType (): Object {
     return Object.freeze({
+      automated_personalize: 'automated_personalize',
       custom: 'custom',
       disclaimer: 'disclaimer',
       from_price: 'from_price',
+      guest_rating: 'guest_rating',
       percentage_off: 'percentage_off',
       price: 'price',
+      star_rating: 'star_rating',
       strikethrough_price: 'strikethrough_price',
     });
   }

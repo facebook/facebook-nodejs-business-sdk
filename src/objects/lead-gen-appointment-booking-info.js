@@ -14,7 +14,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class LeadGenAppointmentBookingInfo extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       advertiser_timezone_offset: 'advertiser_timezone_offset',
       appointment_durations: 'appointment_durations',

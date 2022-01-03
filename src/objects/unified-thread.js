@@ -16,7 +16,7 @@ import Cursor from './../cursor';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class UnifiedThread extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       can_reply: 'can_reply',
       former_participants: 'former_participants',
@@ -36,6 +36,12 @@ export default class UnifiedThread extends AbstractCrudObject {
     });
   }
 
+  static get Platform (): Object {
+    return Object.freeze({
+      instagram: 'INSTAGRAM',
+      messenger: 'MESSENGER',
+    });
+  }
 
   getMessages (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
@@ -44,15 +50,6 @@ export default class UnifiedThread extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/messages'
-    );
-  }
-
-  createMessage (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
-    return this.createEdge(
-      '/messages',
-      fields,
-      params,
-      
     );
   }
 

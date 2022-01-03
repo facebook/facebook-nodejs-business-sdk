@@ -14,7 +14,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class DACheck extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       action_uri: 'action_uri',
       description: 'description',
@@ -25,4 +25,12 @@ export default class DACheck extends AbstractCrudObject {
     });
   }
 
+  static get ConnectionMethod (): Object {
+    return Object.freeze({
+      all: 'ALL',
+      app: 'APP',
+      browser: 'BROWSER',
+      server: 'SERVER',
+    });
+  }
 }

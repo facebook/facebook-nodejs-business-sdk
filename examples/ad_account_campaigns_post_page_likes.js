@@ -36,6 +36,7 @@ params = {
   'name' : 'My First Campaign',
   'objective' : 'PAGE_LIKES',
   'status' : 'PAUSED',
+  'special_ad_categories' : [],
 };
 const campaigns = (new AdAccount(id)).createCampaign(
   fields,

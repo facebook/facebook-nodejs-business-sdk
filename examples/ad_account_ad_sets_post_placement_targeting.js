@@ -39,7 +39,7 @@ params = {
   'bid_amount' : '2',
   'daily_budget' : '1000',
   'campaign_id' : '<adCampaignLinkClicksID>',
-  'targeting' : {'geo_locations':{'countries':['US']},'publisher_platforms':['facebook']},
+  'targeting' : {'geo_locations':{'countries':['US']},'publisher_platforms':['facebook'],'facebook_positions':['feed']},
   'promoted_object' : {'page_id':'<pageID>'},
 };
 const adsets = (new AdAccount(id)).createAdSet(

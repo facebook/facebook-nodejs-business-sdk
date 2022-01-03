@@ -15,6 +15,7 @@ import Flight from './flight';
 import HomeListing from './home-listing';
 import Hotel from './hotel';
 import ProductItem from './product-item';
+import VehicleOffer from './vehicle-offer';
 import Vehicle from './vehicle';
 
 /**
@@ -23,14 +24,18 @@ import Vehicle from './vehicle';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class ProductSet extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       auto_creation_url: 'auto_creation_url',
       filter: 'filter',
       id: 'id',
+      latest_metadata: 'latest_metadata',
+      live_metadata: 'live_metadata',
       name: 'name',
+      ordering_info: 'ordering_info',
       product_catalog: 'product_catalog',
       product_count: 'product_count',
+      retailer_id: 'retailer_id',
     });
   }
 
@@ -85,6 +90,16 @@ export default class ProductSet extends AbstractCrudObject {
     );
   }
 
+  getMediaTitles (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/media_titles'
+    );
+  }
+
   getProducts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       ProductItem,
@@ -92,6 +107,16 @@ export default class ProductSet extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/products'
+    );
+  }
+
+  getVehicleOffers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      VehicleOffer,
+      fields,
+      params,
+      fetchFirstPage,
+      '/vehicle_offers'
     );
   }
 

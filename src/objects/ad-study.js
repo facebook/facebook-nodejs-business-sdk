@@ -10,9 +10,8 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import AdStudyCell from './ad-study-cell';
-import AdsTALHealthCheckError from './ads-tal-health-check-error';
+import PrivateLiftStudyInstance from './private-lift-study-instance';
 import AdStudyObjective from './ad-study-objective';
-import User from './user';
 
 /**
  * AdStudy
@@ -20,7 +19,7 @@ import User from './user';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdStudy extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       business: 'business',
       canceled_time: 'canceled_time',
@@ -43,6 +42,7 @@ export default class AdStudy extends AbstractCrudObject {
   static get Type (): Object {
     return Object.freeze({
       continuous_lift_config: 'CONTINUOUS_LIFT_CONFIG',
+      geo_lift: 'GEO_LIFT',
       lift: 'LIFT',
       split_test: 'SPLIT_TEST',
     });
@@ -58,13 +58,23 @@ export default class AdStudy extends AbstractCrudObject {
     );
   }
 
-  getHealthCheckErrors (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+  getInstances (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      AdsTALHealthCheckError,
+      PrivateLiftStudyInstance,
       fields,
       params,
       fetchFirstPage,
-      '/health_check_errors'
+      '/instances'
+    );
+  }
+
+  createInstance (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<PrivateLiftStudyInstance> {
+    return this.createEdge(
+      '/instances',
+      fields,
+      params,
+      PrivateLiftStudyInstance,
+      pathOverride,
     );
   }
 
@@ -75,25 +85,6 @@ export default class AdStudy extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/objectives'
-    );
-  }
-
-  createObjective (fields: Array<string>, params: Object = {}): Promise<AdStudyObjective> {
-    return this.createEdge(
-      '/objectives',
-      fields,
-      params,
-      AdStudyObjective
-    );
-  }
-
-  getViewers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      User,
-      fields,
-      params,
-      fetchFirstPage,
-      '/viewers'
     );
   }
 

@@ -15,7 +15,7 @@ import AbstractObject from './../abstract-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class LiveEncoder extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       brand: 'brand',
       creation_time: 'creation_time',
@@ -59,12 +59,13 @@ export default class LiveEncoder extends AbstractCrudObject {
     });
   }
 
-  createTelemetry (fields: Array<string>, params: Object = {}): Promise<LiveEncoder> {
+  createTelemetry (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<LiveEncoder> {
     return this.createEdge(
       '/telemetry',
       fields,
       params,
-      LiveEncoder
+      LiveEncoder,
+      pathOverride,
     );
   }
 

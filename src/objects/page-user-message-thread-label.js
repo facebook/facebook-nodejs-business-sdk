@@ -15,10 +15,10 @@ import AbstractObject from './../abstract-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class PageUserMessageThreadLabel extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       id: 'id',
-      name: 'name',
+      page_label_name: 'page_label_name',
     });
   }
 
@@ -30,12 +30,13 @@ export default class PageUserMessageThreadLabel extends AbstractCrudObject {
     );
   }
 
-  createLabel (fields: Array<string>, params: Object = {}): Promise<PageUserMessageThreadLabel> {
+  createLabel (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<PageUserMessageThreadLabel> {
     return this.createEdge(
       '/label',
       fields,
       params,
-      PageUserMessageThreadLabel
+      PageUserMessageThreadLabel,
+      pathOverride,
     );
   }
 

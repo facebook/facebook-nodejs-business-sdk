@@ -9,6 +9,7 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
+import CatalogItemChannelsToIntegrityStatus from './catalog-item-channels-to-integrity-status';
 import HotelRoom from './hotel-room';
 
 /**
@@ -17,16 +18,19 @@ import HotelRoom from './hotel-room';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class Hotel extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       address: 'address',
       applinks: 'applinks',
       brand: 'brand',
+      category: 'category',
+      category_specific_fields: 'category_specific_fields',
       currency: 'currency',
       description: 'description',
       guest_ratings: 'guest_ratings',
       hotel_id: 'hotel_id',
       id: 'id',
+      image_fetch_status: 'image_fetch_status',
       images: 'images',
       lowest_base_price: 'lowest_base_price',
       loyalty_program: 'loyalty_program',
@@ -36,10 +40,41 @@ export default class Hotel extends AbstractCrudObject {
       sale_price: 'sale_price',
       sanitized_images: 'sanitized_images',
       star_rating: 'star_rating',
+      unit_price: 'unit_price',
       url: 'url',
     });
   }
 
+  static get ImageFetchStatus (): Object {
+    return Object.freeze({
+      direct_upload: 'DIRECT_UPLOAD',
+      fetched: 'FETCHED',
+      fetch_failed: 'FETCH_FAILED',
+      no_status: 'NO_STATUS',
+      outdated: 'OUTDATED',
+      partial_fetch: 'PARTIAL_FETCH',
+    });
+  }
+
+  getAugmentedRealitiesMetadata (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/augmented_realities_metadata'
+    );
+  }
+
+  getChannelsToIntegrityStatus (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      CatalogItemChannelsToIntegrityStatus,
+      fields,
+      params,
+      fetchFirstPage,
+      '/channels_to_integrity_status'
+    );
+  }
 
   getHotelRooms (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
@@ -48,6 +83,16 @@ export default class Hotel extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/hotel_rooms'
+    );
+  }
+
+  getVideosMetadata (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/videos_metadata'
     );
   }
 

@@ -17,7 +17,7 @@ import AdNetworkAnalyticsAsyncQueryResult from './ad-network-analytics-async-que
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdMonetizationProperty extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       id: 'id',
     });
@@ -34,12 +34,13 @@ export default class AdMonetizationProperty extends AbstractCrudObject {
     );
   }
 
-  createAdNetworkAnalytic (fields: Array<string>, params: Object = {}): Promise<AdMonetizationProperty> {
+  createAdNetworkAnalytic (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdMonetizationProperty> {
     return this.createEdge(
       '/adnetworkanalytics',
       fields,
       params,
-      AdMonetizationProperty
+      AdMonetizationProperty,
+      pathOverride,
     );
   }
 

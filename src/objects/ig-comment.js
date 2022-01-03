@@ -16,12 +16,14 @@ import Cursor from './../cursor';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class IGComment extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
+      from: 'from',
       hidden: 'hidden',
       id: 'id',
       like_count: 'like_count',
       media: 'media',
+      parent_id: 'parent_id',
       text: 'text',
       timestamp: 'timestamp',
       user: 'user',
@@ -40,12 +42,13 @@ export default class IGComment extends AbstractCrudObject {
     );
   }
 
-  createReply (fields: Array<string>, params: Object = {}): Promise<IGComment> {
+  createReply (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<IGComment> {
     return this.createEdge(
       '/replies',
       fields,
       params,
-      IGComment
+      IGComment,
+      pathOverride,
     );
   }
 

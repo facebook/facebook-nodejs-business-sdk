@@ -15,7 +15,7 @@ import AbstractObject from './../abstract-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class ExtendedCreditAllocationConfig extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       currency_amount: 'currency_amount',
       id: 'id',
@@ -63,6 +63,14 @@ export default class ExtendedCreditAllocationConfig extends AbstractCrudObject {
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
+      params
+    );
+  }
+
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): ExtendedCreditAllocationConfig {
+    // $FlowFixMe : Support Generic Types
+    return super.update(
       params
     );
   }

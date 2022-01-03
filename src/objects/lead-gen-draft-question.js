@@ -14,7 +14,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class LeadGenDraftQuestion extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       conditional_questions_choices: 'conditional_questions_choices',
       conditional_questions_group_id: 'conditional_questions_group_id',

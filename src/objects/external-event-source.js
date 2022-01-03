@@ -14,7 +14,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class ExternalEventSource extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       id: 'id',
       name: 'name',
@@ -22,13 +22,4 @@ export default class ExternalEventSource extends AbstractCrudObject {
     });
   }
 
-
-  
-  get (fields: Array<string>, params: Object = {}): ExternalEventSource {
-    // $FlowFixMe : Support Generic Types
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

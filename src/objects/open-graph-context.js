@@ -7,8 +7,6 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import Cursor from './../cursor';
-import User from './user';
 
 /**
  * OpenGraphContext
@@ -16,42 +14,12 @@ import User from './user';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class OpenGraphContext extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       id: 'id',
     });
   }
 
-
-  getFriendsTaggedAt (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      User,
-      fields,
-      params,
-      fetchFirstPage,
-      '/friends_tagged_at'
-    );
-  }
-
-  getMusicListenFriends (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      User,
-      fields,
-      params,
-      fetchFirstPage,
-      '/music_listen_friends'
-    );
-  }
-
-  getVideoWatchFriends (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      User,
-      fields,
-      params,
-      fetchFirstPage,
-      '/video_watch_friends'
-    );
-  }
 
   
   get (fields: Array<string>, params: Object = {}): OpenGraphContext {

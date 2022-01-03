@@ -13,7 +13,6 @@ import AdCreative from './ad-creative';
 import AdRule from './ad-rule';
 import AdsInsights from './ads-insights';
 import AdReportRun from './ad-report-run';
-import AdKeywordStats from './ad-keyword-stats';
 import Lead from './lead';
 import AdPreview from './ad-preview';
 import TargetingSentenceLine from './targeting-sentence-line';
@@ -24,7 +23,7 @@ import TargetingSentenceLine from './targeting-sentence-line';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class Ad extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       account_id: 'account_id',
       ad_review_feedback: 'ad_review_feedback',
@@ -37,6 +36,7 @@ export default class Ad extends AbstractCrudObject {
       campaign: 'campaign',
       campaign_id: 'campaign_id',
       configured_status: 'configured_status',
+      conversion_domain: 'conversion_domain',
       conversion_specs: 'conversion_specs',
       created_time: 'created_time',
       creative: 'creative',
@@ -46,7 +46,6 @@ export default class Ad extends AbstractCrudObject {
       engagement_audience: 'engagement_audience',
       failed_delivery_checks: 'failed_delivery_checks',
       id: 'id',
-      is_autobid: 'is_autobid',
       issues_info: 'issues_info',
       last_updated_by_app_id: 'last_updated_by_app_id',
       name: 'name',
@@ -117,7 +116,7 @@ export default class Ad extends AbstractCrudObject {
       last_week_mon_sun: 'last_week_mon_sun',
       last_week_sun_sat: 'last_week_sun_sat',
       last_year: 'last_year',
-      lifetime: 'lifetime',
+      maximum: 'maximum',
       this_month: 'this_month',
       this_quarter: 'this_quarter',
       this_week_mon_today: 'this_week_mon_today',
@@ -158,19 +157,13 @@ export default class Ad extends AbstractCrudObject {
     );
   }
 
-  deleteAdLabels (params: Object = {}): Promise<*> {
-    return super.deleteEdge(
-      '/adlabels',
-      params
-    );
-  }
-
-  createAdLabel (fields: Array<string>, params: Object = {}): Promise<Ad> {
+  createAdLabel (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Ad> {
     return this.createEdge(
       '/adlabels',
       fields,
       params,
-      Ad
+      Ad,
+      pathOverride,
     );
   }
 
@@ -194,12 +187,13 @@ export default class Ad extends AbstractCrudObject {
     );
   }
 
-  createCopy (fields: Array<string>, params: Object = {}): Promise<Ad> {
+  createCopy (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Ad> {
     return this.createEdge(
       '/copies',
       fields,
       params,
-      Ad
+      Ad,
+      pathOverride,
     );
   }
 
@@ -213,22 +207,13 @@ export default class Ad extends AbstractCrudObject {
     );
   }
 
-  getInsightsAsync (fields: Array<string>, params: Object = {}): Promise<AdReportRun> {
+  getInsightsAsync (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdReportRun> {
     return this.createEdge(
       '/insights',
       fields,
       params,
-      AdReportRun
-    );
-  }
-
-  getKeywordStats (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AdKeywordStats,
-      fields,
-      params,
-      fetchFirstPage,
-      '/keywordstats'
+      AdReportRun,
+      pathOverride,
     );
   }
 
@@ -259,15 +244,6 @@ export default class Ad extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/targetingsentencelines'
-    );
-  }
-
-  createTrackingTag (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
-    return this.createEdge(
-      '/trackingtag',
-      fields,
-      params,
-      
     );
   }
 

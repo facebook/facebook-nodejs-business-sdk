@@ -14,8 +14,8 @@ import Comment from './comment';
 import Page from './page';
 import LiveVideoError from './live-video-error';
 import LiveVideoInputStream from './live-video-input-stream';
-import Profile from './profile';
 import VideoPoll from './video-poll';
+import Profile from './profile';
 
 /**
  * LiveVideo
@@ -23,7 +23,7 @@ import VideoPoll from './video-poll';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class LiveVideo extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       ad_break_config: 'ad_break_config',
       ad_break_failure_reason: 'ad_break_failure_reason',
@@ -41,8 +41,10 @@ export default class LiveVideo extends AbstractCrudObject {
       is_reference_only: 'is_reference_only',
       live_encoders: 'live_encoders',
       live_views: 'live_views',
+      overlay_url: 'overlay_url',
       permalink_url: 'permalink_url',
       planned_start_time: 'planned_start_time',
+      recommended_encoder_settings: 'recommended_encoder_settings',
       seconds_left: 'seconds_left',
       secure_stream_url: 'secure_stream_url',
       status: 'status',
@@ -54,11 +56,30 @@ export default class LiveVideo extends AbstractCrudObject {
     });
   }
 
+  static get BroadcastStatus (): Object {
+    return Object.freeze({
+      live: 'LIVE',
+      live_stopped: 'LIVE_STOPPED',
+      processing: 'PROCESSING',
+      scheduled_canceled: 'SCHEDULED_CANCELED',
+      scheduled_expired: 'SCHEDULED_EXPIRED',
+      scheduled_live: 'SCHEDULED_LIVE',
+      scheduled_unpublished: 'SCHEDULED_UNPUBLISHED',
+      unpublished: 'UNPUBLISHED',
+      vod: 'VOD',
+    });
+  }
   static get Projection (): Object {
     return Object.freeze({
       cubemap: 'CUBEMAP',
       equirectangular: 'EQUIRECTANGULAR',
       half_equirectangular: 'HALF_EQUIRECTANGULAR',
+    });
+  }
+  static get Source (): Object {
+    return Object.freeze({
+      owner: 'owner',
+      target: 'target',
     });
   }
   static get SpatialAudioFormat (): Object {
@@ -88,33 +109,25 @@ export default class LiveVideo extends AbstractCrudObject {
       regular: 'REGULAR',
     });
   }
-  static get BroadcastStatus (): Object {
-    return Object.freeze({
-      live: 'LIVE',
-      live_stopped: 'LIVE_STOPPED',
-      processing: 'PROCESSING',
-      scheduled_canceled: 'SCHEDULED_CANCELED',
-      scheduled_expired: 'SCHEDULED_EXPIRED',
-      scheduled_live: 'SCHEDULED_LIVE',
-      scheduled_unpublished: 'SCHEDULED_UNPUBLISHED',
-      unpublished: 'UNPUBLISHED',
-      vod: 'VOD',
-    });
-  }
-  static get Source (): Object {
-    return Object.freeze({
-      owner: 'owner',
-      target: 'target',
-    });
-  }
   static get LiveCommentModerationSetting (): Object {
     return Object.freeze({
+      default: 'DEFAULT',
       discussion: 'DISCUSSION',
+      followed: 'FOLLOWED',
       follower: 'FOLLOWER',
+      no_hyperlink: 'NO_HYPERLINK',
       protected_mode: 'PROTECTED_MODE',
       restricted: 'RESTRICTED',
       slow: 'SLOW',
       supporter: 'SUPPORTER',
+      tagged: 'TAGGED',
+    });
+  }
+  static get PersistentStreamKeyStatus (): Object {
+    return Object.freeze({
+      disable: 'DISABLE',
+      enable: 'ENABLE',
+      regenerate: 'REGENERATE',
     });
   }
 
@@ -168,22 +181,13 @@ export default class LiveVideo extends AbstractCrudObject {
     );
   }
 
-  createInputStream (fields: Array<string>, params: Object = {}): Promise<LiveVideoInputStream> {
+  createInputStream (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<LiveVideoInputStream> {
     return this.createEdge(
       '/input_streams',
       fields,
       params,
-      LiveVideoInputStream
-    );
-  }
-
-  getLikes (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      Profile,
-      fields,
-      params,
-      fetchFirstPage,
-      '/likes'
+      LiveVideoInputStream,
+      pathOverride,
     );
   }
 
@@ -197,12 +201,13 @@ export default class LiveVideo extends AbstractCrudObject {
     );
   }
 
-  createPoll (fields: Array<string>, params: Object = {}): Promise<VideoPoll> {
+  createPoll (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<VideoPoll> {
     return this.createEdge(
       '/polls',
       fields,
       params,
-      VideoPoll
+      VideoPoll,
+      pathOverride,
     );
   }
 
