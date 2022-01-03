@@ -7,6 +7,9 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
+import CatalogItemChannelsToIntegrityStatus from './catalog-item-channels-to-integrity-status';
 
 /**
  * Vehicle
@@ -14,12 +17,13 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class Vehicle extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       address: 'address',
       applinks: 'applinks',
       availability: 'availability',
       body_style: 'body_style',
+      category_specific_fields: 'category_specific_fields',
       condition: 'condition',
       currency: 'currency',
       custom_label_0: 'custom_label_0',
@@ -37,6 +41,7 @@ export default class Vehicle extends AbstractCrudObject {
       features: 'features',
       fuel_type: 'fuel_type',
       id: 'id',
+      image_fetch_status: 'image_fetch_status',
       images: 'images',
       interior_color: 'interior_color',
       legal_disclosure_impressum_url: 'legal_disclosure_impressum_url',
@@ -53,6 +58,7 @@ export default class Vehicle extends AbstractCrudObject {
       title: 'title',
       transmission: 'transmission',
       trim: 'trim',
+      unit_price: 'unit_price',
       url: 'url',
       vehicle_id: 'vehicle_id',
       vehicle_registration_plate: 'vehicle_registration_plate',
@@ -63,10 +69,21 @@ export default class Vehicle extends AbstractCrudObject {
     });
   }
 
+  static get ImageFetchStatus (): Object {
+    return Object.freeze({
+      direct_upload: 'DIRECT_UPLOAD',
+      fetched: 'FETCHED',
+      fetch_failed: 'FETCH_FAILED',
+      no_status: 'NO_STATUS',
+      outdated: 'OUTDATED',
+      partial_fetch: 'PARTIAL_FETCH',
+    });
+  }
   static get Availability (): Object {
     return Object.freeze({
       available: 'AVAILABLE',
       not_available: 'NOT_AVAILABLE',
+      pending: 'PENDING',
     });
   }
   static get BodyStyle (): Object {
@@ -147,6 +164,36 @@ export default class Vehicle extends AbstractCrudObject {
       rv_camper: 'RV_CAMPER',
       trailer: 'TRAILER',
     });
+  }
+
+  getAugmentedRealitiesMetadata (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/augmented_realities_metadata'
+    );
+  }
+
+  getChannelsToIntegrityStatus (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      CatalogItemChannelsToIntegrityStatus,
+      fields,
+      params,
+      fetchFirstPage,
+      '/channels_to_integrity_status'
+    );
+  }
+
+  getVideosMetadata (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/videos_metadata'
+    );
   }
 
   

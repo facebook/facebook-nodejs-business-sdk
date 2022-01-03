@@ -17,7 +17,7 @@ import CustomConversionStatsResult from './custom-conversion-stats-result';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class CustomConversion extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       account_id: 'account_id',
       aggregation_rule: 'aggregation_rule',
@@ -51,6 +51,7 @@ export default class CustomConversion extends AbstractCrudObject {
       content_view: 'CONTENT_VIEW',
       customize_product: 'CUSTOMIZE_PRODUCT',
       donate: 'DONATE',
+      facebook_selected: 'FACEBOOK_SELECTED',
       find_location: 'FIND_LOCATION',
       initiated_checkout: 'INITIATED_CHECKOUT',
       lead: 'LEAD',
@@ -63,13 +64,6 @@ export default class CustomConversion extends AbstractCrudObject {
       submit_application: 'SUBMIT_APPLICATION',
       subscribe: 'SUBSCRIBE',
     });
-  }
-
-  deleteAdAccounts (params: Object = {}): Promise<*> {
-    return super.deleteEdge(
-      '/adaccounts',
-      params
-    );
   }
 
   getStats (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {

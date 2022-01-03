@@ -14,11 +14,12 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class ProductFeedSchedule extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       day_of_month: 'day_of_month',
       day_of_week: 'day_of_week',
       hour: 'hour',
+      id: 'id',
       interval: 'interval',
       interval_count: 'interval_count',
       minute: 'minute',
@@ -46,5 +47,14 @@ export default class ProductFeedSchedule extends AbstractCrudObject {
       monthly: 'MONTHLY',
       weekly: 'WEEKLY',
     });
+  }
+
+  
+  get (fields: Array<string>, params: Object = {}): ProductFeedSchedule {
+    // $FlowFixMe : Support Generic Types
+    return this.read(
+      fields,
+      params
+    );
   }
 }

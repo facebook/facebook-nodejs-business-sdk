@@ -14,7 +14,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class PageChangeProposal extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       acceptance_status: 'acceptance_status',
       category: 'category',
@@ -25,21 +25,4 @@ export default class PageChangeProposal extends AbstractCrudObject {
     });
   }
 
-
-  
-  get (fields: Array<string>, params: Object = {}): PageChangeProposal {
-    // $FlowFixMe : Support Generic Types
-    return this.read(
-      fields,
-      params
-    );
-  }
-
-  // $FlowFixMe : Support Generic Types
-  update (fields: Array<string>, params: Object = {}): PageChangeProposal {
-    // $FlowFixMe : Support Generic Types
-    return super.update(
-      params
-    );
-  }
 }

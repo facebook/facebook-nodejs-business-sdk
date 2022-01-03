@@ -14,7 +14,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class CanvasAdSettings extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       is_canvas_collection_eligible: 'is_canvas_collection_eligible',
       lead_form_created_time: 'lead_form_created_time',

@@ -14,13 +14,12 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class CopyrightReferenceContainer extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       content_type: 'content_type',
       copyright_creation_time: 'copyright_creation_time',
       download_hd_url: 'download_hd_url',
       duration_in_sec: 'duration_in_sec',
-      fingerprint_validity: 'fingerprint_validity',
       id: 'id',
       iswc: 'iswc',
       metadata: 'metadata',

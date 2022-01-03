@@ -14,7 +14,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class MinimumBudget extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       currency: 'currency',
       min_daily_budget_high_freq: 'min_daily_budget_high_freq',

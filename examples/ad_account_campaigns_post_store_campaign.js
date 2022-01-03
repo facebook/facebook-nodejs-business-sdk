@@ -33,10 +33,11 @@ let fields, params;
 fields = [
 ];
 params = {
-  'name' : 'Store Visits Campaign',
+  'name' : 'Store Traffic Campaign',
   'objective' : 'STORE_VISITS',
   'promoted_object' : {'page_id':'<pageID>'},
   'status' : 'PAUSED',
+  'special_ad_categories' : [],
 };
 const campaigns = (new AdAccount(id)).createCampaign(
   fields,

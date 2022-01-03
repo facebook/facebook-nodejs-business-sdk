@@ -35,6 +35,7 @@ params = {
   'billing_event' : 'IMPRESSIONS',
   'optimization_goal' : 'LINK_CLICKS',
   'bid_amount' : '200',
+  'targeting' : {'geo_locations':{'countries':['US']},'facebook_positions':['feed']},
 };
 const sample_code = (new AdSet(id)).update(
   fields,

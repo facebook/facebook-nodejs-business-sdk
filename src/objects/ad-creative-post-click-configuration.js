@@ -14,7 +14,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdCreativePostClickConfiguration extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       post_click_item_description: 'post_click_item_description',
       post_click_item_headline: 'post_click_item_headline',

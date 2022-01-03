@@ -14,7 +14,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class MessengerDestinationPageWelcomeMessage extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       id: 'id',
       page_welcome_message_body: 'page_welcome_message_body',
@@ -25,13 +25,4 @@ export default class MessengerDestinationPageWelcomeMessage extends AbstractCrud
     });
   }
 
-
-  
-  get (fields: Array<string>, params: Object = {}): MessengerDestinationPageWelcomeMessage {
-    // $FlowFixMe : Support Generic Types
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

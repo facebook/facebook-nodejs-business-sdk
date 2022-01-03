@@ -14,7 +14,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class ProfilePictureSource extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       bottom: 'bottom',
       cache_key: 'cache_key',
@@ -33,6 +33,11 @@ export default class ProfilePictureSource extends AbstractCrudObject {
       album: 'album',
       small: 'small',
       thumbnail: 'thumbnail',
+    });
+  }
+  static get BreakingChange (): Object {
+    return Object.freeze({
+      profile_picture: 'PROFILE_PICTURE',
     });
   }
 }

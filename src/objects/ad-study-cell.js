@@ -19,7 +19,7 @@ import Campaign from './campaign';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdStudyCell extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       ad_entities_count: 'ad_entities_count',
       control_percentage: 'control_percentage',

@@ -16,7 +16,7 @@ import NativeOfferView from './native-offer-view';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class NativeOffer extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       barcode_photo: 'barcode_photo',
       barcode_photo_uri: 'barcode_photo_uri',
@@ -47,6 +47,17 @@ export default class NativeOffer extends AbstractCrudObject {
     });
   }
 
+  static get UniqueCodesFileCodeType (): Object {
+    return Object.freeze({
+      barcodes: 'barcodes',
+      discount_and_barcodes: 'discount_and_barcodes',
+      discount_and_discount: 'discount_and_discount',
+      discount_codes: 'discount_codes',
+      instore_barcodes: 'instore_barcodes',
+      instore_discount_codes: 'instore_discount_codes',
+      online_discount_codes: 'online_discount_codes',
+    });
+  }
   static get BarcodeType (): Object {
     return Object.freeze({
       code128: 'CODE128',
@@ -72,12 +83,23 @@ export default class NativeOffer extends AbstractCrudObject {
     });
   }
 
-  createNativeOfferView (fields: Array<string>, params: Object = {}): Promise<NativeOffer> {
+  createCode (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<NativeOffer> {
+    return this.createEdge(
+      '/codes',
+      fields,
+      params,
+      NativeOffer,
+      pathOverride,
+    );
+  }
+
+  createNativeOfferView (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<NativeOffer> {
     return this.createEdge(
       '/nativeofferviews',
       fields,
       params,
-      NativeOffer
+      NativeOffer,
+      pathOverride,
     );
   }
 

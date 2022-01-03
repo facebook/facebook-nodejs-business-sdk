@@ -7,9 +7,6 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import AbstractObject from './../abstract-object';
-import Cursor from './../cursor';
-import AdSet from './ad-set';
 
 /**
  * SavedAudience
@@ -17,13 +14,20 @@ import AdSet from './ad-set';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class SavedAudience extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       account: 'account',
       approximate_count: 'approximate_count',
+      approximate_count_64bit: 'approximate_count_64bit',
+      approximate_count_lower_bound: 'approximate_count_lower_bound',
+      approximate_count_upper_bound: 'approximate_count_upper_bound',
+      delete_time: 'delete_time',
       description: 'description',
+      extra_info: 'extra_info',
       id: 'id',
       name: 'name',
+      operation_status: 'operation_status',
+      page_deletion_marked_delete_time: 'page_deletion_marked_delete_time',
       permission_for_actions: 'permission_for_actions',
       run_status: 'run_status',
       sentence_lines: 'sentence_lines',
@@ -33,24 +37,6 @@ export default class SavedAudience extends AbstractCrudObject {
     });
   }
 
-
-  getAdSets (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AdSet,
-      fields,
-      params,
-      fetchFirstPage,
-      '/adsets'
-    );
-  }
-
-  // $FlowFixMe : Support Generic Types
-  delete (fields: Array<string>, params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
-    return super.delete(
-      params
-    );
-  }
 
   
   get (fields: Array<string>, params: Object = {}): SavedAudience {

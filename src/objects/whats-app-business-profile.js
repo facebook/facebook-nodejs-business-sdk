@@ -14,11 +14,11 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class WhatsAppBusinessProfile extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       id: 'id',
       name_verification: 'name_verification',
-      verified_name: 'verified_name',
+      whatsapp_business_api_data: 'whatsapp_business_api_data',
     });
   }
 
@@ -28,6 +28,14 @@ export default class WhatsAppBusinessProfile extends AbstractCrudObject {
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
+      params
+    );
+  }
+
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): WhatsAppBusinessProfile {
+    // $FlowFixMe : Support Generic Types
+    return super.update(
       params
     );
   }

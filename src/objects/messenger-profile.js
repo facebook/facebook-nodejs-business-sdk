@@ -14,14 +14,15 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class MessengerProfile extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       account_linking_url: 'account_linking_url',
       get_started: 'get_started',
       greeting: 'greeting',
-      home_url: 'home_url',
+      ice_breakers: 'ice_breakers',
       payment_settings: 'payment_settings',
       persistent_menu: 'persistent_menu',
+      subject_to_new_eu_privacy_rules: 'subject_to_new_eu_privacy_rules',
       target_audience: 'target_audience',
       whitelisted_domains: 'whitelisted_domains',
     });

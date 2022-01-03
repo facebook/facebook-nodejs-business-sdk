@@ -36,6 +36,7 @@ params = {
   'name' : 'Lead generation campaign',
   'objective' : 'LEAD_GENERATION',
   'status' : 'PAUSED',
+  'special_ad_categories' : [],
 };
 const campaigns = (new AdAccount(id)).createCampaign(
   fields,

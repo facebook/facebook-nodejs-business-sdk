@@ -16,7 +16,7 @@ import ProductFeedUploadError from './product-feed-upload-error';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class ProductFeedUpload extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       end_time: 'end_time',
       error_count: 'error_count',
@@ -36,6 +36,7 @@ export default class ProductFeedUpload extends AbstractCrudObject {
 
   static get InputMethod (): Object {
     return Object.freeze({
+      google_sheets_fetch: 'Google Sheets Fetch',
       manual_upload: 'Manual Upload',
       reupload_last_file: 'Reupload Last File',
       server_fetch: 'Server Fetch',
@@ -43,12 +44,13 @@ export default class ProductFeedUpload extends AbstractCrudObject {
     });
   }
 
-  createErrorReport (fields: Array<string>, params: Object = {}): Promise<ProductFeedUpload> {
+  createErrorReport (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<ProductFeedUpload> {
     return this.createEdge(
       '/error_report',
       fields,
       params,
-      ProductFeedUpload
+      ProductFeedUpload,
+      pathOverride,
     );
   }
 

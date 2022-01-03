@@ -9,10 +9,8 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
+import NullNode from './null-node';
 import Profile from './profile';
-import LiveVideo from './live-video';
-import Photo from './photo';
-import ProfilePictureSource from './profile-picture-source';
 
 /**
  * Event
@@ -20,12 +18,13 @@ import ProfilePictureSource from './profile-picture-source';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class Event extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       attending_count: 'attending_count',
       can_guests_invite: 'can_guests_invite',
       category: 'category',
       cover: 'cover',
+      created_time: 'created_time',
       declined_count: 'declined_count',
       description: 'description',
       discount_code_enabled: 'discount_code_enabled',
@@ -36,15 +35,19 @@ export default class Event extends AbstractCrudObject {
       interested_count: 'interested_count',
       is_canceled: 'is_canceled',
       is_draft: 'is_draft',
+      is_online: 'is_online',
       is_page_owned: 'is_page_owned',
       maybe_count: 'maybe_count',
       name: 'name',
       noreply_count: 'noreply_count',
+      online_event_format: 'online_event_format',
+      online_event_third_party_url: 'online_event_third_party_url',
       owner: 'owner',
       parent_group: 'parent_group',
       place: 'place',
       scheduled_publish_time: 'scheduled_publish_time',
       start_time: 'start_time',
+      ticket_setting: 'ticket_setting',
       ticket_uri: 'ticket_uri',
       ticket_uri_start_sales_time: 'ticket_uri_start_sales_time',
       ticketing_privacy_uri: 'ticketing_privacy_uri',
@@ -84,12 +87,23 @@ export default class Event extends AbstractCrudObject {
       workshop: 'WORKSHOP',
     });
   }
+  static get OnlineEventFormat (): Object {
+    return Object.freeze({
+      fb_live: 'fb_live',
+      messenger_room: 'messenger_room',
+      none: 'none',
+      other: 'other',
+      third_party: 'third_party',
+    });
+  }
   static get Type (): Object {
     return Object.freeze({
       community: 'community',
+      friends: 'friends',
       group: 'group',
       private: 'private',
       public: 'public',
+      work_company: 'work_company',
     });
   }
   static get EventStateFilter (): Object {
@@ -106,58 +120,74 @@ export default class Event extends AbstractCrudObject {
       upcoming: 'upcoming',
     });
   }
-  static get PromotableEventTypes (): Object {
-    return Object.freeze({
-      offsite_ticket: 'OFFSITE_TICKET',
-      onsite_ticket: 'ONSITE_TICKET',
-      rsvp: 'RSVP',
-    });
-  }
 
-  getAdmins (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+  getComments (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      Profile,
+      NullNode,
       fields,
       params,
       fetchFirstPage,
-      '/admins'
+      '/comments'
     );
   }
 
-  createFeed (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
-    return this.createEdge(
-      '/feed',
+  getFeed (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      NullNode,
       fields,
       params,
-      
+      fetchFirstPage,
+      '/feed'
     );
   }
 
-  createLiveVideo (fields: Array<string>, params: Object = {}): Promise<LiveVideo> {
-    return this.createEdge(
-      '/live_videos',
+  getLiveVideos (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      NullNode,
       fields,
       params,
-      LiveVideo
+      fetchFirstPage,
+      '/live_videos'
     );
   }
 
-  createPhoto (fields: Array<string>, params: Object = {}): Promise<Photo> {
+  createLiveVideo (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
     return this.createEdge(
-      '/photos',
+      '/livevideos',
       fields,
       params,
-      Photo
+      null,
+      pathOverride,
+    );
+  }
+
+  getPhotos (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      NullNode,
+      fields,
+      params,
+      fetchFirstPage,
+      '/photos'
     );
   }
 
   getPicture (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      ProfilePictureSource,
+      NullNode,
       fields,
       params,
       fetchFirstPage,
       '/picture'
+    );
+  }
+
+  getPosts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      NullNode,
+      fields,
+      params,
+      fetchFirstPage,
+      '/posts'
     );
   }
 
@@ -168,6 +198,26 @@ export default class Event extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/roles'
+    );
+  }
+
+  getTicketTiers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/ticket_tiers'
+    );
+  }
+
+  getVideos (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      NullNode,
+      fields,
+      params,
+      fetchFirstPage,
+      '/videos'
     );
   }
 

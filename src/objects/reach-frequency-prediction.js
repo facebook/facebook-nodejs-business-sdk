@@ -14,12 +14,14 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class ReachFrequencyPrediction extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       account_id: 'account_id',
       activity_status: 'activity_status',
       ad_formats: 'ad_formats',
       auction_entry_option_index: 'auction_entry_option_index',
+      audience_size_lower_bound: 'audience_size_lower_bound',
+      audience_size_upper_bound: 'audience_size_upper_bound',
       business_id: 'business_id',
       buying_type: 'buying_type',
       campaign_group_id: 'campaign_group_id',
@@ -33,7 +35,6 @@ export default class ReachFrequencyPrediction extends AbstractCrudObject {
       daily_impression_curve: 'daily_impression_curve',
       daily_impression_curve_map: 'daily_impression_curve_map',
       day_parting_schedule: 'day_parting_schedule',
-      demo_breakdown: 'demo_breakdown',
       destination_id: 'destination_id',
       end_time: 'end_time',
       expiration_time: 'expiration_time',
@@ -46,10 +47,8 @@ export default class ReachFrequencyPrediction extends AbstractCrudObject {
       external_minimum_impression: 'external_minimum_impression',
       external_minimum_reach: 'external_minimum_reach',
       external_reach: 'external_reach',
-      external_values_breakdown: 'external_values_breakdown',
       feed_ratio_0000: 'feed_ratio_0000',
       frequency_cap: 'frequency_cap',
-      frequency_distribution: 'frequency_distribution',
       frequency_distribution_map: 'frequency_distribution_map',
       frequency_distribution_map_agg: 'frequency_distribution_map_agg',
       grp_audience_size: 'grp_audience_size',
@@ -98,7 +97,6 @@ export default class ReachFrequencyPrediction extends AbstractCrudObject {
       timezone_id: 'timezone_id',
       timezone_name: 'timezone_name',
       topline_id: 'topline_id',
-      tv_viewer_cluster_map: 'tv_viewer_cluster_map',
       video_view_length_constraint: 'video_view_length_constraint',
       viewtag: 'viewtag',
     });

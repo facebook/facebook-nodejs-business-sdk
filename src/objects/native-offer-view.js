@@ -7,8 +7,6 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import Cursor from './../cursor';
-import Photo from './photo';
 
 /**
  * NativeOfferView
@@ -16,7 +14,7 @@ import Photo from './photo';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class NativeOfferView extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       id: 'id',
       offer: 'offer',
@@ -25,31 +23,23 @@ export default class NativeOfferView extends AbstractCrudObject {
   }
 
 
-  getPhotos (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      Photo,
-      fields,
-      params,
-      fetchFirstPage,
-      '/photos'
-    );
-  }
-
-  createPhoto (fields: Array<string>, params: Object = {}): Promise<NativeOfferView> {
+  createPhoto (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<NativeOfferView> {
     return this.createEdge(
       '/photos',
       fields,
       params,
-      NativeOfferView
+      NativeOfferView,
+      pathOverride,
     );
   }
 
-  createVideo (fields: Array<string>, params: Object = {}): Promise<NativeOfferView> {
+  createVideo (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<NativeOfferView> {
     return this.createEdge(
       '/videos',
       fields,
       params,
-      NativeOfferView
+      NativeOfferView,
+      pathOverride,
     );
   }
 

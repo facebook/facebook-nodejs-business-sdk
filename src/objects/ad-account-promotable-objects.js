@@ -14,7 +14,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdAccountPromotableObjects extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       promotable_app_ids: 'promotable_app_ids',
       promotable_page_ids: 'promotable_page_ids',

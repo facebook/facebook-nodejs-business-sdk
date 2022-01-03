@@ -7,9 +7,9 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import AdsInsights from './ads-insights';
+import FacebookAdsApi from './../api';
 
 /**
  * AdReportRun
@@ -17,7 +17,7 @@ import AdsInsights from './ads-insights';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdReportRun extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       account_id: 'account_id',
       async_percent_completion: 'async_percent_completion',
@@ -46,14 +46,6 @@ export default class AdReportRun extends AbstractCrudObject {
     );
   }
 
-  // $FlowFixMe : Support Generic Types
-  delete (fields: Array<string>, params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
-    return super.delete(
-      params
-    );
-  }
-
   
   get (fields: Array<string>, params: Object = {}): AdReportRun {
     // $FlowFixMe : Support Generic Types
@@ -63,11 +55,13 @@ export default class AdReportRun extends AbstractCrudObject {
     );
   }
 
-  // $FlowFixMe : Support Generic Types
-  update (fields: Array<string>, params: Object = {}): AdReportRun {
-    // $FlowFixMe : Support Generic Types
-    return super.update(
-      params
-    );
+  constructor(
+    id: number | ?string = null,
+    data: Object = {},
+    parentId: ?string,
+    api: ?FacebookAdsApi,
+  ) {
+    super();
+    this.id = data.report_run_id;
   }
 }

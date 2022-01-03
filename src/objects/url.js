@@ -14,18 +14,24 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class URL extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
-      app_links: 'app_links',
       development_instant_article: 'development_instant_article',
       engagement: 'engagement',
       id: 'id',
       instant_article: 'instant_article',
       og_object: 'og_object',
       ownership_permissions: 'ownership_permissions',
+      scopes: 'scopes',
     });
   }
 
+  static get Scopes (): Object {
+    return Object.freeze({
+      news_tab: 'NEWS_TAB',
+      news_tab_dev_env: 'NEWS_TAB_DEV_ENV',
+    });
+  }
 
   
   get (fields: Array<string>, params: Object = {}): URL {

@@ -1,8 +1,9 @@
 [ignore]
-.*node_modules.*
 .*dist.*
 .*docs/.*
 .*examples/.*
+.*src/objects/serverside
+.*src/objects/signal
 [include]
 
 [libs]

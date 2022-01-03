@@ -14,7 +14,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class BusinessAssetSharingAgreement extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       id: 'id',
       initiator: 'initiator',
@@ -31,6 +31,7 @@ export default class BusinessAssetSharingAgreement extends AbstractCrudObject {
       decline: 'DECLINE',
       expired: 'EXPIRED',
       in_progress: 'IN_PROGRESS',
+      pending: 'PENDING',
     });
   }
 

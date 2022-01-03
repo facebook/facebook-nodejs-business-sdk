@@ -9,9 +9,9 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 import Cursor from './../cursor';
 import AdAccount from './ad-account';
+import BusinessAssetGroup from './business-asset-group';
 import Page from './page';
 import ProductCatalog from './product-catalog';
-import User from './user';
 
 /**
  * SystemUser
@@ -19,7 +19,7 @@ import User from './user';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class SystemUser extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       created_by: 'created_by',
       created_time: 'created_time',
@@ -34,9 +34,19 @@ export default class SystemUser extends AbstractCrudObject {
     return Object.freeze({
       admin: 'ADMIN',
       ads_rights_reviewer: 'ADS_RIGHTS_REVIEWER',
+      default: 'DEFAULT',
+      developer: 'DEVELOPER',
       employee: 'EMPLOYEE',
       finance_analyst: 'FINANCE_ANALYST',
+      finance_edit: 'FINANCE_EDIT',
       finance_editor: 'FINANCE_EDITOR',
+      finance_view: 'FINANCE_VIEW',
+      manage: 'MANAGE',
+      partner_center_admin: 'PARTNER_CENTER_ADMIN',
+      partner_center_analyst: 'PARTNER_CENTER_ANALYST',
+      partner_center_education: 'PARTNER_CENTER_EDUCATION',
+      partner_center_marketing: 'PARTNER_CENTER_MARKETING',
+      partner_center_operations: 'PARTNER_CENTER_OPERATIONS',
     });
   }
 
@@ -47,6 +57,16 @@ export default class SystemUser extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/assigned_ad_accounts'
+    );
+  }
+
+  getAssignedBusinessAssetGroups (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      BusinessAssetGroup,
+      fields,
+      params,
+      fetchFirstPage,
+      '/assigned_business_asset_groups'
     );
   }
 
@@ -67,16 +87,6 @@ export default class SystemUser extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/assigned_product_catalogs'
-    );
-  }
-
-  getUpdatedBy (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      User,
-      fields,
-      params,
-      fetchFirstPage,
-      '/updated_by'
     );
   }
 

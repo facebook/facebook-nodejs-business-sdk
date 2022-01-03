@@ -35,14 +35,14 @@ fields = [
 params = {
   'name' : 'My Offer Claim AdSet',
   'lifetime_budget' : '56000',
-  'start_time' : '2019-04-29T08:47:26-0700',
-  'end_time' : '2019-05-06T08:47:26-0700',
+  'start_time' : '2021-07-29T11:39:27-0700',
+  'end_time' : '2021-08-05T11:39:27-0700',
   'campaign_id' : '<adCampaignLinkClicksID>',
   'billing_event' : 'LINK_CLICKS',
   'optimization_goal' : 'LINK_CLICKS',
   'bid_amount' : '1000',
   'promoted_object' : {'page_id':'<pageID>','offer_id':'<offerID>'},
-  'targeting' : {'geo_locations':{'countries':['US']},'genders':[1],'age_min':'25','age_max':'55'},
+  'targeting' : {'geo_locations':{'countries':['US']},'genders':[1],'age_min':'25','age_max':'55','facebook_positions':['feed']},
 };
 const adsets = (new AdAccount(id)).createAdSet(
   fields,

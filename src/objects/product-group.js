@@ -17,7 +17,7 @@ import ProductItem from './product-item';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class ProductGroup extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       id: 'id',
       product_catalog: 'product_catalog',
@@ -37,12 +37,13 @@ export default class ProductGroup extends AbstractCrudObject {
     );
   }
 
-  createProduct (fields: Array<string>, params: Object = {}): Promise<ProductItem> {
+  createProduct (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
     return this.createEdge(
       '/products',
       fields,
       params,
-      ProductItem
+      null,
+      pathOverride,
     );
   }
 
