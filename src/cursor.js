@@ -87,6 +87,9 @@ export default class Cursor extends Array<Object> {
           .then((response: Object) => {
             const objects = this._buildObjectsFromResponse(response);
             this.set(objects);
+            if (response.headers){
+              _this.headers = response.headers;
+            }
             this.paging = response.paging;
             this.summary = response.summary;
             resolve(this);
