@@ -97,7 +97,7 @@ export default class ServerSideUtils {
    * @return {String} Normalized ISO country code.
    */
   static normalizeCountry (country: string) {
-    if (!country_codes.whereAlpha2(country)) {) {
+    if (!country_codes.whereAlpha2(country)) {
       throw new Error("Invalid country code: '" + country + "'. Please follow ISO 3166-1 2-letter standard for representing country. eg: US");
     }
 
