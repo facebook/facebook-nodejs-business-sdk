@@ -39,6 +39,7 @@ export default class AdImage extends AbstractCrudObject {
     return Object.freeze({
       active: 'ACTIVE',
       deleted: 'DELETED',
+      internal: 'INTERNAL',
     });
   }
 

@@ -8,7 +8,6 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import Cursor from './../cursor';
-import Comment from './comment';
 import Profile from './profile';
 
 /**
@@ -30,16 +29,6 @@ export default class LifeEvent extends AbstractCrudObject {
     });
   }
 
-
-  getComments (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      Comment,
-      fields,
-      params,
-      fetchFirstPage,
-      '/comments'
-    );
-  }
 
   getLikes (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(

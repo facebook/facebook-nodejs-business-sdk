@@ -13,6 +13,7 @@ import AdAccount from './ad-account';
 import Business from './business';
 import CustomAudience from './custom-audience';
 import CustomConversion from './custom-conversion';
+import OfflineConversionDataSetUpload from './offline-conversion-data-set-upload';
 
 /**
  * OfflineConversionDataSet
@@ -144,7 +145,7 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
 
   getUploads (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      AbstractObject,
+      OfflineConversionDataSetUpload,
       fields,
       params,
       fetchFirstPage,
@@ -152,12 +153,12 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
     );
   }
 
-  createUpload (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+  createUpload (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<OfflineConversionDataSetUpload> {
     return this.createEdge(
       '/uploads',
       fields,
       params,
-      null,
+      OfflineConversionDataSetUpload,
       pathOverride,
     );
   }

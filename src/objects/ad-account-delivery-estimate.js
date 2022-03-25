@@ -18,7 +18,6 @@ export default class AdAccountDeliveryEstimate extends AbstractCrudObject {
     return Object.freeze({
       daily_outcomes_curve: 'daily_outcomes_curve',
       estimate_dau: 'estimate_dau',
-      estimate_mau: 'estimate_mau',
       estimate_mau_lower_bound: 'estimate_mau_lower_bound',
       estimate_mau_upper_bound: 'estimate_mau_upper_bound',
       estimate_ready: 'estimate_ready',
@@ -36,6 +35,7 @@ export default class AdAccountDeliveryEstimate extends AbstractCrudObject {
       engaged_users: 'ENGAGED_USERS',
       event_responses: 'EVENT_RESPONSES',
       impressions: 'IMPRESSIONS',
+      in_app_value: 'IN_APP_VALUE',
       landing_page_views: 'LANDING_PAGE_VIEWS',
       lead_generation: 'LEAD_GENERATION',
       link_clicks: 'LINK_CLICKS',

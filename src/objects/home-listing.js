@@ -21,7 +21,6 @@ export default class HomeListing extends AbstractCrudObject {
     return Object.freeze({
       ac_type: 'ac_type',
       additional_fees_description: 'additional_fees_description',
-      address: 'address',
       agent_company: 'agent_company',
       agent_email: 'agent_email',
       agent_fb_page_id: 'agent_fb_page_id',
@@ -32,11 +31,9 @@ export default class HomeListing extends AbstractCrudObject {
       area_unit: 'area_unit',
       availability: 'availability',
       category_specific_fields: 'category_specific_fields',
-      co_2_emission_rating_eu: 'co_2_emission_rating_eu',
       currency: 'currency',
       days_on_market: 'days_on_market',
       description: 'description',
-      energy_rating_eu: 'energy_rating_eu',
       furnish_type: 'furnish_type',
       group_id: 'group_id',
       heating_type: 'heating_type',
@@ -61,7 +58,6 @@ export default class HomeListing extends AbstractCrudObject {
       price: 'price',
       property_type: 'property_type',
       sanitized_images: 'sanitized_images',
-      unit_price: 'unit_price',
       url: 'url',
       year_built: 'year_built',
     });
