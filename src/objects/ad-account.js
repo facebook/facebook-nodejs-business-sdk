@@ -16,6 +16,7 @@ import CloudGame from './cloud-game';
 import AdCreative from './ad-creative';
 import AdImage from './ad-image';
 import AdLabel from './ad-label';
+import PlayableContent from './playable-content';
 import AdAccountAdRulesHistory from './ad-account-ad-rules-history';
 import AdRule from './ad-rule';
 import Ad from './ad';
@@ -174,7 +175,6 @@ export default class AdAccount extends AbstractCrudObject {
       pyg: 'PYG',
       qar: 'QAR',
       ron: 'RON',
-      rub: 'RUB',
       sar: 'SAR',
       sek: 'SEK',
       sgd: 'SGD',
@@ -286,16 +286,6 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getAdSavedKeywords (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/ad_saved_keywords'
-    );
-  }
-
   getAdStudies (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdStudy,
@@ -395,7 +385,7 @@ export default class AdAccount extends AbstractCrudObject {
 
   getAdPlayables (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      AbstractObject,
+      PlayableContent,
       fields,
       params,
       fetchFirstPage,
@@ -403,12 +393,12 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createAdPlayable (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+  createAdPlayable (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<PlayableContent> {
     return this.createEdge(
       '/adplayables',
       fields,
       params,
-      null,
+      PlayableContent,
       pathOverride,
     );
   }
@@ -493,12 +483,12 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createAdSet (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdSet> {
+  createAdSet (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
     return this.createEdge(
       '/adsets',
       fields,
       params,
-      AdSet,
+      null,
       pathOverride,
     );
   }
@@ -691,16 +681,6 @@ export default class AdAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/broadtargetingcategories'
-    );
-  }
-
-  getBusinessProjects (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/businessprojects'
     );
   }
 

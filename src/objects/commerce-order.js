@@ -98,6 +98,16 @@ export default class CommerceOrder extends AbstractCrudObject {
     );
   }
 
+  createFulfillOrder (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<CommerceOrder> {
+    return this.createEdge(
+      '/fulfill_order',
+      fields,
+      params,
+      CommerceOrder,
+      pathOverride,
+    );
+  }
+
   getItems (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AbstractObject,

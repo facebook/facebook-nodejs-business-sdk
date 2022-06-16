@@ -131,12 +131,12 @@ export default class PagePost extends AbstractCrudObject {
     );
   }
 
-  createComment (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Comment> {
+  createComment (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
     return this.createEdge(
       '/comments',
       fields,
       params,
-      Comment,
+      null,
       pathOverride,
     );
   }

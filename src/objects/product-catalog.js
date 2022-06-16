@@ -195,16 +195,6 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  getAutoMarkets (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/auto_markets'
-    );
-  }
-
   getAutomotiveModels (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AutomotiveModel,
@@ -275,6 +265,16 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
+  getCollaborativeAdsLsbImageBank (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/collaborative_ads_lsb_image_bank'
+    );
+  }
+
   getCollaborativeAdsShareSettings (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       CollaborativeAdsShareSettings,
@@ -282,6 +282,16 @@ export default class ProductCatalog extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/collaborative_ads_share_settings'
+    );
+  }
+
+  createCpasLsbImageBank (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+    return this.createEdge(
+      '/cpas_lsb_image_bank',
+      fields,
+      params,
+      null,
+      pathOverride,
     );
   }
 
@@ -432,13 +442,13 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  getMediaTitles (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
+  createMediaTitle (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+    return this.createEdge(
+      '/media_titles',
       fields,
       params,
-      fetchFirstPage,
-      '/media_titles'
+      null,
+      pathOverride,
     );
   }
 

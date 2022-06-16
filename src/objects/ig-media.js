@@ -34,7 +34,6 @@ export default class IGMedia extends AbstractCrudObject {
       thumbnail_url: 'thumbnail_url',
       timestamp: 'timestamp',
       username: 'username',
-      video_title: 'video_title',
     });
   }
 

@@ -105,6 +105,7 @@ export default class Ad extends AbstractCrudObject {
   }
   static get DatePreset (): Object {
     return Object.freeze({
+      data_maximum: 'data_maximum',
       last_14d: 'last_14d',
       last_28d: 'last_28d',
       last_30d: 'last_30d',

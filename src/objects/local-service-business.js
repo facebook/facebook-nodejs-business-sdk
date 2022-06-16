@@ -20,8 +20,12 @@ export default class LocalServiceBusiness extends AbstractCrudObject {
     return Object.freeze({
       address: 'address',
       applinks: 'applinks',
+      availability: 'availability',
       brand: 'brand',
+      category: 'category',
       category_specific_fields: 'category_specific_fields',
+      condition: 'condition',
+      cuisine_type: 'cuisine_type',
       currency: 'currency',
       custom_label_0: 'custom_label_0',
       custom_label_1: 'custom_label_1',
@@ -29,18 +33,47 @@ export default class LocalServiceBusiness extends AbstractCrudObject {
       custom_label_3: 'custom_label_3',
       custom_label_4: 'custom_label_4',
       description: 'description',
+      expiration_date: 'expiration_date',
+      gtin: 'gtin',
       id: 'id',
       image_fetch_status: 'image_fetch_status',
       images: 'images',
       local_service_business_id: 'local_service_business_id',
+      phone: 'phone',
       price: 'price',
+      price_range: 'price_range',
+      retailer_category: 'retailer_category',
       sanitized_images: 'sanitized_images',
+      size: 'size',
       title: 'title',
       unit_price: 'unit_price',
       url: 'url',
+      vendor_id: 'vendor_id',
     });
   }
 
+  static get Availability (): Object {
+    return Object.freeze({
+      available_for_order: 'AVAILABLE_FOR_ORDER',
+      discontinued: 'DISCONTINUED',
+      in_stock: 'IN_STOCK',
+      out_of_stock: 'OUT_OF_STOCK',
+      pending: 'PENDING',
+      preorder: 'PREORDER',
+    });
+  }
+  static get Condition (): Object {
+    return Object.freeze({
+      pc_cpo: 'PC_CPO',
+      pc_new: 'PC_NEW',
+      pc_open_box_new: 'PC_OPEN_BOX_NEW',
+      pc_refurbished: 'PC_REFURBISHED',
+      pc_used: 'PC_USED',
+      pc_used_fair: 'PC_USED_FAIR',
+      pc_used_good: 'PC_USED_GOOD',
+      pc_used_like_new: 'PC_USED_LIKE_NEW',
+    });
+  }
   static get ImageFetchStatus (): Object {
     return Object.freeze({
       direct_upload: 'DIRECT_UPLOAD',

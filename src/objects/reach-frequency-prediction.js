@@ -89,7 +89,6 @@ export default class ReachFrequencyPrediction extends AbstractCrudObject {
       start_time: 'start_time',
       status: 'status',
       story_event_type: 'story_event_type',
-      target_audience_size: 'target_audience_size',
       target_cpm: 'target_cpm',
       target_spec: 'target_spec',
       time_created: 'time_created',

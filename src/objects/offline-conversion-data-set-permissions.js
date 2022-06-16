@@ -9,21 +9,17 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * AudienceInsightsStudySpec
+ * OfflineConversionDataSetPermissions
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class AudienceInsightsStudySpec extends AbstractCrudObject {
+export default class OfflineConversionDataSetPermissions extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      audience_definition: 'audience_definition',
-      author_info: 'author_info',
-      creation_time: 'creation_time',
-      end_time: 'end_time',
-      excluded_rules: 'excluded_rules',
-      included_rules: 'included_rules',
-      start_time: 'start_time',
-      status: 'status',
+      can_edit: 'can_edit',
+      can_edit_or_upload: 'can_edit_or_upload',
+      can_upload: 'can_upload',
+      should_block_vanilla_business_employee_access: 'should_block_vanilla_business_employee_access',
     });
   }
 

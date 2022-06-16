@@ -22,6 +22,7 @@ export default class PrivateLiftStudyInstance extends AbstractCrudObject {
       latest_status_update_time: 'latest_status_update_time',
       server_ips: 'server_ips',
       status: 'status',
+      tier: 'tier',
     });
   }
 
@@ -30,6 +31,7 @@ export default class PrivateLiftStudyInstance extends AbstractCrudObject {
       aggregate: 'AGGREGATE',
       compute: 'COMPUTE',
       id_match: 'ID_MATCH',
+      next: 'NEXT',
       none: 'NONE',
     });
   }

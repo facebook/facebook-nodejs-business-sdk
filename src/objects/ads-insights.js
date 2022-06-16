@@ -159,6 +159,8 @@ export default class AdsInsights extends AbstractCrudObject {
       value_7d_view: '7d_view',
       dda: 'dda',
       default: 'default',
+      skan_click: 'skan_click',
+      skan_view: 'skan_view',
     });
   }
   static get ActionBreakdowns (): Object {
@@ -212,6 +214,7 @@ export default class AdsInsights extends AbstractCrudObject {
   }
   static get DatePreset (): Object {
     return Object.freeze({
+      data_maximum: 'data_maximum',
       last_14d: 'last_14d',
       last_28d: 'last_28d',
       last_30d: 'last_30d',

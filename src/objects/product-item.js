@@ -41,6 +41,11 @@ export default class ProductItem extends AbstractCrudObject {
       custom_label_2: 'custom_label_2',
       custom_label_3: 'custom_label_3',
       custom_label_4: 'custom_label_4',
+      custom_number_0: 'custom_number_0',
+      custom_number_1: 'custom_number_1',
+      custom_number_2: 'custom_number_2',
+      custom_number_3: 'custom_number_3',
+      custom_number_4: 'custom_number_4',
       description: 'description',
       expiration_date: 'expiration_date',
       fb_product_category: 'fb_product_category',
@@ -85,6 +90,7 @@ export default class ProductItem extends AbstractCrudObject {
       start_date: 'start_date',
       url: 'url',
       visibility: 'visibility',
+      wa_compliance_category: 'wa_compliance_category',
     });
   }
 
@@ -258,7 +264,9 @@ export default class ProductItem extends AbstractCrudObject {
       fb_elec_part: 'FB_ELEC_PART',
       fb_elec_print: 'FB_ELEC_PRINT',
       fb_elec_radar: 'FB_ELEC_RADAR',
+      fb_elec_sftwr: 'FB_ELEC_SFTWR',
       fb_elec_speed_rdr: 'FB_ELEC_SPEED_RDR',
+      fb_elec_television: 'FB_ELEC_TELEVISION',
       fb_elec_toll: 'FB_ELEC_TOLL',
       fb_elec_video: 'FB_ELEC_VIDEO',
       fb_elec_vid_gm_acc: 'FB_ELEC_VID_GM_ACC',
@@ -627,6 +635,12 @@ export default class ProductItem extends AbstractCrudObject {
       za: 'ZA',
       zm: 'ZM',
       zw: 'ZW',
+    });
+  }
+  static get WaComplianceCategory (): Object {
+    return Object.freeze({
+      country_origin_exempt: 'COUNTRY_ORIGIN_EXEMPT',
+      default: 'DEFAULT',
     });
   }
 

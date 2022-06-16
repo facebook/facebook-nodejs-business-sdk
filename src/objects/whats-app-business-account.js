@@ -53,6 +53,7 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
       appointment_update: 'APPOINTMENT_UPDATE',
       auto_reply: 'AUTO_REPLY',
       issue_resolution: 'ISSUE_RESOLUTION',
+      otp: 'OTP',
       payment_update: 'PAYMENT_UPDATE',
       personal_finance_update: 'PERSONAL_FINANCE_UPDATE',
       reservation_update: 'RESERVATION_UPDATE',
@@ -86,6 +87,16 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
       params,
       WhatsAppBusinessAccount,
       pathOverride,
+    );
+  }
+
+  getConversationAnalytics (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/conversation_analytics'
     );
   }
 

@@ -78,6 +78,7 @@ export default class AutomotiveModel extends AbstractCrudObject {
       roadster: 'ROADSTER',
       saloon: 'SALOON',
       sedan: 'SEDAN',
+      small_car: 'SMALL_CAR',
       sportscar: 'SPORTSCAR',
       supercar: 'SUPERCAR',
       supermini: 'SUPERMINI',

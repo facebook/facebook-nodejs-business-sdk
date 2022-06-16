@@ -58,6 +58,16 @@ export default class IGUser extends AbstractCrudObject {
     );
   }
 
+  getLiveMedia (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      IGMedia,
+      fields,
+      params,
+      fetchFirstPage,
+      '/live_media'
+    );
+  }
+
   getMedia (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       IGMedia,

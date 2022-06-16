@@ -138,6 +138,7 @@ export default class AdSet extends AbstractCrudObject {
       engaged_users: 'ENGAGED_USERS',
       event_responses: 'EVENT_RESPONSES',
       impressions: 'IMPRESSIONS',
+      in_app_value: 'IN_APP_VALUE',
       landing_page_views: 'LANDING_PAGE_VIEWS',
       lead_generation: 'LEAD_GENERATION',
       link_clicks: 'LINK_CLICKS',
@@ -163,6 +164,7 @@ export default class AdSet extends AbstractCrudObject {
   }
   static get DatePreset (): Object {
     return Object.freeze({
+      data_maximum: 'data_maximum',
       last_14d: 'last_14d',
       last_28d: 'last_28d',
       last_30d: 'last_30d',
@@ -182,6 +184,12 @@ export default class AdSet extends AbstractCrudObject {
       this_year: 'this_year',
       today: 'today',
       yesterday: 'yesterday',
+    });
+  }
+  static get Operator (): Object {
+    return Object.freeze({
+      all: 'ALL',
+      any: 'ANY',
     });
   }
   static get DestinationType (): Object {
@@ -237,12 +245,6 @@ export default class AdSet extends AbstractCrudObject {
       issues_elections_politics: 'ISSUES_ELECTIONS_POLITICS',
       none: 'NONE',
       online_gambling_and_gaming: 'ONLINE_GAMBLING_AND_GAMING',
-    });
-  }
-  static get Operator (): Object {
-    return Object.freeze({
-      all: 'ALL',
-      any: 'ANY',
     });
   }
   static get StatusOption (): Object {

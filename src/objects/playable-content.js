@@ -9,18 +9,26 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * AdgroupRelevanceScore
+ * PlayableContent
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class AdgroupRelevanceScore extends AbstractCrudObject {
+export default class PlayableContent extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      negative_feedback: 'negative_feedback',
-      positive_feedback: 'positive_feedback',
-      score: 'score',
-      status: 'status',
+      id: 'id',
+      name: 'name',
+      owner: 'owner',
     });
   }
 
+
+  
+  get (fields: Array<string>, params: Object = {}): PlayableContent {
+    // $FlowFixMe : Support Generic Types
+    return this.read(
+      fields,
+      params
+    );
+  }
 }

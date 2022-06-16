@@ -9,27 +9,23 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * LiveVideoInputStream
+ * CopyrightAudioAsset
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class LiveVideoInputStream extends AbstractCrudObject {
+export default class CopyrightAudioAsset extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      dash_ingest_url: 'dash_ingest_url',
-      dash_preview_url: 'dash_preview_url',
+      creation_time: 'creation_time',
       id: 'id',
-      is_master: 'is_master',
-      secure_stream_url: 'secure_stream_url',
-      stream_health: 'stream_health',
-      stream_id: 'stream_id',
-      stream_url: 'stream_url',
+      title: 'title',
+      update_time: 'update_time',
     });
   }
 
 
   
-  get (fields: Array<string>, params: Object = {}): LiveVideoInputStream {
+  get (fields: Array<string>, params: Object = {}): CopyrightAudioAsset {
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,

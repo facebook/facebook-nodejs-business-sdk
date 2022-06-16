@@ -22,6 +22,7 @@ export default class AdPromotedObject extends AbstractCrudObject {
       custom_event_type: 'custom_event_type',
       event_id: 'event_id',
       fundraiser_campaign_id: 'fundraiser_campaign_id',
+      mcme_conversion_id: 'mcme_conversion_id',
       object_store_url: 'object_store_url',
       offer_id: 'offer_id',
       offline_conversion_data_set_id: 'offline_conversion_data_set_id',

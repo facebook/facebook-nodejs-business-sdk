@@ -300,9 +300,29 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
+  getAemConversionFilter (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/aem_conversion_filter'
+    );
+  }
+
   createAemConversion (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
     return this.createEdge(
       '/aem_conversions',
+      fields,
+      params,
+      null,
+      pathOverride,
+    );
+  }
+
+  createAemSkanReadiness (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+    return this.createEdge(
+      '/aem_skan_readiness',
       fields,
       params,
       null,
@@ -337,6 +357,16 @@ export default class Application extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/android_dialog_configs'
+    );
+  }
+
+  getAppEventTypes (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/app_event_types'
     );
   }
 
@@ -424,6 +454,16 @@ export default class Application extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/button_auto_detection_device_selection'
+    );
+  }
+
+  getCloudbridgeSettings (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/cloudbridge_settings'
     );
   }
 
@@ -537,6 +577,16 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
+  createMonetizedDigitalStoreObject (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+    return this.createEdge(
+      '/monetized_digital_store_objects',
+      fields,
+      params,
+      null,
+      pathOverride,
+    );
+  }
+
   createOccludesPopup (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
     return this.createEdge(
       '/occludespopups',
@@ -597,16 +647,6 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  createPushTokenRegister (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
-    return this.createEdge(
-      '/push_token_register',
-      fields,
-      params,
-      null,
-      pathOverride,
-    );
-  }
-
   getRoles (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AbstractObject,
@@ -614,16 +654,6 @@ export default class Application extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/roles'
-    );
-  }
-
-  createSendNotification (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
-    return this.createEdge(
-      '/send_notification',
-      fields,
-      params,
-      null,
-      pathOverride,
     );
   }
 
