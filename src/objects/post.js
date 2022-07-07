@@ -184,12 +184,12 @@ export default class Post extends AbstractCrudObject {
     );
   }
 
-  createComment (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+  createComment (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Comment> {
     return this.createEdge(
       '/comments',
       fields,
       params,
-      null,
+      Comment,
       pathOverride,
     );
   }

@@ -9,22 +9,34 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * DynamicContentSet
+ * GameItem
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class DynamicContentSet extends AbstractCrudObject {
+export default class GameItem extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      business_id: 'business_id',
+      count: 'count',
+      created: 'created',
+      ext_id: 'ext_id',
       id: 'id',
-      name: 'name',
+      item_def: 'item_def',
+      owner: 'owner',
+      status: 'status',
+      updated: 'updated',
     });
   }
 
+  static get Action (): Object {
+    return Object.freeze({
+      consume: 'CONSUME',
+      drop: 'DROP',
+      mark: 'MARK',
+    });
+  }
 
   
-  get (fields: Array<string>, params: Object = {}): DynamicContentSet {
+  get (fields: Array<string>, params: Object = {}): GameItem {
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,

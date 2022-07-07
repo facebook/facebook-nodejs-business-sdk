@@ -33,6 +33,7 @@ export default class Group extends AbstractCrudObject {
       email: 'email',
       icon: 'icon',
       id: 'id',
+      install: 'install',
       link: 'link',
       member_count: 'member_count',
       member_request_count: 'member_request_count',
@@ -95,6 +96,7 @@ export default class Group extends AbstractCrudObject {
       project: 'PROJECT',
       real_world: 'REAL_WORLD',
       real_world_at_work: 'REAL_WORLD_AT_WORK',
+      restyle: 'RESTYLE',
       school_class: 'SCHOOL_CLASS',
       sorority: 'SORORITY',
       sports: 'SPORTS',
@@ -114,6 +116,7 @@ export default class Group extends AbstractCrudObject {
       work_for_sale: 'WORK_FOR_SALE',
       work_garden: 'WORK_GARDEN',
       work_guest_group: 'WORK_GUEST_GROUP',
+      work_integrity: 'WORK_INTEGRITY',
       work_learning: 'WORK_LEARNING',
       work_mentorship: 'WORK_MENTORSHIP',
       work_multi_company: 'WORK_MULTI_COMPANY',
@@ -160,6 +163,7 @@ export default class Group extends AbstractCrudObject {
       project: 'PROJECT',
       real_world: 'REAL_WORLD',
       real_world_at_work: 'REAL_WORLD_AT_WORK',
+      restyle: 'RESTYLE',
       school_class: 'SCHOOL_CLASS',
       sorority: 'SORORITY',
       sports: 'SPORTS',
@@ -179,6 +183,7 @@ export default class Group extends AbstractCrudObject {
       work_for_sale: 'WORK_FOR_SALE',
       work_garden: 'WORK_GARDEN',
       work_guest_group: 'WORK_GUEST_GROUP',
+      work_integrity: 'WORK_INTEGRITY',
       work_learning: 'WORK_LEARNING',
       work_mentorship: 'WORK_MENTORSHIP',
       work_multi_company: 'WORK_MULTI_COMPANY',
@@ -229,6 +234,26 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
+  getAttachmentSurfaces (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/attachment_surfaces'
+    );
+  }
+
+  createAttachmentSurface (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+    return this.createEdge(
+      '/attachment_surfaces',
+      fields,
+      params,
+      null,
+      pathOverride,
+    );
+  }
+
   getDocs (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AbstractObject,
@@ -246,6 +271,26 @@ export default class Group extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/events'
+    );
+  }
+
+  getFeaturedCards (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/featured_cards'
+    );
+  }
+
+  createFeaturedCard (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+    return this.createEdge(
+      '/featured_cards',
+      fields,
+      params,
+      null,
+      pathOverride,
     );
   }
 

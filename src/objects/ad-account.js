@@ -161,6 +161,7 @@ export default class AdAccount extends AbstractCrudObject {
       jpy: 'JPY',
       kes: 'KES',
       krw: 'KRW',
+      lkr: 'LKR',
       mop: 'MOP',
       mxn: 'MXN',
       myr: 'MYR',
@@ -283,6 +284,16 @@ export default class AdAccount extends AbstractCrudObject {
       params,
       AdPlacePageSet,
       pathOverride,
+    );
+  }
+
+  getAdSavedKeywords (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/ad_saved_keywords'
     );
   }
 
@@ -483,12 +494,12 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createAdSet (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+  createAdSet (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdSet> {
     return this.createEdge(
       '/adsets',
       fields,
       params,
-      null,
+      AdSet,
       pathOverride,
     );
   }
@@ -513,12 +524,12 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createAdsPixel (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+  createAdsPixel (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdsPixel> {
     return this.createEdge(
       '/adspixels',
       fields,
       params,
-      null,
+      AdsPixel,
       pathOverride,
     );
   }

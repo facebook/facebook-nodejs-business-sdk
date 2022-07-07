@@ -9,28 +9,18 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * PageAdminNote
+ * ProductItemError
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class PageAdminNote extends AbstractCrudObject {
+export default class ProductItemError extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      body: 'body',
-      from: 'from',
-      id: 'id',
-      note_label: 'note_label',
-      user: 'user',
+      description: 'description',
+      error_priority: 'error_priority',
+      error_type: 'error_type',
+      title: 'title',
     });
   }
 
-
-  
-  get (fields: Array<string>, params: Object = {}): PageAdminNote {
-    // $FlowFixMe : Support Generic Types
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

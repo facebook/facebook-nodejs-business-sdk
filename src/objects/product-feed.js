@@ -62,6 +62,12 @@ export default class ProductFeed extends AbstractCrudObject {
       tilde: 'TILDE',
     });
   }
+  static get IngestionSourceType (): Object {
+    return Object.freeze({
+      primary_feed: 'primary_feed',
+      supplementary_feed: 'supplementary_feed',
+    });
+  }
   static get QuotedFieldsMode (): Object {
     return Object.freeze({
       autodetect: 'AUTODETECT',
@@ -97,12 +103,6 @@ export default class ProductFeed extends AbstractCrudObject {
       transactable_items: 'TRANSACTABLE_ITEMS',
       vehicles: 'VEHICLES',
       vehicle_offer: 'VEHICLE_OFFER',
-    });
-  }
-  static get IngestionSourceType (): Object {
-    return Object.freeze({
-      primary_feed: 'PRIMARY_FEED',
-      supplementary_feed: 'SUPPLEMENTARY_FEED',
     });
   }
   static get ItemSubType (): Object {
@@ -215,12 +215,12 @@ export default class ProductFeed extends AbstractCrudObject {
     );
   }
 
-  createRule (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+  createRule (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<ProductFeedRule> {
     return this.createEdge(
       '/rules',
       fields,
       params,
-      null,
+      ProductFeedRule,
       pathOverride,
     );
   }

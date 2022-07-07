@@ -24,6 +24,7 @@ import PageUserMessageThreadLabel from './page-user-message-thread-label';
 import Event from './event';
 import Post from './post';
 import FundraiserPersonToCharity from './fundraiser-person-to-charity';
+import GameItem from './game-item';
 import Group from './group';
 import UserIDForApp from './user-id-for-app';
 import UserIDForPage from './user-id-for-page';
@@ -361,6 +362,16 @@ export default class User extends AbstractCrudObject {
     );
   }
 
+  getFundraisers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      FundraiserPersonToCharity,
+      fields,
+      params,
+      fetchFirstPage,
+      '/fundraisers'
+    );
+  }
+
   createFundraiser (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<FundraiserPersonToCharity> {
     return this.createEdge(
       '/fundraisers',
@@ -371,12 +382,12 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  createGameItem (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+  createGameItem (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<GameItem> {
     return this.createEdge(
       '/game_items',
       fields,
       params,
-      null,
+      GameItem,
       pathOverride,
     );
   }
@@ -545,6 +556,26 @@ export default class User extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/picture'
+    );
+  }
+
+  getPioneerData (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/pioneer_data'
+    );
+  }
+
+  createPioneerDatum (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+    return this.createEdge(
+      '/pioneer_data',
+      fields,
+      params,
+      null,
+      pathOverride,
     );
   }
 

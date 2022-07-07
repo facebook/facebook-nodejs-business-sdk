@@ -9,20 +9,26 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * NativeOfferDiscount
+ * ProductCatalogDataSource
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class NativeOfferDiscount extends AbstractCrudObject {
+export default class ProductCatalogDataSource extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      currency: 'currency',
-      override: 'override',
-      text: 'text',
-      type: 'type',
-      value1: 'value1',
-      value2: 'value2',
+      app_id: 'app_id',
+      id: 'id',
+      ingestion_source_type: 'ingestion_source_type',
+      name: 'name',
+      upload_type: 'upload_type',
     });
   }
 
+  static get IngestionSourceType (): Object {
+    return Object.freeze({
+      all: 'ALL',
+      primary: 'PRIMARY',
+      supplementary: 'SUPPLEMENTARY',
+    });
+  }
 }

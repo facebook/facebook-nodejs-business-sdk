@@ -16,6 +16,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class CopyrightAudioAsset extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
+      copyright: 'copyright',
       creation_time: 'creation_time',
       id: 'id',
       title: 'title',

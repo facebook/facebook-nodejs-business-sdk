@@ -16,6 +16,7 @@ import AutomotiveModel from './automotive-model';
 import ProductCatalogCategory from './product-catalog-category';
 import CheckBatchRequestStatus from './check-batch-request-status';
 import CollaborativeAdsShareSettings from './collaborative-ads-share-settings';
+import ProductCatalogDataSource from './product-catalog-data-source';
 import Destination from './destination';
 import ProductCatalogDiagnosticGroup from './product-catalog-diagnostic-group';
 import ProductEventStat from './product-event-stat';
@@ -49,6 +50,7 @@ export default class ProductCatalog extends AbstractCrudObject {
       feed_count: 'feed_count',
       id: 'id',
       is_catalog_segment: 'is_catalog_segment',
+      latest_feed_upload_session: 'latest_feed_upload_session',
       name: 'name',
       product_count: 'product_count',
       store_catalog_settings: 'store_catalog_settings',
@@ -205,16 +207,6 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  createAutomotiveModel (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AutomotiveModel> {
-    return this.createEdge(
-      '/automotive_models',
-      fields,
-      params,
-      AutomotiveModel,
-      pathOverride,
-    );
-  }
-
   createBatch (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<ProductCatalog> {
     return this.createEdge(
       '/batch',
@@ -292,6 +284,16 @@ export default class ProductCatalog extends AbstractCrudObject {
       params,
       null,
       pathOverride,
+    );
+  }
+
+  getDataSources (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      ProductCatalogDataSource,
+      fields,
+      params,
+      fetchFirstPage,
+      '/data_sources'
     );
   }
 

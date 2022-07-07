@@ -10,6 +10,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import NullNode from './null-node';
+import LiveVideo from './live-video';
 import Profile from './profile';
 
 /**
@@ -151,12 +152,12 @@ export default class Event extends AbstractCrudObject {
     );
   }
 
-  createLiveVideo (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+  createLiveVideo (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<LiveVideo> {
     return this.createEdge(
-      '/livevideos',
+      '/live_videos',
       fields,
       params,
-      null,
+      LiveVideo,
       pathOverride,
     );
   }

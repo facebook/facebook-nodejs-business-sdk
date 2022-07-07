@@ -250,6 +250,16 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
+  getAdPlacementGroups (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/ad_placement_groups'
+    );
+  }
+
   getAdNetworkPlacements (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdPlacement,
@@ -540,16 +550,6 @@ export default class Application extends AbstractCrudObject {
   createLeaderboardsDeleteEntry (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Application> {
     return this.createEdge(
       '/leaderboards_delete_entry',
-      fields,
-      params,
-      Application,
-      pathOverride,
-    );
-  }
-
-  createLeaderboardsReset (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Application> {
-    return this.createEdge(
-      '/leaderboards_reset',
       fields,
       params,
       Application,

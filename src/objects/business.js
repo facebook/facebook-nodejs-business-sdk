@@ -29,6 +29,7 @@ import CommerceMerchantSettings from './commerce-merchant-settings';
 import ContentDeliveryReport from './content-delivery-report';
 import CPASBusinessSetupConfig from './cpas-business-setup-config';
 import CPASMerchantConfig from './cpas-merchant-config';
+import CreditCard from './credit-card';
 import EventSourceGroup from './event-source-group';
 import ExtendedCredit from './extended-credit';
 import BusinessAssetSharingAgreement from './business-asset-sharing-agreement';
@@ -54,7 +55,6 @@ export default class Business extends AbstractCrudObject {
       block_offline_analytics: 'block_offline_analytics',
       collaborative_ads_managed_partner_business_info: 'collaborative_ads_managed_partner_business_info',
       collaborative_ads_managed_partner_eligibility: 'collaborative_ads_managed_partner_eligibility',
-      cpas_business_setup_config: 'cpas_business_setup_config',
       created_by: 'created_by',
       created_time: 'created_time',
       extended_updated_time: 'extended_updated_time',
@@ -130,6 +130,7 @@ export default class Business extends AbstractCrudObject {
       profile_plus_manage: 'PROFILE_PLUS_MANAGE',
       profile_plus_messaging: 'PROFILE_PLUS_MESSAGING',
       profile_plus_moderate: 'PROFILE_PLUS_MODERATE',
+      profile_plus_moderate_delegate_community: 'PROFILE_PLUS_MODERATE_DELEGATE_COMMUNITY',
       profile_plus_revenue: 'PROFILE_PLUS_REVENUE',
       read_page_mailboxes: 'READ_PAGE_MAILBOXES',
       view_monetization_insights: 'VIEW_MONETIZATION_INSIGHTS',
@@ -165,6 +166,7 @@ export default class Business extends AbstractCrudObject {
       profile_plus_manage: 'PROFILE_PLUS_MANAGE',
       profile_plus_messaging: 'PROFILE_PLUS_MESSAGING',
       profile_plus_moderate: 'PROFILE_PLUS_MODERATE',
+      profile_plus_moderate_delegate_community: 'PROFILE_PLUS_MODERATE_DELEGATE_COMMUNITY',
       profile_plus_revenue: 'PROFILE_PLUS_REVENUE',
       read_page_mailboxes: 'READ_PAGE_MAILBOXES',
       view_monetization_insights: 'VIEW_MONETIZATION_INSIGHTS',
@@ -522,6 +524,16 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
+  getCpasBusinessSetupConfig (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      CPASBusinessSetupConfig,
+      fields,
+      params,
+      fetchFirstPage,
+      '/cpas_business_setup_config'
+    );
+  }
+
   createCpasBusinessSetupConfig (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<CPASBusinessSetupConfig> {
     return this.createEdge(
       '/cpas_business_setup_config',
@@ -549,6 +561,16 @@ export default class Business extends AbstractCrudObject {
       params,
       null,
       pathOverride,
+    );
+  }
+
+  getCreditCards (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      CreditCard,
+      fields,
+      params,
+      fetchFirstPage,
+      '/creditcards'
     );
   }
 
@@ -962,7 +984,7 @@ export default class Business extends AbstractCrudObject {
 
   createPixelTo (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
     return this.createEdge(
-      '/pixeltos',
+      '/pixel_tos',
       fields,
       params,
       null,

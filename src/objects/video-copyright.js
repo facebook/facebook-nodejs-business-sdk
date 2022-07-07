@@ -7,6 +7,8 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 
 /**
  * VideoCopyright
@@ -48,6 +50,16 @@ export default class VideoCopyright extends AbstractCrudObject {
       video_and_audio: 'VIDEO_AND_AUDIO',
       video_only: 'VIDEO_ONLY',
     });
+  }
+
+  getUpdateRecords (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/update_records'
+    );
   }
 
   

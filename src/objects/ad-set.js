@@ -142,6 +142,7 @@ export default class AdSet extends AbstractCrudObject {
       landing_page_views: 'LANDING_PAGE_VIEWS',
       lead_generation: 'LEAD_GENERATION',
       link_clicks: 'LINK_CLICKS',
+      messaging_purchase_conversion: 'MESSAGING_PURCHASE_CONVERSION',
       none: 'NONE',
       offsite_conversions: 'OFFSITE_CONVERSIONS',
       page_likes: 'PAGE_LIKES',
@@ -184,12 +185,6 @@ export default class AdSet extends AbstractCrudObject {
       this_year: 'this_year',
       today: 'today',
       yesterday: 'yesterday',
-    });
-  }
-  static get Operator (): Object {
-    return Object.freeze({
-      all: 'ALL',
-      any: 'ANY',
     });
   }
   static get DestinationType (): Object {
@@ -245,6 +240,12 @@ export default class AdSet extends AbstractCrudObject {
       issues_elections_politics: 'ISSUES_ELECTIONS_POLITICS',
       none: 'NONE',
       online_gambling_and_gaming: 'ONLINE_GAMBLING_AND_GAMING',
+    });
+  }
+  static get Operator (): Object {
+    return Object.freeze({
+      all: 'ALL',
+      any: 'ANY',
     });
   }
   static get StatusOption (): Object {

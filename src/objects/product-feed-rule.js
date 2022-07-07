@@ -24,6 +24,15 @@ export default class ProductFeedRule extends AbstractCrudObject {
     });
   }
 
+  static get RuleType (): Object {
+    return Object.freeze({
+      fallback_rule: 'fallback_rule',
+      letter_case_rule: 'letter_case_rule',
+      mapping_rule: 'mapping_rule',
+      regex_replace_rule: 'regex_replace_rule',
+      value_mapping_rule: 'value_mapping_rule',
+    });
+  }
 
   // $FlowFixMe : Support Generic Types
   delete (fields: Array<string>, params: Object = {}): AbstractObject {
