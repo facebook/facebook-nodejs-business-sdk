@@ -1,6 +1,6 @@
 {
   "name": "proof-facebook-nodejs-business-sdk",
-  "version": "14.0.0",
+  "version": "14.0.1",
   "description": "PruvoNet fork of SDK for the Facebook Ads API in Javascript and Node.js",
   "author": "Facebook",
   "maintainers": [
