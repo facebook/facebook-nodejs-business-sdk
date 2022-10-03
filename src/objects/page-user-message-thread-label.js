@@ -30,12 +30,13 @@ export default class PageUserMessageThreadLabel extends AbstractCrudObject {
     );
   }
 
-  createLabel (fields: Array<string>, params: Object = {}): Promise<PageUserMessageThreadLabel> {
+  createLabel (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<PageUserMessageThreadLabel> {
     return this.createEdge(
       '/label',
       fields,
       params,
-      PageUserMessageThreadLabel
+      PageUserMessageThreadLabel,
+      pathOverride,
     );
   }
 

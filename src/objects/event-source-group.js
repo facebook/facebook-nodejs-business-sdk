@@ -36,12 +36,13 @@ export default class EventSourceGroup extends AbstractCrudObject {
     );
   }
 
-  createSharedAccount (fields: Array<string>, params: Object = {}): Promise<EventSourceGroup> {
+  createSharedAccount (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<EventSourceGroup> {
     return this.createEdge(
       '/shared_accounts',
       fields,
       params,
-      EventSourceGroup
+      EventSourceGroup,
+      pathOverride,
     );
   }
 

@@ -16,7 +16,8 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class AdAccountTargetingUnified extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      audience_size: 'audience_size',
+      audience_size_lower_bound: 'audience_size_lower_bound',
+      audience_size_upper_bound: 'audience_size_upper_bound',
       conversion_lift: 'conversion_lift',
       description: 'description',
       id: 'id',
@@ -78,6 +79,7 @@ export default class AdAccountTargetingUnified extends AbstractCrudObject {
       housing: 'HOUSING',
       issues_elections_politics: 'ISSUES_ELECTIONS_POLITICS',
       none: 'NONE',
+      online_gambling_and_gaming: 'ONLINE_GAMBLING_AND_GAMING',
     });
   }
   static get WhitelistedTypes (): Object {

@@ -60,6 +60,7 @@ export default class AdCreativeLinkData extends AbstractCrudObject {
   }
   static get FormatOption (): Object {
     return Object.freeze({
+      carousel_ar_effects: 'carousel_ar_effects',
       carousel_images_multi_items: 'carousel_images_multi_items',
       carousel_images_single_item: 'carousel_images_single_item',
       carousel_slideshows: 'carousel_slideshows',

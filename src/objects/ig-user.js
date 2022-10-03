@@ -31,12 +31,33 @@ export default class IGUser extends AbstractCrudObject {
       mentioned_media: 'mentioned_media',
       name: 'name',
       profile_picture_url: 'profile_picture_url',
+      shopping_product_tag_eligibility: 'shopping_product_tag_eligibility',
       shopping_review_status: 'shopping_review_status',
       username: 'username',
       website: 'website',
     });
   }
 
+
+  getAvailableCatalogs (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/available_catalogs'
+    );
+  }
+
+  getCatalogProductSearch (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/catalog_product_search'
+    );
+  }
 
   getContentPublishingLimit (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
@@ -58,6 +79,16 @@ export default class IGUser extends AbstractCrudObject {
     );
   }
 
+  getLiveMedia (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      IGMedia,
+      fields,
+      params,
+      fetchFirstPage,
+      '/live_media'
+    );
+  }
+
   getMedia (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       IGMedia,
@@ -68,30 +99,53 @@ export default class IGUser extends AbstractCrudObject {
     );
   }
 
-  createMedia (fields: Array<string>, params: Object = {}): Promise<IGMedia> {
+  createMedia (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<IGMedia> {
     return this.createEdge(
       '/media',
       fields,
       params,
-      IGMedia
+      IGMedia,
+      pathOverride,
     );
   }
 
-  createMediaPublish (fields: Array<string>, params: Object = {}): Promise<IGMedia> {
+  createMediaPublish (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<IGMedia> {
     return this.createEdge(
       '/media_publish',
       fields,
       params,
-      IGMedia
+      IGMedia,
+      pathOverride,
     );
   }
 
-  createMention (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+  createMention (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
     return this.createEdge(
       '/mentions',
       fields,
       params,
-      
+      null,
+      pathOverride,
+    );
+  }
+
+  getProductAppeal (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/product_appeal'
+    );
+  }
+
+  createProductAppeal (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+    return this.createEdge(
+      '/product_appeal',
+      fields,
+      params,
+      null,
+      pathOverride,
     );
   }
 

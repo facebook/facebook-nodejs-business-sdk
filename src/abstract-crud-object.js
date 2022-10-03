@@ -245,6 +245,7 @@ export class AbstractCrudObject extends AbstractObject {
     fields: Array<string>,
     params: Object = {},
     targetClassConstructor: Function = null,
+    pathOverride?: ?string = null,
   ): Promise<*> {
     if (params == null) {
       params = {};
@@ -253,7 +254,9 @@ export class AbstractCrudObject extends AbstractObject {
       params['fields'] = fields.join(',');
     }
     const api = this.getApi();
-    const path = [this.getNodePath(), Utils.removePreceedingSlash(endpoint)];
+    const path = pathOverride != null
+      ? pathOverride
+      : [this.getNodePath(), Utils.removePreceedingSlash(endpoint)];
     params = Object.assign(params, this.exportData());
     return new Promise((resolve, reject) => {
       api

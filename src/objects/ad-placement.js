@@ -22,6 +22,7 @@ export default class AdPlacement extends AbstractCrudObject {
       google_display_format: 'google_display_format',
       id: 'id',
       name: 'name',
+      placement_group: 'placement_group',
       platform: 'platform',
       status: 'status',
     });

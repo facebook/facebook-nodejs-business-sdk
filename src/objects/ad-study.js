@@ -68,12 +68,13 @@ export default class AdStudy extends AbstractCrudObject {
     );
   }
 
-  createInstance (fields: Array<string>, params: Object = {}): Promise<PrivateLiftStudyInstance> {
+  createInstance (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<PrivateLiftStudyInstance> {
     return this.createEdge(
       '/instances',
       fields,
       params,
-      PrivateLiftStudyInstance
+      PrivateLiftStudyInstance,
+      pathOverride,
     );
   }
 

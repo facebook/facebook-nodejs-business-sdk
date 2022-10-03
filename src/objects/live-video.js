@@ -39,11 +39,11 @@ export default class LiveVideo extends AbstractCrudObject {
       ingest_streams: 'ingest_streams',
       is_manual_mode: 'is_manual_mode',
       is_reference_only: 'is_reference_only',
-      live_encoders: 'live_encoders',
       live_views: 'live_views',
       overlay_url: 'overlay_url',
       permalink_url: 'permalink_url',
       planned_start_time: 'planned_start_time',
+      recommended_encoder_settings: 'recommended_encoder_settings',
       seconds_left: 'seconds_left',
       secure_stream_url: 'secure_stream_url',
       status: 'status',
@@ -180,12 +180,13 @@ export default class LiveVideo extends AbstractCrudObject {
     );
   }
 
-  createInputStream (fields: Array<string>, params: Object = {}): Promise<LiveVideoInputStream> {
+  createInputStream (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<LiveVideoInputStream> {
     return this.createEdge(
       '/input_streams',
       fields,
       params,
-      LiveVideoInputStream
+      LiveVideoInputStream,
+      pathOverride,
     );
   }
 
@@ -199,12 +200,13 @@ export default class LiveVideo extends AbstractCrudObject {
     );
   }
 
-  createPoll (fields: Array<string>, params: Object = {}): Promise<VideoPoll> {
+  createPoll (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<VideoPoll> {
     return this.createEdge(
       '/polls',
       fields,
       params,
-      VideoPoll
+      VideoPoll,
+      pathOverride,
     );
   }
 

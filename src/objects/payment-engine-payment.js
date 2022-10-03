@@ -29,6 +29,7 @@ export default class PaymentEnginePayment extends AbstractCrudObject {
       items: 'items',
       payout_foreign_exchange_rate: 'payout_foreign_exchange_rate',
       phone_support_eligible: 'phone_support_eligible',
+      platform: 'platform',
       refundable_amount: 'refundable_amount',
       request_id: 'request_id',
       tax: 'tax',
@@ -46,21 +47,23 @@ export default class PaymentEnginePayment extends AbstractCrudObject {
     });
   }
 
-  createDispute (fields: Array<string>, params: Object = {}): Promise<PaymentEnginePayment> {
+  createDispute (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<PaymentEnginePayment> {
     return this.createEdge(
       '/dispute',
       fields,
       params,
-      PaymentEnginePayment
+      PaymentEnginePayment,
+      pathOverride,
     );
   }
 
-  createRefund (fields: Array<string>, params: Object = {}): Promise<PaymentEnginePayment> {
+  createRefund (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<PaymentEnginePayment> {
     return this.createEdge(
       '/refunds',
       fields,
       params,
-      PaymentEnginePayment
+      PaymentEnginePayment,
+      pathOverride,
     );
   }
 
