@@ -26,6 +26,7 @@ export default class CustomAudienceDataSource extends AbstractCrudObject {
     return Object.freeze({
       anything: 'ANYTHING',
       app_users: 'APP_USERS',
+      ar_experience_events: 'AR_EXPERIENCE_EVENTS',
       campaign_conversions: 'CAMPAIGN_CONVERSIONS',
       combination_custom_audience_users: 'COMBINATION_CUSTOM_AUDIENCE_USERS',
       constant_contacts_email_hashes: 'CONSTANT_CONTACTS_EMAIL_HASHES',

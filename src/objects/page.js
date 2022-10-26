@@ -41,6 +41,7 @@ import LiveVideo from './live-video';
 import MediaFingerprint from './media-fingerprint';
 import MessagingFeatureReview from './messaging-feature-review';
 import MessengerProfile from './messenger-profile';
+import UserPageOneTimeOptInTokenSettings from './user-page-one-time-opt-in-token-settings';
 import Persona from './persona';
 import Photo from './photo';
 import ProfilePictureSource from './profile-picture-source';
@@ -161,6 +162,7 @@ export default class Page extends AbstractCrudObject {
       new_like_count: 'new_like_count',
       offer_eligible: 'offer_eligible',
       overall_star_rating: 'overall_star_rating',
+      owner_business: 'owner_business',
       page_token: 'page_token',
       parent_page: 'parent_page',
       parking: 'parking',
@@ -664,6 +666,16 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
+  getArExperience (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/ar_experience'
+    );
+  }
+
   deleteAssignedUsers (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/assigned_users',
@@ -965,6 +977,16 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
+  getFantasyGames (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/fantasy_games'
+    );
+  }
+
   getFeed (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       PagePost,
@@ -1112,6 +1134,16 @@ export default class Page extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/invoice_access_bank_account'
+    );
+  }
+
+  createInvoiceAccessInvoiceEdit (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+    return this.createEdge(
+      '/invoice_access_invoice_edit',
+      fields,
+      params,
+      null,
+      pathOverride,
     );
   }
 
@@ -1276,6 +1308,16 @@ export default class Page extends AbstractCrudObject {
       params,
       Page,
       pathOverride,
+    );
+  }
+
+  getNotificationMessageTokens (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      UserPageOneTimeOptInTokenSettings,
+      fields,
+      params,
+      fetchFirstPage,
+      '/notification_message_tokens'
     );
   }
 
@@ -1556,13 +1598,6 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  deleteTabs (params: Object = {}): Promise<*> {
-    return super.deleteEdge(
-      '/tabs',
-      params
-    );
-  }
-
   getTabs (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Tab,
@@ -1570,16 +1605,6 @@ export default class Page extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/tabs'
-    );
-  }
-
-  createTab (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Page> {
-    return this.createEdge(
-      '/tabs',
-      fields,
-      params,
-      Page,
-      pathOverride,
     );
   }
 
@@ -1670,6 +1695,26 @@ export default class Page extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/video_lists'
+    );
+  }
+
+  getVideoReels (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AdVideo,
+      fields,
+      params,
+      fetchFirstPage,
+      '/video_reels'
+    );
+  }
+
+  createVideoReel (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdVideo> {
+    return this.createEdge(
+      '/video_reels',
+      fields,
+      params,
+      AdVideo,
+      pathOverride,
     );
   }
 

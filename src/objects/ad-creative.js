@@ -121,12 +121,14 @@ export default class AdCreative extends AbstractCrudObject {
       mobile_download: 'MOBILE_DOWNLOAD',
       moments: 'MOMENTS',
       no_button: 'NO_BUTTON',
+      open_instant_app: 'OPEN_INSTANT_APP',
       open_link: 'OPEN_LINK',
       order_now: 'ORDER_NOW',
       pay_to_access: 'PAY_TO_ACCESS',
       play_game: 'PLAY_GAME',
       play_game_on_facebook: 'PLAY_GAME_ON_FACEBOOK',
       purchase_gift_cards: 'PURCHASE_GIFT_CARDS',
+      raise_money: 'RAISE_MONEY',
       record_now: 'RECORD_NOW',
       refer_friends: 'REFER_FRIENDS',
       request_time: 'REQUEST_TIME',
@@ -215,12 +217,6 @@ export default class AdCreative extends AbstractCrudObject {
       story_owner: 'STORY_OWNER',
     });
   }
-  static get InstantCheckoutSetting (): Object {
-    return Object.freeze({
-      off: 'off',
-      on: 'on',
-    });
-  }
   static get Operator (): Object {
     return Object.freeze({
       all: 'ALL',
@@ -248,7 +244,7 @@ export default class AdCreative extends AbstractCrudObject {
     );
   }
 
-  getPreviews (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+  getPreViews (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdPreview,
       fields,

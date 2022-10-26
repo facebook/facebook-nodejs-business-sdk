@@ -15,7 +15,6 @@ import AdCreative from './ad-creative';
 import AdRule from './ad-rule';
 import Ad from './ad';
 import AdAsyncRequest from './ad-async-request';
-import ContentDeliveryReport from './content-delivery-report';
 import AdCampaignDeliveryEstimate from './ad-campaign-delivery-estimate';
 import AdsInsights from './ads-insights';
 import AdReportRun from './ad-report-run';
@@ -330,16 +329,6 @@ export default class AdSet extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/asyncadrequests'
-    );
-  }
-
-  getContentDeliveryReport (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      ContentDeliveryReport,
-      fields,
-      params,
-      fetchFirstPage,
-      '/content_delivery_report'
     );
   }
 

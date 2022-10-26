@@ -29,6 +29,7 @@ export default class BusinessAssetGroup extends AbstractCrudObject {
     return Object.freeze({
       id: 'id',
       name: 'name',
+      owner_business: 'owner_business',
     });
   }
 

@@ -265,6 +265,16 @@ export default class User extends AbstractCrudObject {
     );
   }
 
+  getAvatars (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/avatars'
+    );
+  }
+
   getBusinessUsers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       BusinessUser,
@@ -556,26 +566,6 @@ export default class User extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/picture'
-    );
-  }
-
-  getPioneerData (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/pioneer_data'
-    );
-  }
-
-  createPioneerDatum (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
-    return this.createEdge(
-      '/pioneer_data',
-      fields,
-      params,
-      null,
-      pathOverride,
     );
   }
 

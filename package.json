@@ -1,6 +1,6 @@
 {
   "name": "facebook-nodejs-business-sdk",
-  "version": "14.0.0",
+  "version": "15.0.0",
   "description": "SDK for the Facebook Ads API in Javascript and Node.js",
   "author": "Facebook",
   "maintainers": [

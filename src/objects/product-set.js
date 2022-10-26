@@ -14,6 +14,7 @@ import Destination from './destination';
 import Flight from './flight';
 import HomeListing from './home-listing';
 import Hotel from './hotel';
+import MediaTitle from './media-title';
 import ProductItem from './product-item';
 import VehicleOffer from './vehicle-offer';
 import Vehicle from './vehicle';
@@ -87,6 +88,16 @@ export default class ProductSet extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/hotels'
+    );
+  }
+
+  getMediaTitles (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      MediaTitle,
+      fields,
+      params,
+      fetchFirstPage,
+      '/media_titles'
     );
   }
 

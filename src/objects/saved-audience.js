@@ -25,6 +25,7 @@ export default class SavedAudience extends AbstractCrudObject {
       id: 'id',
       name: 'name',
       operation_status: 'operation_status',
+      owner_business: 'owner_business',
       page_deletion_marked_delete_time: 'page_deletion_marked_delete_time',
       permission_for_actions: 'permission_for_actions',
       run_status: 'run_status',

@@ -74,6 +74,7 @@ export default class AdCampaignActivity extends AbstractCrudObject {
       targeting_old: 'targeting_old',
       updated_time_new: 'updated_time_new',
       updated_time_old: 'updated_time_old',
+      user: 'user',
     });
   }
 

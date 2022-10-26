@@ -17,6 +17,7 @@ import Group from './group';
 import AdAccount from './ad-account';
 import DACheck from './da-check';
 import Event from './event';
+import NullNode from './null-node';
 
 /**
  * Application
@@ -51,6 +52,7 @@ export default class Application extends AbstractCrudObject {
       auto_event_mapping_android: 'auto_event_mapping_android',
       auto_event_mapping_ios: 'auto_event_mapping_ios',
       auto_event_setup_enabled: 'auto_event_setup_enabled',
+      business: 'business',
       canvas_fluid_height: 'canvas_fluid_height',
       canvas_fluid_width: 'canvas_fluid_width',
       canvas_url: 'canvas_url',
@@ -96,6 +98,7 @@ export default class Application extends AbstractCrudObject {
       name: 'name',
       namespace: 'namespace',
       object_store_urls: 'object_store_urls',
+      owner_business: 'owner_business',
       page_tab_default_name: 'page_tab_default_name',
       page_tab_url: 'page_tab_url',
       photo_url: 'photo_url',
@@ -577,6 +580,16 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
+  getMonetizedDigitalStoreObjects (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/monetized_digital_store_objects'
+    );
+  }
+
   createMonetizedDigitalStoreObject (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
     return this.createEdge(
       '/monetized_digital_store_objects',
@@ -584,6 +597,16 @@ export default class Application extends AbstractCrudObject {
       params,
       null,
       pathOverride,
+    );
+  }
+
+  getObjectTypes (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      NullNode,
+      fields,
+      params,
+      fetchFirstPage,
+      '/object_types'
     );
   }
 
