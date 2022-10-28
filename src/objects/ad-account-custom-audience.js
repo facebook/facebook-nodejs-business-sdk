@@ -9,19 +9,16 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * NativeOfferDiscount
+ * AdAccountCustomAudience
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class NativeOfferDiscount extends AbstractCrudObject {
+export default class AdAccountCustomAudience extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      currency: 'currency',
-      override: 'override',
-      text: 'text',
-      type: 'type',
-      value1: 'value1',
-      value2: 'value2',
+      audience_type_param_name: 'audience_type_param_name',
+      existing_customer_tag: 'existing_customer_tag',
+      new_customer_tag: 'new_customer_tag',
     });
   }
 

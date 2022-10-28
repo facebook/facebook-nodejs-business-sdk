@@ -9,35 +9,25 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * ThirdPartyMeasurementReportDataset
+ * IGBCAdsPermission
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class ThirdPartyMeasurementReportDataset extends AbstractCrudObject {
+export default class IGBCAdsPermission extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      category: 'category',
       id: 'id',
-      partner: 'partner',
-      product: 'product',
-      schema: 'schema',
+      permission_type: 'permission_type',
+      status: 'status',
     });
   }
 
 
   
-  get (fields: Array<string>, params: Object = {}): ThirdPartyMeasurementReportDataset {
+  get (fields: Array<string>, params: Object = {}): IGBCAdsPermission {
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
-      params
-    );
-  }
-
-  // $FlowFixMe : Support Generic Types
-  update (fields: Array<string>, params: Object = {}): ThirdPartyMeasurementReportDataset {
-    // $FlowFixMe : Support Generic Types
-    return super.update(
       params
     );
   }

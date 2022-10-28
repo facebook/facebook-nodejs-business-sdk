@@ -18,8 +18,10 @@ export default class PrivateLiftStudyInstance extends AbstractCrudObject {
     return Object.freeze({
       breakdown_key: 'breakdown_key',
       created_time: 'created_time',
+      feature_list: 'feature_list',
       id: 'id',
       latest_status_update_time: 'latest_status_update_time',
+      run_id: 'run_id',
       server_ips: 'server_ips',
       status: 'status',
       tier: 'tier',
@@ -29,6 +31,7 @@ export default class PrivateLiftStudyInstance extends AbstractCrudObject {
   static get Operation (): Object {
     return Object.freeze({
       aggregate: 'AGGREGATE',
+      cancel: 'CANCEL',
       compute: 'COMPUTE',
       id_match: 'ID_MATCH',
       next: 'NEXT',

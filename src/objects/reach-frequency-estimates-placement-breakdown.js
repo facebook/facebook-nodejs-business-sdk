@@ -22,6 +22,7 @@ export default class ReachFrequencyEstimatesPlacementBreakdown extends AbstractC
       ig_android: 'ig_android',
       ig_ios: 'ig_ios',
       ig_other: 'ig_other',
+      ig_reels: 'ig_reels',
       ig_story: 'ig_story',
       instant_articles: 'instant_articles',
       instream_videos: 'instream_videos',

@@ -32,7 +32,6 @@ import AsyncRequest from './async-request';
 import AdAsyncRequestSet from './ad-async-request-set';
 import BroadTargetingCategories from './broad-targeting-categories';
 import IGUser from './ig-user';
-import ContentDeliveryReport from './content-delivery-report';
 import CustomAudience from './custom-audience';
 import CustomAudiencesTOS from './custom-audiences-tos';
 import CustomConversion from './custom-conversion';
@@ -86,6 +85,7 @@ export default class AdAccount extends AbstractCrudObject {
       capabilities: 'capabilities',
       created_time: 'created_time',
       currency: 'currency',
+      custom_audience_info: 'custom_audience_info',
       disable_reason: 'disable_reason',
       end_advertiser: 'end_advertiser',
       end_advertiser_name: 'end_advertiser_name',
@@ -107,6 +107,7 @@ export default class AdAccount extends AbstractCrudObject {
       is_personal: 'is_personal',
       is_prepay_account: 'is_prepay_account',
       is_tax_id_required: 'is_tax_id_required',
+      liable_address: 'liable_address',
       line_numbers: 'line_numbers',
       media_agency: 'media_agency',
       min_campaign_group_spend_cap: 'min_campaign_group_spend_cap',
@@ -114,9 +115,12 @@ export default class AdAccount extends AbstractCrudObject {
       name: 'name',
       offsite_pixels_tos_accepted: 'offsite_pixels_tos_accepted',
       owner: 'owner',
+      owner_business: 'owner_business',
       partner: 'partner',
       rf_spec: 'rf_spec',
+      send_bill_to_address: 'send_bill_to_address',
       show_checkout_experience: 'show_checkout_experience',
+      sold_to_address: 'sold_to_address',
       spend_cap: 'spend_cap',
       tax_id: 'tax_id',
       tax_id_status: 'tax_id_status',
@@ -127,6 +131,7 @@ export default class AdAccount extends AbstractCrudObject {
       tos_accepted: 'tos_accepted',
       user_tasks: 'user_tasks',
       user_tos_accepted: 'user_tos_accepted',
+      viewable_business: 'viewable_business',
     });
   }
 
@@ -161,6 +166,7 @@ export default class AdAccount extends AbstractCrudObject {
       jpy: 'JPY',
       kes: 'KES',
       krw: 'KRW',
+      lkr: 'LKR',
       mop: 'MOP',
       mxn: 'MXN',
       myr: 'MYR',
@@ -283,6 +289,16 @@ export default class AdAccount extends AbstractCrudObject {
       params,
       AdPlacePageSet,
       pathOverride,
+    );
+  }
+
+  getAdSavedKeywords (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/ad_saved_keywords'
     );
   }
 
@@ -453,6 +469,16 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
+  getAdsReportingMmmReports (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/ads_reporting_mmm_reports'
+    );
+  }
+
   getAdsVolume (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdAccountAdVolume,
@@ -483,12 +509,12 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createAdSet (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+  createAdSet (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdSet> {
     return this.createEdge(
       '/adsets',
       fields,
       params,
-      null,
+      AdSet,
       pathOverride,
     );
   }
@@ -513,12 +539,12 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createAdsPixel (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+  createAdsPixel (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdsPixel> {
     return this.createEdge(
       '/adspixels',
       fields,
       params,
-      null,
+      AdsPixel,
       pathOverride,
     );
   }
@@ -731,26 +757,6 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getContentDeliveryReport (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      ContentDeliveryReport,
-      fields,
-      params,
-      fetchFirstPage,
-      '/content_delivery_report'
-    );
-  }
-
-  createCreateAndApplyPublisherBlockList (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
-    return this.createEdge(
-      '/create_and_apply_publisher_block_list',
-      fields,
-      params,
-      null,
-      pathOverride,
-    );
-  }
-
   getCustomAudiences (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       CustomAudience,
@@ -831,7 +837,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getGeneratePreviews (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+  getGeneratePreViews (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdPreview,
       fields,

@@ -12,43 +12,33 @@ import Cursor from './../cursor';
 import CatalogItemChannelsToIntegrityStatus from './catalog-item-channels-to-integrity-status';
 
 /**
- * AdoptablePet
+ * MediaTitle
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class AdoptablePet extends AbstractCrudObject {
+export default class MediaTitle extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      address: 'address',
-      adoptable_pet_id: 'adoptable_pet_id',
-      adoption_application_form_url: 'adoption_application_form_url',
-      age_bucket: 'age_bucket',
-      animal_type: 'animal_type',
       applinks: 'applinks',
-      availability: 'availability',
-      breed: 'breed',
       category_specific_fields: 'category_specific_fields',
-      coat_length: 'coat_length',
-      color: 'color',
+      content_category: 'content_category',
       currency: 'currency',
       description: 'description',
-      features: 'features',
-      gender: 'gender',
+      fb_page_alias: 'fb_page_alias',
+      fb_page_id: 'fb_page_id',
+      genres: 'genres',
       id: 'id',
       image_fetch_status: 'image_fetch_status',
       images: 'images',
-      name: 'name',
+      kg_fb_id: 'kg_fb_id',
+      media_title_id: 'media_title_id',
       price: 'price',
       sanitized_images: 'sanitized_images',
-      secondary_color: 'secondary_color',
-      shelter_email: 'shelter_email',
-      shelter_name: 'shelter_name',
-      shelter_page_id: 'shelter_page_id',
-      shelter_phone: 'shelter_phone',
-      size: 'size',
-      tertiary_color: 'tertiary_color',
+      title: 'title',
+      title_display_name: 'title_display_name',
       unit_price: 'unit_price',
       url: 'url',
+      wiki_data_item: 'wiki_data_item',
     });
   }
 
@@ -60,6 +50,13 @@ export default class AdoptablePet extends AbstractCrudObject {
       no_status: 'NO_STATUS',
       outdated: 'OUTDATED',
       partial_fetch: 'PARTIAL_FETCH',
+    });
+  }
+  static get ContentCategory (): Object {
+    return Object.freeze({
+      movie: 'MOVIE',
+      music: 'MUSIC',
+      tv_show: 'TV_SHOW',
     });
   }
 
@@ -93,11 +90,27 @@ export default class AdoptablePet extends AbstractCrudObject {
     );
   }
 
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
+    return super.delete(
+      params
+    );
+  }
+
   
-  get (fields: Array<string>, params: Object = {}): AdoptablePet {
+  get (fields: Array<string>, params: Object = {}): MediaTitle {
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
+      params
+    );
+  }
+
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): MediaTitle {
+    // $FlowFixMe : Support Generic Types
+    return super.update(
       params
     );
   }

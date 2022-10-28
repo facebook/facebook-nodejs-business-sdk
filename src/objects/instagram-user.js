@@ -27,6 +27,7 @@ export default class InstagramUser extends AbstractCrudObject {
       is_published: 'is_published',
       media_count: 'media_count',
       mini_shop_storefront: 'mini_shop_storefront',
+      owner_business: 'owner_business',
       profile_pic: 'profile_pic',
       username: 'username',
     });

@@ -61,33 +61,6 @@ export default class AutomotiveModel extends AbstractCrudObject {
       partial_fetch: 'PARTIAL_FETCH',
     });
   }
-  static get BodyStyle (): Object {
-    return Object.freeze({
-      convertible: 'CONVERTIBLE',
-      coupe: 'COUPE',
-      crossover: 'CROSSOVER',
-      estate: 'ESTATE',
-      grandtourer: 'GRANDTOURER',
-      hatchback: 'HATCHBACK',
-      minibus: 'MINIBUS',
-      minivan: 'MINIVAN',
-      mpv: 'MPV',
-      none: 'NONE',
-      other: 'OTHER',
-      pickup: 'PICKUP',
-      roadster: 'ROADSTER',
-      saloon: 'SALOON',
-      sedan: 'SEDAN',
-      small_car: 'SMALL_CAR',
-      sportscar: 'SPORTSCAR',
-      supercar: 'SUPERCAR',
-      supermini: 'SUPERMINI',
-      suv: 'SUV',
-      truck: 'TRUCK',
-      van: 'VAN',
-      wagon: 'WAGON',
-    });
-  }
 
   getAugmentedRealitiesMetadata (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(

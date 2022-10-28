@@ -9,24 +9,22 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * CopyrightAudioAsset
+ * WhatsAppBusinessPreVerifiedPhoneNumber
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class CopyrightAudioAsset extends AbstractCrudObject {
+export default class WhatsAppBusinessPreVerifiedPhoneNumber extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      copyright: 'copyright',
-      creation_time: 'creation_time',
+      code_verification_status: 'code_verification_status',
       id: 'id',
-      title: 'title',
-      update_time: 'update_time',
+      phone_number: 'phone_number',
     });
   }
 
 
   
-  get (fields: Array<string>, params: Object = {}): CopyrightAudioAsset {
+  get (fields: Array<string>, params: Object = {}): WhatsAppBusinessPreVerifiedPhoneNumber {
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,

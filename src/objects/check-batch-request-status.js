@@ -26,4 +26,11 @@ export default class CheckBatchRequestStatus extends AbstractCrudObject {
     });
   }
 
+  static get ErrorPriority (): Object {
+    return Object.freeze({
+      high: 'HIGH',
+      low: 'LOW',
+      medium: 'MEDIUM',
+    });
+  }
 }

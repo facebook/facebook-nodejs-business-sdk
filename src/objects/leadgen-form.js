@@ -22,6 +22,7 @@ export default class LeadgenForm extends AbstractCrudObject {
       block_display_for_non_targeted_viewer: 'block_display_for_non_targeted_viewer',
       context_card: 'context_card',
       created_time: 'created_time',
+      creator: 'creator',
       expired_leads_count: 'expired_leads_count',
       follow_up_action_text: 'follow_up_action_text',
       follow_up_action_url: 'follow_up_action_url',

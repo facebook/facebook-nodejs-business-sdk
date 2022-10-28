@@ -9,26 +9,18 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * DynamicContentSet
+ * ProductItemError
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class DynamicContentSet extends AbstractCrudObject {
+export default class ProductItemError extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      business_id: 'business_id',
-      id: 'id',
-      name: 'name',
+      description: 'description',
+      error_priority: 'error_priority',
+      error_type: 'error_type',
+      title: 'title',
     });
   }
 
-
-  
-  get (fields: Array<string>, params: Object = {}): DynamicContentSet {
-    // $FlowFixMe : Support Generic Types
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

@@ -117,12 +117,22 @@ export default class AdsPixel extends AbstractCrudObject {
     );
   }
 
-  createEvent (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdsPixel> {
+  createEvent (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
     return this.createEdge(
       '/events',
       fields,
       params,
-      AdsPixel,
+      null,
+      pathOverride,
+    );
+  }
+
+  createMeapitocapiconsolidationhelper (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+    return this.createEdge(
+      '/meapitocapiconsolidationhelper',
+      fields,
+      params,
+      null,
       pathOverride,
     );
   }

@@ -228,7 +228,7 @@ export default class Ad extends AbstractCrudObject {
     );
   }
 
-  getPreviews (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+  getPreViews (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdPreview,
       fields,

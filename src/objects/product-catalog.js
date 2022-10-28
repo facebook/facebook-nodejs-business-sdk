@@ -16,6 +16,7 @@ import AutomotiveModel from './automotive-model';
 import ProductCatalogCategory from './product-catalog-category';
 import CheckBatchRequestStatus from './check-batch-request-status';
 import CollaborativeAdsShareSettings from './collaborative-ads-share-settings';
+import ProductCatalogDataSource from './product-catalog-data-source';
 import Destination from './destination';
 import ProductCatalogDiagnosticGroup from './product-catalog-diagnostic-group';
 import ProductEventStat from './product-event-stat';
@@ -24,6 +25,7 @@ import Flight from './flight';
 import HomeListing from './home-listing';
 import ProductCatalogHotelRoomsBatch from './product-catalog-hotel-rooms-batch';
 import Hotel from './hotel';
+import MediaTitle from './media-title';
 import ProductCatalogPricingVariablesBatch from './product-catalog-pricing-variables-batch';
 import ProductFeed from './product-feed';
 import ProductGroup from './product-group';
@@ -42,7 +44,9 @@ export default class ProductCatalog extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       business: 'business',
+      catalog_store: 'catalog_store',
       commerce_merchant_settings: 'commerce_merchant_settings',
+      creator_user: 'creator_user',
       da_display_settings: 'da_display_settings',
       default_image_url: 'default_image_url',
       fallback_image_url: 'fallback_image_url',
@@ -50,6 +54,7 @@ export default class ProductCatalog extends AbstractCrudObject {
       id: 'id',
       is_catalog_segment: 'is_catalog_segment',
       name: 'name',
+      owner_business: 'owner_business',
       product_count: 'product_count',
       store_catalog_settings: 'store_catalog_settings',
       vertical: 'vertical',
@@ -205,16 +210,6 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  createAutomotiveModel (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AutomotiveModel> {
-    return this.createEdge(
-      '/automotive_models',
-      fields,
-      params,
-      AutomotiveModel,
-      pathOverride,
-    );
-  }
-
   createBatch (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<ProductCatalog> {
     return this.createEdge(
       '/batch',
@@ -292,6 +287,16 @@ export default class ProductCatalog extends AbstractCrudObject {
       params,
       null,
       pathOverride,
+    );
+  }
+
+  getDataSources (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      ProductCatalogDataSource,
+      fields,
+      params,
+      fetchFirstPage,
+      '/data_sources'
     );
   }
 
@@ -442,12 +447,22 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  createMediaTitle (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+  getMediaTitles (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      MediaTitle,
+      fields,
+      params,
+      fetchFirstPage,
+      '/media_titles'
+    );
+  }
+
+  createMediaTitle (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<MediaTitle> {
     return this.createEdge(
       '/media_titles',
       fields,
       params,
-      null,
+      MediaTitle,
       pathOverride,
     );
   }

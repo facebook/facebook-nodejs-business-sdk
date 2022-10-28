@@ -9,24 +9,22 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * CopyrightAudioAsset
+ * CanvasDynamicSetting
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class CopyrightAudioAsset extends AbstractCrudObject {
+export default class CanvasDynamicSetting extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      copyright: 'copyright',
-      creation_time: 'creation_time',
+      child_documents: 'child_documents',
+      product_set_id: 'product_set_id',
       id: 'id',
-      title: 'title',
-      update_time: 'update_time',
     });
   }
 
 
   
-  get (fields: Array<string>, params: Object = {}): CopyrightAudioAsset {
+  get (fields: Array<string>, params: Object = {}): CanvasDynamicSetting {
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,

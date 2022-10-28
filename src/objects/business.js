@@ -26,9 +26,9 @@ import WhatsAppBusinessAccount from './whats-app-business-account';
 import CPASCollaborationRequest from './cpas-collaboration-request';
 import CPASAdvertiserPartnershipRecommendation from './cpas-advertiser-partnership-recommendation';
 import CommerceMerchantSettings from './commerce-merchant-settings';
-import ContentDeliveryReport from './content-delivery-report';
 import CPASBusinessSetupConfig from './cpas-business-setup-config';
 import CPASMerchantConfig from './cpas-merchant-config';
+import CreditCard from './credit-card';
 import EventSourceGroup from './event-source-group';
 import ExtendedCredit from './extended-credit';
 import BusinessAssetSharingAgreement from './business-asset-sharing-agreement';
@@ -41,7 +41,6 @@ import BusinessPageRequest from './business-page-request';
 import BusinessRoleRequest from './business-role-request';
 import ProfilePictureSource from './profile-picture-source';
 import SystemUser from './system-user';
-import ThirdPartyMeasurementReportDataset from './third-party-measurement-report-dataset';
 
 /**
  * Business
@@ -54,7 +53,7 @@ export default class Business extends AbstractCrudObject {
       block_offline_analytics: 'block_offline_analytics',
       collaborative_ads_managed_partner_business_info: 'collaborative_ads_managed_partner_business_info',
       collaborative_ads_managed_partner_eligibility: 'collaborative_ads_managed_partner_eligibility',
-      cpas_business_setup_config: 'cpas_business_setup_config',
+      collaborative_ads_partner_premium_options: 'collaborative_ads_partner_premium_options',
       created_by: 'created_by',
       created_time: 'created_time',
       extended_updated_time: 'extended_updated_time',
@@ -130,6 +129,7 @@ export default class Business extends AbstractCrudObject {
       profile_plus_manage: 'PROFILE_PLUS_MANAGE',
       profile_plus_messaging: 'PROFILE_PLUS_MESSAGING',
       profile_plus_moderate: 'PROFILE_PLUS_MODERATE',
+      profile_plus_moderate_delegate_community: 'PROFILE_PLUS_MODERATE_DELEGATE_COMMUNITY',
       profile_plus_revenue: 'PROFILE_PLUS_REVENUE',
       read_page_mailboxes: 'READ_PAGE_MAILBOXES',
       view_monetization_insights: 'VIEW_MONETIZATION_INSIGHTS',
@@ -165,6 +165,7 @@ export default class Business extends AbstractCrudObject {
       profile_plus_manage: 'PROFILE_PLUS_MANAGE',
       profile_plus_messaging: 'PROFILE_PLUS_MESSAGING',
       profile_plus_moderate: 'PROFILE_PLUS_MODERATE',
+      profile_plus_moderate_delegate_community: 'PROFILE_PLUS_MODERATE_DELEGATE_COMMUNITY',
       profile_plus_revenue: 'PROFILE_PLUS_REVENUE',
       read_page_mailboxes: 'READ_PAGE_MAILBOXES',
       view_monetization_insights: 'VIEW_MONETIZATION_INSIGHTS',
@@ -255,6 +256,16 @@ export default class Business extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/adnetworkanalytics_results'
+    );
+  }
+
+  getAdsReportingMmmReports (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/ads_reporting_mmm_reports'
     );
   }
 
@@ -512,13 +523,13 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  getContentDeliveryReport (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+  getCpasBusinessSetupConfig (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      ContentDeliveryReport,
+      CPASBusinessSetupConfig,
       fields,
       params,
       fetchFirstPage,
-      '/content_delivery_report'
+      '/cpas_business_setup_config'
     );
   }
 
@@ -542,13 +553,13 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createCreateAndApplyPublisherBlockList (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
-    return this.createEdge(
-      '/create_and_apply_publisher_block_list',
+  getCreditCards (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      CreditCard,
       fields,
       params,
-      null,
-      pathOverride,
+      fetchFirstPage,
+      '/creditcards'
     );
   }
 
@@ -673,6 +684,13 @@ export default class Business extends AbstractCrudObject {
       params,
       Business,
       pathOverride,
+    );
+  }
+
+  deleteManagedPartnerBusinesses (params: Object = {}): Promise<*> {
+    return super.deleteEdge(
+      '/managed_partner_businesses',
+      params
     );
   }
 
@@ -880,6 +898,16 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
+  createPartnerPremiumOption (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+    return this.createEdge(
+      '/partner_premium_options',
+      fields,
+      params,
+      null,
+      pathOverride,
+    );
+  }
+
   getPendingClientAdAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       BusinessAdAccountRequest,
@@ -962,7 +990,7 @@ export default class Business extends AbstractCrudObject {
 
   createPixelTo (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
     return this.createEdge(
-      '/pixeltos',
+      '/pixel_tos',
       fields,
       params,
       null,
@@ -997,16 +1025,6 @@ export default class Business extends AbstractCrudObject {
       params,
       SystemUser,
       pathOverride,
-    );
-  }
-
-  getThirdPartyMeasurementReportDataset (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      ThirdPartyMeasurementReportDataset,
-      fields,
-      params,
-      fetchFirstPage,
-      '/third_party_measurement_report_dataset'
     );
   }
 

@@ -45,6 +45,7 @@ export default class CustomAudience extends AbstractCrudObject {
       name: 'name',
       operation_status: 'operation_status',
       opt_out_link: 'opt_out_link',
+      owner_business: 'owner_business',
       page_deletion_marked_delete_time: 'page_deletion_marked_delete_time',
       permission_for_actions: 'permission_for_actions',
       pixel_id: 'pixel_id',
