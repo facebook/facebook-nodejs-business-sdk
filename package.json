@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "currency-codes": "^1.5.1",
-    "iso-3166-1-alpha-2": "1.0.0",
+    "iso-3166-1": "^2.1.1",
     "js-sha256": "^0.9.0",
     "mixwith": "~0.1.1",
     "request": "^2.88.0",
