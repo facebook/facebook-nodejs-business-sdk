@@ -52,7 +52,7 @@ export default class AdVideo extends AbstractCrudObject {
     batch: FacebookAdsBatchApi,
     failureHandler: Function,
     successHandler: Function,
-  ) {
+  ): any {
     let response = null;
     var spec = this.slideshow_spec;
     if (spec) {
@@ -81,7 +81,7 @@ export default class AdVideo extends AbstractCrudObject {
     return response;
   }
 
-  waitUntilEncodingReady(interval: number = 30, timeout: number = 600) {
+  waitUntilEncodingReady(interval: number = 30, timeout: number = 600): void {
     if (!this.id) {
       throw Error('Invalid Video ID');
     }

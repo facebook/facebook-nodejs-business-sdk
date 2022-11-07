@@ -9,22 +9,26 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * DynamicContentSet
+ * CPASMerchantConfig
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class DynamicContentSet extends AbstractCrudObject {
+export default class CPASMerchantConfig extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      business_id: 'business_id',
+      accepted_tos: 'accepted_tos',
+      beta_features: 'beta_features',
+      business_outcomes_status: 'business_outcomes_status',
       id: 'id',
-      name: 'name',
+      is_test_merchant: 'is_test_merchant',
+      outcomes_compliance_status: 'outcomes_compliance_status',
+      qualified_to_onboard: 'qualified_to_onboard',
     });
   }
 
 
   
-  get (fields: Array<string>, params: Object = {}): DynamicContentSet {
+  get (fields: Array<string>, params: Object = {}): CPASMerchantConfig {
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,

@@ -26,6 +26,7 @@ export default class AdImage extends AbstractCrudObject {
       name: 'name',
       original_height: 'original_height',
       original_width: 'original_width',
+      owner_business: 'owner_business',
       permalink_url: 'permalink_url',
       status: 'status',
       updated_time: 'updated_time',
@@ -39,6 +40,7 @@ export default class AdImage extends AbstractCrudObject {
     return Object.freeze({
       active: 'ACTIVE',
       deleted: 'DELETED',
+      internal: 'INTERNAL',
     });
   }
 

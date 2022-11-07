@@ -9,33 +9,34 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * CanvasTemplate
+ * GameItem
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class CanvasTemplate extends AbstractCrudObject {
+export default class GameItem extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      channels: 'channels',
-      description: 'description',
-      document: 'document',
+      count: 'count',
+      created: 'created',
+      ext_id: 'ext_id',
       id: 'id',
-      is_multi_tab_supportable: 'is_multi_tab_supportable',
-      is_new: 'is_new',
-      name: 'name',
-      objectives: 'objectives',
-      owner_id: 'owner_id',
-      required_capabilities: 'required_capabilities',
-      snapshot_photo: 'snapshot_photo',
+      item_def: 'item_def',
+      owner: 'owner',
       status: 'status',
-      sub_verticals: 'sub_verticals',
-      verticals: 'verticals',
+      updated: 'updated',
     });
   }
 
+  static get Action (): Object {
+    return Object.freeze({
+      consume: 'CONSUME',
+      drop: 'DROP',
+      mark: 'MARK',
+    });
+  }
 
   
-  get (fields: Array<string>, params: Object = {}): CanvasTemplate {
+  get (fields: Array<string>, params: Object = {}): GameItem {
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,

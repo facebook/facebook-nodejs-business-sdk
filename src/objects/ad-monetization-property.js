@@ -19,6 +19,7 @@ import AdNetworkAnalyticsAsyncQueryResult from './ad-network-analytics-async-que
 export default class AdMonetizationProperty extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
+      owner_business: 'owner_business',
       id: 'id',
     });
   }
@@ -34,12 +35,13 @@ export default class AdMonetizationProperty extends AbstractCrudObject {
     );
   }
 
-  createAdNetworkAnalytic (fields: Array<string>, params: Object = {}): Promise<AdMonetizationProperty> {
+  createAdNetworkAnalytic (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdMonetizationProperty> {
     return this.createEdge(
       '/adnetworkanalytics',
       fields,
       params,
-      AdMonetizationProperty
+      AdMonetizationProperty,
+      pathOverride,
     );
   }
 

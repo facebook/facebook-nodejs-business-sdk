@@ -9,19 +9,18 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * NativeOfferDiscount
+ * InstantArticlesStats
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class NativeOfferDiscount extends AbstractCrudObject {
+export default class InstantArticlesStats extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      currency: 'currency',
-      override: 'override',
-      text: 'text',
-      type: 'type',
-      value1: 'value1',
-      value2: 'value2',
+      error: 'error',
+      metadata: 'metadata',
+      metric: 'metric',
+      totals: 'totals',
+      x_axis_breakdown: 'x_axis_breakdown',
     });
   }
 

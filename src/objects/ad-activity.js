@@ -69,6 +69,7 @@ export default class AdActivity extends AbstractCrudObject {
       funding_event_initiated: 'funding_event_initiated',
       funding_event_successful: 'funding_event_successful',
       lifetime_budget_spent: 'lifetime_budget_spent',
+      merge_campaigns: 'merge_campaigns',
       receive_audience: 'receive_audience',
       remove_funding_source: 'remove_funding_source',
       remove_shared_audience: 'remove_shared_audience',
@@ -130,6 +131,8 @@ export default class AdActivity extends AbstractCrudObject {
     return Object.freeze({
       calypso: 'CALYPSO',
       tao: 'TAO',
+      tao_ad_account: 'TAO_AD_ACCOUNT',
+      tao_ad_status: 'TAO_AD_STATUS',
     });
   }
 }

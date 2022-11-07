@@ -105,6 +105,7 @@ export default class Ad extends AbstractCrudObject {
   }
   static get DatePreset (): Object {
     return Object.freeze({
+      data_maximum: 'data_maximum',
       last_14d: 'last_14d',
       last_28d: 'last_28d',
       last_30d: 'last_30d',
@@ -157,12 +158,13 @@ export default class Ad extends AbstractCrudObject {
     );
   }
 
-  createAdLabel (fields: Array<string>, params: Object = {}): Promise<Ad> {
+  createAdLabel (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Ad> {
     return this.createEdge(
       '/adlabels',
       fields,
       params,
-      Ad
+      Ad,
+      pathOverride,
     );
   }
 
@@ -186,12 +188,13 @@ export default class Ad extends AbstractCrudObject {
     );
   }
 
-  createCopy (fields: Array<string>, params: Object = {}): Promise<Ad> {
+  createCopy (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Ad> {
     return this.createEdge(
       '/copies',
       fields,
       params,
-      Ad
+      Ad,
+      pathOverride,
     );
   }
 
@@ -205,12 +208,13 @@ export default class Ad extends AbstractCrudObject {
     );
   }
 
-  getInsightsAsync (fields: Array<string>, params: Object = {}): Promise<AdReportRun> {
+  getInsightsAsync (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdReportRun> {
     return this.createEdge(
       '/insights',
       fields,
       params,
-      AdReportRun
+      AdReportRun,
+      pathOverride,
     );
   }
 
@@ -224,7 +228,7 @@ export default class Ad extends AbstractCrudObject {
     );
   }
 
-  getPreviews (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+  getPreViews (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdPreview,
       fields,

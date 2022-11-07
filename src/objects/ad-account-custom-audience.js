@@ -9,17 +9,16 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * AdgroupRelevanceScore
+ * AdAccountCustomAudience
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class AdgroupRelevanceScore extends AbstractCrudObject {
+export default class AdAccountCustomAudience extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      negative_feedback: 'negative_feedback',
-      positive_feedback: 'positive_feedback',
-      score: 'score',
-      status: 'status',
+      audience_type_param_name: 'audience_type_param_name',
+      existing_customer_tag: 'existing_customer_tag',
+      new_customer_tag: 'new_customer_tag',
     });
   }
 

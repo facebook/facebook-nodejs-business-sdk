@@ -42,7 +42,7 @@ export default class EventRequest {
     /**
      * Gets the data for the request Payload for a Business Data Event.
      */
-    get events() {
+    get events(): Array<Event> {
         return this._events;
     }
 
@@ -67,7 +67,7 @@ export default class EventRequest {
      * Gets the partner_agent for the request
      * Allows you to specify the platform from which the event is sent e.g. Zapier
      */
-    get partner_agent() {
+    get partner_agent(): ?string {
         return this._partner_agent;
     }
 
@@ -93,7 +93,7 @@ export default class EventRequest {
     /**
      * Gets the access token for the Graph API request
      */
-    get access_token() {
+    get access_token(): string {
         return this._access_token;
     }
 
@@ -117,7 +117,7 @@ export default class EventRequest {
     /**
      * Gets the page id against which we send the events
      */
-    get page_id() {
+    get page_id(): string {
         return this._page_id;
     }
 

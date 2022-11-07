@@ -23,7 +23,8 @@ export default class CustomAudience extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       account_id: 'account_id',
-      approximate_count: 'approximate_count',
+      approximate_count_lower_bound: 'approximate_count_lower_bound',
+      approximate_count_upper_bound: 'approximate_count_upper_bound',
       customer_file_source: 'customer_file_source',
       data_source: 'data_source',
       data_source_types: 'data_source_types',
@@ -44,6 +45,7 @@ export default class CustomAudience extends AbstractCrudObject {
       name: 'name',
       operation_status: 'operation_status',
       opt_out_link: 'opt_out_link',
+      owner_business: 'owner_business',
       page_deletion_marked_delete_time: 'page_deletion_marked_delete_time',
       permission_for_actions: 'permission_for_actions',
       pixel_id: 'pixel_id',
@@ -117,6 +119,12 @@ export default class CustomAudience extends AbstractCrudObject {
       website: 'WEBSITE',
     });
   }
+  static get ActionSource (): Object {
+    return Object.freeze({
+      physical_store: 'PHYSICAL_STORE',
+      website: 'WEBSITE',
+    });
+  }
 
   deleteAdAccounts (params: Object = {}): Promise<*> {
     return super.deleteEdge(
@@ -135,12 +143,13 @@ export default class CustomAudience extends AbstractCrudObject {
     );
   }
 
-  createAdAccount (fields: Array<string>, params: Object = {}): Promise<CustomAudience> {
+  createAdAccount (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<CustomAudience> {
     return this.createEdge(
       '/adaccounts',
       fields,
       params,
-      CustomAudience
+      CustomAudience,
+      pathOverride,
     );
   }
 
@@ -181,21 +190,23 @@ export default class CustomAudience extends AbstractCrudObject {
     );
   }
 
-  createUser (fields: Array<string>, params: Object = {}): Promise<CustomAudience> {
+  createUser (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<CustomAudience> {
     return this.createEdge(
       '/users',
       fields,
       params,
-      CustomAudience
+      CustomAudience,
+      pathOverride,
     );
   }
 
-  createUsersReplace (fields: Array<string>, params: Object = {}): Promise<CustomAudience> {
+  createUsersReplace (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<CustomAudience> {
     return this.createEdge(
       '/usersreplace',
       fields,
       params,
-      CustomAudience
+      CustomAudience,
+      pathOverride,
     );
   }
 
