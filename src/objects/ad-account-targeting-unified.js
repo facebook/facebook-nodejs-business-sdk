@@ -16,7 +16,6 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class AdAccountTargetingUnified extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      audience_size: 'audience_size',
       audience_size_lower_bound: 'audience_size_lower_bound',
       audience_size_upper_bound: 'audience_size_upper_bound',
       conversion_lift: 'conversion_lift',
@@ -190,6 +189,7 @@ export default class AdAccountTargetingUnified extends AbstractCrudObject {
       relationship_statuses: 'relationship_statuses',
       rtb_flag: 'rtb_flag',
       site_category: 'site_category',
+      targeting_automation: 'targeting_automation',
       targeting_optimization: 'targeting_optimization',
       targeting_relaxation_types: 'targeting_relaxation_types',
       timezones: 'timezones',

@@ -53,7 +53,6 @@ const eventsData = [serverEvent];
 const eventRequest = (new EventRequest(access_token, pixel_id))
                 .setEvents(eventsData);
 
-
 eventRequest.execute().then(
   response => {
     console.log('Response: ', response);

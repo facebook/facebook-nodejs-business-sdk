@@ -17,9 +17,11 @@ export default class ProductCatalogDiagnosticGroup extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       affected_channels: 'affected_channels',
+      affected_entity: 'affected_entity',
       affected_features: 'affected_features',
       diagnostics: 'diagnostics',
       error_code: 'error_code',
+      number_of_affected_entities: 'number_of_affected_entities',
       number_of_affected_items: 'number_of_affected_items',
       severity: 'severity',
       subtitle: 'subtitle',
@@ -37,6 +39,13 @@ export default class ProductCatalogDiagnosticGroup extends AbstractCrudObject {
       us_marketplace: 'us_marketplace',
     });
   }
+  static get AffectedEntity (): Object {
+    return Object.freeze({
+      product_catalog: 'product_catalog',
+      product_item: 'product_item',
+      product_set: 'product_set',
+    });
+  }
   static get AffectedFeatures (): Object {
     return Object.freeze({
       augmented_reality: 'augmented_reality',
@@ -51,6 +60,7 @@ export default class ProductCatalogDiagnosticGroup extends AbstractCrudObject {
   }
   static get Type (): Object {
     return Object.freeze({
+      ar_visibility_issues: 'AR_VISIBILITY_ISSUES',
       attributes_invalid: 'ATTRIBUTES_INVALID',
       attributes_missing: 'ATTRIBUTES_MISSING',
       category: 'CATEGORY',
@@ -61,6 +71,13 @@ export default class ProductCatalogDiagnosticGroup extends AbstractCrudObject {
       shops_visibility_issues: 'SHOPS_VISIBILITY_ISSUES',
     });
   }
+  static get AffectedEntities (): Object {
+    return Object.freeze({
+      product_catalog: 'product_catalog',
+      product_item: 'product_item',
+      product_set: 'product_set',
+    });
+  }
   static get Severities (): Object {
     return Object.freeze({
       must_fix: 'MUST_FIX',
@@ -69,6 +86,7 @@ export default class ProductCatalogDiagnosticGroup extends AbstractCrudObject {
   }
   static get Types (): Object {
     return Object.freeze({
+      ar_visibility_issues: 'AR_VISIBILITY_ISSUES',
       attributes_invalid: 'ATTRIBUTES_INVALID',
       attributes_missing: 'ATTRIBUTES_MISSING',
       category: 'CATEGORY',

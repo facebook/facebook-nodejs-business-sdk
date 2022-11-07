@@ -418,7 +418,7 @@ class VideoUploadRequest {
   }
 }
 
-function sleep(ms) {
+function sleep(ms: number) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
@@ -428,7 +428,7 @@ class VideoEncodingStatusChecker {
     videoId: number,
     interval: number,
     timeout: number,
-  ) {
+  ): void {
     const startTime = new Date().getTime();
     let status = null;
 
@@ -451,8 +451,6 @@ class VideoEncodingStatusChecker {
       status = status == null ? '' : status;
       throw Error(`Video encoding status ${status}`);
     }
-
-    return;
   }
 
   static getStatus(api: FacebookAdsApi, videoId: number): any {

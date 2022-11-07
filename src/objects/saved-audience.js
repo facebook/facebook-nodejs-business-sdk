@@ -17,8 +17,6 @@ export default class SavedAudience extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       account: 'account',
-      approximate_count: 'approximate_count',
-      approximate_count_64bit: 'approximate_count_64bit',
       approximate_count_lower_bound: 'approximate_count_lower_bound',
       approximate_count_upper_bound: 'approximate_count_upper_bound',
       delete_time: 'delete_time',
@@ -27,6 +25,7 @@ export default class SavedAudience extends AbstractCrudObject {
       id: 'id',
       name: 'name',
       operation_status: 'operation_status',
+      owner_business: 'owner_business',
       page_deletion_marked_delete_time: 'page_deletion_marked_delete_time',
       permission_for_actions: 'permission_for_actions',
       run_status: 'run_status',

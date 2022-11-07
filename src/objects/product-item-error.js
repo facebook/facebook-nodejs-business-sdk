@@ -9,21 +9,17 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * AudienceInsightsStudySpec
+ * ProductItemError
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class AudienceInsightsStudySpec extends AbstractCrudObject {
+export default class ProductItemError extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      audience_definition: 'audience_definition',
-      author_info: 'author_info',
-      creation_time: 'creation_time',
-      end_time: 'end_time',
-      excluded_rules: 'excluded_rules',
-      included_rules: 'included_rules',
-      start_time: 'start_time',
-      status: 'status',
+      description: 'description',
+      error_priority: 'error_priority',
+      error_type: 'error_type',
+      title: 'title',
     });
   }
 

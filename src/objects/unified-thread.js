@@ -40,6 +40,7 @@ export default class UnifiedThread extends AbstractCrudObject {
     return Object.freeze({
       instagram: 'INSTAGRAM',
       messenger: 'MESSENGER',
+      whatsapp: 'WHATSAPP',
     });
   }
 

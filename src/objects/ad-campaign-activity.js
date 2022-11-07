@@ -74,6 +74,7 @@ export default class AdCampaignActivity extends AbstractCrudObject {
       targeting_old: 'targeting_old',
       updated_time_new: 'updated_time_new',
       updated_time_old: 'updated_time_old',
+      user: 'user',
     });
   }
 
@@ -131,9 +132,11 @@ export default class AdCampaignActivity extends AbstractCrudObject {
       engaged_users: 'ENGAGED_USERS',
       event_responses: 'EVENT_RESPONSES',
       impressions: 'IMPRESSIONS',
+      in_app_value: 'IN_APP_VALUE',
       landing_page_views: 'LANDING_PAGE_VIEWS',
       lead_generation: 'LEAD_GENERATION',
       link_clicks: 'LINK_CLICKS',
+      messaging_purchase_conversion: 'MESSAGING_PURCHASE_CONVERSION',
       none: 'NONE',
       offsite_conversions: 'OFFSITE_CONVERSIONS',
       page_likes: 'PAGE_LIKES',
@@ -156,9 +159,11 @@ export default class AdCampaignActivity extends AbstractCrudObject {
       engaged_users: 'ENGAGED_USERS',
       event_responses: 'EVENT_RESPONSES',
       impressions: 'IMPRESSIONS',
+      in_app_value: 'IN_APP_VALUE',
       landing_page_views: 'LANDING_PAGE_VIEWS',
       lead_generation: 'LEAD_GENERATION',
       link_clicks: 'LINK_CLICKS',
+      messaging_purchase_conversion: 'MESSAGING_PURCHASE_CONVERSION',
       none: 'NONE',
       offsite_conversions: 'OFFSITE_CONVERSIONS',
       page_likes: 'PAGE_LIKES',

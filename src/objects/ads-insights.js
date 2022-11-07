@@ -115,6 +115,7 @@ export default class AdsInsights extends AbstractCrudObject {
       social_spend: 'social_spend',
       spend: 'spend',
       total_postbacks: 'total_postbacks',
+      total_postbacks_detailed: 'total_postbacks_detailed',
       unique_actions: 'unique_actions',
       unique_clicks: 'unique_clicks',
       unique_conversions: 'unique_conversions',
@@ -159,6 +160,8 @@ export default class AdsInsights extends AbstractCrudObject {
       value_7d_view: '7d_view',
       dda: 'dda',
       default: 'default',
+      skan_click: 'skan_click',
+      skan_view: 'skan_view',
     });
   }
   static get ActionBreakdowns (): Object {
@@ -199,12 +202,15 @@ export default class AdsInsights extends AbstractCrudObject {
       hourly_stats_aggregated_by_audience_time_zone: 'hourly_stats_aggregated_by_audience_time_zone',
       image_asset: 'image_asset',
       impression_device: 'impression_device',
+      is_conversion_id_modeled: 'is_conversion_id_modeled',
       link_url_asset: 'link_url_asset',
+      mmm: 'mmm',
       place_page_id: 'place_page_id',
       platform_position: 'platform_position',
       product_id: 'product_id',
       publisher_platform: 'publisher_platform',
       region: 'region',
+      skan_campaign_id: 'skan_campaign_id',
       skan_conversion_id: 'skan_conversion_id',
       title_asset: 'title_asset',
       video_asset: 'video_asset',
@@ -212,6 +218,7 @@ export default class AdsInsights extends AbstractCrudObject {
   }
   static get DatePreset (): Object {
     return Object.freeze({
+      data_maximum: 'data_maximum',
       last_14d: 'last_14d',
       last_28d: 'last_28d',
       last_30d: 'last_30d',

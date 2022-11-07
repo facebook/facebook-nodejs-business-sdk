@@ -23,7 +23,6 @@ export default class CustomAudience extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       account_id: 'account_id',
-      approximate_count: 'approximate_count',
       approximate_count_lower_bound: 'approximate_count_lower_bound',
       approximate_count_upper_bound: 'approximate_count_upper_bound',
       customer_file_source: 'customer_file_source',
@@ -46,6 +45,7 @@ export default class CustomAudience extends AbstractCrudObject {
       name: 'name',
       operation_status: 'operation_status',
       opt_out_link: 'opt_out_link',
+      owner_business: 'owner_business',
       page_deletion_marked_delete_time: 'page_deletion_marked_delete_time',
       permission_for_actions: 'permission_for_actions',
       pixel_id: 'pixel_id',
@@ -116,6 +116,12 @@ export default class CustomAudience extends AbstractCrudObject {
       regulated_categories_audience: 'REGULATED_CATEGORIES_AUDIENCE',
       study_rule_audience: 'STUDY_RULE_AUDIENCE',
       video: 'VIDEO',
+      website: 'WEBSITE',
+    });
+  }
+  static get ActionSource (): Object {
+    return Object.freeze({
+      physical_store: 'PHYSICAL_STORE',
       website: 'WEBSITE',
     });
   }

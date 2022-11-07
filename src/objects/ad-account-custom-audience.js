@@ -9,26 +9,17 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * Domain
+ * AdAccountCustomAudience
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class Domain extends AbstractCrudObject {
+export default class AdAccountCustomAudience extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      id: 'id',
-      name: 'name',
-      url: 'url',
+      audience_type_param_name: 'audience_type_param_name',
+      existing_customer_tag: 'existing_customer_tag',
+      new_customer_tag: 'new_customer_tag',
     });
   }
 
-
-  
-  get (fields: Array<string>, params: Object = {}): Domain {
-    // $FlowFixMe : Support Generic Types
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

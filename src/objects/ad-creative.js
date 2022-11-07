@@ -33,6 +33,7 @@ export default class AdCreative extends AbstractCrudObject {
       call_to_action_type: 'call_to_action_type',
       categorization_criteria: 'categorization_criteria',
       category_media_source: 'category_media_source',
+      collaborative_ads_lsb_image_bank_id: 'collaborative_ads_lsb_image_bank_id',
       destination_set_id: 'destination_set_id',
       dynamic_ad_voice: 'dynamic_ad_voice',
       effective_authorization_category: 'effective_authorization_category',
@@ -62,6 +63,7 @@ export default class AdCreative extends AbstractCrudObject {
       object_story_spec: 'object_story_spec',
       object_type: 'object_type',
       object_url: 'object_url',
+      omnichannel_link_spec: 'omnichannel_link_spec',
       place_page_set_id: 'place_page_set_id',
       platform_customizations: 'platform_customizations',
       playable_asset_id: 'playable_asset_id',
@@ -72,6 +74,7 @@ export default class AdCreative extends AbstractCrudObject {
       status: 'status',
       template_url: 'template_url',
       template_url_spec: 'template_url_spec',
+      thumbnail_id: 'thumbnail_id',
       thumbnail_url: 'thumbnail_url',
       title: 'title',
       url_tags: 'url_tags',
@@ -107,6 +110,7 @@ export default class AdCreative extends AbstractCrudObject {
       get_offer_view: 'GET_OFFER_VIEW',
       get_quote: 'GET_QUOTE',
       get_showtimes: 'GET_SHOWTIMES',
+      get_started: 'GET_STARTED',
       install_app: 'INSTALL_APP',
       install_mobile_app: 'INSTALL_MOBILE_APP',
       learn_more: 'LEARN_MORE',
@@ -117,11 +121,14 @@ export default class AdCreative extends AbstractCrudObject {
       mobile_download: 'MOBILE_DOWNLOAD',
       moments: 'MOMENTS',
       no_button: 'NO_BUTTON',
+      open_instant_app: 'OPEN_INSTANT_APP',
       open_link: 'OPEN_LINK',
       order_now: 'ORDER_NOW',
       pay_to_access: 'PAY_TO_ACCESS',
       play_game: 'PLAY_GAME',
+      play_game_on_facebook: 'PLAY_GAME_ON_FACEBOOK',
       purchase_gift_cards: 'PURCHASE_GIFT_CARDS',
+      raise_money: 'RAISE_MONEY',
       record_now: 'RECORD_NOW',
       refer_friends: 'REFER_FRIENDS',
       request_time: 'REQUEST_TIME',
@@ -210,12 +217,6 @@ export default class AdCreative extends AbstractCrudObject {
       story_owner: 'STORY_OWNER',
     });
   }
-  static get InstantCheckoutSetting (): Object {
-    return Object.freeze({
-      off: 'off',
-      on: 'on',
-    });
-  }
   static get Operator (): Object {
     return Object.freeze({
       all: 'ALL',
@@ -243,7 +244,7 @@ export default class AdCreative extends AbstractCrudObject {
     );
   }
 
-  getPreviews (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+  getPreViews (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdPreview,
       fields,

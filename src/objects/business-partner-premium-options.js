@@ -9,17 +9,16 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * AdgroupRelevanceScore
+ * BusinessPartnerPremiumOptions
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class AdgroupRelevanceScore extends AbstractCrudObject {
+export default class BusinessPartnerPremiumOptions extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      negative_feedback: 'negative_feedback',
-      positive_feedback: 'positive_feedback',
-      score: 'score',
-      status: 'status',
+      enable_basket_insight: 'enable_basket_insight',
+      enable_extended_audience_retargeting: 'enable_extended_audience_retargeting',
+      retailer_custom_audience_config: 'retailer_custom_audience_config',
     });
   }
 

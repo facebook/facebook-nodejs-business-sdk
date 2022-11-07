@@ -13,6 +13,7 @@ import AdAccount from './ad-account';
 import Business from './business';
 import CustomAudience from './custom-audience';
 import CustomConversion from './custom-conversion';
+import OfflineConversionDataSetUpload from './offline-conversion-data-set-upload';
 
 /**
  * OfflineConversionDataSet
@@ -25,6 +26,7 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
       business: 'business',
       config: 'config',
       creation_time: 'creation_time',
+      creator: 'creator',
       description: 'description',
       duplicate_entries: 'duplicate_entries',
       enable_auto_assign_to_accounts: 'enable_auto_assign_to_accounts',
@@ -40,6 +42,7 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
       match_rate_approx: 'match_rate_approx',
       matched_entries: 'matched_entries',
       name: 'name',
+      owner_business: 'owner_business',
       usage: 'usage',
       valid_entries: 'valid_entries',
     });
@@ -144,7 +147,7 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
 
   getUploads (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      AbstractObject,
+      OfflineConversionDataSetUpload,
       fields,
       params,
       fetchFirstPage,
@@ -152,12 +155,12 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
     );
   }
 
-  createUpload (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+  createUpload (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<OfflineConversionDataSetUpload> {
     return this.createEdge(
       '/uploads',
       fields,
       params,
-      null,
+      OfflineConversionDataSetUpload,
       pathOverride,
     );
   }

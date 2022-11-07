@@ -9,17 +9,17 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * BilledAmountDetails
+ * OfflineConversionDataSetPermissions
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class BilledAmountDetails extends AbstractCrudObject {
+export default class OfflineConversionDataSetPermissions extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      currency: 'currency',
-      net_amount: 'net_amount',
-      tax_amount: 'tax_amount',
-      total_amount: 'total_amount',
+      can_edit: 'can_edit',
+      can_edit_or_upload: 'can_edit_or_upload',
+      can_upload: 'can_upload',
+      should_block_vanilla_business_employee_access: 'should_block_vanilla_business_employee_access',
     });
   }
 

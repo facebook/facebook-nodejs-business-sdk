@@ -27,6 +27,7 @@ export default class CommerceMerchantSettings extends AbstractCrudObject {
     return Object.freeze({
       braintree_merchant_id: 'braintree_merchant_id',
       checkout_message: 'checkout_message',
+      commerce_store: 'commerce_store',
       contact_email: 'contact_email',
       cta: 'cta',
       disable_checkout_urls: 'disable_checkout_urls',
@@ -94,6 +95,16 @@ export default class CommerceMerchantSettings extends AbstractCrudObject {
     );
   }
 
+  getOnsiteConversionEvents (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/onsite_conversion_events'
+    );
+  }
+
   getOrderManagementApps (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Application,
@@ -131,6 +142,16 @@ export default class CommerceMerchantSettings extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/returns'
+    );
+  }
+
+  getSellerIssues (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/seller_issues'
     );
   }
 

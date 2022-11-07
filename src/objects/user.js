@@ -23,10 +23,11 @@ import UnifiedThread from './unified-thread';
 import PageUserMessageThreadLabel from './page-user-message-thread-label';
 import Event from './event';
 import Post from './post';
+import FundraiserPersonToCharity from './fundraiser-person-to-charity';
+import GameItem from './game-item';
 import Group from './group';
 import UserIDForApp from './user-id-for-app';
 import UserIDForPage from './user-id-for-page';
-import LiveEncoder from './live-encoder';
 import LiveVideo from './live-video';
 import PaymentEnginePayment from './payment-engine-payment';
 import Permission from './permission';
@@ -59,9 +60,7 @@ export default class User extends AbstractCrudObject {
       inspirational_people: 'inspirational_people',
       install_type: 'install_type',
       installed: 'installed',
-      interested_in: 'interested_in',
       is_guest_user: 'is_guest_user',
-      is_verified: 'is_verified',
       languages: 'languages',
       last_name: 'last_name',
       link: 'link',
@@ -78,7 +77,6 @@ export default class User extends AbstractCrudObject {
       profile_pic: 'profile_pic',
       quotes: 'quotes',
       relationship_status: 'relationship_status',
-      religion: 'religion',
       shared_login_upgrade_required_by: 'shared_login_upgrade_required_by',
       short_name: 'short_name',
       significant_other: 'significant_other',
@@ -267,6 +265,16 @@ export default class User extends AbstractCrudObject {
     );
   }
 
+  getAvatars (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/avatars'
+    );
+  }
+
   getBusinessUsers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       BusinessUser,
@@ -364,12 +372,32 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  createGameItem (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+  getFundraisers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      FundraiserPersonToCharity,
+      fields,
+      params,
+      fetchFirstPage,
+      '/fundraisers'
+    );
+  }
+
+  createFundraiser (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<FundraiserPersonToCharity> {
+    return this.createEdge(
+      '/fundraisers',
+      fields,
+      params,
+      FundraiserPersonToCharity,
+      pathOverride,
+    );
+  }
+
+  createGameItem (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<GameItem> {
     return this.createEdge(
       '/game_items',
       fields,
       params,
-      null,
+      GameItem,
       pathOverride,
     );
   }
@@ -431,26 +459,6 @@ export default class User extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/likes'
-    );
-  }
-
-  getLiveEncoders (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      LiveEncoder,
-      fields,
-      params,
-      fetchFirstPage,
-      '/live_encoders'
-    );
-  }
-
-  createLiveEncoder (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<LiveEncoder> {
-    return this.createEdge(
-      '/live_encoders',
-      fields,
-      params,
-      LiveEncoder,
-      pathOverride,
     );
   }
 

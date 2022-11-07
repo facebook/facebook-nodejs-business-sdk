@@ -50,6 +50,7 @@ export default class AdgroupPlacementSpecificReviewFeedback extends AbstractCrud
       seller: 'seller',
       shops: 'shops',
       traffic_quality: 'traffic_quality',
+      unified_commerce_content: 'unified_commerce_content',
       whatsapp: 'whatsapp',
     });
   }

@@ -33,6 +33,7 @@ export default class Group extends AbstractCrudObject {
       email: 'email',
       icon: 'icon',
       id: 'id',
+      install: 'install',
       link: 'link',
       member_count: 'member_count',
       member_request_count: 'member_request_count',
@@ -64,43 +65,18 @@ export default class Group extends AbstractCrudObject {
   static get Purpose (): Object {
     return Object.freeze({
       casual: 'CASUAL',
-      close_friends: 'CLOSE_FRIENDS',
-      club: 'CLUB',
-      couple: 'COUPLE',
       coworkers: 'COWORKERS',
       custom: 'CUSTOM',
-      deals: 'DEALS',
-      ephemeral: 'EPHEMERAL',
-      event_planning: 'EVENT_PLANNING',
-      family: 'FAMILY',
-      fantasy_league: 'FANTASY_LEAGUE',
-      fitness: 'FITNESS',
       for_sale: 'FOR_SALE',
       for_work: 'FOR_WORK',
-      fraternity: 'FRATERNITY',
       game: 'GAME',
       health_support: 'HEALTH_SUPPORT',
-      high_school_forum: 'HIGH_SCHOOL_FORUM',
       jobs: 'JOBS',
       learning: 'LEARNING',
-      mentorship: 'MENTORSHIP',
-      neighbors: 'NEIGHBORS',
       none: 'NONE',
-      oculus: 'OCULUS',
       parenting: 'PARENTING',
-      parents: 'PARENTS',
-      project: 'PROJECT',
-      real_world: 'REAL_WORLD',
       real_world_at_work: 'REAL_WORLD_AT_WORK',
-      school_class: 'SCHOOL_CLASS',
-      sorority: 'SORORITY',
-      sports: 'SPORTS',
       streamer: 'STREAMER',
-      study_group: 'STUDY_GROUP',
-      support: 'SUPPORT',
-      teammates: 'TEAMMATES',
-      theme: 'THEME',
-      travel_planning: 'TRAVEL_PLANNING',
       work_announcement: 'WORK_ANNOUNCEMENT',
       work_demo_group: 'WORK_DEMO_GROUP',
       work_discussion: 'WORK_DISCUSSION',
@@ -108,57 +84,32 @@ export default class Group extends AbstractCrudObject {
       work_feedback: 'WORK_FEEDBACK',
       work_for_sale: 'WORK_FOR_SALE',
       work_garden: 'WORK_GARDEN',
+      work_integrity: 'WORK_INTEGRITY',
       work_learning: 'WORK_LEARNING',
       work_mentorship: 'WORK_MENTORSHIP',
       work_multi_company: 'WORK_MULTI_COMPANY',
       work_recruiting: 'WORK_RECRUITING',
-      work_resume_review: 'WORK_RESUME_REVIEW',
       work_social: 'WORK_SOCIAL',
+      work_stages: 'WORK_STAGES',
       work_team: 'WORK_TEAM',
       work_teamwork: 'WORK_TEAMWORK',
-      work_vc_call: 'WORK_VC_CALL',
     });
   }
   static get GroupType (): Object {
     return Object.freeze({
       casual: 'CASUAL',
-      close_friends: 'CLOSE_FRIENDS',
-      club: 'CLUB',
-      couple: 'COUPLE',
       coworkers: 'COWORKERS',
       custom: 'CUSTOM',
-      deals: 'DEALS',
-      ephemeral: 'EPHEMERAL',
-      event_planning: 'EVENT_PLANNING',
-      family: 'FAMILY',
-      fantasy_league: 'FANTASY_LEAGUE',
-      fitness: 'FITNESS',
       for_sale: 'FOR_SALE',
       for_work: 'FOR_WORK',
-      fraternity: 'FRATERNITY',
       game: 'GAME',
       health_support: 'HEALTH_SUPPORT',
-      high_school_forum: 'HIGH_SCHOOL_FORUM',
       jobs: 'JOBS',
       learning: 'LEARNING',
-      mentorship: 'MENTORSHIP',
-      neighbors: 'NEIGHBORS',
       none: 'NONE',
-      oculus: 'OCULUS',
       parenting: 'PARENTING',
-      parents: 'PARENTS',
-      project: 'PROJECT',
-      real_world: 'REAL_WORLD',
       real_world_at_work: 'REAL_WORLD_AT_WORK',
-      school_class: 'SCHOOL_CLASS',
-      sorority: 'SORORITY',
-      sports: 'SPORTS',
       streamer: 'STREAMER',
-      study_group: 'STUDY_GROUP',
-      support: 'SUPPORT',
-      teammates: 'TEAMMATES',
-      theme: 'THEME',
-      travel_planning: 'TRAVEL_PLANNING',
       work_announcement: 'WORK_ANNOUNCEMENT',
       work_demo_group: 'WORK_DEMO_GROUP',
       work_discussion: 'WORK_DISCUSSION',
@@ -166,15 +117,15 @@ export default class Group extends AbstractCrudObject {
       work_feedback: 'WORK_FEEDBACK',
       work_for_sale: 'WORK_FOR_SALE',
       work_garden: 'WORK_GARDEN',
+      work_integrity: 'WORK_INTEGRITY',
       work_learning: 'WORK_LEARNING',
       work_mentorship: 'WORK_MENTORSHIP',
       work_multi_company: 'WORK_MULTI_COMPANY',
       work_recruiting: 'WORK_RECRUITING',
-      work_resume_review: 'WORK_RESUME_REVIEW',
       work_social: 'WORK_SOCIAL',
+      work_stages: 'WORK_STAGES',
       work_team: 'WORK_TEAM',
       work_teamwork: 'WORK_TEAMWORK',
-      work_vc_call: 'WORK_VC_CALL',
     });
   }
 
@@ -215,6 +166,26 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
+  getAttachmentSurfaces (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/attachment_surfaces'
+    );
+  }
+
+  createAttachmentSurface (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+    return this.createEdge(
+      '/attachment_surfaces',
+      fields,
+      params,
+      null,
+      pathOverride,
+    );
+  }
+
   getDocs (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AbstractObject,
@@ -232,6 +203,26 @@ export default class Group extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/events'
+    );
+  }
+
+  getFeaturedCards (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/featured_cards'
+    );
+  }
+
+  createFeaturedCard (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+    return this.createEdge(
+      '/featured_cards',
+      fields,
+      params,
+      null,
+      pathOverride,
     );
   }
 

@@ -30,13 +30,35 @@ export default class IGUser extends AbstractCrudObject {
       mentioned_comment: 'mentioned_comment',
       mentioned_media: 'mentioned_media',
       name: 'name',
+      owner_business: 'owner_business',
       profile_picture_url: 'profile_picture_url',
+      shopping_product_tag_eligibility: 'shopping_product_tag_eligibility',
       shopping_review_status: 'shopping_review_status',
       username: 'username',
       website: 'website',
     });
   }
 
+
+  getAvailableCatalogs (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/available_catalogs'
+    );
+  }
+
+  getCatalogProductSearch (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/catalog_product_search'
+    );
+  }
 
   getContentPublishingLimit (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
@@ -55,6 +77,16 @@ export default class IGUser extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/insights'
+    );
+  }
+
+  getLiveMedia (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      IGMedia,
+      fields,
+      params,
+      fetchFirstPage,
+      '/live_media'
     );
   }
 
@@ -91,6 +123,26 @@ export default class IGUser extends AbstractCrudObject {
   createMention (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
     return this.createEdge(
       '/mentions',
+      fields,
+      params,
+      null,
+      pathOverride,
+    );
+  }
+
+  getProductAppeal (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/product_appeal'
+    );
+  }
+
+  createProductAppeal (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+    return this.createEdge(
+      '/product_appeal',
       fields,
       params,
       null,
