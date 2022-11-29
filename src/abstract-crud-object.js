@@ -55,7 +55,7 @@ export class AbstractCrudObject extends AbstractObject {
     }
     Object.defineProperty(this, field, {
       get: () => this._data[field],
-      set: value: string => {
+      set: (value: string) => {
         this._changes[field] = value;
         this._data[field] = value;
       },

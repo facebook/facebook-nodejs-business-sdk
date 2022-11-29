@@ -428,7 +428,7 @@ class VideoEncodingStatusChecker {
     videoId: number,
     interval: number,
     timeout: number,
-  ): void {
+  ): Promise<void> {
     const startTime = new Date().getTime();
     let status = null;
 
