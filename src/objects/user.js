@@ -57,6 +57,7 @@ export default class User extends AbstractCrudObject {
       gender: 'gender',
       hometown: 'hometown',
       id: 'id',
+      id_for_avatars: 'id_for_avatars',
       inspirational_people: 'inspirational_people',
       install_type: 'install_type',
       installed: 'installed',
@@ -478,6 +479,16 @@ export default class User extends AbstractCrudObject {
       fields,
       params,
       LiveVideo,
+      pathOverride,
+    );
+  }
+
+  createMessengerDesktopPerformanceTrace (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<User> {
+    return this.createEdge(
+      '/messenger_desktop_performance_traces',
+      fields,
+      params,
+      User,
       pathOverride,
     );
   }

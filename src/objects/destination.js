@@ -35,6 +35,7 @@ export default class Destination extends AbstractCrudObject {
       types: 'types',
       unit_price: 'unit_price',
       url: 'url',
+      visibility: 'visibility',
     });
   }
 
@@ -46,6 +47,12 @@ export default class Destination extends AbstractCrudObject {
       no_status: 'NO_STATUS',
       outdated: 'OUTDATED',
       partial_fetch: 'PARTIAL_FETCH',
+    });
+  }
+  static get Visibility (): Object {
+    return Object.freeze({
+      published: 'PUBLISHED',
+      staging: 'STAGING',
     });
   }
 

@@ -49,7 +49,7 @@ export default class Canvas extends AbstractCrudObject {
   }
 
 
-  getPreViews (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+  getPreviews (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       TextWithEntities,
       fields,

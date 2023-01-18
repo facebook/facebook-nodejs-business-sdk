@@ -25,6 +25,7 @@ export default class AdCreativeLinkDataCallToAction extends AbstractCrudObject {
     return Object.freeze({
       add_to_cart: 'ADD_TO_CART',
       apply_now: 'APPLY_NOW',
+      audio_call: 'AUDIO_CALL',
       book_travel: 'BOOK_TRAVEL',
       buy: 'BUY',
       buy_now: 'BUY_NOW',
@@ -75,6 +76,7 @@ export default class AdCreativeLinkDataCallToAction extends AbstractCrudObject {
       sell_now: 'SELL_NOW',
       send_a_gift: 'SEND_A_GIFT',
       send_gift_money: 'SEND_GIFT_MONEY',
+      send_updates: 'SEND_UPDATES',
       share: 'SHARE',
       shop_now: 'SHOP_NOW',
       sign_up: 'SIGN_UP',

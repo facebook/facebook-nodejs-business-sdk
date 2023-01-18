@@ -9,25 +9,21 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * PageUpcomingChange
+ * CommerceMerchantTOSAcceptance
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class PageUpcomingChange extends AbstractCrudObject {
+export default class CommerceMerchantTOSAcceptance extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      change_type: 'change_type',
-      effective_time: 'effective_time',
+      business: 'business',
       id: 'id',
-      page: 'page',
-      proposal: 'proposal',
-      timer_status: 'timer_status',
     });
   }
 
 
   
-  get (fields: Array<string>, params: Object = {}): PageUpcomingChange {
+  get (fields: Array<string>, params: Object = {}): CommerceMerchantTOSAcceptance {
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,

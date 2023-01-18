@@ -319,6 +319,7 @@ export default class Page extends AbstractCrudObject {
       profile_plus_facebook_access: 'PROFILE_PLUS_FACEBOOK_ACCESS',
       profile_plus_full_control: 'PROFILE_PLUS_FULL_CONTROL',
       profile_plus_manage: 'PROFILE_PLUS_MANAGE',
+      profile_plus_manage_leads: 'PROFILE_PLUS_MANAGE_LEADS',
       profile_plus_messaging: 'PROFILE_PLUS_MESSAGING',
       profile_plus_moderate: 'PROFILE_PLUS_MODERATE',
       profile_plus_moderate_delegate_community: 'PROFILE_PLUS_MODERATE_DELEGATE_COMMUNITY',
@@ -347,6 +348,7 @@ export default class Page extends AbstractCrudObject {
       profile_plus_facebook_access: 'PROFILE_PLUS_FACEBOOK_ACCESS',
       profile_plus_full_control: 'PROFILE_PLUS_FULL_CONTROL',
       profile_plus_manage: 'PROFILE_PLUS_MANAGE',
+      profile_plus_manage_leads: 'PROFILE_PLUS_MANAGE_LEADS',
       profile_plus_messaging: 'PROFILE_PLUS_MESSAGING',
       profile_plus_moderate: 'PROFILE_PLUS_MODERATE',
       profile_plus_moderate_delegate_community: 'PROFILE_PLUS_MODERATE_DELEGATE_COMMUNITY',
@@ -491,7 +493,6 @@ export default class Page extends AbstractCrudObject {
     return Object.freeze({
       instagram: 'INSTAGRAM',
       messenger: 'MESSENGER',
-      whatsapp: 'WHATSAPP',
     });
   }
   static get Model (): Object {
@@ -551,6 +552,7 @@ export default class Page extends AbstractCrudObject {
       hours: 'hours',
       inbox_labels: 'inbox_labels',
       invoice_access_invoice_change: 'invoice_access_invoice_change',
+      invoice_access_invoice_draft_change: 'invoice_access_invoice_draft_change',
       invoice_access_onboarding_status_active: 'invoice_access_onboarding_status_active',
       leadgen: 'leadgen',
       leadgen_fat: 'leadgen_fat',
@@ -890,16 +892,6 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  getCopyrightWhitelistedPartners (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      Profile,
-      fields,
-      params,
-      fetchFirstPage,
-      '/copyright_whitelisted_partners'
-    );
-  }
-
   getCrosspostWhitelistedPages (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Page,
@@ -1134,16 +1126,6 @@ export default class Page extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/invoice_access_bank_account'
-    );
-  }
-
-  createInvoiceAccessInvoiceEdit (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
-    return this.createEdge(
-      '/invoice_access_invoice_edit',
-      fields,
-      params,
-      null,
-      pathOverride,
     );
   }
 

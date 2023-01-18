@@ -34,6 +34,7 @@ export default class AdCreative extends AbstractCrudObject {
       categorization_criteria: 'categorization_criteria',
       category_media_source: 'category_media_source',
       collaborative_ads_lsb_image_bank_id: 'collaborative_ads_lsb_image_bank_id',
+      degrees_of_freedom_spec: 'degrees_of_freedom_spec',
       destination_set_id: 'destination_set_id',
       dynamic_ad_voice: 'dynamic_ad_voice',
       effective_authorization_category: 'effective_authorization_category',
@@ -87,6 +88,7 @@ export default class AdCreative extends AbstractCrudObject {
     return Object.freeze({
       add_to_cart: 'ADD_TO_CART',
       apply_now: 'APPLY_NOW',
+      audio_call: 'AUDIO_CALL',
       book_travel: 'BOOK_TRAVEL',
       buy: 'BUY',
       buy_now: 'BUY_NOW',
@@ -137,6 +139,7 @@ export default class AdCreative extends AbstractCrudObject {
       sell_now: 'SELL_NOW',
       send_a_gift: 'SEND_A_GIFT',
       send_gift_money: 'SEND_GIFT_MONEY',
+      send_updates: 'SEND_UPDATES',
       share: 'SHARE',
       shop_now: 'SHOP_NOW',
       sign_up: 'SIGN_UP',
@@ -244,7 +247,7 @@ export default class AdCreative extends AbstractCrudObject {
     );
   }
 
-  getPreViews (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+  getPreviews (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdPreview,
       fields,

@@ -66,6 +66,7 @@ export default class Vehicle extends AbstractCrudObject {
       vehicle_specifications: 'vehicle_specifications',
       vehicle_type: 'vehicle_type',
       vin: 'vin',
+      visibility: 'visibility',
       year: 'year',
     });
   }
@@ -78,6 +79,12 @@ export default class Vehicle extends AbstractCrudObject {
       no_status: 'NO_STATUS',
       outdated: 'OUTDATED',
       partial_fetch: 'PARTIAL_FETCH',
+    });
+  }
+  static get Visibility (): Object {
+    return Object.freeze({
+      published: 'PUBLISHED',
+      staging: 'STAGING',
     });
   }
   static get Availability (): Object {

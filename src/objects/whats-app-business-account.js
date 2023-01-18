@@ -22,6 +22,8 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
     return Object.freeze({
       account_review_status: 'account_review_status',
       analytics: 'analytics',
+      business_verification_status: 'business_verification_status',
+      country: 'country',
       creation_time: 'creation_time',
       currency: 'currency',
       id: 'id',
@@ -30,6 +32,7 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
       on_behalf_of_business_info: 'on_behalf_of_business_info',
       owner_business: 'owner_business',
       owner_business_info: 'owner_business_info',
+      ownership_type: 'ownership_type',
       primary_funding_id: 'primary_funding_id',
       purchase_order_number: 'purchase_order_number',
       status: 'status',
@@ -44,6 +47,7 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
       manage: 'MANAGE',
       manage_phone: 'MANAGE_PHONE',
       manage_templates: 'MANAGE_TEMPLATES',
+      manage_templates_and_phone: 'MANAGE_TEMPLATES_AND_PHONE',
       messaging: 'MESSAGING',
       view_cost: 'VIEW_COST',
     });
@@ -100,6 +104,16 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/conversation_analytics'
+    );
+  }
+
+  getExtensions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/extensions'
     );
   }
 
@@ -174,6 +188,16 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
       params,
       ProductCatalog,
       pathOverride,
+    );
+  }
+
+  getSchedules (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/schedules'
     );
   }
 

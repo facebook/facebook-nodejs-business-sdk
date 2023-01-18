@@ -19,6 +19,7 @@ export default class UnifiedThread extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       can_reply: 'can_reply',
+      folder: 'folder',
       former_participants: 'former_participants',
       id: 'id',
       is_subscribed: 'is_subscribed',
@@ -40,7 +41,6 @@ export default class UnifiedThread extends AbstractCrudObject {
     return Object.freeze({
       instagram: 'INSTAGRAM',
       messenger: 'MESSENGER',
-      whatsapp: 'WHATSAPP',
     });
   }
 

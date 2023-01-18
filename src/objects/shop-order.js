@@ -9,24 +9,21 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * CopyrightAudioAsset
+ * ShopOrder
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class CopyrightAudioAsset extends AbstractCrudObject {
+export default class ShopOrder extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      copyright: 'copyright',
       creation_time: 'creation_time',
       id: 'id',
-      title: 'title',
-      update_time: 'update_time',
     });
   }
 
 
   
-  get (fields: Array<string>, params: Object = {}): CopyrightAudioAsset {
+  get (fields: Array<string>, params: Object = {}): ShopOrder {
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,

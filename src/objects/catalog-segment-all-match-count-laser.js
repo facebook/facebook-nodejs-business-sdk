@@ -9,26 +9,20 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * WhatsAppBusinessPreVerifiedPhoneNumber
+ * CatalogSegmentAllMatchCountLaser
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class WhatsAppBusinessPreVerifiedPhoneNumber extends AbstractCrudObject {
+export default class CatalogSegmentAllMatchCountLaser extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      code_verification_status: 'code_verification_status',
-      id: 'id',
-      phone_number: 'phone_number',
+      date_start: 'date_start',
+      date_stop: 'date_stop',
+      event: 'event',
+      source: 'source',
+      total_matched_content_ids: 'total_matched_content_ids',
+      unique_matched_content_ids: 'unique_matched_content_ids',
     });
   }
 
-
-  
-  get (fields: Array<string>, params: Object = {}): WhatsAppBusinessPreVerifiedPhoneNumber {
-    // $FlowFixMe : Support Generic Types
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

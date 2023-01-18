@@ -479,6 +479,16 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
+  getAdsReportingMmmSchedulers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/ads_reporting_mmm_schedulers'
+    );
+  }
+
   getAdsVolume (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdAccountAdVolume,
@@ -837,7 +847,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getGeneratePreViews (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+  getGeneratePreviews (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdPreview,
       fields,

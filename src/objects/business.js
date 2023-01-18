@@ -127,6 +127,7 @@ export default class Business extends AbstractCrudObject {
       profile_plus_facebook_access: 'PROFILE_PLUS_FACEBOOK_ACCESS',
       profile_plus_full_control: 'PROFILE_PLUS_FULL_CONTROL',
       profile_plus_manage: 'PROFILE_PLUS_MANAGE',
+      profile_plus_manage_leads: 'PROFILE_PLUS_MANAGE_LEADS',
       profile_plus_messaging: 'PROFILE_PLUS_MESSAGING',
       profile_plus_moderate: 'PROFILE_PLUS_MODERATE',
       profile_plus_moderate_delegate_community: 'PROFILE_PLUS_MODERATE_DELEGATE_COMMUNITY',
@@ -163,6 +164,7 @@ export default class Business extends AbstractCrudObject {
       profile_plus_facebook_access: 'PROFILE_PLUS_FACEBOOK_ACCESS',
       profile_plus_full_control: 'PROFILE_PLUS_FULL_CONTROL',
       profile_plus_manage: 'PROFILE_PLUS_MANAGE',
+      profile_plus_manage_leads: 'PROFILE_PLUS_MANAGE_LEADS',
       profile_plus_messaging: 'PROFILE_PLUS_MESSAGING',
       profile_plus_moderate: 'PROFILE_PLUS_MODERATE',
       profile_plus_moderate_delegate_community: 'PROFILE_PLUS_MODERATE_DELEGATE_COMMUNITY',
@@ -266,6 +268,16 @@ export default class Business extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/ads_reporting_mmm_reports'
+    );
+  }
+
+  getAdsReportingMmmSchedulers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/ads_reporting_mmm_schedulers'
     );
   }
 
@@ -704,16 +716,6 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createManagedPartnerChildBusinessAsset (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Business> {
-    return this.createEdge(
-      '/managed_partner_child_business_assets',
-      fields,
-      params,
-      Business,
-      pathOverride,
-    );
-  }
-
   getNegativeKeywordLists (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AbstractObject,
@@ -1025,6 +1027,16 @@ export default class Business extends AbstractCrudObject {
       params,
       SystemUser,
       pathOverride,
+    );
+  }
+
+  getThirdPartyMeasurementReportDataset (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/third_party_measurement_report_dataset'
     );
   }
 

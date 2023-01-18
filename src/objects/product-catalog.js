@@ -13,8 +13,10 @@ import Business from './business';
 import AREffectsBatchStatus from './ar-effects-batch-status';
 import AssignedUser from './assigned-user';
 import AutomotiveModel from './automotive-model';
+import StoreCatalogSettings from './store-catalog-settings';
 import ProductCatalogCategory from './product-catalog-category';
 import CheckBatchRequestStatus from './check-batch-request-status';
+import CatalogSegmentAllMatchCountLaser from './catalog-segment-all-match-count-laser';
 import CollaborativeAdsShareSettings from './collaborative-ads-share-settings';
 import ProductCatalogDataSource from './product-catalog-data-source';
 import Destination from './destination';
@@ -43,6 +45,8 @@ import Vehicle from './vehicle';
 export default class ProductCatalog extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
+      ad_account_to_collaborative_ads_share_settings: 'ad_account_to_collaborative_ads_share_settings',
+      agency_collaborative_ads_share_settings: 'agency_collaborative_ads_share_settings',
       business: 'business',
       catalog_store: 'catalog_store',
       commerce_merchant_settings: 'commerce_merchant_settings',
@@ -220,12 +224,12 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  createCatalogWebsiteSetting (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+  createCatalogStore (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<StoreCatalogSettings> {
     return this.createEdge(
-      '/catalog_website_settings',
+      '/catalog_store',
       fields,
       params,
-      null,
+      StoreCatalogSettings,
       pathOverride,
     );
   }
@@ -257,6 +261,16 @@ export default class ProductCatalog extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/check_batch_request_status'
+    );
+  }
+
+  getCollaborativeAdsEventStats (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      CatalogSegmentAllMatchCountLaser,
+      fields,
+      params,
+      fetchFirstPage,
+      '/collaborative_ads_event_stats'
     );
   }
 

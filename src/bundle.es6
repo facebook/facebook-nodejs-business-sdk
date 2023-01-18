@@ -64,7 +64,6 @@ export { default as AdAsyncRequest } from './../src/objects/ad-async-request';
 export { default as AdAsyncRequestSet } from './../src/objects/ad-async-request-set';
 export { default as AdAsyncRequestSetNotificationResult } from './../src/objects/ad-async-request-set-notification-result';
 export { default as AdBidAdjustments } from './../src/objects/ad-bid-adjustments';
-export { default as AdCampaignActivity } from './../src/objects/ad-campaign-activity';
 export { default as AdCampaignBidConstraint } from './../src/objects/ad-campaign-bid-constraint';
 export { default as AdCampaignDeliveryEstimate } from './../src/objects/ad-campaign-delivery-estimate';
 export { default as AdCampaignDeliveryStatsUnsupportedReasons } from './../src/objects/ad-campaign-delivery-stats-unsupported-reasons';
@@ -76,6 +75,7 @@ export { default as AdCampaignPacedBidInfo } from './../src/objects/ad-campaign-
 export { default as AdCreative } from './../src/objects/ad-creative';
 export { default as AdCreativeAdDisclaimer } from './../src/objects/ad-creative-ad-disclaimer';
 export { default as AdCreativeCollectionThumbnailInfo } from './../src/objects/ad-creative-collection-thumbnail-info';
+export { default as AdCreativeDegreesOfFreedomSpec } from './../src/objects/ad-creative-degrees-of-freedom-spec';
 export { default as AdCreativeInsights } from './../src/objects/ad-creative-insights';
 export { default as AdCreativeInteractiveComponentsSpec } from './../src/objects/ad-creative-interactive-components-spec';
 export { default as AdCreativeLinkData } from './../src/objects/ad-creative-link-data';
@@ -191,6 +191,7 @@ export { default as CatalogBasedTargeting } from './../src/objects/catalog-based
 export { default as CatalogItemAppLinks } from './../src/objects/catalog-item-app-links';
 export { default as CatalogItemAppealStatus } from './../src/objects/catalog-item-appeal-status';
 export { default as CatalogItemChannelsToIntegrityStatus } from './../src/objects/catalog-item-channels-to-integrity-status';
+export { default as CatalogSegmentAllMatchCountLaser } from './../src/objects/catalog-segment-all-match-count-laser';
 export { default as CatalogSubVerticalList } from './../src/objects/catalog-sub-vertical-list';
 export { default as ChatPlugin } from './../src/objects/chat-plugin';
 export { default as CheckBatchRequestStatus } from './../src/objects/check-batch-request-status';
@@ -201,6 +202,7 @@ export { default as CollaborativeAdsShareSettings } from './../src/objects/colla
 export { default as Comment } from './../src/objects/comment';
 export { default as CommerceMerchantSettings } from './../src/objects/commerce-merchant-settings';
 export { default as CommerceMerchantSettingsSetupStatus } from './../src/objects/commerce-merchant-settings-setup-status';
+export { default as CommerceMerchantTOSAcceptance } from './../src/objects/commerce-merchant-tos-acceptance';
 export { default as CommerceOrder } from './../src/objects/commerce-order';
 export { default as CommerceOrderTransactionDetail } from './../src/objects/commerce-order-transaction-detail';
 export { default as CommercePayout } from './../src/objects/commerce-payout';
@@ -208,7 +210,6 @@ export { default as CommerceSettings } from './../src/objects/commerce-settings'
 export { default as ConnectionsTargeting } from './../src/objects/connections-targeting';
 export { default as ContextualBundlingSpec } from './../src/objects/contextual-bundling-spec';
 export { default as ConversionActionQuery } from './../src/objects/conversion-action-query';
-export { default as CopyrightAudioAsset } from './../src/objects/copyright-audio-asset';
 export { default as CopyrightReferenceContainer } from './../src/objects/copyright-reference-container';
 export { default as CoverPhoto } from './../src/objects/cover-photo';
 export { default as CreativeHistory } from './../src/objects/creative-history';
@@ -393,6 +394,7 @@ export { default as SavedMessageResponse } from './../src/objects/saved-message-
 export { default as SecuritySettings } from './../src/objects/security-settings';
 export { default as ShadowIGMediaProductTags } from './../src/objects/shadow-ig-media-product-tags';
 export { default as Shop } from './../src/objects/shop';
+export { default as ShopOrder } from './../src/objects/shop-order';
 export { default as SplitTestWinner } from './../src/objects/split-test-winner';
 export { default as StoreCatalogSettings } from './../src/objects/store-catalog-settings';
 export { default as SystemUser } from './../src/objects/system-user';
@@ -444,7 +446,6 @@ export { default as VideoUploadLimits } from './../src/objects/video-upload-limi
 export { default as VoipInfo } from './../src/objects/voip-info';
 export { default as WebAppLink } from './../src/objects/web-app-link';
 export { default as WhatsAppBusinessAccount } from './../src/objects/whats-app-business-account';
-export { default as WhatsAppBusinessPreVerifiedPhoneNumber } from './../src/objects/whats-app-business-pre-verified-phone-number';
 export { default as WhatsAppBusinessProfile } from './../src/objects/whats-app-business-profile';
 export { default as WindowsAppLink } from './../src/objects/windows-app-link';
 export { default as WindowsPhoneAppLink } from './../src/objects/windows-phone-app-link';
