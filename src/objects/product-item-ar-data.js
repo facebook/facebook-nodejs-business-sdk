@@ -37,6 +37,7 @@ export default class ProductItemARData extends AbstractCrudObject {
       marketplace: 'MARKETPLACE',
       marketplace_ads_deprecated: 'MARKETPLACE_ADS_DEPRECATED',
       marketplace_shops: 'MARKETPLACE_SHOPS',
+      mini_shops: 'MINI_SHOPS',
       offline_conversions: 'OFFLINE_CONVERSIONS',
       shops: 'SHOPS',
       universal_checkout: 'UNIVERSAL_CHECKOUT',

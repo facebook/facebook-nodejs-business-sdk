@@ -16,6 +16,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class AdNetworkAnalyticsSyncQueryResult extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
+      omitted_results: 'omitted_results',
       query_id: 'query_id',
       results: 'results',
     });

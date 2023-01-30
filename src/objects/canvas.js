@@ -25,6 +25,7 @@ export default class Canvas extends AbstractCrudObject {
       collection_hero_image: 'collection_hero_image',
       collection_hero_video: 'collection_hero_video',
       collection_thumbnails: 'collection_thumbnails',
+      dynamic_setting: 'dynamic_setting',
       element_payload: 'element_payload',
       elements: 'elements',
       fb_body_elements: 'fb_body_elements',

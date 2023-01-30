@@ -57,6 +57,7 @@ export default class User extends AbstractCrudObject {
       gender: 'gender',
       hometown: 'hometown',
       id: 'id',
+      id_for_avatars: 'id_for_avatars',
       inspirational_people: 'inspirational_people',
       install_type: 'install_type',
       installed: 'installed',
@@ -262,6 +263,16 @@ export default class User extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/assigned_product_catalogs'
+    );
+  }
+
+  getAvatars (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/avatars'
     );
   }
 
@@ -472,6 +483,16 @@ export default class User extends AbstractCrudObject {
     );
   }
 
+  createMessengerDesktopPerformanceTrace (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<User> {
+    return this.createEdge(
+      '/messenger_desktop_performance_traces',
+      fields,
+      params,
+      User,
+      pathOverride,
+    );
+  }
+
   getMusic (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Page,
@@ -556,26 +577,6 @@ export default class User extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/picture'
-    );
-  }
-
-  getPioneerData (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/pioneer_data'
-    );
-  }
-
-  createPioneerDatum (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
-    return this.createEdge(
-      '/pioneer_data',
-      fields,
-      params,
-      null,
-      pathOverride,
     );
   }
 

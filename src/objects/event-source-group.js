@@ -22,6 +22,7 @@ export default class EventSourceGroup extends AbstractCrudObject {
       event_sources: 'event_sources',
       id: 'id',
       name: 'name',
+      owner_business: 'owner_business',
     });
   }
 

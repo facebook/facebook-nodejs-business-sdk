@@ -31,6 +31,7 @@ export default class BusinessOwnedObjectOnBehalfOfRequest extends AbstractCrudOb
       expired: 'EXPIRED',
       in_progress: 'IN_PROGRESS',
       pending: 'PENDING',
+      pending_email_verification: 'PENDING_EMAIL_VERIFICATION',
       pending_integrity_review: 'PENDING_INTEGRITY_REVIEW',
     });
   }

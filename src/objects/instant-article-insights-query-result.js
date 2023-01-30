@@ -42,6 +42,7 @@ export default class InstantArticleInsightsQueryResult extends AbstractCrudObjec
       days_28: 'days_28',
       lifetime: 'lifetime',
       month: 'month',
+      total_over_range: 'total_over_range',
       week: 'week',
     });
   }

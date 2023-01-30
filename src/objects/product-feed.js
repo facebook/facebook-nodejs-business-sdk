@@ -14,6 +14,7 @@ import Destination from './destination';
 import Flight from './flight';
 import HomeListing from './home-listing';
 import Hotel from './hotel';
+import MediaTitle from './media-title';
 import ProductItem from './product-item';
 import ProductFeedRule from './product-feed-rule';
 import ProductFeedSchedule from './product-feed-schedule';
@@ -88,7 +89,6 @@ export default class ProductFeed extends AbstractCrudObject {
   }
   static get FeedType (): Object {
     return Object.freeze({
-      auto: 'AUTO',
       automotive_model: 'AUTOMOTIVE_MODEL',
       destination: 'DESTINATION',
       flight: 'FLIGHT',
@@ -96,7 +96,6 @@ export default class ProductFeed extends AbstractCrudObject {
       hotel: 'HOTEL',
       hotel_room: 'HOTEL_ROOM',
       local_inventory: 'LOCAL_INVENTORY',
-      market: 'MARKET',
       media_title: 'MEDIA_TITLE',
       offer: 'OFFER',
       products: 'PRODUCTS',
@@ -137,6 +136,7 @@ export default class ProductFeed extends AbstractCrudObject {
   }
   static get OverrideType (): Object {
     return Object.freeze({
+      batch_api_language_or_country: 'BATCH_API_LANGUAGE_OR_COUNTRY',
       catalog_segment_customize_default: 'CATALOG_SEGMENT_CUSTOMIZE_DEFAULT',
       country: 'COUNTRY',
       language: 'LANGUAGE',
@@ -192,6 +192,16 @@ export default class ProductFeed extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/hotels'
+    );
+  }
+
+  getMediaTitles (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      MediaTitle,
+      fields,
+      params,
+      fetchFirstPage,
+      '/media_titles'
     );
   }
 

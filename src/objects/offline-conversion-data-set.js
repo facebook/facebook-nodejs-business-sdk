@@ -26,6 +26,7 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
       business: 'business',
       config: 'config',
       creation_time: 'creation_time',
+      creator: 'creator',
       description: 'description',
       duplicate_entries: 'duplicate_entries',
       enable_auto_assign_to_accounts: 'enable_auto_assign_to_accounts',
@@ -41,6 +42,7 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
       match_rate_approx: 'match_rate_approx',
       matched_entries: 'matched_entries',
       name: 'name',
+      owner_business: 'owner_business',
       usage: 'usage',
       valid_entries: 'valid_entries',
     });

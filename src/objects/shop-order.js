@@ -9,35 +9,24 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * ThirdPartyMeasurementReportDataset
+ * ShopOrder
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class ThirdPartyMeasurementReportDataset extends AbstractCrudObject {
+export default class ShopOrder extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      category: 'category',
+      creation_time: 'creation_time',
       id: 'id',
-      partner: 'partner',
-      product: 'product',
-      schema: 'schema',
     });
   }
 
 
   
-  get (fields: Array<string>, params: Object = {}): ThirdPartyMeasurementReportDataset {
+  get (fields: Array<string>, params: Object = {}): ShopOrder {
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
-      params
-    );
-  }
-
-  // $FlowFixMe : Support Generic Types
-  update (fields: Array<string>, params: Object = {}): ThirdPartyMeasurementReportDataset {
-    // $FlowFixMe : Support Generic Types
-    return super.update(
       params
     );
   }

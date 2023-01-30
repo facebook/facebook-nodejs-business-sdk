@@ -23,15 +23,18 @@ export default class AdStudy extends AbstractCrudObject {
     return Object.freeze({
       business: 'business',
       canceled_time: 'canceled_time',
+      client_business: 'client_business',
       cooldown_start_time: 'cooldown_start_time',
       created_by: 'created_by',
       created_time: 'created_time',
       description: 'description',
       end_time: 'end_time',
       id: 'id',
+      measurement_contact: 'measurement_contact',
       name: 'name',
       observation_end_time: 'observation_end_time',
       results_first_available_date: 'results_first_available_date',
+      sales_contact: 'sales_contact',
       start_time: 'start_time',
       type: 'type',
       updated_by: 'updated_by',
@@ -55,6 +58,16 @@ export default class AdStudy extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/cells'
+    );
+  }
+
+  createCheckPoint (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdStudy> {
+    return this.createEdge(
+      '/checkpoint',
+      fields,
+      params,
+      AdStudy,
+      pathOverride,
     );
   }
 

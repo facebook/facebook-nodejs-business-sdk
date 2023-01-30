@@ -21,10 +21,19 @@ export default class InstagramInsightsResult extends AbstractCrudObject {
       name: 'name',
       period: 'period',
       title: 'title',
+      total_value: 'total_value',
       values: 'values',
     });
   }
 
+  static get Breakdown (): Object {
+    return Object.freeze({
+      action_type: 'action_type',
+      follow_type: 'follow_type',
+      story_navigation_action_type: 'story_navigation_action_type',
+      surface_type: 'surface_type',
+    });
+  }
   static get Metric (): Object {
     return Object.freeze({
       carousel_album_engagement: 'carousel_album_engagement',
@@ -35,12 +44,13 @@ export default class InstagramInsightsResult extends AbstractCrudObject {
       comments: 'comments',
       engagement: 'engagement',
       exits: 'exits',
-      follows_from_impressions: 'follows_from_impressions',
+      follows: 'follows',
       impressions: 'impressions',
       likes: 'likes',
       navigation: 'navigation',
       plays: 'plays',
-      profile_views_from_impressions: 'profile_views_from_impressions',
+      profile_activity: 'profile_activity',
+      profile_visits: 'profile_visits',
       reach: 'reach',
       replies: 'replies',
       saved: 'saved',
@@ -48,7 +58,6 @@ export default class InstagramInsightsResult extends AbstractCrudObject {
       taps_back: 'taps_back',
       taps_forward: 'taps_forward',
       total_interactions: 'total_interactions',
-      total_media_attributed_actions: 'total_media_attributed_actions',
       video_views: 'video_views',
     });
   }
@@ -58,7 +67,25 @@ export default class InstagramInsightsResult extends AbstractCrudObject {
       days_28: 'days_28',
       lifetime: 'lifetime',
       month: 'month',
+      total_over_range: 'total_over_range',
       week: 'week',
+    });
+  }
+  static get MetricType (): Object {
+    return Object.freeze({
+      default: 'default',
+      time_series: 'time_series',
+      total_value: 'total_value',
+    });
+  }
+  static get Timeframe (): Object {
+    return Object.freeze({
+      last_14_days: 'last_14_days',
+      last_30_days: 'last_30_days',
+      last_90_days: 'last_90_days',
+      prev_month: 'prev_month',
+      this_month: 'this_month',
+      this_week: 'this_week',
     });
   }
 }

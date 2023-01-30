@@ -47,6 +47,7 @@ export default class AutomotiveModel extends AbstractCrudObject {
       trim: 'trim',
       unit_price: 'unit_price',
       url: 'url',
+      visibility: 'visibility',
       year: 'year',
     });
   }
@@ -59,6 +60,12 @@ export default class AutomotiveModel extends AbstractCrudObject {
       no_status: 'NO_STATUS',
       outdated: 'OUTDATED',
       partial_fetch: 'PARTIAL_FETCH',
+    });
+  }
+  static get Visibility (): Object {
+    return Object.freeze({
+      published: 'PUBLISHED',
+      staging: 'STAGING',
     });
   }
 

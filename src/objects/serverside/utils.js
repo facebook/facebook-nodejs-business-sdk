@@ -11,7 +11,7 @@ import DeliveryCategory from './delivery-category.js';
 
 const sha256 = require('js-sha256');
 const currency_codes = require('currency-codes');
-const country_codes = require('iso-3166-1-alpha-2');
+const country_codes = require('iso-3166-1');
 
 const PHONE_NUMBER_IGNORE_CHAR_SET = /[\-@#<>'",; ]|\(|\)|\+|[a-z]/g;
 const PHONE_NUMBER_DROP_PREFIX_ZEROS = /^\+?0{0,2}/;
@@ -97,7 +97,7 @@ export default class ServerSideUtils {
    * @return {String} Normalized ISO country code.
    */
   static normalizeCountry (country: string) {
-    if (country_codes.getCountry(country.toUpperCase()) == null) {
+    if (!country_codes.whereAlpha2(country)) {
       throw new Error("Invalid country code: '" + country + "'. Please follow ISO 3166-1 2-letter standard for representing country. eg: US");
     }
 

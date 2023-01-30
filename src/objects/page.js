@@ -41,6 +41,7 @@ import LiveVideo from './live-video';
 import MediaFingerprint from './media-fingerprint';
 import MessagingFeatureReview from './messaging-feature-review';
 import MessengerProfile from './messenger-profile';
+import UserPageOneTimeOptInTokenSettings from './user-page-one-time-opt-in-token-settings';
 import Persona from './persona';
 import Photo from './photo';
 import ProfilePictureSource from './profile-picture-source';
@@ -161,6 +162,7 @@ export default class Page extends AbstractCrudObject {
       new_like_count: 'new_like_count',
       offer_eligible: 'offer_eligible',
       overall_star_rating: 'overall_star_rating',
+      owner_business: 'owner_business',
       page_token: 'page_token',
       parent_page: 'parent_page',
       parking: 'parking',
@@ -317,6 +319,7 @@ export default class Page extends AbstractCrudObject {
       profile_plus_facebook_access: 'PROFILE_PLUS_FACEBOOK_ACCESS',
       profile_plus_full_control: 'PROFILE_PLUS_FULL_CONTROL',
       profile_plus_manage: 'PROFILE_PLUS_MANAGE',
+      profile_plus_manage_leads: 'PROFILE_PLUS_MANAGE_LEADS',
       profile_plus_messaging: 'PROFILE_PLUS_MESSAGING',
       profile_plus_moderate: 'PROFILE_PLUS_MODERATE',
       profile_plus_moderate_delegate_community: 'PROFILE_PLUS_MODERATE_DELEGATE_COMMUNITY',
@@ -345,6 +348,7 @@ export default class Page extends AbstractCrudObject {
       profile_plus_facebook_access: 'PROFILE_PLUS_FACEBOOK_ACCESS',
       profile_plus_full_control: 'PROFILE_PLUS_FULL_CONTROL',
       profile_plus_manage: 'PROFILE_PLUS_MANAGE',
+      profile_plus_manage_leads: 'PROFILE_PLUS_MANAGE_LEADS',
       profile_plus_messaging: 'PROFILE_PLUS_MESSAGING',
       profile_plus_moderate: 'PROFILE_PLUS_MODERATE',
       profile_plus_moderate_delegate_community: 'PROFILE_PLUS_MODERATE_DELEGATE_COMMUNITY',
@@ -489,7 +493,6 @@ export default class Page extends AbstractCrudObject {
     return Object.freeze({
       instagram: 'INSTAGRAM',
       messenger: 'MESSENGER',
-      whatsapp: 'WHATSAPP',
     });
   }
   static get Model (): Object {
@@ -549,6 +552,7 @@ export default class Page extends AbstractCrudObject {
       hours: 'hours',
       inbox_labels: 'inbox_labels',
       invoice_access_invoice_change: 'invoice_access_invoice_change',
+      invoice_access_invoice_draft_change: 'invoice_access_invoice_draft_change',
       invoice_access_onboarding_status_active: 'invoice_access_onboarding_status_active',
       leadgen: 'leadgen',
       leadgen_fat: 'leadgen_fat',
@@ -661,6 +665,16 @@ export default class Page extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/albums'
+    );
+  }
+
+  getArExperience (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/ar_experience'
     );
   }
 
@@ -878,16 +892,6 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  getCopyrightWhitelistedPartners (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      Profile,
-      fields,
-      params,
-      fetchFirstPage,
-      '/copyright_whitelisted_partners'
-    );
-  }
-
   getCrosspostWhitelistedPages (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Page,
@@ -962,6 +966,16 @@ export default class Page extends AbstractCrudObject {
       params,
       Page,
       pathOverride,
+    );
+  }
+
+  getFantasyGames (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/fantasy_games'
     );
   }
 
@@ -1279,6 +1293,16 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
+  getNotificationMessageTokens (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      UserPageOneTimeOptInTokenSettings,
+      fields,
+      params,
+      fetchFirstPage,
+      '/notification_message_tokens'
+    );
+  }
+
   createNotificationMessagesDevSupport (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Page> {
     return this.createEdge(
       '/notification_messages_dev_support',
@@ -1556,13 +1580,6 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  deleteTabs (params: Object = {}): Promise<*> {
-    return super.deleteEdge(
-      '/tabs',
-      params
-    );
-  }
-
   getTabs (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Tab,
@@ -1570,16 +1587,6 @@ export default class Page extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/tabs'
-    );
-  }
-
-  createTab (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Page> {
-    return this.createEdge(
-      '/tabs',
-      fields,
-      params,
-      Page,
-      pathOverride,
     );
   }
 
@@ -1670,6 +1677,26 @@ export default class Page extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/video_lists'
+    );
+  }
+
+  getVideoReels (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AdVideo,
+      fields,
+      params,
+      fetchFirstPage,
+      '/video_reels'
+    );
+  }
+
+  createVideoReel (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdVideo> {
+    return this.createEdge(
+      '/video_reels',
+      fields,
+      params,
+      AdVideo,
+      pathOverride,
     );
   }
 
