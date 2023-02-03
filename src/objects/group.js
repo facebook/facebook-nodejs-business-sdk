@@ -204,26 +204,6 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  getFeaturedCards (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/featured_cards'
-    );
-  }
-
-  createFeaturedCard (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
-    return this.createEdge(
-      '/featured_cards',
-      fields,
-      params,
-      null,
-      pathOverride,
-    );
-  }
-
   getFeed (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Post,

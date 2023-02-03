@@ -45,18 +45,18 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
       develop: 'DEVELOP',
       full_control: 'FULL_CONTROL',
       manage: 'MANAGE',
+      manage_extensions: 'MANAGE_EXTENSIONS',
       manage_phone: 'MANAGE_PHONE',
       manage_templates: 'MANAGE_TEMPLATES',
-      manage_templates_and_phone: 'MANAGE_TEMPLATES_AND_PHONE',
       messaging: 'MESSAGING',
       view_cost: 'VIEW_COST',
     });
   }
   static get Category (): Object {
     return Object.freeze({
+      authentication: 'AUTHENTICATION',
       marketing: 'MARKETING',
-      otp: 'OTP',
-      transactional: 'TRANSACTIONAL',
+      utility: 'UTILITY',
     });
   }
 

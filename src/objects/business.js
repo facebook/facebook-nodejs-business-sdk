@@ -173,6 +173,12 @@ export default class Business extends AbstractCrudObject {
       view_monetization_insights: 'VIEW_MONETIZATION_INSIGHTS',
     });
   }
+  static get ActionSource (): Object {
+    return Object.freeze({
+      physical_store: 'PHYSICAL_STORE',
+      website: 'WEBSITE',
+    });
+  }
 
   createAccessToken (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Business> {
     return this.createEdge(
@@ -375,6 +381,16 @@ export default class Business extends AbstractCrudObject {
       params,
       BusinessUser,
       pathOverride,
+    );
+  }
+
+  getBusinessProjects (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/businessprojects'
     );
   }
 

@@ -742,6 +742,16 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
+  getBusinessProjects (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/businessprojects'
+    );
+  }
+
   getCallToActions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       PageCallToAction,

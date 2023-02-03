@@ -11,6 +11,7 @@ import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import InstagramInsightsResult from './instagram-insights-result';
 import IGMedia from './ig-media';
+import UserPageOneTimeOptInTokenSettings from './user-page-one-time-opt-in-token-settings';
 
 /**
  * IGUser
@@ -127,6 +128,16 @@ export default class IGUser extends AbstractCrudObject {
       params,
       null,
       pathOverride,
+    );
+  }
+
+  getNotificationMessageTokens (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      UserPageOneTimeOptInTokenSettings,
+      fields,
+      params,
+      fetchFirstPage,
+      '/notification_message_tokens'
     );
   }
 

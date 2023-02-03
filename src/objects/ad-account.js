@@ -251,6 +251,12 @@ export default class AdAccount extends AbstractCrudObject {
       website: 'WEBSITE',
     });
   }
+  static get ActionSource (): Object {
+    return Object.freeze({
+      physical_store: 'PHYSICAL_STORE',
+      website: 'WEBSITE',
+    });
+  }
 
   getActivities (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
@@ -717,6 +723,16 @@ export default class AdAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/broadtargetingcategories'
+    );
+  }
+
+  getBusinessProjects (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/businessprojects'
     );
   }
 

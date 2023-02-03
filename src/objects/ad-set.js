@@ -41,6 +41,7 @@ export default class AdSet extends AbstractCrudObject {
       billing_event: 'billing_event',
       budget_remaining: 'budget_remaining',
       campaign: 'campaign',
+      campaign_attribution: 'campaign_attribution',
       campaign_id: 'campaign_id',
       configured_status: 'configured_status',
       created_time: 'created_time',
