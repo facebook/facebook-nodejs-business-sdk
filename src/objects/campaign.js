@@ -138,7 +138,6 @@ export default class Campaign extends AbstractCrudObject {
       event_responses: 'EVENT_RESPONSES',
       lead_generation: 'LEAD_GENERATION',
       link_clicks: 'LINK_CLICKS',
-      local_awareness: 'LOCAL_AWARENESS',
       messages: 'MESSAGES',
       offer_claims: 'OFFER_CLAIMS',
       outcome_app_promotion: 'OUTCOME_APP_PROMOTION',
