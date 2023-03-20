@@ -18,6 +18,8 @@ export { default as EventRequest } from './../src/objects/serverside/event-reque
 export { default as EventResponse } from './../src/objects/serverside/event-response';
 export { default as ServerEvent } from './../src/objects/serverside/server-event';
 export { default as UserData } from './../src/objects/serverside/user-data';
+export { default as ExtendedDeviceInfo } from './../src/objects/serverside/extended-device-info';
+export { default as AppData } from './../src/objects/serverside/app-data';
 export { default as DeliveryCategory } from './../src/objects/serverside/delivery-category';
 export { default as HttpMethod } from './../src/objects/serverside/http-method';
 export { default as HttpServiceClientConfig } from './../src/objects/serverside/http-service-client-config';

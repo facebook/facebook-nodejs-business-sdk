@@ -9,6 +9,7 @@
 
 import UserData from './user-data';
 import CustomData from './custom-data';
+import AppData from './app-data';
 
 /**
  * ServerEvent
@@ -24,6 +25,7 @@ export default class ServerEvent {
 	_opt_out: bool;
 	_user_data: UserData;
 	_custom_data: CustomData;
+	_app_data: AppData;
 	_data_processing_options: Array<string>;
 	_data_processing_options_state: number;
 	_data_processing_options_country: number;
@@ -41,12 +43,13 @@ export default class ServerEvent {
 	 * @param {Number} data_processing_options_country A country that you want to associate to this data processing option.
 	 * @param {Number} data_processing_options_state A state that you want to associate with this data processing option.
 	 */
-	constructor(event_name: string, event_time: number, event_source_url: string, user_data: UserData, custom_data: CustomData, event_id: string, opt_out: boolean, action_source: string, data_processing_options: Array<string>, data_processing_options_country: number, data_processing_options_state: number) {
+	constructor(event_name: string, event_time: number, event_source_url: string, user_data: UserData, custom_data: CustomData, app_data: AppData, event_id: string, opt_out: boolean, action_source: string, data_processing_options: Array<string>, data_processing_options_country: number, data_processing_options_state: number) {
 
 		this._event_name = event_name;
 		this._event_time = event_time;
 		this._user_data = user_data;
 		this._custom_data = custom_data;
+		this._app_data = app_data;
 		this._event_source_url = event_source_url;
 		this.event_id = event_id;
 		this._opt_out = opt_out;
@@ -259,6 +262,28 @@ export default class ServerEvent {
 	}
 
 	/**
+	 *
+	 */
+	get app_data() {
+		return this._app_data;
+	}
+
+	/**
+	 *
+	 */
+	set app_data(app_data: AppData) {
+		this._app_data = app_data;
+	}
+
+	/**
+	 *
+	 */
+	 setAppData(app_data: AppData) : ServerEvent {
+		this._app_data = app_data;
+		return this;
+	}
+
+	/**
 	 * Gets the data_processing_options for the current event.
 	 * Processing options you would like to enable for a specific event.
 	 */
@@ -360,6 +385,10 @@ export default class ServerEvent {
 
 		if (this.custom_data) {
 			serverEvent.custom_data = this.custom_data.normalize();
+		}
+
+		if (this.app_data) {
+			serverEvent.app_data = this.app_data.normalize();
 		}
 
 		if (this.action_source) {
