@@ -29,6 +29,7 @@ export default class ServerEvent {
 	_data_processing_options: Array<string>;
 	_data_processing_options_state: number;
 	_data_processing_options_country: number;
+	_advanced_measurement_table: string;
 
 	/**
 	 * @param {String} event_name A Facebook pixel Standard Event or Custom Event name.
@@ -42,8 +43,9 @@ export default class ServerEvent {
 	 * @param {Array<string>} data_processing_options Processing options you would like to enable for a specific event.
 	 * @param {Number} data_processing_options_country A country that you want to associate to this data processing option.
 	 * @param {Number} data_processing_options_state A state that you want to associate with this data processing option.
+	 * @param {String} advanced_measurement_table Name of Advanced Measurement table. Only used for the Advanced Measurement API in the Advanced Analytics product.
 	 */
-	constructor(event_name: string, event_time: number, event_source_url: string, user_data: UserData, custom_data: CustomData, app_data: AppData, event_id: string, opt_out: boolean, action_source: string, data_processing_options: Array<string>, data_processing_options_country: number, data_processing_options_state: number) {
+	constructor(event_name: string, event_time: number, event_source_url: string, user_data: UserData, custom_data: CustomData, app_data: AppData, event_id: string, opt_out: boolean, action_source: string, data_processing_options: Array<string>, data_processing_options_country: number, data_processing_options_state: number, advanced_measurement_table: string) {
 
 		this._event_name = event_name;
 		this._event_time = event_time;
@@ -57,6 +59,7 @@ export default class ServerEvent {
 		this._data_processing_options = data_processing_options;
 		this._data_processing_options_country = data_processing_options_country;
 		this._data_processing_options_state = data_processing_options_state;
+		this._advanced_measurement_table = advanced_measurement_table
 	}
 
 	/**
@@ -362,6 +365,31 @@ export default class ServerEvent {
 		return this;
 	}
 
+	/**
+	 * Gets the advanced_measurement_table for the current event.
+	 * Name of Advanced Measurement table. Only used for the Advanced Measurement API in the Advanced Analytics product.
+	 */
+	 get advanced_measurement_table() {
+		return this._advanced_measurement_table;
+	}
+
+	/**
+	 * Sets the advanced_measurement_table for the current event.
+	 * @param {string} advanced_measurement_table Name of Advanced Measurement table. Only used for the Advanced Measurement API in the Advanced Analytics product.
+	 */
+	set data_processing_options_state(advanced_measurement_table: string) {
+		this._data_processing_options_state = data_processing_options_state;
+	}
+
+	/**
+	 * Sets the data_processing_options_state for the current event.
+	 * @param {string} advanced_measurement_table Name of Advanced Measurement table. Only used for the Advanced Measurement API in the Advanced Analytics product.
+	 */
+	setAdvancedMeasurementTable(advanced_measurement_table: string) : ServerEvent {
+		this._advanced_measurement_table = advanced_measurement_table;
+		return this;
+	}
+
 
 	/**
 	 * Returns the normalized payload for the event.
@@ -417,6 +445,10 @@ export default class ServerEvent {
 
 		if (this.data_processing_options_state) {
 			serverEvent.data_processing_options_state = this.data_processing_options_state;
+		}
+
+		if (this.advanced_measurement_table) {
+			serverEvent.advanced_measurement_table = this.advanced_measurement_table;
 		}
 
 		return serverEvent;
