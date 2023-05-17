@@ -479,7 +479,7 @@ export default class ServerEvent {
 		}
 
 		if (this.advertiser_tracking_enabled) {
-			serverEvent.advertiser_tracking_enabled = this.advertiser_tracking_enabled
+			serverEvent.advertiser_tracking_enabled = this.advertiser_tracking_enabled;
 		}
 
 		return serverEvent;
