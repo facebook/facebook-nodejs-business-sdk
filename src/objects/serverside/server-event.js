@@ -379,12 +379,12 @@ export default class ServerEvent {
 	 * Sets the advanced_measurement_table for the current event.
 	 * @param {string} advanced_measurement_table Name of Advanced Measurement table. Only used for the Advanced Measurement API in the Advanced Analytics product.
 	 */
-	set data_processing_options_state(advanced_measurement_table: string) {
-		this._data_processing_options_state = data_processing_options_state;
+	set advanced_measurement_table(advanced_measurement_table: string) {
+		this._advanced_measurement_table = advanced_measurement_table;
 	}
 
 	/**
-	 * Sets the data_processing_options_state for the current event.
+	 * Sets the advanced_measurement_table for the current event.
 	 * @param {string} advanced_measurement_table Name of Advanced Measurement table. Only used for the Advanced Measurement API in the Advanced Analytics product.
 	 */
 	setAdvancedMeasurementTable(advanced_measurement_table: string) : ServerEvent {
