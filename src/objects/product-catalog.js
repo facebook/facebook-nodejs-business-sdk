@@ -27,7 +27,6 @@ import Flight from './flight';
 import HomeListing from './home-listing';
 import ProductCatalogHotelRoomsBatch from './product-catalog-hotel-rooms-batch';
 import Hotel from './hotel';
-import MediaTitle from './media-title';
 import ProductCatalogPricingVariablesBatch from './product-catalog-pricing-variables-batch';
 import ProductFeed from './product-feed';
 import ProductGroup from './product-group';
@@ -457,26 +456,6 @@ export default class ProductCatalog extends AbstractCrudObject {
       fields,
       params,
       ProductCatalog,
-      pathOverride,
-    );
-  }
-
-  getMediaTitles (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      MediaTitle,
-      fields,
-      params,
-      fetchFirstPage,
-      '/media_titles'
-    );
-  }
-
-  createMediaTitle (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<MediaTitle> {
-    return this.createEdge(
-      '/media_titles',
-      fields,
-      params,
-      MediaTitle,
       pathOverride,
     );
   }

@@ -47,6 +47,7 @@ export default class User extends AbstractCrudObject {
       about: 'about',
       age_range: 'age_range',
       birthday: 'birthday',
+      community: 'community',
       cover: 'cover',
       currency: 'currency',
       education: 'education',
@@ -146,12 +147,12 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  createAccount (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Page> {
+  createAccount (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
     return this.createEdge(
       '/accounts',
       fields,
       params,
-      Page,
+      null,
       pathOverride,
     );
   }

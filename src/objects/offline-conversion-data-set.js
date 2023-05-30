@@ -135,16 +135,6 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
     );
   }
 
-  createEvent (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
-    return this.createEdge(
-      '/events',
-      fields,
-      params,
-      null,
-      pathOverride,
-    );
-  }
-
   getServerEventsPermittedBusiness (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Business,

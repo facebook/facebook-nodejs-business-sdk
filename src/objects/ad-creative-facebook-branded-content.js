@@ -9,18 +9,16 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * TargetingGeoLocationElectoralDistrict
+ * AdCreativeFacebookBrandedContent
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class TargetingGeoLocationElectoralDistrict extends AbstractCrudObject {
+export default class AdCreativeFacebookBrandedContent extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      country: 'country',
-      deprecation_code: 'deprecation_code',
-      electoral_district: 'electoral_district',
-      key: 'key',
-      name: 'name',
+      shared_to_sponsor_status: 'shared_to_sponsor_status',
+      sponsor_page_id: 'sponsor_page_id',
+      sponsor_relationship: 'sponsor_relationship',
     });
   }
 

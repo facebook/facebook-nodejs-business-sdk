@@ -33,6 +33,7 @@ export default class Lead extends AbstractCrudObject {
       partner_name: 'partner_name',
       platform: 'platform',
       post: 'post',
+      post_submission_check_result: 'post_submission_check_result',
       retailer_item_id: 'retailer_item_id',
       vehicle: 'vehicle',
     });

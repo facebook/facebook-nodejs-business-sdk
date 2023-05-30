@@ -48,6 +48,7 @@ export default class AdAccountDeliveryEstimate extends AbstractCrudObject {
       quality_call: 'QUALITY_CALL',
       quality_lead: 'QUALITY_LEAD',
       reach: 'REACH',
+      subscribers: 'SUBSCRIBERS',
       thruplay: 'THRUPLAY',
       value: 'VALUE',
       visit_instagram_profile: 'VISIT_INSTAGRAM_PROFILE',

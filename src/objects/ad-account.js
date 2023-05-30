@@ -9,6 +9,7 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
+import AdAccountBusinessConstraints from './ad-account-business-constraints';
 import AdActivity from './ad-activity';
 import AdPlacePageSet from './ad-place-page-set';
 import AdStudy from './ad-study';
@@ -95,7 +96,6 @@ export default class AdAccount extends AbstractCrudObject {
       fb_entity: 'fb_entity',
       funding_source: 'funding_source',
       funding_source_details: 'funding_source_details',
-      has_advertiser_opted_in_odax: 'has_advertiser_opted_in_odax',
       has_migrated_permissions: 'has_migrated_permissions',
       has_page_authorized_adaccount: 'has_page_authorized_adaccount',
       id: 'id',
@@ -236,6 +236,7 @@ export default class AdAccount extends AbstractCrudObject {
     return Object.freeze({
       app: 'APP',
       bag_of_accounts: 'BAG_OF_ACCOUNTS',
+      bidding: 'BIDDING',
       claim: 'CLAIM',
       custom: 'CUSTOM',
       engagement: 'ENGAGEMENT',
@@ -245,6 +246,7 @@ export default class AdAccount extends AbstractCrudObject {
       measurement: 'MEASUREMENT',
       offline_conversion: 'OFFLINE_CONVERSION',
       partner: 'PARTNER',
+      primary: 'PRIMARY',
       regulated_categories_audience: 'REGULATED_CATEGORIES_AUDIENCE',
       study_rule_audience: 'STUDY_RULE_AUDIENCE',
       video: 'VIDEO',
@@ -256,6 +258,26 @@ export default class AdAccount extends AbstractCrudObject {
       physical_store: 'PHYSICAL_STORE',
       website: 'WEBSITE',
     });
+  }
+
+  getAccountControls (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AdAccountBusinessConstraints,
+      fields,
+      params,
+      fetchFirstPage,
+      '/account_controls'
+    );
+  }
+
+  createAccountControl (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdAccountBusinessConstraints> {
+    return this.createEdge(
+      '/account_controls',
+      fields,
+      params,
+      AdAccountBusinessConstraints,
+      pathOverride,
+    );
   }
 
   getActivities (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
@@ -471,6 +493,16 @@ export default class AdAccount extends AbstractCrudObject {
       fields,
       params,
       Ad,
+      pathOverride,
+    );
+  }
+
+  createAdsConversionGoal (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+    return this.createEdge(
+      '/ads_conversion_goal',
+      fields,
+      params,
+      null,
       pathOverride,
     );
   }
@@ -783,6 +815,16 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
+  getConversionGoals (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/conversion_goals'
+    );
+  }
+
   getCustomAudiences (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       CustomAudience,
@@ -863,7 +905,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getGeneratePreviews (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+  getGeneratePreViews (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdPreview,
       fields,

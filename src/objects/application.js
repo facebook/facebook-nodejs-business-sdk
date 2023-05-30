@@ -191,6 +191,7 @@ export default class Application extends AbstractCrudObject {
   }
   static get LoggingSource (): Object {
     return Object.freeze({
+      detection: 'DETECTION',
       messenger_bot: 'MESSENGER_BOT',
     });
   }
@@ -526,6 +527,16 @@ export default class Application extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/ios_dialog_configs'
+    );
+  }
+
+  getLinkedDataset (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/linked_dataset'
     );
   }
 

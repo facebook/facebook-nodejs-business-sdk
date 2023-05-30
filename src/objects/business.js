@@ -35,11 +35,13 @@ import BusinessAssetSharingAgreement from './business-asset-sharing-agreement';
 import InstagramUser from './instagram-user';
 import IGUser from './ig-user';
 import OfflineConversionDataSet from './offline-conversion-data-set';
+import OpenBridgeConfiguration from './open-bridge-configuration';
 import BusinessAdAccountRequest from './business-ad-account-request';
 import BusinessApplicationRequest from './business-application-request';
 import BusinessPageRequest from './business-page-request';
 import BusinessRoleRequest from './business-role-request';
 import ProfilePictureSource from './profile-picture-source';
+import WhatsAppBusinessPreVerifiedPhoneNumber from './whats-app-business-pre-verified-phone-number';
 import SystemUser from './system-user';
 
 /**
@@ -425,6 +427,16 @@ export default class Business extends AbstractCrudObject {
       fields,
       params,
       AdAccount,
+      pathOverride,
+    );
+  }
+
+  createAddPhoneNumber (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Business> {
+    return this.createEdge(
+      '/add_phone_numbers',
+      fields,
+      params,
+      Business,
       pathOverride,
     );
   }
@@ -964,6 +976,26 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
+  getOpenBridgeConfigurations (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      OpenBridgeConfiguration,
+      fields,
+      params,
+      fetchFirstPage,
+      '/openbridge_configurations'
+    );
+  }
+
+  createOpenBridgeConfiguration (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<OpenBridgeConfiguration> {
+    return this.createEdge(
+      '/openbridge_configurations',
+      fields,
+      params,
+      OpenBridgeConfiguration,
+      pathOverride,
+    );
+  }
+
   getOwnedAdAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdAccount,
@@ -1215,6 +1247,16 @@ export default class Business extends AbstractCrudObject {
       params,
       null,
       pathOverride,
+    );
+  }
+
+  getPreVerifiedNumbers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      WhatsAppBusinessPreVerifiedPhoneNumber,
+      fields,
+      params,
+      fetchFirstPage,
+      '/preverified_numbers'
     );
   }
 

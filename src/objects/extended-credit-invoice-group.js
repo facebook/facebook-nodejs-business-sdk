@@ -59,6 +59,14 @@ export default class ExtendedCreditInvoiceGroup extends AbstractCrudObject {
     );
   }
 
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
+    return super.delete(
+      params
+    );
+  }
+
   
   get (fields: Array<string>, params: Object = {}): ExtendedCreditInvoiceGroup {
     // $FlowFixMe : Support Generic Types

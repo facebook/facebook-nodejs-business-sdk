@@ -104,6 +104,7 @@ export default class CustomAudience extends AbstractCrudObject {
     return Object.freeze({
       app: 'APP',
       bag_of_accounts: 'BAG_OF_ACCOUNTS',
+      bidding: 'BIDDING',
       claim: 'CLAIM',
       custom: 'CUSTOM',
       engagement: 'ENGAGEMENT',
@@ -113,6 +114,7 @@ export default class CustomAudience extends AbstractCrudObject {
       measurement: 'MEASUREMENT',
       offline_conversion: 'OFFLINE_CONVERSION',
       partner: 'PARTNER',
+      primary: 'PRIMARY',
       regulated_categories_audience: 'REGULATED_CATEGORIES_AUDIENCE',
       study_rule_audience: 'STUDY_RULE_AUDIENCE',
       video: 'VIDEO',

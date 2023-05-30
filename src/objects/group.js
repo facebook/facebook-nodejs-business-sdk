@@ -321,16 +321,6 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  createShiftSetting (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
-    return this.createEdge(
-      '/shift_settings',
-      fields,
-      params,
-      null,
-      pathOverride,
-    );
-  }
-
   getVideos (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdVideo,

@@ -44,6 +44,8 @@ export default class AdAccountMatchedSearchApplicationsEdgeData extends Abstract
       instant_game: 'INSTANT_GAME',
       itunes: 'ITUNES',
       itunes_ipad: 'ITUNES_IPAD',
+      neon_android_store: 'NEON_ANDROID_STORE',
+      none: 'NONE',
       oculus_app_store: 'OCULUS_APP_STORE',
       oppo: 'OPPO',
       roku_store: 'ROKU_STORE',

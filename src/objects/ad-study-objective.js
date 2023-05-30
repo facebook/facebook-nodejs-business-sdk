@@ -10,8 +10,10 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 import Cursor from './../cursor';
 import AdsPixel from './ads-pixel';
 import Application from './application';
+import BrandRequest from './brand-request';
 import CustomConversion from './custom-conversion';
 import OfflineConversionDataSet from './offline-conversion-data-set';
+import Business from './business';
 import PartnerStudy from './partner-study';
 
 /**
@@ -67,6 +69,16 @@ export default class AdStudyObjective extends AbstractCrudObject {
     );
   }
 
+  getBrandRequests (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      BrandRequest,
+      fields,
+      params,
+      fetchFirstPage,
+      '/brand_requests'
+    );
+  }
+
   getCustomConversions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       CustomConversion,
@@ -84,6 +96,16 @@ export default class AdStudyObjective extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/offline_conversion_data_sets'
+    );
+  }
+
+  getPartnerPrivateStudies (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      Business,
+      fields,
+      params,
+      fetchFirstPage,
+      '/partner_private_studies'
     );
   }
 

@@ -47,9 +47,12 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
       manage: 'MANAGE',
       manage_extensions: 'MANAGE_EXTENSIONS',
       manage_phone: 'MANAGE_PHONE',
+      manage_phone_assets: 'MANAGE_PHONE_ASSETS',
       manage_templates: 'MANAGE_TEMPLATES',
       messaging: 'MESSAGING',
       view_cost: 'VIEW_COST',
+      view_phone_assets: 'VIEW_PHONE_ASSETS',
+      view_templates: 'VIEW_TEMPLATES',
     });
   }
   static get Category (): Object {
@@ -114,6 +117,16 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/extensions'
+    );
+  }
+
+  getMessageCampaigns (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/message_campaigns'
     );
   }
 
@@ -225,6 +238,16 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
       params,
       WhatsAppBusinessAccount,
       pathOverride,
+    );
+  }
+
+  getTemplatePerformanceMetrics (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/template_performance_metrics'
     );
   }
 

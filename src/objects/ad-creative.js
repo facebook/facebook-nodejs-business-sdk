@@ -28,6 +28,7 @@ export default class AdCreative extends AbstractCrudObject {
       authorization_category: 'authorization_category',
       auto_update: 'auto_update',
       body: 'body',
+      branded_content: 'branded_content',
       branded_content_sponsor_page_id: 'branded_content_sponsor_page_id',
       bundle_folder_id: 'bundle_folder_id',
       call_to_action_type: 'call_to_action_type',
@@ -43,11 +44,13 @@ export default class AdCreative extends AbstractCrudObject {
       effective_object_story_id: 'effective_object_story_id',
       enable_direct_install: 'enable_direct_install',
       enable_launch_instant_app: 'enable_launch_instant_app',
+      facebook_branded_content: 'facebook_branded_content',
       id: 'id',
       image_crops: 'image_crops',
       image_hash: 'image_hash',
       image_url: 'image_url',
       instagram_actor_id: 'instagram_actor_id',
+      instagram_branded_content: 'instagram_branded_content',
       instagram_permalink_url: 'instagram_permalink_url',
       instagram_story_id: 'instagram_story_id',
       instagram_user_id: 'instagram_user_id',
@@ -110,9 +113,11 @@ export default class AdCreative extends AbstractCrudObject {
       get_directions: 'GET_DIRECTIONS',
       get_offer: 'GET_OFFER',
       get_offer_view: 'GET_OFFER_VIEW',
+      get_promotions: 'GET_PROMOTIONS',
       get_quote: 'GET_QUOTE',
       get_showtimes: 'GET_SHOWTIMES',
       get_started: 'GET_STARTED',
+      inquire_now: 'INQUIRE_NOW',
       install_app: 'INSTALL_APP',
       install_mobile_app: 'INSTALL_MOBILE_APP',
       learn_more: 'LEARN_MORE',
@@ -247,7 +252,7 @@ export default class AdCreative extends AbstractCrudObject {
     );
   }
 
-  getPreviews (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+  getPreViews (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdPreview,
       fields,

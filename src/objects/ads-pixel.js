@@ -14,6 +14,7 @@ import Business from './business';
 import AssignedUser from './assigned-user';
 import DACheck from './da-check';
 import OfflineConversionDataSetUpload from './offline-conversion-data-set-upload';
+import OpenBridgeConfiguration from './open-bridge-configuration';
 import AdsPixelStatsResult from './ads-pixel-stats-result';
 
 /**
@@ -181,6 +182,16 @@ export default class AdsPixel extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/offline_event_uploads'
+    );
+  }
+
+  getOpenBridgeConfigurations (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      OpenBridgeConfiguration,
+      fields,
+      params,
+      fetchFirstPage,
+      '/openbridge_configurations'
     );
   }
 

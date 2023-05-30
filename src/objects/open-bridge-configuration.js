@@ -8,39 +8,25 @@
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
-import Cursor from './../cursor';
-import InstantArticleInsightsQueryResult from './instant-article-insights-query-result';
 
 /**
- * InstantArticle
+ * OpenBridgeConfiguration
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class InstantArticle extends AbstractCrudObject {
+export default class OpenBridgeConfiguration extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      canonical_url: 'canonical_url',
-      development_mode: 'development_mode',
-      html_source: 'html_source',
+      access_key: 'access_key',
+      active: 'active',
+      endpoint: 'endpoint',
+      host_business_id: 'host_business_id',
+      host_external_id: 'host_external_id',
       id: 'id',
-      most_recent_import_status: 'most_recent_import_status',
-      photos: 'photos',
-      publish_status: 'publish_status',
-      published: 'published',
-      videos: 'videos',
+      pixel_id: 'pixel_id',
     });
   }
 
-
-  getInsights (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      InstantArticleInsightsQueryResult,
-      fields,
-      params,
-      fetchFirstPage,
-      '/insights'
-    );
-  }
 
   // $FlowFixMe : Support Generic Types
   delete (fields: Array<string>, params: Object = {}): AbstractObject {
@@ -51,10 +37,18 @@ export default class InstantArticle extends AbstractCrudObject {
   }
 
   
-  get (fields: Array<string>, params: Object = {}): InstantArticle {
+  get (fields: Array<string>, params: Object = {}): OpenBridgeConfiguration {
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
+      params
+    );
+  }
+
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): OpenBridgeConfiguration {
+    // $FlowFixMe : Support Generic Types
+    return super.update(
       params
     );
   }

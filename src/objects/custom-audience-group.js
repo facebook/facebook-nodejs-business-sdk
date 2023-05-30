@@ -9,25 +9,17 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * CommerceMerchantTOSAcceptance
+ * CustomAudienceGroup
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class CommerceMerchantTOSAcceptance extends AbstractCrudObject {
+export default class CustomAudienceGroup extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      business: 'business',
-      id: 'id',
+      audience_type_param_name: 'audience_type_param_name',
+      existing_customer_tag: 'existing_customer_tag',
+      new_customer_tag: 'new_customer_tag',
     });
   }
 
-
-  
-  get (fields: Array<string>, params: Object = {}): CommerceMerchantTOSAcceptance {
-    // $FlowFixMe : Support Generic Types
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

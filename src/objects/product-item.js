@@ -395,6 +395,7 @@ export default class ProductItem extends AbstractCrudObject {
       digital_goods_not_available_for_checkout: 'DIGITAL_GOODS_NOT_AVAILABLE_FOR_CHECKOUT',
       duplicate_images: 'DUPLICATE_IMAGES',
       duplicate_title_and_description: 'DUPLICATE_TITLE_AND_DESCRIPTION',
+      empty_description: 'EMPTY_DESCRIPTION',
       generic_invalid_field: 'GENERIC_INVALID_FIELD',
       hidden_until_product_launch: 'HIDDEN_UNTIL_PRODUCT_LAUNCH',
       image_fetch_failed: 'IMAGE_FETCH_FAILED',
@@ -748,6 +749,16 @@ export default class ProductItem extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/product_sets'
+    );
+  }
+
+  getVideosMetadata (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/videos_metadata'
     );
   }
 
