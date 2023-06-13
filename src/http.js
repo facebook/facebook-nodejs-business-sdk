@@ -124,3 +124,17 @@ export default class Http {
     });
   }
 }
+
+/**
+ * Converts the given XHR error to an error that looks like one that would
+ * be returned by the request-promise API.
+ * @param {XMLHttpRequest} request
+ * @param {any} response
+ */
+function convertXhrErrorToRequestPromiseError(request, response) {
+  return {
+    name: 'StatusCodeError',
+    error: response,
+    statusCode: request.status,
+  };
+}
