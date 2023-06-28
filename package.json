@@ -72,7 +72,7 @@
     "vinyl-source-stream": "~2.0.0"
   },
   "scripts": {
-    "prepublish": "$PWD/node_modules/.bin/gulp dist",
+    "prepublish": "./node_modules/.bin/gulp dist",
     "start": "semistandard --fix",
     "flow": "flow",
     "test": "jest"
