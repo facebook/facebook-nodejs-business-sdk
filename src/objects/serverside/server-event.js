@@ -397,9 +397,9 @@ export default class ServerEvent {
 	 * @see {@link https://developers.facebook.com/docs/app-events/guides/advertising-tracking-enabled} (documentation only covers iOS SDK)
 	 */
 	get advertiser_tracking_enabled() {
-		return this._data_processing_options_country;
+		return this._advertiser_tracking_enabled;
 	}
-	
+
 	/**
 	 * Sets the advertiser_tracking_enabled for the current event.
 	 * @param {boolean} advertiser_tracking_enabled represents whether the user has opted into/out of advertiser tracking on apps.
