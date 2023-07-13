@@ -13,7 +13,6 @@ import AdStudy from './ad-study';
 import AdRule from './ad-rule';
 import Ad from './ad';
 import AdSet from './ad-set';
-import ContentDeliveryReport from './content-delivery-report';
 import AdsInsights from './ads-insights';
 import AdReportRun from './ad-report-run';
 
@@ -26,7 +25,6 @@ export default class Campaign extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       account_id: 'account_id',
-      ad_strategy_id: 'ad_strategy_id',
       adlabels: 'adlabels',
       bid_strategy: 'bid_strategy',
       boosted_object_id: 'boosted_object_id',
@@ -40,6 +38,7 @@ export default class Campaign extends AbstractCrudObject {
       created_time: 'created_time',
       daily_budget: 'daily_budget',
       effective_status: 'effective_status',
+      has_secondary_skadnetwork_reporting: 'has_secondary_skadnetwork_reporting',
       id: 'id',
       is_skadnetwork_attribution: 'is_skadnetwork_attribution',
       issues_info: 'issues_info',
@@ -48,6 +47,7 @@ export default class Campaign extends AbstractCrudObject {
       name: 'name',
       objective: 'objective',
       pacing_type: 'pacing_type',
+      primary_attribution: 'primary_attribution',
       promoted_object: 'promoted_object',
       recommendations: 'recommendations',
       smart_promotion_type: 'smart_promotion_type',
@@ -100,6 +100,7 @@ export default class Campaign extends AbstractCrudObject {
   }
   static get DatePreset (): Object {
     return Object.freeze({
+      data_maximum: 'data_maximum',
       last_14d: 'last_14d',
       last_28d: 'last_28d',
       last_30d: 'last_30d',
@@ -138,6 +139,12 @@ export default class Campaign extends AbstractCrudObject {
       local_awareness: 'LOCAL_AWARENESS',
       messages: 'MESSAGES',
       offer_claims: 'OFFER_CLAIMS',
+      outcome_app_promotion: 'OUTCOME_APP_PROMOTION',
+      outcome_awareness: 'OUTCOME_AWARENESS',
+      outcome_engagement: 'OUTCOME_ENGAGEMENT',
+      outcome_leads: 'OUTCOME_LEADS',
+      outcome_sales: 'OUTCOME_SALES',
+      outcome_traffic: 'OUTCOME_TRAFFIC',
       page_likes: 'PAGE_LIKES',
       post_engagement: 'POST_ENGAGEMENT',
       product_catalog_sales: 'PRODUCT_CATALOG_SALES',
@@ -488,16 +495,6 @@ export default class Campaign extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/adsets'
-    );
-  }
-
-  getContentDeliveryReport (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      ContentDeliveryReport,
-      fields,
-      params,
-      fetchFirstPage,
-      '/content_delivery_report'
     );
   }
 

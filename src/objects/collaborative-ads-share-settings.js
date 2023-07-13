@@ -34,12 +34,4 @@ export default class CollaborativeAdsShareSettings extends AbstractCrudObject {
       params
     );
   }
-
-  // $FlowFixMe : Support Generic Types
-  update (fields: Array<string>, params: Object = {}): CollaborativeAdsShareSettings {
-    // $FlowFixMe : Support Generic Types
-    return super.update(
-      params
-    );
-  }
 }

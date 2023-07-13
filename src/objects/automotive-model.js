@@ -47,6 +47,7 @@ export default class AutomotiveModel extends AbstractCrudObject {
       trim: 'trim',
       unit_price: 'unit_price',
       url: 'url',
+      visibility: 'visibility',
       year: 'year',
     });
   }
@@ -61,30 +62,10 @@ export default class AutomotiveModel extends AbstractCrudObject {
       partial_fetch: 'PARTIAL_FETCH',
     });
   }
-  static get BodyStyle (): Object {
+  static get Visibility (): Object {
     return Object.freeze({
-      convertible: 'CONVERTIBLE',
-      coupe: 'COUPE',
-      crossover: 'CROSSOVER',
-      estate: 'ESTATE',
-      grandtourer: 'GRANDTOURER',
-      hatchback: 'HATCHBACK',
-      minibus: 'MINIBUS',
-      minivan: 'MINIVAN',
-      mpv: 'MPV',
-      none: 'NONE',
-      other: 'OTHER',
-      pickup: 'PICKUP',
-      roadster: 'ROADSTER',
-      saloon: 'SALOON',
-      sedan: 'SEDAN',
-      sportscar: 'SPORTSCAR',
-      supercar: 'SUPERCAR',
-      supermini: 'SUPERMINI',
-      suv: 'SUV',
-      truck: 'TRUCK',
-      van: 'VAN',
-      wagon: 'WAGON',
+      published: 'PUBLISHED',
+      staging: 'STAGING',
     });
   }
 

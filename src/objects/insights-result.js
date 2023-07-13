@@ -28,6 +28,7 @@ export default class InsightsResult extends AbstractCrudObject {
 
   static get DatePreset (): Object {
     return Object.freeze({
+      data_maximum: 'data_maximum',
       last_14d: 'last_14d',
       last_28d: 'last_28d',
       last_30d: 'last_30d',
@@ -55,6 +56,7 @@ export default class InsightsResult extends AbstractCrudObject {
       days_28: 'days_28',
       lifetime: 'lifetime',
       month: 'month',
+      total_over_range: 'total_over_range',
       week: 'week',
     });
   }

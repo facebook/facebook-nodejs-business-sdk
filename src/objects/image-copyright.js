@@ -7,7 +7,6 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import AbstractObject from './../abstract-object';
 
 /**
  * ImageCopyright
@@ -290,14 +289,6 @@ export default class ImageCopyright extends AbstractCrudObject {
       zm: 'ZM',
       zw: 'ZW',
     });
-  }
-
-  // $FlowFixMe : Support Generic Types
-  delete (fields: Array<string>, params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
-    return super.delete(
-      params
-    );
   }
 
   

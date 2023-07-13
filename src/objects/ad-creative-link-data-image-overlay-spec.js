@@ -30,6 +30,7 @@ export default class AdCreativeLinkDataImageOverlaySpec extends AbstractCrudObje
   static get CustomTextType (): Object {
     return Object.freeze({
       free_shipping: 'free_shipping',
+      popular: 'popular',
     });
   }
   static get OverlayTemplate (): Object {

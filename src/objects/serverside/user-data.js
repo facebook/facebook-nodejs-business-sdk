@@ -41,6 +41,9 @@ export default class UserData {
 	_dobd : string;
 	_dobm : string;
 	_doby : string;
+	_madid: string;
+	_anon_id: string;
+	_app_user_id: string;
 
 	/**
 	 * @param {String} email An email address, in lowercase.
@@ -64,10 +67,14 @@ export default class UserData {
 	 * @param {String} dobd The date of birth day in DD format.
 	 * @param {String} dobm The date of birth month in MM format.
 	 * @param {String} doby The date of birth year in YYYY format.
+	 * @param {String} madid
+	 * @param {String} anon_id
+	 * @param {String} app_user_id
 	 */
 	constructor(email: string, phone: string, gender: string, first_name: string, last_name: string, date_of_birth: string,
 		city: string, state: string, zip: string, country: string, external_id: string, client_ip_address: string, client_user_agent: string,
-		fbp: string, fbc: string, subscription_id: string, fb_login_id: string, lead_id: string, dobd: string, dobm: string, doby: string) {
+		fbp: string, fbc: string, subscription_id: string, fb_login_id: string, lead_id: string, dobd: string, dobm: string, doby: string,
+		madid: string, anon_id: string, app_user_id: string) {
 		if (email != null) {
 			this._emails = new Array(email);
 		}
@@ -111,6 +118,9 @@ export default class UserData {
 		this._dobd = dobd;
 		this._dobm = dobm;
 		this._doby = doby;
+		this._madid = madid;
+		this._anon_id = anon_id;
+		this._app_user_id = app_user_id;
 	}
 
 	static get Gender(): Object {
@@ -1071,6 +1081,71 @@ export default class UserData {
 		this._doby = doby;
 		return this;
 	}
+	/**
+	 *
+	 */
+	get madid() {
+		return this._madid;
+	}
+
+	/**
+	 *
+	 */
+	set madid(madid: string) {
+		this._madid = madid;
+	}
+
+	/**
+	 *
+	 */
+	setMadid(madid: string) : UserData {
+		this._madid = madid;
+		return this;
+	}
+
+	/**
+	 *
+	 */
+	get anon_id() {
+		return this._anon_id;
+	}
+
+	/**
+	 *
+	 */
+	set anon_id(anon_id: string) {
+		this._anon_id = anon_id;
+	}
+
+	/**
+	 *
+	 */
+	setAnonId(anon_id: string) : UserData {
+		this._anon_id = anon_id;
+		return this;
+	}
+
+	/**
+	 *
+	 */
+	get app_user_id() {
+		return this._app_user_id;
+	}
+
+	/**
+	 *
+	 */
+	set app_user_id(app_user_id: string) {
+		this._app_user_id = app_user_id;
+	}
+
+	/**
+	 *
+	 */
+	setAppUserId(app_user_id: string) : UserData {
+		this._app_user_id = app_user_id;
+		return this;
+	}
 
 	/**
 	 * Returns the normalized payload for the user_data parameter.
@@ -1173,6 +1248,18 @@ export default class UserData {
 
 		if (this.doby) {
 			userData['doby'] = ServerSideUtils.normalizeAndHash(this.doby, 'doby');
+		}
+
+		if(this.madid) {
+			userData['madid'] = this.madid;
+		}
+
+		if(this.anon_id) {
+			userData['anon_id'] = this.anon_id;
+		}
+
+		if(this.app_user_id) {
+			userData['app_user_id'] = ServerSideUtils.normalizeAndHash(this.app_user_id, 'app_user_id');
 		}
 
 		return userData;

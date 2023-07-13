@@ -19,6 +19,7 @@ import AdNetworkAnalyticsAsyncQueryResult from './ad-network-analytics-async-que
 export default class AdMonetizationProperty extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
+      owner_business: 'owner_business',
       id: 'id',
     });
   }

@@ -1,6 +1,8 @@
 # Facebook Business SDK for NodeJS
 
+[![npm](https://img.shields.io/npm/v/facebook-nodejs-business-sdk)](https://www.npmjs.com/package/facebook-nodejs-business-sdk)
 [![License](https://img.shields.io/badge/license-Facebook%20Platform-blue.svg?style=flat-square)](https://github.com/facebook/facebook-nodejs-business-sdk/blob/main/LICENSE)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/facebook/facebook-nodejs-business-sdk/ci.yml)](https://github.com/facebook/facebook-nodejs-business-sdk/actions/workflows/ci.yml)
 
 ### Introduction
 

@@ -23,6 +23,7 @@ export default class BusinessUser extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       business: 'business',
+      business_role_request: 'business_role_request',
       email: 'email',
       finance_permission: 'finance_permission',
       first_name: 'first_name',

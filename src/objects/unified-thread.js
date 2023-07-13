@@ -19,10 +19,12 @@ export default class UnifiedThread extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       can_reply: 'can_reply',
+      folder: 'folder',
       former_participants: 'former_participants',
       id: 'id',
       is_subscribed: 'is_subscribed',
       link: 'link',
+      linked_group: 'linked_group',
       message_count: 'message_count',
       name: 'name',
       participants: 'participants',

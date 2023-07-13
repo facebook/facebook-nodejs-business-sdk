@@ -51,12 +51,4 @@ export default class HotelRoom extends AbstractCrudObject {
       params
     );
   }
-
-  // $FlowFixMe : Support Generic Types
-  update (fields: Array<string>, params: Object = {}): HotelRoom {
-    // $FlowFixMe : Support Generic Types
-    return super.update(
-      params
-    );
-  }
 }

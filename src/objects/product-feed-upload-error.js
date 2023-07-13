@@ -42,6 +42,13 @@ export default class ProductFeedUploadError extends AbstractCrudObject {
       warning: 'warning',
     });
   }
+  static get ErrorPriority (): Object {
+    return Object.freeze({
+      high: 'HIGH',
+      low: 'LOW',
+      medium: 'MEDIUM',
+    });
+  }
 
   getSamples (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
