@@ -478,7 +478,8 @@ export default class ServerEvent {
 			serverEvent.advanced_measurement_table = this.advanced_measurement_table;
 		}
 
-		if (this.advertiser_tracking_enabled) {
+		// boolean variable is set to either true or false
+		if (this.advertiser_tracking_enabled === true || this.advertiser_tracking_enabled === false) {
 			serverEvent.advertiser_tracking_enabled = this.advertiser_tracking_enabled;
 		}
 
