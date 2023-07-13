@@ -466,13 +466,13 @@ export default class ServerEvent {
 			serverEvent.data_processing_options = this.data_processing_options;
 		}
 
-		if (this.data_processing_options_country) {
+		if (this.data_processing_options_country || this.data_processing_options_country === 0) {
 			serverEvent.data_processing_options_country = this.data_processing_options_country;
-		}
-
-		if (this.data_processing_options_state) {
+	  	}
+	  
+	  	if (this.data_processing_options_state || this.data_processing_options_state === 0) {
 			serverEvent.data_processing_options_state = this.data_processing_options_state;
-		}
+	  	}
 
 		if (this.advanced_measurement_table) {
 			serverEvent.advanced_measurement_table = this.advanced_measurement_table;
