@@ -6,6 +6,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+export { default as Cursor } from './cursor';
 export { FacebookRequestError } from './exceptions';
 export { default as FacebookAdsApi } from './../src/api';
 export { default as FacebookAdsApiBatch } from './../src/api-batch';
