@@ -299,7 +299,7 @@ var Http = function () {
 
       var options = {
         method: method,
-        uri: url,
+        url: url,
         json: !useMultipartFormData,
         headers: { 'User-Agent': 'fbbizsdk-nodejs-v' + FacebookAdsApi.SDK_VERSION },
         body: Object,
@@ -652,8 +652,8 @@ var FacebookAdsApi = function () {
       var strUrl = url;
       return Http.request(method, strUrl, data, files, useMultipartFormData, this._showHeader).then(function (response) {
         if (_this._showHeader) {
-          response.body['headers'] = response.headers;
-          response = response.body;
+          response = response.data;
+          response['headers'] = response.headers;
         }
 
         if (_this._debug) {
