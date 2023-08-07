@@ -100,7 +100,7 @@ export default class Http {
   ): Promise<*> {
     const options = {
       method: method,
-      uri: url,
+      url,
       json: !useMultipartFormData,
       headers: {'User-Agent': `fbbizsdk-nodejs-v${Api.SDK_VERSION}`},
       body: Object,
