@@ -303,6 +303,7 @@ var Http = function () {
       var options = {
         method: method,
         url: url,
+        baseURL: FacebookAdsApi.GRAPH,
         json: !useMultipartFormData,
         headers: { 'User-Agent': 'fbbizsdk-nodejs-v' + FacebookAdsApi.SDK_VERSION },
         body: Object,

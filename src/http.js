@@ -101,6 +101,7 @@ export default class Http {
     const options = {
       method: method,
       url,
+      baseURL: Api.GRAPH,
       json: !useMultipartFormData,
       headers: {'User-Agent': `fbbizsdk-nodejs-v${Api.SDK_VERSION}`},
       body: Object,
