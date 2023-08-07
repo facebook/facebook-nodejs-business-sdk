@@ -9,7 +9,7 @@
  */
 import Api from './api';
 import HTTP_STATUS from './http-status';
-const requestPromise = require('request-promise');
+const axios = require("axios");
 
 /**
  * Isomorphic Http Promise Requests Class
@@ -121,7 +121,7 @@ export default class Http {
       delete options.body;
     }
 
-    return requestPromise(options).catch((response: Object) => {
+    return axios(options).catch((response: Object) => {
       throw response;
     });
   }
