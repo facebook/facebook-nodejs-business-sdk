@@ -300,7 +300,7 @@ var Http = function () {
         baseURL: FacebookAdsApi.GRAPH,
         json: !useMultipartFormData,
         headers: { 'User-Agent': 'fbbizsdk-nodejs-v' + FacebookAdsApi.SDK_VERSION },
-        body: Object,
+        data: Object,
         resolveWithFullResponse: showHeader
       };
       // Prevent null or undefined input
@@ -309,13 +309,13 @@ var Http = function () {
         data = {};
       }
 
-      options.body = data;
+      options.data = data;
 
       // Handle file attachments if provided
       if (useMultipartFormData || files && Object.keys(files).length > 0) {
         // Use formData instead of body (required by the request-promise library)
-        options.formData = Object.assign(data, files);
-        delete options.body;
+        options.data = Object.assign(data, files);
+        delete options.data;
       }
 
       return axios(options).catch(function (response) {
@@ -650,8 +650,8 @@ var FacebookAdsApi = function () {
       var strUrl = url;
       return Http.request(method, strUrl, data, files, useMultipartFormData, this._showHeader).then(function (response) {
         if (_this._showHeader) {
+          response.data['headers'] = response.headers;
           response = response.data;
-          response['headers'] = response.headers;
         }
 
         if (_this._debug) {

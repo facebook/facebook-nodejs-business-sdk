@@ -104,7 +104,7 @@ export default class Http {
       baseURL: Api.GRAPH,
       json: !useMultipartFormData,
       headers: {'User-Agent': `fbbizsdk-nodejs-v${Api.SDK_VERSION}`},
-      body: Object,
+      data: Object,
       resolveWithFullResponse: showHeader,
     };
     // Prevent null or undefined input
@@ -113,13 +113,13 @@ export default class Http {
       data = {};
     }
 
-    options.body = data;
+    options.data = data;
 
     // Handle file attachments if provided
     if (useMultipartFormData || (files && Object.keys(files).length > 0)) {
       // Use formData instead of body (required by the request-promise library)
-      options.formData = Object.assign(data, files);
-      delete options.body;
+      options.data = Object.assign(data, files);
+      delete options.data;
     }
 
     return axios(options).catch((response: Object) => {
