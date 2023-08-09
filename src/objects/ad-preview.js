@@ -17,6 +17,7 @@ export default class AdPreview extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       body: 'body',
+      transformation_spec: 'transformation_spec',
     });
   }
 
@@ -45,9 +46,9 @@ export default class AdPreview extends AbstractCrudObject {
       instagram_reels_overlay: 'INSTAGRAM_REELS_OVERLAY',
       instagram_search_chain: 'INSTAGRAM_SEARCH_CHAIN',
       instagram_search_grid: 'INSTAGRAM_SEARCH_GRID',
-      instagram_shop: 'INSTAGRAM_SHOP',
       instagram_standard: 'INSTAGRAM_STANDARD',
       instagram_story: 'INSTAGRAM_STORY',
+      instagram_story_camera_tray: 'INSTAGRAM_STORY_CAMERA_TRAY',
       instagram_story_web: 'INSTAGRAM_STORY_WEB',
       instagram_story_web_m_site: 'INSTAGRAM_STORY_WEB_M_SITE',
       instant_article_recirculation_ad: 'INSTANT_ARTICLE_RECIRCULATION_AD',
@@ -74,6 +75,11 @@ export default class AdPreview extends AbstractCrudObject {
       suggested_video_mobile: 'SUGGESTED_VIDEO_MOBILE',
       watch_feed_home: 'WATCH_FEED_HOME',
       watch_feed_mobile: 'WATCH_FEED_MOBILE',
+    });
+  }
+  static get CreativeFeature (): Object {
+    return Object.freeze({
+      profile_card: 'profile_card',
     });
   }
   static get RenderType (): Object {

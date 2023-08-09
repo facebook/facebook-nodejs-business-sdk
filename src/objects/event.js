@@ -46,6 +46,7 @@ export default class Event extends AbstractCrudObject {
       owner: 'owner',
       parent_group: 'parent_group',
       place: 'place',
+      registration_setting: 'registration_setting',
       scheduled_publish_time: 'scheduled_publish_time',
       start_time: 'start_time',
       ticket_setting: 'ticket_setting',

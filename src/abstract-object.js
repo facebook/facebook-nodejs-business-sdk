@@ -43,7 +43,7 @@ export default class AbstractObject {
   _defineProperty(field: string) {
     Object.defineProperty(this, field, {
       get: () => this._data[field],
-      set: value: string => {
+      set: (value: string) => {
         this._data[field] = value;
       },
       enumerable: true,

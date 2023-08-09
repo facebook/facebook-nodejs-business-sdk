@@ -97,6 +97,7 @@ export default class Targeting extends AbstractCrudObject {
       relationship_statuses: 'relationship_statuses',
       site_category: 'site_category',
       targeting_optimization: 'targeting_optimization',
+      targeting_relaxation_types: 'targeting_relaxation_types',
       user_adclusters: 'user_adclusters',
       user_device: 'user_device',
       user_event: 'user_event',

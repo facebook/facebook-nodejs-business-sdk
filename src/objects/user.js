@@ -47,6 +47,7 @@ export default class User extends AbstractCrudObject {
       about: 'about',
       age_range: 'age_range',
       birthday: 'birthday',
+      community: 'community',
       cover: 'cover',
       currency: 'currency',
       education: 'education',
@@ -57,6 +58,7 @@ export default class User extends AbstractCrudObject {
       gender: 'gender',
       hometown: 'hometown',
       id: 'id',
+      id_for_avatars: 'id_for_avatars',
       inspirational_people: 'inspirational_people',
       install_type: 'install_type',
       installed: 'installed',
@@ -145,12 +147,12 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  createAccount (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Page> {
+  createAccount (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
     return this.createEdge(
       '/accounts',
       fields,
       params,
-      Page,
+      null,
       pathOverride,
     );
   }
@@ -478,6 +480,16 @@ export default class User extends AbstractCrudObject {
       fields,
       params,
       LiveVideo,
+      pathOverride,
+    );
+  }
+
+  createMessengerDesktopPerformanceTrace (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<User> {
+    return this.createEdge(
+      '/messenger_desktop_performance_traces',
+      fields,
+      params,
+      User,
       pathOverride,
     );
   }

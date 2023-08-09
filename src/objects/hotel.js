@@ -42,6 +42,7 @@ export default class Hotel extends AbstractCrudObject {
       star_rating: 'star_rating',
       unit_price: 'unit_price',
       url: 'url',
+      visibility: 'visibility',
     });
   }
 
@@ -53,6 +54,12 @@ export default class Hotel extends AbstractCrudObject {
       no_status: 'NO_STATUS',
       outdated: 'OUTDATED',
       partial_fetch: 'PARTIAL_FETCH',
+    });
+  }
+  static get Visibility (): Object {
+    return Object.freeze({
+      published: 'PUBLISHED',
+      staging: 'STAGING',
     });
   }
 

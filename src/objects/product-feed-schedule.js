@@ -29,17 +29,6 @@ export default class ProductFeedSchedule extends AbstractCrudObject {
     });
   }
 
-  static get DayOfWeek (): Object {
-    return Object.freeze({
-      friday: 'FRIDAY',
-      monday: 'MONDAY',
-      saturday: 'SATURDAY',
-      sunday: 'SUNDAY',
-      thursday: 'THURSDAY',
-      tuesday: 'TUESDAY',
-      wednesday: 'WEDNESDAY',
-    });
-  }
   static get Interval (): Object {
     return Object.freeze({
       daily: 'DAILY',

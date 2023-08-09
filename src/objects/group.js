@@ -75,7 +75,6 @@ export default class Group extends AbstractCrudObject {
       learning: 'LEARNING',
       none: 'NONE',
       parenting: 'PARENTING',
-      real_world_at_work: 'REAL_WORLD_AT_WORK',
       streamer: 'STREAMER',
       work_announcement: 'WORK_ANNOUNCEMENT',
       work_demo_group: 'WORK_DEMO_GROUP',
@@ -108,7 +107,6 @@ export default class Group extends AbstractCrudObject {
       learning: 'LEARNING',
       none: 'NONE',
       parenting: 'PARENTING',
-      real_world_at_work: 'REAL_WORLD_AT_WORK',
       streamer: 'STREAMER',
       work_announcement: 'WORK_ANNOUNCEMENT',
       work_demo_group: 'WORK_DEMO_GROUP',
@@ -203,26 +201,6 @@ export default class Group extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/events'
-    );
-  }
-
-  getFeaturedCards (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/featured_cards'
-    );
-  }
-
-  createFeaturedCard (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
-    return this.createEdge(
-      '/featured_cards',
-      fields,
-      params,
-      null,
-      pathOverride,
     );
   }
 
@@ -340,16 +318,6 @@ export default class Group extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/picture'
-    );
-  }
-
-  createShiftSetting (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
-    return this.createEdge(
-      '/shift_settings',
-      fields,
-      params,
-      null,
-      pathOverride,
     );
   }
 

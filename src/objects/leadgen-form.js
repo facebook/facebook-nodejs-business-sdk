@@ -58,6 +58,7 @@ export default class LeadgenForm extends AbstractCrudObject {
       cs_cz: 'CS_CZ',
       da_dk: 'DA_DK',
       de_de: 'DE_DE',
+      el_gr: 'EL_GR',
       en_gb: 'EN_GB',
       en_us: 'EN_US',
       es_es: 'ES_ES',

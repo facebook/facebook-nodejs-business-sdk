@@ -38,6 +38,7 @@ export default class MediaTitle extends AbstractCrudObject {
       title_display_name: 'title_display_name',
       unit_price: 'unit_price',
       url: 'url',
+      visibility: 'visibility',
       wiki_data_item: 'wiki_data_item',
     });
   }
@@ -50,6 +51,12 @@ export default class MediaTitle extends AbstractCrudObject {
       no_status: 'NO_STATUS',
       outdated: 'OUTDATED',
       partial_fetch: 'PARTIAL_FETCH',
+    });
+  }
+  static get Visibility (): Object {
+    return Object.freeze({
+      published: 'PUBLISHED',
+      staging: 'STAGING',
     });
   }
   static get ContentCategory (): Object {

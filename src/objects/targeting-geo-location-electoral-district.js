@@ -17,6 +17,7 @@ export default class TargetingGeoLocationElectoralDistrict extends AbstractCrudO
   static get Fields (): Object {
     return Object.freeze({
       country: 'country',
+      deprecation_code: 'deprecation_code',
       electoral_district: 'electoral_district',
       key: 'key',
       name: 'name',
