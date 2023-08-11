@@ -87,6 +87,8 @@ export default class AdAccount extends AbstractCrudObject {
       created_time: 'created_time',
       currency: 'currency',
       custom_audience_info: 'custom_audience_info',
+      default_dsa_beneficiary: 'default_dsa_beneficiary',
+      default_dsa_payor: 'default_dsa_payor',
       disable_reason: 'disable_reason',
       end_advertiser: 'end_advertiser',
       end_advertiser_name: 'end_advertiser_name',
