@@ -73,7 +73,11 @@ export default class FacebookAdsApi {
 
   getAppID() : Promise<*> {
     let url = [FacebookAdsApi.GRAPH, FacebookAdsApi.VERSION, 'debug_token'].join('/');
-    let params = {};
+    type Params = {
+      [key: string]: any
+    };
+    let params: Params = {};
+
     params['access_token'] = this.accessToken;
     params['input_token'] = this.accessToken;
     params['fields'] = 'app_id';
