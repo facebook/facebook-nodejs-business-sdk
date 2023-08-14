@@ -24,7 +24,7 @@ export default class FacebookAdsApi {
     return 'v17.0';
   }
   static get SDK_VERSION(): string {
-    return '17.0.1';
+    return '17.0.3';
   }
   static get GRAPH(): string {
     return 'https://graph.facebook.com';
@@ -126,9 +126,10 @@ export default class FacebookAdsApi {
     return Http.request(method, strUrl, data, files, useMultipartFormData, this._showHeader)
       .then(response => {
         if (this._showHeader) {
-          response.body['headers'] = response.headers;
-          response = response.body;
+          response.data['headers'] = response.headers;
         }
+
+        response = response.data;
 
         if (this._debug) {
           console.log(`200 ${method} ${url} ${Object.keys(data).length > 0 ? JSON.stringify(data) : ""}`);
