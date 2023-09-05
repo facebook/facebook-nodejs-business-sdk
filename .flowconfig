@@ -5,9 +5,7 @@
 .*src/objects/serverside
 .*src/objects/signal
 <PROJECT_ROOT>/node_modules/resolve/test/resolver/malformed_package_json/package.json
-# need to address this issue in gulp-flowtype
-<PROJECT_ROOT>/node_modules/gulp-flowtype/lib/index.js
-<PROJECT_ROOT>/node_modules/gulp-flowtype/index.js
+
 [include]
 
 [libs]

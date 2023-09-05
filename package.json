@@ -55,7 +55,6 @@
     "gulp": "^4.0.2",
     "gulp-cli": "^2.2.0",
     "gulp-filenames": "~4.0.0",
-    "gulp-flowtype": "^1.0.0",
     "gulp-load-plugins": "^1.6.0",
     "gulp-open": "^3.0.1",
     "gulp-rename": "^1.2.3",
