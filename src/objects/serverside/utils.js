@@ -11,15 +11,17 @@ import DeliveryCategory from './delivery-category.js';
 
 const sha256 = require('js-sha256');
 const currency_codes = require('currency-codes');
-const country_codes = require('iso-3166-1-alpha-2');
+const country_codes = require('iso-3166-1');
 
 const PHONE_NUMBER_IGNORE_CHAR_SET = /[\-@#<>'",; ]|\(|\)|\+|[a-z]/g;
 const PHONE_NUMBER_DROP_PREFIX_ZEROS = /^\+?0{0,2}/;
 const US_PHONE_NUMBER_REGEX = /^1\(?\d{3}\)?\d{7}$/;
 const INTL_PHONE_NUMBER_REGEX = /^\d{1,4}\(?\d{2,3}\)?\d{4,}$/;
+const SHA256_REGEX = /^[a-f0-9]{64}$/;
+const MD5_REGEX = /^[a-f0-9]{32}$/;
 
 /**
- * ServerSideUtils contains the Utility modules used for sending Server Side Events
+ * ServerSideUtils contains the Utility modules used for sending Conversions API Events
  */
 
 export default class ServerSideUtils {
@@ -38,6 +40,10 @@ export default class ServerSideUtils {
 
     if (normalized_input.length === 0) {
       return null;
+    }
+
+    if (normalized_input.match(SHA256_REGEX) || normalized_input.match(MD5_REGEX)) {
+      return normalized_input;
     }
 
     switch (field) {
@@ -91,7 +97,7 @@ export default class ServerSideUtils {
    * @return {String} Normalized ISO country code.
    */
   static normalizeCountry (country: string) {
-    if (country_codes.getCountry(country.toUpperCase()) == null) {
+    if (!country_codes.whereAlpha2(country)) {
       throw new Error("Invalid country code: '" + country + "'. Please follow ISO 3166-1 2-letter standard for representing country. eg: US");
     }
 

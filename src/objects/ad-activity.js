@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
@@ -14,7 +16,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdActivity extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       actor_id: 'actor_id',
       actor_name: 'actor_name',
@@ -69,6 +71,7 @@ export default class AdActivity extends AbstractCrudObject {
       funding_event_initiated: 'funding_event_initiated',
       funding_event_successful: 'funding_event_successful',
       lifetime_budget_spent: 'lifetime_budget_spent',
+      merge_campaigns: 'merge_campaigns',
       receive_audience: 'receive_audience',
       remove_funding_source: 'remove_funding_source',
       remove_shared_audience: 'remove_shared_audience',
@@ -102,7 +105,6 @@ export default class AdActivity extends AbstractCrudObject {
       update_campaign_budget: 'update_campaign_budget',
       update_campaign_budget_optimization_toggling_status: 'update_campaign_budget_optimization_toggling_status',
       update_campaign_delivery_type: 'update_campaign_delivery_type',
-      update_campaign_duration: 'update_campaign_duration',
       update_campaign_group_ad_scheduling: 'update_campaign_group_ad_scheduling',
       update_campaign_group_delivery_type: 'update_campaign_group_delivery_type',
       update_campaign_group_spend_cap: 'update_campaign_group_spend_cap',
@@ -131,6 +133,8 @@ export default class AdActivity extends AbstractCrudObject {
     return Object.freeze({
       calypso: 'CALYPSO',
       tao: 'TAO',
+      tao_ad_account: 'TAO_AD_ACCOUNT',
+      tao_ad_status: 'TAO_AD_STATUS',
     });
   }
 }

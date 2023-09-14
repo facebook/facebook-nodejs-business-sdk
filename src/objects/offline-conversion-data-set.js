@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
@@ -13,6 +15,7 @@ import AdAccount from './ad-account';
 import Business from './business';
 import CustomAudience from './custom-audience';
 import CustomConversion from './custom-conversion';
+import OfflineConversionDataSetUpload from './offline-conversion-data-set-upload';
 
 /**
  * OfflineConversionDataSet
@@ -20,26 +23,38 @@ import CustomConversion from './custom-conversion';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class OfflineConversionDataSet extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
+      automatic_matching_fields: 'automatic_matching_fields',
       business: 'business',
+      can_proxy: 'can_proxy',
       config: 'config',
       creation_time: 'creation_time',
+      creator: 'creator',
+      data_use_setting: 'data_use_setting',
       description: 'description',
       duplicate_entries: 'duplicate_entries',
       enable_auto_assign_to_accounts: 'enable_auto_assign_to_accounts',
+      enable_automatic_matching: 'enable_automatic_matching',
       event_stats: 'event_stats',
       event_time_max: 'event_time_max',
       event_time_min: 'event_time_min',
+      first_party_cookie_status: 'first_party_cookie_status',
       id: 'id',
+      is_consolidated_container: 'is_consolidated_container',
+      is_created_by_business: 'is_created_by_business',
+      is_crm: 'is_crm',
       is_mta_use: 'is_mta_use',
       is_restricted_use: 'is_restricted_use',
       is_unavailable: 'is_unavailable',
+      last_fired_time: 'last_fired_time',
       last_upload_app: 'last_upload_app',
       last_upload_app_changed_time: 'last_upload_app_changed_time',
       match_rate_approx: 'match_rate_approx',
       matched_entries: 'matched_entries',
       name: 'name',
+      owner_ad_account: 'owner_ad_account',
+      owner_business: 'owner_business',
       usage: 'usage',
       valid_entries: 'valid_entries',
     });
@@ -72,12 +87,13 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
     );
   }
 
-  createAdAccount (fields: Array<string>, params: Object = {}): Promise<OfflineConversionDataSet> {
+  createAdAccount (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<OfflineConversionDataSet> {
     return this.createEdge(
       '/adaccounts',
       fields,
       params,
-      OfflineConversionDataSet
+      OfflineConversionDataSet,
+      pathOverride,
     );
   }
 
@@ -91,12 +107,13 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
     );
   }
 
-  createAgency (fields: Array<string>, params: Object = {}): Promise<OfflineConversionDataSet> {
+  createAgency (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<OfflineConversionDataSet> {
     return this.createEdge(
       '/agencies',
       fields,
       params,
-      OfflineConversionDataSet
+      OfflineConversionDataSet,
+      pathOverride,
     );
   }
 
@@ -120,12 +137,33 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
     );
   }
 
-  createEvent (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
-    return this.createEdge(
-      '/events',
+  getServerEventsPermittedBusiness (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      Business,
       fields,
       params,
-      
+      fetchFirstPage,
+      '/server_events_permitted_business'
+    );
+  }
+
+  getSharedAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AdAccount,
+      fields,
+      params,
+      fetchFirstPage,
+      '/shared_accounts'
+    );
+  }
+
+  getSharedAgencies (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      Business,
+      fields,
+      params,
+      fetchFirstPage,
+      '/shared_agencies'
     );
   }
 
@@ -141,7 +179,7 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
 
   getUploads (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      AbstractObject,
+      OfflineConversionDataSetUpload,
       fields,
       params,
       fetchFirstPage,
@@ -149,21 +187,23 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
     );
   }
 
-  createUpload (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+  createUpload (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<OfflineConversionDataSetUpload> {
     return this.createEdge(
       '/uploads',
       fields,
       params,
-      
+      OfflineConversionDataSetUpload,
+      pathOverride,
     );
   }
 
-  createValidate (fields: Array<string>, params: Object = {}): Promise<OfflineConversionDataSet> {
+  createValidate (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<OfflineConversionDataSet> {
     return this.createEdge(
       '/validate',
       fields,
       params,
-      OfflineConversionDataSet
+      OfflineConversionDataSet,
+      pathOverride,
     );
   }
 

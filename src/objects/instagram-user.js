@@ -1,13 +1,14 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
-import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import Business from './business';
 import AdAccount from './ad-account';
@@ -18,7 +19,7 @@ import AdAccount from './ad-account';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class InstagramUser extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       follow_count: 'follow_count',
       followed_by_count: 'followed_by_count',
@@ -27,18 +28,13 @@ export default class InstagramUser extends AbstractCrudObject {
       is_private: 'is_private',
       is_published: 'is_published',
       media_count: 'media_count',
+      mini_shop_storefront: 'mini_shop_storefront',
+      owner_business: 'owner_business',
       profile_pic: 'profile_pic',
       username: 'username',
     });
   }
 
-
-  deleteAgencies (params: Object = {}): Promise<*> {
-    return super.deleteEdge(
-      '/agencies',
-      params
-    );
-  }
 
   getAgencies (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
@@ -60,12 +56,13 @@ export default class InstagramUser extends AbstractCrudObject {
     );
   }
 
-  createAuthorizedAdAccount (fields: Array<string>, params: Object = {}): Promise<InstagramUser> {
+  createAuthorizedAdAccount (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<InstagramUser> {
     return this.createEdge(
       '/authorized_adaccounts',
       fields,
       params,
-      InstagramUser
+      InstagramUser,
+      pathOverride,
     );
   }
 

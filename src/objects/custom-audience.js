@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
@@ -20,14 +22,16 @@ import CustomAudiencesharedAccountInfo from './custom-audienceshared-account-inf
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class CustomAudience extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       account_id: 'account_id',
-      approximate_count: 'approximate_count',
+      approximate_count_lower_bound: 'approximate_count_lower_bound',
+      approximate_count_upper_bound: 'approximate_count_upper_bound',
       customer_file_source: 'customer_file_source',
       data_source: 'data_source',
       data_source_types: 'data_source_types',
       datafile_custom_audience_uploading_status: 'datafile_custom_audience_uploading_status',
+      delete_time: 'delete_time',
       delivery_status: 'delivery_status',
       description: 'description',
       excluded_custom_audiences: 'excluded_custom_audiences',
@@ -43,6 +47,8 @@ export default class CustomAudience extends AbstractCrudObject {
       name: 'name',
       operation_status: 'operation_status',
       opt_out_link: 'opt_out_link',
+      owner_business: 'owner_business',
+      page_deletion_marked_delete_time: 'page_deletion_marked_delete_time',
       permission_for_actions: 'permission_for_actions',
       pixel_id: 'pixel_id',
       regulated_audience_spec: 'regulated_audience_spec',
@@ -79,6 +85,7 @@ export default class CustomAudience extends AbstractCrudObject {
       flight: 'FLIGHT',
       home_listing: 'HOME_LISTING',
       hotel: 'HOTEL',
+      job: 'JOB',
       local_service_business: 'LOCAL_SERVICE_BUSINESS',
       location_based_item: 'LOCATION_BASED_ITEM',
       media_title: 'MEDIA_TITLE',
@@ -99,6 +106,7 @@ export default class CustomAudience extends AbstractCrudObject {
     return Object.freeze({
       app: 'APP',
       bag_of_accounts: 'BAG_OF_ACCOUNTS',
+      bidding: 'BIDDING',
       claim: 'CLAIM',
       custom: 'CUSTOM',
       engagement: 'ENGAGEMENT',
@@ -108,9 +116,16 @@ export default class CustomAudience extends AbstractCrudObject {
       measurement: 'MEASUREMENT',
       offline_conversion: 'OFFLINE_CONVERSION',
       partner: 'PARTNER',
+      primary: 'PRIMARY',
       regulated_categories_audience: 'REGULATED_CATEGORIES_AUDIENCE',
       study_rule_audience: 'STUDY_RULE_AUDIENCE',
       video: 'VIDEO',
+      website: 'WEBSITE',
+    });
+  }
+  static get ActionSource (): Object {
+    return Object.freeze({
+      physical_store: 'PHYSICAL_STORE',
       website: 'WEBSITE',
     });
   }
@@ -132,12 +147,13 @@ export default class CustomAudience extends AbstractCrudObject {
     );
   }
 
-  createAdAccount (fields: Array<string>, params: Object = {}): Promise<CustomAudience> {
+  createAdAccount (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<CustomAudience> {
     return this.createEdge(
       '/adaccounts',
       fields,
       params,
-      CustomAudience
+      CustomAudience,
+      pathOverride,
     );
   }
 
@@ -178,12 +194,23 @@ export default class CustomAudience extends AbstractCrudObject {
     );
   }
 
-  createUser (fields: Array<string>, params: Object = {}): Promise<CustomAudience> {
+  createUser (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<CustomAudience> {
     return this.createEdge(
       '/users',
       fields,
       params,
-      CustomAudience
+      CustomAudience,
+      pathOverride,
+    );
+  }
+
+  createUsersReplace (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<CustomAudience> {
+    return this.createEdge(
+      '/usersreplace',
+      fields,
+      params,
+      CustomAudience,
+      pathOverride,
     );
   }
 

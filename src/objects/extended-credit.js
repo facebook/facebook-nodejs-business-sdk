@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
@@ -18,7 +20,7 @@ import ExtendedCreditAllocationConfig from './extended-credit-allocation-config'
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class ExtendedCredit extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       allocated_amount: 'allocated_amount',
       balance: 'balance',
@@ -27,8 +29,8 @@ export default class ExtendedCredit extends AbstractCrudObject {
       id: 'id',
       is_access_revoked: 'is_access_revoked',
       is_automated_experience: 'is_automated_experience',
-      last_payment_time: 'last_payment_time',
       legal_entity_name: 'legal_entity_name',
+      liable_address: 'liable_address',
       liable_biz_name: 'liable_biz_name',
       max_balance: 'max_balance',
       online_max_balance: 'online_max_balance',
@@ -36,7 +38,9 @@ export default class ExtendedCredit extends AbstractCrudObject {
       owner_business_name: 'owner_business_name',
       partition_from: 'partition_from',
       receiving_credit_allocation_config: 'receiving_credit_allocation_config',
+      send_bill_to_address: 'send_bill_to_address',
       send_bill_to_biz_name: 'send_bill_to_biz_name',
+      sold_to_address: 'sold_to_address',
     });
   }
 
@@ -51,12 +55,13 @@ export default class ExtendedCredit extends AbstractCrudObject {
     );
   }
 
-  createExtendedCreditInvoiceGroup (fields: Array<string>, params: Object = {}): Promise<ExtendedCreditInvoiceGroup> {
+  createExtendedCreditInvoiceGroup (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<ExtendedCreditInvoiceGroup> {
     return this.createEdge(
       '/extended_credit_invoice_groups',
       fields,
       params,
-      ExtendedCreditInvoiceGroup
+      ExtendedCreditInvoiceGroup,
+      pathOverride,
     );
   }
 
@@ -70,21 +75,23 @@ export default class ExtendedCredit extends AbstractCrudObject {
     );
   }
 
-  createOwningCreditAllocationConfig (fields: Array<string>, params: Object = {}): Promise<ExtendedCreditAllocationConfig> {
+  createOwningCreditAllocationConfig (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<ExtendedCreditAllocationConfig> {
     return this.createEdge(
       '/owning_credit_allocation_configs',
       fields,
       params,
-      ExtendedCreditAllocationConfig
+      ExtendedCreditAllocationConfig,
+      pathOverride,
     );
   }
 
-  createWhatsappCreditSharingAndAttach (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+  createWhatsappCreditSharingAndAttach (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
     return this.createEdge(
       '/whatsapp_credit_sharing_and_attach',
       fields,
       params,
-      
+      null,
+      pathOverride,
     );
   }
 

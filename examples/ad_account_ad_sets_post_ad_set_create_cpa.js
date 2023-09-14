@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2017-present, Facebook, Inc.
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
@@ -36,8 +36,8 @@ params = {
   'name' : 'A CPA Ad Set',
   'campaign_id' : '<adCampaignLinkClicksID>',
   'daily_budget' : '5000',
-  'start_time' : '2019-12-12T23:42:39-0800',
-  'end_time' : '2019-12-19T23:42:39-0800',
+  'start_time' : '2023-04-24T09:25:05-0700',
+  'end_time' : '2023-05-01T09:25:05-0700',
   'billing_event' : 'IMPRESSIONS',
   'optimization_goal' : 'REACH',
   'bid_amount' : '1000',

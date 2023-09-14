@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
@@ -14,30 +16,23 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdsInsights extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       account_currency: 'account_currency',
       account_id: 'account_id',
       account_name: 'account_name',
       action_values: 'action_values',
       actions: 'actions',
-      ad_bid_type: 'ad_bid_type',
-      ad_bid_value: 'ad_bid_value',
       ad_click_actions: 'ad_click_actions',
-      ad_delivery: 'ad_delivery',
       ad_id: 'ad_id',
       ad_impression_actions: 'ad_impression_actions',
       ad_name: 'ad_name',
-      adset_bid_type: 'adset_bid_type',
-      adset_bid_value: 'adset_bid_value',
-      adset_budget_type: 'adset_budget_type',
-      adset_budget_value: 'adset_budget_value',
-      adset_delivery: 'adset_delivery',
       adset_end: 'adset_end',
       adset_id: 'adset_id',
       adset_name: 'adset_name',
       adset_start: 'adset_start',
       age_targeting: 'age_targeting',
+      attribution_setting: 'attribution_setting',
       auction_bid: 'auction_bid',
       auction_competitiveness: 'auction_competitiveness',
       auction_max_competitor_bid: 'auction_max_competitor_bid',
@@ -68,7 +63,6 @@ export default class AdsInsights extends AbstractCrudObject {
       cost_per_inline_post_engagement: 'cost_per_inline_post_engagement',
       cost_per_one_thousand_ad_impression: 'cost_per_one_thousand_ad_impression',
       cost_per_outbound_click: 'cost_per_outbound_click',
-      cost_per_store_visit_action: 'cost_per_store_visit_action',
       cost_per_thruplay: 'cost_per_thruplay',
       cost_per_unique_action_type: 'cost_per_unique_action_type',
       cost_per_unique_click: 'cost_per_unique_click',
@@ -79,10 +73,12 @@ export default class AdsInsights extends AbstractCrudObject {
       cpm: 'cpm',
       cpp: 'cpp',
       created_time: 'created_time',
+      creative_media_type: 'creative_media_type',
       ctr: 'ctr',
       date_start: 'date_start',
       date_stop: 'date_stop',
       dda_countby_convs: 'dda_countby_convs',
+      dda_results: 'dda_results',
       engagement_rate_ranking: 'engagement_rate_ranking',
       estimated_ad_recall_rate: 'estimated_ad_recall_rate',
       estimated_ad_recall_rate_lower_bound: 'estimated_ad_recall_rate_lower_bound',
@@ -98,6 +94,7 @@ export default class AdsInsights extends AbstractCrudObject {
       inline_link_click_ctr: 'inline_link_click_ctr',
       inline_link_clicks: 'inline_link_clicks',
       inline_post_engagement: 'inline_post_engagement',
+      instagram_upcoming_event_reminders_set: 'instagram_upcoming_event_reminders_set',
       instant_experience_clicks_to_open: 'instant_experience_clicks_to_open',
       instant_experience_clicks_to_start: 'instant_experience_clicks_to_start',
       instant_experience_outbound_clicks: 'instant_experience_outbound_clicks',
@@ -106,6 +103,7 @@ export default class AdsInsights extends AbstractCrudObject {
       location: 'location',
       mobile_app_purchase_roas: 'mobile_app_purchase_roas',
       objective: 'objective',
+      optimization_goal: 'optimization_goal',
       outbound_clicks: 'outbound_clicks',
       outbound_clicks_ctr: 'outbound_clicks_ctr',
       place_page_name: 'place_page_name',
@@ -118,7 +116,9 @@ export default class AdsInsights extends AbstractCrudObject {
       reach: 'reach',
       social_spend: 'social_spend',
       spend: 'spend',
-      store_visit_actions: 'store_visit_actions',
+      total_postbacks: 'total_postbacks',
+      total_postbacks_detailed: 'total_postbacks_detailed',
+      total_postbacks_detailed_v4: 'total_postbacks_detailed_v4',
       unique_actions: 'unique_actions',
       unique_clicks: 'unique_clicks',
       unique_conversions: 'unique_conversions',
@@ -163,6 +163,8 @@ export default class AdsInsights extends AbstractCrudObject {
       value_7d_view: '7d_view',
       dda: 'dda',
       default: 'default',
+      skan_click: 'skan_click',
+      skan_view: 'skan_view',
     });
   }
   static get ActionBreakdowns (): Object {
@@ -183,36 +185,48 @@ export default class AdsInsights extends AbstractCrudObject {
     return Object.freeze({
       conversion: 'conversion',
       impression: 'impression',
+      mixed: 'mixed',
     });
   }
   static get Breakdowns (): Object {
     return Object.freeze({
       ad_format_asset: 'ad_format_asset',
       age: 'age',
+      app_id: 'app_id',
       body_asset: 'body_asset',
       call_to_action_asset: 'call_to_action_asset',
+      coarse_conversion_value: 'coarse_conversion_value',
       country: 'country',
       description_asset: 'description_asset',
       device_platform: 'device_platform',
       dma: 'dma',
+      fidelity_type: 'fidelity_type',
       frequency_value: 'frequency_value',
       gender: 'gender',
       hourly_stats_aggregated_by_advertiser_time_zone: 'hourly_stats_aggregated_by_advertiser_time_zone',
       hourly_stats_aggregated_by_audience_time_zone: 'hourly_stats_aggregated_by_audience_time_zone',
+      hsid: 'hsid',
       image_asset: 'image_asset',
       impression_device: 'impression_device',
+      is_conversion_id_modeled: 'is_conversion_id_modeled',
       link_url_asset: 'link_url_asset',
+      mmm: 'mmm',
       place_page_id: 'place_page_id',
       platform_position: 'platform_position',
+      postback_sequence_index: 'postback_sequence_index',
       product_id: 'product_id',
       publisher_platform: 'publisher_platform',
+      redownload: 'redownload',
       region: 'region',
+      skan_campaign_id: 'skan_campaign_id',
+      skan_conversion_id: 'skan_conversion_id',
       title_asset: 'title_asset',
       video_asset: 'video_asset',
     });
   }
   static get DatePreset (): Object {
     return Object.freeze({
+      data_maximum: 'data_maximum',
       last_14d: 'last_14d',
       last_28d: 'last_28d',
       last_30d: 'last_30d',
@@ -224,7 +238,7 @@ export default class AdsInsights extends AbstractCrudObject {
       last_week_mon_sun: 'last_week_mon_sun',
       last_week_sun_sat: 'last_week_sun_sat',
       last_year: 'last_year',
-      lifetime: 'lifetime',
+      maximum: 'maximum',
       this_month: 'this_month',
       this_quarter: 'this_quarter',
       this_week_mon_today: 'this_week_mon_today',

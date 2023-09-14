@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
@@ -17,7 +19,7 @@ import AdAsyncRequest from './ad-async-request';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdAsyncRequestSet extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       canceled_count: 'canceled_count',
       created_time: 'created_time',
@@ -42,13 +44,6 @@ export default class AdAsyncRequestSet extends AbstractCrudObject {
     return Object.freeze({
       off: 'OFF',
       on_complete: 'ON_COMPLETE',
-    });
-  }
-  static get NotificationStatus (): Object {
-    return Object.freeze({
-      not_sent: 'NOT_SENT',
-      sending: 'SENDING',
-      sent: 'SENT',
     });
   }
 

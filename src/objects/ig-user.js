@@ -1,16 +1,19 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import InstagramInsightsResult from './instagram-insights-result';
 import IGMedia from './ig-media';
+import UserPageOneTimeOptInTokenSettings from './user-page-one-time-opt-in-token-settings';
 
 /**
  * IGUser
@@ -18,7 +21,7 @@ import IGMedia from './ig-media';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class IGUser extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       biography: 'biography',
       business_discovery: 'business_discovery',
@@ -26,18 +29,49 @@ export default class IGUser extends AbstractCrudObject {
       follows_count: 'follows_count',
       id: 'id',
       ig_id: 'ig_id',
-      is_ig_shopping_seller_policy_enabled: 'is_ig_shopping_seller_policy_enabled',
       media_count: 'media_count',
       mentioned_comment: 'mentioned_comment',
       mentioned_media: 'mentioned_media',
       name: 'name',
+      owner_business: 'owner_business',
       profile_picture_url: 'profile_picture_url',
+      shopping_product_tag_eligibility: 'shopping_product_tag_eligibility',
       shopping_review_status: 'shopping_review_status',
       username: 'username',
       website: 'website',
     });
   }
 
+
+  getAvailableCatalogs (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/available_catalogs'
+    );
+  }
+
+  getCatalogProductSearch (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/catalog_product_search'
+    );
+  }
+
+  getContentPublishingLimit (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/content_publishing_limit'
+    );
+  }
 
   getInsights (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
@@ -46,6 +80,16 @@ export default class IGUser extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/insights'
+    );
+  }
+
+  getLiveMedia (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      IGMedia,
+      fields,
+      params,
+      fetchFirstPage,
+      '/live_media'
     );
   }
 
@@ -59,30 +103,63 @@ export default class IGUser extends AbstractCrudObject {
     );
   }
 
-  createMedia (fields: Array<string>, params: Object = {}): Promise<IGMedia> {
+  createMedia (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<IGMedia> {
     return this.createEdge(
       '/media',
       fields,
       params,
-      IGMedia
+      IGMedia,
+      pathOverride,
     );
   }
 
-  createMediaPublish (fields: Array<string>, params: Object = {}): Promise<IGMedia> {
+  createMediaPublish (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<IGMedia> {
     return this.createEdge(
       '/media_publish',
       fields,
       params,
-      IGMedia
+      IGMedia,
+      pathOverride,
     );
   }
 
-  createMention (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+  createMention (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
     return this.createEdge(
       '/mentions',
       fields,
       params,
-      
+      null,
+      pathOverride,
+    );
+  }
+
+  getNotificationMessageTokens (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      UserPageOneTimeOptInTokenSettings,
+      fields,
+      params,
+      fetchFirstPage,
+      '/notification_message_tokens'
+    );
+  }
+
+  getProductAppeal (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/product_appeal'
+    );
+  }
+
+  createProductAppeal (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+    return this.createEdge(
+      '/product_appeal',
+      fields,
+      params,
+      null,
+      pathOverride,
     );
   }
 

@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
@@ -17,7 +19,7 @@ import Profile from './profile';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class Comment extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       admin_creator: 'admin_creator',
       application: 'application',
@@ -47,13 +49,17 @@ export default class Comment extends AbstractCrudObject {
 
   static get CommentPrivacyValue (): Object {
     return Object.freeze({
+      declined_by_admin_assistant: 'DECLINED_BY_ADMIN_ASSISTANT',
       default_privacy: 'DEFAULT_PRIVACY',
       friends_and_post_owner: 'FRIENDS_AND_POST_OWNER',
       friends_only: 'FRIENDS_ONLY',
       graphql_multiple_value_hack_do_not_use: 'GRAPHQL_MULTIPLE_VALUE_HACK_DO_NOT_USE',
       owner_or_commenter: 'OWNER_OR_COMMENTER',
+      pending_approval: 'PENDING_APPROVAL',
+      removed_by_admin_assistant: 'REMOVED_BY_ADMIN_ASSISTANT',
       side_conversation: 'SIDE_CONVERSATION',
       side_conversation_and_post_owner: 'SIDE_CONVERSATION_AND_POST_OWNER',
+      spotlight_tab: 'SPOTLIGHT_TAB',
     });
   }
   static get Filter (): Object {
@@ -85,12 +91,13 @@ export default class Comment extends AbstractCrudObject {
     );
   }
 
-  createComment (fields: Array<string>, params: Object = {}): Promise<Comment> {
+  createComment (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Comment> {
     return this.createEdge(
       '/comments',
       fields,
       params,
-      Comment
+      Comment,
+      pathOverride,
     );
   }
 
@@ -111,12 +118,13 @@ export default class Comment extends AbstractCrudObject {
     );
   }
 
-  createLike (fields: Array<string>, params: Object = {}): Promise<Comment> {
+  createLike (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Comment> {
     return this.createEdge(
       '/likes',
       fields,
       params,
-      Comment
+      Comment,
+      pathOverride,
     );
   }
 

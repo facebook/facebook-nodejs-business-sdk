@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
@@ -14,7 +16,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdPlacePageSet extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       account_id: 'account_id',
       id: 'id',
@@ -25,12 +27,6 @@ export default class AdPlacePageSet extends AbstractCrudObject {
     });
   }
 
-  static get Category (): Object {
-    return Object.freeze({
-      bopus: 'BOPUS',
-      general: 'GENERAL',
-    });
-  }
   static get LocationTypes (): Object {
     return Object.freeze({
       home: 'home',

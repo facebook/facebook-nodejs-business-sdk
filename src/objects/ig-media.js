@@ -1,15 +1,19 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import IGComment from './ig-comment';
 import InstagramInsightsResult from './instagram-insights-result';
+import ShadowIGMediaProductTags from './shadow-ig-media-product-tags';
 
 /**
  * IGMedia
@@ -17,15 +21,16 @@ import InstagramInsightsResult from './instagram-insights-result';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class IGMedia extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
-      alt_text: 'alt_text',
       caption: 'caption',
       comments_count: 'comments_count',
       id: 'id',
       ig_id: 'ig_id',
       is_comment_enabled: 'is_comment_enabled',
+      is_shared_to_feed: 'is_shared_to_feed',
       like_count: 'like_count',
+      media_product_type: 'media_product_type',
       media_type: 'media_type',
       media_url: 'media_url',
       owner: 'owner',
@@ -58,12 +63,13 @@ export default class IGMedia extends AbstractCrudObject {
     );
   }
 
-  createComment (fields: Array<string>, params: Object = {}): Promise<IGComment> {
+  createComment (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<IGComment> {
     return this.createEdge(
       '/comments',
       fields,
       params,
-      IGComment
+      IGComment,
+      pathOverride,
     );
   }
 
@@ -74,6 +80,33 @@ export default class IGMedia extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/insights'
+    );
+  }
+
+  deleteProductTags (params: Object = {}): Promise<*> {
+    return super.deleteEdge(
+      '/product_tags',
+      params
+    );
+  }
+
+  getProductTags (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      ShadowIGMediaProductTags,
+      fields,
+      params,
+      fetchFirstPage,
+      '/product_tags'
+    );
+  }
+
+  createProductTag (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<ShadowIGMediaProductTags> {
+    return this.createEdge(
+      '/product_tags',
+      fields,
+      params,
+      ShadowIGMediaProductTags,
+      pathOverride,
     );
   }
 

@@ -20,14 +20,17 @@ export default class FacebookAdsApi {
   accessToken: string;
   locale: string;
   static _defaultApi: FacebookAdsApi;
-  static get VERSION() {
-    return 'v8.0';
+  static get VERSION(): string {
+    return 'v17.0';
   }
-  static get GRAPH() {
+  static get SDK_VERSION(): string {
+    return '17.0.3';
+  }
+  static get GRAPH(): string {
     return 'https://graph.facebook.com';
   }
 
-  static get GRAPH_VIDEO () {
+  static get GRAPH_VIDEO(): string {
     return 'https://graph-video.facebook.com';
   }
 
@@ -54,7 +57,7 @@ export default class FacebookAdsApi {
    * @param  {String} [locale]
    * @return {FacebookAdsApi}
    */
-  static init(accessToken: string, locale: string = 'en_US', crash_log: bool = true) {
+  static init(accessToken: string, locale: string = 'en_US', crash_log: bool = true) : FacebookAdsApi {
     const api = new this(accessToken, locale, crash_log);
     this.setDefaultApi(api);
     return api;
@@ -64,13 +67,17 @@ export default class FacebookAdsApi {
     this._defaultApi = api;
   }
 
-  static getDefaultApi() {
+  static getDefaultApi(): FacebookAdsApi {
     return this._defaultApi;
   }
 
   getAppID() : Promise<*> {
     let url = [FacebookAdsApi.GRAPH, FacebookAdsApi.VERSION, 'debug_token'].join('/');
-    let params = {};
+    type Params = {
+      [key: string]: any
+    };
+    let params: Params = {};
+
     params['access_token'] = this.accessToken;
     params['input_token'] = this.accessToken;
     params['fields'] = 'app_id';
@@ -79,12 +86,12 @@ export default class FacebookAdsApi {
     return Http.request('GET', url, {}, {}, false);
   }
 
-  setDebug(flag: boolean) {
+  setDebug(flag: boolean): FacebookAdsApi {
     this._debug = flag;
     return this;
   }
 
-  setShowHeader(flag: boolean) {
+  setShowHeader(flag: boolean): FacebookAdsApi {
     this._showHeader = flag;
     return this;
   }
@@ -123,9 +130,10 @@ export default class FacebookAdsApi {
     return Http.request(method, strUrl, data, files, useMultipartFormData, this._showHeader)
       .then(response => {
         if (this._showHeader) {
-          response.body['headers'] = response.headers;
-          response = response.body;
+          response.data['headers'] = response.headers;
         }
+
+        response = response.data;
 
         if (this._debug) {
           console.log(`200 ${method} ${url} ${Object.keys(data).length > 0 ? JSON.stringify(data) : ""}`);
@@ -146,7 +154,7 @@ export default class FacebookAdsApi {
       });
   }
 
-  static _encodeParams(params: Object) {
+  static _encodeParams(params: Object): string {
     return Object.keys(params)
       .map(key => {
         var param = params[key];

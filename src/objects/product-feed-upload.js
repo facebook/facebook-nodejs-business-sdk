@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 import Cursor from './../cursor';
 import ProductFeedUploadError from './product-feed-upload-error';
@@ -16,7 +18,7 @@ import ProductFeedUploadError from './product-feed-upload-error';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class ProductFeedUpload extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       end_time: 'end_time',
       error_count: 'error_count',
@@ -44,12 +46,13 @@ export default class ProductFeedUpload extends AbstractCrudObject {
     });
   }
 
-  createErrorReport (fields: Array<string>, params: Object = {}): Promise<ProductFeedUpload> {
+  createErrorReport (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<ProductFeedUpload> {
     return this.createEdge(
       '/error_report',
       fields,
       params,
-      ProductFeedUpload
+      ProductFeedUpload,
+      pathOverride,
     );
   }
 

@@ -1,17 +1,21 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
+import AdAccountBusinessConstraints from './ad-account-business-constraints';
 import AdActivity from './ad-activity';
 import AdPlacePageSet from './ad-place-page-set';
 import AdStudy from './ad-study';
+import CloudGame from './cloud-game';
 import AdCreative from './ad-creative';
 import AdImage from './ad-image';
 import AdLabel from './ad-label';
@@ -30,7 +34,7 @@ import Campaign from './campaign';
 import AsyncRequest from './async-request';
 import AdAsyncRequestSet from './ad-async-request-set';
 import BroadTargetingCategories from './broad-targeting-categories';
-import ContentDeliveryReport from './content-delivery-report';
+import IGUser from './ig-user';
 import CustomAudience from './custom-audience';
 import CustomAudiencesTOS from './custom-audiences-tos';
 import CustomConversion from './custom-conversion';
@@ -39,6 +43,7 @@ import AdPreview from './ad-preview';
 import AdsInsights from './ads-insights';
 import AdReportRun from './ad-report-run';
 import InstagramUser from './instagram-user';
+import AdAccountIosFourteenCampaignLimits from './ad-account-ios-fourteen-campaign-limits';
 import AdAccountMatchedSearchApplicationsEdgeData from './ad-account-matched-search-applications-edge-data';
 import AdAccountMaxBid from './ad-account-max-bid';
 import MinimumBudget from './minimum-budget';
@@ -48,7 +53,6 @@ import Page from './page';
 import PublisherBlockList from './publisher-block-list';
 import AdAccountReachEstimate from './ad-account-reach-estimate';
 import ReachFrequencyPrediction from './reach-frequency-prediction';
-import AdAccountRoas from './ad-account-roas';
 import SavedAudience from './saved-audience';
 import AdAccountSubscribedApps from './ad-account-subscribed-apps';
 import AdAccountTargetingUnified from './ad-account-targeting-unified';
@@ -62,11 +66,10 @@ import AdAccountUser from './ad-account-user';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdAccount extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       account_id: 'account_id',
       account_status: 'account_status',
-      ad_account_creation_request: 'ad_account_creation_request',
       ad_account_promotable_objects: 'ad_account_promotable_objects',
       age: 'age',
       agency_client_declaration: 'agency_client_declaration',
@@ -85,9 +88,13 @@ export default class AdAccount extends AbstractCrudObject {
       capabilities: 'capabilities',
       created_time: 'created_time',
       currency: 'currency',
+      custom_audience_info: 'custom_audience_info',
+      default_dsa_beneficiary: 'default_dsa_beneficiary',
+      default_dsa_payor: 'default_dsa_payor',
       disable_reason: 'disable_reason',
       end_advertiser: 'end_advertiser',
       end_advertiser_name: 'end_advertiser_name',
+      existing_customers: 'existing_customers',
       extended_credit_invoice_group: 'extended_credit_invoice_group',
       failed_delivery_checks: 'failed_delivery_checks',
       fb_entity: 'fb_entity',
@@ -100,11 +107,11 @@ export default class AdAccount extends AbstractCrudObject {
       is_attribution_spec_system_default: 'is_attribution_spec_system_default',
       is_direct_deals_enabled: 'is_direct_deals_enabled',
       is_in_3ds_authorization_enabled_market: 'is_in_3ds_authorization_enabled_market',
-      is_in_middle_of_local_entity_migration: 'is_in_middle_of_local_entity_migration',
       is_notifications_enabled: 'is_notifications_enabled',
       is_personal: 'is_personal',
       is_prepay_account: 'is_prepay_account',
       is_tax_id_required: 'is_tax_id_required',
+      liable_address: 'liable_address',
       line_numbers: 'line_numbers',
       media_agency: 'media_agency',
       min_campaign_group_spend_cap: 'min_campaign_group_spend_cap',
@@ -112,9 +119,12 @@ export default class AdAccount extends AbstractCrudObject {
       name: 'name',
       offsite_pixels_tos_accepted: 'offsite_pixels_tos_accepted',
       owner: 'owner',
+      owner_business: 'owner_business',
       partner: 'partner',
       rf_spec: 'rf_spec',
+      send_bill_to_address: 'send_bill_to_address',
       show_checkout_experience: 'show_checkout_experience',
+      sold_to_address: 'sold_to_address',
       spend_cap: 'spend_cap',
       tax_id: 'tax_id',
       tax_id_status: 'tax_id_status',
@@ -125,6 +135,7 @@ export default class AdAccount extends AbstractCrudObject {
       tos_accepted: 'tos_accepted',
       user_tasks: 'user_tasks',
       user_tos_accepted: 'user_tos_accepted',
+      viewable_business: 'viewable_business',
     });
   }
 
@@ -159,6 +170,7 @@ export default class AdAccount extends AbstractCrudObject {
       jpy: 'JPY',
       kes: 'KES',
       krw: 'KRW',
+      lkr: 'LKR',
       mop: 'MOP',
       mxn: 'MXN',
       myr: 'MYR',
@@ -173,7 +185,6 @@ export default class AdAccount extends AbstractCrudObject {
       pyg: 'PYG',
       qar: 'QAR',
       ron: 'RON',
-      rub: 'RUB',
       sar: 'SAR',
       sek: 'SEK',
       sgd: 'SGD',
@@ -187,17 +198,12 @@ export default class AdAccount extends AbstractCrudObject {
       zar: 'ZAR',
     });
   }
-  static get PermittedTasks (): Object {
-    return Object.freeze({
-      advertise: 'ADVERTISE',
-      analyze: 'ANALYZE',
-      manage: 'MANAGE',
-    });
-  }
   static get Tasks (): Object {
     return Object.freeze({
+      aa_analyze: 'AA_ANALYZE',
       advertise: 'ADVERTISE',
       analyze: 'ANALYZE',
+      draft: 'DRAFT',
       manage: 'MANAGE',
     });
   }
@@ -220,6 +226,7 @@ export default class AdAccount extends AbstractCrudObject {
       flight: 'FLIGHT',
       home_listing: 'HOME_LISTING',
       hotel: 'HOTEL',
+      job: 'JOB',
       local_service_business: 'LOCAL_SERVICE_BUSINESS',
       location_based_item: 'LOCATION_BASED_ITEM',
       media_title: 'MEDIA_TITLE',
@@ -233,6 +240,7 @@ export default class AdAccount extends AbstractCrudObject {
     return Object.freeze({
       app: 'APP',
       bag_of_accounts: 'BAG_OF_ACCOUNTS',
+      bidding: 'BIDDING',
       claim: 'CLAIM',
       custom: 'CUSTOM',
       engagement: 'ENGAGEMENT',
@@ -242,11 +250,38 @@ export default class AdAccount extends AbstractCrudObject {
       measurement: 'MEASUREMENT',
       offline_conversion: 'OFFLINE_CONVERSION',
       partner: 'PARTNER',
+      primary: 'PRIMARY',
       regulated_categories_audience: 'REGULATED_CATEGORIES_AUDIENCE',
       study_rule_audience: 'STUDY_RULE_AUDIENCE',
       video: 'VIDEO',
       website: 'WEBSITE',
     });
+  }
+  static get ActionSource (): Object {
+    return Object.freeze({
+      physical_store: 'PHYSICAL_STORE',
+      website: 'WEBSITE',
+    });
+  }
+
+  getAccountControls (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AdAccountBusinessConstraints,
+      fields,
+      params,
+      fetchFirstPage,
+      '/account_controls'
+    );
+  }
+
+  createAccountControl (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdAccountBusinessConstraints> {
+    return this.createEdge(
+      '/account_controls',
+      fields,
+      params,
+      AdAccountBusinessConstraints,
+      pathOverride,
+    );
   }
 
   getActivities (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
@@ -269,21 +304,33 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createAdPlacePageSet (fields: Array<string>, params: Object = {}): Promise<AdPlacePageSet> {
+  createAdPlacePageSet (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdPlacePageSet> {
     return this.createEdge(
       '/ad_place_page_sets',
       fields,
       params,
-      AdPlacePageSet
+      AdPlacePageSet,
+      pathOverride,
     );
   }
 
-  createAdPlacePageSetsAsync (fields: Array<string>, params: Object = {}): Promise<AdPlacePageSet> {
+  createAdPlacePageSetsAsync (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdPlacePageSet> {
     return this.createEdge(
       '/ad_place_page_sets_async',
       fields,
       params,
-      AdPlacePageSet
+      AdPlacePageSet,
+      pathOverride,
+    );
+  }
+
+  getAdSavedKeywords (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/ad_saved_keywords'
     );
   }
 
@@ -297,6 +344,16 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
+  getAdCloudPlayables (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      CloudGame,
+      fields,
+      params,
+      fetchFirstPage,
+      '/adcloudplayables'
+    );
+  }
+
   getAdCreatives (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdCreative,
@@ -307,12 +364,13 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createAdCreative (fields: Array<string>, params: Object = {}): Promise<AdCreative> {
+  createAdCreative (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdCreative> {
     return this.createEdge(
       '/adcreatives',
       fields,
       params,
-      AdCreative
+      AdCreative,
+      pathOverride,
     );
   }
 
@@ -343,12 +401,13 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createAdImage (fields: Array<string>, params: Object = {}): Promise<AdImage> {
+  createAdImage (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdImage> {
     return this.createEdge(
       '/adimages',
       fields,
       params,
-      AdImage
+      AdImage,
+      pathOverride,
     );
   }
 
@@ -362,12 +421,13 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createAdLabel (fields: Array<string>, params: Object = {}): Promise<AdLabel> {
+  createAdLabel (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdLabel> {
     return this.createEdge(
       '/adlabels',
       fields,
       params,
-      AdLabel
+      AdLabel,
+      pathOverride,
     );
   }
 
@@ -381,12 +441,13 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createAdPlayable (fields: Array<string>, params: Object = {}): Promise<PlayableContent> {
+  createAdPlayable (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<PlayableContent> {
     return this.createEdge(
       '/adplayables',
       fields,
       params,
-      PlayableContent
+      PlayableContent,
+      pathOverride,
     );
   }
 
@@ -410,12 +471,13 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createAdRulesLibrary (fields: Array<string>, params: Object = {}): Promise<AdRule> {
+  createAdRulesLibrary (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdRule> {
     return this.createEdge(
       '/adrules_library',
       fields,
       params,
-      AdRule
+      AdRule,
+      pathOverride,
     );
   }
 
@@ -429,12 +491,43 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createAd (fields: Array<string>, params: Object = {}): Promise<Ad> {
+  createAd (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Ad> {
     return this.createEdge(
       '/ads',
       fields,
       params,
-      Ad
+      Ad,
+      pathOverride,
+    );
+  }
+
+  createAdsConversionGoal (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+    return this.createEdge(
+      '/ads_conversion_goal',
+      fields,
+      params,
+      null,
+      pathOverride,
+    );
+  }
+
+  getAdsReportingMmmReports (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/ads_reporting_mmm_reports'
+    );
+  }
+
+  getAdsReportingMmmSchedulers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/ads_reporting_mmm_schedulers'
     );
   }
 
@@ -468,12 +561,13 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createAdSet (fields: Array<string>, params: Object = {}): Promise<AdSet> {
+  createAdSet (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdSet> {
     return this.createEdge(
       '/adsets',
       fields,
       params,
-      AdSet
+      AdSet,
+      pathOverride,
     );
   }
 
@@ -497,12 +591,13 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createAdsPixel (fields: Array<string>, params: Object = {}): Promise<AdsPixel> {
+  createAdsPixel (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdsPixel> {
     return this.createEdge(
       '/adspixels',
       fields,
       params,
-      AdsPixel
+      AdsPixel,
+      pathOverride,
     );
   }
 
@@ -533,12 +628,13 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createAdVideo (fields: Array<string>, params: Object = {}): Promise<AdVideo> {
+  createAdVideo (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdVideo> {
     return this.createEdge(
       '/advideos',
       fields,
       params,
-      AdVideo
+      AdVideo,
+      pathOverride,
     );
   }
 
@@ -569,15 +665,6 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createAgency (fields: Array<string>, params: Object = {}): Promise<AdAccount> {
-    return this.createEdge(
-      '/agencies',
-      fields,
-      params,
-      AdAccount
-    );
-  }
-
   getApplications (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Application,
@@ -605,21 +692,23 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createAssignedUser (fields: Array<string>, params: Object = {}): Promise<AdAccount> {
+  createAssignedUser (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdAccount> {
     return this.createEdge(
       '/assigned_users',
       fields,
       params,
-      AdAccount
+      AdAccount,
+      pathOverride,
     );
   }
 
-  createAsyncBatchRequest (fields: Array<string>, params: Object = {}): Promise<Campaign> {
+  createAsyncBatchRequest (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Campaign> {
     return this.createEdge(
       '/async_batch_requests',
       fields,
       params,
-      Campaign
+      Campaign,
+      pathOverride,
     );
   }
 
@@ -643,30 +732,23 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createAsyncAdRequestSet (fields: Array<string>, params: Object = {}): Promise<AdAsyncRequestSet> {
+  createAsyncAdRequestSet (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdAsyncRequestSet> {
     return this.createEdge(
       '/asyncadrequestsets',
       fields,
       params,
-      AdAsyncRequestSet
+      AdAsyncRequestSet,
+      pathOverride,
     );
   }
 
-  createAudienceReplace (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
-    return this.createEdge(
-      '/audiencereplace',
-      fields,
-      params,
-      
-    );
-  }
-
-  createBlockListDraft (fields: Array<string>, params: Object = {}): Promise<AdAccount> {
+  createBlockListDraft (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdAccount> {
     return this.createEdge(
       '/block_list_drafts',
       fields,
       params,
-      AdAccount
+      AdAccount,
+      pathOverride,
     );
   }
 
@@ -677,6 +759,16 @@ export default class AdAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/broadtargetingcategories'
+    );
+  }
+
+  getBusinessProjects (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/businessprojects'
     );
   }
 
@@ -697,12 +789,13 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createCampaign (fields: Array<string>, params: Object = {}): Promise<Campaign> {
+  createCampaign (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Campaign> {
     return this.createEdge(
       '/campaigns',
       fields,
       params,
-      Campaign
+      Campaign,
+      pathOverride,
     );
   }
 
@@ -716,22 +809,23 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getContentDeliveryReport (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+  getConnectedInstagramAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      ContentDeliveryReport,
+      IGUser,
       fields,
       params,
       fetchFirstPage,
-      '/content_delivery_report'
+      '/connected_instagram_accounts'
     );
   }
 
-  createCreateAndApplyPublisherBlockList (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
-    return this.createEdge(
-      '/create_and_apply_publisher_block_list',
+  getConversionGoals (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
       fields,
       params,
-      
+      fetchFirstPage,
+      '/conversion_goals'
     );
   }
 
@@ -745,12 +839,13 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createCustomAudience (fields: Array<string>, params: Object = {}): Promise<CustomAudience> {
+  createCustomAudience (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<CustomAudience> {
     return this.createEdge(
       '/customaudiences',
       fields,
       params,
-      CustomAudience
+      CustomAudience,
+      pathOverride,
     );
   }
 
@@ -764,12 +859,13 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createCustomAudiencesTo (fields: Array<string>, params: Object = {}): Promise<AdAccount> {
+  createCustomAudiencesTo (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdAccount> {
     return this.createEdge(
       '/customaudiencestos',
       fields,
       params,
-      AdAccount
+      AdAccount,
+      pathOverride,
     );
   }
 
@@ -783,12 +879,13 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createCustomConversion (fields: Array<string>, params: Object = {}): Promise<CustomConversion> {
+  createCustomConversion (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<CustomConversion> {
     return this.createEdge(
       '/customconversions',
       fields,
       params,
-      CustomConversion
+      CustomConversion,
+      pathOverride,
     );
   }
 
@@ -842,12 +939,13 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getInsightsAsync (fields: Array<string>, params: Object = {}): Promise<AdReportRun> {
+  getInsightsAsync (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdReportRun> {
     return this.createEdge(
       '/insights',
       fields,
       params,
-      AdReportRun
+      AdReportRun,
+      pathOverride,
     );
   }
 
@@ -858,6 +956,26 @@ export default class AdAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/instagram_accounts'
+    );
+  }
+
+  getIosFourteenCampaignLimits (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AdAccountIosFourteenCampaignLimits,
+      fields,
+      params,
+      fetchFirstPage,
+      '/ios_fourteen_campaign_limits'
+    );
+  }
+
+  createManagedPartnerAd (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+    return this.createEdge(
+      '/managed_partner_ads',
+      fields,
+      params,
+      null,
+      pathOverride,
     );
   }
 
@@ -911,12 +1029,13 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createProductAudience (fields: Array<string>, params: Object = {}): Promise<CustomAudience> {
+  createProductAudience (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<CustomAudience> {
     return this.createEdge(
       '/product_audiences',
       fields,
       params,
-      CustomAudience
+      CustomAudience,
+      pathOverride,
     );
   }
 
@@ -940,12 +1059,13 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createPublisherBlockList (fields: Array<string>, params: Object = {}): Promise<PublisherBlockList> {
+  createPublisherBlockList (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<PublisherBlockList> {
     return this.createEdge(
       '/publisher_block_lists',
       fields,
       params,
-      PublisherBlockList
+      PublisherBlockList,
+      pathOverride,
     );
   }
 
@@ -969,22 +1089,13 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createReachFrequencyPrediction (fields: Array<string>, params: Object = {}): Promise<ReachFrequencyPrediction> {
+  createReachFrequencyPrediction (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<ReachFrequencyPrediction> {
     return this.createEdge(
       '/reachfrequencypredictions',
       fields,
       params,
-      ReachFrequencyPrediction
-    );
-  }
-
-  getRoas (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AdAccountRoas,
-      fields,
-      params,
-      fetchFirstPage,
-      '/roas'
+      ReachFrequencyPrediction,
+      pathOverride,
     );
   }
 
@@ -995,15 +1106,6 @@ export default class AdAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/saved_audiences'
-    );
-  }
-
-  createSponsoredMessageAd (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
-    return this.createEdge(
-      '/sponsored_message_ads',
-      fields,
-      params,
-      
     );
   }
 
@@ -1024,12 +1126,13 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createSubscribedApp (fields: Array<string>, params: Object = {}): Promise<AdAccountSubscribedApps> {
+  createSubscribedApp (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdAccountSubscribedApps> {
     return this.createEdge(
       '/subscribed_apps',
       fields,
       params,
-      AdAccountSubscribedApps
+      AdAccountSubscribedApps,
+      pathOverride,
     );
   }
 
@@ -1083,13 +1186,6 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  deleteTracking (params: Object = {}): Promise<*> {
-    return super.deleteEdge(
-      '/tracking',
-      params
-    );
-  }
-
   getTracking (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdAccountTrackingData,
@@ -1100,12 +1196,13 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createTracking (fields: Array<string>, params: Object = {}): Promise<AdAccount> {
+  createTracking (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdAccount> {
     return this.createEdge(
       '/tracking',
       fields,
       params,
-      AdAccount
+      AdAccount,
+      pathOverride,
     );
   }
 

@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 
@@ -15,7 +17,7 @@ import AbstractObject from './../abstract-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class Lead extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       ad_id: 'ad_id',
       ad_name: 'ad_name',
@@ -32,6 +34,8 @@ export default class Lead extends AbstractCrudObject {
       is_organic: 'is_organic',
       partner_name: 'partner_name',
       platform: 'platform',
+      post: 'post',
+      post_submission_check_result: 'post_submission_check_result',
       retailer_item_id: 'retailer_item_id',
       vehicle: 'vehicle',
     });

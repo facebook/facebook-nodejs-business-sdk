@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
@@ -14,7 +16,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdgroupPlacementSpecificReviewFeedback extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       account_admin: 'account_admin',
       ad: 'ad',
@@ -31,8 +33,10 @@ export default class AdgroupPlacementSpecificReviewFeedback extends AbstractCrud
       dri_counterfeit: 'dri_counterfeit',
       facebook: 'facebook',
       facebook_pages_live_shopping: 'facebook_pages_live_shopping',
+      independent_work: 'independent_work',
       instagram: 'instagram',
       instagram_shop: 'instagram_shop',
+      job_search: 'job_search',
       lead_gen_honeypot: 'lead_gen_honeypot',
       marketplace: 'marketplace',
       marketplace_home_rentals: 'marketplace_home_rentals',
@@ -40,6 +44,7 @@ export default class AdgroupPlacementSpecificReviewFeedback extends AbstractCrud
       marketplace_motors: 'marketplace_motors',
       marketplace_shops: 'marketplace_shops',
       max_review_placements: 'max_review_placements',
+      neighborhoods: 'neighborhoods',
       page_admin: 'page_admin',
       product: 'product',
       product_service: 'product_service',
@@ -47,6 +52,7 @@ export default class AdgroupPlacementSpecificReviewFeedback extends AbstractCrud
       seller: 'seller',
       shops: 'shops',
       traffic_quality: 'traffic_quality',
+      unified_commerce_content: 'unified_commerce_content',
       whatsapp: 'whatsapp',
     });
   }

@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
@@ -14,7 +16,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdsActionStats extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       value_1d_click: '1d_click',
       value_1d_view: '1d_view',
@@ -22,10 +24,12 @@ export default class AdsActionStats extends AbstractCrudObject {
       value_28d_view: '28d_view',
       value_7d_click: '7d_click',
       value_7d_view: '7d_view',
+      action_brand: 'action_brand',
       action_canvas_component_id: 'action_canvas_component_id',
       action_canvas_component_name: 'action_canvas_component_name',
       action_carousel_card_id: 'action_carousel_card_id',
       action_carousel_card_name: 'action_carousel_card_name',
+      action_category: 'action_category',
       action_converted_product_id: 'action_converted_product_id',
       action_destination: 'action_destination',
       action_device: 'action_device',
@@ -42,6 +46,8 @@ export default class AdsActionStats extends AbstractCrudObject {
       inline: 'inline',
       interactive_component_sticker_id: 'interactive_component_sticker_id',
       interactive_component_sticker_response: 'interactive_component_sticker_response',
+      skan_click: 'skan_click',
+      skan_view: 'skan_view',
       value: 'value',
     });
   }

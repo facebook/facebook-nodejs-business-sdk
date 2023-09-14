@@ -1,13 +1,14 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
-import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import DynamicPriceConfigByDate from './dynamic-price-config-by-date';
 
@@ -17,7 +18,7 @@ import DynamicPriceConfigByDate from './dynamic-price-config-by-date';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class HotelRoom extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       applinks: 'applinks',
       base_price: 'base_price',
@@ -44,27 +45,11 @@ export default class HotelRoom extends AbstractCrudObject {
     );
   }
 
-  // $FlowFixMe : Support Generic Types
-  delete (fields: Array<string>, params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
-    return super.delete(
-      params
-    );
-  }
-
   
   get (fields: Array<string>, params: Object = {}): HotelRoom {
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
-      params
-    );
-  }
-
-  // $FlowFixMe : Support Generic Types
-  update (fields: Array<string>, params: Object = {}): HotelRoom {
-    // $FlowFixMe : Support Generic Types
-    return super.update(
       params
     );
   }

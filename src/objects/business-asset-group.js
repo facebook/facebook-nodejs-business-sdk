@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
@@ -25,22 +27,26 @@ import ProductCatalog from './product-catalog';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class BusinessAssetGroup extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       id: 'id',
       name: 'name',
+      owner_business: 'owner_business',
     });
   }
 
   static get AdaccountTasks (): Object {
     return Object.freeze({
+      aa_analyze: 'AA_ANALYZE',
       advertise: 'ADVERTISE',
       analyze: 'ANALYZE',
+      draft: 'DRAFT',
       manage: 'MANAGE',
     });
   }
   static get OfflineConversionDataSetTasks (): Object {
     return Object.freeze({
+      aa_analyze: 'AA_ANALYZE',
       advertise: 'ADVERTISE',
       manage: 'MANAGE',
       upload: 'UPLOAD',
@@ -64,18 +70,25 @@ export default class BusinessAssetGroup extends AbstractCrudObject {
       profile_plus_advertise: 'PROFILE_PLUS_ADVERTISE',
       profile_plus_analyze: 'PROFILE_PLUS_ANALYZE',
       profile_plus_create_content: 'PROFILE_PLUS_CREATE_CONTENT',
-      profile_plus_live_stream_moderation: 'PROFILE_PLUS_LIVE_STREAM_MODERATION',
+      profile_plus_facebook_access: 'PROFILE_PLUS_FACEBOOK_ACCESS',
+      profile_plus_full_control: 'PROFILE_PLUS_FULL_CONTROL',
       profile_plus_manage: 'PROFILE_PLUS_MANAGE',
+      profile_plus_manage_leads: 'PROFILE_PLUS_MANAGE_LEADS',
       profile_plus_messaging: 'PROFILE_PLUS_MESSAGING',
       profile_plus_moderate: 'PROFILE_PLUS_MODERATE',
+      profile_plus_moderate_delegate_community: 'PROFILE_PLUS_MODERATE_DELEGATE_COMMUNITY',
+      profile_plus_revenue: 'PROFILE_PLUS_REVENUE',
       read_page_mailboxes: 'READ_PAGE_MAILBOXES',
       view_monetization_insights: 'VIEW_MONETIZATION_INSIGHTS',
     });
   }
   static get PixelTasks (): Object {
     return Object.freeze({
+      aa_analyze: 'AA_ANALYZE',
+      advertise: 'ADVERTISE',
       analyze: 'ANALYZE',
       edit: 'EDIT',
+      upload: 'UPLOAD',
     });
   }
 
@@ -96,12 +109,13 @@ export default class BusinessAssetGroup extends AbstractCrudObject {
     );
   }
 
-  createAssignedUser (fields: Array<string>, params: Object = {}): Promise<BusinessAssetGroup> {
+  createAssignedUser (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<BusinessAssetGroup> {
     return this.createEdge(
       '/assigned_users',
       fields,
       params,
-      BusinessAssetGroup
+      BusinessAssetGroup,
+      pathOverride,
     );
   }
 
@@ -122,12 +136,13 @@ export default class BusinessAssetGroup extends AbstractCrudObject {
     );
   }
 
-  createContainedAdAccount (fields: Array<string>, params: Object = {}): Promise<BusinessAssetGroup> {
+  createContainedAdAccount (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<BusinessAssetGroup> {
     return this.createEdge(
       '/contained_adaccounts',
       fields,
       params,
-      BusinessAssetGroup
+      BusinessAssetGroup,
+      pathOverride,
     );
   }
 
@@ -148,12 +163,13 @@ export default class BusinessAssetGroup extends AbstractCrudObject {
     );
   }
 
-  createContainedApplication (fields: Array<string>, params: Object = {}): Promise<BusinessAssetGroup> {
+  createContainedApplication (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<BusinessAssetGroup> {
     return this.createEdge(
       '/contained_applications',
       fields,
       params,
-      BusinessAssetGroup
+      BusinessAssetGroup,
+      pathOverride,
     );
   }
 
@@ -174,12 +190,13 @@ export default class BusinessAssetGroup extends AbstractCrudObject {
     );
   }
 
-  createContainedCustomConversion (fields: Array<string>, params: Object = {}): Promise<BusinessAssetGroup> {
+  createContainedCustomConversion (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<BusinessAssetGroup> {
     return this.createEdge(
       '/contained_custom_conversions',
       fields,
       params,
-      BusinessAssetGroup
+      BusinessAssetGroup,
+      pathOverride,
     );
   }
 
@@ -200,12 +217,13 @@ export default class BusinessAssetGroup extends AbstractCrudObject {
     );
   }
 
-  createContainedInstagramAccount (fields: Array<string>, params: Object = {}): Promise<BusinessAssetGroup> {
+  createContainedInstagramAccount (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<BusinessAssetGroup> {
     return this.createEdge(
       '/contained_instagram_accounts',
       fields,
       params,
-      BusinessAssetGroup
+      BusinessAssetGroup,
+      pathOverride,
     );
   }
 
@@ -226,12 +244,13 @@ export default class BusinessAssetGroup extends AbstractCrudObject {
     );
   }
 
-  createContainedOfflineConversionDataSet (fields: Array<string>, params: Object = {}): Promise<BusinessAssetGroup> {
+  createContainedOfflineConversionDataSet (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<BusinessAssetGroup> {
     return this.createEdge(
       '/contained_offline_conversion_data_sets',
       fields,
       params,
-      BusinessAssetGroup
+      BusinessAssetGroup,
+      pathOverride,
     );
   }
 
@@ -252,12 +271,13 @@ export default class BusinessAssetGroup extends AbstractCrudObject {
     );
   }
 
-  createContainedPage (fields: Array<string>, params: Object = {}): Promise<BusinessAssetGroup> {
+  createContainedPage (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<BusinessAssetGroup> {
     return this.createEdge(
       '/contained_pages',
       fields,
       params,
-      BusinessAssetGroup
+      BusinessAssetGroup,
+      pathOverride,
     );
   }
 
@@ -278,12 +298,13 @@ export default class BusinessAssetGroup extends AbstractCrudObject {
     );
   }
 
-  createContainedPixel (fields: Array<string>, params: Object = {}): Promise<BusinessAssetGroup> {
+  createContainedPixel (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<BusinessAssetGroup> {
     return this.createEdge(
       '/contained_pixels',
       fields,
       params,
-      BusinessAssetGroup
+      BusinessAssetGroup,
+      pathOverride,
     );
   }
 
@@ -304,12 +325,13 @@ export default class BusinessAssetGroup extends AbstractCrudObject {
     );
   }
 
-  createContainedProductCatalog (fields: Array<string>, params: Object = {}): Promise<BusinessAssetGroup> {
+  createContainedProductCatalog (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<BusinessAssetGroup> {
     return this.createEdge(
       '/contained_product_catalogs',
       fields,
       params,
-      BusinessAssetGroup
+      BusinessAssetGroup,
+      pathOverride,
     );
   }
 

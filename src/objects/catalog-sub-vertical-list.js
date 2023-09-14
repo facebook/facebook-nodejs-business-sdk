@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
@@ -14,7 +16,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class CatalogSubVerticalList extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       appliances: 'appliances',
       baby_feeding: 'baby_feeding',
@@ -28,11 +30,11 @@ export default class CatalogSubVerticalList extends AbstractCrudObject {
       clo_offer: 'clo_offer',
       clothing: 'clothing',
       clothing_accessories: 'clothing_accessories',
-      clothing_group: 'clothing_group',
       computer_components: 'computer_components',
       computers_and_tablets: 'computers_and_tablets',
       computers_laptops_and_tablets: 'computers_laptops_and_tablets',
       diapering_and_potty_training: 'diapering_and_potty_training',
+      digital_product_offer: 'digital_product_offer',
       electronic_accessories_and_cables: 'electronic_accessories_and_cables',
       electronics_accessories: 'electronics_accessories',
       furniture: 'furniture',
@@ -42,6 +44,8 @@ export default class CatalogSubVerticalList extends AbstractCrudObject {
       household_and_cleaning_supplies: 'household_and_cleaning_supplies',
       jewelry: 'jewelry',
       large_appliances: 'large_appliances',
+      local_service_business_item: 'local_service_business_item',
+      local_service_business_restaurant: 'local_service_business_restaurant',
       loyalty_offer: 'loyalty_offer',
       meetup_space: 'meetup_space',
       nursery: 'nursery',

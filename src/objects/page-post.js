@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
@@ -22,7 +24,7 @@ import Page from './page';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class PagePost extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       actions: 'actions',
       admin_creator: 'admin_creator',
@@ -35,21 +37,16 @@ export default class PagePost extends AbstractCrudObject {
       comments_mirroring_domain: 'comments_mirroring_domain',
       coordinates: 'coordinates',
       created_time: 'created_time',
-      delivery_growth_optimizations: 'delivery_growth_optimizations',
-      entities: 'entities',
       event: 'event',
       expanded_height: 'expanded_height',
       expanded_width: 'expanded_width',
       feed_targeting: 'feed_targeting',
-      formatting: 'formatting',
       from: 'from',
       full_picture: 'full_picture',
       height: 'height',
       icon: 'icon',
       id: 'id',
-      implicit_place: 'implicit_place',
       instagram_eligibility: 'instagram_eligibility',
-      instream_eligibility: 'instream_eligibility',
       is_app_share: 'is_app_share',
       is_eligible_for_promotion: 'is_eligible_for_promotion',
       is_expired: 'is_expired',
@@ -59,7 +56,6 @@ export default class PagePost extends AbstractCrudObject {
       is_popular: 'is_popular',
       is_published: 'is_published',
       is_spherical: 'is_spherical',
-      live_video_eligibility: 'live_video_eligibility',
       message: 'message',
       message_tags: 'message_tags',
       multi_share_end_card: 'multi_share_end_card',
@@ -68,12 +64,10 @@ export default class PagePost extends AbstractCrudObject {
       permalink_url: 'permalink_url',
       picture: 'picture',
       place: 'place',
-      poll: 'poll',
       privacy: 'privacy',
       promotable_id: 'promotable_id',
       promotion_status: 'promotion_status',
       properties: 'properties',
-      publishing_stats: 'publishing_stats',
       scheduled_publish_time: 'scheduled_publish_time',
       shares: 'shares',
       status_type: 'status_type',
@@ -83,12 +77,10 @@ export default class PagePost extends AbstractCrudObject {
       target: 'target',
       targeting: 'targeting',
       timeline_visibility: 'timeline_visibility',
-      translations: 'translations',
       updated_time: 'updated_time',
       via: 'via',
       video_buying_eligibility: 'video_buying_eligibility',
       width: 'width',
-      will_be_autocropped_when_deliver_to_instagram: 'will_be_autocropped_when_deliver_to_instagram',
     });
   }
 
@@ -141,12 +133,13 @@ export default class PagePost extends AbstractCrudObject {
     );
   }
 
-  createComment (fields: Array<string>, params: Object = {}): Promise<Comment> {
+  createComment (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Comment> {
     return this.createEdge(
       '/comments',
       fields,
       params,
-      Comment
+      Comment,
+      pathOverride,
     );
   }
 
@@ -187,12 +180,13 @@ export default class PagePost extends AbstractCrudObject {
     );
   }
 
-  createLike (fields: Array<string>, params: Object = {}): Promise<PagePost> {
+  createLike (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<PagePost> {
     return this.createEdge(
       '/likes',
       fields,
       params,
-      PagePost
+      PagePost,
+      pathOverride,
     );
   }
 

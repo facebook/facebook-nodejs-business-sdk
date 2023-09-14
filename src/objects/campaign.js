@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
@@ -13,7 +15,6 @@ import AdStudy from './ad-study';
 import AdRule from './ad-rule';
 import Ad from './ad';
 import AdSet from './ad-set';
-import ContentDeliveryReport from './content-delivery-report';
 import AdsInsights from './ads-insights';
 import AdReportRun from './ad-report-run';
 
@@ -23,7 +24,7 @@ import AdReportRun from './ad-report-run';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class Campaign extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       account_id: 'account_id',
       adlabels: 'adlabels',
@@ -39,15 +40,19 @@ export default class Campaign extends AbstractCrudObject {
       created_time: 'created_time',
       daily_budget: 'daily_budget',
       effective_status: 'effective_status',
+      has_secondary_skadnetwork_reporting: 'has_secondary_skadnetwork_reporting',
       id: 'id',
+      is_skadnetwork_attribution: 'is_skadnetwork_attribution',
       issues_info: 'issues_info',
       last_budget_toggling_time: 'last_budget_toggling_time',
       lifetime_budget: 'lifetime_budget',
       name: 'name',
       objective: 'objective',
       pacing_type: 'pacing_type',
+      primary_attribution: 'primary_attribution',
       promoted_object: 'promoted_object',
       recommendations: 'recommendations',
+      smart_promotion_type: 'smart_promotion_type',
       source_campaign: 'source_campaign',
       source_campaign_id: 'source_campaign_id',
       special_ad_categories: 'special_ad_categories',
@@ -67,7 +72,6 @@ export default class Campaign extends AbstractCrudObject {
       cost_cap: 'COST_CAP',
       lowest_cost_without_cap: 'LOWEST_COST_WITHOUT_CAP',
       lowest_cost_with_bid_cap: 'LOWEST_COST_WITH_BID_CAP',
-      target_cost: 'TARGET_COST',
     });
   }
   static get ConfiguredStatus (): Object {
@@ -98,6 +102,7 @@ export default class Campaign extends AbstractCrudObject {
   }
   static get DatePreset (): Object {
     return Object.freeze({
+      data_maximum: 'data_maximum',
       last_14d: 'last_14d',
       last_28d: 'last_28d',
       last_30d: 'last_30d',
@@ -109,7 +114,7 @@ export default class Campaign extends AbstractCrudObject {
       last_week_mon_sun: 'last_week_mon_sun',
       last_week_sun_sat: 'last_week_sun_sat',
       last_year: 'last_year',
-      lifetime: 'lifetime',
+      maximum: 'maximum',
       this_month: 'this_month',
       this_quarter: 'this_quarter',
       this_week_mon_today: 'this_week_mon_today',
@@ -136,12 +141,24 @@ export default class Campaign extends AbstractCrudObject {
       local_awareness: 'LOCAL_AWARENESS',
       messages: 'MESSAGES',
       offer_claims: 'OFFER_CLAIMS',
+      outcome_app_promotion: 'OUTCOME_APP_PROMOTION',
+      outcome_awareness: 'OUTCOME_AWARENESS',
+      outcome_engagement: 'OUTCOME_ENGAGEMENT',
+      outcome_leads: 'OUTCOME_LEADS',
+      outcome_sales: 'OUTCOME_SALES',
+      outcome_traffic: 'OUTCOME_TRAFFIC',
       page_likes: 'PAGE_LIKES',
       post_engagement: 'POST_ENGAGEMENT',
       product_catalog_sales: 'PRODUCT_CATALOG_SALES',
       reach: 'REACH',
       store_visits: 'STORE_VISITS',
       video_views: 'VIDEO_VIEWS',
+    });
+  }
+  static get SmartPromotionType (): Object {
+    return Object.freeze({
+      guided_creation: 'GUIDED_CREATION',
+      smart_app_promotion: 'SMART_APP_PROMOTION',
     });
   }
   static get SpecialAdCategories (): Object {
@@ -151,6 +168,7 @@ export default class Campaign extends AbstractCrudObject {
       housing: 'HOUSING',
       issues_elections_politics: 'ISSUES_ELECTIONS_POLITICS',
       none: 'NONE',
+      online_gambling_and_gaming: 'ONLINE_GAMBLING_AND_GAMING',
     });
   }
   static get SpecialAdCategoryCountry (): Object {
@@ -421,6 +439,7 @@ export default class Campaign extends AbstractCrudObject {
       housing: 'HOUSING',
       issues_elections_politics: 'ISSUES_ELECTIONS_POLITICS',
       none: 'NONE',
+      online_gambling_and_gaming: 'ONLINE_GAMBLING_AND_GAMING',
     });
   }
   static get StatusOption (): Object {
@@ -441,12 +460,13 @@ export default class Campaign extends AbstractCrudObject {
     );
   }
 
-  createAdLabel (fields: Array<string>, params: Object = {}): Promise<Campaign> {
+  createAdLabel (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Campaign> {
     return this.createEdge(
       '/adlabels',
       fields,
       params,
-      Campaign
+      Campaign,
+      pathOverride,
     );
   }
 
@@ -480,16 +500,6 @@ export default class Campaign extends AbstractCrudObject {
     );
   }
 
-  getContentDeliveryReport (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      ContentDeliveryReport,
-      fields,
-      params,
-      fetchFirstPage,
-      '/content_delivery_report'
-    );
-  }
-
   getCopies (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Campaign,
@@ -500,12 +510,13 @@ export default class Campaign extends AbstractCrudObject {
     );
   }
 
-  createCopy (fields: Array<string>, params: Object = {}): Promise<Campaign> {
+  createCopy (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Campaign> {
     return this.createEdge(
       '/copies',
       fields,
       params,
-      Campaign
+      Campaign,
+      pathOverride,
     );
   }
 
@@ -519,12 +530,13 @@ export default class Campaign extends AbstractCrudObject {
     );
   }
 
-  getInsightsAsync (fields: Array<string>, params: Object = {}): Promise<AdReportRun> {
+  getInsightsAsync (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdReportRun> {
     return this.createEdge(
       '/insights',
       fields,
       params,
-      AdReportRun
+      AdReportRun,
+      pathOverride,
     );
   }
 

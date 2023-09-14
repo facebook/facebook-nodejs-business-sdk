@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
@@ -22,11 +24,14 @@ import Business from './business';
 import UnifiedThread from './unified-thread';
 import PageUserMessageThreadLabel from './page-user-message-thread-label';
 import Event from './event';
+import Post from './post';
+import FundraiserPersonToCharity from './fundraiser-person-to-charity';
+import GameItem from './game-item';
 import Group from './group';
 import UserIDForApp from './user-id-for-app';
 import UserIDForPage from './user-id-for-page';
-import LiveEncoder from './live-encoder';
 import LiveVideo from './live-video';
+import PaymentEnginePayment from './payment-engine-payment';
 import Permission from './permission';
 import Photo from './photo';
 import ProfilePictureSource from './profile-picture-source';
@@ -39,17 +44,14 @@ import AdVideo from './ad-video';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class User extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       about: 'about',
-      address: 'address',
-      admin_notes: 'admin_notes',
       age_range: 'age_range',
-      auth_method: 'auth_method',
       birthday: 'birthday',
+      community: 'community',
       cover: 'cover',
       currency: 'currency',
-      devices: 'devices',
       education: 'education',
       email: 'email',
       favorite_athletes: 'favorite_athletes',
@@ -58,12 +60,11 @@ export default class User extends AbstractCrudObject {
       gender: 'gender',
       hometown: 'hometown',
       id: 'id',
+      id_for_avatars: 'id_for_avatars',
       inspirational_people: 'inspirational_people',
       install_type: 'install_type',
       installed: 'installed',
-      interested_in: 'interested_in',
       is_guest_user: 'is_guest_user',
-      is_verified: 'is_verified',
       languages: 'languages',
       last_name: 'last_name',
       link: 'link',
@@ -78,10 +79,8 @@ export default class User extends AbstractCrudObject {
       payment_pricepoints: 'payment_pricepoints',
       political: 'political',
       profile_pic: 'profile_pic',
-      public_key: 'public_key',
       quotes: 'quotes',
       relationship_status: 'relationship_status',
-      religion: 'religion',
       shared_login_upgrade_required_by: 'shared_login_upgrade_required_by',
       short_name: 'short_name',
       significant_other: 'significant_other',
@@ -94,7 +93,6 @@ export default class User extends AbstractCrudObject {
       verified: 'verified',
       video_upload_limits: 'video_upload_limits',
       website: 'website',
-      work: 'work',
     });
   }
 
@@ -131,12 +129,13 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  createAccessToken (fields: Array<string>, params: Object = {}): Promise<User> {
+  createAccessToken (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<User> {
     return this.createEdge(
       '/access_tokens',
       fields,
       params,
-      User
+      User,
+      pathOverride,
     );
   }
 
@@ -150,12 +149,13 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  createAccount (fields: Array<string>, params: Object = {}): Promise<Page> {
+  createAccount (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
     return this.createEdge(
       '/accounts',
       fields,
       params,
-      Page
+      null,
+      pathOverride,
     );
   }
 
@@ -169,12 +169,13 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  createAdStudy (fields: Array<string>, params: Object = {}): Promise<AdStudy> {
+  createAdStudy (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdStudy> {
     return this.createEdge(
       '/ad_studies',
       fields,
       params,
-      AdStudy
+      AdStudy,
+      pathOverride,
     );
   }
 
@@ -198,12 +199,13 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  createApplication (fields: Array<string>, params: Object = {}): Promise<User> {
+  createApplication (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<User> {
     return this.createEdge(
       '/applications',
       fields,
       params,
-      User
+      User,
+      pathOverride,
     );
   }
 
@@ -267,6 +269,16 @@ export default class User extends AbstractCrudObject {
     );
   }
 
+  getAvatars (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/avatars'
+    );
+  }
+
   getBusinessUsers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       BusinessUser,
@@ -294,12 +306,13 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  createBusiness (fields: Array<string>, params: Object = {}): Promise<Business> {
+  createBusiness (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Business> {
     return this.createEdge(
       '/businesses',
       fields,
       params,
-      Business
+      Business,
+      pathOverride,
     );
   }
 
@@ -333,12 +346,23 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  createFeed (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+  getFeed (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      Post,
+      fields,
+      params,
+      fetchFirstPage,
+      '/feed'
+    );
+  }
+
+  createFeed (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Post> {
     return this.createEdge(
       '/feed',
       fields,
       params,
-      
+      Post,
+      pathOverride,
     );
   }
 
@@ -352,30 +376,43 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  createGameItem (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+  getFundraisers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      FundraiserPersonToCharity,
+      fields,
+      params,
+      fetchFirstPage,
+      '/fundraisers'
+    );
+  }
+
+  createFundraiser (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<FundraiserPersonToCharity> {
+    return this.createEdge(
+      '/fundraisers',
+      fields,
+      params,
+      FundraiserPersonToCharity,
+      pathOverride,
+    );
+  }
+
+  createGameItem (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<GameItem> {
     return this.createEdge(
       '/game_items',
       fields,
       params,
-      
+      GameItem,
+      pathOverride,
     );
   }
 
-  createGameTime (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+  createGameTime (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
     return this.createEdge(
       '/game_times',
       fields,
       params,
-      
-    );
-  }
-
-  createGamesPlay (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
-    return this.createEdge(
-      '/games_plays',
-      fields,
-      params,
-      
+      null,
+      pathOverride,
     );
   }
 
@@ -429,25 +466,6 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  getLiveEncoders (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      LiveEncoder,
-      fields,
-      params,
-      fetchFirstPage,
-      '/live_encoders'
-    );
-  }
-
-  createLiveEncoder (fields: Array<string>, params: Object = {}): Promise<LiveEncoder> {
-    return this.createEdge(
-      '/live_encoders',
-      fields,
-      params,
-      LiveEncoder
-    );
-  }
-
   getLiveVideos (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       LiveVideo,
@@ -458,12 +476,23 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  createLiveVideo (fields: Array<string>, params: Object = {}): Promise<LiveVideo> {
+  createLiveVideo (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<LiveVideo> {
     return this.createEdge(
       '/live_videos',
       fields,
       params,
-      LiveVideo
+      LiveVideo,
+      pathOverride,
+    );
+  }
+
+  createMessengerDesktopPerformanceTrace (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<User> {
+    return this.createEdge(
+      '/messenger_desktop_performance_traces',
+      fields,
+      params,
+      User,
+      pathOverride,
     );
   }
 
@@ -477,22 +506,23 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  createNotification (fields: Array<string>, params: Object = {}): Promise<User> {
+  createNotification (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<User> {
     return this.createEdge(
       '/notifications',
       fields,
       params,
-      User
+      User,
+      pathOverride,
     );
   }
 
-  getOwnedProductCatalogs (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+  getPaymentTransactions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      ProductCatalog,
+      PaymentEnginePayment,
       fields,
       params,
       fetchFirstPage,
-      '/owned_product_catalogs'
+      '/payment_transactions'
     );
   }
 
@@ -533,12 +563,13 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  createPhoto (fields: Array<string>, params: Object = {}): Promise<Photo> {
+  createPhoto (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Photo> {
     return this.createEdge(
       '/photos',
       fields,
       params,
-      Photo
+      Photo,
+      pathOverride,
     );
   }
 
@@ -552,6 +583,16 @@ export default class User extends AbstractCrudObject {
     );
   }
 
+  getPosts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      Post,
+      fields,
+      params,
+      fetchFirstPage,
+      '/posts'
+    );
+  }
+
   getRichMediaDocuments (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Canvas,
@@ -562,12 +603,13 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  createStagingResource (fields: Array<string>, params: Object = {}): Promise<User> {
+  createStagingResource (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<User> {
     return this.createEdge(
       '/staging_resources',
       fields,
       params,
-      User
+      User,
+      pathOverride,
     );
   }
 
@@ -581,12 +623,13 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  createVideo (fields: Array<string>, params: Object = {}): Promise<AdVideo> {
+  createVideo (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdVideo> {
     return this.createEdge(
       '/videos',
       fields,
       params,
-      AdVideo
+      AdVideo,
+      pathOverride,
     );
   }
 

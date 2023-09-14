@@ -55,7 +55,7 @@ export class AbstractCrudObject extends AbstractObject {
     }
     Object.defineProperty(this, field, {
       get: () => this._data[field],
-      set: value => {
+      set: (value: string) => {
         this._changes[field] = value;
         this._data[field] = value;
       },
@@ -218,10 +218,7 @@ export class AbstractCrudObject extends AbstractObject {
     fetchFirstPage: boolean = true,
     endpoint: ?string,
   ): Cursor | Promise<*> {
-    if (params == null) {
-      params = {};
-    }
-    if (fields) {
+    if (fields && fields.length > 0) {
       params['fields'] = fields.join(',');
     }
     const sourceObject = this;
@@ -245,15 +242,15 @@ export class AbstractCrudObject extends AbstractObject {
     fields: Array<string>,
     params: Object = {},
     targetClassConstructor: Function = null,
+    pathOverride?: ?string = null,
   ): Promise<*> {
-    if (params == null) {
-      params = {};
-    }
     if (fields && fields.length > 0) {
       params['fields'] = fields.join(',');
     }
     const api = this.getApi();
-    const path = [this.getNodePath(), Utils.removePreceedingSlash(endpoint)];
+    const path = pathOverride != null
+      ? pathOverride
+      : [this.getNodePath(), Utils.removePreceedingSlash(endpoint)];
     params = Object.assign(params, this.exportData());
     return new Promise((resolve, reject) => {
       api
@@ -303,7 +300,7 @@ export class AbstractCrudObject extends AbstractObject {
     api: FacebookAdsApi,
   ): Promise<*> {
     api = api || FacebookAdsApi.getDefaultApi();
-    if (fields) {
+    if (fields && fields.length > 0) {
       params['fields'] = fields.join(',');
     }
     params['ids'] = ids.join(',');
@@ -324,3 +321,5 @@ export class AbstractCrudObject extends AbstractObject {
     });
   }
 }
+
+export default AbstractCrudObject;

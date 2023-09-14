@@ -1,12 +1,15 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import NullNode from './null-node';
 import LiveVideo from './live-video';
@@ -18,12 +21,13 @@ import Profile from './profile';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class Event extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       attending_count: 'attending_count',
       can_guests_invite: 'can_guests_invite',
       category: 'category',
       cover: 'cover',
+      created_time: 'created_time',
       declined_count: 'declined_count',
       description: 'description',
       discount_code_enabled: 'discount_code_enabled',
@@ -44,8 +48,10 @@ export default class Event extends AbstractCrudObject {
       owner: 'owner',
       parent_group: 'parent_group',
       place: 'place',
+      registration_setting: 'registration_setting',
       scheduled_publish_time: 'scheduled_publish_time',
       start_time: 'start_time',
+      ticket_setting: 'ticket_setting',
       ticket_uri: 'ticket_uri',
       ticket_uri_start_sales_time: 'ticket_uri_start_sales_time',
       ticketing_privacy_uri: 'ticketing_privacy_uri',
@@ -58,31 +64,28 @@ export default class Event extends AbstractCrudObject {
 
   static get Category (): Object {
     return Object.freeze({
-      art_event: 'ART_EVENT',
-      book_event: 'BOOK_EVENT',
-      class_event: 'CLASS_EVENT',
-      comedy_event: 'COMEDY_EVENT',
-      conference_event: 'CONFERENCE_EVENT',
-      dance_event: 'DANCE_EVENT',
-      dining_event: 'DINING_EVENT',
-      family_event: 'FAMILY_EVENT',
-      festival_event: 'FESTIVAL_EVENT',
-      fitness: 'FITNESS',
-      food_tasting: 'FOOD_TASTING',
-      fundraiser: 'FUNDRAISER',
-      lecture: 'LECTURE',
-      meetup: 'MEETUP',
-      movie_event: 'MOVIE_EVENT',
-      music_event: 'MUSIC_EVENT',
-      neighborhood: 'NEIGHBORHOOD',
-      nightlife: 'NIGHTLIFE',
-      other: 'OTHER',
-      religious_event: 'RELIGIOUS_EVENT',
-      shopping: 'SHOPPING',
-      sports_event: 'SPORTS_EVENT',
-      theater_event: 'THEATER_EVENT',
-      volunteering: 'VOLUNTEERING',
-      workshop: 'WORKSHOP',
+      classic_literature: 'CLASSIC_LITERATURE',
+      comedy: 'COMEDY',
+      crafts: 'CRAFTS',
+      dance: 'DANCE',
+      drinks: 'DRINKS',
+      fitness_and_workouts: 'FITNESS_AND_WORKOUTS',
+      foods: 'FOODS',
+      games: 'GAMES',
+      gardening: 'GARDENING',
+      healthy_living_and_self_care: 'HEALTHY_LIVING_AND_SELF_CARE',
+      health_and_medical: 'HEALTH_AND_MEDICAL',
+      home_and_garden: 'HOME_AND_GARDEN',
+      music_and_audio: 'MUSIC_AND_AUDIO',
+      parties: 'PARTIES',
+      professional_networking: 'PROFESSIONAL_NETWORKING',
+      religions: 'RELIGIONS',
+      shopping_event: 'SHOPPING_EVENT',
+      social_issues: 'SOCIAL_ISSUES',
+      sports: 'SPORTS',
+      theater: 'THEATER',
+      tv_and_movies: 'TV_AND_MOVIES',
+      visual_arts: 'VISUAL_ARTS',
     });
   }
   static get OnlineEventFormat (): Object {
@@ -101,6 +104,7 @@ export default class Event extends AbstractCrudObject {
       group: 'group',
       private: 'private',
       public: 'public',
+      work_company: 'work_company',
     });
   }
   static get EventStateFilter (): Object {
@@ -148,12 +152,13 @@ export default class Event extends AbstractCrudObject {
     );
   }
 
-  createLiveVideo (fields: Array<string>, params: Object = {}): Promise<LiveVideo> {
+  createLiveVideo (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<LiveVideo> {
     return this.createEdge(
       '/live_videos',
       fields,
       params,
-      LiveVideo
+      LiveVideo,
+      pathOverride,
     );
   }
 
@@ -194,6 +199,16 @@ export default class Event extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/roles'
+    );
+  }
+
+  getTicketTiers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/ticket_tiers'
     );
   }
 

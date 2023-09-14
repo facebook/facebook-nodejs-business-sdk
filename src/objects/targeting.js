@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
@@ -14,7 +16,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class Targeting extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       adgroup_id: 'adgroup_id',
       age_max: 'age_max',
@@ -97,6 +99,7 @@ export default class Targeting extends AbstractCrudObject {
       relationship_statuses: 'relationship_statuses',
       site_category: 'site_category',
       targeting_optimization: 'targeting_optimization',
+      targeting_relaxation_types: 'targeting_relaxation_types',
       user_adclusters: 'user_adclusters',
       user_device: 'user_device',
       user_event: 'user_event',
@@ -110,14 +113,12 @@ export default class Targeting extends AbstractCrudObject {
 
   static get DevicePlatforms (): Object {
     return Object.freeze({
-      connected_tv: 'connected_tv',
       desktop: 'desktop',
       mobile: 'mobile',
     });
   }
   static get EffectiveDevicePlatforms (): Object {
     return Object.freeze({
-      connected_tv: 'connected_tv',
       desktop: 'desktop',
       mobile: 'mobile',
     });

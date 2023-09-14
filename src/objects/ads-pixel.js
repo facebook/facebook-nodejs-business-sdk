@@ -1,18 +1,22 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
-import AssignedUser from './assigned-user';
-import DACheck from './da-check';
 import AdAccount from './ad-account';
 import Business from './business';
+import AssignedUser from './assigned-user';
+import DACheck from './da-check';
+import OfflineConversionDataSetUpload from './offline-conversion-data-set-upload';
+import OpenBridgeConfiguration from './open-bridge-configuration';
 import AdsPixelStatsResult from './ads-pixel-stats-result';
 
 /**
@@ -21,23 +25,40 @@ import AdsPixelStatsResult from './ads-pixel-stats-result';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdsPixel extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       automatic_matching_fields: 'automatic_matching_fields',
       can_proxy: 'can_proxy',
       code: 'code',
+      config: 'config',
       creation_time: 'creation_time',
       creator: 'creator',
       data_use_setting: 'data_use_setting',
+      description: 'description',
+      duplicate_entries: 'duplicate_entries',
+      enable_auto_assign_to_accounts: 'enable_auto_assign_to_accounts',
       enable_automatic_matching: 'enable_automatic_matching',
+      event_stats: 'event_stats',
+      event_time_max: 'event_time_max',
+      event_time_min: 'event_time_min',
       first_party_cookie_status: 'first_party_cookie_status',
       id: 'id',
+      is_consolidated_container: 'is_consolidated_container',
       is_created_by_business: 'is_created_by_business',
+      is_crm: 'is_crm',
+      is_mta_use: 'is_mta_use',
+      is_restricted_use: 'is_restricted_use',
       is_unavailable: 'is_unavailable',
       last_fired_time: 'last_fired_time',
+      last_upload_app: 'last_upload_app',
+      last_upload_app_changed_time: 'last_upload_app_changed_time',
+      match_rate_approx: 'match_rate_approx',
+      matched_entries: 'matched_entries',
       name: 'name',
       owner_ad_account: 'owner_ad_account',
       owner_business: 'owner_business',
+      usage: 'usage',
+      valid_entries: 'valid_entries',
     });
   }
 
@@ -53,6 +74,7 @@ export default class AdsPixel extends AbstractCrudObject {
       ct: 'ct',
       db: 'db',
       em: 'em',
+      external_id: 'external_id',
       fn: 'fn',
       ge: 'ge',
       ln: 'ln',
@@ -77,9 +99,32 @@ export default class AdsPixel extends AbstractCrudObject {
   }
   static get Tasks (): Object {
     return Object.freeze({
+      aa_analyze: 'AA_ANALYZE',
+      advertise: 'ADVERTISE',
       analyze: 'ANALYZE',
       edit: 'EDIT',
+      upload: 'UPLOAD',
     });
+  }
+
+  getAdAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AdAccount,
+      fields,
+      params,
+      fetchFirstPage,
+      '/adaccounts'
+    );
+  }
+
+  getAgencies (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      Business,
+      fields,
+      params,
+      fetchFirstPage,
+      '/agencies'
+    );
   }
 
   getAssignedUsers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
@@ -92,12 +137,13 @@ export default class AdsPixel extends AbstractCrudObject {
     );
   }
 
-  createAssignedUser (fields: Array<string>, params: Object = {}): Promise<AdsPixel> {
+  createAssignedUser (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdsPixel> {
     return this.createEdge(
       '/assigned_users',
       fields,
       params,
-      AdsPixel
+      AdsPixel,
+      pathOverride,
     );
   }
 
@@ -111,12 +157,53 @@ export default class AdsPixel extends AbstractCrudObject {
     );
   }
 
-  createEvent (fields: Array<string>, params: Object = {}): Promise<AdsPixel> {
+  createEvent (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
     return this.createEdge(
       '/events',
       fields,
       params,
-      AdsPixel
+      null,
+      pathOverride,
+    );
+  }
+
+  createMeapitocapiconsolidationhelper (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+    return this.createEdge(
+      '/meapitocapiconsolidationhelper',
+      fields,
+      params,
+      null,
+      pathOverride,
+    );
+  }
+
+  getOfflineEventUploads (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      OfflineConversionDataSetUpload,
+      fields,
+      params,
+      fetchFirstPage,
+      '/offline_event_uploads'
+    );
+  }
+
+  getOpenBridgeConfigurations (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      OpenBridgeConfiguration,
+      fields,
+      params,
+      fetchFirstPage,
+      '/openbridge_configurations'
+    );
+  }
+
+  createShadowTrafficHelper (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+    return this.createEdge(
+      '/shadowtraffichelper',
+      fields,
+      params,
+      null,
+      pathOverride,
     );
   }
 
@@ -137,12 +224,13 @@ export default class AdsPixel extends AbstractCrudObject {
     );
   }
 
-  createSharedAccount (fields: Array<string>, params: Object = {}): Promise<AdsPixel> {
+  createSharedAccount (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdsPixel> {
     return this.createEdge(
       '/shared_accounts',
       fields,
       params,
-      AdsPixel
+      AdsPixel,
+      pathOverride,
     );
   }
 
@@ -163,6 +251,16 @@ export default class AdsPixel extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/stats'
+    );
+  }
+
+  createTelemetry (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+    return this.createEdge(
+      '/telemetry',
+      fields,
+      params,
+      null,
+      pathOverride,
     );
   }
 

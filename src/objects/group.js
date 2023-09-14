@@ -1,16 +1,19 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import Album from './album';
 import Event from './event';
+import Post from './post';
 import LiveVideo from './live-video';
 import User from './user';
 import Photo from './photo';
@@ -23,7 +26,7 @@ import AdVideo from './ad-video';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class Group extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       archived: 'archived',
       cover: 'cover',
@@ -32,11 +35,11 @@ export default class Group extends AbstractCrudObject {
       email: 'email',
       icon: 'icon',
       id: 'id',
+      install: 'install',
       link: 'link',
       member_count: 'member_count',
       member_request_count: 'member_request_count',
       name: 'name',
-      owner: 'owner',
       parent: 'parent',
       permissions: 'permissions',
       privacy: 'privacy',
@@ -64,41 +67,17 @@ export default class Group extends AbstractCrudObject {
   static get Purpose (): Object {
     return Object.freeze({
       casual: 'CASUAL',
-      close_friends: 'CLOSE_FRIENDS',
-      club: 'CLUB',
-      couple: 'COUPLE',
       coworkers: 'COWORKERS',
       custom: 'CUSTOM',
-      deals: 'DEALS',
-      ephemeral: 'EPHEMERAL',
-      event_planning: 'EVENT_PLANNING',
-      family: 'FAMILY',
-      fitness: 'FITNESS',
       for_sale: 'FOR_SALE',
       for_work: 'FOR_WORK',
-      fraternity: 'FRATERNITY',
       game: 'GAME',
       health_support: 'HEALTH_SUPPORT',
-      high_school_forum: 'HIGH_SCHOOL_FORUM',
       jobs: 'JOBS',
       learning: 'LEARNING',
-      mentorship: 'MENTORSHIP',
-      neighbors: 'NEIGHBORS',
       none: 'NONE',
-      oculus: 'OCULUS',
       parenting: 'PARENTING',
-      parents: 'PARENTS',
-      project: 'PROJECT',
-      real_world: 'REAL_WORLD',
-      real_world_at_work: 'REAL_WORLD_AT_WORK',
-      school_class: 'SCHOOL_CLASS',
-      sorority: 'SORORITY',
-      sports: 'SPORTS',
-      study_group: 'STUDY_GROUP',
-      support: 'SUPPORT',
-      teammates: 'TEAMMATES',
-      theme: 'THEME',
-      travel_planning: 'TRAVEL_PLANNING',
+      streamer: 'STREAMER',
       work_announcement: 'WORK_ANNOUNCEMENT',
       work_demo_group: 'WORK_DEMO_GROUP',
       work_discussion: 'WORK_DISCUSSION',
@@ -106,55 +85,31 @@ export default class Group extends AbstractCrudObject {
       work_feedback: 'WORK_FEEDBACK',
       work_for_sale: 'WORK_FOR_SALE',
       work_garden: 'WORK_GARDEN',
+      work_integrity: 'WORK_INTEGRITY',
       work_learning: 'WORK_LEARNING',
       work_mentorship: 'WORK_MENTORSHIP',
       work_multi_company: 'WORK_MULTI_COMPANY',
       work_recruiting: 'WORK_RECRUITING',
-      work_resume_review: 'WORK_RESUME_REVIEW',
       work_social: 'WORK_SOCIAL',
+      work_stages: 'WORK_STAGES',
       work_team: 'WORK_TEAM',
       work_teamwork: 'WORK_TEAMWORK',
-      work_vc_call: 'WORK_VC_CALL',
     });
   }
   static get GroupType (): Object {
     return Object.freeze({
       casual: 'CASUAL',
-      close_friends: 'CLOSE_FRIENDS',
-      club: 'CLUB',
-      couple: 'COUPLE',
       coworkers: 'COWORKERS',
       custom: 'CUSTOM',
-      deals: 'DEALS',
-      ephemeral: 'EPHEMERAL',
-      event_planning: 'EVENT_PLANNING',
-      family: 'FAMILY',
-      fitness: 'FITNESS',
       for_sale: 'FOR_SALE',
       for_work: 'FOR_WORK',
-      fraternity: 'FRATERNITY',
       game: 'GAME',
       health_support: 'HEALTH_SUPPORT',
-      high_school_forum: 'HIGH_SCHOOL_FORUM',
       jobs: 'JOBS',
       learning: 'LEARNING',
-      mentorship: 'MENTORSHIP',
-      neighbors: 'NEIGHBORS',
       none: 'NONE',
-      oculus: 'OCULUS',
       parenting: 'PARENTING',
-      parents: 'PARENTS',
-      project: 'PROJECT',
-      real_world: 'REAL_WORLD',
-      real_world_at_work: 'REAL_WORLD_AT_WORK',
-      school_class: 'SCHOOL_CLASS',
-      sorority: 'SORORITY',
-      sports: 'SPORTS',
-      study_group: 'STUDY_GROUP',
-      support: 'SUPPORT',
-      teammates: 'TEAMMATES',
-      theme: 'THEME',
-      travel_planning: 'TRAVEL_PLANNING',
+      streamer: 'STREAMER',
       work_announcement: 'WORK_ANNOUNCEMENT',
       work_demo_group: 'WORK_DEMO_GROUP',
       work_discussion: 'WORK_DISCUSSION',
@@ -162,25 +117,15 @@ export default class Group extends AbstractCrudObject {
       work_feedback: 'WORK_FEEDBACK',
       work_for_sale: 'WORK_FOR_SALE',
       work_garden: 'WORK_GARDEN',
+      work_integrity: 'WORK_INTEGRITY',
       work_learning: 'WORK_LEARNING',
       work_mentorship: 'WORK_MENTORSHIP',
       work_multi_company: 'WORK_MULTI_COMPANY',
       work_recruiting: 'WORK_RECRUITING',
-      work_resume_review: 'WORK_RESUME_REVIEW',
       work_social: 'WORK_SOCIAL',
+      work_stages: 'WORK_STAGES',
       work_team: 'WORK_TEAM',
       work_teamwork: 'WORK_TEAMWORK',
-      work_vc_call: 'WORK_VC_CALL',
-    });
-  }
-  static get SuggestionCategory (): Object {
-    return Object.freeze({
-      event: 'EVENT',
-      messenger: 'MESSENGER',
-      work: 'WORK',
-      workplace: 'WORKPLACE',
-      workplace_1_1: 'WORKPLACE_1_1',
-      workplace_manager: 'WORKPLACE_MANAGER',
     });
   }
 
@@ -191,12 +136,13 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  createAdmin (fields: Array<string>, params: Object = {}): Promise<Group> {
+  createAdmin (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Group> {
     return this.createEdge(
       '/admins',
       fields,
       params,
-      Group
+      Group,
+      pathOverride,
     );
   }
 
@@ -210,12 +156,33 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  createAlbum (fields: Array<string>, params: Object = {}): Promise<Album> {
+  createAlbum (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Album> {
     return this.createEdge(
       '/albums',
       fields,
       params,
-      Album
+      Album,
+      pathOverride,
+    );
+  }
+
+  getAttachmentSurfaces (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/attachment_surfaces'
+    );
+  }
+
+  createAttachmentSurface (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+    return this.createEdge(
+      '/attachment_surfaces',
+      fields,
+      params,
+      null,
+      pathOverride,
     );
   }
 
@@ -239,12 +206,33 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  createFeed (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+  getFeed (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      Post,
+      fields,
+      params,
+      fetchFirstPage,
+      '/feed'
+    );
+  }
+
+  createFeed (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Post> {
     return this.createEdge(
       '/feed',
       fields,
       params,
-      
+      Post,
+      pathOverride,
+    );
+  }
+
+  getFiles (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/files'
     );
   }
 
@@ -258,12 +246,13 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  createGroup (fields: Array<string>, params: Object = {}): Promise<Group> {
+  createGroup (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Group> {
     return this.createEdge(
       '/groups',
       fields,
       params,
-      Group
+      Group,
+      pathOverride,
     );
   }
 
@@ -277,12 +266,13 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  createLiveVideo (fields: Array<string>, params: Object = {}): Promise<LiveVideo> {
+  createLiveVideo (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<LiveVideo> {
     return this.createEdge(
       '/live_videos',
       fields,
       params,
-      LiveVideo
+      LiveVideo,
+      pathOverride,
     );
   }
 
@@ -293,12 +283,13 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  createMember (fields: Array<string>, params: Object = {}): Promise<Group> {
+  createMember (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Group> {
     return this.createEdge(
       '/members',
       fields,
       params,
-      Group
+      Group,
+      pathOverride,
     );
   }
 
@@ -312,12 +303,13 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  createPhoto (fields: Array<string>, params: Object = {}): Promise<Photo> {
+  createPhoto (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Photo> {
     return this.createEdge(
       '/photos',
       fields,
       params,
-      Photo
+      Photo,
+      pathOverride,
     );
   }
 
@@ -341,12 +333,13 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  createVideo (fields: Array<string>, params: Object = {}): Promise<AdVideo> {
+  createVideo (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdVideo> {
     return this.createEdge(
       '/videos',
       fields,
       params,
-      AdVideo
+      AdVideo,
+      pathOverride,
     );
   }
 

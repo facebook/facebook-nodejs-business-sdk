@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
@@ -14,7 +16,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdCreativeLinkDataImageOverlaySpec extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       custom_text_type: 'custom_text_type',
       float_with_margin: 'float_with_margin',
@@ -30,6 +32,7 @@ export default class AdCreativeLinkDataImageOverlaySpec extends AbstractCrudObje
   static get CustomTextType (): Object {
     return Object.freeze({
       free_shipping: 'free_shipping',
+      popular: 'popular',
     });
   }
   static get OverlayTemplate (): Object {
@@ -63,6 +66,7 @@ export default class AdCreativeLinkDataImageOverlaySpec extends AbstractCrudObje
   }
   static get TextType (): Object {
     return Object.freeze({
+      automated_personalize: 'automated_personalize',
       custom: 'custom',
       disclaimer: 'disclaimer',
       from_price: 'from_price',

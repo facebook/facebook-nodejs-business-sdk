@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
@@ -23,7 +25,7 @@ import Profile from './profile';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class LiveVideo extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       ad_break_config: 'ad_break_config',
       ad_break_failure_reason: 'ad_break_failure_reason',
@@ -39,11 +41,11 @@ export default class LiveVideo extends AbstractCrudObject {
       ingest_streams: 'ingest_streams',
       is_manual_mode: 'is_manual_mode',
       is_reference_only: 'is_reference_only',
-      live_encoders: 'live_encoders',
       live_views: 'live_views',
       overlay_url: 'overlay_url',
       permalink_url: 'permalink_url',
       planned_start_time: 'planned_start_time',
+      recommended_encoder_settings: 'recommended_encoder_settings',
       seconds_left: 'seconds_left',
       secure_stream_url: 'secure_stream_url',
       status: 'status',
@@ -55,19 +57,6 @@ export default class LiveVideo extends AbstractCrudObject {
     });
   }
 
-  static get BroadcastStatus (): Object {
-    return Object.freeze({
-      live: 'live',
-      live_stopped: 'live_stopped',
-      processing: 'processing',
-      scheduled_canceled: 'scheduled_canceled',
-      scheduled_expired: 'scheduled_expired',
-      scheduled_live: 'scheduled_live',
-      scheduled_unpublished: 'scheduled_unpublished',
-      unpublished: 'unpublished',
-      vod: 'vod',
-    });
-  }
   static get Projection (): Object {
     return Object.freeze({
       cubemap: 'CUBEMAP',
@@ -102,6 +91,19 @@ export default class LiveVideo extends AbstractCrudObject {
       regular: 'REGULAR',
     });
   }
+  static get BroadcastStatus (): Object {
+    return Object.freeze({
+      live: 'LIVE',
+      live_stopped: 'LIVE_STOPPED',
+      processing: 'PROCESSING',
+      scheduled_canceled: 'SCHEDULED_CANCELED',
+      scheduled_expired: 'SCHEDULED_EXPIRED',
+      scheduled_live: 'SCHEDULED_LIVE',
+      scheduled_unpublished: 'SCHEDULED_UNPUBLISHED',
+      unpublished: 'UNPUBLISHED',
+      vod: 'VOD',
+    });
+  }
   static get Source (): Object {
     return Object.freeze({
       owner: 'owner',
@@ -110,12 +112,23 @@ export default class LiveVideo extends AbstractCrudObject {
   }
   static get LiveCommentModerationSetting (): Object {
     return Object.freeze({
+      default: 'DEFAULT',
       discussion: 'DISCUSSION',
+      followed: 'FOLLOWED',
       follower: 'FOLLOWER',
+      no_hyperlink: 'NO_HYPERLINK',
       protected_mode: 'PROTECTED_MODE',
       restricted: 'RESTRICTED',
       slow: 'SLOW',
       supporter: 'SUPPORTER',
+      tagged: 'TAGGED',
+    });
+  }
+  static get PersistentStreamKeyStatus (): Object {
+    return Object.freeze({
+      disable: 'DISABLE',
+      enable: 'ENABLE',
+      regenerate: 'REGENERATE',
     });
   }
 
@@ -169,12 +182,13 @@ export default class LiveVideo extends AbstractCrudObject {
     );
   }
 
-  createInputStream (fields: Array<string>, params: Object = {}): Promise<LiveVideoInputStream> {
+  createInputStream (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<LiveVideoInputStream> {
     return this.createEdge(
       '/input_streams',
       fields,
       params,
-      LiveVideoInputStream
+      LiveVideoInputStream,
+      pathOverride,
     );
   }
 
@@ -188,12 +202,13 @@ export default class LiveVideo extends AbstractCrudObject {
     );
   }
 
-  createPoll (fields: Array<string>, params: Object = {}): Promise<VideoPoll> {
+  createPoll (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<VideoPoll> {
     return this.createEdge(
       '/polls',
       fields,
       params,
-      VideoPoll
+      VideoPoll,
+      pathOverride,
     );
   }
 

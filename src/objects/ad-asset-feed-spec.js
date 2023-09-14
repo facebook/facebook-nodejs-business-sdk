@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
@@ -14,10 +16,11 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdAssetFeedSpec extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       ad_formats: 'ad_formats',
       additional_data: 'additional_data',
+      app_product_page_id: 'app_product_page_id',
       asset_customization_rules: 'asset_customization_rules',
       autotranslate: 'autotranslate',
       bodies: 'bodies',
@@ -26,11 +29,11 @@ export default class AdAssetFeedSpec extends AbstractCrudObject {
       captions: 'captions',
       carousels: 'carousels',
       descriptions: 'descriptions',
+      events: 'events',
       groups: 'groups',
       images: 'images',
       link_urls: 'link_urls',
       optimization_type: 'optimization_type',
-      posts: 'posts',
       titles: 'titles',
       videos: 'videos',
     });
@@ -40,12 +43,14 @@ export default class AdAssetFeedSpec extends AbstractCrudObject {
     return Object.freeze({
       add_to_cart: 'ADD_TO_CART',
       apply_now: 'APPLY_NOW',
+      audio_call: 'AUDIO_CALL',
       book_travel: 'BOOK_TRAVEL',
       buy: 'BUY',
       buy_now: 'BUY_NOW',
       buy_tickets: 'BUY_TICKETS',
       call: 'CALL',
       call_me: 'CALL_ME',
+      call_now: 'CALL_NOW',
       contact: 'CONTACT',
       contact_us: 'CONTACT_US',
       donate: 'DONATE',
@@ -60,8 +65,11 @@ export default class AdAssetFeedSpec extends AbstractCrudObject {
       get_directions: 'GET_DIRECTIONS',
       get_offer: 'GET_OFFER',
       get_offer_view: 'GET_OFFER_VIEW',
+      get_promotions: 'GET_PROMOTIONS',
       get_quote: 'GET_QUOTE',
       get_showtimes: 'GET_SHOWTIMES',
+      get_started: 'GET_STARTED',
+      inquire_now: 'INQUIRE_NOW',
       install_app: 'INSTALL_APP',
       install_mobile_app: 'INSTALL_MOBILE_APP',
       learn_more: 'LEARN_MORE',
@@ -72,26 +80,36 @@ export default class AdAssetFeedSpec extends AbstractCrudObject {
       mobile_download: 'MOBILE_DOWNLOAD',
       moments: 'MOMENTS',
       no_button: 'NO_BUTTON',
+      open_instant_app: 'OPEN_INSTANT_APP',
       open_link: 'OPEN_LINK',
       order_now: 'ORDER_NOW',
       pay_to_access: 'PAY_TO_ACCESS',
       play_game: 'PLAY_GAME',
+      play_game_on_facebook: 'PLAY_GAME_ON_FACEBOOK',
       purchase_gift_cards: 'PURCHASE_GIFT_CARDS',
+      raise_money: 'RAISE_MONEY',
       record_now: 'RECORD_NOW',
+      refer_friends: 'REFER_FRIENDS',
       request_time: 'REQUEST_TIME',
       say_thanks: 'SAY_THANKS',
       see_more: 'SEE_MORE',
       sell_now: 'SELL_NOW',
       send_a_gift: 'SEND_A_GIFT',
+      send_gift_money: 'SEND_GIFT_MONEY',
+      send_updates: 'SEND_UPDATES',
       share: 'SHARE',
       shop_now: 'SHOP_NOW',
       sign_up: 'SIGN_UP',
       sotto_subscribe: 'SOTTO_SUBSCRIBE',
+      start_order: 'START_ORDER',
       subscribe: 'SUBSCRIBE',
+      swipe_up_product: 'SWIPE_UP_PRODUCT',
+      swipe_up_shop: 'SWIPE_UP_SHOP',
       update_app: 'UPDATE_APP',
       use_app: 'USE_APP',
       use_mobile_app: 'USE_MOBILE_APP',
       video_annotation: 'VIDEO_ANNOTATION',
+      video_call: 'VIDEO_CALL',
       visit_pages_feed: 'VISIT_PAGES_FEED',
       watch_more: 'WATCH_MORE',
       watch_video: 'WATCH_VIDEO',

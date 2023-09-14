@@ -9,10 +9,11 @@
 
 import UserData from './user-data';
 import CustomData from './custom-data';
+import AppData from './app-data';
 
 /**
  * ServerEvent
- * @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#serv}
+ * @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/server-event}
  */
 export default class ServerEvent {
 
@@ -24,9 +25,12 @@ export default class ServerEvent {
 	_opt_out: bool;
 	_user_data: UserData;
 	_custom_data: CustomData;
+	_app_data: AppData;
 	_data_processing_options: Array<string>;
 	_data_processing_options_state: number;
 	_data_processing_options_country: number;
+	_advanced_measurement_table: string;
+	_advertiser_tracking_enabled: bool;
 
 	/**
 	 * @param {String} event_name A Facebook pixel Standard Event or Custom Event name.
@@ -40,13 +44,16 @@ export default class ServerEvent {
 	 * @param {Array<string>} data_processing_options Processing options you would like to enable for a specific event.
 	 * @param {Number} data_processing_options_country A country that you want to associate to this data processing option.
 	 * @param {Number} data_processing_options_state A state that you want to associate with this data processing option.
+	 * @param {String} advanced_measurement_table Name of Advanced Measurement table. Only used for the Advanced Measurement API in the Advanced Analytics product.
+	 * @param {Boolean} advertiser_tracking_enabled A boolean that indicates whether the user has opted into/out of advertiser tracker on apps.
 	 */
-	constructor(event_name: string, event_time: number, event_source_url: string, user_data: UserData, custom_data: CustomData, event_id: string, opt_out: boolean, action_source: string, data_processing_options: Array<string>, data_processing_options_country: number, data_processing_options_state: number) {
+	constructor(event_name: string, event_time: number, event_source_url: string, user_data: UserData, custom_data: CustomData, app_data: AppData, event_id: string, opt_out: boolean, action_source: string, data_processing_options: Array<string>, data_processing_options_country: number, data_processing_options_state: number, advanced_measurement_table: string, advertiser_tracking_enabled: boolean) {
 
 		this._event_name = event_name;
 		this._event_time = event_time;
 		this._user_data = user_data;
 		this._custom_data = custom_data;
+		this._app_data = app_data;
 		this._event_source_url = event_source_url;
 		this.event_id = event_id;
 		this._opt_out = opt_out;
@@ -54,6 +61,7 @@ export default class ServerEvent {
 		this._data_processing_options = data_processing_options;
 		this._data_processing_options_country = data_processing_options_country;
 		this._data_processing_options_state = data_processing_options_state;
+		this._advanced_measurement_table = advanced_measurement_table
 	}
 
 	/**
@@ -137,8 +145,9 @@ export default class ServerEvent {
 
 	/**
 	 * Sets the event Id for the current Event.
-	 * @param {String} event_id can be any string chosen by the advertiser. This is used with event_name to determine if events are identical.Learn about Deduplicate Pixel and Server-Side Events
-	 * @see {@link https://developers.facebook.com/docs/marketing-api/server-side-api/using-the-api#dedup}
+	 * @param {String} event_id can be any string chosen by the advertiser. This is used with event_name to determine if events are identical.
+	 * Learn about Deduplicate Pixel and Conversions API Events: {@link https://developers.facebook.com/docs/marketing-api/conversions-api/deduplicate-pixel-and-server-events}
+	 * @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/server-event#event-id}
 	 */
 	set event_id(event_id: string) {
 		this._event_id = event_id;
@@ -146,8 +155,9 @@ export default class ServerEvent {
 
 	/**
 	 * Sets the event Id for the current Event.
-	 * @param {String} event_id can be any string chosen by the advertiser. This is used with event_name to determine if events are identical. Learn about Deduplicate Pixel and Server-Side Events.
-	 * @see {@link https://developers.facebook.com/docs/marketing-api/server-side-api/using-the-api#dedup}
+	 * @param {String} event_id can be any string chosen by the advertiser. This is used with event_name to determine if events are identical.
+	 * Learn about Deduplicate Pixel and Conversions API Events: {@link https://developers.facebook.com/docs/marketing-api/conversions-api/deduplicate-pixel-and-server-events}
+	 * @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/server-event#event-id}
 	 */
 	setEventId(event_id: string)  : ServerEvent{
 		this._event_id = event_id;
@@ -204,7 +214,7 @@ export default class ServerEvent {
 
 	/**
 	 * Gets the user data object for the current Server Event.
-	 * @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#user}
+	 * @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/server-event#user-data}
 	 */
 	get user_data() {
 		return this._user_data;
@@ -213,7 +223,7 @@ export default class ServerEvent {
 	/**
 	 * Sets the user data object for the current Server Event.
 	 * @param {UserData} user_data user_data is a map that contains user data. See User Data Parameter Table for options. Also see Advanced Matching with the Pixel to see comparable options available for data sent via Facebook pixel.
-	 * @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#user}
+	 * @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/server-event#user-data}
 	 */
 	set user_data(user_data: UserData) {
 		this._user_data = user_data;
@@ -222,7 +232,7 @@ export default class ServerEvent {
 	/**
 	 * Sets the user data object for the current Server Event.
 	 * @param {UserData} user_data user_data is a map that contains user data. See User Data Parameter Table for options. Also see Advanced Matching with the Pixel to see comparable options available for data sent via Facebook pixel.
-	 * @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#user}
+	 * @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/server-event#user-data}
 	 */
 	setUserData(user_data: UserData) : ServerEvent {
 		this._user_data = user_data;
@@ -231,7 +241,7 @@ export default class ServerEvent {
 
 	/**
 	 * Gets the custom data object for the current Server Event.
-	 * @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#custom}
+	 * @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/server-event#custom-data}
 	 */
 	get custom_data() {
 		return this._custom_data;
@@ -240,7 +250,7 @@ export default class ServerEvent {
 	/**
 	 * Sets the custom data object for the current Server Event.
 	 * @param {CustomData} custom_data is a map that includes additional business data about the event.
-	 * @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#custom}
+	 * @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/server-event#custom-data}
 	 */
 	set custom_data(custom_data: CustomData) {
 		this._custom_data = custom_data;
@@ -249,10 +259,32 @@ export default class ServerEvent {
 	/**
 	 * Sets the custom data object for the current Server Event.
 	 * @param {CustomData} custom_data is a map that includes additional business data about the event.
-	 * @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters#custom}
+	 * @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/server-event#custom-data}
 	 */
 	setCustomData(custom_data: CustomData) : ServerEvent {
 		this._custom_data = custom_data;
+		return this;
+	}
+
+	/**
+	 *
+	 */
+	get app_data() {
+		return this._app_data;
+	}
+
+	/**
+	 *
+	 */
+	set app_data(app_data: AppData) {
+		this._app_data = app_data;
+	}
+
+	/**
+	 *
+	 */
+	 setAppData(app_data: AppData) : ServerEvent {
+		this._app_data = app_data;
 		return this;
 	}
 
@@ -335,6 +367,56 @@ export default class ServerEvent {
 		return this;
 	}
 
+	/**
+	 * Gets the advanced_measurement_table for the current event.
+	 * Name of Advanced Measurement table. Only used for the Advanced Measurement API in the Advanced Analytics product.
+	 */
+	 get advanced_measurement_table() {
+		return this._advanced_measurement_table;
+	}
+
+	/**
+	 * Sets the advanced_measurement_table for the current event.
+	 * @param {string} advanced_measurement_table Name of Advanced Measurement table. Only used for the Advanced Measurement API in the Advanced Analytics product.
+	 */
+	set advanced_measurement_table(advanced_measurement_table: string) {
+		this._advanced_measurement_table = advanced_measurement_table;
+	}
+
+	/**
+	 * Sets the advanced_measurement_table for the current event.
+	 * @param {string} advanced_measurement_table Name of Advanced Measurement table. Only used for the Advanced Measurement API in the Advanced Analytics product.
+	 */
+	setAdvancedMeasurementTable(advanced_measurement_table: string) : ServerEvent {
+		this._advanced_measurement_table = advanced_measurement_table;
+		return this;
+	}
+
+	/**
+	 * Gets the advertiser_tracking_enabled for the current event.
+	 * @see {@link https://developers.facebook.com/docs/app-events/guides/advertising-tracking-enabled} (documentation only covers iOS SDK)
+	 */
+	get advertiser_tracking_enabled() {
+		return this._advertiser_tracking_enabled;
+	}
+
+	/**
+	 * Sets the advertiser_tracking_enabled for the current event.
+	 * @param {boolean} advertiser_tracking_enabled represents whether the user has opted into/out of advertiser tracking on apps.
+	 */
+	set advertiser_tracking_enabled(advertiser_tracking_enabled: boolean) {
+		this._advertiser_tracking_enabled = advertiser_tracking_enabled;
+	}
+
+	/**
+	 * Sets the advertiser_tracking_enabled for the current event.
+	 * @param {number} data_processing_options_country represents whether the user has opted into/out of advertiser tracking on apps.
+	 */
+	setAdvertiserTrackingEnabled(advertiser_tracking_enabled: boolean) : ServerEvent {
+		this._advertiser_tracking_enabled = advertiser_tracking_enabled;
+		return this;
+	}
+
 
 	/**
 	 * Returns the normalized payload for the event.
@@ -360,6 +442,10 @@ export default class ServerEvent {
 			serverEvent.custom_data = this.custom_data.normalize();
 		}
 
+		if (this.app_data) {
+			serverEvent.app_data = this.app_data.normalize();
+		}
+
 		if (this.action_source) {
 			serverEvent.action_source = this.action_source.toLowerCase();
 		}
@@ -380,12 +466,21 @@ export default class ServerEvent {
 			serverEvent.data_processing_options = this.data_processing_options;
 		}
 
-		if (this.data_processing_options_country) {
+		if (this.data_processing_options_country || this.data_processing_options_country === 0) {
 			serverEvent.data_processing_options_country = this.data_processing_options_country;
+	  	}
+	  
+	  	if (this.data_processing_options_state || this.data_processing_options_state === 0) {
+			serverEvent.data_processing_options_state = this.data_processing_options_state;
+	  	}
+
+		if (this.advanced_measurement_table) {
+			serverEvent.advanced_measurement_table = this.advanced_measurement_table;
 		}
 
-		if (this.data_processing_options_state) {
-			serverEvent.data_processing_options_state = this.data_processing_options_state;
+		// boolean variable is set to either true or false
+		if (this.advertiser_tracking_enabled === true || this.advertiser_tracking_enabled === false) {
+			serverEvent.advertiser_tracking_enabled = this.advertiser_tracking_enabled;
 		}
 
 		return serverEvent;

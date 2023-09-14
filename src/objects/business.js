@@ -1,47 +1,50 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import AdStudy from './ad-study';
 import AdAccount from './ad-account';
+import Application from './application';
 import AdNetworkAnalyticsSyncQueryResult from './ad-network-analytics-sync-query-result';
 import AdNetworkAnalyticsAsyncQueryResult from './ad-network-analytics-async-query-result';
 import AdsPixel from './ads-pixel';
 import AdPlacement from './ad-placement';
 import BusinessAssetGroup from './business-asset-group';
-import OracleTransaction from './oracle-transaction';
-import BusinessUnit from './business-unit';
+import OmegaCustomerTrx from './omega-customer-trx';
 import BusinessUser from './business-user';
 import CustomConversion from './custom-conversion';
-import Application from './application';
 import Page from './page';
 import ProductCatalog from './product-catalog';
 import WhatsAppBusinessAccount from './whats-app-business-account';
 import CPASCollaborationRequest from './cpas-collaboration-request';
 import CPASAdvertiserPartnershipRecommendation from './cpas-advertiser-partnership-recommendation';
 import CommerceMerchantSettings from './commerce-merchant-settings';
-import ContentDeliveryReport from './content-delivery-report';
+import CPASBusinessSetupConfig from './cpas-business-setup-config';
+import CPASMerchantConfig from './cpas-merchant-config';
+import CreditCard from './credit-card';
 import EventSourceGroup from './event-source-group';
 import ExtendedCredit from './extended-credit';
 import BusinessAssetSharingAgreement from './business-asset-sharing-agreement';
-import BusinessAgreement from './business-agreement';
 import InstagramUser from './instagram-user';
+import IGUser from './ig-user';
 import OfflineConversionDataSet from './offline-conversion-data-set';
+import OpenBridgeConfiguration from './open-bridge-configuration';
 import BusinessAdAccountRequest from './business-ad-account-request';
 import BusinessApplicationRequest from './business-application-request';
 import BusinessPageRequest from './business-page-request';
 import BusinessRoleRequest from './business-role-request';
 import ProfilePictureSource from './profile-picture-source';
+import WhatsAppBusinessPreVerifiedPhoneNumber from './whats-app-business-pre-verified-phone-number';
 import SystemUser from './system-user';
-import ThirdPartyMeasurementReportDataset from './third-party-measurement-report-dataset';
-import MeasurementUploadEvent from './measurement-upload-event';
 
 /**
  * Business
@@ -49,15 +52,17 @@ import MeasurementUploadEvent from './measurement-upload-event';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class Business extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       block_offline_analytics: 'block_offline_analytics',
+      collaborative_ads_managed_partner_business_info: 'collaborative_ads_managed_partner_business_info',
+      collaborative_ads_managed_partner_eligibility: 'collaborative_ads_managed_partner_eligibility',
+      collaborative_ads_partner_premium_options: 'collaborative_ads_partner_premium_options',
       created_by: 'created_by',
       created_time: 'created_time',
       extended_updated_time: 'extended_updated_time',
       id: 'id',
       is_hidden: 'is_hidden',
-      is_instagram_enabled_in_fb_analytics: 'is_instagram_enabled_in_fb_analytics',
       link: 'link',
       name: 'name',
       payment_account_id: 'payment_account_id',
@@ -110,7 +115,29 @@ export default class Business extends AbstractCrudObject {
     return Object.freeze({
       advertise: 'ADVERTISE',
       analyze: 'ANALYZE',
+      cashier_role: 'CASHIER_ROLE',
+      create_content: 'CREATE_CONTENT',
       manage: 'MANAGE',
+      manage_jobs: 'MANAGE_JOBS',
+      manage_leads: 'MANAGE_LEADS',
+      messaging: 'MESSAGING',
+      moderate: 'MODERATE',
+      moderate_community: 'MODERATE_COMMUNITY',
+      pages_messaging: 'PAGES_MESSAGING',
+      pages_messaging_subscriptions: 'PAGES_MESSAGING_SUBSCRIPTIONS',
+      profile_plus_advertise: 'PROFILE_PLUS_ADVERTISE',
+      profile_plus_analyze: 'PROFILE_PLUS_ANALYZE',
+      profile_plus_create_content: 'PROFILE_PLUS_CREATE_CONTENT',
+      profile_plus_facebook_access: 'PROFILE_PLUS_FACEBOOK_ACCESS',
+      profile_plus_full_control: 'PROFILE_PLUS_FULL_CONTROL',
+      profile_plus_manage: 'PROFILE_PLUS_MANAGE',
+      profile_plus_manage_leads: 'PROFILE_PLUS_MANAGE_LEADS',
+      profile_plus_messaging: 'PROFILE_PLUS_MESSAGING',
+      profile_plus_moderate: 'PROFILE_PLUS_MODERATE',
+      profile_plus_moderate_delegate_community: 'PROFILE_PLUS_MODERATE_DELEGATE_COMMUNITY',
+      profile_plus_revenue: 'PROFILE_PLUS_REVENUE',
+      read_page_mailboxes: 'READ_PAGE_MAILBOXES',
+      view_monetization_insights: 'VIEW_MONETIZATION_INSIGHTS',
     });
   }
   static get SurveyBusinessType (): Object {
@@ -138,21 +165,241 @@ export default class Business extends AbstractCrudObject {
       profile_plus_advertise: 'PROFILE_PLUS_ADVERTISE',
       profile_plus_analyze: 'PROFILE_PLUS_ANALYZE',
       profile_plus_create_content: 'PROFILE_PLUS_CREATE_CONTENT',
-      profile_plus_live_stream_moderation: 'PROFILE_PLUS_LIVE_STREAM_MODERATION',
+      profile_plus_facebook_access: 'PROFILE_PLUS_FACEBOOK_ACCESS',
+      profile_plus_full_control: 'PROFILE_PLUS_FULL_CONTROL',
       profile_plus_manage: 'PROFILE_PLUS_MANAGE',
+      profile_plus_manage_leads: 'PROFILE_PLUS_MANAGE_LEADS',
       profile_plus_messaging: 'PROFILE_PLUS_MESSAGING',
       profile_plus_moderate: 'PROFILE_PLUS_MODERATE',
+      profile_plus_moderate_delegate_community: 'PROFILE_PLUS_MODERATE_DELEGATE_COMMUNITY',
+      profile_plus_revenue: 'PROFILE_PLUS_REVENUE',
       read_page_mailboxes: 'READ_PAGE_MAILBOXES',
       view_monetization_insights: 'VIEW_MONETIZATION_INSIGHTS',
     });
   }
+  static get SubverticalV2 (): Object {
+    return Object.freeze({
+      accounting_and_tax: 'ACCOUNTING_AND_TAX',
+      activities_and_leisure: 'ACTIVITIES_AND_LEISURE',
+      air: 'AIR',
+      apparel_and_accessories: 'APPAREL_AND_ACCESSORIES',
+      arts_and_heritage_and_education: 'ARTS_AND_HERITAGE_AND_EDUCATION',
+      ar_or_vr_gaming: 'AR_OR_VR_GAMING',
+      audio_streaming: 'AUDIO_STREAMING',
+      auto: 'AUTO',
+      auto_insurance: 'AUTO_INSURANCE',
+      auto_rental: 'AUTO_RENTAL',
+      baby: 'BABY',
+      ballot_initiative_or_referendum: 'BALLOT_INITIATIVE_OR_REFERENDUM',
+      beauty: 'BEAUTY',
+      beauty_and_fashion: 'BEAUTY_AND_FASHION',
+      beer_and_wine_and_liquor_and_malt_beverages: 'BEER_AND_WINE_AND_LIQUOR_AND_MALT_BEVERAGES',
+      bookstores: 'BOOKSTORES',
+      broadcast_television: 'BROADCAST_TELEVISION',
+      business_consultants: 'BUSINESS_CONSULTANTS',
+      buying_agency: 'BUYING_AGENCY',
+      cable_and_satellite: 'CABLE_AND_SATELLITE',
+      cable_television: 'CABLE_TELEVISION',
+      call_center_and_messaging_services: 'CALL_CENTER_AND_MESSAGING_SERVICES',
+      candidate_or_politician: 'CANDIDATE_OR_POLITICIAN',
+      career: 'CAREER',
+      career_and_tech: 'CAREER_AND_TECH',
+      casual_dining: 'CASUAL_DINING',
+      chronic_conditions_and_medical_causes: 'CHRONIC_CONDITIONS_AND_MEDICAL_CAUSES',
+      civic_influencers: 'CIVIC_INFLUENCERS',
+      clinical_trials: 'CLINICAL_TRIALS',
+      coffee: 'COFFEE',
+      computer_and_software_and_hardware: 'COMPUTER_AND_SOFTWARE_AND_HARDWARE',
+      console_and_cross_platform_gaming: 'CONSOLE_AND_CROSS_PLATFORM_GAMING',
+      consulting: 'CONSULTING',
+      consumer_electronics: 'CONSUMER_ELECTRONICS',
+      counseling_and_psychotherapy: 'COUNSELING_AND_PSYCHOTHERAPY',
+      creative_agency: 'CREATIVE_AGENCY',
+      credit_and_financing_and_mortages: 'CREDIT_AND_FINANCING_AND_MORTAGES',
+      cruises_and_marine: 'CRUISES_AND_MARINE',
+      culture_and_lifestyle: 'CULTURE_AND_LIFESTYLE',
+      data_analytics_and_data_management: 'DATA_ANALYTICS_AND_DATA_MANAGEMENT',
+      dating_and_technology_apps: 'DATING_AND_TECHNOLOGY_APPS',
+      department_store: 'DEPARTMENT_STORE',
+      desktop_software: 'DESKTOP_SOFTWARE',
+      dieting_and_fitness_programs: 'DIETING_AND_FITNESS_PROGRAMS',
+      digital_native_education_or_training: 'DIGITAL_NATIVE_EDUCATION_OR_TRAINING',
+      drinking_places: 'DRINKING_PLACES',
+      education_resources: 'EDUCATION_RESOURCES',
+      ed_tech: 'ED_TECH',
+      elearning_and_massive_online_open_courses: 'ELEARNING_AND_MASSIVE_ONLINE_OPEN_COURSES',
+      election_commission: 'ELECTION_COMMISSION',
+      electronics_and_appliances: 'ELECTRONICS_AND_APPLIANCES',
+      engineering_and_design: 'ENGINEERING_AND_DESIGN',
+      environment_and_animal_welfare: 'ENVIRONMENT_AND_ANIMAL_WELFARE',
+      esports: 'ESPORTS',
+      events: 'EVENTS',
+      farming_and_ranching: 'FARMING_AND_RANCHING',
+      file_storage_and_cloud_and_data_services: 'FILE_STORAGE_AND_CLOUD_AND_DATA_SERVICES',
+      finance: 'FINANCE',
+      fin_tech: 'FIN_TECH',
+      fishing_and_hunting_and_forestry_and_logging: 'FISHING_AND_HUNTING_AND_FORESTRY_AND_LOGGING',
+      fitness: 'FITNESS',
+      food: 'FOOD',
+      footwear: 'FOOTWEAR',
+      for_profit_colleges_and_universities: 'FOR_PROFIT_COLLEGES_AND_UNIVERSITIES',
+      full_service_agency: 'FULL_SERVICE_AGENCY',
+      government_controlled_entity: 'GOVERNMENT_CONTROLLED_ENTITY',
+      government_department_or_agency: 'GOVERNMENT_DEPARTMENT_OR_AGENCY',
+      government_official: 'GOVERNMENT_OFFICIAL',
+      government_owned_media: 'GOVERNMENT_OWNED_MEDIA',
+      grocery_and_drug_and_convenience: 'GROCERY_AND_DRUG_AND_CONVENIENCE',
+      head_of_state: 'HEAD_OF_STATE',
+      health_insurance: 'HEALTH_INSURANCE',
+      health_systems_and_practitioners: 'HEALTH_SYSTEMS_AND_PRACTITIONERS',
+      health_tech: 'HEALTH_TECH',
+      home_and_furniture_and_office: 'HOME_AND_FURNITURE_AND_OFFICE',
+      home_improvement: 'HOME_IMPROVEMENT',
+      home_insurance: 'HOME_INSURANCE',
+      home_tech: 'HOME_TECH',
+      hotel_and_accomodation: 'HOTEL_AND_ACCOMODATION',
+      household_goods_durable: 'HOUSEHOLD_GOODS_DURABLE',
+      household_goods_non_durable: 'HOUSEHOLD_GOODS_NON_DURABLE',
+      hr_and_financial_management: 'HR_AND_FINANCIAL_MANAGEMENT',
+      humanitarian_or_disaster_relief: 'HUMANITARIAN_OR_DISASTER_RELIEF',
+      independent_expenditure_group: 'INDEPENDENT_EXPENDITURE_GROUP',
+      insurance_tech: 'INSURANCE_TECH',
+      international_organizaton: 'INTERNATIONAL_ORGANIZATON',
+      investment_bank_and_brokerage: 'INVESTMENT_BANK_AND_BROKERAGE',
+      issue_advocacy: 'ISSUE_ADVOCACY',
+      legal: 'LEGAL',
+      life_insurance: 'LIFE_INSURANCE',
+      logistics_and_transportation_and_fleet_management: 'LOGISTICS_AND_TRANSPORTATION_AND_FLEET_MANAGEMENT',
+      manufacturing: 'MANUFACTURING',
+      medical_devices_and_supplies_and_equipment: 'MEDICAL_DEVICES_AND_SUPPLIES_AND_EQUIPMENT',
+      medspa_and_elective_surgeries_and_alternative_medicine: 'MEDSPA_AND_ELECTIVE_SURGERIES_AND_ALTERNATIVE_MEDICINE',
+      mining_and_quarrying: 'MINING_AND_QUARRYING',
+      mobile_gaming: 'MOBILE_GAMING',
+      movies: 'MOVIES',
+      museums_and_parks_and_libraries: 'MUSEUMS_AND_PARKS_AND_LIBRARIES',
+      music: 'MUSIC',
+      network_security_products: 'NETWORK_SECURITY_PRODUCTS',
+      news_and_current_events: 'NEWS_AND_CURRENT_EVENTS',
+      non_prescription: 'NON_PRESCRIPTION',
+      not_for_profit_colleges_and_universities: 'NOT_FOR_PROFIT_COLLEGES_AND_UNIVERSITIES',
+      office: 'OFFICE',
+      office_or_business_supplies: 'OFFICE_OR_BUSINESS_SUPPLIES',
+      oil_and_gas_and_consumable_fuel: 'OIL_AND_GAS_AND_CONSUMABLE_FUEL',
+      online_only_publications: 'ONLINE_ONLY_PUBLICATIONS',
+      package_or_freight_delivery: 'PACKAGE_OR_FREIGHT_DELIVERY',
+      party_independent_expenditure_group_us: 'PARTY_INDEPENDENT_EXPENDITURE_GROUP_US',
+      payment_processing_and_gateway_solutions: 'PAYMENT_PROCESSING_AND_GATEWAY_SOLUTIONS',
+      pc_gaming: 'PC_GAMING',
+      people: 'PEOPLE',
+      personal_care: 'PERSONAL_CARE',
+      pet: 'PET',
+      photography_and_filming_services: 'PHOTOGRAPHY_AND_FILMING_SERVICES',
+      pizza: 'PIZZA',
+      planning_agency: 'PLANNING_AGENCY',
+      political_party_or_committee: 'POLITICAL_PARTY_OR_COMMITTEE',
+      prescription: 'PRESCRIPTION',
+      professional_associations: 'PROFESSIONAL_ASSOCIATIONS',
+      property_and_casualty: 'PROPERTY_AND_CASUALTY',
+      quick_service: 'QUICK_SERVICE',
+      radio: 'RADIO',
+      railroads: 'RAILROADS',
+      real_estate: 'REAL_ESTATE',
+      real_money_gaming: 'REAL_MONEY_GAMING',
+      recreational: 'RECREATIONAL',
+      religious: 'RELIGIOUS',
+      reseller: 'RESELLER',
+      residential_and_long_term_care_facilities_and_outpatient_care_centers: 'RESIDENTIAL_AND_LONG_TERM_CARE_FACILITIES_AND_OUTPATIENT_CARE_CENTERS',
+      retail_and_credit_union_and_commercial_bank: 'RETAIL_AND_CREDIT_UNION_AND_COMMERCIAL_BANK',
+      ride_sharing_or_taxi_services: 'RIDE_SHARING_OR_TAXI_SERVICES',
+      safety_services: 'SAFETY_SERVICES',
+      scholarly: 'SCHOLARLY',
+      school_and_early_children_edcation: 'SCHOOL_AND_EARLY_CHILDREN_EDCATION',
+      social_media: 'SOCIAL_MEDIA',
+      software_as_a_service: 'SOFTWARE_AS_A_SERVICE',
+      sporting: 'SPORTING',
+      sporting_and_outdoor: 'SPORTING_AND_OUTDOOR',
+      sports: 'SPORTS',
+      superstores: 'SUPERSTORES',
+      t1_automotive_manufacturer: 'T1_AUTOMOTIVE_MANUFACTURER',
+      t1_motorcycle: 'T1_MOTORCYCLE',
+      t2_dealer_associations: 'T2_DEALER_ASSOCIATIONS',
+      t3_auto_agency: 'T3_AUTO_AGENCY',
+      t3_auto_resellers: 'T3_AUTO_RESELLERS',
+      t3_dealer_groups: 'T3_DEALER_GROUPS',
+      t3_franchise_dealer: 'T3_FRANCHISE_DEALER',
+      t3_independent_dealer: 'T3_INDEPENDENT_DEALER',
+      t3_parts_and_services: 'T3_PARTS_AND_SERVICES',
+      t3_portals: 'T3_PORTALS',
+      telecommunications_equipment_and_accessories: 'TELECOMMUNICATIONS_EQUIPMENT_AND_ACCESSORIES',
+      telephone_service_providers_and_carriers: 'TELEPHONE_SERVICE_PROVIDERS_AND_CARRIERS',
+      ticketing: 'TICKETING',
+      tobacco: 'TOBACCO',
+      tourism_and_travel_services: 'TOURISM_AND_TRAVEL_SERVICES',
+      tourism_board: 'TOURISM_BOARD',
+      toy_and_hobby: 'TOY_AND_HOBBY',
+      trade_school: 'TRADE_SCHOOL',
+      travel_agencies_and_guides_and_otas: 'TRAVEL_AGENCIES_AND_GUIDES_AND_OTAS',
+      utilities_and_energy_equipment_and_services: 'UTILITIES_AND_ENERGY_EQUIPMENT_AND_SERVICES',
+      veterinary_clinics_and_services: 'VETERINARY_CLINICS_AND_SERVICES',
+      video_streaming: 'VIDEO_STREAMING',
+      virtual_services: 'VIRTUAL_SERVICES',
+      vitamins_or_wellness: 'VITAMINS_OR_WELLNESS',
+      warehousing_and_storage: 'WAREHOUSING_AND_STORAGE',
+      water_and_soft_drink_and_baverage: 'WATER_AND_SOFT_DRINK_AND_BAVERAGE',
+      website_designers_or_graphic_designers: 'WEBSITE_DESIGNERS_OR_GRAPHIC_DESIGNERS',
+      wholesale: 'WHOLESALE',
+      wireless_services: 'WIRELESS_SERVICES',
+    });
+  }
+  static get VerticalV2 (): Object {
+    return Object.freeze({
+      advertising_and_marketing: 'ADVERTISING_AND_MARKETING',
+      agriculture: 'AGRICULTURE',
+      automotive: 'AUTOMOTIVE',
+      banking_and_credit_cards: 'BANKING_AND_CREDIT_CARDS',
+      business_to_business: 'BUSINESS_TO_BUSINESS',
+      consumer_packaged_goods: 'CONSUMER_PACKAGED_GOODS',
+      ecommerce: 'ECOMMERCE',
+      education: 'EDUCATION',
+      energy_and_natural_resources_and_utilities: 'ENERGY_AND_NATURAL_RESOURCES_AND_UTILITIES',
+      entertainment_and_media: 'ENTERTAINMENT_AND_MEDIA',
+      gaming: 'GAMING',
+      government: 'GOVERNMENT',
+      healthcare_and_pharmaceuticals_and_biotech: 'HEALTHCARE_AND_PHARMACEUTICALS_AND_BIOTECH',
+      insurance: 'INSURANCE',
+      non_profit: 'NON_PROFIT',
+      organizations_and_associations: 'ORGANIZATIONS_AND_ASSOCIATIONS',
+      politics: 'POLITICS',
+      professional_services: 'PROFESSIONAL_SERVICES',
+      publishing: 'PUBLISHING',
+      restaurants: 'RESTAURANTS',
+      retail: 'RETAIL',
+      technology: 'TECHNOLOGY',
+      telecom: 'TELECOM',
+      travel: 'TRAVEL',
+    });
+  }
+  static get ActionSource (): Object {
+    return Object.freeze({
+      physical_store: 'PHYSICAL_STORE',
+      website: 'WEBSITE',
+    });
+  }
 
-  createAccessToken (fields: Array<string>, params: Object = {}): Promise<Business> {
+  createAccessToken (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Business> {
     return this.createEdge(
       '/access_token',
       fields,
       params,
-      Business
+      Business,
+      pathOverride,
+    );
+  }
+
+  deleteAdAccounts (params: Object = {}): Promise<*> {
+    return super.deleteEdge(
+      '/ad_accounts',
+      params
     );
   }
 
@@ -166,21 +413,43 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createAdStudy (fields: Array<string>, params: Object = {}): Promise<AdStudy> {
+  createAdStudy (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdStudy> {
     return this.createEdge(
       '/ad_studies',
       fields,
       params,
-      AdStudy
+      AdStudy,
+      pathOverride,
     );
   }
 
-  createAdAccount (fields: Array<string>, params: Object = {}): Promise<AdAccount> {
+  createAdAccount (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdAccount> {
     return this.createEdge(
       '/adaccount',
       fields,
       params,
-      AdAccount
+      AdAccount,
+      pathOverride,
+    );
+  }
+
+  createAddPhoneNumber (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Business> {
+    return this.createEdge(
+      '/add_phone_numbers',
+      fields,
+      params,
+      Business,
+      pathOverride,
+    );
+  }
+
+  createAdNetworkApplication (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Application> {
+    return this.createEdge(
+      '/adnetwork_applications',
+      fields,
+      params,
+      Application,
+      pathOverride,
     );
   }
 
@@ -194,12 +463,13 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createAdNetworkAnalytic (fields: Array<string>, params: Object = {}): Promise<Business> {
+  createAdNetworkAnalytic (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Business> {
     return this.createEdge(
       '/adnetworkanalytics',
       fields,
       params,
-      Business
+      Business,
+      pathOverride,
     );
   }
 
@@ -213,6 +483,26 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
+  getAdsReportingMmmReports (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/ads_reporting_mmm_reports'
+    );
+  }
+
+  getAdsReportingMmmSchedulers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/ads_reporting_mmm_schedulers'
+    );
+  }
+
   getAdsPixels (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdsPixel,
@@ -223,12 +513,13 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createAdsPixel (fields: Array<string>, params: Object = {}): Promise<AdsPixel> {
+  createAdsPixel (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdsPixel> {
     return this.createEdge(
       '/adspixels',
       fields,
       params,
-      AdsPixel
+      AdsPixel,
+      pathOverride,
     );
   }
 
@@ -249,15 +540,6 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createAggregateRevenue (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
-    return this.createEdge(
-      '/aggregate_revenue',
-      fields,
-      params,
-      
-    );
-  }
-
   getAnPlacements (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdPlacement,
@@ -268,12 +550,13 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createBlockListDraft (fields: Array<string>, params: Object = {}): Promise<Business> {
+  createBlockListDraft (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Business> {
     return this.createEdge(
       '/block_list_drafts',
       fields,
       params,
-      Business
+      Business,
+      pathOverride,
     );
   }
 
@@ -289,30 +572,11 @@ export default class Business extends AbstractCrudObject {
 
   getBusinessInvoices (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      OracleTransaction,
+      OmegaCustomerTrx,
       fields,
       params,
       fetchFirstPage,
       '/business_invoices'
-    );
-  }
-
-  getBusinessUnits (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      BusinessUnit,
-      fields,
-      params,
-      fetchFirstPage,
-      '/business_units'
-    );
-  }
-
-  createBusinessUnit (fields: Array<string>, params: Object = {}): Promise<BusinessUnit> {
-    return this.createEdge(
-      '/business_units',
-      fields,
-      params,
-      BusinessUnit
     );
   }
 
@@ -326,21 +590,33 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createBusinessUser (fields: Array<string>, params: Object = {}): Promise<BusinessUser> {
+  createBusinessUser (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<BusinessUser> {
     return this.createEdge(
       '/business_users',
       fields,
       params,
-      BusinessUser
+      BusinessUser,
+      pathOverride,
     );
   }
 
-  createClaimCustomConversion (fields: Array<string>, params: Object = {}): Promise<CustomConversion> {
+  getBusinessProjects (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/businessprojects'
+    );
+  }
+
+  createClaimCustomConversion (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<CustomConversion> {
     return this.createEdge(
       '/claim_custom_conversions',
       fields,
       params,
-      CustomConversion
+      CustomConversion,
+      pathOverride,
     );
   }
 
@@ -354,15 +630,6 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createClientAdAccount (fields: Array<string>, params: Object = {}): Promise<Business> {
-    return this.createEdge(
-      '/client_ad_accounts',
-      fields,
-      params,
-      Business
-    );
-  }
-
   getClientApps (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Application,
@@ -373,12 +640,23 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createClientApp (fields: Array<string>, params: Object = {}): Promise<Business> {
+  createClientApp (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Business> {
     return this.createEdge(
       '/client_apps',
       fields,
       params,
-      Business
+      Business,
+      pathOverride,
+    );
+  }
+
+  getClientOffsiteSignalContainerBusinessObjects (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/client_offsite_signal_container_business_objects'
     );
   }
 
@@ -392,12 +670,13 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createClientPage (fields: Array<string>, params: Object = {}): Promise<Business> {
+  createClientPage (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Business> {
     return this.createEdge(
       '/client_pages',
       fields,
       params,
-      Business
+      Business,
+      pathOverride,
     );
   }
 
@@ -458,12 +737,13 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createCollaborativeAdsCollaborationRequest (fields: Array<string>, params: Object = {}): Promise<CPASCollaborationRequest> {
+  createCollaborativeAdsCollaborationRequest (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<CPASCollaborationRequest> {
     return this.createEdge(
       '/collaborative_ads_collaboration_requests',
       fields,
       params,
-      CPASCollaborationRequest
+      CPASCollaborationRequest,
+      pathOverride,
     );
   }
 
@@ -487,31 +767,63 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  getContentDeliveryReport (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+  getCpasBusinessSetupConfig (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      ContentDeliveryReport,
+      CPASBusinessSetupConfig,
       fields,
       params,
       fetchFirstPage,
-      '/content_delivery_report'
+      '/cpas_business_setup_config'
     );
   }
 
-  createCreateAndApplyPublisherBlockList (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+  createCpasBusinessSetupConfig (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<CPASBusinessSetupConfig> {
     return this.createEdge(
-      '/create_and_apply_publisher_block_list',
+      '/cpas_business_setup_config',
       fields,
       params,
-      
+      CPASBusinessSetupConfig,
+      pathOverride,
     );
   }
 
-  createCustomConversion (fields: Array<string>, params: Object = {}): Promise<CustomConversion> {
+  getCpasMerchantConfig (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      CPASMerchantConfig,
+      fields,
+      params,
+      fetchFirstPage,
+      '/cpas_merchant_config'
+    );
+  }
+
+  getCreditCards (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      CreditCard,
+      fields,
+      params,
+      fetchFirstPage,
+      '/creditcards'
+    );
+  }
+
+  createCustomConversion (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<CustomConversion> {
     return this.createEdge(
       '/customconversions',
       fields,
       params,
-      CustomConversion
+      CustomConversion,
+      pathOverride,
+    );
+  }
+
+  createDraftNegativeKeywordList (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+    return this.createEdge(
+      '/draft_negative_keyword_lists',
+      fields,
+      params,
+      null,
+      pathOverride,
     );
   }
 
@@ -525,12 +837,23 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createEventSourceGroup (fields: Array<string>, params: Object = {}): Promise<EventSourceGroup> {
+  createEventSourceGroup (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<EventSourceGroup> {
     return this.createEdge(
       '/event_source_groups',
       fields,
       params,
-      EventSourceGroup
+      EventSourceGroup,
+      pathOverride,
+    );
+  }
+
+  getExtendedCreditApplications (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/extendedcreditapplications'
     );
   }
 
@@ -554,16 +877,6 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  getInitiatedSharingAgreements (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      BusinessAgreement,
-      fields,
-      params,
-      fetchFirstPage,
-      '/initiated_sharing_agreements'
-    );
-  }
-
   deleteInstagramAccounts (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/instagram_accounts',
@@ -581,6 +894,16 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
+  getInstagramBusinessAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      IGUser,
+      fields,
+      params,
+      fetchFirstPage,
+      '/instagram_business_accounts'
+    );
+  }
+
   deleteManagedBusinesses (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/managed_businesses',
@@ -588,21 +911,50 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createManagedBusiness (fields: Array<string>, params: Object = {}): Promise<Business> {
+  createManagedBusiness (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Business> {
     return this.createEdge(
       '/managed_businesses',
       fields,
       params,
-      Business
+      Business,
+      pathOverride,
     );
   }
 
-  createMoveAsset (fields: Array<string>, params: Object = {}): Promise<Business> {
+  createManagedPartnerBusinessSetup (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Business> {
     return this.createEdge(
-      '/move_asset',
+      '/managed_partner_business_setup',
       fields,
       params,
-      Business
+      Business,
+      pathOverride,
+    );
+  }
+
+  deleteManagedPartnerBusinesses (params: Object = {}): Promise<*> {
+    return super.deleteEdge(
+      '/managed_partner_businesses',
+      params
+    );
+  }
+
+  createManagedPartnerBusiness (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+    return this.createEdge(
+      '/managed_partner_businesses',
+      fields,
+      params,
+      null,
+      pathOverride,
+    );
+  }
+
+  getNegativeKeywordLists (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/negative_keyword_lists'
     );
   }
 
@@ -616,12 +968,33 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createOfflineConversionDataSet (fields: Array<string>, params: Object = {}): Promise<OfflineConversionDataSet> {
+  createOfflineConversionDataSet (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<OfflineConversionDataSet> {
     return this.createEdge(
       '/offline_conversion_data_sets',
       fields,
       params,
-      OfflineConversionDataSet
+      OfflineConversionDataSet,
+      pathOverride,
+    );
+  }
+
+  getOpenBridgeConfigurations (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      OpenBridgeConfiguration,
+      fields,
+      params,
+      fetchFirstPage,
+      '/openbridge_configurations'
+    );
+  }
+
+  createOpenBridgeConfiguration (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<OpenBridgeConfiguration> {
+    return this.createEdge(
+      '/openbridge_configurations',
+      fields,
+      params,
+      OpenBridgeConfiguration,
+      pathOverride,
     );
   }
 
@@ -635,12 +1008,13 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createOwnedAdAccount (fields: Array<string>, params: Object = {}): Promise<Business> {
+  createOwnedAdAccount (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Business> {
     return this.createEdge(
       '/owned_ad_accounts',
       fields,
       params,
-      Business
+      Business,
+      pathOverride,
     );
   }
 
@@ -654,12 +1028,13 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createOwnedApp (fields: Array<string>, params: Object = {}): Promise<Business> {
+  createOwnedApp (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Business> {
     return this.createEdge(
       '/owned_apps',
       fields,
       params,
-      Business
+      Business,
+      pathOverride,
     );
   }
 
@@ -680,12 +1055,13 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createOwnedBusiness (fields: Array<string>, params: Object = {}): Promise<Business> {
+  createOwnedBusiness (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Business> {
     return this.createEdge(
       '/owned_businesses',
       fields,
       params,
-      Business
+      Business,
+      pathOverride,
     );
   }
 
@@ -699,6 +1075,16 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
+  getOwnedOffsiteSignalContainerBusinessObjects (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/owned_offsite_signal_container_business_objects'
+    );
+  }
+
   getOwnedPages (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Page,
@@ -709,12 +1095,13 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createOwnedPage (fields: Array<string>, params: Object = {}): Promise<Business> {
+  createOwnedPage (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Business> {
     return this.createEdge(
       '/owned_pages',
       fields,
       params,
-      Business
+      Business,
+      pathOverride,
     );
   }
 
@@ -738,12 +1125,23 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createOwnedProductCatalog (fields: Array<string>, params: Object = {}): Promise<ProductCatalog> {
+  createOwnedProductCatalog (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<ProductCatalog> {
     return this.createEdge(
       '/owned_product_catalogs',
       fields,
       params,
-      ProductCatalog
+      ProductCatalog,
+      pathOverride,
+    );
+  }
+
+  getOwnedWhatsAppBusinessAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      WhatsAppBusinessAccount,
+      fields,
+      params,
+      fetchFirstPage,
+      '/owned_whatsapp_business_accounts'
     );
   }
 
@@ -751,6 +1149,16 @@ export default class Business extends AbstractCrudObject {
     return super.deleteEdge(
       '/pages',
       params
+    );
+  }
+
+  createPartnerPremiumOption (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+    return this.createEdge(
+      '/partner_premium_options',
+      fields,
+      params,
+      null,
+      pathOverride,
     );
   }
 
@@ -804,6 +1212,16 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
+  getPendingSharedOffsiteSignalContainerBusinessObjects (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/pending_shared_offsite_signal_container_business_objects'
+    );
+  }
+
   getPendingUsers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       BusinessRoleRequest,
@@ -824,12 +1242,23 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createPixelTo (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+  createPixelTo (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
     return this.createEdge(
       '/pixel_tos',
       fields,
       params,
-      
+      null,
+      pathOverride,
+    );
+  }
+
+  getPreVerifiedNumbers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      WhatsAppBusinessPreVerifiedPhoneNumber,
+      fields,
+      params,
+      fetchFirstPage,
+      '/preverified_numbers'
     );
   }
 
@@ -843,13 +1272,13 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  getReceivedSharingAgreements (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      BusinessAgreement,
+  createSetupManagedPartnerAdAccount (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Business> {
+    return this.createEdge(
+      '/setup_managed_partner_adaccounts',
       fields,
       params,
-      fetchFirstPage,
-      '/received_sharing_agreements'
+      Business,
+      pathOverride,
     );
   }
 
@@ -863,31 +1292,23 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createSystemUser (fields: Array<string>, params: Object = {}): Promise<SystemUser> {
+  createSystemUser (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<SystemUser> {
     return this.createEdge(
       '/system_users',
       fields,
       params,
-      SystemUser
+      SystemUser,
+      pathOverride,
     );
   }
 
   getThirdPartyMeasurementReportDataset (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      ThirdPartyMeasurementReportDataset,
+      AbstractObject,
       fields,
       params,
       fetchFirstPage,
       '/third_party_measurement_report_dataset'
-    );
-  }
-
-  createUploadEvent (fields: Array<string>, params: Object = {}): Promise<MeasurementUploadEvent> {
-    return this.createEdge(
-      '/upload_event',
-      fields,
-      params,
-      MeasurementUploadEvent
     );
   }
 

@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 
@@ -15,7 +17,7 @@ import AbstractObject from './../abstract-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class PageCallToAction extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       android_app: 'android_app',
       android_deeplink: 'android_deeplink',
@@ -47,8 +49,10 @@ export default class PageCallToAction extends AbstractCrudObject {
       facebook_app: 'FACEBOOK_APP',
       follow: 'FOLLOW',
       marketplace_inventory_page: 'MARKETPLACE_INVENTORY_PAGE',
+      menu_on_facebook: 'MENU_ON_FACEBOOK',
       messenger: 'MESSENGER',
       mini_shop: 'MINI_SHOP',
+      mobile_center: 'MOBILE_CENTER',
       none: 'NONE',
       phone_call: 'PHONE_CALL',
       shop_on_facebook: 'SHOP_ON_FACEBOOK',
@@ -63,6 +67,7 @@ export default class PageCallToAction extends AbstractCrudObject {
       facebook_app: 'FACEBOOK_APP',
       follow: 'FOLLOW',
       marketplace_inventory_page: 'MARKETPLACE_INVENTORY_PAGE',
+      menu_on_facebook: 'MENU_ON_FACEBOOK',
       messenger: 'MESSENGER',
       mini_shop: 'MINI_SHOP',
       none: 'NONE',
@@ -91,6 +96,7 @@ export default class PageCallToAction extends AbstractCrudObject {
       listen: 'LISTEN',
       local_dev_platform: 'LOCAL_DEV_PLATFORM',
       message: 'MESSAGE',
+      mobile_center: 'MOBILE_CENTER',
       open_app: 'OPEN_APP',
       order_food: 'ORDER_FOOD',
       play_music: 'PLAY_MUSIC',
@@ -102,6 +108,7 @@ export default class PageCallToAction extends AbstractCrudObject {
       shop_on_facebook: 'SHOP_ON_FACEBOOK',
       sign_up: 'SIGN_UP',
       view_inventory: 'VIEW_INVENTORY',
+      view_menu: 'VIEW_MENU',
       view_shop: 'VIEW_SHOP',
       visit_group: 'VISIT_GROUP',
       watch_now: 'WATCH_NOW',
@@ -115,6 +122,7 @@ export default class PageCallToAction extends AbstractCrudObject {
       email: 'EMAIL',
       follow: 'FOLLOW',
       messenger: 'MESSENGER',
+      mobile_center: 'MOBILE_CENTER',
       none: 'NONE',
       shop_on_facebook: 'SHOP_ON_FACEBOOK',
       website: 'WEBSITE',

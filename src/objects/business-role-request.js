@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 
@@ -15,7 +17,7 @@ import AbstractObject from './../abstract-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class BusinessRoleRequest extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       created_by: 'created_by',
       created_time: 'created_time',
@@ -38,14 +40,14 @@ export default class BusinessRoleRequest extends AbstractCrudObject {
     return Object.freeze({
       admin: 'ADMIN',
       ads_rights_reviewer: 'ADS_RIGHTS_REVIEWER',
+      default: 'DEFAULT',
       developer: 'DEVELOPER',
       employee: 'EMPLOYEE',
       finance_analyst: 'FINANCE_ANALYST',
+      finance_edit: 'FINANCE_EDIT',
       finance_editor: 'FINANCE_EDITOR',
-      finance_edit_task: 'FINANCE_EDIT_TASK',
-      finance_view_task: 'FINANCE_VIEW_TASK',
-      moderate_task: 'MODERATE_TASK',
-      operate_task: 'OPERATE_TASK',
+      finance_view: 'FINANCE_VIEW',
+      manage: 'MANAGE',
       partner_center_admin: 'PARTNER_CENTER_ADMIN',
       partner_center_analyst: 'PARTNER_CENTER_ANALYST',
       partner_center_education: 'PARTNER_CENTER_EDUCATION',

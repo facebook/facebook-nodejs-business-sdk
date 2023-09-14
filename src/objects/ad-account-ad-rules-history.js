@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
@@ -14,7 +16,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdAccountAdRulesHistory extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       evaluation_spec: 'evaluation_spec',
       exception_code: 'exception_code',
@@ -34,6 +36,7 @@ export default class AdAccountAdRulesHistory extends AbstractCrudObject {
       changed_bid: 'CHANGED_BID',
       changed_budget: 'CHANGED_BUDGET',
       email: 'EMAIL',
+      enable_autoflow: 'ENABLE_AUTOFLOW',
       endpoint_pinged: 'ENDPOINT_PINGED',
       error: 'ERROR',
       facebook_notification_sent: 'FACEBOOK_NOTIFICATION_SENT',

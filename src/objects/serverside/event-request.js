@@ -17,7 +17,7 @@ import ServerEvent from './server-event';
 
 /**
  * EventRequest
- * @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/parameters}
+ * @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters}
  */
 
 export default class EventRequest {
@@ -37,7 +37,7 @@ export default class EventRequest {
 	/**
 	 * @param {String} access_token Access Token for the user calling Graph API
 	 * @param {String} pixel_id Pixel Id to which you are sending the events
-	 * @param {Array<ServerEvent>} events Data for the request Payload for a Server Side Event
+	 * @param {Array<ServerEvent>} events Data for the request Payload for a Conversions API Event
 	 * @param {?String} partner_agent Platform from which the event is sent e.g. wordpress
 	 * @param {?String} test_event_code Test Event Code used to verify that your server events are received correctly by Facebook.
 	 * @param {?String} namespace_id Scope used to resolve extern_id or Third-party ID. Can be another data set or data partner ID.
@@ -68,14 +68,14 @@ export default class EventRequest {
 	}
 
 	/**
-	 * Gets the data for the request Payload for a Server Side Event. events is represented by a list/array of ServerEvent objects.
+	 * Gets the data for the request Payload for a Conversions API Event. events is represented by a list/array of ServerEvent objects.
 	 */
 	get events() {
 		return this._events;
 	}
 
 	/**
-	 * Sets the events for the request Payload for a Server Side Event.
+	 * Sets the events for the request Payload for a Conversions API Event.
 	 * events is represented by a list/array of ServerEvent objects.
 	 * @param events for the current server event
 	 */
@@ -84,7 +84,7 @@ export default class EventRequest {
 	}
 
 	/**
-	 * Sets the events for the request Payload for a Server Side Event.
+	 * Sets the events for the request Payload for a Conversions API Event.
 	 * events is represented by a list/array of ServerEvent objects.
 	 * @param events for the current server event
 	 */
@@ -124,7 +124,7 @@ export default class EventRequest {
 	 * Gets the test_event_code for the request
 	 * Code used to verify that your server events are received correctly by Facebook.
 	 * Use this code to test your server events in the Test Events feature in Events Manager.
-	 * See Test Events Tool @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/using-the-api#testEvents} for an example.
+	 * See Test Events Tool @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/main-body#test_event_code} for an example.
 	 */
 	get test_event_code() {
 		return this._test_event_code;
@@ -134,7 +134,7 @@ export default class EventRequest {
 	 * Sets the test_event_code for the request
 	 * Code used to verify that your server events are received correctly by Facebook.
 	 * Use this code to test your server events in the Test Events feature in Events Manager.
-	 * See Test Events Tool @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/using-the-api#testEvents} for an example.
+	 * See Test Events Tool @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/main-body#test_event_code} for an example.
 	 */
 	set test_event_code(test_event_code: string) {
 		this._test_event_code = test_event_code;
@@ -144,7 +144,7 @@ export default class EventRequest {
 	 * Sets the test_event_code for the request
 	 * Code used to verify that your server events are received correctly by Facebook.
 	 * Use this code to test your server events in the Test Events feature in Events Manager.
-	 * See Test Events Tool @see {@link https://developers.facebook.com/docs/marketing-api/facebook-pixel/server-side-api/using-the-api#testEvents} for an example.
+	 * See Test Events Tool @see {@link https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/main-body#test_event_code} for an example.
 	 */
 	setTestEventCode(test_event_code: string) : EventRequest {
 		this._test_event_code = test_event_code;
@@ -390,8 +390,8 @@ export default class EventRequest {
                 this._pixel_id,
                 'events'
             ].join('/');
-			const headers = {
-                'User-Agent': `fbbizsdk-nodejs-${FacebookAdsApi.VERSION}`,
+            const headers = {
+                'User-Agent': `fbbizsdk-nodejs-v${FacebookAdsApi.SDK_VERSION}`,
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
             };

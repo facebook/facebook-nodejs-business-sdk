@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
@@ -14,6 +16,7 @@ import Destination from './destination';
 import Flight from './flight';
 import HomeListing from './home-listing';
 import Hotel from './hotel';
+import MediaTitle from './media-title';
 import ProductItem from './product-item';
 import VehicleOffer from './vehicle-offer';
 import Vehicle from './vehicle';
@@ -24,7 +27,7 @@ import Vehicle from './vehicle';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class ProductSet extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       auto_creation_url: 'auto_creation_url',
       filter: 'filter',
@@ -32,6 +35,7 @@ export default class ProductSet extends AbstractCrudObject {
       latest_metadata: 'latest_metadata',
       live_metadata: 'live_metadata',
       name: 'name',
+      ordering_info: 'ordering_info',
       product_catalog: 'product_catalog',
       product_count: 'product_count',
       retailer_id: 'retailer_id',
@@ -86,6 +90,16 @@ export default class ProductSet extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/hotels'
+    );
+  }
+
+  getMediaTitles (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      MediaTitle,
+      fields,
+      params,
+      fetchFirstPage,
+      '/media_titles'
     );
   }
 

@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
@@ -14,6 +16,7 @@ import Destination from './destination';
 import Flight from './flight';
 import HomeListing from './home-listing';
 import Hotel from './hotel';
+import MediaTitle from './media-title';
 import ProductItem from './product-item';
 import ProductFeedRule from './product-feed-rule';
 import ProductFeedSchedule from './product-feed-schedule';
@@ -27,7 +30,7 @@ import Vehicle from './vehicle';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class ProductFeed extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       country: 'country',
       created_time: 'created_time',
@@ -37,13 +40,17 @@ export default class ProductFeed extends AbstractCrudObject {
       encoding: 'encoding',
       file_name: 'file_name',
       id: 'id',
+      ingestion_source_type: 'ingestion_source_type',
       item_sub_type: 'item_sub_type',
       latest_upload: 'latest_upload',
+      migrated_from_feed_id: 'migrated_from_feed_id',
       name: 'name',
       override_type: 'override_type',
+      primary_feeds: 'primary_feeds',
       product_count: 'product_count',
       quoted_fields_mode: 'quoted_fields_mode',
       schedule: 'schedule',
+      supplementary_feeds: 'supplementary_feeds',
       update_schedule: 'update_schedule',
     });
   }
@@ -56,6 +63,12 @@ export default class ProductFeed extends AbstractCrudObject {
       semicolon: 'SEMICOLON',
       tab: 'TAB',
       tilde: 'TILDE',
+    });
+  }
+  static get IngestionSourceType (): Object {
+    return Object.freeze({
+      primary_feed: 'primary_feed',
+      supplementary_feed: 'supplementary_feed',
     });
   }
   static get QuotedFieldsMode (): Object {
@@ -78,14 +91,13 @@ export default class ProductFeed extends AbstractCrudObject {
   }
   static get FeedType (): Object {
     return Object.freeze({
-      auto: 'AUTO',
+      automotive_model: 'AUTOMOTIVE_MODEL',
       destination: 'DESTINATION',
       flight: 'FLIGHT',
       home_listing: 'HOME_LISTING',
       hotel: 'HOTEL',
       hotel_room: 'HOTEL_ROOM',
       local_inventory: 'LOCAL_INVENTORY',
-      market: 'MARKET',
       media_title: 'MEDIA_TITLE',
       offer: 'OFFER',
       products: 'PRODUCTS',
@@ -126,6 +138,7 @@ export default class ProductFeed extends AbstractCrudObject {
   }
   static get OverrideType (): Object {
     return Object.freeze({
+      batch_api_language_or_country: 'BATCH_API_LANGUAGE_OR_COUNTRY',
       catalog_segment_customize_default: 'CATALOG_SEGMENT_CUSTOMIZE_DEFAULT',
       country: 'COUNTRY',
       language: 'LANGUAGE',
@@ -184,6 +197,16 @@ export default class ProductFeed extends AbstractCrudObject {
     );
   }
 
+  getMediaTitles (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      MediaTitle,
+      fields,
+      params,
+      fetchFirstPage,
+      '/media_titles'
+    );
+  }
+
   getProducts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       ProductItem,
@@ -204,12 +227,23 @@ export default class ProductFeed extends AbstractCrudObject {
     );
   }
 
-  createRule (fields: Array<string>, params: Object = {}): Promise<ProductFeedRule> {
+  createRule (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<ProductFeedRule> {
     return this.createEdge(
       '/rules',
       fields,
       params,
-      ProductFeedRule
+      ProductFeedRule,
+      pathOverride,
+    );
+  }
+
+  createSupplementaryFeedAssoc (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+    return this.createEdge(
+      '/supplementary_feed_assocs',
+      fields,
+      params,
+      null,
+      pathOverride,
     );
   }
 
@@ -223,12 +257,13 @@ export default class ProductFeed extends AbstractCrudObject {
     );
   }
 
-  createUploadSchedule (fields: Array<string>, params: Object = {}): Promise<ProductFeed> {
+  createUploadSchedule (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<ProductFeed> {
     return this.createEdge(
       '/upload_schedules',
       fields,
       params,
-      ProductFeed
+      ProductFeed,
+      pathOverride,
     );
   }
 
@@ -242,12 +277,13 @@ export default class ProductFeed extends AbstractCrudObject {
     );
   }
 
-  createUpload (fields: Array<string>, params: Object = {}): Promise<ProductFeedUpload> {
+  createUpload (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<ProductFeedUpload> {
     return this.createEdge(
       '/uploads',
       fields,
       params,
-      ProductFeedUpload
+      ProductFeedUpload,
+      pathOverride,
     );
   }
 
