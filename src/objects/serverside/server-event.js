@@ -55,7 +55,7 @@ export default class ServerEvent {
 		this._custom_data = custom_data;
 		this._app_data = app_data;
 		this._event_source_url = event_source_url;
-		this.event_id = event_id;
+		this._event_id = event_id;
 		this._opt_out = opt_out;
 		this._action_source = action_source;
 		this._data_processing_options = data_processing_options;
