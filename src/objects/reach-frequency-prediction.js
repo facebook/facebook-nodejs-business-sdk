@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
@@ -77,6 +79,10 @@ export default class ReachFrequencyPrediction extends AbstractCrudObject {
       name: 'name',
       objective: 'objective',
       objective_name: 'objective_name',
+      odax_objective: 'odax_objective',
+      odax_objective_name: 'odax_objective_name',
+      optimization_goal: 'optimization_goal',
+      optimization_goal_name: 'optimization_goal_name',
       pause_periods: 'pause_periods',
       placement_breakdown: 'placement_breakdown',
       placement_breakdown_map: 'placement_breakdown_map',
@@ -89,7 +95,6 @@ export default class ReachFrequencyPrediction extends AbstractCrudObject {
       start_time: 'start_time',
       status: 'status',
       story_event_type: 'story_event_type',
-      target_audience_size: 'target_audience_size',
       target_cpm: 'target_cpm',
       target_spec: 'target_spec',
       time_created: 'time_created',

@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 import Cursor from './../cursor';
 import Lead from './lead';
@@ -22,6 +24,7 @@ export default class LeadgenForm extends AbstractCrudObject {
       block_display_for_non_targeted_viewer: 'block_display_for_non_targeted_viewer',
       context_card: 'context_card',
       created_time: 'created_time',
+      creator: 'creator',
       expired_leads_count: 'expired_leads_count',
       follow_up_action_text: 'follow_up_action_text',
       follow_up_action_url: 'follow_up_action_url',
@@ -57,6 +60,7 @@ export default class LeadgenForm extends AbstractCrudObject {
       cs_cz: 'CS_CZ',
       da_dk: 'DA_DK',
       de_de: 'DE_DE',
+      el_gr: 'EL_GR',
       en_gb: 'EN_GB',
       en_us: 'EN_US',
       es_es: 'ES_ES',

@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
@@ -21,7 +23,6 @@ export default class BroadTargetingCategories extends AbstractCrudObject {
       name: 'name',
       parent_category: 'parent_category',
       path: 'path',
-      size: 'size',
       size_lower_bound: 'size_lower_bound',
       size_upper_bound: 'size_upper_bound',
       source: 'source',

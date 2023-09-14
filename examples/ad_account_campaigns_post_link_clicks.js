@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2017-present, Facebook, Inc.
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
@@ -34,7 +34,7 @@ fields = [
 ];
 params = {
   'name' : 'My campaign',
-  'objective' : 'LINK_CLICKS',
+  'objective' : 'OUTCOME_TRAFFIC',
   'status' : 'PAUSED',
   'special_ad_categories' : [],
 };

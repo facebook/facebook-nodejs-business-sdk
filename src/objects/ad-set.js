@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
@@ -15,7 +17,6 @@ import AdCreative from './ad-creative';
 import AdRule from './ad-rule';
 import Ad from './ad';
 import AdAsyncRequest from './ad-async-request';
-import ContentDeliveryReport from './content-delivery-report';
 import AdCampaignDeliveryEstimate from './ad-campaign-delivery-estimate';
 import AdsInsights from './ads-insights';
 import AdReportRun from './ad-report-run';
@@ -42,6 +43,7 @@ export default class AdSet extends AbstractCrudObject {
       billing_event: 'billing_event',
       budget_remaining: 'budget_remaining',
       campaign: 'campaign',
+      campaign_attribution: 'campaign_attribution',
       campaign_id: 'campaign_id',
       configured_status: 'configured_status',
       created_time: 'created_time',
@@ -50,6 +52,8 @@ export default class AdSet extends AbstractCrudObject {
       daily_min_spend_target: 'daily_min_spend_target',
       daily_spend_cap: 'daily_spend_cap',
       destination_type: 'destination_type',
+      dsa_beneficiary: 'dsa_beneficiary',
+      dsa_payor: 'dsa_payor',
       effective_status: 'effective_status',
       end_time: 'end_time',
       existing_customer_budget_percentage: 'existing_customer_budget_percentage',
@@ -138,9 +142,12 @@ export default class AdSet extends AbstractCrudObject {
       engaged_users: 'ENGAGED_USERS',
       event_responses: 'EVENT_RESPONSES',
       impressions: 'IMPRESSIONS',
+      in_app_value: 'IN_APP_VALUE',
       landing_page_views: 'LANDING_PAGE_VIEWS',
       lead_generation: 'LEAD_GENERATION',
       link_clicks: 'LINK_CLICKS',
+      messaging_appointment_conversion: 'MESSAGING_APPOINTMENT_CONVERSION',
+      messaging_purchase_conversion: 'MESSAGING_PURCHASE_CONVERSION',
       none: 'NONE',
       offsite_conversions: 'OFFSITE_CONVERSIONS',
       page_likes: 'PAGE_LIKES',
@@ -148,6 +155,7 @@ export default class AdSet extends AbstractCrudObject {
       quality_call: 'QUALITY_CALL',
       quality_lead: 'QUALITY_LEAD',
       reach: 'REACH',
+      subscribers: 'SUBSCRIBERS',
       thruplay: 'THRUPLAY',
       value: 'VALUE',
       visit_instagram_profile: 'VISIT_INSTAGRAM_PROFILE',
@@ -163,6 +171,7 @@ export default class AdSet extends AbstractCrudObject {
   }
   static get DatePreset (): Object {
     return Object.freeze({
+      data_maximum: 'data_maximum',
       last_14d: 'last_14d',
       last_28d: 'last_28d',
       last_30d: 'last_30d',
@@ -327,16 +336,6 @@ export default class AdSet extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/asyncadrequests'
-    );
-  }
-
-  getContentDeliveryReport (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      ContentDeliveryReport,
-      fields,
-      params,
-      fetchFirstPage,
-      '/content_delivery_report'
     );
   }
 

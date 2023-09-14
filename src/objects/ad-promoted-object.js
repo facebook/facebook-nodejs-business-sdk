@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
@@ -17,18 +19,22 @@ export default class AdPromotedObject extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       application_id: 'application_id',
+      conversion_goal_id: 'conversion_goal_id',
       custom_conversion_id: 'custom_conversion_id',
       custom_event_str: 'custom_event_str',
       custom_event_type: 'custom_event_type',
       event_id: 'event_id',
       fundraiser_campaign_id: 'fundraiser_campaign_id',
+      mcme_conversion_id: 'mcme_conversion_id',
       object_store_url: 'object_store_url',
       offer_id: 'offer_id',
       offline_conversion_data_set_id: 'offline_conversion_data_set_id',
+      omnichannel_object: 'omnichannel_object',
       page_id: 'page_id',
       pixel_aggregation_rule: 'pixel_aggregation_rule',
       pixel_id: 'pixel_id',
       pixel_rule: 'pixel_rule',
+      place_page_set: 'place_page_set',
       place_page_set_id: 'place_page_set_id',
       product_catalog_id: 'product_catalog_id',
       product_item_id: 'product_item_id',

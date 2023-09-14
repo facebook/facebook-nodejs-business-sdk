@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
@@ -37,6 +39,7 @@ export default class ProductItemARData extends AbstractCrudObject {
       marketplace: 'MARKETPLACE',
       marketplace_ads_deprecated: 'MARKETPLACE_ADS_DEPRECATED',
       marketplace_shops: 'MARKETPLACE_SHOPS',
+      mini_shops: 'MINI_SHOPS',
       offline_conversions: 'OFFLINE_CONVERSIONS',
       shops: 'SHOPS',
       universal_checkout: 'UNIVERSAL_CHECKOUT',

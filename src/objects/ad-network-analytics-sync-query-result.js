@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
@@ -16,6 +18,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class AdNetworkAnalyticsSyncQueryResult extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
+      omitted_results: 'omitted_results',
       query_id: 'query_id',
       results: 'results',
     });
@@ -69,7 +72,6 @@ export default class AdNetworkAnalyticsSyncQueryResult extends AbstractCrudObjec
       fb_ad_network_request: 'FB_AD_NETWORK_REQUEST',
       fb_ad_network_revenue: 'FB_AD_NETWORK_REVENUE',
       fb_ad_network_show_rate: 'FB_AD_NETWORK_SHOW_RATE',
-      fb_ad_network_ua_spend: 'FB_AD_NETWORK_UA_SPEND',
       fb_ad_network_video_guarantee_revenue: 'FB_AD_NETWORK_VIDEO_GUARANTEE_REVENUE',
       fb_ad_network_video_mrc: 'FB_AD_NETWORK_VIDEO_MRC',
       fb_ad_network_video_mrc_rate: 'FB_AD_NETWORK_VIDEO_MRC_RATE',

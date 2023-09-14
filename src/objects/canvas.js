@@ -1,13 +1,14 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
-import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import TextWithEntities from './text-with-entities';
 
@@ -26,6 +27,7 @@ export default class Canvas extends AbstractCrudObject {
       collection_hero_image: 'collection_hero_image',
       collection_hero_video: 'collection_hero_video',
       collection_thumbnails: 'collection_thumbnails',
+      dynamic_setting: 'dynamic_setting',
       element_payload: 'element_payload',
       elements: 'elements',
       fb_body_elements: 'fb_body_elements',
@@ -49,26 +51,6 @@ export default class Canvas extends AbstractCrudObject {
   }
 
 
-  createDuplicateCanva (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Canvas> {
-    return this.createEdge(
-      '/duplicate_canvas',
-      fields,
-      params,
-      Canvas,
-      pathOverride,
-    );
-  }
-
-  createPreviewNotification (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Canvas> {
-    return this.createEdge(
-      '/preview_notifications',
-      fields,
-      params,
-      Canvas,
-      pathOverride,
-    );
-  }
-
   getPreviews (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       TextWithEntities,
@@ -76,14 +58,6 @@ export default class Canvas extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/previews'
-    );
-  }
-
-  // $FlowFixMe : Support Generic Types
-  delete (fields: Array<string>, params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
-    return super.delete(
-      params
     );
   }
 

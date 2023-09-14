@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
@@ -44,6 +46,8 @@ export default class AdAccountMatchedSearchApplicationsEdgeData extends Abstract
       instant_game: 'INSTANT_GAME',
       itunes: 'ITUNES',
       itunes_ipad: 'ITUNES_IPAD',
+      neon_android_store: 'NEON_ANDROID_STORE',
+      none: 'NONE',
       oculus_app_store: 'OCULUS_APP_STORE',
       oppo: 'OPPO',
       roku_store: 'ROKU_STORE',

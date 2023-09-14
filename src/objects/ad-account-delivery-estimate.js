@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
@@ -18,7 +20,6 @@ export default class AdAccountDeliveryEstimate extends AbstractCrudObject {
     return Object.freeze({
       daily_outcomes_curve: 'daily_outcomes_curve',
       estimate_dau: 'estimate_dau',
-      estimate_mau: 'estimate_mau',
       estimate_mau_lower_bound: 'estimate_mau_lower_bound',
       estimate_mau_upper_bound: 'estimate_mau_upper_bound',
       estimate_ready: 'estimate_ready',
@@ -36,9 +37,12 @@ export default class AdAccountDeliveryEstimate extends AbstractCrudObject {
       engaged_users: 'ENGAGED_USERS',
       event_responses: 'EVENT_RESPONSES',
       impressions: 'IMPRESSIONS',
+      in_app_value: 'IN_APP_VALUE',
       landing_page_views: 'LANDING_PAGE_VIEWS',
       lead_generation: 'LEAD_GENERATION',
       link_clicks: 'LINK_CLICKS',
+      messaging_appointment_conversion: 'MESSAGING_APPOINTMENT_CONVERSION',
+      messaging_purchase_conversion: 'MESSAGING_PURCHASE_CONVERSION',
       none: 'NONE',
       offsite_conversions: 'OFFSITE_CONVERSIONS',
       page_likes: 'PAGE_LIKES',
@@ -46,6 +50,7 @@ export default class AdAccountDeliveryEstimate extends AbstractCrudObject {
       quality_call: 'QUALITY_CALL',
       quality_lead: 'QUALITY_LEAD',
       reach: 'REACH',
+      subscribers: 'SUBSCRIBERS',
       thruplay: 'THRUPLAY',
       value: 'VALUE',
       visit_instagram_profile: 'VISIT_INSTAGRAM_PROFILE',

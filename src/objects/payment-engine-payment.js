@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
@@ -29,6 +31,7 @@ export default class PaymentEnginePayment extends AbstractCrudObject {
       items: 'items',
       payout_foreign_exchange_rate: 'payout_foreign_exchange_rate',
       phone_support_eligible: 'phone_support_eligible',
+      platform: 'platform',
       refundable_amount: 'refundable_amount',
       request_id: 'request_id',
       tax: 'tax',

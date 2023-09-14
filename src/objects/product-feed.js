@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
@@ -14,6 +16,7 @@ import Destination from './destination';
 import Flight from './flight';
 import HomeListing from './home-listing';
 import Hotel from './hotel';
+import MediaTitle from './media-title';
 import ProductItem from './product-item';
 import ProductFeedRule from './product-feed-rule';
 import ProductFeedSchedule from './product-feed-schedule';
@@ -62,6 +65,12 @@ export default class ProductFeed extends AbstractCrudObject {
       tilde: 'TILDE',
     });
   }
+  static get IngestionSourceType (): Object {
+    return Object.freeze({
+      primary_feed: 'primary_feed',
+      supplementary_feed: 'supplementary_feed',
+    });
+  }
   static get QuotedFieldsMode (): Object {
     return Object.freeze({
       autodetect: 'AUTODETECT',
@@ -82,7 +91,6 @@ export default class ProductFeed extends AbstractCrudObject {
   }
   static get FeedType (): Object {
     return Object.freeze({
-      auto: 'AUTO',
       automotive_model: 'AUTOMOTIVE_MODEL',
       destination: 'DESTINATION',
       flight: 'FLIGHT',
@@ -90,19 +98,12 @@ export default class ProductFeed extends AbstractCrudObject {
       hotel: 'HOTEL',
       hotel_room: 'HOTEL_ROOM',
       local_inventory: 'LOCAL_INVENTORY',
-      market: 'MARKET',
       media_title: 'MEDIA_TITLE',
       offer: 'OFFER',
       products: 'PRODUCTS',
       transactable_items: 'TRANSACTABLE_ITEMS',
       vehicles: 'VEHICLES',
       vehicle_offer: 'VEHICLE_OFFER',
-    });
-  }
-  static get IngestionSourceType (): Object {
-    return Object.freeze({
-      primary_feed: 'PRIMARY_FEED',
-      supplementary_feed: 'SUPPLEMENTARY_FEED',
     });
   }
   static get ItemSubType (): Object {
@@ -137,22 +138,13 @@ export default class ProductFeed extends AbstractCrudObject {
   }
   static get OverrideType (): Object {
     return Object.freeze({
+      batch_api_language_or_country: 'BATCH_API_LANGUAGE_OR_COUNTRY',
       catalog_segment_customize_default: 'CATALOG_SEGMENT_CUSTOMIZE_DEFAULT',
       country: 'COUNTRY',
       language: 'LANGUAGE',
       language_and_country: 'LANGUAGE_AND_COUNTRY',
       local: 'LOCAL',
     });
-  }
-
-  getAutoMarkets (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/auto_markets'
-    );
   }
 
   getAutomotiveModels (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
@@ -207,7 +199,7 @@ export default class ProductFeed extends AbstractCrudObject {
 
   getMediaTitles (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      AbstractObject,
+      MediaTitle,
       fields,
       params,
       fetchFirstPage,

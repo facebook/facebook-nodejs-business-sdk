@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
@@ -19,6 +21,7 @@ export default class Shop extends AbstractCrudObject {
       fb_sales_channel: 'fb_sales_channel',
       id: 'id',
       ig_sales_channel: 'ig_sales_channel',
+      workspace: 'workspace',
     });
   }
 

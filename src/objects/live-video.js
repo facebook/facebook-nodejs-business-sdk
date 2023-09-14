@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
@@ -39,7 +41,6 @@ export default class LiveVideo extends AbstractCrudObject {
       ingest_streams: 'ingest_streams',
       is_manual_mode: 'is_manual_mode',
       is_reference_only: 'is_reference_only',
-      live_encoders: 'live_encoders',
       live_views: 'live_views',
       overlay_url: 'overlay_url',
       permalink_url: 'permalink_url',
@@ -56,30 +57,11 @@ export default class LiveVideo extends AbstractCrudObject {
     });
   }
 
-  static get BroadcastStatus (): Object {
-    return Object.freeze({
-      live: 'LIVE',
-      live_stopped: 'LIVE_STOPPED',
-      processing: 'PROCESSING',
-      scheduled_canceled: 'SCHEDULED_CANCELED',
-      scheduled_expired: 'SCHEDULED_EXPIRED',
-      scheduled_live: 'SCHEDULED_LIVE',
-      scheduled_unpublished: 'SCHEDULED_UNPUBLISHED',
-      unpublished: 'UNPUBLISHED',
-      vod: 'VOD',
-    });
-  }
   static get Projection (): Object {
     return Object.freeze({
       cubemap: 'CUBEMAP',
       equirectangular: 'EQUIRECTANGULAR',
       half_equirectangular: 'HALF_EQUIRECTANGULAR',
-    });
-  }
-  static get Source (): Object {
-    return Object.freeze({
-      owner: 'owner',
-      target: 'target',
     });
   }
   static get SpatialAudioFormat (): Object {
@@ -107,6 +89,25 @@ export default class LiveVideo extends AbstractCrudObject {
     return Object.freeze({
       ambient: 'AMBIENT',
       regular: 'REGULAR',
+    });
+  }
+  static get BroadcastStatus (): Object {
+    return Object.freeze({
+      live: 'LIVE',
+      live_stopped: 'LIVE_STOPPED',
+      processing: 'PROCESSING',
+      scheduled_canceled: 'SCHEDULED_CANCELED',
+      scheduled_expired: 'SCHEDULED_EXPIRED',
+      scheduled_live: 'SCHEDULED_LIVE',
+      scheduled_unpublished: 'SCHEDULED_UNPUBLISHED',
+      unpublished: 'UNPUBLISHED',
+      vod: 'VOD',
+    });
+  }
+  static get Source (): Object {
+    return Object.freeze({
+      owner: 'owner',
+      target: 'target',
     });
   }
   static get LiveCommentModerationSetting (): Object {

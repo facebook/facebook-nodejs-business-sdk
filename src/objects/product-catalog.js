@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
@@ -13,9 +15,12 @@ import Business from './business';
 import AREffectsBatchStatus from './ar-effects-batch-status';
 import AssignedUser from './assigned-user';
 import AutomotiveModel from './automotive-model';
+import StoreCatalogSettings from './store-catalog-settings';
 import ProductCatalogCategory from './product-catalog-category';
 import CheckBatchRequestStatus from './check-batch-request-status';
+import CatalogSegmentAllMatchCountLaser from './catalog-segment-all-match-count-laser';
 import CollaborativeAdsShareSettings from './collaborative-ads-share-settings';
+import ProductCatalogDataSource from './product-catalog-data-source';
 import Destination from './destination';
 import ProductCatalogDiagnosticGroup from './product-catalog-diagnostic-group';
 import ProductEventStat from './product-event-stat';
@@ -41,8 +46,12 @@ import Vehicle from './vehicle';
 export default class ProductCatalog extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
+      ad_account_to_collaborative_ads_share_settings: 'ad_account_to_collaborative_ads_share_settings',
+      agency_collaborative_ads_share_settings: 'agency_collaborative_ads_share_settings',
       business: 'business',
+      catalog_store: 'catalog_store',
       commerce_merchant_settings: 'commerce_merchant_settings',
+      creator_user: 'creator_user',
       da_display_settings: 'da_display_settings',
       default_image_url: 'default_image_url',
       fallback_image_url: 'fallback_image_url',
@@ -50,6 +59,7 @@ export default class ProductCatalog extends AbstractCrudObject {
       id: 'id',
       is_catalog_segment: 'is_catalog_segment',
       name: 'name',
+      owner_business: 'owner_business',
       product_count: 'product_count',
       store_catalog_settings: 'store_catalog_settings',
       vertical: 'vertical',
@@ -195,16 +205,6 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  getAutoMarkets (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/auto_markets'
-    );
-  }
-
   getAutomotiveModels (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AutomotiveModel,
@@ -212,16 +212,6 @@ export default class ProductCatalog extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/automotive_models'
-    );
-  }
-
-  createAutomotiveModel (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AutomotiveModel> {
-    return this.createEdge(
-      '/automotive_models',
-      fields,
-      params,
-      AutomotiveModel,
-      pathOverride,
     );
   }
 
@@ -235,12 +225,12 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  createCatalogWebsiteSetting (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+  createCatalogStore (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<StoreCatalogSettings> {
     return this.createEdge(
-      '/catalog_website_settings',
+      '/catalog_store',
       fields,
       params,
-      null,
+      StoreCatalogSettings,
       pathOverride,
     );
   }
@@ -275,6 +265,26 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
+  getCollaborativeAdsEventStats (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      CatalogSegmentAllMatchCountLaser,
+      fields,
+      params,
+      fetchFirstPage,
+      '/collaborative_ads_event_stats'
+    );
+  }
+
+  getCollaborativeAdsLsbImageBank (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/collaborative_ads_lsb_image_bank'
+    );
+  }
+
   getCollaborativeAdsShareSettings (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       CollaborativeAdsShareSettings,
@@ -282,6 +292,26 @@ export default class ProductCatalog extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/collaborative_ads_share_settings'
+    );
+  }
+
+  createCpasLsbImageBank (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+    return this.createEdge(
+      '/cpas_lsb_image_bank',
+      fields,
+      params,
+      null,
+      pathOverride,
+    );
+  }
+
+  getDataSources (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      ProductCatalogDataSource,
+      fields,
+      params,
+      fetchFirstPage,
+      '/data_sources'
     );
   }
 
@@ -429,16 +459,6 @@ export default class ProductCatalog extends AbstractCrudObject {
       params,
       ProductCatalog,
       pathOverride,
-    );
-  }
-
-  getMediaTitles (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/media_titles'
     );
   }
 

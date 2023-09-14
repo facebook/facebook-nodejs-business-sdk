@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
@@ -47,6 +49,7 @@ export default class AutomotiveModel extends AbstractCrudObject {
       trim: 'trim',
       unit_price: 'unit_price',
       url: 'url',
+      visibility: 'visibility',
       year: 'year',
     });
   }
@@ -61,30 +64,10 @@ export default class AutomotiveModel extends AbstractCrudObject {
       partial_fetch: 'PARTIAL_FETCH',
     });
   }
-  static get BodyStyle (): Object {
+  static get Visibility (): Object {
     return Object.freeze({
-      convertible: 'CONVERTIBLE',
-      coupe: 'COUPE',
-      crossover: 'CROSSOVER',
-      estate: 'ESTATE',
-      grandtourer: 'GRANDTOURER',
-      hatchback: 'HATCHBACK',
-      minibus: 'MINIBUS',
-      minivan: 'MINIVAN',
-      mpv: 'MPV',
-      none: 'NONE',
-      other: 'OTHER',
-      pickup: 'PICKUP',
-      roadster: 'ROADSTER',
-      saloon: 'SALOON',
-      sedan: 'SEDAN',
-      sportscar: 'SPORTSCAR',
-      supercar: 'SUPERCAR',
-      supermini: 'SUPERMINI',
-      suv: 'SUV',
-      truck: 'TRUCK',
-      van: 'VAN',
-      wagon: 'WAGON',
+      published: 'PUBLISHED',
+      staging: 'STAGING',
     });
   }
 

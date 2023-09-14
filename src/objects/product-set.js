@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
@@ -14,6 +16,7 @@ import Destination from './destination';
 import Flight from './flight';
 import HomeListing from './home-listing';
 import Hotel from './hotel';
+import MediaTitle from './media-title';
 import ProductItem from './product-item';
 import VehicleOffer from './vehicle-offer';
 import Vehicle from './vehicle';
@@ -92,7 +95,7 @@ export default class ProductSet extends AbstractCrudObject {
 
   getMediaTitles (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      AbstractObject,
+      MediaTitle,
       fields,
       params,
       fetchFirstPage,

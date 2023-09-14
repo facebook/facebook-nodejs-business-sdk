@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
@@ -28,6 +30,7 @@ export default class ExtendedCredit extends AbstractCrudObject {
       is_access_revoked: 'is_access_revoked',
       is_automated_experience: 'is_automated_experience',
       legal_entity_name: 'legal_entity_name',
+      liable_address: 'liable_address',
       liable_biz_name: 'liable_biz_name',
       max_balance: 'max_balance',
       online_max_balance: 'online_max_balance',
@@ -35,7 +38,9 @@ export default class ExtendedCredit extends AbstractCrudObject {
       owner_business_name: 'owner_business_name',
       partition_from: 'partition_from',
       receiving_credit_allocation_config: 'receiving_credit_allocation_config',
+      send_bill_to_address: 'send_bill_to_address',
       send_bill_to_biz_name: 'send_bill_to_biz_name',
+      sold_to_address: 'sold_to_address',
     });
   }
 
