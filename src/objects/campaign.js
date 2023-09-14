@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
@@ -25,10 +27,7 @@ export default class Campaign extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       account_id: 'account_id',
-      ad_strategy_group_id: 'ad_strategy_group_id',
-      ad_strategy_id: 'ad_strategy_id',
       adlabels: 'adlabels',
-      benchmark_report_count: 'benchmark_report_count',
       bid_strategy: 'bid_strategy',
       boosted_object_id: 'boosted_object_id',
       brand_lift_studies: 'brand_lift_studies',
@@ -142,6 +141,12 @@ export default class Campaign extends AbstractCrudObject {
       local_awareness: 'LOCAL_AWARENESS',
       messages: 'MESSAGES',
       offer_claims: 'OFFER_CLAIMS',
+      outcome_app_promotion: 'OUTCOME_APP_PROMOTION',
+      outcome_awareness: 'OUTCOME_AWARENESS',
+      outcome_engagement: 'OUTCOME_ENGAGEMENT',
+      outcome_leads: 'OUTCOME_LEADS',
+      outcome_sales: 'OUTCOME_SALES',
+      outcome_traffic: 'OUTCOME_TRAFFIC',
       page_likes: 'PAGE_LIKES',
       post_engagement: 'POST_ENGAGEMENT',
       product_catalog_sales: 'PRODUCT_CATALOG_SALES',

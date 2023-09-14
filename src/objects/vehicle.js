@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
@@ -27,7 +29,6 @@ export default class Vehicle extends AbstractCrudObject {
       condition: 'condition',
       currency: 'currency',
       custom_label_0: 'custom_label_0',
-      custom_number_0: 'custom_number_0',
       date_first_on_lot: 'date_first_on_lot',
       dealer_communication_channel: 'dealer_communication_channel',
       dealer_email: 'dealer_email',
@@ -66,6 +67,7 @@ export default class Vehicle extends AbstractCrudObject {
       vehicle_specifications: 'vehicle_specifications',
       vehicle_type: 'vehicle_type',
       vin: 'vin',
+      visibility: 'visibility',
       year: 'year',
     });
   }
@@ -78,6 +80,12 @@ export default class Vehicle extends AbstractCrudObject {
       no_status: 'NO_STATUS',
       outdated: 'OUTDATED',
       partial_fetch: 'PARTIAL_FETCH',
+    });
+  }
+  static get Visibility (): Object {
+    return Object.freeze({
+      published: 'PUBLISHED',
+      staging: 'STAGING',
     });
   }
   static get Availability (): Object {

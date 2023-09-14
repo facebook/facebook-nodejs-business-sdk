@@ -1,16 +1,19 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import InstagramInsightsResult from './instagram-insights-result';
 import IGMedia from './ig-media';
+import UserPageOneTimeOptInTokenSettings from './user-page-one-time-opt-in-token-settings';
 
 /**
  * IGUser
@@ -127,6 +130,16 @@ export default class IGUser extends AbstractCrudObject {
       params,
       null,
       pathOverride,
+    );
+  }
+
+  getNotificationMessageTokens (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      UserPageOneTimeOptInTokenSettings,
+      fields,
+      params,
+      fetchFirstPage,
+      '/notification_message_tokens'
     );
   }
 

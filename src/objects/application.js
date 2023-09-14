@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
@@ -88,7 +90,6 @@ export default class Application extends AbstractCrudObject {
       latest_sdk_version: 'latest_sdk_version',
       link: 'link',
       logging_token: 'logging_token',
-      login_secret: 'login_secret',
       logo_url: 'logo_url',
       migrations: 'migrations',
       mobile_profile_section_url: 'mobile_profile_section_url',
@@ -190,21 +191,9 @@ export default class Application extends AbstractCrudObject {
       eymt: 'EYMT',
     });
   }
-  static get ScoreType (): Object {
-    return Object.freeze({
-      custom: 'CUSTOM',
-      numeric: 'NUMERIC',
-      time: 'TIME',
-    });
-  }
-  static get SortOrder (): Object {
-    return Object.freeze({
-      higher_is_better: 'HIGHER_IS_BETTER',
-      lower_is_better: 'LOWER_IS_BETTER',
-    });
-  }
   static get LoggingSource (): Object {
     return Object.freeze({
+      detection: 'DETECTION',
       messenger_bot: 'MESSENGER_BOT',
     });
   }
@@ -303,6 +292,16 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
+  getAemAttribution (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/aem_attribution'
+    );
+  }
+
   getAemConversionConfigs (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AbstractObject,
@@ -370,6 +369,16 @@ export default class Application extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/android_dialog_configs'
+    );
+  }
+
+  getAppCapiSettings (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/app_capi_settings'
     );
   }
 
@@ -453,13 +462,6 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  deleteBanned (params: Object = {}): Promise<*> {
-    return super.deleteEdge(
-      '/banned',
-      params
-    );
-  }
-
   getButtonAutoDetectionDeviceSelection (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AbstractObject,
@@ -520,16 +522,6 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  createInsightsPushSchedule (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
-    return this.createEdge(
-      '/insights_push_schedule',
-      fields,
-      params,
-      null,
-      pathOverride,
-    );
-  }
-
   getIosDialogConfigs (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AbstractObject,
@@ -540,23 +532,13 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  createLeaderboardsCreate (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Application> {
-    return this.createEdge(
-      '/leaderboards_create',
+  getLinkedDataset (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
       fields,
       params,
-      Application,
-      pathOverride,
-    );
-  }
-
-  createLeaderboardsDeleteEntry (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Application> {
-    return this.createEdge(
-      '/leaderboards_delete_entry',
-      fields,
-      params,
-      Application,
-      pathOverride,
+      fetchFirstPage,
+      '/linked_dataset'
     );
   }
 
@@ -740,16 +722,6 @@ export default class Application extends AbstractCrudObject {
   createUpload (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
     return this.createEdge(
       '/uploads',
-      fields,
-      params,
-      null,
-      pathOverride,
-    );
-  }
-
-  createUserProperty (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
-    return this.createEdge(
-      '/user_properties',
       fields,
       params,
       null,

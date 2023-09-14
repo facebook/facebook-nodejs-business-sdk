@@ -1,25 +1,35 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * AdAccountCustomAudience
+ * ShopOrder
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class AdAccountCustomAudience extends AbstractCrudObject {
+export default class ShopOrder extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      audience_type_param_name: 'audience_type_param_name',
-      existing_customer_tag: 'existing_customer_tag',
-      new_customer_tag: 'new_customer_tag',
+      creation_time: 'creation_time',
+      id: 'id',
     });
   }
 
+
+  
+  get (fields: Array<string>, params: Object = {}): ShopOrder {
+    // $FlowFixMe : Support Generic Types
+    return this.read(
+      fields,
+      params
+    );
+  }
 }

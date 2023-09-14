@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
@@ -38,6 +40,7 @@ export default class MediaTitle extends AbstractCrudObject {
       title_display_name: 'title_display_name',
       unit_price: 'unit_price',
       url: 'url',
+      visibility: 'visibility',
       wiki_data_item: 'wiki_data_item',
     });
   }
@@ -50,6 +53,12 @@ export default class MediaTitle extends AbstractCrudObject {
       no_status: 'NO_STATUS',
       outdated: 'OUTDATED',
       partial_fetch: 'PARTIAL_FETCH',
+    });
+  }
+  static get Visibility (): Object {
+    return Object.freeze({
+      published: 'PUBLISHED',
+      staging: 'STAGING',
     });
   }
   static get ContentCategory (): Object {

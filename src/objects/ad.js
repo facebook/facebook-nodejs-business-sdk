@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
@@ -48,6 +50,7 @@ export default class Ad extends AbstractCrudObject {
       id: 'id',
       issues_info: 'issues_info',
       last_updated_by_app_id: 'last_updated_by_app_id',
+      meta_reward_adgroup_status: 'meta_reward_adgroup_status',
       name: 'name',
       preview_shareable_link: 'preview_shareable_link',
       priority: 'priority',
@@ -132,6 +135,12 @@ export default class Ad extends AbstractCrudObject {
       include_recommendations: 'include_recommendations',
       synchronous_ad_review: 'synchronous_ad_review',
       validate_only: 'validate_only',
+    });
+  }
+  static get MetaRewardAdgroupStatus (): Object {
+    return Object.freeze({
+      active: 'ACTIVE',
+      inactive: 'INACTIVE',
     });
   }
   static get Operator (): Object {
@@ -228,7 +237,7 @@ export default class Ad extends AbstractCrudObject {
     );
   }
 
-  getPreViews (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+  getPreviews (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdPreview,
       fields,

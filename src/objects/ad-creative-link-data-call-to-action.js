@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
@@ -25,6 +27,7 @@ export default class AdCreativeLinkDataCallToAction extends AbstractCrudObject {
     return Object.freeze({
       add_to_cart: 'ADD_TO_CART',
       apply_now: 'APPLY_NOW',
+      audio_call: 'AUDIO_CALL',
       book_travel: 'BOOK_TRAVEL',
       buy: 'BUY',
       buy_now: 'BUY_NOW',
@@ -46,9 +49,11 @@ export default class AdCreativeLinkDataCallToAction extends AbstractCrudObject {
       get_directions: 'GET_DIRECTIONS',
       get_offer: 'GET_OFFER',
       get_offer_view: 'GET_OFFER_VIEW',
+      get_promotions: 'GET_PROMOTIONS',
       get_quote: 'GET_QUOTE',
       get_showtimes: 'GET_SHOWTIMES',
       get_started: 'GET_STARTED',
+      inquire_now: 'INQUIRE_NOW',
       install_app: 'INSTALL_APP',
       install_mobile_app: 'INSTALL_MOBILE_APP',
       learn_more: 'LEARN_MORE',
@@ -75,6 +80,7 @@ export default class AdCreativeLinkDataCallToAction extends AbstractCrudObject {
       sell_now: 'SELL_NOW',
       send_a_gift: 'SEND_A_GIFT',
       send_gift_money: 'SEND_GIFT_MONEY',
+      send_updates: 'SEND_UPDATES',
       share: 'SHARE',
       shop_now: 'SHOP_NOW',
       sign_up: 'SIGN_UP',
