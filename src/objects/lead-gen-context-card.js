@@ -11,25 +11,20 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * ShopOrder
+ * LeadGenContextCard
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class ShopOrder extends AbstractCrudObject {
+export default class LeadGenContextCard extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      creation_time: 'creation_time',
+      button_text: 'button_text',
+      content: 'content',
+      cover_photo: 'cover_photo',
       id: 'id',
+      style: 'style',
+      title: 'title',
     });
   }
 
-
-  
-  get (fields: Array<string>, params: Object = {}): ShopOrder {
-    // $FlowFixMe : Support Generic Types
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

@@ -28,7 +28,10 @@ export default class Ad extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       account_id: 'account_id',
+      ad_active_time: 'ad_active_time',
       ad_review_feedback: 'ad_review_feedback',
+      ad_schedule_end_time: 'ad_schedule_end_time',
+      ad_schedule_start_time: 'ad_schedule_start_time',
       adlabels: 'adlabels',
       adset: 'adset',
       adset_id: 'adset_id',

@@ -11,16 +11,16 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * AREffectsBatchStatus
+ * PageAboutStoryComposedBlockEntityRanges
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class AREffectsBatchStatus extends AbstractCrudObject {
+export default class PageAboutStoryComposedBlockEntityRanges extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      errors: 'errors',
-      product_groups: 'product_groups',
-      status: 'status',
+      key: 'key',
+      length: 'length',
+      offset: 'offset',
     });
   }
 

@@ -58,6 +58,7 @@ export default class AdsPixel extends AbstractCrudObject {
       owner_ad_account: 'owner_ad_account',
       owner_business: 'owner_business',
       usage: 'usage',
+      user_access_expire_time: 'user_access_expire_time',
       valid_entries: 'valid_entries',
     });
   }

@@ -100,14 +100,6 @@ export default class Post extends AbstractCrudObject {
       year: 'year',
     });
   }
-  static get CheckinEntryPoint (): Object {
-    return Object.freeze({
-      branding_checkin: 'BRANDING_CHECKIN',
-      branding_other: 'BRANDING_OTHER',
-      branding_photo: 'BRANDING_PHOTO',
-      branding_status: 'BRANDING_STATUS',
-    });
-  }
   static get Formatting (): Object {
     return Object.freeze({
       markdown: 'MARKDOWN',

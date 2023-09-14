@@ -75,6 +75,7 @@ export default class AdCreativeLinkDataImageOverlaySpec extends AbstractCrudObje
       price: 'price',
       star_rating: 'star_rating',
       strikethrough_price: 'strikethrough_price',
+      sustainable: 'sustainable',
     });
   }
   static get ThemeColor (): Object {

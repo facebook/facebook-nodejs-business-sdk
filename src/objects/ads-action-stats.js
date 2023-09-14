@@ -19,6 +19,7 @@ export default class AdsActionStats extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       value_1d_click: '1d_click',
+      value_1d_ev: '1d_ev',
       value_1d_view: '1d_view',
       value_28d_click: '28d_click',
       value_28d_view: '28d_view',

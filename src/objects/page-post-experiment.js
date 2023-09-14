@@ -9,6 +9,8 @@
  */
 
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
 
 /**
  * PagePostExperiment
@@ -19,10 +21,13 @@ export default class PagePostExperiment extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       auto_resolve_settings: 'auto_resolve_settings',
+      control_video_id: 'control_video_id',
       creation_time: 'creation_time',
       creator: 'creator',
       declared_winning_time: 'declared_winning_time',
+      declared_winning_video_id: 'declared_winning_video_id',
       description: 'description',
+      experiment_video_ids: 'experiment_video_ids',
       id: 'id',
       insight_snapshots: 'insight_snapshots',
       name: 'name',
@@ -34,6 +39,16 @@ export default class PagePostExperiment extends AbstractCrudObject {
     });
   }
 
+
+  getVideoInsights (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/video_insights'
+    );
+  }
 
   
   get (fields: Array<string>, params: Object = {}): PagePostExperiment {

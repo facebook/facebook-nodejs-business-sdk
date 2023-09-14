@@ -35,6 +35,7 @@ export default class AdRuleHistory extends AbstractCrudObject {
       changed_bid: 'CHANGED_BID',
       changed_budget: 'CHANGED_BUDGET',
       email: 'EMAIL',
+      enable_advantage_plus_creative: 'ENABLE_ADVANTAGE_PLUS_CREATIVE',
       enable_autoflow: 'ENABLE_AUTOFLOW',
       endpoint_pinged: 'ENDPOINT_PINGED',
       error: 'ERROR',

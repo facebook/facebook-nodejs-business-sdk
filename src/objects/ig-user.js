@@ -11,6 +11,7 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
+import Dataset from './dataset';
 import InstagramInsightsResult from './instagram-insights-result';
 import IGMedia from './ig-media';
 import UserPageOneTimeOptInTokenSettings from './user-page-one-time-opt-in-token-settings';
@@ -70,6 +71,16 @@ export default class IGUser extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/content_publishing_limit'
+    );
+  }
+
+  getDataset (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      Dataset,
+      fields,
+      params,
+      fetchFirstPage,
+      '/dataset'
     );
   }
 

@@ -17,6 +17,7 @@ import AdNetworkAnalyticsAsyncQueryResult from './ad-network-analytics-async-que
 import Business from './business';
 import Group from './group';
 import AdAccount from './ad-account';
+import User from './user';
 import DACheck from './da-check';
 import Event from './event';
 import NullNode from './null-node';
@@ -106,6 +107,7 @@ export default class Application extends AbstractCrudObject {
       privacy_policy_url: 'privacy_policy_url',
       profile_section_url: 'profile_section_url',
       property_id: 'property_id',
+      protected_mode_rules: 'protected_mode_rules',
       real_time_mode_devices: 'real_time_mode_devices',
       restrictions: 'restrictions',
       restrictive_data_filter_params: 'restrictive_data_filter_params',
@@ -462,6 +464,16 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
+  getBanned (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      User,
+      fields,
+      params,
+      fetchFirstPage,
+      '/banned'
+    );
+  }
+
   getButtonAutoDetectionDeviceSelection (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AbstractObject,
@@ -659,6 +671,16 @@ export default class Application extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/roles'
+    );
+  }
+
+  getServerDomainInfos (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/server_domain_infos'
     );
   }
 

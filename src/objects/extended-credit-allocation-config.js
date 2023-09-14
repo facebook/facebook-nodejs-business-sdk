@@ -43,6 +43,7 @@ export default class ExtendedCreditAllocationConfig extends AbstractCrudObject {
     return Object.freeze({
       auth: 'AUTH',
       fixed: 'FIXED',
+      fixed_without_partition: 'FIXED_WITHOUT_PARTITION',
     });
   }
   static get SendBillTo (): Object {

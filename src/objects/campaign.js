@@ -42,6 +42,7 @@ export default class Campaign extends AbstractCrudObject {
       effective_status: 'effective_status',
       has_secondary_skadnetwork_reporting: 'has_secondary_skadnetwork_reporting',
       id: 'id',
+      is_budget_schedule_enabled: 'is_budget_schedule_enabled',
       is_skadnetwork_attribution: 'is_skadnetwork_attribution',
       issues_info: 'issues_info',
       last_budget_toggling_time: 'last_budget_toggling_time',

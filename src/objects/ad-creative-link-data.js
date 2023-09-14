@@ -54,12 +54,6 @@ export default class AdCreativeLinkData extends AbstractCrudObject {
     });
   }
 
-  static get AttachmentStyle (): Object {
-    return Object.freeze({
-      default: 'default',
-      link: 'link',
-    });
-  }
   static get FormatOption (): Object {
     return Object.freeze({
       carousel_ar_effects: 'carousel_ar_effects',

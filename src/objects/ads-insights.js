@@ -101,6 +101,9 @@ export default class AdsInsights extends AbstractCrudObject {
       interactive_component_tap: 'interactive_component_tap',
       labels: 'labels',
       location: 'location',
+      marketing_messages_cost_per_delivered: 'marketing_messages_cost_per_delivered',
+      marketing_messages_cost_per_link_btn_click: 'marketing_messages_cost_per_link_btn_click',
+      marketing_messages_spend: 'marketing_messages_spend',
       mobile_app_purchase_roas: 'mobile_app_purchase_roas',
       objective: 'objective',
       optimization_goal: 'optimization_goal',
@@ -110,9 +113,6 @@ export default class AdsInsights extends AbstractCrudObject {
       purchase_roas: 'purchase_roas',
       qualifying_question_qualify_answer_rate: 'qualifying_question_qualify_answer_rate',
       quality_ranking: 'quality_ranking',
-      quality_score_ectr: 'quality_score_ectr',
-      quality_score_ecvr: 'quality_score_ecvr',
-      quality_score_organic: 'quality_score_organic',
       reach: 'reach',
       social_spend: 'social_spend',
       spend: 'spend',
@@ -156,6 +156,7 @@ export default class AdsInsights extends AbstractCrudObject {
   static get ActionAttributionWindows (): Object {
     return Object.freeze({
       value_1d_click: '1d_click',
+      value_1d_ev: '1d_ev',
       value_1d_view: '1d_view',
       value_28d_click: '28d_click',
       value_28d_view: '28d_view',
@@ -179,6 +180,7 @@ export default class AdsInsights extends AbstractCrudObject {
       action_type: 'action_type',
       action_video_sound: 'action_video_sound',
       action_video_type: 'action_video_type',
+      standard_event_content_type: 'standard_event_content_type',
     });
   }
   static get ActionReportTime (): Object {
@@ -210,6 +212,7 @@ export default class AdsInsights extends AbstractCrudObject {
       impression_device: 'impression_device',
       is_conversion_id_modeled: 'is_conversion_id_modeled',
       link_url_asset: 'link_url_asset',
+      marketing_messages_btn_name: 'marketing_messages_btn_name',
       mmm: 'mmm',
       place_page_id: 'place_page_id',
       platform_position: 'platform_position',
@@ -220,6 +223,8 @@ export default class AdsInsights extends AbstractCrudObject {
       region: 'region',
       skan_campaign_id: 'skan_campaign_id',
       skan_conversion_id: 'skan_conversion_id',
+      skan_version: 'skan_version',
+      standard_event_content_type: 'standard_event_content_type',
       title_asset: 'title_asset',
       video_asset: 'video_asset',
     });
@@ -268,6 +273,7 @@ export default class AdsInsights extends AbstractCrudObject {
       action_type: 'action_type',
       action_video_sound: 'action_video_sound',
       action_video_type: 'action_video_type',
+      standard_event_content_type: 'standard_event_content_type',
     });
   }
 }

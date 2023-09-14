@@ -18,8 +18,10 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class ProductImage extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
+      height: 'height',
       id: 'id',
       image_url: 'image_url',
+      width: 'width',
     });
   }
 

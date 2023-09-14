@@ -39,6 +39,7 @@ import CustomAudience from './custom-audience';
 import CustomAudiencesTOS from './custom-audiences-tos';
 import CustomConversion from './custom-conversion';
 import AdAccountDeliveryEstimate from './ad-account-delivery-estimate';
+import AdAccountDsaRecommendations from './ad-account-dsa-recommendations';
 import AdPreview from './ad-preview';
 import AdsInsights from './ads-insights';
 import AdReportRun from './ad-report-run';
@@ -73,6 +74,7 @@ export default class AdAccount extends AbstractCrudObject {
       ad_account_promotable_objects: 'ad_account_promotable_objects',
       age: 'age',
       agency_client_declaration: 'agency_client_declaration',
+      all_capabilities: 'all_capabilities',
       amount_spent: 'amount_spent',
       attribution_spec: 'attribution_spec',
       balance: 'balance',
@@ -133,6 +135,7 @@ export default class AdAccount extends AbstractCrudObject {
       timezone_name: 'timezone_name',
       timezone_offset_hours_utc: 'timezone_offset_hours_utc',
       tos_accepted: 'tos_accepted',
+      user_access_expire_time: 'user_access_expire_time',
       user_tasks: 'user_tasks',
       user_tos_accepted: 'user_tos_accepted',
       viewable_business: 'viewable_business',
@@ -253,6 +256,7 @@ export default class AdAccount extends AbstractCrudObject {
       primary: 'PRIMARY',
       regulated_categories_audience: 'REGULATED_CATEGORIES_AUDIENCE',
       study_rule_audience: 'STUDY_RULE_AUDIENCE',
+      subscriber_segment: 'SUBSCRIBER_SEGMENT',
       video: 'VIDEO',
       website: 'WEBSITE',
     });
@@ -909,6 +913,16 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
+  getDsaRecommendations (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AdAccountDsaRecommendations,
+      fields,
+      params,
+      fetchFirstPage,
+      '/dsa_recommendations'
+    );
+  }
+
   getGeneratePreviews (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdPreview,
@@ -1220,6 +1234,16 @@ export default class AdAccount extends AbstractCrudObject {
     return super.deleteEdge(
       '/usersofanyaudience',
       params
+    );
+  }
+
+  getValueAdjustmentRules (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/value_adjustment_rules'
     );
   }
 

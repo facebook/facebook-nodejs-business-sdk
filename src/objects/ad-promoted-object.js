@@ -29,6 +29,7 @@ export default class AdPromotedObject extends AbstractCrudObject {
       object_store_url: 'object_store_url',
       offer_id: 'offer_id',
       offline_conversion_data_set_id: 'offline_conversion_data_set_id',
+      offsite_conversion_event_id: 'offsite_conversion_event_id',
       omnichannel_object: 'omnichannel_object',
       page_id: 'page_id',
       pixel_aggregation_rule: 'pixel_aggregation_rule',

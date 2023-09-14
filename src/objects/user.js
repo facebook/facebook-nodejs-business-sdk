@@ -19,6 +19,7 @@ import AppRequestFormerRecipient from './app-request-former-recipient';
 import AppRequest from './app-request';
 import BusinessAssetGroup from './business-asset-group';
 import ProductCatalog from './product-catalog';
+import Avatar from './avatar';
 import BusinessUser from './business-user';
 import Business from './business';
 import UnifiedThread from './unified-thread';
@@ -48,6 +49,7 @@ export default class User extends AbstractCrudObject {
     return Object.freeze({
       about: 'about',
       age_range: 'age_range',
+      avatar_2d_profile_picture: 'avatar_2d_profile_picture',
       birthday: 'birthday',
       community: 'community',
       cover: 'cover',
@@ -65,6 +67,7 @@ export default class User extends AbstractCrudObject {
       install_type: 'install_type',
       installed: 'installed',
       is_guest_user: 'is_guest_user',
+      is_work_account: 'is_work_account',
       languages: 'languages',
       last_name: 'last_name',
       link: 'link',
@@ -271,7 +274,7 @@ export default class User extends AbstractCrudObject {
 
   getAvatars (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      AbstractObject,
+      Avatar,
       fields,
       params,
       fetchFirstPage,
