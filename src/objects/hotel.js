@@ -13,6 +13,7 @@ import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import CatalogItemChannelsToIntegrityStatus from './catalog-item-channels-to-integrity-status';
 import HotelRoom from './hotel-room';
+import DynamicVideoMetadata from './dynamic-video-metadata';
 
 /**
  * Hotel
@@ -97,7 +98,7 @@ export default class Hotel extends AbstractCrudObject {
 
   getVideosMetadata (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      AbstractObject,
+      DynamicVideoMetadata,
       fields,
       params,
       fetchFirstPage,

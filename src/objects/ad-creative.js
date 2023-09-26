@@ -37,6 +37,7 @@ export default class AdCreative extends AbstractCrudObject {
       categorization_criteria: 'categorization_criteria',
       category_media_source: 'category_media_source',
       collaborative_ads_lsb_image_bank_id: 'collaborative_ads_lsb_image_bank_id',
+      creative_sourcing_spec: 'creative_sourcing_spec',
       degrees_of_freedom_spec: 'degrees_of_freedom_spec',
       destination_set_id: 'destination_set_id',
       dynamic_ad_voice: 'dynamic_ad_voice',

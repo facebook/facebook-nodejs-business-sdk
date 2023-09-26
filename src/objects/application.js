@@ -524,6 +524,16 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
+  getIapPurchases (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/iap_purchases'
+    );
+  }
+
   getInsightsPushSchedule (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AbstractObject,
@@ -601,6 +611,16 @@ export default class Application extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/object_types'
+    );
+  }
+
+  getObjects (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      NullNode,
+      fields,
+      params,
+      fetchFirstPage,
+      '/objects'
     );
   }
 

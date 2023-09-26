@@ -11,10 +11,15 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
+import UserAvailableCatalogs from './user-available-catalogs';
+import ShadowIGUserCatalogProductSearch from './shadow-ig-user-catalog-product-search';
+import ContentPublishingLimitResponse from './content-publishing-limit-response';
 import Dataset from './dataset';
 import InstagramInsightsResult from './instagram-insights-result';
 import IGMedia from './ig-media';
 import UserPageOneTimeOptInTokenSettings from './user-page-one-time-opt-in-token-settings';
+import IGShoppingProductAppeal from './ig-shopping-product-appeal';
+import ShadowIGHashtag from './shadow-ig-hashtag';
 
 /**
  * IGUser
@@ -46,7 +51,7 @@ export default class IGUser extends AbstractCrudObject {
 
   getAvailableCatalogs (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      AbstractObject,
+      UserAvailableCatalogs,
       fields,
       params,
       fetchFirstPage,
@@ -56,7 +61,7 @@ export default class IGUser extends AbstractCrudObject {
 
   getCatalogProductSearch (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      AbstractObject,
+      ShadowIGUserCatalogProductSearch,
       fields,
       params,
       fetchFirstPage,
@@ -66,7 +71,7 @@ export default class IGUser extends AbstractCrudObject {
 
   getContentPublishingLimit (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      AbstractObject,
+      ContentPublishingLimitResponse,
       fields,
       params,
       fetchFirstPage,
@@ -156,7 +161,7 @@ export default class IGUser extends AbstractCrudObject {
 
   getProductAppeal (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      AbstractObject,
+      IGShoppingProductAppeal,
       fields,
       params,
       fetchFirstPage,
@@ -164,19 +169,19 @@ export default class IGUser extends AbstractCrudObject {
     );
   }
 
-  createProductAppeal (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+  createProductAppeal (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<IGShoppingProductAppeal> {
     return this.createEdge(
       '/product_appeal',
       fields,
       params,
-      null,
+      IGShoppingProductAppeal,
       pathOverride,
     );
   }
 
   getRecentlySearchedHashtags (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      AbstractObject,
+      ShadowIGHashtag,
       fields,
       params,
       fetchFirstPage,

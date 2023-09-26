@@ -11,26 +11,19 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * Stories
+ * IGShoppingProductAppeal
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class Stories extends AbstractCrudObject {
+export default class IGShoppingProductAppeal extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      creation_time: 'creation_time',
-      media_id: 'media_id',
-      media_type: 'media_type',
-      post_id: 'post_id',
-      status: 'status',
-      url: 'url',
+      eligible_for_appeal: 'eligible_for_appeal',
+      product_appeal_status: 'product_appeal_status',
+      product_id: 'product_id',
+      rejection_reasons: 'rejection_reasons',
+      review_status: 'review_status',
     });
   }
 
-  static get Status (): Object {
-    return Object.freeze({
-      archived: 'ARCHIVED',
-      published: 'PUBLISHED',
-    });
-  }
 }

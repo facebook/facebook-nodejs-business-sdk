@@ -11,26 +11,26 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * Stories
+ * ShadowIGMediaBuilder
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class Stories extends AbstractCrudObject {
+export default class ShadowIGMediaBuilder extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      creation_time: 'creation_time',
-      media_id: 'media_id',
-      media_type: 'media_type',
-      post_id: 'post_id',
+      id: 'id',
       status: 'status',
-      url: 'url',
+      status_code: 'status_code',
     });
   }
 
-  static get Status (): Object {
-    return Object.freeze({
-      archived: 'ARCHIVED',
-      published: 'PUBLISHED',
-    });
+
+  
+  get (fields: Array<string>, params: Object = {}): ShadowIGMediaBuilder {
+    // $FlowFixMe : Support Generic Types
+    return this.read(
+      fields,
+      params
+    );
   }
 }

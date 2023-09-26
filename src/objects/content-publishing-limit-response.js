@@ -11,26 +11,16 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * Stories
+ * ContentPublishingLimitResponse
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class Stories extends AbstractCrudObject {
+export default class ContentPublishingLimitResponse extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      creation_time: 'creation_time',
-      media_id: 'media_id',
-      media_type: 'media_type',
-      post_id: 'post_id',
-      status: 'status',
-      url: 'url',
+      config: 'config',
+      quota_usage: 'quota_usage',
     });
   }
 
-  static get Status (): Object {
-    return Object.freeze({
-      archived: 'ARCHIVED',
-      published: 'PUBLISHED',
-    });
-  }
 }

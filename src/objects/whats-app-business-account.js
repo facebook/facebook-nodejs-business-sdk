@@ -59,6 +59,13 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
       utility: 'UTILITY',
     });
   }
+  static get SubCategory (): Object {
+    return Object.freeze({
+      custom: 'CUSTOM',
+      order_details: 'ORDER_DETAILS',
+      order_status: 'ORDER_STATUS',
+    });
+  }
 
   deleteAssignedUsers (params: Object = {}): Promise<*> {
     return super.deleteEdge(
@@ -117,6 +124,16 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
     );
   }
 
+  createExtension (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+    return this.createEdge(
+      '/extensions',
+      fields,
+      params,
+      null,
+      pathOverride,
+    );
+  }
+
   getFlows (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AbstractObject,
@@ -124,6 +141,16 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/flows'
+    );
+  }
+
+  createFlow (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+    return this.createEdge(
+      '/flows',
+      fields,
+      params,
+      null,
+      pathOverride,
     );
   }
 

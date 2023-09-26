@@ -11,26 +11,18 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * Stories
+ * UserAvailableCatalogs
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class Stories extends AbstractCrudObject {
+export default class UserAvailableCatalogs extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      creation_time: 'creation_time',
-      media_id: 'media_id',
-      media_type: 'media_type',
-      post_id: 'post_id',
-      status: 'status',
-      url: 'url',
+      catalog_id: 'catalog_id',
+      catalog_name: 'catalog_name',
+      product_count: 'product_count',
+      shop_name: 'shop_name',
     });
   }
 
-  static get Status (): Object {
-    return Object.freeze({
-      archived: 'ARCHIVED',
-      published: 'PUBLISHED',
-    });
-  }
 }

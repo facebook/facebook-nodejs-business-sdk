@@ -12,6 +12,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import CatalogItemChannelsToIntegrityStatus from './catalog-item-channels-to-integrity-status';
+import DynamicVideoMetadata from './dynamic-video-metadata';
 
 /**
  * VehicleOffer
@@ -108,7 +109,7 @@ export default class VehicleOffer extends AbstractCrudObject {
 
   getVideosMetadata (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      AbstractObject,
+      DynamicVideoMetadata,
       fields,
       params,
       fetchFirstPage,

@@ -29,7 +29,6 @@ export default class CommerceMerchantSettings extends AbstractCrudObject {
     return Object.freeze({
       braintree_merchant_id: 'braintree_merchant_id',
       checkout_message: 'checkout_message',
-      commerce_store: 'commerce_store',
       contact_email: 'contact_email',
       cta: 'cta',
       disable_checkout_urls: 'disable_checkout_urls',

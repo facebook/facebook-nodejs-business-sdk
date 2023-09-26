@@ -34,6 +34,7 @@ export default class Campaign extends AbstractCrudObject {
       budget_rebalance_flag: 'budget_rebalance_flag',
       budget_remaining: 'budget_remaining',
       buying_type: 'buying_type',
+      campaign_group_active_time: 'campaign_group_active_time',
       can_create_brand_lift_study: 'can_create_brand_lift_study',
       can_use_spend_cap: 'can_use_spend_cap',
       configured_status: 'configured_status',

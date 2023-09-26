@@ -13,6 +13,7 @@ import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import CatalogItemChannelsToIntegrityStatus from './catalog-item-channels-to-integrity-status';
 import ProductSet from './product-set';
+import DynamicVideoMetadata from './dynamic-video-metadata';
 
 /**
  * ProductItem
@@ -93,6 +94,7 @@ export default class ProductItem extends AbstractCrudObject {
       size: 'size',
       start_date: 'start_date',
       url: 'url',
+      video_fetch_status: 'video_fetch_status',
       visibility: 'visibility',
       wa_compliance_category: 'wa_compliance_category',
     });
@@ -163,6 +165,16 @@ export default class ProductItem extends AbstractCrudObject {
       kg: 'kg',
       lb: 'lb',
       oz: 'oz',
+    });
+  }
+  static get VideoFetchStatus (): Object {
+    return Object.freeze({
+      direct_upload: 'DIRECT_UPLOAD',
+      fetched: 'FETCHED',
+      fetch_failed: 'FETCH_FAILED',
+      no_status: 'NO_STATUS',
+      outdated: 'OUTDATED',
+      partial_fetch: 'PARTIAL_FETCH',
     });
   }
   static get Visibility (): Object {
@@ -775,7 +787,7 @@ export default class ProductItem extends AbstractCrudObject {
 
   getVideosMetadata (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      AbstractObject,
+      DynamicVideoMetadata,
       fields,
       params,
       fetchFirstPage,

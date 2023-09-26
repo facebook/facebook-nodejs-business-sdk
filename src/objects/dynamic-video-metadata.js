@@ -11,26 +11,27 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * Stories
+ * DynamicVideoMetadata
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class Stories extends AbstractCrudObject {
+export default class DynamicVideoMetadata extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      creation_time: 'creation_time',
-      media_id: 'media_id',
-      media_type: 'media_type',
-      post_id: 'post_id',
-      status: 'status',
+      id: 'id',
+      tags: 'tags',
       url: 'url',
+      video: 'video',
     });
   }
 
-  static get Status (): Object {
-    return Object.freeze({
-      archived: 'ARCHIVED',
-      published: 'PUBLISHED',
-    });
+
+  
+  get (fields: Array<string>, params: Object = {}): DynamicVideoMetadata {
+    // $FlowFixMe : Support Generic Types
+    return this.read(
+      fields,
+      params
+    );
   }
 }
