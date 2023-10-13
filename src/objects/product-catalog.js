@@ -1,16 +1,17 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import Business from './business';
-import AREffectsBatchStatus from './ar-effects-batch-status';
 import AssignedUser from './assigned-user';
 import AutomotiveModel from './automotive-model';
 import StoreCatalogSettings from './store-catalog-settings';
@@ -27,7 +28,6 @@ import Flight from './flight';
 import HomeListing from './home-listing';
 import ProductCatalogHotelRoomsBatch from './product-catalog-hotel-rooms-batch';
 import Hotel from './hotel';
-import MediaTitle from './media-title';
 import ProductCatalogPricingVariablesBatch from './product-catalog-pricing-variables-batch';
 import ProductFeed from './product-feed';
 import ProductGroup from './product-group';
@@ -61,6 +61,7 @@ export default class ProductCatalog extends AbstractCrudObject {
       owner_business: 'owner_business',
       product_count: 'product_count',
       store_catalog_settings: 'store_catalog_settings',
+      user_access_expire_time: 'user_access_expire_time',
       vertical: 'vertical',
     });
   }
@@ -92,6 +93,7 @@ export default class ProductCatalog extends AbstractCrudObject {
   }
   static get PermittedTasks (): Object {
     return Object.freeze({
+      aa_analyze: 'AA_ANALYZE',
       advertise: 'ADVERTISE',
       manage: 'MANAGE',
       manage_ar: 'MANAGE_AR',
@@ -99,6 +101,7 @@ export default class ProductCatalog extends AbstractCrudObject {
   }
   static get Tasks (): Object {
     return Object.freeze({
+      aa_analyze: 'AA_ANALYZE',
       advertise: 'ADVERTISE',
       manage: 'MANAGE',
       manage_ar: 'MANAGE_AR',
@@ -164,16 +167,6 @@ export default class ProductCatalog extends AbstractCrudObject {
       params,
       ProductCatalog,
       pathOverride,
-    );
-  }
-
-  getArEffectsBatchStatus (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AREffectsBatchStatus,
-      fields,
-      params,
-      fetchFirstPage,
-      '/ar_effects_batch_status'
     );
   }
 
@@ -457,26 +450,6 @@ export default class ProductCatalog extends AbstractCrudObject {
       fields,
       params,
       ProductCatalog,
-      pathOverride,
-    );
-  }
-
-  getMediaTitles (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      MediaTitle,
-      fields,
-      params,
-      fetchFirstPage,
-      '/media_titles'
-    );
-  }
-
-  createMediaTitle (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<MediaTitle> {
-    return this.createEdge(
-      '/media_titles',
-      fields,
-      params,
-      MediaTitle,
       pathOverride,
     );
   }

@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
@@ -17,6 +19,7 @@ export default class AdsActionStats extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       value_1d_click: '1d_click',
+      value_1d_ev: '1d_ev',
       value_1d_view: '1d_view',
       value_28d_click: '28d_click',
       value_28d_view: '28d_view',

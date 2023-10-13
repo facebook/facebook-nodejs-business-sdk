@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
@@ -52,12 +54,6 @@ export default class AdCreativeLinkData extends AbstractCrudObject {
     });
   }
 
-  static get AttachmentStyle (): Object {
-    return Object.freeze({
-      default: 'default',
-      link: 'link',
-    });
-  }
   static get FormatOption (): Object {
     return Object.freeze({
       carousel_ar_effects: 'carousel_ar_effects',

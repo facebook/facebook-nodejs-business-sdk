@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
@@ -17,6 +19,7 @@ export default class AdPreview extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       body: 'body',
+      transformation_spec: 'transformation_spec',
     });
   }
 
@@ -28,6 +31,8 @@ export default class AdPreview extends AbstractCrudObject {
       audience_network_rewarded_video: 'AUDIENCE_NETWORK_REWARDED_VIDEO',
       biz_disco_feed_mobile: 'BIZ_DISCO_FEED_MOBILE',
       desktop_feed_standard: 'DESKTOP_FEED_STANDARD',
+      facebook_profile_feed_desktop: 'FACEBOOK_PROFILE_FEED_DESKTOP',
+      facebook_profile_feed_mobile: 'FACEBOOK_PROFILE_FEED_MOBILE',
       facebook_reels_banner: 'FACEBOOK_REELS_BANNER',
       facebook_reels_banner_desktop: 'FACEBOOK_REELS_BANNER_DESKTOP',
       facebook_reels_mobile: 'FACEBOOK_REELS_MOBILE',
@@ -41,13 +46,14 @@ export default class AdPreview extends AbstractCrudObject {
       instagram_feed_web: 'INSTAGRAM_FEED_WEB',
       instagram_feed_web_m_site: 'INSTAGRAM_FEED_WEB_M_SITE',
       instagram_profile_feed: 'INSTAGRAM_PROFILE_FEED',
+      instagram_profile_reels: 'INSTAGRAM_PROFILE_REELS',
       instagram_reels: 'INSTAGRAM_REELS',
       instagram_reels_overlay: 'INSTAGRAM_REELS_OVERLAY',
       instagram_search_chain: 'INSTAGRAM_SEARCH_CHAIN',
       instagram_search_grid: 'INSTAGRAM_SEARCH_GRID',
-      instagram_shop: 'INSTAGRAM_SHOP',
       instagram_standard: 'INSTAGRAM_STANDARD',
       instagram_story: 'INSTAGRAM_STORY',
+      instagram_story_effect_tray: 'INSTAGRAM_STORY_EFFECT_TRAY',
       instagram_story_web: 'INSTAGRAM_STORY_WEB',
       instagram_story_web_m_site: 'INSTAGRAM_STORY_WEB_M_SITE',
       instant_article_recirculation_ad: 'INSTANT_ARTICLE_RECIRCULATION_AD',
@@ -74,6 +80,13 @@ export default class AdPreview extends AbstractCrudObject {
       suggested_video_mobile: 'SUGGESTED_VIDEO_MOBILE',
       watch_feed_home: 'WATCH_FEED_HOME',
       watch_feed_mobile: 'WATCH_FEED_MOBILE',
+    });
+  }
+  static get CreativeFeature (): Object {
+    return Object.freeze({
+      product_metadata_automation: 'product_metadata_automation',
+      profile_card: 'profile_card',
+      standard_enhancements_catalog: 'standard_enhancements_catalog',
     });
   }
   static get RenderType (): Object {

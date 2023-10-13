@@ -1,14 +1,17 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
+import AdAccountBusinessConstraints from './ad-account-business-constraints';
 import AdActivity from './ad-activity';
 import AdPlacePageSet from './ad-place-page-set';
 import AdStudy from './ad-study';
@@ -36,6 +39,7 @@ import CustomAudience from './custom-audience';
 import CustomAudiencesTOS from './custom-audiences-tos';
 import CustomConversion from './custom-conversion';
 import AdAccountDeliveryEstimate from './ad-account-delivery-estimate';
+import AdAccountDsaRecommendations from './ad-account-dsa-recommendations';
 import AdPreview from './ad-preview';
 import AdsInsights from './ads-insights';
 import AdReportRun from './ad-report-run';
@@ -70,6 +74,7 @@ export default class AdAccount extends AbstractCrudObject {
       ad_account_promotable_objects: 'ad_account_promotable_objects',
       age: 'age',
       agency_client_declaration: 'agency_client_declaration',
+      all_capabilities: 'all_capabilities',
       amount_spent: 'amount_spent',
       attribution_spec: 'attribution_spec',
       balance: 'balance',
@@ -86,6 +91,8 @@ export default class AdAccount extends AbstractCrudObject {
       created_time: 'created_time',
       currency: 'currency',
       custom_audience_info: 'custom_audience_info',
+      default_dsa_beneficiary: 'default_dsa_beneficiary',
+      default_dsa_payor: 'default_dsa_payor',
       disable_reason: 'disable_reason',
       end_advertiser: 'end_advertiser',
       end_advertiser_name: 'end_advertiser_name',
@@ -95,7 +102,6 @@ export default class AdAccount extends AbstractCrudObject {
       fb_entity: 'fb_entity',
       funding_source: 'funding_source',
       funding_source_details: 'funding_source_details',
-      has_advertiser_opted_in_odax: 'has_advertiser_opted_in_odax',
       has_migrated_permissions: 'has_migrated_permissions',
       has_page_authorized_adaccount: 'has_page_authorized_adaccount',
       id: 'id',
@@ -129,6 +135,7 @@ export default class AdAccount extends AbstractCrudObject {
       timezone_name: 'timezone_name',
       timezone_offset_hours_utc: 'timezone_offset_hours_utc',
       tos_accepted: 'tos_accepted',
+      user_access_expire_time: 'user_access_expire_time',
       user_tasks: 'user_tasks',
       user_tos_accepted: 'user_tos_accepted',
       viewable_business: 'viewable_business',
@@ -236,6 +243,7 @@ export default class AdAccount extends AbstractCrudObject {
     return Object.freeze({
       app: 'APP',
       bag_of_accounts: 'BAG_OF_ACCOUNTS',
+      bidding: 'BIDDING',
       claim: 'CLAIM',
       custom: 'CUSTOM',
       engagement: 'ENGAGEMENT',
@@ -245,11 +253,39 @@ export default class AdAccount extends AbstractCrudObject {
       measurement: 'MEASUREMENT',
       offline_conversion: 'OFFLINE_CONVERSION',
       partner: 'PARTNER',
+      primary: 'PRIMARY',
       regulated_categories_audience: 'REGULATED_CATEGORIES_AUDIENCE',
       study_rule_audience: 'STUDY_RULE_AUDIENCE',
+      subscriber_segment: 'SUBSCRIBER_SEGMENT',
       video: 'VIDEO',
       website: 'WEBSITE',
     });
+  }
+  static get ActionSource (): Object {
+    return Object.freeze({
+      physical_store: 'PHYSICAL_STORE',
+      website: 'WEBSITE',
+    });
+  }
+
+  getAccountControls (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AdAccountBusinessConstraints,
+      fields,
+      params,
+      fetchFirstPage,
+      '/account_controls'
+    );
+  }
+
+  createAccountControl (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdAccountBusinessConstraints> {
+    return this.createEdge(
+      '/account_controls',
+      fields,
+      params,
+      AdAccountBusinessConstraints,
+      pathOverride,
+    );
   }
 
   getActivities (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
@@ -465,6 +501,16 @@ export default class AdAccount extends AbstractCrudObject {
       fields,
       params,
       Ad,
+      pathOverride,
+    );
+  }
+
+  createAdsConversionGoal (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+    return this.createEdge(
+      '/ads_conversion_goal',
+      fields,
+      params,
+      null,
       pathOverride,
     );
   }
@@ -720,6 +766,16 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
+  getBusinessProjects (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/businessprojects'
+    );
+  }
+
   deleteCampaigns (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/campaigns',
@@ -764,6 +820,16 @@ export default class AdAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/connected_instagram_accounts'
+    );
+  }
+
+  getConversionGoals (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/conversion_goals'
     );
   }
 
@@ -844,6 +910,16 @@ export default class AdAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/deprecatedtargetingadsets'
+    );
+  }
+
+  getDsaRecommendations (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AdAccountDsaRecommendations,
+      fields,
+      params,
+      fetchFirstPage,
+      '/dsa_recommendations'
     );
   }
 
@@ -1158,6 +1234,16 @@ export default class AdAccount extends AbstractCrudObject {
     return super.deleteEdge(
       '/usersofanyaudience',
       params
+    );
+  }
+
+  getValueAdjustmentRules (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/value_adjustment_rules'
     );
   }
 

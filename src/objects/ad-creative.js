@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
@@ -28,12 +30,14 @@ export default class AdCreative extends AbstractCrudObject {
       authorization_category: 'authorization_category',
       auto_update: 'auto_update',
       body: 'body',
+      branded_content: 'branded_content',
       branded_content_sponsor_page_id: 'branded_content_sponsor_page_id',
       bundle_folder_id: 'bundle_folder_id',
       call_to_action_type: 'call_to_action_type',
       categorization_criteria: 'categorization_criteria',
       category_media_source: 'category_media_source',
       collaborative_ads_lsb_image_bank_id: 'collaborative_ads_lsb_image_bank_id',
+      creative_sourcing_spec: 'creative_sourcing_spec',
       degrees_of_freedom_spec: 'degrees_of_freedom_spec',
       destination_set_id: 'destination_set_id',
       dynamic_ad_voice: 'dynamic_ad_voice',
@@ -43,11 +47,13 @@ export default class AdCreative extends AbstractCrudObject {
       effective_object_story_id: 'effective_object_story_id',
       enable_direct_install: 'enable_direct_install',
       enable_launch_instant_app: 'enable_launch_instant_app',
+      facebook_branded_content: 'facebook_branded_content',
       id: 'id',
       image_crops: 'image_crops',
       image_hash: 'image_hash',
       image_url: 'image_url',
       instagram_actor_id: 'instagram_actor_id',
+      instagram_branded_content: 'instagram_branded_content',
       instagram_permalink_url: 'instagram_permalink_url',
       instagram_story_id: 'instagram_story_id',
       instagram_user_id: 'instagram_user_id',
@@ -89,6 +95,7 @@ export default class AdCreative extends AbstractCrudObject {
       add_to_cart: 'ADD_TO_CART',
       apply_now: 'APPLY_NOW',
       audio_call: 'AUDIO_CALL',
+      book_now: 'BOOK_NOW',
       book_travel: 'BOOK_TRAVEL',
       buy: 'BUY',
       buy_now: 'BUY_NOW',
@@ -110,9 +117,11 @@ export default class AdCreative extends AbstractCrudObject {
       get_directions: 'GET_DIRECTIONS',
       get_offer: 'GET_OFFER',
       get_offer_view: 'GET_OFFER_VIEW',
+      get_promotions: 'GET_PROMOTIONS',
       get_quote: 'GET_QUOTE',
       get_showtimes: 'GET_SHOWTIMES',
       get_started: 'GET_STARTED',
+      inquire_now: 'INQUIRE_NOW',
       install_app: 'INSTALL_APP',
       install_mobile_app: 'INSTALL_MOBILE_APP',
       learn_more: 'LEARN_MORE',

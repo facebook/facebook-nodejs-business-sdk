@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
@@ -17,6 +19,7 @@ export default class UserPageOneTimeOptInTokenSettings extends AbstractCrudObjec
   static get Fields (): Object {
     return Object.freeze({
       creation_timestamp: 'creation_timestamp',
+      next_eligible_time: 'next_eligible_time',
       notification_messages_frequency: 'notification_messages_frequency',
       notification_messages_reoptin: 'notification_messages_reoptin',
       notification_messages_timezone: 'notification_messages_timezone',

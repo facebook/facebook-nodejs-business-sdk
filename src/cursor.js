@@ -20,6 +20,7 @@ export default class Cursor extends Array<Object> {
   _buildObjectsFromResponse: (response: Object) => Array<Object>;
   paging: any;
   summary: any;
+  headers: any;
   clear: () => void;
   next: () => any;
   previous: () => Promise<*>;
@@ -89,6 +90,7 @@ export default class Cursor extends Array<Object> {
             this.set(objects);
             this.paging = response.paging;
             this.summary = response.summary;
+            this.headers = response.headers;
             resolve(this);
           })
           .catch(reject);

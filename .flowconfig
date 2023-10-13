@@ -4,6 +4,8 @@
 .*examples/.*
 .*src/objects/serverside
 .*src/objects/signal
+<PROJECT_ROOT>/node_modules/resolve/test/resolver/malformed_package_json/package.json
+
 [include]
 
 [libs]
@@ -11,5 +13,6 @@
 [lints]
 
 [options]
+exact_by_default=false
 
 [strict]

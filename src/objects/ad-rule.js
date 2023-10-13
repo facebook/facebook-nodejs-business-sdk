@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
@@ -46,12 +48,18 @@ export default class AdRule extends AbstractCrudObject {
       am_activity_history_table: 'AM_ACTIVITY_HISTORY_TABLE',
       am_ad_object_name_card: 'AM_AD_OBJECT_NAME_CARD',
       am_amfe_l3_recommendation: 'AM_AMFE_L3_RECOMMENDATION',
+      am_autoflow_guidance_card: 'AM_AUTOFLOW_GUIDANCE_CARD',
       am_auto_apply_widget: 'AM_AUTO_APPLY_WIDGET',
       am_editor_card: 'AM_EDITOR_CARD',
       am_info_card: 'AM_INFO_CARD',
       am_name_cell_dropdown: 'AM_NAME_CELL_DROPDOWN',
+      am_optimization_tip_guidance_card: 'AM_OPTIMIZATION_TIP_GUIDANCE_CARD',
       am_performance_summary: 'AM_PERFORMANCE_SUMMARY',
       am_rule_landing_page_banner: 'AM_RULE_LANDING_PAGE_BANNER',
+      am_syd_resolution_flow: 'AM_SYD_RESOLUTION_FLOW',
+      am_syd_resolution_flow_modal: 'AM_SYD_RESOLUTION_FLOW_MODAL',
+      am_table_delivery_column_popover: 'AM_TABLE_DELIVERY_COLUMN_POPOVER',
+      am_table_toggle_popover: 'AM_TABLE_TOGGLE_POPOVER',
       am_toolbar_create_rule_dropdown: 'AM_TOOLBAR_CREATE_RULE_DROPDOWN',
       pe_campaign_structure_menu: 'PE_CAMPAIGN_STRUCTURE_MENU',
       pe_editor_card: 'PE_EDITOR_CARD',

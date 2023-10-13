@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
@@ -26,6 +28,7 @@ export default class CustomAudienceDataSource extends AbstractCrudObject {
     return Object.freeze({
       anything: 'ANYTHING',
       app_users: 'APP_USERS',
+      ar_effects_events: 'AR_EFFECTS_EVENTS',
       ar_experience_events: 'AR_EXPERIENCE_EVENTS',
       campaign_conversions: 'CAMPAIGN_CONVERSIONS',
       combination_custom_audience_users: 'COMBINATION_CUSTOM_AUDIENCE_USERS',
@@ -72,6 +75,7 @@ export default class CustomAudienceDataSource extends AbstractCrudObject {
       signal_source: 'SIGNAL_SOURCE',
       smart_audience: 'SMART_AUDIENCE',
       store_visit_events: 'STORE_VISIT_EVENTS',
+      subscriber_list: 'SUBSCRIBER_LIST',
       s_expr: 'S_EXPR',
       tokens: 'TOKENS',
       user_ids: 'USER_IDS',

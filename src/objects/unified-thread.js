@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
@@ -24,6 +26,7 @@ export default class UnifiedThread extends AbstractCrudObject {
       id: 'id',
       is_subscribed: 'is_subscribed',
       link: 'link',
+      linked_group: 'linked_group',
       message_count: 'message_count',
       name: 'name',
       participants: 'participants',

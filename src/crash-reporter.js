@@ -79,7 +79,10 @@ const privateMethods = {
 
   parseParam(err: Error) {
       var stack = err.stack.split('\n');
-      var params = {};
+      type Params = {
+        [key: string]: any
+      };
+      var params: Params = {};
 
       if (stack.length == 0) {
         return null;

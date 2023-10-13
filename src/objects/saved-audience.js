@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
@@ -21,7 +23,6 @@ export default class SavedAudience extends AbstractCrudObject {
       approximate_count_upper_bound: 'approximate_count_upper_bound',
       delete_time: 'delete_time',
       description: 'description',
-      extra_info: 'extra_info',
       id: 'id',
       name: 'name',
       operation_status: 'operation_status',

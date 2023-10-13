@@ -72,25 +72,24 @@ function constructErrorResponse(response: Object) {
     headers = response.headers;
   } else {
     // Handle single response
-    if (response.name === STATUS_CODE_ERROR) {
-      // Handle when we can get response error code
-      body = response.error ? response.error : response;
+    if (response.response) {
+      // The request was made and the server responded with a status code
+      // that falls out of the range of 2xx
+      body = response.response.data.error ? response.response.data.error : response.response.data;
       body = typeof body === 'string' ? JSON.parse(body) : body;
-      // Construct an error message from subfields in body.error
-      message = body.error.error_user_msg
-        ? `${body.error.error_user_title}: ${body.error.error_user_msg}`
-        : body.error.message;
-      status = response.statusCode;
-      if (response.response) {
-        headers = response.response.headers;
-      }
-    } else if (response.name === REQUEST_ERROR) {
-      // Handle network errors e.g. timeout, destination unreachable
-      body = {error: response.error};
-      // An error message is in the response already
-      message = response.message;
-      // Network errors have no status code
+      message = body.message;
+      status = response.response.status;
+      headers = response.response.headers;
+    } else if (response.request) {
+      body = null;
+      message = "The request was made but no response was received";
       status = null;
+      headers = null;
+    } else {
+      body = null;
+      message = "Something happened in setting up the request that triggered an Error";
+      status = null;
+      headers = null;
     }
   }
 

@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
@@ -48,6 +50,8 @@ export default class AdCampaignDeliveryEstimate extends AbstractCrudObject {
       quality_call: 'QUALITY_CALL',
       quality_lead: 'QUALITY_LEAD',
       reach: 'REACH',
+      reminders_set: 'REMINDERS_SET',
+      subscribers: 'SUBSCRIBERS',
       thruplay: 'THRUPLAY',
       value: 'VALUE',
       visit_instagram_profile: 'VISIT_INSTAGRAM_PROFILE',

@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
@@ -46,6 +48,7 @@ export default class Event extends AbstractCrudObject {
       owner: 'owner',
       parent_group: 'parent_group',
       place: 'place',
+      registration_setting: 'registration_setting',
       scheduled_publish_time: 'scheduled_publish_time',
       start_time: 'start_time',
       ticket_setting: 'ticket_setting',
