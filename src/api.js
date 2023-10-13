@@ -24,7 +24,7 @@ export default class FacebookAdsApi {
     return 'v18.0';
   }
   static get SDK_VERSION(): string {
-    return '18.0.1';
+    return '18.0.2';
   }
   static get GRAPH(): string {
     return 'https://graph.facebook.com';
@@ -144,9 +144,9 @@ export default class FacebookAdsApi {
         return Promise.resolve(response);
       })
       .catch(response => {
-        if (this._debug) {
+        if (this._debug && response.response) {
           console.log(
-            `${response.statusCode} ${method} ${url}
+            `${response.response.status} ${method} ${url}
             ${Object.keys(data).length > 0 ? JSON.stringify(data) : ''}`,
           );
         }

@@ -1,10 +1,10 @@
 {
   "name": "facebook-nodejs-business-sdk",
-  "version": "18.0.1",
-  "description": "SDK for the Facebook Ads API in Javascript and Node.js",
+  "version": "18.0.2",
+  "description": "SDK for the Facebook Marketing API in Javascript and Node.js",
   "author": "Facebook",
   "maintainers": [
-    "Ellen Tao <ellentao@fb.com>, Yonghong Shi <yongshi@fb.com>, Moyang He <hemoyang@fb.com>, Zain Aziz <zaziz@fb.com>, Neil Chen <xiaotchen@fb.com>, Supasate Choochaisri <supasate@fb.com>, lucascosta <lucas@lucascosta.com>"
+    "Shuotian Cheng <shuotian@meta.com>"
   ],
   "homepage": "https://github.com/facebook/facebook-nodejs-business-sdk",
   "bugs": {
@@ -12,6 +12,7 @@
   },
   "keywords": [
     "facebook",
+    "meta",
     "ads",
     "sdk",
     "api",
