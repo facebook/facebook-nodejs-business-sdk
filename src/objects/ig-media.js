@@ -11,6 +11,7 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
+import ShadowIGMediaCollaborators from './shadow-ig-media-collaborators';
 import IGComment from './ig-comment';
 import InstagramInsightsResult from './instagram-insights-result';
 import ShadowIGMediaProductTags from './shadow-ig-media-product-tags';
@@ -25,6 +26,7 @@ export default class IGMedia extends AbstractCrudObject {
     return Object.freeze({
       caption: 'caption',
       comments_count: 'comments_count',
+      copyright_check_information: 'copyright_check_information',
       id: 'id',
       ig_id: 'ig_id',
       is_comment_enabled: 'is_comment_enabled',
@@ -50,6 +52,16 @@ export default class IGMedia extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/children'
+    );
+  }
+
+  getCollaborators (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      ShadowIGMediaCollaborators,
+      fields,
+      params,
+      fetchFirstPage,
+      '/collaborators'
     );
   }
 

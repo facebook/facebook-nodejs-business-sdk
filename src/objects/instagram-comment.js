@@ -27,6 +27,7 @@ export default class InstagramComment extends AbstractCrudObject {
       instagram_user: 'instagram_user',
       mentioned_instagram_users: 'mentioned_instagram_users',
       message: 'message',
+      username: 'username',
     });
   }
 

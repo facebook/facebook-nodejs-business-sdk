@@ -22,6 +22,8 @@ export default class OpenBridgeConfiguration extends AbstractCrudObject {
       access_key: 'access_key',
       active: 'active',
       endpoint: 'endpoint',
+      fallback_domain: 'fallback_domain',
+      fallback_domain_enabled: 'fallback_domain_enabled',
       host_business_id: 'host_business_id',
       host_external_id: 'host_external_id',
       id: 'id',

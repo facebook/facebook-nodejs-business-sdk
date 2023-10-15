@@ -505,16 +505,6 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createAdsConversionGoal (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
-    return this.createEdge(
-      '/ads_conversion_goal',
-      fields,
-      params,
-      null,
-      pathOverride,
-    );
-  }
-
   getAdsReportingMmmReports (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AbstractObject,

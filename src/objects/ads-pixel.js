@@ -128,6 +128,16 @@ export default class AdsPixel extends AbstractCrudObject {
     );
   }
 
+  createAhpConfig (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+    return this.createEdge(
+      '/ahp_configs',
+      fields,
+      params,
+      null,
+      pathOverride,
+    );
+  }
+
   getAssignedUsers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AssignedUser,

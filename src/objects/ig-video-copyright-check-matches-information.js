@@ -11,27 +11,16 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * ShadowIGMediaBuilder
+ * IGVideoCopyrightCheckMatchesInformation
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class ShadowIGMediaBuilder extends AbstractCrudObject {
+export default class IGVideoCopyrightCheckMatchesInformation extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      copyright_check_status: 'copyright_check_status',
-      id: 'id',
+      copyright_matches: 'copyright_matches',
       status: 'status',
-      status_code: 'status_code',
     });
   }
 
-
-  
-  get (fields: Array<string>, params: Object = {}): ShadowIGMediaBuilder {
-    // $FlowFixMe : Support Generic Types
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

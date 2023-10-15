@@ -166,26 +166,6 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  getAttachmentSurfaces (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/attachment_surfaces'
-    );
-  }
-
-  createAttachmentSurface (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
-    return this.createEdge(
-      '/attachment_surfaces',
-      fields,
-      params,
-      null,
-      pathOverride,
-    );
-  }
-
   getDocs (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AbstractObject,

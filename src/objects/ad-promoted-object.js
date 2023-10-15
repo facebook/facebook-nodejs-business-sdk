@@ -41,7 +41,6 @@ export default class AdPromotedObject extends AbstractCrudObject {
       product_item_id: 'product_item_id',
       product_set_id: 'product_set_id',
       retention_days: 'retention_days',
-      whats_app_business_phone_number_id: 'whats_app_business_phone_number_id',
     });
   }
 

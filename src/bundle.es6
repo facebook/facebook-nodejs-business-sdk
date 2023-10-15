@@ -290,6 +290,8 @@ export { default as IGShoppingReviewStatus } from './../src/objects/ig-shopping-
 export { default as IGShoppingReviewStatusOnsiteEligibility } from './../src/objects/ig-shopping-review-status-onsite-eligibility';
 export { default as IGShoppingReviewStatusReasonWithHelpMessage } from './../src/objects/ig-shopping-review-status-reason-with-help-message';
 export { default as IGUser } from './../src/objects/ig-user';
+export { default as IGVideoCopyrightCheckMatchesInformation } from './../src/objects/ig-video-copyright-check-matches-information';
+export { default as IGVideoCopyrightCheckStatus } from './../src/objects/ig-video-copyright-check-status';
 export { default as ImageCopyright } from './../src/objects/image-copyright';
 export { default as InsightsResult } from './../src/objects/insights-result';
 export { default as InstagramCarousel } from './../src/objects/instagram-carousel';
@@ -341,7 +343,6 @@ export { default as MediaTitle } from './../src/objects/media-title';
 export { default as MessagingFeatureReview } from './../src/objects/messaging-feature-review';
 export { default as MessagingFeatureStatus } from './../src/objects/messaging-feature-status';
 export { default as MessengerAdsPartialAutomatedStepList } from './../src/objects/messenger-ads-partial-automated-step-list';
-export { default as MessengerDestinationPageWelcomeMessage } from './../src/objects/messenger-destination-page-welcome-message';
 export { default as MessengerProfile } from './../src/objects/messenger-profile';
 export { default as MinimumBudget } from './../src/objects/minimum-budget';
 export { default as MusicVideoCopyright } from './../src/objects/music-video-copyright';
@@ -442,6 +443,7 @@ export { default as SavedMessageResponse } from './../src/objects/saved-message-
 export { default as SecuritySettings } from './../src/objects/security-settings';
 export { default as ShadowIGHashtag } from './../src/objects/shadow-ig-hashtag';
 export { default as ShadowIGMediaBuilder } from './../src/objects/shadow-ig-media-builder';
+export { default as ShadowIGMediaCollaborators } from './../src/objects/shadow-ig-media-collaborators';
 export { default as ShadowIGMediaProductTags } from './../src/objects/shadow-ig-media-product-tags';
 export { default as ShadowIGUserCatalogProductSearch } from './../src/objects/shadow-ig-user-catalog-product-search';
 export { default as ShadowIGUserCatalogProductVariant } from './../src/objects/shadow-ig-user-catalog-product-variant';
