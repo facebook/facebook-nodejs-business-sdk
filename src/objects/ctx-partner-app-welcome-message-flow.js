@@ -11,25 +11,26 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * Shop
+ * CTXPartnerAppWelcomeMessageFlow
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class Shop extends AbstractCrudObject {
+export default class CTXPartnerAppWelcomeMessageFlow extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      fb_sales_channel: 'fb_sales_channel',
+      compatible_platforms: 'compatible_platforms',
+      eligible_platforms: 'eligible_platforms',
       id: 'id',
-      ig_sales_channel: 'ig_sales_channel',
-      is_onsite_enabled: 'is_onsite_enabled',
-      shop_status: 'shop_status',
-      workspace: 'workspace',
+      is_used_in_ad: 'is_used_in_ad',
+      last_update_time: 'last_update_time',
+      name: 'name',
+      welcome_message_flow: 'welcome_message_flow',
     });
   }
 
 
   
-  get (fields: Array<string>, params: Object = {}): Shop {
+  get (fields: Array<string>, params: Object = {}): CTXPartnerAppWelcomeMessageFlow {
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,

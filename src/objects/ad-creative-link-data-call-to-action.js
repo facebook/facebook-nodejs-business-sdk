@@ -64,7 +64,6 @@ export default class AdCreativeLinkDataCallToAction extends AbstractCrudObject {
       listen_now: 'LISTEN_NOW',
       message_page: 'MESSAGE_PAGE',
       mobile_download: 'MOBILE_DOWNLOAD',
-      moments: 'MOMENTS',
       no_button: 'NO_BUTTON',
       open_instant_app: 'OPEN_INSTANT_APP',
       open_link: 'OPEN_LINK',

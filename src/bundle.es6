@@ -197,6 +197,7 @@ export { default as CPASBusinessSetupConfig } from './../src/objects/cpas-busine
 export { default as CPASCollaborationRequest } from './../src/objects/cpas-collaboration-request';
 export { default as CPASMerchantConfig } from './../src/objects/cpas-merchant-config';
 export { default as CRMAddress } from './../src/objects/crm-address';
+export { default as CTXPartnerAppWelcomeMessageFlow } from './../src/objects/ctx-partner-app-welcome-message-flow';
 export { default as Campaign } from './../src/objects/campaign';
 export { default as CampaignGroupBrandConfiguration } from './../src/objects/campaign-group-brand-configuration';
 export { default as CampaignGroupCollaborativeAdsPartnerInfo } from './../src/objects/campaign-group-collaborative-ads-partner-info';
@@ -275,6 +276,7 @@ export { default as FundingSourceDetailsCoupon } from './../src/objects/funding-
 export { default as FundraiserPersonToCharity } from './../src/objects/fundraiser-person-to-charity';
 export { default as GameItem } from './../src/objects/game-item';
 export { default as Group } from './../src/objects/group';
+export { default as HasLeadAccess } from './../src/objects/has-lead-access';
 export { default as HighDemandPeriod } from './../src/objects/high-demand-period';
 export { default as HighDemandPeriodTimeSuggestionWeeklySegment } from './../src/objects/high-demand-period-time-suggestion-weekly-segment';
 export { default as HomeListing } from './../src/objects/home-listing';
@@ -338,6 +340,7 @@ export { default as Location } from './../src/objects/location';
 export { default as LookalikeSpec } from './../src/objects/lookalike-spec';
 export { default as MailingAddress } from './../src/objects/mailing-address';
 export { default as ManagedPartnerBusiness } from './../src/objects/managed-partner-business';
+export { default as ManagedPartnerExtendedCredit } from './../src/objects/managed-partner-extended-credit';
 export { default as MediaFingerprint } from './../src/objects/media-fingerprint';
 export { default as MediaTitle } from './../src/objects/media-title';
 export { default as MessagingFeatureReview } from './../src/objects/messaging-feature-review';

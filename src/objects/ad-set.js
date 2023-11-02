@@ -17,6 +17,7 @@ import AdCreative from './ad-creative';
 import AdRule from './ad-rule';
 import Ad from './ad';
 import AdAsyncRequest from './ad-async-request';
+import HighDemandPeriod from './high-demand-period';
 import AdCampaignDeliveryEstimate from './ad-campaign-delivery-estimate';
 import AdsInsights from './ads-insights';
 import AdReportRun from './ad-report-run';
@@ -339,6 +340,16 @@ export default class AdSet extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/asyncadrequests'
+    );
+  }
+
+  createBudgetSchedule (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<HighDemandPeriod> {
+    return this.createEdge(
+      '/budget_schedules',
+      fields,
+      params,
+      HighDemandPeriod,
+      pathOverride,
     );
   }
 

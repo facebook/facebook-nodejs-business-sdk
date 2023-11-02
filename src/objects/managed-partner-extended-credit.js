@@ -11,29 +11,17 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * Shop
+ * ManagedPartnerExtendedCredit
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class Shop extends AbstractCrudObject {
+export default class ManagedPartnerExtendedCredit extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      fb_sales_channel: 'fb_sales_channel',
       id: 'id',
-      ig_sales_channel: 'ig_sales_channel',
-      is_onsite_enabled: 'is_onsite_enabled',
-      shop_status: 'shop_status',
-      workspace: 'workspace',
+      max_balance: 'max_balance',
+      receiving_credit_allocation_config: 'receiving_credit_allocation_config',
     });
   }
 
-
-  
-  get (fields: Array<string>, params: Object = {}): Shop {
-    // $FlowFixMe : Support Generic Types
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

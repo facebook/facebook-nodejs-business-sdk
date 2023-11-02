@@ -50,6 +50,7 @@ export default class AdPromotedObject extends AbstractCrudObject {
       add_payment_info: 'ADD_PAYMENT_INFO',
       add_to_cart: 'ADD_TO_CART',
       add_to_wishlist: 'ADD_TO_WISHLIST',
+      ad_impression: 'AD_IMPRESSION',
       complete_registration: 'COMPLETE_REGISTRATION',
       contact: 'CONTACT',
       content_view: 'CONTENT_VIEW',

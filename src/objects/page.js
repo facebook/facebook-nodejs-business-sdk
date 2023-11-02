@@ -60,6 +60,7 @@ import PageThreadOwner from './page-thread-owner';
 import VideoCopyrightRule from './video-copyright-rule';
 import VideoCopyright from './video-copyright';
 import VideoList from './video-list';
+import CTXPartnerAppWelcomeMessageFlow from './ctx-partner-app-welcome-message-flow';
 
 /**
  * Page
@@ -121,6 +122,7 @@ export default class Page extends AbstractCrudObject {
       global_brand_page_name: 'global_brand_page_name',
       global_brand_root_id: 'global_brand_root_id',
       has_added_app: 'has_added_app',
+      has_lead_access: 'has_lead_access',
       has_transitioned_to_new_page_experience: 'has_transitioned_to_new_page_experience',
       has_whatsapp_business_number: 'has_whatsapp_business_number',
       has_whatsapp_enterprise_number_using_cloud_api: 'has_whatsapp_enterprise_number_using_cloud_api',
@@ -622,6 +624,16 @@ export default class Page extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/ab_tests'
+    );
+  }
+
+  createAbTest (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<PagePostExperiment> {
+    return this.createEdge(
+      '/ab_tests',
+      fields,
+      params,
+      PagePostExperiment,
+      pathOverride,
     );
   }
 
@@ -1754,13 +1766,30 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
+  deleteWelcomeMessageFlows (params: Object = {}): Promise<*> {
+    return super.deleteEdge(
+      '/welcome_message_flows',
+      params
+    );
+  }
+
   getWelcomeMessageFlows (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      AbstractObject,
+      CTXPartnerAppWelcomeMessageFlow,
       fields,
       params,
       fetchFirstPage,
       '/welcome_message_flows'
+    );
+  }
+
+  createWelcomeMessageFlow (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+    return this.createEdge(
+      '/welcome_message_flows',
+      fields,
+      params,
+      null,
+      pathOverride,
     );
   }
 

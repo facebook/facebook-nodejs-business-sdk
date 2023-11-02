@@ -112,6 +112,8 @@ export default class Application extends AbstractCrudObject {
       restrictions: 'restrictions',
       restrictive_data_filter_params: 'restrictive_data_filter_params',
       restrictive_data_filter_rules: 'restrictive_data_filter_rules',
+      sdk_auto_logging_default_value: 'sdk_auto_logging_default_value',
+      sdk_auto_logging_override_value: 'sdk_auto_logging_override_value',
       sdk_update_message: 'sdk_update_message',
       seamless_login: 'seamless_login',
       secure_canvas_url: 'secure_canvas_url',

@@ -28,6 +28,7 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
       country: 'country',
       creation_time: 'creation_time',
       currency: 'currency',
+      health_status: 'health_status',
       id: 'id',
       is_enabled_for_insights: 'is_enabled_for_insights',
       message_template_namespace: 'message_template_namespace',
@@ -115,26 +116,6 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/conversation_analytics'
-    );
-  }
-
-  getExtensions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/extensions'
-    );
-  }
-
-  createExtension (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
-    return this.createEdge(
-      '/extensions',
-      fields,
-      params,
-      null,
-      pathOverride,
     );
   }
 

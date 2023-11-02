@@ -40,6 +40,21 @@ export default class PagePostExperiment extends AbstractCrudObject {
     });
   }
 
+  static get OptimizationGoal (): Object {
+    return Object.freeze({
+      auto_resolve_to_control: 'AUTO_RESOLVE_TO_CONTROL',
+      avg_time_watched: 'AVG_TIME_WATCHED',
+      comments: 'COMMENTS',
+      impressions: 'IMPRESSIONS',
+      impressions_unique: 'IMPRESSIONS_UNIQUE',
+      link_clicks: 'LINK_CLICKS',
+      other: 'OTHER',
+      reactions: 'REACTIONS',
+      reels_plays: 'REELS_PLAYS',
+      shares: 'SHARES',
+      video_views_60s: 'VIDEO_VIEWS_60S',
+    });
+  }
 
   getVideoInsights (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
@@ -48,6 +63,14 @@ export default class PagePostExperiment extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/video_insights'
+    );
+  }
+
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
+    return super.delete(
+      params
     );
   }
 
