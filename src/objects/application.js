@@ -17,7 +17,6 @@ import AdNetworkAnalyticsAsyncQueryResult from './ad-network-analytics-async-que
 import Business from './business';
 import Group from './group';
 import AdAccount from './ad-account';
-import User from './user';
 import DACheck from './da-check';
 import Event from './event';
 import NullNode from './null-node';
@@ -55,6 +54,8 @@ export default class Application extends AbstractCrudObject {
       auto_event_mapping_android: 'auto_event_mapping_android',
       auto_event_mapping_ios: 'auto_event_mapping_ios',
       auto_event_setup_enabled: 'auto_event_setup_enabled',
+      auto_log_app_events_default: 'auto_log_app_events_default',
+      auto_log_app_events_enabled: 'auto_log_app_events_enabled',
       business: 'business',
       canvas_fluid_height: 'canvas_fluid_height',
       canvas_fluid_width: 'canvas_fluid_width',
@@ -112,8 +113,6 @@ export default class Application extends AbstractCrudObject {
       restrictions: 'restrictions',
       restrictive_data_filter_params: 'restrictive_data_filter_params',
       restrictive_data_filter_rules: 'restrictive_data_filter_rules',
-      sdk_auto_logging_default_value: 'sdk_auto_logging_default_value',
-      sdk_auto_logging_override_value: 'sdk_auto_logging_override_value',
       sdk_update_message: 'sdk_update_message',
       seamless_login: 'seamless_login',
       secure_canvas_url: 'secure_canvas_url',
@@ -463,16 +462,6 @@ export default class Application extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/authorized_adaccounts'
-    );
-  }
-
-  getBanned (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      User,
-      fields,
-      params,
-      fetchFirstPage,
-      '/banned'
     );
   }
 

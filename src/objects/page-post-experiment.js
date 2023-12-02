@@ -32,7 +32,6 @@ export default class PagePostExperiment extends AbstractCrudObject {
       insight_snapshots: 'insight_snapshots',
       name: 'name',
       optimization_goal: 'optimization_goal',
-      post_variant_fields: 'post_variant_fields',
       publish_status: 'publish_status',
       publish_time: 'publish_time',
       scheduled_experiment_timestamp: 'scheduled_experiment_timestamp',

@@ -19,6 +19,7 @@ export default class MessengerProfile extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       account_linking_url: 'account_linking_url',
+      commands: 'commands',
       get_started: 'get_started',
       greeting: 'greeting',
       ice_breakers: 'ice_breakers',
