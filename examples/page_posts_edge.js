@@ -34,8 +34,8 @@ fields = [
 ];
 params = {
 };
-const postss = (new Page(id)).getPosts(
+const posts = (new Page(id)).getPosts(
   fields,
   params
 );
-logApiCallResult('postss api call complete.', postss);
+logApiCallResult('posts api call complete.', posts);
