@@ -207,6 +207,7 @@ export default class AdCreative extends AbstractCrudObject {
     return Object.freeze({
       none: 'NONE',
       political: 'POLITICAL',
+      political_with_digitally_created_media: 'POLITICAL_WITH_DIGITALLY_CREATED_MEDIA',
     });
   }
   static get CategorizationCriteria (): Object {

@@ -105,6 +105,7 @@ export default class Business extends AbstractCrudObject {
       luxury: 'LUXURY',
       marketing: 'MARKETING',
       non_profit: 'NON_PROFIT',
+      not_set: 'NOT_SET',
       organizations_and_associations: 'ORGANIZATIONS_AND_ASSOCIATIONS',
       other: 'OTHER',
       professional_services: 'PROFESSIONAL_SERVICES',

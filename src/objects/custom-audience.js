@@ -13,6 +13,7 @@ import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import AdAccount from './ad-account';
 import Ad from './ad';
+import CustomAudienceSalts from './custom-audience-salts';
 import CustomAudienceSession from './custom-audience-session';
 import CustomAudiencesharedAccountInfo from './custom-audienceshared-account-info';
 
@@ -165,6 +166,26 @@ export default class CustomAudience extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/ads'
+    );
+  }
+
+  getSalts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      CustomAudienceSalts,
+      fields,
+      params,
+      fetchFirstPage,
+      '/salts'
+    );
+  }
+
+  createSalt (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<CustomAudience> {
+    return this.createEdge(
+      '/salts',
+      fields,
+      params,
+      CustomAudience,
+      pathOverride,
     );
   }
 

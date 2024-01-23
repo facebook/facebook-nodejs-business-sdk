@@ -11,18 +11,17 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * InstantArticlesStats
+ * VideoStatusUploadingPhase
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class InstantArticlesStats extends AbstractCrudObject {
+export default class VideoStatusUploadingPhase extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      error: 'error',
-      metadata: 'metadata',
-      metric: 'metric',
-      totals: 'totals',
-      x_axis_breakdown: 'x_axis_breakdown',
+      bytes_transferred: 'bytes_transferred',
+      errors: 'errors',
+      source_file_size: 'source_file_size',
+      status: 'status',
     });
   }
 

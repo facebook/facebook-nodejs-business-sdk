@@ -11,25 +11,18 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * DestinationCatalogSettings
+ * VideoStatusPublishingPhase
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class DestinationCatalogSettings extends AbstractCrudObject {
+export default class VideoStatusPublishingPhase extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      generate_items_from_pages: 'generate_items_from_pages',
-      id: 'id',
+      errors: 'errors',
+      publish_status: 'publish_status',
+      publish_time: 'publish_time',
+      status: 'status',
     });
   }
 
-
-  
-  get (fields: Array<string>, params: Object = {}): DestinationCatalogSettings {
-    // $FlowFixMe : Support Generic Types
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

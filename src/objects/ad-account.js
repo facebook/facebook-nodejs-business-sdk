@@ -201,6 +201,15 @@ export default class AdAccount extends AbstractCrudObject {
       zar: 'ZAR',
     });
   }
+  static get PermittedTasks (): Object {
+    return Object.freeze({
+      aa_analyze: 'AA_ANALYZE',
+      advertise: 'ADVERTISE',
+      analyze: 'ANALYZE',
+      draft: 'DRAFT',
+      manage: 'MANAGE',
+    });
+  }
   static get Tasks (): Object {
     return Object.freeze({
       aa_analyze: 'AA_ANALYZE',
@@ -656,6 +665,16 @@ export default class AdAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/agencies'
+    );
+  }
+
+  createAgency (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdAccount> {
+    return this.createEdge(
+      '/agencies',
+      fields,
+      params,
+      AdAccount,
+      pathOverride,
     );
   }
 

@@ -48,7 +48,11 @@ export default class AdsHistogramStats extends AbstractCrudObject {
       interactive_component_sticker_id: 'interactive_component_sticker_id',
       interactive_component_sticker_response: 'interactive_component_sticker_response',
       skan_click: 'skan_click',
+      skan_click_second_postback: 'skan_click_second_postback',
+      skan_click_third_postback: 'skan_click_third_postback',
       skan_view: 'skan_view',
+      skan_view_second_postback: 'skan_view_second_postback',
+      skan_view_third_postback: 'skan_view_third_postback',
       value: 'value',
     });
   }

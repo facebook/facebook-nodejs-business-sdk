@@ -25,10 +25,8 @@ import Business from './business';
 import UnifiedThread from './unified-thread';
 import PageUserMessageThreadLabel from './page-user-message-thread-label';
 import Event from './event';
-import WhitehatFBDLRun from './whitehat-fbdl-run';
 import Post from './post';
 import FundraiserPersonToCharity from './fundraiser-person-to-charity';
-import GameItem from './game-item';
 import Group from './group';
 import UserIDForApp from './user-id-for-app';
 import UserIDForPage from './user-id-for-page';
@@ -350,16 +348,6 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  getFbdlRuns (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      WhitehatFBDLRun,
-      fields,
-      params,
-      fetchFirstPage,
-      '/fbdl_runs'
-    );
-  }
-
   getFeed (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Post,
@@ -406,16 +394,6 @@ export default class User extends AbstractCrudObject {
       fields,
       params,
       FundraiserPersonToCharity,
-      pathOverride,
-    );
-  }
-
-  createGameItem (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<GameItem> {
-    return this.createEdge(
-      '/game_items',
-      fields,
-      params,
-      GameItem,
       pathOverride,
     );
   }

@@ -11,20 +11,19 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * AdCreativeBrandedContentAds
+ * VideoStatus
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class AdCreativeBrandedContentAds extends AbstractCrudObject {
+export default class VideoStatus extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      ad_format: 'ad_format',
-      creator_ad_permission_type: 'creator_ad_permission_type',
-      instagram_boost_post_access_token: 'instagram_boost_post_access_token',
-      is_mca_internal: 'is_mca_internal',
-      partners: 'partners',
-      promoted_page_id: 'promoted_page_id',
-      ui_version: 'ui_version',
+      copyright_check_status: 'copyright_check_status',
+      processing_phase: 'processing_phase',
+      processing_progress: 'processing_progress',
+      publishing_phase: 'publishing_phase',
+      uploading_phase: 'uploading_phase',
+      video_status: 'video_status',
     });
   }
 

@@ -36,7 +36,6 @@ import ImageCopyright from './image-copyright';
 import AdVideo from './ad-video';
 import InsightsResult from './insights-result';
 import InstagramUser from './instagram-user';
-import InstantArticlesStats from './instant-articles-stats';
 import LeadgenForm from './leadgen-form';
 import LiveVideo from './live-video';
 import MediaFingerprint from './media-fingerprint';
@@ -1102,16 +1101,6 @@ export default class Page extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/instagram_accounts'
-    );
-  }
-
-  getInstantArticlesStats (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      InstantArticlesStats,
-      fields,
-      params,
-      fetchFirstPage,
-      '/instant_articles_stats'
     );
   }
 

@@ -19,7 +19,9 @@ export default class AdAccountBusinessConstraints extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       audience_controls: 'audience_controls',
+      campaigns_with_error: 'campaigns_with_error',
       placement_controls: 'placement_controls',
+      status: 'status',
     });
   }
 

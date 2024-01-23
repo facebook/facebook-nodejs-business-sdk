@@ -11,20 +11,15 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * AdCreativeBrandedContentAds
+ * CustomAudienceSalts
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class AdCreativeBrandedContentAds extends AbstractCrudObject {
+export default class CustomAudienceSalts extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      ad_format: 'ad_format',
-      creator_ad_permission_type: 'creator_ad_permission_type',
-      instagram_boost_post_access_token: 'instagram_boost_post_access_token',
-      is_mca_internal: 'is_mca_internal',
-      partners: 'partners',
-      promoted_page_id: 'promoted_page_id',
-      ui_version: 'ui_version',
+      app_id: 'app_id',
+      public_key: 'public_key',
     });
   }
 
