@@ -48,7 +48,7 @@ export default class Cursor extends Array<Object> {
     }
     this._api = sourceObject.getApi();
     this._targetClass = targetClass;
-    this.paging = {next: next};
+    this.paging = {next: next, params: params};
 
     this.clear = () => {
       this.length = 0;
@@ -84,7 +84,7 @@ export default class Cursor extends Array<Object> {
     this._loadPage = path => {
       const promise = new Promise((resolve, reject) => {
         this._api
-          .call('GET', path, params)
+          .call('GET', path, this.paging.params)
           .then((response: Object) => {
             const objects = this._buildObjectsFromResponse(response);
             this.set(objects);
@@ -95,9 +95,7 @@ export default class Cursor extends Array<Object> {
           })
           .catch(reject);
       });
-      if (params) {
-        params = undefined;
-      }
+
       return promise;
     };
 
