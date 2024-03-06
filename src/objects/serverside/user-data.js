@@ -44,6 +44,8 @@ export default class UserData {
 	_madid: string;
 	_anon_id: string;
 	_app_user_id: string;
+	_ctwa_clid: string;
+	_page_id: string;
 
 	/**
 	 * @param {String} email An email address, in lowercase.
@@ -70,11 +72,13 @@ export default class UserData {
 	 * @param {String} madid
 	 * @param {String} anon_id
 	 * @param {String} app_user_id
+	 * @param {String} ctwa_clid ID of a conversation that was started on WhatsApp
+	 * @param {String} page_id ID of the page that the ad is associated with
 	 */
 	constructor(email: string, phone: string, gender: string, first_name: string, last_name: string, date_of_birth: string,
 		city: string, state: string, zip: string, country: string, external_id: string, client_ip_address: string, client_user_agent: string,
 		fbp: string, fbc: string, subscription_id: string, fb_login_id: string, lead_id: string, dobd: string, dobm: string, doby: string,
-		madid: string, anon_id: string, app_user_id: string) {
+		madid: string, anon_id: string, app_user_id: string, ctwa_clid: string, page_id: string) {
 		if (email != null) {
 			this._emails = new Array(email);
 		}
@@ -121,6 +125,8 @@ export default class UserData {
 		this._madid = madid;
 		this._anon_id = anon_id;
 		this._app_user_id = app_user_id;
+		this._ctwa_clid = ctwa_clid;
+		this._page_id = page_id;
 	}
 
 	static get Gender(): Object {
@@ -1148,6 +1154,50 @@ export default class UserData {
 	}
 
 	/**
+	 *
+	 */
+	get ctwa_clid() {
+		return this._ctwa_clid;
+	}
+
+	/**
+	 *
+	 */
+	set ctwa_clid(ctwa_clid: string) {
+		this._ctwa_clid = ctwa_clid;
+	}
+
+	/**
+	 *
+	 */
+	setCtwaClid(ctwa_clid: string): UserData {
+		this._ctwa_clid = ctwa_clid;
+		return this;
+	}
+
+	/**
+	 *
+	 */
+	get page_id() {
+		return this._page_id;
+	}
+
+	/**
+	 *
+	 */
+	set page_id(page_id: string) {
+		this._page_id = page_id;
+	}
+
+	/**
+	 *
+	 */
+	setPageId(page_id: string): UserData {
+		this._page_id = page_id;
+		return this;
+	}
+
+	/**
 	 * Returns the normalized payload for the user_data parameter.
 	 * @returns {Object} normalized user data payload.
 	 */
@@ -1260,6 +1310,14 @@ export default class UserData {
 
 		if(this.app_user_id) {
 			userData['app_user_id'] = ServerSideUtils.normalizeAndHash(this.app_user_id, 'app_user_id');
+		}
+
+		if (this.ctwa_clid) {
+			userData['ctwa_clid'] = this.ctwa_clid;
+		}
+
+		if (this.page_id) {
+			userData['page_id'] = this.page_id;
 		}
 
 		return userData;

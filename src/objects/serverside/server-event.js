@@ -31,6 +31,7 @@ export default class ServerEvent {
 	_data_processing_options_country: number;
 	_advanced_measurement_table: string;
 	_advertiser_tracking_enabled: bool;
+	_messaging_channel: string;
 
 	/**
 	 * @param {String} event_name A Facebook pixel Standard Event or Custom Event name.
@@ -46,8 +47,9 @@ export default class ServerEvent {
 	 * @param {Number} data_processing_options_state A state that you want to associate with this data processing option.
 	 * @param {String} advanced_measurement_table Name of Advanced Measurement table. Only used for the Advanced Measurement API in the Advanced Analytics product.
 	 * @param {Boolean} advertiser_tracking_enabled A boolean that indicates whether the user has opted into/out of advertiser tracker on apps.
+	 * @param {String} messaging_channel Indicates which channel was used to send the message.
 	 */
-	constructor(event_name: string, event_time: number, event_source_url: string, user_data: UserData, custom_data: CustomData, app_data: AppData, event_id: string, opt_out: boolean, action_source: string, data_processing_options: Array<string>, data_processing_options_country: number, data_processing_options_state: number, advanced_measurement_table: string, advertiser_tracking_enabled: boolean) {
+	constructor(event_name: string, event_time: number, event_source_url: string, user_data: UserData, custom_data: CustomData, app_data: AppData, event_id: string, opt_out: boolean, action_source: string, data_processing_options: Array<string>, data_processing_options_country: number, data_processing_options_state: number, advanced_measurement_table: string, advertiser_tracking_enabled: boolean, messaging_channel: string) {
 
 		this._event_name = event_name;
 		this._event_time = event_time;
@@ -61,7 +63,8 @@ export default class ServerEvent {
 		this._data_processing_options = data_processing_options;
 		this._data_processing_options_country = data_processing_options_country;
 		this._data_processing_options_state = data_processing_options_state;
-		this._advanced_measurement_table = advanced_measurement_table
+		this._advanced_measurement_table = advanced_measurement_table;
+		this._messaging_channel = messaging_channel;
 	}
 
 	/**
@@ -417,6 +420,30 @@ export default class ServerEvent {
 		return this;
 	}
 
+	/**
+	 * Gets the messaging_channel for the current event.
+	 */
+	get messaging_channel() {
+		return this._messaging_channel;
+	}
+
+	/**
+	 * Sets the messaging_channel for the current event.
+	 * @param {boolean} messaging_channel represents where the conversation occurred.
+	 */
+	set messaging_channel(messaging_channel: string) {
+		this._messaging_channel = messaging_channel;
+	}
+
+	/**
+	 * Sets the messaging_channel for the current event.
+	 * @param {number} messaging_channel represents where the conversation occurred.
+	 */
+	setMessagingChannel(messaging_channel: string) : ServerEvent {
+		this._messaging_channel = messaging_channel;
+		return this;
+	}
+
 
 	/**
 	 * Returns the normalized payload for the event.
@@ -469,7 +496,7 @@ export default class ServerEvent {
 		if (this.data_processing_options_country || this.data_processing_options_country === 0) {
 			serverEvent.data_processing_options_country = this.data_processing_options_country;
 	  	}
-	  
+
 	  	if (this.data_processing_options_state || this.data_processing_options_state === 0) {
 			serverEvent.data_processing_options_state = this.data_processing_options_state;
 	  	}
@@ -481,6 +508,10 @@ export default class ServerEvent {
 		// boolean variable is set to either true or false
 		if (this.advertiser_tracking_enabled === true || this.advertiser_tracking_enabled === false) {
 			serverEvent.advertiser_tracking_enabled = this.advertiser_tracking_enabled;
+		}
+
+		if (this.messaging_channel) {
+			serverEvent.messaging_channel = this.messaging_channel;
 		}
 
 		return serverEvent;
