@@ -46,6 +46,7 @@ import BusinessPageRequest from './business-page-request';
 import BusinessRoleRequest from './business-role-request';
 import ProfilePictureSource from './profile-picture-source';
 import WhatsAppBusinessPreVerifiedPhoneNumber from './whats-app-business-pre-verified-phone-number';
+import WhatsAppBusinessPartnerClientVerificationSubmission from './whats-app-business-partner-client-verification-submission';
 import SystemUser from './system-user';
 import AdVideo from './ad-video';
 
@@ -1304,6 +1305,16 @@ export default class Business extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/received_audience_sharing_requests'
+    );
+  }
+
+  getSelfCertifiedWhatsappBusinessSubmissions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      WhatsAppBusinessPartnerClientVerificationSubmission,
+      fields,
+      params,
+      fetchFirstPage,
+      '/self_certified_whatsapp_business_submissions'
     );
   }
 

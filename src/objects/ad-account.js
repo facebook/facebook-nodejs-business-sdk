@@ -35,6 +35,7 @@ import AsyncRequest from './async-request';
 import AdAsyncRequestSet from './ad-async-request-set';
 import BroadTargetingCategories from './broad-targeting-categories';
 import IGUser from './ig-user';
+import InstagramUser from './instagram-user';
 import CustomAudience from './custom-audience';
 import CustomAudiencesTOS from './custom-audiences-tos';
 import CustomConversion from './custom-conversion';
@@ -43,7 +44,6 @@ import AdAccountDsaRecommendations from './ad-account-dsa-recommendations';
 import AdPreview from './ad-preview';
 import AdsInsights from './ads-insights';
 import AdReportRun from './ad-report-run';
-import InstagramUser from './instagram-user';
 import AdAccountIosFourteenCampaignLimits from './ad-account-ios-fourteen-campaign-limits';
 import AdAccountMatchedSearchApplicationsEdgeData from './ad-account-matched-search-applications-edge-data';
 import AdAccountMaxBid from './ad-account-max-bid';
@@ -832,6 +832,16 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
+  getConnectedInstagramAccountsWithIabp (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      InstagramUser,
+      fields,
+      params,
+      fetchFirstPage,
+      '/connected_instagram_accounts_with_iabp'
+    );
+  }
+
   getConversionGoals (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AbstractObject,
@@ -1243,6 +1253,16 @@ export default class AdAccount extends AbstractCrudObject {
     return super.deleteEdge(
       '/usersofanyaudience',
       params
+    );
+  }
+
+  getValueAdjustmentRulePersonaGroups (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/value_adjustment_rule_persona_groups'
     );
   }
 

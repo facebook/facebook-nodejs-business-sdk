@@ -77,6 +77,16 @@ export default class InstagramUser extends AbstractCrudObject {
     );
   }
 
+  getUpcomingEvents (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/upcoming_events'
+    );
+  }
+
   
   get (fields: Array<string>, params: Object = {}): InstagramUser {
     // $FlowFixMe : Support Generic Types

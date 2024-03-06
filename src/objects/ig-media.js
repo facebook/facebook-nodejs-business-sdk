@@ -11,6 +11,7 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
+import BrandedContentShadowIGUserID from './branded-content-shadow-ig-user-id';
 import ShadowIGMediaCollaborators from './shadow-ig-media-collaborators';
 import IGComment from './ig-comment';
 import InstagramInsightsResult from './instagram-insights-result';
@@ -44,6 +45,26 @@ export default class IGMedia extends AbstractCrudObject {
     });
   }
 
+
+  getBrandedContentPartnerPromote (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      BrandedContentShadowIGUserID,
+      fields,
+      params,
+      fetchFirstPage,
+      '/branded_content_partner_promote'
+    );
+  }
+
+  createBrandedContentPartnerPromote (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<BrandedContentShadowIGUserID> {
+    return this.createEdge(
+      '/branded_content_partner_promote',
+      fields,
+      params,
+      BrandedContentShadowIGUserID,
+      pathOverride,
+    );
+  }
 
   getChildren (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(

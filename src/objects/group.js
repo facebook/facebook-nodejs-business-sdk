@@ -59,9 +59,9 @@ export default class Group extends AbstractCrudObject {
   }
   static get PostPermissions (): Object {
     return Object.freeze({
-      value_0: '0',
-      value_1: '1',
-      value_2: '2',
+      admin_only: 'ADMIN_ONLY',
+      anyone: 'ANYONE',
+      none: 'NONE',
     });
   }
   static get Purpose (): Object {

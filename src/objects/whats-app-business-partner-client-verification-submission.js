@@ -11,16 +11,20 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * AdCreativeSourcingSpec
+ * WhatsAppBusinessPartnerClientVerificationSubmission
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class AdCreativeSourcingSpec extends AbstractCrudObject {
+export default class WhatsAppBusinessPartnerClientVerificationSubmission extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      associated_product_set_id: 'associated_product_set_id',
-      promotion_metadata_spec: 'promotion_metadata_spec',
-      site_links_spec: 'site_links_spec',
+      client_business_id: 'client_business_id',
+      id: 'id',
+      rejection_reasons: 'rejection_reasons',
+      submitted_info: 'submitted_info',
+      submitted_time: 'submitted_time',
+      update_time: 'update_time',
+      verification_status: 'verification_status',
     });
   }
 

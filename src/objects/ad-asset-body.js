@@ -11,30 +11,17 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * PageAboutStory
+ * AdAssetBody
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class PageAboutStory extends AbstractCrudObject {
+export default class AdAssetBody extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      composed_text: 'composed_text',
-      cover_photo: 'cover_photo',
-      entity_map: 'entity_map',
       id: 'id',
-      is_published: 'is_published',
-      page_id: 'page_id',
-      title: 'title',
+      text: 'text',
+      url_tags: 'url_tags',
     });
   }
 
-
-  
-  get (fields: Array<string>, params: Object = {}): PageAboutStory {
-    // $FlowFixMe : Support Generic Types
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

@@ -96,16 +96,6 @@ export default class CommerceMerchantSettings extends AbstractCrudObject {
     );
   }
 
-  getOnsiteConversionEvents (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/onsite_conversion_events'
-    );
-  }
-
   getOrderManagementApps (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Application,

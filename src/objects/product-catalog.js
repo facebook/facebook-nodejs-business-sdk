@@ -57,6 +57,7 @@ export default class ProductCatalog extends AbstractCrudObject {
       feed_count: 'feed_count',
       id: 'id',
       is_catalog_segment: 'is_catalog_segment',
+      is_local_catalog: 'is_local_catalog',
       name: 'name',
       owner_business: 'owner_business',
       product_count: 'product_count',
@@ -66,6 +67,12 @@ export default class ProductCatalog extends AbstractCrudObject {
     });
   }
 
+  static get AdditionalVerticalOption (): Object {
+    return Object.freeze({
+      local_da_catalog: 'LOCAL_DA_CATALOG',
+      local_products: 'LOCAL_PRODUCTS',
+    });
+  }
   static get Vertical (): Object {
     return Object.freeze({
       adoptable_pets: 'adoptable_pets',
@@ -73,6 +80,7 @@ export default class ProductCatalog extends AbstractCrudObject {
       commerce: 'commerce',
       destinations: 'destinations',
       flights: 'flights',
+      generic: 'generic',
       home_listings: 'home_listings',
       hotels: 'hotels',
       jobs: 'jobs',

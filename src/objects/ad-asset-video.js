@@ -11,16 +11,24 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * AdCreativeSourcingSpec
+ * AdAssetVideo
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class AdCreativeSourcingSpec extends AbstractCrudObject {
+export default class AdAssetVideo extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      associated_product_set_id: 'associated_product_set_id',
-      promotion_metadata_spec: 'promotion_metadata_spec',
-      site_links_spec: 'site_links_spec',
+      caption_ids: 'caption_ids',
+      id: 'id',
+      source_image_url: 'source_image_url',
+      tag: 'tag',
+      thumbnail_hash: 'thumbnail_hash',
+      thumbnail_source: 'thumbnail_source',
+      thumbnail_url: 'thumbnail_url',
+      url: 'url',
+      url_tags: 'url_tags',
+      video_id: 'video_id',
+      video_name: 'video_name',
     });
   }
 

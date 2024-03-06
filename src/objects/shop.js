@@ -18,6 +18,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class Shop extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
+      commerce_merchant_settings: 'commerce_merchant_settings',
       fb_sales_channel: 'fb_sales_channel',
       id: 'id',
       ig_sales_channel: 'ig_sales_channel',
