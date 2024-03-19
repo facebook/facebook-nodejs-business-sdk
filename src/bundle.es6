@@ -315,6 +315,7 @@ export { default as IGVideoCopyrightCheckMatchesInformation } from './../src/obj
 export { default as IGVideoCopyrightCheckStatus } from './../src/objects/ig-video-copyright-check-status';
 export { default as ImageCopyright } from './../src/objects/image-copyright';
 export { default as InsightsResult } from './../src/objects/insights-result';
+export { default as InsightsValue } from './../src/objects/insights-value';
 export { default as InstagramCarousel } from './../src/objects/instagram-carousel';
 export { default as InstagramComment } from './../src/objects/instagram-comment';
 export { default as InstagramInsightsResult } from './../src/objects/instagram-insights-result';

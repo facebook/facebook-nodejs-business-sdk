@@ -1256,16 +1256,6 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getValueAdjustmentRulePersonaGroups (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/value_adjustment_rule_persona_groups'
-    );
-  }
-
   getValueAdjustmentRules (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AbstractObject,

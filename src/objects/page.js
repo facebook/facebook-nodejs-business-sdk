@@ -84,6 +84,7 @@ export default class Page extends AbstractCrudObject {
       bio: 'bio',
       birthday: 'birthday',
       booking_agent: 'booking_agent',
+      breaking_news_usage: 'breaking_news_usage',
       built: 'built',
       business: 'business',
       can_checkin: 'can_checkin',
@@ -532,6 +533,7 @@ export default class Page extends AbstractCrudObject {
       awards: 'awards',
       bio: 'bio',
       birthday: 'birthday',
+      calls: 'calls',
       category: 'category',
       checkins: 'checkins',
       company_overview: 'company_overview',
@@ -596,6 +598,7 @@ export default class Page extends AbstractCrudObject {
       page_upcoming_change: 'page_upcoming_change',
       parking: 'parking',
       payment_options: 'payment_options',
+      payment_request_update: 'payment_request_update',
       personal_info: 'personal_info',
       personal_interests: 'personal_interests',
       phone: 'phone',
@@ -613,6 +616,16 @@ export default class Page extends AbstractCrudObject {
       video_text_question_responses: 'video_text_question_responses',
       videos: 'videos',
       website: 'website',
+    });
+  }
+  static get Action (): Object {
+    return Object.freeze({
+      spam: 'SPAM',
+    });
+  }
+  static get ActionType (): Object {
+    return Object.freeze({
+      report_thread: 'REPORT_THREAD',
     });
   }
 
@@ -1618,6 +1631,16 @@ export default class Page extends AbstractCrudObject {
   createTakeThreadControl (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Page> {
     return this.createEdge(
       '/take_thread_control',
+      fields,
+      params,
+      Page,
+      pathOverride,
+    );
+  }
+
+  createThreadAction (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Page> {
+    return this.createEdge(
+      '/thread_action',
       fields,
       params,
       Page,

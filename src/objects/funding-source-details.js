@@ -19,6 +19,7 @@ export default class FundingSourceDetails extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       coupon: 'coupon',
+      coupons: 'coupons',
       display_string: 'display_string',
       id: 'id',
       type: 'type',

@@ -23,6 +23,7 @@ export default class AdAssetFeedAdditionalData extends AbstractCrudObject {
       is_click_to_message: 'is_click_to_message',
       multi_share_end_card: 'multi_share_end_card',
       page_welcome_message: 'page_welcome_message',
+      partner_app_welcome_message_flow_id: 'partner_app_welcome_message_flow_id',
     });
   }
 

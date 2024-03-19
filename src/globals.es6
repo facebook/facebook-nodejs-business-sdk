@@ -291,6 +291,7 @@ import './../src/objects/ig-video-copyright-check-matches-information';
 import './../src/objects/ig-video-copyright-check-status';
 import './../src/objects/image-copyright';
 import './../src/objects/insights-result';
+import './../src/objects/insights-value';
 import './../src/objects/instagram-carousel';
 import './../src/objects/instagram-comment';
 import './../src/objects/instagram-insights-result';

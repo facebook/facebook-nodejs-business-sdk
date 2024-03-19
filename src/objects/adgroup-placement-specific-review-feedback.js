@@ -26,6 +26,7 @@ export default class AdgroupPlacementSpecificReviewFeedback extends AbstractCrud
       bsg: 'bsg',
       city_community: 'city_community',
       commerce: 'commerce',
+      compromise: 'compromise',
       daily_deals: 'daily_deals',
       daily_deals_legacy: 'daily_deals_legacy',
       dpa: 'dpa',
