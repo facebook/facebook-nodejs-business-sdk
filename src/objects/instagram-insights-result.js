@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
@@ -36,15 +38,14 @@ export default class InstagramInsightsResult extends AbstractCrudObject {
   }
   static get Metric (): Object {
     return Object.freeze({
-      carousel_album_engagement: 'carousel_album_engagement',
-      carousel_album_impressions: 'carousel_album_impressions',
-      carousel_album_reach: 'carousel_album_reach',
-      carousel_album_saved: 'carousel_album_saved',
-      carousel_album_video_views: 'carousel_album_video_views',
+      clips_replays_count: 'clips_replays_count',
       comments: 'comments',
       engagement: 'engagement',
       exits: 'exits',
       follows: 'follows',
+      ig_reels_aggregated_all_plays_count: 'ig_reels_aggregated_all_plays_count',
+      ig_reels_avg_watch_time: 'ig_reels_avg_watch_time',
+      ig_reels_video_view_total_time: 'ig_reels_video_view_total_time',
       impressions: 'impressions',
       likes: 'likes',
       navigation: 'navigation',

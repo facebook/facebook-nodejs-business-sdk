@@ -21,10 +21,10 @@ export default class FacebookAdsApi {
   locale: string;
   static _defaultApi: FacebookAdsApi;
   static get VERSION(): string {
-    return 'v17.0';
+    return 'v19.0';
   }
   static get SDK_VERSION(): string {
-    return '17.0.0';
+    return '19.0.2';
   }
   static get GRAPH(): string {
     return 'https://graph.facebook.com';
@@ -73,7 +73,11 @@ export default class FacebookAdsApi {
 
   getAppID() : Promise<*> {
     let url = [FacebookAdsApi.GRAPH, FacebookAdsApi.VERSION, 'debug_token'].join('/');
-    let params = {};
+    type Params = {
+      [key: string]: any
+    };
+    let params: Params = {};
+
     params['access_token'] = this.accessToken;
     params['input_token'] = this.accessToken;
     params['fields'] = 'app_id';
@@ -126,9 +130,10 @@ export default class FacebookAdsApi {
     return Http.request(method, strUrl, data, files, useMultipartFormData, this._showHeader)
       .then(response => {
         if (this._showHeader) {
-          response.body['headers'] = response.headers;
-          response = response.body;
+          response.data['headers'] = response.headers;
         }
+
+        response = response.data;
 
         if (this._debug) {
           console.log(`200 ${method} ${url} ${Object.keys(data).length > 0 ? JSON.stringify(data) : ""}`);
@@ -139,9 +144,9 @@ export default class FacebookAdsApi {
         return Promise.resolve(response);
       })
       .catch(response => {
-        if (this._debug) {
+        if (this._debug && response.response) {
           console.log(
-            `${response.statusCode} ${method} ${url}
+            `${response.response.status} ${method} ${url}
             ${Object.keys(data).length > 0 ? JSON.stringify(data) : ''}`,
           );
         }

@@ -218,10 +218,7 @@ export class AbstractCrudObject extends AbstractObject {
     fetchFirstPage: boolean = true,
     endpoint: ?string,
   ): Cursor | Promise<*> {
-    if (params == null) {
-      params = {};
-    }
-    if (fields) {
+    if (fields && fields.length > 0) {
       params['fields'] = fields.join(',');
     }
     const sourceObject = this;
@@ -247,9 +244,6 @@ export class AbstractCrudObject extends AbstractObject {
     targetClassConstructor: Function = null,
     pathOverride?: ?string = null,
   ): Promise<*> {
-    if (params == null) {
-      params = {};
-    }
     if (fields && fields.length > 0) {
       params['fields'] = fields.join(',');
     }
@@ -306,7 +300,7 @@ export class AbstractCrudObject extends AbstractObject {
     api: FacebookAdsApi,
   ): Promise<*> {
     api = api || FacebookAdsApi.getDefaultApi();
-    if (fields) {
+    if (fields && fields.length > 0) {
       params['fields'] = fields.join(',');
     }
     params['ids'] = ids.join(',');

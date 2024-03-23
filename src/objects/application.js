@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
@@ -52,6 +54,8 @@ export default class Application extends AbstractCrudObject {
       auto_event_mapping_android: 'auto_event_mapping_android',
       auto_event_mapping_ios: 'auto_event_mapping_ios',
       auto_event_setup_enabled: 'auto_event_setup_enabled',
+      auto_log_app_events_default: 'auto_log_app_events_default',
+      auto_log_app_events_enabled: 'auto_log_app_events_enabled',
       business: 'business',
       canvas_fluid_height: 'canvas_fluid_height',
       canvas_fluid_width: 'canvas_fluid_width',
@@ -104,6 +108,7 @@ export default class Application extends AbstractCrudObject {
       privacy_policy_url: 'privacy_policy_url',
       profile_section_url: 'profile_section_url',
       property_id: 'property_id',
+      protected_mode_rules: 'protected_mode_rules',
       real_time_mode_devices: 'real_time_mode_devices',
       restrictions: 'restrictions',
       restrictive_data_filter_params: 'restrictive_data_filter_params',
@@ -510,6 +515,16 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
+  getIapPurchases (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/iap_purchases'
+    );
+  }
+
   getInsightsPushSchedule (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AbstractObject,
@@ -590,6 +605,16 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
+  getObjects (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      NullNode,
+      fields,
+      params,
+      fetchFirstPage,
+      '/objects'
+    );
+  }
+
   createOccludesPopup (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
     return this.createEdge(
       '/occludespopups',
@@ -657,6 +682,16 @@ export default class Application extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/roles'
+    );
+  }
+
+  getServerDomainInfos (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/server_domain_infos'
     );
   }
 

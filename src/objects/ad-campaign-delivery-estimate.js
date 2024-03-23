@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
@@ -39,6 +41,7 @@ export default class AdCampaignDeliveryEstimate extends AbstractCrudObject {
       landing_page_views: 'LANDING_PAGE_VIEWS',
       lead_generation: 'LEAD_GENERATION',
       link_clicks: 'LINK_CLICKS',
+      meaningful_call_attempt: 'MEANINGFUL_CALL_ATTEMPT',
       messaging_appointment_conversion: 'MESSAGING_APPOINTMENT_CONVERSION',
       messaging_purchase_conversion: 'MESSAGING_PURCHASE_CONVERSION',
       none: 'NONE',
@@ -48,6 +51,7 @@ export default class AdCampaignDeliveryEstimate extends AbstractCrudObject {
       quality_call: 'QUALITY_CALL',
       quality_lead: 'QUALITY_LEAD',
       reach: 'REACH',
+      reminders_set: 'REMINDERS_SET',
       subscribers: 'SUBSCRIBERS',
       thruplay: 'THRUPLAY',
       value: 'VALUE',

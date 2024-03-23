@@ -1,10 +1,10 @@
 {
   "name": "facebook-nodejs-business-sdk",
-  "version": "17.0.0",
-  "description": "SDK for the Facebook Ads API in Javascript and Node.js",
+  "version": "19.0.2",
+  "description": "SDK for the Facebook Marketing API in Javascript and Node.js",
   "author": "Facebook",
   "maintainers": [
-    "Ellen Tao <ellentao@fb.com>, Yonghong Shi <yongshi@fb.com>, Moyang He <hemoyang@fb.com>, Zain Aziz <zaziz@fb.com>, Neil Chen <xiaotchen@fb.com>, Supasate Choochaisri <supasate@fb.com>, lucascosta <lucas@lucascosta.com>"
+    "Shuotian Cheng <shuotian@meta.com>"
   ],
   "homepage": "https://github.com/facebook/facebook-nodejs-business-sdk",
   "bugs": {
@@ -12,6 +12,7 @@
   },
   "keywords": [
     "facebook",
+    "meta",
     "ads",
     "sdk",
     "api",
@@ -30,12 +31,11 @@
     "url": "git://github.com/facebook/facebook-nodejs-business-sdk.git"
   },
   "dependencies": {
+    "axios": "^1.4.0",
     "currency-codes": "^1.5.1",
     "iso-3166-1": "^2.1.1",
     "js-sha256": "^0.9.0",
-    "mixwith": "~0.1.1",
-    "request": "^2.88.0",
-    "request-promise": "~4.1.1"
+    "mixwith": "~0.1.1"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
@@ -50,13 +50,12 @@
     "babel-preset-stage-2": "^6.24.1",
     "babelrc-rollup": "^3.0.0",
     "chai": "~3.5.0",
-    "eslint": "^4.18.2",
+    "eslint": "^7.32.0",
     "eslint-plugin-flowtype": "^2.50.3",
     "flow-bin": "^0.138.0",
     "gulp": "^4.0.2",
     "gulp-cli": "^2.2.0",
     "gulp-filenames": "~4.0.0",
-    "gulp-flowtype": "^1.0.0",
     "gulp-load-plugins": "^1.6.0",
     "gulp-open": "^3.0.1",
     "gulp-rename": "^1.2.3",
@@ -72,7 +71,7 @@
     "vinyl-source-stream": "~2.0.0"
   },
   "scripts": {
-    "prepublish": "./node_modules/.bin/gulp dist",
+    "prepublish": "gulp dist",
     "start": "semistandard --fix",
     "flow": "flow",
     "test": "jest"

@@ -91,7 +91,7 @@ const api = adsSdk.FacebookAdsApi.init(accessToken);
 ### Api main class
 
 The `FacebookAdsApi` object is the foundation of the Business SDK which encapsulates the logic to execute requests against the Graph API.
-Once instantiated, the Api object will allows you to start making requests to the Graph API.
+Once instantiated, the Api object will allow you to start making requests to the Graph API.
 
 ### Facebook Objects
 

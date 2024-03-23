@@ -1,14 +1,18 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
+import BrandedContentShadowIGUserID from './branded-content-shadow-ig-user-id';
+import ShadowIGMediaCollaborators from './shadow-ig-media-collaborators';
 import IGComment from './ig-comment';
 import InstagramInsightsResult from './instagram-insights-result';
 import ShadowIGMediaProductTags from './shadow-ig-media-product-tags';
@@ -23,6 +27,7 @@ export default class IGMedia extends AbstractCrudObject {
     return Object.freeze({
       caption: 'caption',
       comments_count: 'comments_count',
+      copyright_check_information: 'copyright_check_information',
       id: 'id',
       ig_id: 'ig_id',
       is_comment_enabled: 'is_comment_enabled',
@@ -41,6 +46,26 @@ export default class IGMedia extends AbstractCrudObject {
   }
 
 
+  getBrandedContentPartnerPromote (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      BrandedContentShadowIGUserID,
+      fields,
+      params,
+      fetchFirstPage,
+      '/branded_content_partner_promote'
+    );
+  }
+
+  createBrandedContentPartnerPromote (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<BrandedContentShadowIGUserID> {
+    return this.createEdge(
+      '/branded_content_partner_promote',
+      fields,
+      params,
+      BrandedContentShadowIGUserID,
+      pathOverride,
+    );
+  }
+
   getChildren (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       IGMedia,
@@ -48,6 +73,16 @@ export default class IGMedia extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/children'
+    );
+  }
+
+  getCollaborators (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      ShadowIGMediaCollaborators,
+      fields,
+      params,
+      fetchFirstPage,
+      '/collaborators'
     );
   }
 

@@ -1,13 +1,17 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
+import Cursor from './../cursor';
+import Business from './business';
 
 /**
  * WhatsAppBusinessPreVerifiedPhoneNumber
@@ -20,6 +24,7 @@ export default class WhatsAppBusinessPreVerifiedPhoneNumber extends AbstractCrud
       code_verification_status: 'code_verification_status',
       code_verification_time: 'code_verification_time',
       id: 'id',
+      owner_business: 'owner_business',
       phone_number: 'phone_number',
       verification_expiry_time: 'verification_expiry_time',
     });
@@ -31,6 +36,16 @@ export default class WhatsAppBusinessPreVerifiedPhoneNumber extends AbstractCrud
       not_verified: 'NOT_VERIFIED',
       verified: 'VERIFIED',
     });
+  }
+
+  getPartners (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      Business,
+      fields,
+      params,
+      fetchFirstPage,
+      '/partners'
+    );
   }
 
   createRequestCode (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {

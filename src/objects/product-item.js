@@ -1,16 +1,19 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import CatalogItemChannelsToIntegrityStatus from './catalog-item-channels-to-integrity-status';
 import ProductSet from './product-set';
+import DynamicVideoMetadata from './dynamic-video-metadata';
 
 /**
  * ProductItem
@@ -25,7 +28,6 @@ export default class ProductItem extends AbstractCrudObject {
       additional_variant_attributes: 'additional_variant_attributes',
       age_group: 'age_group',
       applinks: 'applinks',
-      ar_data: 'ar_data',
       availability: 'availability',
       brand: 'brand',
       capability_to_review_status: 'capability_to_review_status',
@@ -76,6 +78,7 @@ export default class ProductItem extends AbstractCrudObject {
       product_catalog: 'product_catalog',
       product_feed: 'product_feed',
       product_group: 'product_group',
+      product_local_info: 'product_local_info',
       product_type: 'product_type',
       quantity_to_sell_on_facebook: 'quantity_to_sell_on_facebook',
       retailer_id: 'retailer_id',
@@ -90,7 +93,9 @@ export default class ProductItem extends AbstractCrudObject {
       short_description: 'short_description',
       size: 'size',
       start_date: 'start_date',
+      tags: 'tags',
       url: 'url',
+      video_fetch_status: 'video_fetch_status',
       visibility: 'visibility',
       wa_compliance_category: 'wa_compliance_category',
     });
@@ -112,6 +117,7 @@ export default class ProductItem extends AbstractCrudObject {
       available_for_order: 'available for order',
       discontinued: 'discontinued',
       in_stock: 'in stock',
+      mark_as_sold: 'mark_as_sold',
       out_of_stock: 'out of stock',
       pending: 'pending',
       preorder: 'preorder',
@@ -160,6 +166,16 @@ export default class ProductItem extends AbstractCrudObject {
       kg: 'kg',
       lb: 'lb',
       oz: 'oz',
+    });
+  }
+  static get VideoFetchStatus (): Object {
+    return Object.freeze({
+      direct_upload: 'DIRECT_UPLOAD',
+      fetched: 'FETCHED',
+      fetch_failed: 'FETCH_FAILED',
+      no_status: 'NO_STATUS',
+      outdated: 'OUTDATED',
+      partial_fetch: 'PARTIAL_FETCH',
     });
   }
   static get Visibility (): Object {
@@ -386,16 +402,29 @@ export default class ProductItem extends AbstractCrudObject {
   }
   static get ErrorType (): Object {
     return Object.freeze({
+      address_blocklisted_in_market: 'ADDRESS_BLOCKLISTED_IN_MARKET',
       ar_deleted_due_to_update: 'AR_DELETED_DUE_TO_UPDATE',
       ar_policy_violated: 'AR_POLICY_VIOLATED',
       available: 'AVAILABLE',
       bad_quality_image: 'BAD_QUALITY_IMAGE',
+      biz_msg_ai_agent_disabled_by_user: 'BIZ_MSG_AI_AGENT_DISABLED_BY_USER',
       cannot_edit_subscription_products: 'CANNOT_EDIT_SUBSCRIPTION_PRODUCTS',
+      checkout_disabled_by_user: 'CHECKOUT_DISABLED_BY_USER',
+      commerce_account_not_legally_compliant: 'COMMERCE_ACCOUNT_NOT_LEGALLY_COMPLIANT',
       crawled_availability_mismatch: 'CRAWLED_AVAILABILITY_MISMATCH',
+      da_disabled_by_user: 'DA_DISABLED_BY_USER',
+      da_policy_violation: 'DA_POLICY_VIOLATION',
       digital_goods_not_available_for_checkout: 'DIGITAL_GOODS_NOT_AVAILABLE_FOR_CHECKOUT',
       duplicate_images: 'DUPLICATE_IMAGES',
       duplicate_title_and_description: 'DUPLICATE_TITLE_AND_DESCRIPTION',
+      empty_availability: 'EMPTY_AVAILABILITY',
+      empty_condition: 'EMPTY_CONDITION',
       empty_description: 'EMPTY_DESCRIPTION',
+      empty_image_url: 'EMPTY_IMAGE_URL',
+      empty_product_url: 'EMPTY_PRODUCT_URL',
+      empty_seller_description: 'EMPTY_SELLER_DESCRIPTION',
+      empty_title: 'EMPTY_TITLE',
+      external_merchant_id_mismatch: 'EXTERNAL_MERCHANT_ID_MISMATCH',
       generic_invalid_field: 'GENERIC_INVALID_FIELD',
       hidden_until_product_launch: 'HIDDEN_UNTIL_PRODUCT_LAUNCH',
       image_fetch_failed: 'IMAGE_FETCH_FAILED',
@@ -407,19 +436,37 @@ export default class ProductItem extends AbstractCrudObject {
       image_resolution_low: 'IMAGE_RESOLUTION_LOW',
       inactive_shopify_product: 'INACTIVE_SHOPIFY_PRODUCT',
       invalid_commerce_tax_category: 'INVALID_COMMERCE_TAX_CATEGORY',
+      invalid_consolidated_locality_information: 'INVALID_CONSOLIDATED_LOCALITY_INFORMATION',
+      invalid_dealer_communication_parameters: 'INVALID_DEALER_COMMUNICATION_PARAMETERS',
+      invalid_dma_codes: 'INVALID_DMA_CODES',
+      invalid_fb_page_id: 'INVALID_FB_PAGE_ID',
       invalid_images: 'INVALID_IMAGES',
       invalid_monetizer_return_policy: 'INVALID_MONETIZER_RETURN_POLICY',
+      invalid_offer_disclaimer_url: 'INVALID_OFFER_DISCLAIMER_URL',
+      invalid_offer_end_date: 'INVALID_OFFER_END_DATE',
       invalid_pre_order_params: 'INVALID_PRE_ORDER_PARAMS',
+      invalid_range_for_area_size: 'INVALID_RANGE_FOR_AREA_SIZE',
+      invalid_range_for_built_up_area_size: 'INVALID_RANGE_FOR_BUILT_UP_AREA_SIZE',
+      invalid_range_for_num_of_baths: 'INVALID_RANGE_FOR_NUM_OF_BATHS',
+      invalid_range_for_num_of_beds: 'INVALID_RANGE_FOR_NUM_OF_BEDS',
+      invalid_range_for_num_of_rooms: 'INVALID_RANGE_FOR_NUM_OF_ROOMS',
+      invalid_range_for_parking_spaces: 'INVALID_RANGE_FOR_PARKING_SPACES',
+      invalid_shelter_page_id: 'INVALID_SHELTER_PAGE_ID',
       invalid_shipping_profile_params: 'INVALID_SHIPPING_PROFILE_PARAMS',
       invalid_subscription_disable_params: 'INVALID_SUBSCRIPTION_DISABLE_PARAMS',
       invalid_subscription_enable_params: 'INVALID_SUBSCRIPTION_ENABLE_PARAMS',
       invalid_subscription_params: 'INVALID_SUBSCRIPTION_PARAMS',
+      invalid_vehicle_state: 'INVALID_VEHICLE_STATE',
+      invalid_virtual_tour_url_domain: 'INVALID_VIRTUAL_TOUR_URL_DOMAIN',
       inventory_zero_availability_in_stock: 'INVENTORY_ZERO_AVAILABILITY_IN_STOCK',
       in_another_product_launch: 'IN_ANOTHER_PRODUCT_LAUNCH',
       item_group_not_specified: 'ITEM_GROUP_NOT_SPECIFIED',
       item_not_shippable_for_sca_shop: 'ITEM_NOT_SHIPPABLE_FOR_SCA_SHOP',
+      item_override_empty_availability: 'ITEM_OVERRIDE_EMPTY_AVAILABILITY',
+      item_override_empty_price: 'ITEM_OVERRIDE_EMPTY_PRICE',
       item_override_not_visible: 'ITEM_OVERRIDE_NOT_VISIBLE',
       item_stale_out_of_stock: 'ITEM_STALE_OUT_OF_STOCK',
+      marketplace_disabled_by_user: 'MARKETPLACE_DISABLED_BY_USER',
       mini_shops_disabled_by_user: 'MINI_SHOPS_DISABLED_BY_USER',
       missing_checkout: 'MISSING_CHECKOUT',
       missing_checkout_currency: 'MISSING_CHECKOUT_CURRENCY',
@@ -430,10 +477,14 @@ export default class ProductItem extends AbstractCrudObject {
       missing_size: 'MISSING_SIZE',
       missing_tax_category: 'MISSING_TAX_CATEGORY',
       negative_community_feedback: 'NEGATIVE_COMMUNITY_FEEDBACK',
+      negative_price: 'NEGATIVE_PRICE',
       not_enough_images: 'NOT_ENOUGH_IMAGES',
+      not_enough_unique_products: 'NOT_ENOUGH_UNIQUE_PRODUCTS',
+      overlay_disclaimer_exceeded_max_length: 'OVERLAY_DISCLAIMER_EXCEEDED_MAX_LENGTH',
       part_of_product_launch: 'PART_OF_PRODUCT_LAUNCH',
       product_expired: 'PRODUCT_EXPIRED',
       product_item_hidden_from_all_shops: 'PRODUCT_ITEM_HIDDEN_FROM_ALL_SHOPS',
+      product_item_invalid_partner_tokens: 'PRODUCT_ITEM_INVALID_PARTNER_TOKENS',
       product_item_not_included_in_any_shop: 'PRODUCT_ITEM_NOT_INCLUDED_IN_ANY_SHOP',
       product_item_not_visible: 'PRODUCT_ITEM_NOT_VISIBLE',
       product_not_approved: 'PRODUCT_NOT_APPROVED',
@@ -443,6 +494,7 @@ export default class ProductItem extends AbstractCrudObject {
       property_price_currency_not_supported: 'PROPERTY_PRICE_CURRENCY_NOT_SUPPORTED',
       property_price_too_high: 'PROPERTY_PRICE_TOO_HIGH',
       property_price_too_low: 'PROPERTY_PRICE_TOO_LOW',
+      property_unit_price_currency_mismatch_item_price_currency: 'PROPERTY_UNIT_PRICE_CURRENCY_MISMATCH_ITEM_PRICE_CURRENCY',
       property_value_contains_html_tags: 'PROPERTY_VALUE_CONTAINS_HTML_TAGS',
       property_value_description_contains_off_platform_link: 'PROPERTY_VALUE_DESCRIPTION_CONTAINS_OFF_PLATFORM_LINK',
       property_value_format: 'PROPERTY_VALUE_FORMAT',
@@ -451,16 +503,28 @@ export default class ProductItem extends AbstractCrudObject {
       property_value_non_positive: 'PROPERTY_VALUE_NON_POSITIVE',
       property_value_string_exceeds_length: 'PROPERTY_VALUE_STRING_EXCEEDS_LENGTH',
       property_value_string_too_short: 'PROPERTY_VALUE_STRING_TOO_SHORT',
+      property_value_uppercase: 'PROPERTY_VALUE_UPPERCASE',
       property_value_uppercase_warning: 'PROPERTY_VALUE_UPPERCASE_WARNING',
       quality_duplicated_description: 'QUALITY_DUPLICATED_DESCRIPTION',
       quality_item_link_broken: 'QUALITY_ITEM_LINK_BROKEN',
       quality_item_link_redirecting: 'QUALITY_ITEM_LINK_REDIRECTING',
       retailer_id_not_provided: 'RETAILER_ID_NOT_PROVIDED',
+      shopify_invalid_retailer_id: 'SHOPIFY_INVALID_RETAILER_ID',
       shopify_item_missing_shipping_profile: 'SHOPIFY_ITEM_MISSING_SHIPPING_PROFILE',
+      shops_policy_violation: 'SHOPS_POLICY_VIOLATION',
       subscription_info_not_enabled_for_feed: 'SUBSCRIPTION_INFO_NOT_ENABLED_FOR_FEED',
       tax_category_not_supported_in_uk: 'TAX_CATEGORY_NOT_SUPPORTED_IN_UK',
       unsupported_product_category: 'UNSUPPORTED_PRODUCT_CATEGORY',
       variant_attribute_issue: 'VARIANT_ATTRIBUTE_ISSUE',
+      video_fetch_failed: 'VIDEO_FETCH_FAILED',
+      video_fetch_failed_bad_gateway: 'VIDEO_FETCH_FAILED_BAD_GATEWAY',
+      video_fetch_failed_file_size_exceeded: 'VIDEO_FETCH_FAILED_FILE_SIZE_EXCEEDED',
+      video_fetch_failed_forbidden: 'VIDEO_FETCH_FAILED_FORBIDDEN',
+      video_fetch_failed_link_broken: 'VIDEO_FETCH_FAILED_LINK_BROKEN',
+      video_fetch_failed_timed_out: 'VIDEO_FETCH_FAILED_TIMED_OUT',
+      video_not_downloadable: 'VIDEO_NOT_DOWNLOADABLE',
+      whatsapp_disabled_by_user: 'WHATSAPP_DISABLED_BY_USER',
+      whatsapp_policy_violation: 'WHATSAPP_POLICY_VIOLATION',
     });
   }
   static get MarkedForProductLaunch (): Object {
@@ -754,7 +818,7 @@ export default class ProductItem extends AbstractCrudObject {
 
   getVideosMetadata (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      AbstractObject,
+      DynamicVideoMetadata,
       fields,
       params,
       fetchFirstPage,

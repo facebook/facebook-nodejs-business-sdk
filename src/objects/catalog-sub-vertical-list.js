@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
@@ -45,7 +47,6 @@ export default class CatalogSubVerticalList extends AbstractCrudObject {
       local_service_business_item: 'local_service_business_item',
       local_service_business_restaurant: 'local_service_business_restaurant',
       loyalty_offer: 'loyalty_offer',
-      meetup_space: 'meetup_space',
       nursery: 'nursery',
       printers_and_scanners: 'printers_and_scanners',
       printers_scanners_and_fax_machines: 'printers_scanners_and_fax_machines',

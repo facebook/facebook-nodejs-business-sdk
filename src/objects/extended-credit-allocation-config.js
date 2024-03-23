@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 
@@ -41,6 +43,7 @@ export default class ExtendedCreditAllocationConfig extends AbstractCrudObject {
     return Object.freeze({
       auth: 'AUTH',
       fixed: 'FIXED',
+      fixed_without_partition: 'FIXED_WITHOUT_PARTITION',
     });
   }
   static get SendBillTo (): Object {

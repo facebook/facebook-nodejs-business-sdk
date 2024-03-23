@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
@@ -142,6 +144,8 @@ export default class ProductFeed extends AbstractCrudObject {
       language: 'LANGUAGE',
       language_and_country: 'LANGUAGE_AND_COUNTRY',
       local: 'LOCAL',
+      smart_pixel_language_or_country: 'SMART_PIXEL_LANGUAGE_OR_COUNTRY',
+      version: 'VERSION',
     });
   }
 

@@ -32,7 +32,6 @@ let fields, params;
 fields = [
 ];
 params = {
-  'hotel_catalog_settings' : {'pull_config_id':'<pullConfigID>'},
 };
 const sample_code = (new ProductCatalog(id)).update(
   fields,

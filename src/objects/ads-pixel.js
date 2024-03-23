@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
@@ -56,6 +58,7 @@ export default class AdsPixel extends AbstractCrudObject {
       owner_ad_account: 'owner_ad_account',
       owner_business: 'owner_business',
       usage: 'usage',
+      user_access_expire_time: 'user_access_expire_time',
       valid_entries: 'valid_entries',
     });
   }
@@ -125,6 +128,16 @@ export default class AdsPixel extends AbstractCrudObject {
     );
   }
 
+  createAhpConfig (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+    return this.createEdge(
+      '/ahp_configs',
+      fields,
+      params,
+      null,
+      pathOverride,
+    );
+  }
+
   getAssignedUsers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AssignedUser,
@@ -158,16 +171,6 @@ export default class AdsPixel extends AbstractCrudObject {
   createEvent (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
     return this.createEdge(
       '/events',
-      fields,
-      params,
-      null,
-      pathOverride,
-    );
-  }
-
-  createMeapitocapiconsolidationhelper (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
-    return this.createEdge(
-      '/meapitocapiconsolidationhelper',
       fields,
       params,
       null,

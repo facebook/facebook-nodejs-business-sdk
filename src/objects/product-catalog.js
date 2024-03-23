@@ -1,16 +1,17 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import Business from './business';
-import AREffectsBatchStatus from './ar-effects-batch-status';
 import AssignedUser from './assigned-user';
 import AutomotiveModel from './automotive-model';
 import StoreCatalogSettings from './store-catalog-settings';
@@ -56,21 +57,29 @@ export default class ProductCatalog extends AbstractCrudObject {
       feed_count: 'feed_count',
       id: 'id',
       is_catalog_segment: 'is_catalog_segment',
+      is_local_catalog: 'is_local_catalog',
       name: 'name',
       owner_business: 'owner_business',
       product_count: 'product_count',
       store_catalog_settings: 'store_catalog_settings',
+      user_access_expire_time: 'user_access_expire_time',
       vertical: 'vertical',
     });
   }
 
+  static get AdditionalVerticalOption (): Object {
+    return Object.freeze({
+      local_da_catalog: 'LOCAL_DA_CATALOG',
+      local_products: 'LOCAL_PRODUCTS',
+    });
+  }
   static get Vertical (): Object {
     return Object.freeze({
       adoptable_pets: 'adoptable_pets',
-      bookable: 'bookable',
       commerce: 'commerce',
       destinations: 'destinations',
       flights: 'flights',
+      generic: 'generic',
       home_listings: 'home_listings',
       hotels: 'hotels',
       jobs: 'jobs',
@@ -78,7 +87,6 @@ export default class ProductCatalog extends AbstractCrudObject {
       local_service_businesses: 'local_service_businesses',
       offer_items: 'offer_items',
       offline_commerce: 'offline_commerce',
-      ticketed_experiences: 'ticketed_experiences',
       transactable_items: 'transactable_items',
       vehicles: 'vehicles',
     });
@@ -91,6 +99,7 @@ export default class ProductCatalog extends AbstractCrudObject {
   }
   static get PermittedTasks (): Object {
     return Object.freeze({
+      aa_analyze: 'AA_ANALYZE',
       advertise: 'ADVERTISE',
       manage: 'MANAGE',
       manage_ar: 'MANAGE_AR',
@@ -98,6 +107,7 @@ export default class ProductCatalog extends AbstractCrudObject {
   }
   static get Tasks (): Object {
     return Object.freeze({
+      aa_analyze: 'AA_ANALYZE',
       advertise: 'ADVERTISE',
       manage: 'MANAGE',
       manage_ar: 'MANAGE_AR',
@@ -163,16 +173,6 @@ export default class ProductCatalog extends AbstractCrudObject {
       params,
       ProductCatalog,
       pathOverride,
-    );
-  }
-
-  getArEffectsBatchStatus (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AREffectsBatchStatus,
-      fields,
-      params,
-      fetchFirstPage,
-      '/ar_effects_batch_status'
     );
   }
 

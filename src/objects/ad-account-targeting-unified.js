@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
@@ -393,6 +395,7 @@ export default class AdAccountTargetingUnified extends AbstractCrudObject {
       excluded_user_adclusters: 'excluded_user_adclusters',
       excluded_user_device: 'excluded_user_device',
       exclusions: 'exclusions',
+      expanded_implicit_custom_audiences: 'expanded_implicit_custom_audiences',
       facebook_positions: 'facebook_positions',
       family_statuses: 'family_statuses',
       fb_deal_id: 'fb_deal_id',
@@ -427,6 +430,7 @@ export default class AdAccountTargetingUnified extends AbstractCrudObject {
       location_categories: 'location_categories',
       location_cluster_ids: 'location_cluster_ids',
       location_expansion: 'location_expansion',
+      marketing_message_targeting: 'marketing_message_targeting',
       marketplace_product_categories: 'marketplace_product_categories',
       messenger_positions: 'messenger_positions',
       mobile_device_model: 'mobile_device_model',
@@ -447,6 +451,7 @@ export default class AdAccountTargetingUnified extends AbstractCrudObject {
       relationship_statuses: 'relationship_statuses',
       rtb_flag: 'rtb_flag',
       site_category: 'site_category',
+      tafe_ca_mitigation_strategy: 'tafe_ca_mitigation_strategy',
       targeting_automation: 'targeting_automation',
       targeting_optimization: 'targeting_optimization',
       targeting_relaxation_types: 'targeting_relaxation_types',
@@ -474,6 +479,7 @@ export default class AdAccountTargetingUnified extends AbstractCrudObject {
       apk_pure: 'apk_pure',
       aptoide_a1_store: 'aptoide_a1_store',
       bemobi_mobile_store: 'bemobi_mobile_store',
+      digital_turbine_store: 'digital_turbine_store',
       does_not_exist: 'does_not_exist',
       fb_android_store: 'fb_android_store',
       fb_canvas: 'fb_canvas',

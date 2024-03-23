@@ -1,12 +1,15 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import Business from './business';
 import AdAccount from './ad-account';
@@ -44,6 +47,16 @@ export default class InstagramUser extends AbstractCrudObject {
     );
   }
 
+  getArEffects (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/ar_effects'
+    );
+  }
+
   getAuthorizedAdAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdAccount,
@@ -61,6 +74,16 @@ export default class InstagramUser extends AbstractCrudObject {
       params,
       InstagramUser,
       pathOverride,
+    );
+  }
+
+  getUpcomingEvents (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/upcoming_events'
     );
   }
 

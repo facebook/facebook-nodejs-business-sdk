@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
@@ -45,6 +47,7 @@ export default class AdsInsights extends AbstractCrudObject {
       catalog_segment_value_omni_purchase_roas: 'catalog_segment_value_omni_purchase_roas',
       catalog_segment_value_website_purchase_roas: 'catalog_segment_value_website_purchase_roas',
       clicks: 'clicks',
+      conversion_lead_rate: 'conversion_lead_rate',
       conversion_rate_ranking: 'conversion_rate_ranking',
       conversion_values: 'conversion_values',
       conversions: 'conversions',
@@ -55,6 +58,7 @@ export default class AdsInsights extends AbstractCrudObject {
       cost_per_action_type: 'cost_per_action_type',
       cost_per_ad_click: 'cost_per_ad_click',
       cost_per_conversion: 'cost_per_conversion',
+      cost_per_conversion_lead: 'cost_per_conversion_lead',
       cost_per_dda_countby_convs: 'cost_per_dda_countby_convs',
       cost_per_estimated_ad_recallers: 'cost_per_estimated_ad_recallers',
       cost_per_inline_link_click: 'cost_per_inline_link_click',
@@ -99,6 +103,10 @@ export default class AdsInsights extends AbstractCrudObject {
       interactive_component_tap: 'interactive_component_tap',
       labels: 'labels',
       location: 'location',
+      marketing_messages_cost_per_delivered: 'marketing_messages_cost_per_delivered',
+      marketing_messages_cost_per_link_btn_click: 'marketing_messages_cost_per_link_btn_click',
+      marketing_messages_spend: 'marketing_messages_spend',
+      marketing_messages_website_purchase_values: 'marketing_messages_website_purchase_values',
       mobile_app_purchase_roas: 'mobile_app_purchase_roas',
       objective: 'objective',
       optimization_goal: 'optimization_goal',
@@ -108,9 +116,6 @@ export default class AdsInsights extends AbstractCrudObject {
       purchase_roas: 'purchase_roas',
       qualifying_question_qualify_answer_rate: 'qualifying_question_qualify_answer_rate',
       quality_ranking: 'quality_ranking',
-      quality_score_ectr: 'quality_score_ectr',
-      quality_score_ecvr: 'quality_score_ecvr',
-      quality_score_organic: 'quality_score_organic',
       reach: 'reach',
       social_spend: 'social_spend',
       spend: 'spend',
@@ -154,11 +159,16 @@ export default class AdsInsights extends AbstractCrudObject {
   static get ActionAttributionWindows (): Object {
     return Object.freeze({
       value_1d_click: '1d_click',
+      value_1d_ev: '1d_ev',
       value_1d_view: '1d_view',
       value_28d_click: '28d_click',
       value_28d_view: '28d_view',
+      value_28d_view_all_conversions: '28d_view_all_conversions',
+      value_28d_view_first_conversion: '28d_view_first_conversion',
       value_7d_click: '7d_click',
       value_7d_view: '7d_view',
+      value_7d_view_all_conversions: '7d_view_all_conversions',
+      value_7d_view_first_conversion: '7d_view_first_conversion',
       dda: 'dda',
       default: 'default',
       skan_click: 'skan_click',
@@ -177,6 +187,11 @@ export default class AdsInsights extends AbstractCrudObject {
       action_type: 'action_type',
       action_video_sound: 'action_video_sound',
       action_video_type: 'action_video_type',
+      conversion_destination: 'conversion_destination',
+      matched_persona_id: 'matched_persona_id',
+      matched_persona_name: 'matched_persona_name',
+      signal_source_bucket: 'signal_source_bucket',
+      standard_event_content_type: 'standard_event_content_type',
     });
   }
   static get ActionReportTime (): Object {
@@ -194,6 +209,7 @@ export default class AdsInsights extends AbstractCrudObject {
       body_asset: 'body_asset',
       call_to_action_asset: 'call_to_action_asset',
       coarse_conversion_value: 'coarse_conversion_value',
+      conversion_destination: 'conversion_destination',
       country: 'country',
       description_asset: 'description_asset',
       device_platform: 'device_platform',
@@ -207,7 +223,16 @@ export default class AdsInsights extends AbstractCrudObject {
       image_asset: 'image_asset',
       impression_device: 'impression_device',
       is_conversion_id_modeled: 'is_conversion_id_modeled',
+      landing_destination: 'landing_destination',
       link_url_asset: 'link_url_asset',
+      marketing_messages_btn_name: 'marketing_messages_btn_name',
+      mdsa_landing_destination: 'mdsa_landing_destination',
+      media_asset_url: 'media_asset_url',
+      media_creator: 'media_creator',
+      media_destination_url: 'media_destination_url',
+      media_format: 'media_format',
+      media_origin_url: 'media_origin_url',
+      media_text_content: 'media_text_content',
       mmm: 'mmm',
       place_page_id: 'place_page_id',
       platform_position: 'platform_position',
@@ -218,6 +243,8 @@ export default class AdsInsights extends AbstractCrudObject {
       region: 'region',
       skan_campaign_id: 'skan_campaign_id',
       skan_conversion_id: 'skan_conversion_id',
+      skan_version: 'skan_version',
+      standard_event_content_type: 'standard_event_content_type',
       title_asset: 'title_asset',
       video_asset: 'video_asset',
     });
@@ -266,6 +293,11 @@ export default class AdsInsights extends AbstractCrudObject {
       action_type: 'action_type',
       action_video_sound: 'action_video_sound',
       action_video_type: 'action_video_type',
+      conversion_destination: 'conversion_destination',
+      matched_persona_id: 'matched_persona_id',
+      matched_persona_name: 'matched_persona_name',
+      signal_source_bucket: 'signal_source_bucket',
+      standard_event_content_type: 'standard_event_content_type',
     });
   }
 }

@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
@@ -20,6 +22,7 @@ export default class AdCreativeLinkData extends AbstractCrudObject {
       additional_image_index: 'additional_image_index',
       app_link_spec: 'app_link_spec',
       attachment_style: 'attachment_style',
+      automated_product_tags: 'automated_product_tags',
       branded_content_shared_to_sponsor_status: 'branded_content_shared_to_sponsor_status',
       branded_content_sponsor_page_id: 'branded_content_sponsor_page_id',
       call_to_action: 'call_to_action',
@@ -52,12 +55,6 @@ export default class AdCreativeLinkData extends AbstractCrudObject {
     });
   }
 
-  static get AttachmentStyle (): Object {
-    return Object.freeze({
-      default: 'default',
-      link: 'link',
-    });
-  }
   static get FormatOption (): Object {
     return Object.freeze({
       carousel_ar_effects: 'carousel_ar_effects',

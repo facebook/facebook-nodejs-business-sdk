@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
@@ -19,6 +21,7 @@ export default class Targeting extends AbstractCrudObject {
       adgroup_id: 'adgroup_id',
       age_max: 'age_max',
       age_min: 'age_min',
+      age_range: 'age_range',
       alternate_auto_targeting_option: 'alternate_auto_targeting_option',
       app_install_state: 'app_install_state',
       audience_network_positions: 'audience_network_positions',
@@ -96,6 +99,7 @@ export default class Targeting extends AbstractCrudObject {
       regions: 'regions',
       relationship_statuses: 'relationship_statuses',
       site_category: 'site_category',
+      targeting_automation: 'targeting_automation',
       targeting_optimization: 'targeting_optimization',
       targeting_relaxation_types: 'targeting_relaxation_types',
       user_adclusters: 'user_adclusters',

@@ -1,11 +1,13 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
+
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
@@ -53,6 +55,8 @@ export default class CustomAudienceDataSource extends AbstractCrudObject {
       instant_article_events: 'INSTANT_ARTICLE_EVENTS',
       lookalike_platform: 'LOOKALIKE_PLATFORM',
       mail_chimp_email_hashes: 'MAIL_CHIMP_EMAIL_HASHES',
+      marketplace_listings: 'MARKETPLACE_LISTINGS',
+      messenger_onsite_subscription: 'MESSENGER_ONSITE_SUBSCRIPTION',
       mobile_advertiser_ids: 'MOBILE_ADVERTISER_IDS',
       mobile_app_combination_events: 'MOBILE_APP_COMBINATION_EVENTS',
       mobile_app_custom_audience_users: 'MOBILE_APP_CUSTOM_AUDIENCE_USERS',
@@ -82,6 +86,7 @@ export default class CustomAudienceDataSource extends AbstractCrudObject {
       web_pixel_combination_events: 'WEB_PIXEL_COMBINATION_EVENTS',
       web_pixel_hits: 'WEB_PIXEL_HITS',
       web_pixel_hits_custom_audience_users: 'WEB_PIXEL_HITS_CUSTOM_AUDIENCE_USERS',
+      whatsapp_subscriber_pool: 'WHATSAPP_SUBSCRIBER_POOL',
     });
   }
   static get Type (): Object {

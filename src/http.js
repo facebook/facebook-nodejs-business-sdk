@@ -9,7 +9,7 @@
  */
 import Api from './api';
 import HTTP_STATUS from './http-status';
-const requestPromise = require('request-promise');
+const axios = require("axios");
 
 /**
  * Isomorphic Http Promise Requests Class
@@ -48,26 +48,28 @@ export default class Http {
     return new Promise((resolve, reject) => {
       const request = new window.XMLHttpRequest();
       request.open(method, url);
-      request.onload = function () {
-        let response;
+      request.onload = function() {
         try {
-          response = JSON.parse(request.response);
-        } catch (e) {
-          // JSON failed to parse. Create a placeholder response.
-          response = {
-            error: {
-              message: 'Failed to parse response JSON.',
-            }
-          };
-          reject(convertXhrErrorToRequestPromiseError(request, response));
-          return;
-        }
-        if (request.status.toString() !== HTTP_STATUS.OK) {
-          reject(convertXhrErrorToRequestPromiseError(request, response));
-          return;
-        }
+          const response = JSON.parse(request.response);
 
-        resolve(response);
+          if (request.status.toString() === HTTP_STATUS.OK) {
+            resolve(response);
+          } else {
+            reject(
+              new Error({
+                body: response,
+                status: request.status,
+              }),
+            );
+          }
+        } catch (e) {
+          reject(
+            new Error({
+              body: request.responseText,
+              status: request.status,
+            }),
+          );
+        }
       };
       request.setRequestHeader('Content-Type', 'application/json');
       request.setRequestHeader('Accept', 'application/json');
@@ -98,10 +100,11 @@ export default class Http {
   ): Promise<*> {
     const options = {
       method: method,
-      uri: url,
+      url: url,
+      baseURL: Api.GRAPH,
       json: !useMultipartFormData,
       headers: {'User-Agent': `fbbizsdk-nodejs-v${Api.SDK_VERSION}`},
-      body: Object,
+      data: Object,
       resolveWithFullResponse: showHeader,
     };
     // Prevent null or undefined input
@@ -110,31 +113,17 @@ export default class Http {
       data = {};
     }
 
-    options.body = data;
+    options.data = data;
 
     // Handle file attachments if provided
     if (useMultipartFormData || (files && Object.keys(files).length > 0)) {
       // Use formData instead of body (required by the request-promise library)
-      options.formData = Object.assign(data, files);
-      delete options.body;
+      options.data = Object.assign(data, files);
+      delete options.data;
     }
 
-    return requestPromise(options).catch((response: Object) => {
+    return axios(options).catch((response: Object) => {
       throw response;
     });
   }
-}
-
-/**
- * Converts the given XHR error to an error that looks like one that would
- * be returned by the request-promise API.
- * @param {XMLHttpRequest} request
- * @param {any} response
- */
-function convertXhrErrorToRequestPromiseError(request, response) {
-  return {
-    name: 'StatusCodeError',
-    error: response,
-    statusCode: request.status,
-  };
 }
