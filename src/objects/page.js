@@ -21,7 +21,6 @@ import PageCallToAction from './page-call-to-action';
 import CanvasBodyElement from './canvas-body-element';
 import Canvas from './canvas';
 import ChatPlugin from './chat-plugin';
-import PageCommerceEligibility from './page-commerce-eligibility';
 import CommerceMerchantSettings from './commerce-merchant-settings';
 import CommerceOrder from './commerce-order';
 import CommercePayout from './commerce-payout';
@@ -138,6 +137,7 @@ export default class Page extends AbstractCrudObject {
       is_community_page: 'is_community_page',
       is_eligible_for_branded_content: 'is_eligible_for_branded_content',
       is_eligible_for_disable_connect_ig_btn_for_non_page_admin_am_web: 'is_eligible_for_disable_connect_ig_btn_for_non_page_admin_am_web',
+      is_eligible_for_live_boosting_expansion: 'is_eligible_for_live_boosting_expansion',
       is_messenger_bot_get_started_enabled: 'is_messenger_bot_get_started_enabled',
       is_messenger_platform_bot: 'is_messenger_platform_bot',
       is_owned: 'is_owned',
@@ -610,6 +610,7 @@ export default class Page extends AbstractCrudObject {
       publisher_subscriptions: 'publisher_subscriptions',
       ratings: 'ratings',
       registration: 'registration',
+      response_feedback: 'response_feedback',
       send_cart: 'send_cart',
       standby: 'standby',
       user_action: 'user_action',
@@ -857,16 +858,6 @@ export default class Page extends AbstractCrudObject {
       params,
       Page,
       pathOverride,
-    );
-  }
-
-  getCommerceEligibility (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      PageCommerceEligibility,
-      fields,
-      params,
-      fetchFirstPage,
-      '/commerce_eligibility'
     );
   }
 

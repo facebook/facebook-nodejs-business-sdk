@@ -61,6 +61,7 @@ export default class AdCreativeLinkData extends AbstractCrudObject {
       carousel_images_multi_items: 'carousel_images_multi_items',
       carousel_images_single_item: 'carousel_images_single_item',
       carousel_slideshows: 'carousel_slideshows',
+      collection_video: 'collection_video',
       single_image: 'single_image',
     });
   }

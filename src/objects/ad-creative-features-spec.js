@@ -19,8 +19,11 @@ export default class AdCreativeFeaturesSpec extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       advantage_plus_creative: 'advantage_plus_creative',
+      app_highlights: 'app_highlights',
       audio: 'audio',
       carousel_to_video: 'carousel_to_video',
+      catalog_feed_tag: 'catalog_feed_tag',
+      customize_product_recommendation: 'customize_product_recommendation',
       cv_transformation: 'cv_transformation',
       description_automation: 'description_automation',
       dha_optimization: 'dha_optimization',
@@ -39,6 +42,7 @@ export default class AdCreativeFeaturesSpec extends AbstractCrudObject {
       product_metadata_automation: 'product_metadata_automation',
       product_tags: 'product_tags',
       profile_card: 'profile_card',
+      site_extensions: 'site_extensions',
       standard_enhancements: 'standard_enhancements',
       standard_enhancements_catalog: 'standard_enhancements_catalog',
       text_generation: 'text_generation',
