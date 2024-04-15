@@ -67,7 +67,6 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
   }
   static get SubCategory (): Object {
     return Object.freeze({
-      custom: 'CUSTOM',
       order_details: 'ORDER_DETAILS',
       order_status: 'ORDER_STATUS',
     });
@@ -261,6 +260,16 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/schedules'
+    );
+  }
+
+  createSetOboMobilityIntent (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+    return this.createEdge(
+      '/set_obo_mobility_intent',
+      fields,
+      params,
+      null,
+      pathOverride,
     );
   }
 

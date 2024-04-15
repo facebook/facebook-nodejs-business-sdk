@@ -78,6 +78,7 @@ export default class AdAccount extends AbstractCrudObject {
       amount_spent: 'amount_spent',
       attribution_spec: 'attribution_spec',
       balance: 'balance',
+      brand_safety_content_filter_levels: 'brand_safety_content_filter_levels',
       business: 'business',
       business_city: 'business_city',
       business_country_code: 'business_country_code',
@@ -236,6 +237,7 @@ export default class AdAccount extends AbstractCrudObject {
       automotive_model: 'AUTOMOTIVE_MODEL',
       destination: 'DESTINATION',
       flight: 'FLIGHT',
+      generic: 'GENERIC',
       home_listing: 'HOME_LISTING',
       hotel: 'HOTEL',
       job: 'JOB',
@@ -256,6 +258,7 @@ export default class AdAccount extends AbstractCrudObject {
       claim: 'CLAIM',
       custom: 'CUSTOM',
       engagement: 'ENGAGEMENT',
+      exclusion: 'EXCLUSION',
       fox: 'FOX',
       lookalike: 'LOOKALIKE',
       managed: 'MANAGED',
@@ -755,6 +758,16 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
+  getAudienceFunnel (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/audience_funnel'
+    );
+  }
+
   createBlockListDraft (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdAccount> {
     return this.createEdge(
       '/block_list_drafts',
@@ -849,6 +862,16 @@ export default class AdAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/conversion_goals'
+    );
+  }
+
+  getCpaGuidance (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/cpa_guidance'
     );
   }
 
@@ -1253,6 +1276,16 @@ export default class AdAccount extends AbstractCrudObject {
     return super.deleteEdge(
       '/usersofanyaudience',
       params
+    );
+  }
+
+  getValueAdjustmentRuleCollections (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/value_adjustment_rule_collections'
     );
   }
 

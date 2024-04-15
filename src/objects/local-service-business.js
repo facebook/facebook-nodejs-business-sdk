@@ -54,6 +54,7 @@ export default class LocalServiceBusiness extends AbstractCrudObject {
       retailer_category: 'retailer_category',
       sanitized_images: 'sanitized_images',
       size: 'size',
+      tags: 'tags',
       title: 'title',
       unit_price: 'unit_price',
       url: 'url',

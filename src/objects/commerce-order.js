@@ -100,9 +100,9 @@ export default class CommerceOrder extends AbstractCrudObject {
     );
   }
 
-  createFulfillOrder (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<CommerceOrder> {
+  createItemUpdate (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<CommerceOrder> {
     return this.createEdge(
-      '/fulfill_order',
+      '/item_updates',
       fields,
       params,
       CommerceOrder,
@@ -213,6 +213,16 @@ export default class CommerceOrder extends AbstractCrudObject {
   createUpdateShipment (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<CommerceOrder> {
     return this.createEdge(
       '/update_shipment',
+      fields,
+      params,
+      CommerceOrder,
+      pathOverride,
+    );
+  }
+
+  createUpdate (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<CommerceOrder> {
+    return this.createEdge(
+      '/updates',
       fields,
       params,
       CommerceOrder,

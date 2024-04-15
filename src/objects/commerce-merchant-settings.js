@@ -51,7 +51,6 @@ export default class CommerceMerchantSettings extends AbstractCrudObject {
       supported_card_types: 'supported_card_types',
       terms: 'terms',
       terms_url_by_locale: 'terms_url_by_locale',
-      whatsapp_channel: 'whatsapp_channel',
     });
   }
 
@@ -136,16 +135,6 @@ export default class CommerceMerchantSettings extends AbstractCrudObject {
     );
   }
 
-  getSellerIssues (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/seller_issues'
-    );
-  }
-
   getSetupStatus (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       CommerceMerchantSettingsSetupStatus,
@@ -193,16 +182,6 @@ export default class CommerceMerchantSettings extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/tax_settings'
-    );
-  }
-
-  createWhatsappChannel (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
-    return this.createEdge(
-      '/whatsapp_channel',
-      fields,
-      params,
-      null,
-      pathOverride,
     );
   }
 

@@ -255,16 +255,6 @@ export default class AdsPixel extends AbstractCrudObject {
     );
   }
 
-  createTelemetry (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
-    return this.createEdge(
-      '/telemetry',
-      fields,
-      params,
-      null,
-      pathOverride,
-    );
-  }
-
   
   get (fields: Array<string>, params: Object = {}): AdsPixel {
     // $FlowFixMe : Support Generic Types

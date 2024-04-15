@@ -35,6 +35,7 @@ export default class Destination extends AbstractCrudObject {
       price: 'price',
       price_change: 'price_change',
       sanitized_images: 'sanitized_images',
+      tags: 'tags',
       types: 'types',
       unit_price: 'unit_price',
       url: 'url',

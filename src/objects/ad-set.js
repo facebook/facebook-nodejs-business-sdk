@@ -79,6 +79,7 @@ export default class AdSet extends AbstractCrudObject {
       promoted_object: 'promoted_object',
       recommendations: 'recommendations',
       recurring_budget_semantics: 'recurring_budget_semantics',
+      regional_regulation_identities: 'regional_regulation_identities',
       review_feedback: 'review_feedback',
       rf_prediction_id: 'rf_prediction_id',
       source_adset: 'source_adset',

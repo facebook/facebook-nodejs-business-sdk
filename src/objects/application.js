@@ -18,7 +18,6 @@ import Business from './business';
 import Group from './group';
 import AdAccount from './ad-account';
 import DACheck from './da-check';
-import Event from './event';
 import NullNode from './null-node';
 
 /**
@@ -502,16 +501,6 @@ export default class Application extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/da_checks'
-    );
-  }
-
-  getEvents (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      Event,
-      fields,
-      params,
-      fetchFirstPage,
-      '/events'
     );
   }
 

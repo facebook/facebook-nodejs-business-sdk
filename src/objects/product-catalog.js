@@ -600,6 +600,16 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
+  createVersionItemsBatch (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<ProductCatalog> {
+    return this.createEdge(
+      '/version_items_batch',
+      fields,
+      params,
+      ProductCatalog,
+      pathOverride,
+    );
+  }
+
   // $FlowFixMe : Support Generic Types
   delete (fields: Array<string>, params: Object = {}): AbstractObject {
     // $FlowFixMe : Support Generic Types

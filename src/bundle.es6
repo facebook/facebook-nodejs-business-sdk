@@ -310,6 +310,7 @@ export { default as IGShoppingProductAppeal } from './../src/objects/ig-shopping
 export { default as IGShoppingReviewStatus } from './../src/objects/ig-shopping-review-status';
 export { default as IGShoppingReviewStatusOnsiteEligibility } from './../src/objects/ig-shopping-review-status-onsite-eligibility';
 export { default as IGShoppingReviewStatusReasonWithHelpMessage } from './../src/objects/ig-shopping-review-status-reason-with-help-message';
+export { default as IGUpcomingEvent } from './../src/objects/ig-upcoming-event';
 export { default as IGUser } from './../src/objects/ig-user';
 export { default as IGVideoCopyrightCheckMatchesInformation } from './../src/objects/ig-video-copyright-check-matches-information';
 export { default as IGVideoCopyrightCheckStatus } from './../src/objects/ig-video-copyright-check-status';
@@ -385,7 +386,6 @@ export { default as PageAboutStoryComposedBlockInlineStyle } from './../src/obje
 export { default as PageCallToAction } from './../src/objects/page-call-to-action';
 export { default as PageCategory } from './../src/objects/page-category';
 export { default as PageChangeProposal } from './../src/objects/page-change-proposal';
-export { default as PageCommerceEligibility } from './../src/objects/page-commerce-eligibility';
 export { default as PageParking } from './../src/objects/page-parking';
 export { default as PagePaymentOptions } from './../src/objects/page-payment-options';
 export { default as PagePost } from './../src/objects/page-post';
@@ -483,7 +483,6 @@ export { default as TargetingGeoLocationCustomLocation } from './../src/objects/
 export { default as TargetingGeoLocationElectoralDistrict } from './../src/objects/targeting-geo-location-electoral-district';
 export { default as TargetingGeoLocationGeoEntities } from './../src/objects/targeting-geo-location-geo-entities';
 export { default as TargetingGeoLocationLocationCluster } from './../src/objects/targeting-geo-location-location-cluster';
-export { default as TargetingGeoLocationLocationExpansion } from './../src/objects/targeting-geo-location-location-expansion';
 export { default as TargetingGeoLocationMarket } from './../src/objects/targeting-geo-location-market';
 export { default as TargetingGeoLocationPlace } from './../src/objects/targeting-geo-location-place';
 export { default as TargetingGeoLocationPoliticalDistrict } from './../src/objects/targeting-geo-location-political-district';

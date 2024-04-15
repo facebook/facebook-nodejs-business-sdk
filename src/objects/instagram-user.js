@@ -13,6 +13,7 @@ import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import Business from './business';
 import AdAccount from './ad-account';
+import IGUpcomingEvent from './ig-upcoming-event';
 
 /**
  * InstagramUser
@@ -79,11 +80,21 @@ export default class InstagramUser extends AbstractCrudObject {
 
   getUpcomingEvents (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      AbstractObject,
+      IGUpcomingEvent,
       fields,
       params,
       fetchFirstPage,
       '/upcoming_events'
+    );
+  }
+
+  createUpcomingEvent (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<IGUpcomingEvent> {
+    return this.createEdge(
+      '/upcoming_events',
+      fields,
+      params,
+      IGUpcomingEvent,
+      pathOverride,
     );
   }
 

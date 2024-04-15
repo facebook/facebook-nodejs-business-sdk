@@ -28,4 +28,19 @@ export default class WhatsAppBusinessPartnerClientVerificationSubmission extends
     });
   }
 
+  static get RejectionReasons (): Object {
+    return Object.freeze({
+      address_not_matching: 'ADDRESS_NOT_MATCHING',
+      legal_name_not_matching: 'LEGAL_NAME_NOT_MATCHING',
+      none: 'NONE',
+      website_not_matching: 'WEBSITE_NOT_MATCHING',
+    });
+  }
+  static get VerificationStatus (): Object {
+    return Object.freeze({
+      approved: 'APPROVED',
+      failed: 'FAILED',
+      pending: 'PENDING',
+    });
+  }
 }
