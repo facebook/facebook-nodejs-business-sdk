@@ -45,7 +45,7 @@ export default class FacebookAdsApi {
     this.accessToken = accessToken;
     this.locale = locale;
     this._debug = false;
-    this._showHeader = false;
+    this._showHeader = true;
     if (crash_log) {
       CrashReporter.enable();
     }
