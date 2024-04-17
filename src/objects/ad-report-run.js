@@ -65,5 +65,6 @@ export default class AdReportRun extends AbstractCrudObject {
   ) {
     super();
     this.id = data.report_run_id;
+    this.headers = data.headers;
   }
 }
