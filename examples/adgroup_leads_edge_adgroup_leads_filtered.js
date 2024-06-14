@@ -33,7 +33,7 @@ let fields, params;
 fields = [
 ];
 params = {
-  'filtering' : [{'field':'time_created','operator':'GREATER_THAN','value':1711391704}],
+  'filtering' : [{'field':'time_created','operator':'GREATER_THAN','value':1717544918}],
 };
 const leadss = (new Ad(id)).getLeads(
   fields,

@@ -16,7 +16,6 @@ import AdAccount from './ad-account';
 import Application from './application';
 import CustomConversion from './custom-conversion';
 import InstagramUser from './instagram-user';
-import OfflineConversionDataSet from './offline-conversion-data-set';
 import Page from './page';
 import AdsPixel from './ads-pixel';
 import ProductCatalog from './product-catalog';
@@ -220,33 +219,6 @@ export default class BusinessAssetGroup extends AbstractCrudObject {
   createContainedInstagramAccount (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<BusinessAssetGroup> {
     return this.createEdge(
       '/contained_instagram_accounts',
-      fields,
-      params,
-      BusinessAssetGroup,
-      pathOverride,
-    );
-  }
-
-  deleteContainedOfflineConversionDataSets (params: Object = {}): Promise<*> {
-    return super.deleteEdge(
-      '/contained_offline_conversion_data_sets',
-      params
-    );
-  }
-
-  getContainedOfflineConversionDataSets (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      OfflineConversionDataSet,
-      fields,
-      params,
-      fetchFirstPage,
-      '/contained_offline_conversion_data_sets'
-    );
-  }
-
-  createContainedOfflineConversionDataSet (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<BusinessAssetGroup> {
-    return this.createEdge(
-      '/contained_offline_conversion_data_sets',
       fields,
       params,
       BusinessAssetGroup,

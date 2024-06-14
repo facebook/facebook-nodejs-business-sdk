@@ -9,9 +9,9 @@
  */
 
 import {AbstractCrudObject} from './../abstract-crud-object';
-import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import Business from './business';
+import AREffect from './ar-effect';
 import AdAccount from './ad-account';
 import IGUpcomingEvent from './ig-upcoming-event';
 
@@ -50,7 +50,7 @@ export default class InstagramUser extends AbstractCrudObject {
 
   getArEffects (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      AbstractObject,
+      AREffect,
       fields,
       params,
       fetchFirstPage,

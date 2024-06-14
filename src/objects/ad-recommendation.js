@@ -25,6 +25,7 @@ export default class AdRecommendation extends AbstractCrudObject {
       message: 'message',
       recommendation_data: 'recommendation_data',
       title: 'title',
+      value: 'value',
     });
   }
 

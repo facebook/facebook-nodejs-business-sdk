@@ -11,6 +11,7 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
+import IGBoostMediaAd from './ig-boost-media-ad';
 import BrandedContentShadowIGUserID from './branded-content-shadow-ig-user-id';
 import ShadowIGMediaCollaborators from './shadow-ig-media-collaborators';
 import IGComment from './ig-comment';
@@ -25,6 +26,7 @@ import ShadowIGMediaProductTags from './shadow-ig-media-product-tags';
 export default class IGMedia extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
+      boost_eligibility_info: 'boost_eligibility_info',
       caption: 'caption',
       comments_count: 'comments_count',
       copyright_check_information: 'copyright_check_information',
@@ -45,6 +47,16 @@ export default class IGMedia extends AbstractCrudObject {
     });
   }
 
+
+  getBoostAdsList (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      IGBoostMediaAd,
+      fields,
+      params,
+      fetchFirstPage,
+      '/boost_ads_list'
+    );
+  }
 
   getBrandedContentPartnerPromote (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(

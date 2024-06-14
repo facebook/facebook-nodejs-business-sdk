@@ -17,7 +17,7 @@ import BrandedContentShadowIGMediaID from './branded-content-shadow-ig-media-id'
 import BrandedContentShadowIGUserID from './branded-content-shadow-ig-user-id';
 import ShadowIGUserCatalogProductSearch from './shadow-ig-user-catalog-product-search';
 import ContentPublishingLimitResponse from './content-publishing-limit-response';
-import Dataset from './dataset';
+import AdsPixel from './ads-pixel';
 import InstagramInsightsResult from './instagram-insights-result';
 import IGMedia from './ig-media';
 import UserPageOneTimeOptInTokenSettings from './user-page-one-time-opt-in-token-settings';
@@ -139,13 +139,23 @@ export default class IGUser extends AbstractCrudObject {
     );
   }
 
-  getDataset (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+  getDataSet (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      Dataset,
+      AdsPixel,
       fields,
       params,
       fetchFirstPage,
       '/dataset'
+    );
+  }
+
+  createDataSet (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdsPixel> {
+    return this.createEdge(
+      '/dataset',
+      fields,
+      params,
+      AdsPixel,
+      pathOverride,
     );
   }
 

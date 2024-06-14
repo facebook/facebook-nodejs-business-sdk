@@ -129,14 +129,14 @@ export default class Group extends AbstractCrudObject {
     });
   }
 
-  deleteAdmins (params: Object = {}): Promise<*> {
+  deleteAdMIns (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/admins',
       params
     );
   }
 
-  createAdmin (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Group> {
+  createAdMIn (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Group> {
     return this.createEdge(
       '/admins',
       fields,

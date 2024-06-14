@@ -22,6 +22,7 @@ export default class ShadowIGMediaBuilder extends AbstractCrudObject {
       id: 'id',
       status: 'status',
       status_code: 'status_code',
+      video_status: 'video_status',
     });
   }
 

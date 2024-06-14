@@ -89,7 +89,6 @@ export default class CustomAudience extends AbstractCrudObject {
       hotel: 'HOTEL',
       job: 'JOB',
       local_service_business: 'LOCAL_SERVICE_BUSINESS',
-      location_based_item: 'LOCATION_BASED_ITEM',
       media_title: 'MEDIA_TITLE',
       offline_product: 'OFFLINE_PRODUCT',
       product: 'PRODUCT',
@@ -201,7 +200,7 @@ export default class CustomAudience extends AbstractCrudObject {
     );
   }
 
-  getSharedAccountInfo (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+  getShareDAccountInfo (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       CustomAudiencesharedAccountInfo,
       fields,

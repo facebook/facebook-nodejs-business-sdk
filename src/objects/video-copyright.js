@@ -9,8 +9,8 @@
  */
 
 import {AbstractCrudObject} from './../abstract-crud-object';
-import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
+import MediaCopyrightUpdateRecord from './media-copyright-update-record';
 
 /**
  * VideoCopyright
@@ -56,7 +56,7 @@ export default class VideoCopyright extends AbstractCrudObject {
 
   getUpdateRecords (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      AbstractObject,
+      MediaCopyrightUpdateRecord,
       fields,
       params,
       fetchFirstPage,

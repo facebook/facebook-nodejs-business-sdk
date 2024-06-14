@@ -29,7 +29,7 @@ export default class EventSourceGroup extends AbstractCrudObject {
   }
 
 
-  getSharedAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+  getShareDAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdAccount,
       fields,
@@ -39,7 +39,7 @@ export default class EventSourceGroup extends AbstractCrudObject {
     );
   }
 
-  createSharedAccount (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<EventSourceGroup> {
+  createShareDAccount (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<EventSourceGroup> {
     return this.createEdge(
       '/shared_accounts',
       fields,

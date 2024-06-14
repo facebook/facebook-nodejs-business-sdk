@@ -15,8 +15,10 @@ import PagePostExperiment from './page-post-experiment';
 import PagePost from './page-post';
 import Business from './business';
 import Album from './album';
+import ArAdsDataContainer from './ar-ads-data-container';
 import AssignedUser from './assigned-user';
 import Profile from './profile';
+import BusinessProject from './business-project';
 import PageCallToAction from './page-call-to-action';
 import CanvasBodyElement from './canvas-body-element';
 import Canvas from './canvas';
@@ -26,10 +28,12 @@ import CommerceOrder from './commerce-order';
 import CommercePayout from './commerce-payout';
 import CommerceOrderTransactionDetail from './commerce-order-transaction-detail';
 import UnifiedThread from './unified-thread';
+import VideoCopyrightMatch from './video-copyright-match';
 import PageUserMessageThreadLabel from './page-user-message-thread-label';
 import CustomUserSettings from './custom-user-settings';
-import Dataset from './dataset';
+import AdsPixel from './ads-pixel';
 import Event from './event';
+import FantasyGame from './fantasy-game';
 import Group from './group';
 import ImageCopyright from './image-copyright';
 import AdVideo from './ad-video';
@@ -39,6 +43,7 @@ import LeadgenForm from './leadgen-form';
 import LiveVideo from './live-video';
 import MediaFingerprint from './media-fingerprint';
 import MessagingFeatureReview from './messaging-feature-review';
+import MessengerCallSettings from './messenger-call-settings';
 import MessengerAdsPartialAutomatedStepList from './messenger-ads-partial-automated-step-list';
 import MessengerProfile from './messenger-profile';
 import UserPageOneTimeOptInTokenSettings from './user-page-one-time-opt-in-token-settings';
@@ -133,11 +138,11 @@ export default class Page extends AbstractCrudObject {
       influences: 'influences',
       instagram_business_account: 'instagram_business_account',
       is_always_open: 'is_always_open',
+      is_calling_eligible: 'is_calling_eligible',
       is_chain: 'is_chain',
       is_community_page: 'is_community_page',
       is_eligible_for_branded_content: 'is_eligible_for_branded_content',
       is_eligible_for_disable_connect_ig_btn_for_non_page_admin_am_web: 'is_eligible_for_disable_connect_ig_btn_for_non_page_admin_am_web',
-      is_eligible_for_live_boosting_expansion: 'is_eligible_for_live_boosting_expansion',
       is_messenger_bot_get_started_enabled: 'is_messenger_bot_get_started_enabled',
       is_messenger_platform_bot: 'is_messenger_platform_bot',
       is_owned: 'is_owned',
@@ -709,7 +714,7 @@ export default class Page extends AbstractCrudObject {
 
   getArExperience (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      AbstractObject,
+      ArAdsDataContainer,
       fields,
       params,
       fetchFirstPage,
@@ -783,7 +788,7 @@ export default class Page extends AbstractCrudObject {
 
   getBusinessProjects (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      AbstractObject,
+      BusinessProject,
       fields,
       params,
       fetchFirstPage,
@@ -798,6 +803,16 @@ export default class Page extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/call_to_actions'
+    );
+  }
+
+  createCall (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+    return this.createEdge(
+      '/calls',
+      fields,
+      params,
+      null,
+      pathOverride,
     );
   }
 
@@ -911,12 +926,12 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createCopyrightManualClaim (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+  createCopyrightManualClaim (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<VideoCopyrightMatch> {
     return this.createEdge(
       '/copyright_manual_claims',
       fields,
       params,
-      null,
+      VideoCopyrightMatch,
       pathOverride,
     );
   }
@@ -978,13 +993,23 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  getDataset (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+  getDataSet (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      Dataset,
+      AdsPixel,
       fields,
       params,
       fetchFirstPage,
       '/dataset'
+    );
+  }
+
+  createDataSet (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdsPixel> {
+    return this.createEdge(
+      '/dataset',
+      fields,
+      params,
+      AdsPixel,
+      pathOverride,
     );
   }
 
@@ -1010,7 +1035,7 @@ export default class Page extends AbstractCrudObject {
 
   getFantasyGames (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      AbstractObject,
+      FantasyGame,
       fields,
       params,
       fetchFirstPage,
@@ -1205,7 +1230,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createMessageAttachment (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+  createMessageAttachMEnt (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
     return this.createEdge(
       '/message_attachments',
       fields,
@@ -1235,7 +1260,27 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  getMessengerLeadForms (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+  getMessengerCallSettings (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      MessengerCallSettings,
+      fields,
+      params,
+      fetchFirstPage,
+      '/messenger_call_settings'
+    );
+  }
+
+  createMessengerCallSetting (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Page> {
+    return this.createEdge(
+      '/messenger_call_settings',
+      fields,
+      params,
+      Page,
+      pathOverride,
+    );
+  }
+
+  getMessengerLeadForMs (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       MessengerAdsPartialAutomatedStepList,
       fields,
@@ -1245,7 +1290,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createMessengerLeadForm (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Page> {
+  createMessengerLeadForM (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Page> {
     return this.createEdge(
       '/messenger_lead_forms',
       fields,
@@ -1332,7 +1377,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createPageWhatsappNumberVerification (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Page> {
+  createPageWhatsAppNumberVerification (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Page> {
     return this.createEdge(
       '/page_whatsapp_number_verification',
       fields,
@@ -1512,7 +1557,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  getScheduledPosts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+  getScheduleDPosts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       PagePost,
       fields,

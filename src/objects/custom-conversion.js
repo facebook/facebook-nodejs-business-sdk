@@ -67,6 +67,19 @@ export default class CustomConversion extends AbstractCrudObject {
       subscribe: 'SUBSCRIBE',
     });
   }
+  static get ActionSourceType (): Object {
+    return Object.freeze({
+      app: 'app',
+      business_messaging: 'business_messaging',
+      chat: 'chat',
+      email: 'email',
+      other: 'other',
+      phone_call: 'phone_call',
+      physical_store: 'physical_store',
+      system_generated: 'system_generated',
+      website: 'website',
+    });
+  }
 
   getStats (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(

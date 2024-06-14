@@ -46,6 +46,7 @@ export default class AdStudy extends AbstractCrudObject {
 
   static get Type (): Object {
     return Object.freeze({
+      backend_ab_testing: 'BACKEND_AB_TESTING',
       continuous_lift_config: 'CONTINUOUS_LIFT_CONFIG',
       geo_lift: 'GEO_LIFT',
       lift: 'LIFT',

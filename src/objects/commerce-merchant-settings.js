@@ -27,30 +27,20 @@ import Shop from './shop';
 export default class CommerceMerchantSettings extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      braintree_merchant_id: 'braintree_merchant_id',
       checkout_message: 'checkout_message',
       contact_email: 'contact_email',
       cta: 'cta',
-      disable_checkout_urls: 'disable_checkout_urls',
       display_name: 'display_name',
-      external_merchant_id: 'external_merchant_id',
       facebook_channel: 'facebook_channel',
-      feature_eligibility: 'feature_eligibility',
-      has_discount_code: 'has_discount_code',
-      has_onsite_intent: 'has_onsite_intent',
       id: 'id',
       instagram_channel: 'instagram_channel',
-      merchant_alert_email: 'merchant_alert_email',
       merchant_page: 'merchant_page',
       merchant_status: 'merchant_status',
       onsite_commerce_merchant: 'onsite_commerce_merchant',
       payment_provider: 'payment_provider',
-      privacy_url_by_locale: 'privacy_url_by_locale',
       review_rejection_messages: 'review_rejection_messages',
       review_rejection_reasons: 'review_rejection_reasons',
-      supported_card_types: 'supported_card_types',
       terms: 'terms',
-      terms_url_by_locale: 'terms_url_by_locale',
     });
   }
 
@@ -95,7 +85,7 @@ export default class CommerceMerchantSettings extends AbstractCrudObject {
     );
   }
 
-  getOrderManagementApps (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+  getOrderMAnAgeMEntApps (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Application,
       fields,
@@ -105,7 +95,7 @@ export default class CommerceMerchantSettings extends AbstractCrudObject {
     );
   }
 
-  createOrderManagementApp (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<CommerceMerchantSettings> {
+  createOrderMAnAgeMEntApp (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<CommerceMerchantSettings> {
     return this.createEdge(
       '/order_management_apps',
       fields,

@@ -19,6 +19,7 @@ export default class BrandedContentShadowIGMediaID extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       eligibility_errors: 'eligibility_errors',
+      has_permission_for_partnership_ad: 'has_permission_for_partnership_ad',
       id: 'id',
       owner_id: 'owner_id',
       permalink: 'permalink',

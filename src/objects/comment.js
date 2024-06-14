@@ -47,6 +47,12 @@ export default class Comment extends AbstractCrudObject {
     });
   }
 
+  static get Order (): Object {
+    return Object.freeze({
+      chronological: 'chronological',
+      reverse_chronological: 'reverse_chronological',
+    });
+  }
   static get CommentPrivacyValue (): Object {
     return Object.freeze({
       declined_by_admin_assistant: 'DECLINED_BY_ADMIN_ASSISTANT',
@@ -72,12 +78,6 @@ export default class Comment extends AbstractCrudObject {
     return Object.freeze({
       filter_low_quality: 'filter_low_quality',
       no_filter: 'no_filter',
-    });
-  }
-  static get Order (): Object {
-    return Object.freeze({
-      chronological: 'chronological',
-      reverse_chronological: 'reverse_chronological',
     });
   }
 

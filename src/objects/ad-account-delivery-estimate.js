@@ -48,6 +48,7 @@ export default class AdAccountDeliveryEstimate extends AbstractCrudObject {
       offsite_conversions: 'OFFSITE_CONVERSIONS',
       page_likes: 'PAGE_LIKES',
       post_engagement: 'POST_ENGAGEMENT',
+      profile_visit: 'PROFILE_VISIT',
       quality_call: 'QUALITY_CALL',
       quality_lead: 'QUALITY_LEAD',
       reach: 'REACH',

@@ -19,7 +19,6 @@ import AbstractObject from './../abstract-object';
 export default class OpenBridgeConfiguration extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      access_key: 'access_key',
       active: 'active',
       endpoint: 'endpoint',
       fallback_domain: 'fallback_domain',
@@ -27,6 +26,7 @@ export default class OpenBridgeConfiguration extends AbstractCrudObject {
       host_business_id: 'host_business_id',
       host_external_id: 'host_external_id',
       id: 'id',
+      instance_id: 'instance_id',
       pixel_id: 'pixel_id',
     });
   }

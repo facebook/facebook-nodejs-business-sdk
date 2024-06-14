@@ -17,6 +17,7 @@ import AdAccount from './ad-account';
 import Album from './album';
 import AppRequestFormerRecipient from './app-request-former-recipient';
 import AppRequest from './app-request';
+import Application from './application';
 import BusinessAssetGroup from './business-asset-group';
 import ProductCatalog from './product-catalog';
 import Avatar from './avatar';
@@ -241,6 +242,16 @@ export default class User extends AbstractCrudObject {
     );
   }
 
+  getAssignedApplications (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      Application,
+      fields,
+      params,
+      fetchFirstPage,
+      '/assigned_applications'
+    );
+  }
+
   getAssignedBusinessAssetGroups (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       BusinessAssetGroup,
@@ -394,16 +405,6 @@ export default class User extends AbstractCrudObject {
       fields,
       params,
       FundraiserPersonToCharity,
-      pathOverride,
-    );
-  }
-
-  createGameTime (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
-    return this.createEdge(
-      '/game_times',
-      fields,
-      params,
-      null,
       pathOverride,
     );
   }

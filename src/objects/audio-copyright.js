@@ -9,8 +9,8 @@
  */
 
 import {AbstractCrudObject} from './../abstract-crud-object';
-import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
+import MediaCopyrightUpdateRecord from './media-copyright-update-record';
 
 /**
  * AudioCopyright
@@ -27,6 +27,7 @@ export default class AudioCopyright extends AbstractCrudObject {
       isrc: 'isrc',
       match_rule: 'match_rule',
       ownership_countries: 'ownership_countries',
+      ownership_details: 'ownership_details',
       reference_file_status: 'reference_file_status',
       ridge_monitoring_status: 'ridge_monitoring_status',
       tags: 'tags',
@@ -39,7 +40,7 @@ export default class AudioCopyright extends AbstractCrudObject {
 
   getUpdateRecords (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      AbstractObject,
+      MediaCopyrightUpdateRecord,
       fields,
       params,
       fetchFirstPage,

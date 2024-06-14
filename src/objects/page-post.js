@@ -113,7 +113,7 @@ export default class PagePost extends AbstractCrudObject {
     });
   }
 
-  getAttachments (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+  getAttachMEnts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AbstractObject,
       fields,
@@ -200,7 +200,7 @@ export default class PagePost extends AbstractCrudObject {
     );
   }
 
-  getSharedPosts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+  getShareDPosts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Post,
       fields,

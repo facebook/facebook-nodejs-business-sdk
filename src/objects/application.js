@@ -18,6 +18,7 @@ import Business from './business';
 import Group from './group';
 import AdAccount from './ad-account';
 import DACheck from './da-check';
+import AdsDataset from './ads-dataset';
 import NullNode from './null-node';
 
 /**
@@ -204,6 +205,34 @@ export default class Application extends AbstractCrudObject {
       app: 'APP',
       app_and_page: 'APP_AND_PAGE',
       page: 'PAGE',
+    });
+  }
+  static get OwnerPermissions (): Object {
+    return Object.freeze({
+      develop: 'DEVELOP',
+      manage: 'MANAGE',
+      manage_extensions: 'MANAGE_EXTENSIONS',
+      manage_phone: 'MANAGE_PHONE',
+      manage_phone_assets: 'MANAGE_PHONE_ASSETS',
+      manage_templates: 'MANAGE_TEMPLATES',
+      messaging: 'MESSAGING',
+      view_cost: 'VIEW_COST',
+      view_phone_assets: 'VIEW_PHONE_ASSETS',
+      view_templates: 'VIEW_TEMPLATES',
+    });
+  }
+  static get PartnerPermissions (): Object {
+    return Object.freeze({
+      develop: 'DEVELOP',
+      manage: 'MANAGE',
+      manage_extensions: 'MANAGE_EXTENSIONS',
+      manage_phone: 'MANAGE_PHONE',
+      manage_phone_assets: 'MANAGE_PHONE_ASSETS',
+      manage_templates: 'MANAGE_TEMPLATES',
+      messaging: 'MESSAGING',
+      view_cost: 'VIEW_COST',
+      view_phone_assets: 'VIEW_PHONE_ASSETS',
+      view_templates: 'VIEW_TEMPLATES',
     });
   }
 
@@ -504,6 +533,16 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
+  createDomainReport (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+    return this.createEdge(
+      '/domain_reports',
+      fields,
+      params,
+      null,
+      pathOverride,
+    );
+  }
+
   getIapPurchases (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AbstractObject,
@@ -511,16 +550,6 @@ export default class Application extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/iap_purchases'
-    );
-  }
-
-  getInsightsPushSchedule (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/insights_push_schedule'
     );
   }
 
@@ -536,7 +565,7 @@ export default class Application extends AbstractCrudObject {
 
   getLinkedDataset (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      AbstractObject,
+      AdsDataset,
       fields,
       params,
       fetchFirstPage,
@@ -748,6 +777,26 @@ export default class Application extends AbstractCrudObject {
       params,
       null,
       pathOverride,
+    );
+  }
+
+  createWhatsAppBusinessSolution (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Application> {
+    return this.createEdge(
+      '/whatsapp_business_solution',
+      fields,
+      params,
+      Application,
+      pathOverride,
+    );
+  }
+
+  getWhatsAppBusinessSolutions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/whatsapp_business_solutions'
     );
   }
 

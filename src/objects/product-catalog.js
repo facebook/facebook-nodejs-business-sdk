@@ -17,8 +17,9 @@ import AutomotiveModel from './automotive-model';
 import StoreCatalogSettings from './store-catalog-settings';
 import ProductCatalogCategory from './product-catalog-category';
 import CheckBatchRequestStatus from './check-batch-request-status';
-import CatalogSegmentAllMatchCountLaser from './catalog-segment-all-match-count-laser';
+import CPASLsbImageBank from './cpas-lsb-image-bank';
 import CollaborativeAdsShareSettings from './collaborative-ads-share-settings';
+import CreatorAssetCreative from './creator-asset-creative';
 import ProductCatalogDataSource from './product-catalog-data-source';
 import Destination from './destination';
 import ProductCatalogDiagnosticGroup from './product-catalog-diagnostic-group';
@@ -83,7 +84,6 @@ export default class ProductCatalog extends AbstractCrudObject {
       home_listings: 'home_listings',
       hotels: 'hotels',
       jobs: 'jobs',
-      local_delivery_shipping_profiles: 'local_delivery_shipping_profiles',
       local_service_businesses: 'local_service_businesses',
       offer_items: 'offer_items',
       offline_commerce: 'offline_commerce',
@@ -263,19 +263,9 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  getCollaborativeAdsEventStats (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      CatalogSegmentAllMatchCountLaser,
-      fields,
-      params,
-      fetchFirstPage,
-      '/collaborative_ads_event_stats'
-    );
-  }
-
   getCollaborativeAdsLsbImageBank (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      AbstractObject,
+      CPASLsbImageBank,
       fields,
       params,
       fetchFirstPage,
@@ -293,13 +283,23 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  createCpasLsbImageBank (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+  createCpasLsbImageBank (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<CPASLsbImageBank> {
     return this.createEdge(
       '/cpas_lsb_image_bank',
       fields,
       params,
-      null,
+      CPASLsbImageBank,
       pathOverride,
+    );
+  }
+
+  getCreatorAssetCreatives (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      CreatorAssetCreative,
+      fields,
+      params,
+      fetchFirstPage,
+      '/creator_asset_creatives'
     );
   }
 

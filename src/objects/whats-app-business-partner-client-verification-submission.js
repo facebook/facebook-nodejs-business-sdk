@@ -41,6 +41,7 @@ export default class WhatsAppBusinessPartnerClientVerificationSubmission extends
       approved: 'APPROVED',
       failed: 'FAILED',
       pending: 'PENDING',
+      revoked: 'REVOKED',
     });
   }
 }

@@ -22,6 +22,7 @@ export default class CommerceOrder extends AbstractCrudObject {
     return Object.freeze({
       buyer_details: 'buyer_details',
       channel: 'channel',
+      contains_bopis_items: 'contains_bopis_items',
       created: 'created',
       estimated_payment_details: 'estimated_payment_details',
       id: 'id',
@@ -90,7 +91,7 @@ export default class CommerceOrder extends AbstractCrudObject {
     );
   }
 
-  createCancellation (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<CommerceOrder> {
+  createCanCellATIOn (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<CommerceOrder> {
     return this.createEdge(
       '/cancellations',
       fields,
@@ -140,7 +141,7 @@ export default class CommerceOrder extends AbstractCrudObject {
     );
   }
 
-  getPromotions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+  getPromoTIOns (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AbstractObject,
       fields,

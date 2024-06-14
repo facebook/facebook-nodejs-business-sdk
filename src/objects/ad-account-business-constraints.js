@@ -25,4 +25,11 @@ export default class AdAccountBusinessConstraints extends AbstractCrudObject {
     });
   }
 
+  static get Status (): Object {
+    return Object.freeze({
+      active: 'ACTIVE',
+      application_in_progress: 'APPLICATION_IN_PROGRESS',
+      with_campaign_error: 'WITH_CAMPAIGN_ERROR',
+    });
+  }
 }

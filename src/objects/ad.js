@@ -45,6 +45,7 @@ export default class Ad extends AbstractCrudObject {
       conversion_specs: 'conversion_specs',
       created_time: 'created_time',
       creative: 'creative',
+      creative_asset_groups_spec: 'creative_asset_groups_spec',
       demolink_hash: 'demolink_hash',
       display_sequence: 'display_sequence',
       effective_status: 'effective_status',

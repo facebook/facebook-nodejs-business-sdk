@@ -11,6 +11,7 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
+import WebPublisher from './web-publisher';
 
 /**
  * PublisherBlockList
@@ -34,7 +35,7 @@ export default class PublisherBlockList extends AbstractCrudObject {
   }
 
 
-  createAppEndPublisherUrl (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+  createAppendPublisherUrl (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
     return this.createEdge(
       '/append_publisher_urls',
       fields,
@@ -46,7 +47,7 @@ export default class PublisherBlockList extends AbstractCrudObject {
 
   getPagedWebPublishers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      AbstractObject,
+      WebPublisher,
       fields,
       params,
       fetchFirstPage,

@@ -19,7 +19,9 @@ export default class AdCreativeBrandedContentAds extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       ad_format: 'ad_format',
+      content_search_input: 'content_search_input',
       creator_ad_permission_type: 'creator_ad_permission_type',
+      facebook_boost_post_access_token: 'facebook_boost_post_access_token',
       instagram_boost_post_access_token: 'instagram_boost_post_access_token',
       is_mca_internal: 'is_mca_internal',
       partners: 'partners',

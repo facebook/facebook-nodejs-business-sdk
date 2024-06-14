@@ -14,6 +14,7 @@ import Cursor from './../cursor';
 import AdAccountBusinessConstraints from './ad-account-business-constraints';
 import AdActivity from './ad-activity';
 import AdPlacePageSet from './ad-place-page-set';
+import AdSavedKeywords from './ad-saved-keywords';
 import AdStudy from './ad-study';
 import CloudGame from './cloud-game';
 import AdCreative from './ad-creative';
@@ -23,6 +24,8 @@ import PlayableContent from './playable-content';
 import AdAccountAdRulesHistory from './ad-account-ad-rules-history';
 import AdRule from './ad-rule';
 import Ad from './ad';
+import AdsReportBuilderMMMReport from './ads-report-builder-mmm-report';
+import AdsReportBuilderMMMReportScheduler from './ads-report-builder-mmm-report-scheduler';
 import AdAccountAdVolume from './ad-account-ad-volume';
 import AdSet from './ad-set';
 import AdsPixel from './ads-pixel';
@@ -33,9 +36,13 @@ import AssignedUser from './assigned-user';
 import Campaign from './campaign';
 import AsyncRequest from './async-request';
 import AdAsyncRequestSet from './ad-async-request-set';
+import AudienceFunnel from './audience-funnel';
 import BroadTargetingCategories from './broad-targeting-categories';
+import BusinessProject from './business-project';
 import IGUser from './ig-user';
 import InstagramUser from './instagram-user';
+import AdsConversionGoal from './ads-conversion-goal';
+import BespokePartnerGuidanceLaser from './bespoke-partner-guidance-laser';
 import CustomAudience from './custom-audience';
 import CustomAudiencesTOS from './custom-audiences-tos';
 import CustomConversion from './custom-conversion';
@@ -48,7 +55,6 @@ import AdAccountIosFourteenCampaignLimits from './ad-account-ios-fourteen-campai
 import AdAccountMatchedSearchApplicationsEdgeData from './ad-account-matched-search-applications-edge-data';
 import AdAccountMaxBid from './ad-account-max-bid';
 import MinimumBudget from './minimum-budget';
-import OfflineConversionDataSet from './offline-conversion-data-set';
 import BusinessOwnedObjectOnBehalfOfRequest from './business-owned-object-on-behalf-of-request';
 import Page from './page';
 import PublisherBlockList from './publisher-block-list';
@@ -60,6 +66,8 @@ import AdAccountTargetingUnified from './ad-account-targeting-unified';
 import TargetingSentenceLine from './targeting-sentence-line';
 import AdAccountTrackingData from './ad-account-tracking-data';
 import AdAccountUser from './ad-account-user';
+import AdsValueAdjustmentRuleCollection from './ads-value-adjustment-rule-collection';
+import AdsValueAdjustmentRule from './ads-value-adjustment-rule';
 
 /**
  * AdAccount
@@ -242,7 +250,6 @@ export default class AdAccount extends AbstractCrudObject {
       hotel: 'HOTEL',
       job: 'JOB',
       local_service_business: 'LOCAL_SERVICE_BUSINESS',
-      location_based_item: 'LOCATION_BASED_ITEM',
       media_title: 'MEDIA_TITLE',
       offline_product: 'OFFLINE_PRODUCT',
       product: 'PRODUCT',
@@ -342,7 +349,7 @@ export default class AdAccount extends AbstractCrudObject {
 
   getAdSavedKeywords (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      AbstractObject,
+      AdSavedKeywords,
       fields,
       params,
       fetchFirstPage,
@@ -519,7 +526,7 @@ export default class AdAccount extends AbstractCrudObject {
 
   getAdsReportingMmmReports (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      AbstractObject,
+      AdsReportBuilderMMMReport,
       fields,
       params,
       fetchFirstPage,
@@ -529,7 +536,7 @@ export default class AdAccount extends AbstractCrudObject {
 
   getAdsReportingMmmSchedulers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      AbstractObject,
+      AdsReportBuilderMMMReportScheduler,
       fields,
       params,
       fetchFirstPage,
@@ -760,7 +767,7 @@ export default class AdAccount extends AbstractCrudObject {
 
   getAudienceFunnel (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      AbstractObject,
+      AudienceFunnel,
       fields,
       params,
       fetchFirstPage,
@@ -790,7 +797,7 @@ export default class AdAccount extends AbstractCrudObject {
 
   getBusinessProjects (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      AbstractObject,
+      BusinessProject,
       fields,
       params,
       fetchFirstPage,
@@ -857,7 +864,7 @@ export default class AdAccount extends AbstractCrudObject {
 
   getConversionGoals (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      AbstractObject,
+      AdsConversionGoal,
       fields,
       params,
       fetchFirstPage,
@@ -867,7 +874,7 @@ export default class AdAccount extends AbstractCrudObject {
 
   getCpaGuidance (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      AbstractObject,
+      BespokePartnerGuidanceLaser,
       fields,
       params,
       fetchFirstPage,
@@ -1025,7 +1032,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createManagedPartnerAd (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+  createMAnAgeDPartnerAd (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
     return this.createEdge(
       '/managed_partner_ads',
       fields,
@@ -1062,16 +1069,6 @@ export default class AdAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/minimum_budgets'
-    );
-  }
-
-  getOfflineConversionDataSets (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      OfflineConversionDataSet,
-      fields,
-      params,
-      fetchFirstPage,
-      '/offline_conversion_data_sets'
     );
   }
 
@@ -1232,7 +1229,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getTargetingValidation (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+  getTargetingValidATIOn (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdAccountTargetingUnified,
       fields,
@@ -1281,7 +1278,7 @@ export default class AdAccount extends AbstractCrudObject {
 
   getValueAdjustmentRuleCollections (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      AbstractObject,
+      AdsValueAdjustmentRuleCollection,
       fields,
       params,
       fetchFirstPage,
@@ -1291,7 +1288,7 @@ export default class AdAccount extends AbstractCrudObject {
 
   getValueAdjustmentRules (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      AbstractObject,
+      AdsValueAdjustmentRule,
       fields,
       params,
       fetchFirstPage,

@@ -26,6 +26,7 @@ export default class CustomAudienceDataSource extends AbstractCrudObject {
 
   static get SubType (): Object {
     return Object.freeze({
+      ad_campaign: 'AD_CAMPAIGN',
       anything: 'ANYTHING',
       app_users: 'APP_USERS',
       ar_effects_events: 'AR_EFFECTS_EVENTS',
@@ -47,6 +48,7 @@ export default class CustomAudienceDataSource extends AbstractCrudObject {
       facebook_wifi_events: 'FACEBOOK_WIFI_EVENTS',
       fb_event_signals: 'FB_EVENT_SIGNALS',
       fb_pixel_hits: 'FB_PIXEL_HITS',
+      group_events: 'GROUP_EVENTS',
       hashes: 'HASHES',
       hashes_or_user_ids: 'HASHES_OR_USER_IDS',
       household_expansion: 'HOUSEHOLD_EXPANSION',

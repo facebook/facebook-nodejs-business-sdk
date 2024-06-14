@@ -9,11 +9,11 @@
  */
 
 import {AbstractCrudObject} from './../abstract-crud-object';
-import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import NullNode from './null-node';
 import LiveVideo from './live-video';
 import Profile from './profile';
+import EventTicketTier from './event-ticket-tier';
 
 /**
  * Event
@@ -204,7 +204,7 @@ export default class Event extends AbstractCrudObject {
 
   getTicketTiers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      AbstractObject,
+      EventTicketTier,
       fields,
       params,
       fetchFirstPage,

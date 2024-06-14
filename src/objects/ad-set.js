@@ -79,6 +79,7 @@ export default class AdSet extends AbstractCrudObject {
       promoted_object: 'promoted_object',
       recommendations: 'recommendations',
       recurring_budget_semantics: 'recurring_budget_semantics',
+      regional_regulated_categories: 'regional_regulated_categories',
       regional_regulation_identities: 'regional_regulation_identities',
       review_feedback: 'review_feedback',
       rf_prediction_id: 'rf_prediction_id',
@@ -158,6 +159,7 @@ export default class AdSet extends AbstractCrudObject {
       offsite_conversions: 'OFFSITE_CONVERSIONS',
       page_likes: 'PAGE_LIKES',
       post_engagement: 'POST_ENGAGEMENT',
+      profile_visit: 'PROFILE_VISIT',
       quality_call: 'QUALITY_CALL',
       quality_lead: 'QUALITY_LEAD',
       reach: 'REACH',
@@ -206,6 +208,7 @@ export default class AdSet extends AbstractCrudObject {
       applinks_automatic: 'APPLINKS_AUTOMATIC',
       facebook: 'FACEBOOK',
       instagram_direct: 'INSTAGRAM_DIRECT',
+      instagram_profile: 'INSTAGRAM_PROFILE',
       messaging_instagram_direct_messenger: 'MESSAGING_INSTAGRAM_DIRECT_MESSENGER',
       messaging_instagram_direct_messenger_whatsapp: 'MESSAGING_INSTAGRAM_DIRECT_MESSENGER_WHATSAPP',
       messaging_instagram_direct_whatsapp: 'MESSAGING_INSTAGRAM_DIRECT_WHATSAPP',
@@ -217,7 +220,6 @@ export default class AdSet extends AbstractCrudObject {
       on_post: 'ON_POST',
       on_video: 'ON_VIDEO',
       shop_automatic: 'SHOP_AUTOMATIC',
-      undefined: 'UNDEFINED',
       website: 'WEBSITE',
       whatsapp: 'WHATSAPP',
     });
@@ -255,6 +257,12 @@ export default class AdSet extends AbstractCrudObject {
       travel_intent_no_destination_intent: 'TRAVEL_INTENT_NO_DESTINATION_INTENT',
       trip_consideration: 'TRIP_CONSIDERATION',
       video_sound_on: 'VIDEO_SOUND_ON',
+    });
+  }
+  static get RegionalRegulatedCategories (): Object {
+    return Object.freeze({
+      value_0: '0',
+      value_1: '1',
     });
   }
   static get TuneForCategory (): Object {

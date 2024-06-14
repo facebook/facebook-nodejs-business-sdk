@@ -11,6 +11,7 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
+import DynamicARMetadata from './dynamic-ar-metadata';
 import CatalogItemChannelsToIntegrityStatus from './catalog-item-channels-to-integrity-status';
 import HotelRoom from './hotel-room';
 import DynamicVideoMetadata from './dynamic-video-metadata';
@@ -69,7 +70,7 @@ export default class Hotel extends AbstractCrudObject {
 
   getAugmentedRealitiesMetadata (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      AbstractObject,
+      DynamicARMetadata,
       fields,
       params,
       fetchFirstPage,
