@@ -7,9 +7,11 @@
  * @flow
  */
 
-import UserData from './user-data';
-import CustomData from './custom-data';
 import AppData from './app-data';
+import AttributionData from './attribution-data';
+import CustomData from './custom-data';
+import OriginalEventData from './original-event-data';
+import UserData from './user-data';
 
 /**
  * ServerEvent
@@ -32,6 +34,8 @@ export default class ServerEvent {
 	_advanced_measurement_table: string;
 	_advertiser_tracking_enabled: bool;
 	_messaging_channel: string;
+	_original_event_data: OriginalEventData;
+	_attribution_data: AttributionData;
 
 	/**
 	 * @param {String} event_name A Facebook pixel Standard Event or Custom Event name.
@@ -48,8 +52,10 @@ export default class ServerEvent {
 	 * @param {String} advanced_measurement_table Name of Advanced Measurement table. Only used for the Advanced Measurement API in the Advanced Analytics product.
 	 * @param {Boolean} advertiser_tracking_enabled A boolean that indicates whether the user has opted into/out of advertiser tracker on apps.
 	 * @param {String} messaging_channel Indicates which channel was used to send the message.
+	 * @param {OriginalEventData} original_event_data Contains original event info used for attribution passback event or generalized value optimization(GVO).
+	 * @param {AttributionData} attribution_data Used for attribution passback event to optimize the performance.
 	 */
-	constructor(event_name: string, event_time: number, event_source_url: string, user_data: UserData, custom_data: CustomData, app_data: AppData, event_id: string, opt_out: boolean, action_source: string, data_processing_options: Array<string>, data_processing_options_country: number, data_processing_options_state: number, advanced_measurement_table: string, advertiser_tracking_enabled: boolean, messaging_channel: string) {
+	constructor(event_name: string, event_time: number, event_source_url: string, user_data: UserData, custom_data: CustomData, app_data: AppData, event_id: string, opt_out: boolean, action_source: string, data_processing_options: Array<string>, data_processing_options_country: number, data_processing_options_state: number, advanced_measurement_table: string, advertiser_tracking_enabled: boolean, messaging_channel: string, original_event_data: OriginalEventData, attribution_data: AttributionData) {
 
 		this._event_name = event_name;
 		this._event_time = event_time;
@@ -65,6 +71,8 @@ export default class ServerEvent {
 		this._data_processing_options_state = data_processing_options_state;
 		this._advanced_measurement_table = advanced_measurement_table;
 		this._messaging_channel = messaging_channel;
+		this._original_event_data = original_event_data;
+		this._attribution_data = attribution_data;
 	}
 
 	/**
@@ -444,6 +452,54 @@ export default class ServerEvent {
 		return this;
 	}
 
+	/**
+	 * Gets the original_event_data for the current event.
+	 */
+	get original_event_data() {
+		return this._original_event_data;
+	}
+
+	/**
+	 * Sets the original_event_data for the current event.
+	 * @param {OriginalEventData} original_event_data represents the original event info.
+	 */
+	set original_event_data(original_event_data: OriginalEventData) {
+		this._original_event_data = original_event_data;
+	}
+
+	/**
+	 * Sets the original_event_data for the current event.
+	 * @param {OriginalEventData} original_event_data represents the original event info.
+	 */
+	setOriginalEventData(original_event_data: OriginalEventData) : ServerEvent {
+		this._original_event_data = original_event_data;
+		return this;
+	}
+
+	/**
+	 * Gets the attribution_data for the current event.
+	 */
+	get attribution_data() {
+		return this._attribution_data;
+	}
+
+	/**
+	 * Sets the attribution_data for the current event.
+	 * @param {AttributionData} attribution_data represents the attribution data info.
+	 */
+	set attribution_data(attribution_data: AttributionData) {
+		this._attribution_data = attribution_data;
+	}
+
+	/**
+	 * Sets the attribution_data for the current event.
+	 * @param {AttributionData} attribution_data represents the attribution data info.
+	 */
+	setAttributionData(attribution_data: AttributionData) : ServerEvent {
+		this._attribution_data = attribution_data;
+		return this;
+	}
+
 
 	/**
 	 * Returns the normalized payload for the event.
@@ -512,6 +568,14 @@ export default class ServerEvent {
 
 		if (this.messaging_channel) {
 			serverEvent.messaging_channel = this.messaging_channel;
+		}
+
+		if (this.original_event_data) {
+			serverEvent.original_event_data = this.original_event_data;
+		}
+
+		if (this.attribution_data) {
+			serverEvent.attribution_data = this.attribution_data;
 		}
 
 		return serverEvent;
