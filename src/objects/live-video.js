@@ -152,7 +152,7 @@ export default class LiveVideo extends AbstractCrudObject {
     );
   }
 
-  getCrosspostShareDPages (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+  getCrosspostSharedPages (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Page,
       fields,

@@ -60,7 +60,7 @@ export { default as AdAccountDsaRecommendations } from './../src/objects/ad-acco
 export { default as AdAccountIosFourteenCampaignLimits } from './../src/objects/ad-account-ios-fourteen-campaign-limits';
 export { default as AdAccountMatchedSearchApplicationsEdgeData } from './../src/objects/ad-account-matched-search-applications-edge-data';
 export { default as AdAccountMaxBid } from './../src/objects/ad-account-max-bid';
-export { default as AdAccountOptimizationGoalsAEMv2Eligibility } from './../src/objects/ad-account-optimization-goals-ae-mv2-eligibility';
+export { default as AdAccountOptimizationGoalsAEMv2Eligibility } from './../src/objects/ad-account-optimization-goals-aemv2-eligibility';
 export { default as AdAccountPaymentDetails } from './../src/objects/ad-account-payment-details';
 export { default as AdAccountPaymentOptions } from './../src/objects/ad-account-payment-options';
 export { default as AdAccountPrepayDetails } from './../src/objects/ad-account-prepay-details';
@@ -675,7 +675,7 @@ export { default as OrderIDAttributions } from './../src/objects/order-id-attrib
 export { default as Organization } from './../src/objects/organization';
 export { default as OutcomePredictionPoint } from './../src/objects/outcome-prediction-point';
 export { default as OwnedDomain } from './../src/objects/owned-domain';
-export { default as P2MInvoicePayments } from './../src/objects/p2-m-invoice-payments';
+export { default as P2MInvoicePayments } from './../src/objects/p2m-invoice-payments';
 export { default as Page } from './../src/objects/page';
 export { default as PageAboutStoryComposedBlock } from './../src/objects/page-about-story-composed-block';
 export { default as PageAboutStoryComposedBlockEntityRanges } from './../src/objects/page-about-story-composed-block-entity-ranges';
@@ -945,7 +945,7 @@ export { default as WhitehatFBDLRun } from './../src/objects/whitehat-fbdl-run';
 export { default as WifiInformation } from './../src/objects/wifi-information';
 export { default as WindowsAppLink } from './../src/objects/windows-app-link';
 export { default as WindowsPhoneAppLink } from './../src/objects/windows-phone-app-link';
-export { default as WithAsset3D } from './../src/objects/with-asset3-d';
+export { default as WithAsset3D } from './../src/objects/with-asset-3d';
 export { default as WoodhengePurchasedPAYGReceipt } from './../src/objects/woodhenge-purchased-payg-receipt';
 export { default as WoodhengeSupporter } from './../src/objects/woodhenge-supporter';
 export { default as WorkAccessCode } from './../src/objects/work-access-code';

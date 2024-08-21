@@ -1230,7 +1230,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createMessageAttachMEnt (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+  createMessageAttachment (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
     return this.createEdge(
       '/message_attachments',
       fields,
@@ -1280,7 +1280,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  getMessengerLeadForMs (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+  getMessengerLeadForms (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       MessengerAdsPartialAutomatedStepList,
       fields,
@@ -1290,7 +1290,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createMessengerLeadForM (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Page> {
+  createMessengerLeadForm (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Page> {
     return this.createEdge(
       '/messenger_lead_forms',
       fields,
@@ -1557,7 +1557,7 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  getScheduleDPosts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+  getScheduledPosts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       PagePost,
       fields,

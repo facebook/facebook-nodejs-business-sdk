@@ -111,7 +111,7 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
     );
   }
 
-  getShareDAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+  getSharedAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdAccount,
       fields,
@@ -121,7 +121,7 @@ export default class OfflineConversionDataSet extends AbstractCrudObject {
     );
   }
 
-  getShareDAgencies (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+  getSharedAgencies (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Business,
       fields,

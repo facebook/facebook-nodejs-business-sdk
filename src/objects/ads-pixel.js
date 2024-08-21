@@ -233,14 +233,14 @@ export default class AdsPixel extends AbstractCrudObject {
     );
   }
 
-  deleteShareDAccounts (params: Object = {}): Promise<*> {
+  deleteSharedAccounts (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/shared_accounts',
       params
     );
   }
 
-  getShareDAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+  getSharedAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdAccount,
       fields,
@@ -250,7 +250,7 @@ export default class AdsPixel extends AbstractCrudObject {
     );
   }
 
-  createShareDAccount (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdsPixel> {
+  createSharedAccount (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdsPixel> {
     return this.createEdge(
       '/shared_accounts',
       fields,
@@ -260,7 +260,7 @@ export default class AdsPixel extends AbstractCrudObject {
     );
   }
 
-  getShareDAgencies (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+  getSharedAgencies (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Business,
       fields,

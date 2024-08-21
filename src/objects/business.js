@@ -1423,14 +1423,14 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  deleteMAnAgeDBusinesses (params: Object = {}): Promise<*> {
+  deleteManagedBusinesses (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/managed_businesses',
       params
     );
   }
 
-  createMAnAgeDBusiness (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Business> {
+  createManagedBusiness (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Business> {
     return this.createEdge(
       '/managed_businesses',
       fields,
@@ -1440,7 +1440,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createMAnAgeDPartnerBusinessSetup (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Business> {
+  createManagedPartnerBusinessSetup (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Business> {
     return this.createEdge(
       '/managed_partner_business_setup',
       fields,
@@ -1450,14 +1450,14 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  deleteMAnAgeDPartnerBusinesses (params: Object = {}): Promise<*> {
+  deleteManagedPartnerBusinesses (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/managed_partner_businesses',
       params
     );
   }
 
-  createMAnAgeDPartnerBusiness (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+  createManagedPartnerBusiness (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
     return this.createEdge(
       '/managed_partner_businesses',
       fields,
@@ -1721,7 +1721,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  getPendingShareDOffsiteSignalContainerBusinessObjects (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+  getPendingSharedOffsiteSignalContainerBusinessObjects (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       OffsiteSignalContainerBusinessObject,
       fields,
@@ -1801,7 +1801,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createSetupMAnAgeDPartnerAdAccount (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Business> {
+  createSetupManagedPartnerAdAccount (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Business> {
     return this.createEdge(
       '/setup_managed_partner_adaccounts',
       fields,

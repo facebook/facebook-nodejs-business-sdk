@@ -1032,7 +1032,7 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  createMAnAgeDPartnerAd (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+  createManagedPartnerAd (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
     return this.createEdge(
       '/managed_partner_ads',
       fields,

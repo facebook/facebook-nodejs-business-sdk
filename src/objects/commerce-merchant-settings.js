@@ -85,7 +85,7 @@ export default class CommerceMerchantSettings extends AbstractCrudObject {
     );
   }
 
-  getOrderMAnAgeMEntApps (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+  getOrderManagementApps (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Application,
       fields,
@@ -95,7 +95,7 @@ export default class CommerceMerchantSettings extends AbstractCrudObject {
     );
   }
 
-  createOrderMAnAgeMEntApp (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<CommerceMerchantSettings> {
+  createOrderManagementApp (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<CommerceMerchantSettings> {
     return this.createEdge(
       '/order_management_apps',
       fields,

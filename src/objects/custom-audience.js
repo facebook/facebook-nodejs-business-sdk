@@ -200,7 +200,7 @@ export default class CustomAudience extends AbstractCrudObject {
     );
   }
 
-  getShareDAccountInfo (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+  getSharedAccountInfo (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       CustomAudiencesharedAccountInfo,
       fields,
