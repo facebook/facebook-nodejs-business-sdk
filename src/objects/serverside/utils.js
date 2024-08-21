@@ -205,7 +205,7 @@ export default class ServerSideUtils {
       phone_number = phone_number.replace(PHONE_NUMBER_DROP_PREFIX_ZEROS, '');
     }
 
-    if (phone_number.length < 7 || phone_number.length > 15) {
+    if (phone_number.length < 7 || phone_number.length > 16) {
       throw new Error("Invalid phone number format for the passed phone number:'" + phone_number + "'.Please check the passed phone number format.");
     }
 
