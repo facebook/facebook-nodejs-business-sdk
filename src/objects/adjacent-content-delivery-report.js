@@ -18,7 +18,9 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class AdjacentContentDeliveryReport extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
+      ad_id: 'ad_id',
       content: 'content',
+      impression_id: 'impression_id',
     });
   }
 

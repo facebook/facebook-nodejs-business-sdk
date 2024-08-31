@@ -22,6 +22,7 @@ export default class AdCreativeFeatureCustomizations extends AbstractCrudObject 
       catalog_feed_tag_name: 'catalog_feed_tag_name',
       font_name: 'font_name',
       product_recommendation_type: 'product_recommendation_type',
+      product_versioning_fallback_strategy: 'product_versioning_fallback_strategy',
       showcase_card_display: 'showcase_card_display',
       text_style: 'text_style',
       video_crop_style: 'video_crop_style',

@@ -11,6 +11,7 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
+import ALMAdAccountInfo from './alm-ad-account-info';
 import AdStudy from './ad-study';
 import AdAccount from './ad-account';
 import Application from './application';
@@ -895,10 +896,30 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
+  getAdAccountInfos (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      ALMAdAccountInfo,
+      fields,
+      params,
+      fetchFirstPage,
+      '/ad_account_infos'
+    );
+  }
+
   deleteAdAccounts (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/ad_accounts',
       params
+    );
+  }
+
+  createAdReviewRequest (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+    return this.createEdge(
+      '/ad_review_requests',
+      fields,
+      params,
+      null,
+      pathOverride,
     );
   }
 
@@ -1055,6 +1076,16 @@ export default class Business extends AbstractCrudObject {
       fields,
       params,
       Business,
+      pathOverride,
+    );
+  }
+
+  createBmReviewRequest (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+    return this.createEdge(
+      '/bm_review_requests',
+      fields,
+      params,
+      null,
       pathOverride,
     );
   }
@@ -1791,7 +1822,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  getSelfCertifiedWhatsappBusinessSubmissions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+  getSelfCertifiedWhatsAppBusinessSubmissions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       WhatsAppBusinessPartnerClientVerificationSubmission,
       fields,

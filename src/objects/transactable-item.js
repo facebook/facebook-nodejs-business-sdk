@@ -11,6 +11,7 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 import Cursor from './../cursor';
 import CatalogItemChannelsToIntegrityStatus from './catalog-item-channels-to-integrity-status';
+import OverrideDetails from './override-details';
 
 /**
  * TransactableItem
@@ -67,6 +68,16 @@ export default class TransactableItem extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/channels_to_integrity_status'
+    );
+  }
+
+  getOverrideDetails (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      OverrideDetails,
+      fields,
+      params,
+      fetchFirstPage,
+      '/override_details'
     );
   }
 

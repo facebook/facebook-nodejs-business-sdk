@@ -760,6 +760,16 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
+  getSubscriptions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/subscriptions'
+    );
+  }
+
   createSubscription (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
     return this.createEdge(
       '/subscriptions',

@@ -18,6 +18,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class LeadGenFormPreviewDetails extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
+      call_business_text: 'call_business_text',
       call_to_action_title: 'call_to_action_title',
       contact_information_text: 'contact_information_text',
       creatives_overview_default_text: 'creatives_overview_default_text',
@@ -42,15 +43,18 @@ export default class LeadGenFormPreviewDetails extends AbstractCrudObject {
       optional_question_text: 'optional_question_text',
       personal_info_text: 'personal_info_text',
       phone_number_inline_context_text: 'phone_number_inline_context_text',
+      privacy_policy_link_text: 'privacy_policy_link_text',
       privacy_policy_title_section_title_text: 'privacy_policy_title_section_title_text',
       privacy_setting_description: 'privacy_setting_description',
       products_section_headers: 'products_section_headers',
       qualified_thank_you_card_transparency_info_text: 'qualified_thank_you_card_transparency_info_text',
+      redeem_promo_code_text: 'redeem_promo_code_text',
       review_your_info_text: 'review_your_info_text',
       secure_sharing_text: 'secure_sharing_text',
       slide_to_submit_text: 'slide_to_submit_text',
       social_proof_section_headers: 'social_proof_section_headers',
       submit_button_text: 'submit_button_text',
+      view_file_text: 'view_file_text',
     });
   }
 

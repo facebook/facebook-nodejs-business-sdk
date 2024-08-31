@@ -103,6 +103,7 @@ export default class AdsPixel extends AbstractCrudObject {
     return Object.freeze({
       advertise: 'ADVERTISE',
       analyze: 'ANALYZE',
+      edit: 'EDIT',
       upload: 'UPLOAD',
     });
   }

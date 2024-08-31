@@ -11,18 +11,16 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * InstantArticleCTA
+ * AdCampaignConversionValueExpressionSpec
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class InstantArticleCTA extends AbstractCrudObject {
+export default class AdCampaignConversionValueExpressionSpec extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      id: 'id',
-      is_enabled: 'is_enabled',
-      publisher_defined_value: 'publisher_defined_value',
-      type: 'type',
-      update_time: 'update_time',
+      adjustment_sign: 'adjustment_sign',
+      adjustment_weight: 'adjustment_weight',
+      destination_type: 'destination_type',
     });
   }
 

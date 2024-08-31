@@ -25,7 +25,9 @@ export default class AdCreativeBrandedContentAds extends AbstractCrudObject {
       instagram_boost_post_access_token: 'instagram_boost_post_access_token',
       is_mca_internal: 'is_mca_internal',
       partners: 'partners',
+      product_set_partner_selection_status: 'product_set_partner_selection_status',
       promoted_page_id: 'promoted_page_id',
+      testimonial: 'testimonial',
       ui_version: 'ui_version',
     });
   }

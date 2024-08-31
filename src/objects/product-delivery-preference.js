@@ -11,25 +11,23 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * BCPCreatorIgUser
+ * ProductDeliveryPreference
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class BCPCreatorIgUser extends AbstractCrudObject {
+export default class ProductDeliveryPreference extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      email: 'email',
+      ad_object_id: 'ad_object_id',
       id: 'id',
-      is_paid_partnership_messages_enabled: 'is_paid_partnership_messages_enabled',
-      messaging_id: 'messaging_id',
-      portfolio_url: 'portfolio_url',
-      username: 'username',
+      product_priority: 'product_priority',
+      product_priority_category: 'product_priority_category',
     });
   }
 
 
   
-  get (fields: Array<string>, params: Object = {}): BCPCreatorIgUser {
+  get (fields: Array<string>, params: Object = {}): ProductDeliveryPreference {
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,

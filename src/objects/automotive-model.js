@@ -10,8 +10,8 @@
 
 import {AbstractCrudObject} from './../abstract-crud-object';
 import Cursor from './../cursor';
-import DynamicARMetadata from './dynamic-ar-metadata';
 import CatalogItemChannelsToIntegrityStatus from './catalog-item-channels-to-integrity-status';
+import OverrideDetails from './override-details';
 import DynamicVideoMetadata from './dynamic-video-metadata';
 
 /**
@@ -72,16 +72,6 @@ export default class AutomotiveModel extends AbstractCrudObject {
     });
   }
 
-  getAugmentedRealitiesMetadata (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      DynamicARMetadata,
-      fields,
-      params,
-      fetchFirstPage,
-      '/augmented_realities_metadata'
-    );
-  }
-
   getChannelsToIntegrityStatus (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       CatalogItemChannelsToIntegrityStatus,
@@ -89,6 +79,16 @@ export default class AutomotiveModel extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/channels_to_integrity_status'
+    );
+  }
+
+  getOverrideDetails (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      OverrideDetails,
+      fields,
+      params,
+      fetchFirstPage,
+      '/override_details'
     );
   }
 

@@ -11,18 +11,14 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * CPASSetupCatalogProgress
+ * AdCreativeDestinationSpec
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class CPASSetupCatalogProgress extends AbstractCrudObject {
+export default class AdCreativeDestinationSpec extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      child_catalog_count: 'child_catalog_count',
-      child_catalog_issues: 'child_catalog_issues',
-      id: 'id',
-      issues: 'issues',
-      name: 'name',
+      destination_type: 'destination_type',
     });
   }
 

@@ -31,10 +31,9 @@ import UnifiedThread from './unified-thread';
 import VideoCopyrightMatch from './video-copyright-match';
 import PageUserMessageThreadLabel from './page-user-message-thread-label';
 import CustomUserSettings from './custom-user-settings';
-import AdsPixel from './ads-pixel';
+import Dataset from './dataset';
 import Event from './event';
 import FantasyGame from './fantasy-game';
-import Group from './group';
 import ImageCopyright from './image-copyright';
 import AdVideo from './ad-video';
 import InsightsResult from './insights-result';
@@ -468,6 +467,7 @@ export default class Page extends AbstractCrudObject {
       message_tag: 'MESSAGE_TAG',
       response: 'RESPONSE',
       update: 'UPDATE',
+      utility: 'UTILITY',
     });
   }
   static get NotificationType (): Object {
@@ -538,6 +538,7 @@ export default class Page extends AbstractCrudObject {
       awards: 'awards',
       bio: 'bio',
       birthday: 'birthday',
+      call_permission_reply: 'call_permission_reply',
       calls: 'calls',
       category: 'category',
       checkins: 'checkins',
@@ -588,6 +589,7 @@ export default class Page extends AbstractCrudObject {
       messaging_game_plays: 'messaging_game_plays',
       messaging_handovers: 'messaging_handovers',
       messaging_in_thread_lead_form_submit: 'messaging_in_thread_lead_form_submit',
+      messaging_integrity: 'messaging_integrity',
       messaging_optins: 'messaging_optins',
       messaging_optouts: 'messaging_optouts',
       messaging_payments: 'messaging_payments',
@@ -993,9 +995,9 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  getDataSet (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+  getDataset (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      AdsPixel,
+      Dataset,
       fields,
       params,
       fetchFirstPage,
@@ -1003,12 +1005,12 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createDataSet (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdsPixel> {
+  createDataset (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Dataset> {
     return this.createEdge(
       '/dataset',
       fields,
       params,
-      AdsPixel,
+      Dataset,
       pathOverride,
     );
   }
@@ -1070,16 +1072,6 @@ export default class Page extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/global_brand_children'
-    );
-  }
-
-  getGroups (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      Group,
-      fields,
-      params,
-      fetchFirstPage,
-      '/groups'
     );
   }
 

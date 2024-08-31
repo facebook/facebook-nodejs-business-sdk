@@ -12,6 +12,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import CatalogItemChannelsToIntegrityStatus from './catalog-item-channels-to-integrity-status';
+import OverrideDetails from './override-details';
 import ProductSet from './product-set';
 import DynamicVideoMetadata from './dynamic-video-metadata';
 
@@ -30,6 +31,8 @@ export default class ProductItem extends AbstractCrudObject {
       applinks: 'applinks',
       availability: 'availability',
       brand: 'brand',
+      bundle_items: 'bundle_items',
+      bundle_retailer_ids: 'bundle_retailer_ids',
       capability_to_review_status: 'capability_to_review_status',
       category: 'category',
       category_specific_fields: 'category_specific_fields',
@@ -63,6 +66,7 @@ export default class ProductItem extends AbstractCrudObject {
       importer_name: 'importer_name',
       invalidation_errors: 'invalidation_errors',
       inventory: 'inventory',
+      is_bundle_hero: 'is_bundle_hero',
       manufacturer_info: 'manufacturer_info',
       manufacturer_part_number: 'manufacturer_part_number',
       marked_for_product_launch: 'marked_for_product_launch',
@@ -411,6 +415,7 @@ export default class ProductItem extends AbstractCrudObject {
       bad_quality_image: 'BAD_QUALITY_IMAGE',
       big_catalog_with_all_items_in_stock: 'BIG_CATALOG_WITH_ALL_ITEMS_IN_STOCK',
       biz_msg_ai_agent_disabled_by_user: 'BIZ_MSG_AI_AGENT_DISABLED_BY_USER',
+      biz_msg_gen_ai_policy_violated: 'BIZ_MSG_GEN_AI_POLICY_VIOLATED',
       cannot_edit_subscription_products: 'CANNOT_EDIT_SUBSCRIPTION_PRODUCTS',
       catalog_not_connected_to_event_source: 'CATALOG_NOT_CONNECTED_TO_EVENT_SOURCE',
       checkout_disabled_by_user: 'CHECKOUT_DISABLED_BY_USER',
@@ -543,6 +548,8 @@ export default class ProductItem extends AbstractCrudObject {
       video_fetch_failed_timed_out: 'VIDEO_FETCH_FAILED_TIMED_OUT',
       video_not_downloadable: 'VIDEO_NOT_DOWNLOADABLE',
       whatsapp_disabled_by_user: 'WHATSAPP_DISABLED_BY_USER',
+      whatsapp_marketing_message_disabled_by_user: 'WHATSAPP_MARKETING_MESSAGE_DISABLED_BY_USER',
+      whatsapp_marketing_message_policy_violation: 'WHATSAPP_MARKETING_MESSAGE_POLICY_VIOLATION',
       whatsapp_policy_violation: 'WHATSAPP_POLICY_VIOLATION',
     });
   }
@@ -822,6 +829,16 @@ export default class ProductItem extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/channels_to_integrity_status'
+    );
+  }
+
+  getOverrideDetails (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      OverrideDetails,
+      fields,
+      params,
+      fetchFirstPage,
+      '/override_details'
     );
   }
 

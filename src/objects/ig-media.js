@@ -128,10 +128,20 @@ export default class IGMedia extends AbstractCrudObject {
     );
   }
 
-  deleteProductTags (params: Object = {}): Promise<*> {
+  deletePartnershipAdCode (params: Object = {}): Promise<*> {
     return super.deleteEdge(
-      '/product_tags',
+      '/partnership_ad_code',
       params
+    );
+  }
+
+  createPartnershipAdCode (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+    return this.createEdge(
+      '/partnership_ad_code',
+      fields,
+      params,
+      null,
+      pathOverride,
     );
   }
 

@@ -11,16 +11,28 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * ProductCatalogMicrodataStatsPixelInfo
+ * ALMEndAdvertiserInfo
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class ProductCatalogMicrodataStatsPixelInfo extends AbstractCrudObject {
+export default class ALMEndAdvertiserInfo extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      is_already_connected: 'is_already_connected',
-      pixel_id: 'pixel_id',
+      estimated_ad_budget: 'estimated_ad_budget',
+      id: 'id',
+      parent_advertiser_id: 'parent_advertiser_id',
+      parent_advertiser_name: 'parent_advertiser_name',
+      tag: 'tag',
     });
   }
 
+
+  
+  get (fields: Array<string>, params: Object = {}): ALMEndAdvertiserInfo {
+    // $FlowFixMe : Support Generic Types
+    return this.read(
+      fields,
+      params
+    );
+  }
 }

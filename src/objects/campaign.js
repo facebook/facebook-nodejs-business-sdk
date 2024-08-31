@@ -58,6 +58,7 @@ export default class Campaign extends AbstractCrudObject {
       smart_promotion_type: 'smart_promotion_type',
       source_campaign: 'source_campaign',
       source_campaign_id: 'source_campaign_id',
+      source_recommendation_type: 'source_recommendation_type',
       special_ad_categories: 'special_ad_categories',
       special_ad_category: 'special_ad_category',
       special_ad_category_country: 'special_ad_category_country',

@@ -21,6 +21,7 @@ import HighDemandPeriod from './high-demand-period';
 import AdCampaignDeliveryEstimate from './ad-campaign-delivery-estimate';
 import AdsInsights from './ads-insights';
 import AdReportRun from './ad-report-run';
+import MessageDeliveryEstimate from './message-delivery-estimate';
 import TargetingSentenceLine from './targeting-sentence-line';
 
 /**
@@ -42,6 +43,7 @@ export default class AdSet extends AbstractCrudObject {
       bid_info: 'bid_info',
       bid_strategy: 'bid_strategy',
       billing_event: 'billing_event',
+      brand_safety_config: 'brand_safety_config',
       budget_remaining: 'budget_remaining',
       campaign: 'campaign',
       campaign_active_time: 'campaign_active_time',
@@ -207,8 +209,10 @@ export default class AdSet extends AbstractCrudObject {
       app: 'APP',
       applinks_automatic: 'APPLINKS_AUTOMATIC',
       facebook: 'FACEBOOK',
+      facebook_page: 'FACEBOOK_PAGE',
       instagram_direct: 'INSTAGRAM_DIRECT',
       instagram_profile: 'INSTAGRAM_PROFILE',
+      instagram_profile_and_facebook_page: 'INSTAGRAM_PROFILE_AND_FACEBOOK_PAGE',
       messaging_instagram_direct_messenger: 'MESSAGING_INSTAGRAM_DIRECT_MESSENGER',
       messaging_instagram_direct_messenger_whatsapp: 'MESSAGING_INSTAGRAM_DIRECT_MESSENGER_WHATSAPP',
       messaging_instagram_direct_whatsapp: 'MESSAGING_INSTAGRAM_DIRECT_WHATSAPP',
@@ -423,6 +427,16 @@ export default class AdSet extends AbstractCrudObject {
       params,
       AdReportRun,
       pathOverride,
+    );
+  }
+
+  getMessageDeliveryEstimate (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      MessageDeliveryEstimate,
+      fields,
+      params,
+      fetchFirstPage,
+      '/message_delivery_estimate'
     );
   }
 

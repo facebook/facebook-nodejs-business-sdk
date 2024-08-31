@@ -11,15 +11,24 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * ProductCatalogExampleFeed
+ * OverrideDetails
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class ProductCatalogExampleFeed extends AbstractCrudObject {
+export default class OverrideDetails extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      example_feed: 'example_feed',
+      key: 'key',
+      type: 'type',
+      values: 'values',
     });
   }
 
+  static get Type (): Object {
+    return Object.freeze({
+      country: 'COUNTRY',
+      language: 'LANGUAGE',
+      language_and_country: 'LANGUAGE_AND_COUNTRY',
+    });
+  }
 }

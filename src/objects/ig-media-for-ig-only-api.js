@@ -11,6 +11,7 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
+import Comment from './comment';
 
 /**
  * IGMediaForIGOnlyAPI
@@ -21,7 +22,9 @@ export default class IGMediaForIGOnlyAPI extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       caption: 'caption',
+      comments_count: 'comments_count',
       id: 'id',
+      is_comment_enabled: 'is_comment_enabled',
       is_shared_to_feed: 'is_shared_to_feed',
       like_count: 'like_count',
       media_product_type: 'media_product_type',
@@ -47,11 +50,39 @@ export default class IGMediaForIGOnlyAPI extends AbstractCrudObject {
     );
   }
 
+  getComments (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      Comment,
+      fields,
+      params,
+      fetchFirstPage,
+      '/comments'
+    );
+  }
+
+  createComment (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+    return this.createEdge(
+      '/comments',
+      fields,
+      params,
+      null,
+      pathOverride,
+    );
+  }
+
   
   get (fields: Array<string>, params: Object = {}): IGMediaForIGOnlyAPI {
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
+      params
+    );
+  }
+
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
+    return super.update(
       params
     );
   }

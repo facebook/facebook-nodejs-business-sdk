@@ -19,6 +19,7 @@ export default class AdPromotedObject extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       application_id: 'application_id',
+      boosted_product_set_id: 'boosted_product_set_id',
       conversion_goal_id: 'conversion_goal_id',
       custom_conversion_id: 'custom_conversion_id',
       custom_event_str: 'custom_event_str',

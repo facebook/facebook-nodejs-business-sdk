@@ -41,6 +41,12 @@ export default class BusinessUser extends AbstractCrudObject {
     });
   }
 
+  static get InvitedUserType (): Object {
+    return Object.freeze({
+      fb: 'FB',
+      mwa: 'MWA',
+    });
+  }
   static get Role (): Object {
     return Object.freeze({
       admin: 'ADMIN',

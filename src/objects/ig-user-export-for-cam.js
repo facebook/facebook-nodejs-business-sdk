@@ -11,17 +11,29 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * PageVideosYouCanUse
+ * IGUserExportForCAM
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class PageVideosYouCanUse extends AbstractCrudObject {
+export default class IGUserExportForCAM extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      description: 'description',
+      email: 'email',
       id: 'id',
-      title: 'title',
+      is_paid_partnership_messages_enabled: 'is_paid_partnership_messages_enabled',
+      messaging_id: 'messaging_id',
+      portfolio_url: 'portfolio_url',
+      username: 'username',
     });
   }
 
+
+  
+  get (fields: Array<string>, params: Object = {}): IGUserExportForCAM {
+    // $FlowFixMe : Support Generic Types
+    return this.read(
+      fields,
+      params
+    );
+  }
 }

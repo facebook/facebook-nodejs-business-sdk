@@ -9,6 +9,8 @@
  */
 
 import {AbstractCrudObject} from './../abstract-crud-object';
+import Cursor from './../cursor';
+import InsightsResult from './insights-result';
 
 /**
  * Stories
@@ -24,6 +26,7 @@ export default class Stories extends AbstractCrudObject {
       post_id: 'post_id',
       status: 'status',
       url: 'url',
+      id: 'id',
     });
   }
 
@@ -32,5 +35,24 @@ export default class Stories extends AbstractCrudObject {
       archived: 'ARCHIVED',
       published: 'PUBLISHED',
     });
+  }
+
+  getInsights (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      InsightsResult,
+      fields,
+      params,
+      fetchFirstPage,
+      '/insights'
+    );
+  }
+
+  
+  get (fields: Array<string>, params: Object = {}): Stories {
+    // $FlowFixMe : Support Generic Types
+    return this.read(
+      fields,
+      params
+    );
   }
 }

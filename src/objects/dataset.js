@@ -11,25 +11,16 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * VidwallaBroadcast
+ * Dataset
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class VidwallaBroadcast extends AbstractCrudObject {
+export default class Dataset extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       id: 'id',
-      overlay_url: 'overlay_url',
+      name: 'name',
     });
   }
 
-
-  
-  get (fields: Array<string>, params: Object = {}): VidwallaBroadcast {
-    // $FlowFixMe : Support Generic Types
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

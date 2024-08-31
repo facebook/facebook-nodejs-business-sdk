@@ -11,22 +11,31 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * UserSetReportingRoot
+ * ALMEvent
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class UserSetReportingRoot extends AbstractCrudObject {
+export default class ALMEvent extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      creation_time: 'creation_time',
+      ad_account_ids: 'ad_account_ids',
+      campaign_ids: 'campaign_ids',
+      channel: 'channel',
+      event: 'event',
+      event_time: 'event_time',
+      guidance: 'guidance',
+      guidance_detail: 'guidance_detail',
       id: 'id',
-      last_modified_time: 'last_modified_time',
+      parent_advertiser_ids: 'parent_advertiser_ids',
+      reseller_business_id: 'reseller_business_id',
+      sub_channel: 'sub_channel',
+      user_id: 'user_id',
     });
   }
 
 
   
-  get (fields: Array<string>, params: Object = {}): UserSetReportingRoot {
+  get (fields: Array<string>, params: Object = {}): ALMEvent {
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,

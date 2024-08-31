@@ -60,6 +60,7 @@ import Page from './page';
 import PublisherBlockList from './publisher-block-list';
 import AdAccountReachEstimate from './ad-account-reach-estimate';
 import ReachFrequencyPrediction from './reach-frequency-prediction';
+import AdAccountRecommendations from './ad-account-recommendations';
 import SavedAudience from './saved-audience';
 import AdAccountSubscribedApps from './ad-account-subscribed-apps';
 import AdAccountTargetingUnified from './ad-account-targeting-unified';
@@ -226,6 +227,22 @@ export default class AdAccount extends AbstractCrudObject {
       analyze: 'ANALYZE',
       draft: 'DRAFT',
       manage: 'MANAGE',
+    });
+  }
+  static get BrandSafetyContentFilterLevels (): Object {
+    return Object.freeze({
+      an_relaxed: 'AN_RELAXED',
+      an_standard: 'AN_STANDARD',
+      an_strict: 'AN_STRICT',
+      facebook_relaxed: 'FACEBOOK_RELAXED',
+      facebook_standard: 'FACEBOOK_STANDARD',
+      facebook_strict: 'FACEBOOK_STRICT',
+      feed_dnm: 'FEED_DNM',
+      feed_relaxed: 'FEED_RELAXED',
+      feed_standard: 'FEED_STANDARD',
+      feed_strict: 'FEED_STRICT',
+      uninitialized: 'UNINITIALIZED',
+      unknown: 'UNKNOWN',
     });
   }
   static get ClaimObjective (): Object {
@@ -785,6 +802,16 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
+  createBrandSafetyContentFilterLevel (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdAccount> {
+    return this.createEdge(
+      '/brand_safety_content_filter_levels',
+      fields,
+      params,
+      AdAccount,
+      pathOverride,
+    );
+  }
+
   getBroadTargetingCategories (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       BroadTargetingCategories,
@@ -1148,6 +1175,26 @@ export default class AdAccount extends AbstractCrudObject {
       fields,
       params,
       ReachFrequencyPrediction,
+      pathOverride,
+    );
+  }
+
+  getRecommendations (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AdAccountRecommendations,
+      fields,
+      params,
+      fetchFirstPage,
+      '/recommendations'
+    );
+  }
+
+  createRecommendation (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdAccountRecommendations> {
+    return this.createEdge(
+      '/recommendations',
+      fields,
+      params,
+      AdAccountRecommendations,
       pathOverride,
     );
   }

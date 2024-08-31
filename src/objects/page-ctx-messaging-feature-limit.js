@@ -11,16 +11,16 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * ProductFeedMissingFeedItemReplacement
+ * PageCTXMessagingFeatureLimit
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class ProductFeedMissingFeedItemReplacement extends AbstractCrudObject {
+export default class PageCTXMessagingFeatureLimit extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      home_listing: 'home_listing',
-      product_item: 'product_item',
-      vehicle: 'vehicle',
+      messaging_feature_limit_duration: 'messaging_feature_limit_duration',
+      messaging_feature_limit_type: 'messaging_feature_limit_type',
+      messaging_violation_type: 'messaging_violation_type',
     });
   }
 
