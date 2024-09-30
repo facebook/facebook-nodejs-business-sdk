@@ -150,6 +150,8 @@ export default class FacebookAdsApi {
             ${Object.keys(data).length > 0 ? JSON.stringify(data) : ''}`,
           );
         }
+        console.error(`Error in ${method} request to ${url} with data: ${JSON.stringify(data)}`);
+        console.error('Response:', response);
         throw new FacebookRequestError(response, method, url, data);
       });
   }
