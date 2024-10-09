@@ -73,6 +73,8 @@ export default class AdSet extends AbstractCrudObject {
       lifetime_imps: 'lifetime_imps',
       lifetime_min_spend_target: 'lifetime_min_spend_target',
       lifetime_spend_cap: 'lifetime_spend_cap',
+      max_budget_spend_percentage: 'max_budget_spend_percentage',
+      min_budget_spend_percentage: 'min_budget_spend_percentage',
       multi_optimization_goal_weight: 'multi_optimization_goal_weight',
       name: 'name',
       optimization_goal: 'optimization_goal',
@@ -267,12 +269,14 @@ export default class AdSet extends AbstractCrudObject {
     return Object.freeze({
       value_0: '0',
       value_1: '1',
+      value_2: '2',
     });
   }
   static get TuneForCategory (): Object {
     return Object.freeze({
       credit: 'CREDIT',
       employment: 'EMPLOYMENT',
+      financial_products_services: 'FINANCIAL_PRODUCTS_SERVICES',
       housing: 'HOUSING',
       issues_elections_politics: 'ISSUES_ELECTIONS_POLITICS',
       none: 'NONE',

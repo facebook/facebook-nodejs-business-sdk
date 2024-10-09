@@ -63,6 +63,7 @@ export { default as AdAccountDefaultObjective } from './../src/objects/ad-accoun
 export { default as AdAccountDeliveryEstimate } from './../src/objects/ad-account-delivery-estimate';
 export { default as AdAccountDsaRecommendations } from './../src/objects/ad-account-dsa-recommendations';
 export { default as AdAccountIosFourteenCampaignLimits } from './../src/objects/ad-account-ios-fourteen-campaign-limits';
+export { default as AdAccountLiveVideoAdvertiser } from './../src/objects/ad-account-live-video-advertiser';
 export { default as AdAccountMatchedSearchApplicationsEdgeData } from './../src/objects/ad-account-matched-search-applications-edge-data';
 export { default as AdAccountMaxBid } from './../src/objects/ad-account-max-bid';
 export { default as AdAccountOptimizationGoalsAEMv2Eligibility } from './../src/objects/ad-account-optimization-goals-aemv2-eligibility';
@@ -182,6 +183,7 @@ export { default as AdCreativePlaceData } from './../src/objects/ad-creative-pla
 export { default as AdCreativePlatformCustomization } from './../src/objects/ad-creative-platform-customization';
 export { default as AdCreativePortraitCustomizations } from './../src/objects/ad-creative-portrait-customizations';
 export { default as AdCreativePostClickConfiguration } from './../src/objects/ad-creative-post-click-configuration';
+export { default as AdCreativeProductData } from './../src/objects/ad-creative-product-data';
 export { default as AdCreativePromotionMetadataSpec } from './../src/objects/ad-creative-promotion-metadata-spec';
 export { default as AdCreativeRecommenderSettings } from './../src/objects/ad-creative-recommender-settings';
 export { default as AdCreativeRegionalRegulationDisclaimer } from './../src/objects/ad-creative-regional-regulation-disclaimer';
@@ -289,6 +291,7 @@ export { default as AdsPixelSignalsIWLFeedbackNux } from './../src/objects/ads-p
 export { default as AdsPixelSignalsIWLNux } from './../src/objects/ads-pixel-signals-iwl-nux';
 export { default as AdsPixelStats } from './../src/objects/ads-pixel-stats';
 export { default as AdsPixelStatsResult } from './../src/objects/ads-pixel-stats-result';
+export { default as AdsQuickViews } from './../src/objects/ads-quick-views';
 export { default as AdsReportBuilder } from './../src/objects/ads-report-builder';
 export { default as AdsReportBuilderExportCore } from './../src/objects/ads-report-builder-export-core';
 export { default as AdsReportBuilderMMMReport } from './../src/objects/ads-report-builder-mmm-report';
@@ -491,7 +494,6 @@ export { default as DeliveryStatus } from './../src/objects/delivery-status';
 export { default as DeliveryWindow } from './../src/objects/delivery-window';
 export { default as Destination } from './../src/objects/destination';
 export { default as DirectDebit } from './../src/objects/direct-debit';
-export { default as DogNotificationSettings } from './../src/objects/dog-notification-settings';
 export { default as Domain } from './../src/objects/domain';
 export { default as DraftPost } from './../src/objects/draft-post';
 export { default as DynamicARMetadata } from './../src/objects/dynamic-ar-metadata';
@@ -524,7 +526,6 @@ export { default as ExtendedCreditInvoiceGroup } from './../src/objects/extended
 export { default as ExternalEventSource } from './../src/objects/external-event-source';
 export { default as ExternalEventSourceCPASEventsDebugging } from './../src/objects/external-event-source-cpas-events-debugging';
 export { default as ExternalEventSourceCPASEventsDebuggingInfo } from './../src/objects/external-event-source-cpas-events-debugging-info';
-export { default as ExternalEventSourceDAStatsResult } from './../src/objects/external-event-source-da-stats-result';
 export { default as ExternalMerchantSettings } from './../src/objects/external-merchant-settings';
 export { default as FAMEKumo } from './../src/objects/fame-kumo';
 export { default as FBImageCopyrightMatch } from './../src/objects/fb-image-copyright-match';
@@ -654,6 +655,7 @@ export { default as MessagingAppsInfo } from './../src/objects/messaging-apps-in
 export { default as MessagingFeatureReview } from './../src/objects/messaging-feature-review';
 export { default as MessagingFeatureStatus } from './../src/objects/messaging-feature-status';
 export { default as MessengerAdsPartialAutomatedStepList } from './../src/objects/messenger-ads-partial-automated-step-list';
+export { default as MessengerBusinessTemplate } from './../src/objects/messenger-business-template';
 export { default as MessengerCallSettings } from './../src/objects/messenger-call-settings';
 export { default as MessengerDestinationPageWelcomeMessage } from './../src/objects/messenger-destination-page-welcome-message';
 export { default as MessengerProfile } from './../src/objects/messenger-profile';
@@ -717,7 +719,6 @@ export { default as PageUpcomingChange } from './../src/objects/page-upcoming-ch
 export { default as PageUserMessageThreadLabel } from './../src/objects/page-user-message-thread-label';
 export { default as PageUserPermissions } from './../src/objects/page-user-permissions';
 export { default as PageUserWithLeadsAccess } from './../src/objects/page-user-with-leads-access';
-export { default as PanelAPIReport } from './../src/objects/panel-api-report';
 export { default as ParentCatalogReport } from './../src/objects/parent-catalog-report';
 export { default as PartnerAccountLinking } from './../src/objects/partner-account-linking';
 export { default as PartnerCategory } from './../src/objects/partner-category';
@@ -737,6 +738,7 @@ export { default as PhotoMetadata } from './../src/objects/photo-metadata';
 export { default as Place } from './../src/objects/place';
 export { default as PlaceTag } from './../src/objects/place-tag';
 export { default as PlaceTopic } from './../src/objects/place-topic';
+export { default as Placement } from './../src/objects/placement';
 export { default as PlatformImageSource } from './../src/objects/platform-image-source';
 export { default as PlatformSessionKey } from './../src/objects/platform-session-key';
 export { default as PlayableContent } from './../src/objects/playable-content';

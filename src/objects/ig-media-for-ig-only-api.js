@@ -12,6 +12,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import Comment from './comment';
+import InsightsResult from './insights-result';
 
 /**
  * IGMediaForIGOnlyAPI
@@ -67,6 +68,16 @@ export default class IGMediaForIGOnlyAPI extends AbstractCrudObject {
       params,
       null,
       pathOverride,
+    );
+  }
+
+  getInsights (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      InsightsResult,
+      fields,
+      params,
+      fetchFirstPage,
+      '/insights'
     );
   }
 

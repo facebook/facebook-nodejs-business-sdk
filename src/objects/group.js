@@ -156,16 +156,6 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  createAlbum (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Album> {
-    return this.createEdge(
-      '/albums',
-      fields,
-      params,
-      Album,
-      pathOverride,
-    );
-  }
-
   getDocs (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AbstractObject,

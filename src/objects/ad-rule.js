@@ -24,6 +24,7 @@ export default class AdRule extends AbstractCrudObject {
       account_id: 'account_id',
       created_by: 'created_by',
       created_time: 'created_time',
+      disable_error_code: 'disable_error_code',
       evaluation_spec: 'evaluation_spec',
       execution_spec: 'execution_spec',
       id: 'id',

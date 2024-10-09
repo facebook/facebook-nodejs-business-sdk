@@ -58,6 +58,7 @@ export default class InstagramInsightsResult extends AbstractCrudObject {
       saved: 'saved',
       shares: 'shares',
       thread_replies: 'thread_replies',
+      thread_shares: 'thread_shares',
       total_interactions: 'total_interactions',
       video_views: 'video_views',
       views: 'views',

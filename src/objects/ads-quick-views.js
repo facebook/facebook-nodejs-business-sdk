@@ -11,24 +11,27 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * SavedMessageResponse
+ * AdsQuickViews
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class SavedMessageResponse extends AbstractCrudObject {
+export default class AdsQuickViews extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
+      attribution_windows: 'attribution_windows',
+      breakdowns: 'breakdowns',
+      column_fields: 'column_fields',
+      description: 'description',
       id: 'id',
-      image: 'image',
-      is_enabled: 'is_enabled',
-      message: 'message',
-      title: 'title',
+      name: 'name',
+      permission: 'permission',
+      sort: 'sort',
     });
   }
 
 
   
-  get (fields: Array<string>, params: Object = {}): SavedMessageResponse {
+  get (fields: Array<string>, params: Object = {}): AdsQuickViews {
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,

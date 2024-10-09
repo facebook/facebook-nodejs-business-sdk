@@ -127,6 +127,15 @@ export default class ProductItem extends AbstractCrudObject {
       preorder: 'preorder',
     });
   }
+  static get CapabilityToReviewStatus (): Object {
+    return Object.freeze({
+      approved: 'APPROVED',
+      no_review: 'NO_REVIEW',
+      outdated: 'OUTDATED',
+      pending: 'PENDING',
+      rejected: 'REJECTED',
+    });
+  }
   static get Condition (): Object {
     return Object.freeze({
       cpo: 'cpo',
@@ -471,6 +480,7 @@ export default class ProductItem extends AbstractCrudObject {
       invalid_subscription_disable_params: 'INVALID_SUBSCRIPTION_DISABLE_PARAMS',
       invalid_subscription_enable_params: 'INVALID_SUBSCRIPTION_ENABLE_PARAMS',
       invalid_subscription_params: 'INVALID_SUBSCRIPTION_PARAMS',
+      invalid_tax_extension_state: 'INVALID_TAX_EXTENSION_STATE',
       invalid_vehicle_state: 'INVALID_VEHICLE_STATE',
       invalid_virtual_tour_url_domain: 'INVALID_VIRTUAL_TOUR_URL_DOMAIN',
       inventory_zero_availability_in_stock: 'INVENTORY_ZERO_AVAILABILITY_IN_STOCK',

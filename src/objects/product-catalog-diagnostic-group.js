@@ -32,24 +32,6 @@ export default class ProductCatalogDiagnosticGroup extends AbstractCrudObject {
     });
   }
 
-  static get AffectedChannels (): Object {
-    return Object.freeze({
-      b2c_marketplace: 'b2c_marketplace',
-      c2c_marketplace: 'c2c_marketplace',
-      da: 'da',
-      daily_deals: 'daily_deals',
-      daily_deals_legacy: 'daily_deals_legacy',
-      ig_product_tagging: 'ig_product_tagging',
-      marketplace: 'marketplace',
-      marketplace_ads_deprecated: 'marketplace_ads_deprecated',
-      marketplace_shops: 'marketplace_shops',
-      mini_shops: 'mini_shops',
-      offline_conversions: 'offline_conversions',
-      shops: 'shops',
-      universal_checkout: 'universal_checkout',
-      whatsapp: 'whatsapp',
-    });
-  }
   static get AffectedEntity (): Object {
     return Object.freeze({
       product_catalog: 'product_catalog',
@@ -83,6 +65,24 @@ export default class ProductCatalogDiagnosticGroup extends AbstractCrudObject {
       low_quality_title_and_description: 'LOW_QUALITY_TITLE_AND_DESCRIPTION',
       policy_violation: 'POLICY_VIOLATION',
       shops_visibility_issues: 'SHOPS_VISIBILITY_ISSUES',
+    });
+  }
+  static get AffectedChannels (): Object {
+    return Object.freeze({
+      b2c_marketplace: 'b2c_marketplace',
+      c2c_marketplace: 'c2c_marketplace',
+      da: 'da',
+      daily_deals: 'daily_deals',
+      daily_deals_legacy: 'daily_deals_legacy',
+      ig_product_tagging: 'ig_product_tagging',
+      marketplace: 'marketplace',
+      marketplace_ads_deprecated: 'marketplace_ads_deprecated',
+      marketplace_shops: 'marketplace_shops',
+      mini_shops: 'mini_shops',
+      offline_conversions: 'offline_conversions',
+      shops: 'shops',
+      universal_checkout: 'universal_checkout',
+      whatsapp: 'whatsapp',
     });
   }
   static get AffectedEntities (): Object {

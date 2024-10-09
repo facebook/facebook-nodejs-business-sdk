@@ -63,6 +63,7 @@ export default class AdCreative extends AbstractCrudObject {
       link_destination_display_url: 'link_destination_display_url',
       link_og_id: 'link_og_id',
       link_url: 'link_url',
+      messenger_sponsored_message: 'messenger_sponsored_message',
       name: 'name',
       object_id: 'object_id',
       object_store_url: 'object_store_url',

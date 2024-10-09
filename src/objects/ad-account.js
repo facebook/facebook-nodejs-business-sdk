@@ -67,8 +67,8 @@ import AdAccountTargetingUnified from './ad-account-targeting-unified';
 import TargetingSentenceLine from './targeting-sentence-line';
 import AdAccountTrackingData from './ad-account-tracking-data';
 import AdAccountUser from './ad-account-user';
-import AdsValueAdjustmentRuleCollection from './ads-value-adjustment-rule-collection';
 import AdsValueAdjustmentRule from './ads-value-adjustment-rule';
+import AdsValueAdjustmentRuleCollection from './ads-value-adjustment-rule-collection';
 
 /**
  * AdAccount
@@ -287,6 +287,7 @@ export default class AdAccount extends AbstractCrudObject {
       lookalike: 'LOOKALIKE',
       managed: 'MANAGED',
       measurement: 'MEASUREMENT',
+      messenger_subscriber_list: 'MESSENGER_SUBSCRIBER_LIST',
       offline_conversion: 'OFFLINE_CONVERSION',
       partner: 'PARTNER',
       primary: 'PRIMARY',
@@ -1323,16 +1324,6 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getValueAdjustmentRuleCollections (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AdsValueAdjustmentRuleCollection,
-      fields,
-      params,
-      fetchFirstPage,
-      '/value_adjustment_rule_collections'
-    );
-  }
-
   getValueAdjustmentRules (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdsValueAdjustmentRule,
@@ -1340,6 +1331,26 @@ export default class AdAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/value_adjustment_rules'
+    );
+  }
+
+  getValueRuleSet (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AdsValueAdjustmentRuleCollection,
+      fields,
+      params,
+      fetchFirstPage,
+      '/value_rule_set'
+    );
+  }
+
+  getVideoAds (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AdVideo,
+      fields,
+      params,
+      fetchFirstPage,
+      '/video_ads'
     );
   }
 

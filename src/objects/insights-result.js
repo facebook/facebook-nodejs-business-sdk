@@ -28,6 +28,52 @@ export default class InsightsResult extends AbstractCrudObject {
     });
   }
 
+  static get Breakdown (): Object {
+    return Object.freeze({
+      action_type: 'action_type',
+      follow_type: 'follow_type',
+      story_navigation_action_type: 'story_navigation_action_type',
+      surface_type: 'surface_type',
+    });
+  }
+  static get Metric (): Object {
+    return Object.freeze({
+      clips_replays_count: 'clips_replays_count',
+      comments: 'comments',
+      follows: 'follows',
+      ig_reels_aggregated_all_plays_count: 'ig_reels_aggregated_all_plays_count',
+      ig_reels_avg_watch_time: 'ig_reels_avg_watch_time',
+      ig_reels_video_view_total_time: 'ig_reels_video_view_total_time',
+      impressions: 'impressions',
+      likes: 'likes',
+      navigation: 'navigation',
+      peak_concurrent_viewers: 'peak_concurrent_viewers',
+      plays: 'plays',
+      profile_activity: 'profile_activity',
+      profile_visits: 'profile_visits',
+      quotes: 'quotes',
+      reach: 'reach',
+      replies: 'replies',
+      reposts: 'reposts',
+      saved: 'saved',
+      shares: 'shares',
+      thread_replies: 'thread_replies',
+      thread_shares: 'thread_shares',
+      total_interactions: 'total_interactions',
+      video_views: 'video_views',
+      views: 'views',
+    });
+  }
+  static get Period (): Object {
+    return Object.freeze({
+      day: 'day',
+      days_28: 'days_28',
+      lifetime: 'lifetime',
+      month: 'month',
+      total_over_range: 'total_over_range',
+      week: 'week',
+    });
+  }
   static get DatePreset (): Object {
     return Object.freeze({
       data_maximum: 'data_maximum',
@@ -50,27 +96,6 @@ export default class InsightsResult extends AbstractCrudObject {
       this_year: 'this_year',
       today: 'today',
       yesterday: 'yesterday',
-    });
-  }
-  static get Period (): Object {
-    return Object.freeze({
-      day: 'day',
-      days_28: 'days_28',
-      lifetime: 'lifetime',
-      month: 'month',
-      total_over_range: 'total_over_range',
-      week: 'week',
-    });
-  }
-  static get Metric (): Object {
-    return Object.freeze({
-      pages_fb_story_replies: 'PAGES_FB_STORY_REPLIES',
-      pages_fb_story_shares: 'PAGES_FB_STORY_SHARES',
-      pages_fb_story_sticker_interactions: 'PAGES_FB_STORY_STICKER_INTERACTIONS',
-      pages_fb_story_thread_lightweight_reactions: 'PAGES_FB_STORY_THREAD_LIGHTWEIGHT_REACTIONS',
-      page_story_impressions_by_story_id: 'PAGE_STORY_IMPRESSIONS_BY_STORY_ID',
-      page_story_impressions_by_story_id_unique: 'PAGE_STORY_IMPRESSIONS_BY_STORY_ID_UNIQUE',
-      story_interaction: 'STORY_INTERACTION',
     });
   }
 }

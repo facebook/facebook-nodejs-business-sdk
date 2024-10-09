@@ -11,29 +11,30 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * PanelAPIReport
+ * MessengerBusinessTemplate
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class PanelAPIReport extends AbstractCrudObject {
+export default class MessengerBusinessTemplate extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      checksum: 'checksum',
-      download_url: 'download_url',
-      end_date: 'end_date',
-      export_file_type: 'export_file_type',
+      category: 'category',
+      components: 'components',
+      creation_time: 'creation_time',
       id: 'id',
-      index: 'index',
+      language: 'language',
+      language_count: 'language_count',
+      last_updated_time: 'last_updated_time',
+      library_template_name: 'library_template_name',
       name: 'name',
-      number_of_chunks: 'number_of_chunks',
-      start_date: 'start_date',
-      upload_date: 'upload_date',
+      rejected_reason: 'rejected_reason',
+      status: 'status',
     });
   }
 
 
   
-  get (fields: Array<string>, params: Object = {}): PanelAPIReport {
+  get (fields: Array<string>, params: Object = {}): MessengerBusinessTemplate {
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,

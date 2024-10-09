@@ -22,9 +22,10 @@ export default class AdCreativeObjectStorySpec extends AbstractCrudObject {
       link_data: 'link_data',
       page_id: 'page_id',
       photo_data: 'photo_data',
+      product_data: 'product_data',
       template_data: 'template_data',
       text_data: 'text_data',
-      threads_actor_id: 'threads_actor_id',
+      threads_user_id: 'threads_user_id',
       video_data: 'video_data',
     });
   }

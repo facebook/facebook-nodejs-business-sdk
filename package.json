@@ -1,6 +1,6 @@
 {
   "name": "facebook-nodejs-business-sdk",
-  "version": "20.0.3",
+  "version": "21.0.0",
   "description": "SDK for the Facebook Marketing API in Javascript and Node.js",
   "author": "Facebook",
   "maintainers": [

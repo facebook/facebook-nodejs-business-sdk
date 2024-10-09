@@ -103,6 +103,12 @@ export default class CustomAudience extends AbstractCrudObject {
       user_provided_only: 'USER_PROVIDED_ONLY',
     });
   }
+  static get SubscriptionInfo (): Object {
+    return Object.freeze({
+      messenger: 'MESSENGER',
+      whatsapp: 'WHATSAPP',
+    });
+  }
   static get Subtype (): Object {
     return Object.freeze({
       app: 'APP',
@@ -116,6 +122,7 @@ export default class CustomAudience extends AbstractCrudObject {
       lookalike: 'LOOKALIKE',
       managed: 'MANAGED',
       measurement: 'MEASUREMENT',
+      messenger_subscriber_list: 'MESSENGER_SUBSCRIBER_LIST',
       offline_conversion: 'OFFLINE_CONVERSION',
       partner: 'PARTNER',
       primary: 'PRIMARY',
@@ -124,6 +131,12 @@ export default class CustomAudience extends AbstractCrudObject {
       subscriber_segment: 'SUBSCRIBER_SEGMENT',
       video: 'VIDEO',
       website: 'WEBSITE',
+    });
+  }
+  static get UseForProducts (): Object {
+    return Object.freeze({
+      ads: 'ADS',
+      marketing_messages: 'MARKETING_MESSAGES',
     });
   }
   static get ActionSource (): Object {

@@ -29,6 +29,7 @@ import CommercePayout from './commerce-payout';
 import CommerceOrderTransactionDetail from './commerce-order-transaction-detail';
 import UnifiedThread from './unified-thread';
 import VideoCopyrightMatch from './video-copyright-match';
+import CTXOptimizationEligibility from './ctx-optimization-eligibility';
 import PageUserMessageThreadLabel from './page-user-message-thread-label';
 import CustomUserSettings from './custom-user-settings';
 import Dataset from './dataset';
@@ -945,6 +946,16 @@ export default class Page extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/crosspost_whitelisted_pages'
+    );
+  }
+
+  getCtxOptimizationEligibility (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      CTXOptimizationEligibility,
+      fields,
+      params,
+      fetchFirstPage,
+      '/ctx_optimization_eligibility'
     );
   }
 

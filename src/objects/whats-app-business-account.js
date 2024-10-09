@@ -83,6 +83,7 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
   }
   static get ProviderName (): Object {
     return Object.freeze({
+      billdesk: 'BILLDESK',
       payu: 'PAYU',
       razorpay: 'RAZORPAY',
       upi_vpa: 'UPI_VPA',
@@ -134,6 +135,16 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/audiences'
+    );
+  }
+
+  getCallAnalytics (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/call_analytics'
     );
   }
 

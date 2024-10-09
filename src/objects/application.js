@@ -194,19 +194,6 @@ export default class Application extends AbstractCrudObject {
       eymt: 'EYMT',
     });
   }
-  static get LoggingSource (): Object {
-    return Object.freeze({
-      detection: 'DETECTION',
-      messenger_bot: 'MESSENGER_BOT',
-    });
-  }
-  static get LoggingTarget (): Object {
-    return Object.freeze({
-      app: 'APP',
-      app_and_page: 'APP_AND_PAGE',
-      page: 'PAGE',
-    });
-  }
   static get OwnerPermissions (): Object {
     return Object.freeze({
       develop: 'DEVELOP',
@@ -573,6 +560,16 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
+  getMessageTemplates (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/message_templates'
+    );
+  }
+
   createMmpAuditing (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
     return this.createEdge(
       '/mmp_auditing',
@@ -639,16 +636,6 @@ export default class Application extends AbstractCrudObject {
       fields,
       params,
       null,
-      pathOverride,
-    );
-  }
-
-  createPageActivity (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Application> {
-    return this.createEdge(
-      '/page_activities',
-      fields,
-      params,
-      Application,
       pathOverride,
     );
   }

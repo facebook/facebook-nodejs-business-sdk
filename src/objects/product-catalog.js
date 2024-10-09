@@ -460,6 +460,16 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
+  createMarketPlacePartnerSellersDetail (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<ProductCatalog> {
+    return this.createEdge(
+      '/marketplace_partner_sellers_details',
+      fields,
+      params,
+      ProductCatalog,
+      pathOverride,
+    );
+  }
+
   getPricingVariablesBatch (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       ProductCatalogPricingVariablesBatch,

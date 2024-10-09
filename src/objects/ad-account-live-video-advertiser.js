@@ -11,19 +11,16 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * ExternalEventSourceDAStatsResult
+ * AdAccountLiveVideoAdvertiser
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class ExternalEventSourceDAStatsResult extends AbstractCrudObject {
+export default class AdAccountLiveVideoAdvertiser extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      count_content_ids: 'count_content_ids',
-      count_content_ids_match_any_catalog: 'count_content_ids_match_any_catalog',
-      count_fires: 'count_fires',
-      count_fires_match_any_catalog: 'count_fires_match_any_catalog',
-      date: 'date',
-      percentage_missed_users: 'percentage_missed_users',
+      is_lva_toggle_on: 'is_lva_toggle_on',
+      lva_default_budget: 'lva_default_budget',
+      should_show_lva_toggle: 'should_show_lva_toggle',
     });
   }
 
