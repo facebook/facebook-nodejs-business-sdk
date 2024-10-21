@@ -14,6 +14,7 @@ import HttpMethod from './http-method';
 import HttpServiceClientConfig from './http-service-client-config';
 import HttpServiceInterface from './http-service-interface';
 import ServerEvent from './server-event';
+const crypto = require('crypto');
 
 /**
  * EventRequest
@@ -33,6 +34,7 @@ export default class EventRequest {
 	_debug_mode: bool;
 	_api: Object;
 	_http_service: ?HttpServiceInterface;
+	_app_secret: ?String
 
 	/**
 	 * @param {String} access_token Access Token for the user calling Graph API
@@ -46,12 +48,15 @@ export default class EventRequest {
 	 * @param {?String} upload_source The origin/source of data for the dataset to be uploaded.
 	 * @param {Boolean} debug_mode_flag Set to true if you want to enable more logging in SDK
 	 * @param {?HttpServiceInterface} http_service Override the default http request method by setting an object that implements HttpServiceInterface
+	 * @param {?String} app_secret App Secret for the user calling Graph API
 	 */
 	constructor(access_token: string, pixel_id: string, events: Array<ServerEvent> = [],
 							partner_agent: ?string = null, test_event_code: ?string = null,
 							namespace_id: ?string = null, upload_id: ?string = null,
 							upload_tag: ?string = null, upload_source: ?string = null,
-							debug_mode_flag: bool = false, http_service: ?HttpServiceInterface = null ) {
+							debug_mode_flag: bool = false, http_service: ?HttpServiceInterface = null,
+							app_secret: ?string
+							) {
 		this._access_token = access_token;
 		this._pixel_id = pixel_id;
 		this._events = events;
@@ -62,6 +67,7 @@ export default class EventRequest {
 		this._upload_tag = upload_tag;
 		this._upload_source = upload_source;
 		this._debug_mode = debug_mode_flag;
+		this._app_secret = app_secret;
 
 		this._http_service = http_service;
 		this._api = FacebookAdsApi.init(this._access_token);
@@ -197,6 +203,30 @@ export default class EventRequest {
 	 */
 	setAccessToken(access_token: string) : EventRequest {
 		this._access_token = access_token;
+		return this;
+	}
+
+	/**
+	 * Gets the app secret for the Graph API request
+	 */
+	get app_secret() {
+		return this._app_secret;
+	}
+
+	/**
+	 * Sets the app secret for the Graph API request
+	 * @param app_secret string representing the app secret that is used to make the Graph API.
+	 */
+	set app_secret(app_secret: string) {
+		this._app_secret = app_secret;
+	}
+
+	/**
+	 * Sets the app secret for the Graph API request
+	 * @param {String} app_secret string representing the app secret that is used to make the Graph API.
+	 */
+	setAppSecret(app_secret: string) : EventRequest {
+		this._app_secret = app_secret;
 		return this;
 	}
 
@@ -376,6 +406,10 @@ export default class EventRequest {
 			'upload_source' : this.upload_source,
 			'access_token': this.access_token,
 		};
+
+		if(this._app_secret){
+			params.appsecret_proof = crypto.createHmac('sha256', this._app_secret).update(this.access_token).digest('hex');
+		}
 
 		let http_service;
 		if (this._http_service != null) {
