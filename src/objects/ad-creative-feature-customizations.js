@@ -18,6 +18,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class AdCreativeFeatureCustomizations extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
+      image_crop_style: 'image_crop_style',
       showcase_card_display: 'showcase_card_display',
     });
   }
