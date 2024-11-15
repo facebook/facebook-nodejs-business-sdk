@@ -92,6 +92,20 @@ export default class Business extends AbstractCrudObject {
     });
   }
 
+  static get VerificationStatus (): Object {
+    return Object.freeze({
+      expired: 'expired',
+      failed: 'failed',
+      ineligible: 'ineligible',
+      not_verified: 'not_verified',
+      pending: 'pending',
+      pending_need_more_info: 'pending_need_more_info',
+      pending_submission: 'pending_submission',
+      rejected: 'rejected',
+      revoked: 'revoked',
+      verified: 'verified',
+    });
+  }
   static get TwoFactorType (): Object {
     return Object.freeze({
       admin_required: 'admin_required',
@@ -675,6 +689,39 @@ export default class Business extends AbstractCrudObject {
       profile_plus_revenue: 'PROFILE_PLUS_REVENUE',
       read_page_mailboxes: 'READ_PAGE_MAILBOXES',
       view_monetization_insights: 'VIEW_MONETIZATION_INSIGHTS',
+    });
+  }
+  static get BusinessVertical (): Object {
+    return Object.freeze({
+      adult_products_and_services: 'ADULT_PRODUCTS_AND_SERVICES',
+      alcohol_and_tobacco: 'ALCOHOL_AND_TOBACCO',
+      automotive_dealers: 'AUTOMOTIVE_DEALERS',
+      body_parts_fluids: 'BODY_PARTS_FLUIDS',
+      business_and_utility: 'BUSINESS_AND_UTILITY',
+      content_and_apps: 'CONTENT_AND_APPS',
+      creators_and_celebrities: 'CREATORS_AND_CELEBRITIES',
+      dating: 'DATING',
+      drugs: 'DRUGS',
+      endangered_species: 'ENDANGERED_SPECIES',
+      firearms: 'FIREARMS',
+      fraudulent_misleading_offensive: 'FRAUDULENT_MISLEADING_OFFENSIVE',
+      gambling: 'GAMBLING',
+      grocery_and_convenience_store: 'GROCERY_AND_CONVENIENCE_STORE',
+      hazardous_goods_and_materials: 'HAZARDOUS_GOODS_AND_MATERIALS',
+      home: 'HOME',
+      home_and_auto_manufacturing: 'HOME_AND_AUTO_MANUFACTURING',
+      lifestyle: 'LIFESTYLE',
+      live_non_endangered_species: 'LIVE_NON_ENDANGERED_SPECIES',
+      loans_debt_collection_bail_bonds: 'LOANS_DEBT_COLLECTION_BAIL_BONDS',
+      local_events: 'LOCAL_EVENTS',
+      medical_healthcare: 'MEDICAL_HEALTHCARE',
+      multilevel_marketing: 'MULTILEVEL_MARKETING',
+      non_profit_and_religious_orgs: 'NON_PROFIT_AND_RELIGIOUS_ORGS',
+      professional: 'PROFESSIONAL',
+      real_virtual_fake_currency: 'REAL_VIRTUAL_FAKE_CURRENCY',
+      restaurants: 'RESTAURANTS',
+      retail: 'RETAIL',
+      transportation_and_accommodation: 'TRANSPORTATION_AND_ACCOMMODATION',
     });
   }
   static get SubverticalV2 (): Object {
@@ -1829,6 +1876,16 @@ export default class Business extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/self_certified_whatsapp_business_submissions'
+    );
+  }
+
+  createSelfCertifyWhatsAppBusiness (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Business> {
+    return this.createEdge(
+      '/self_certify_whatsapp_business',
+      fields,
+      params,
+      Business,
+      pathOverride,
     );
   }
 

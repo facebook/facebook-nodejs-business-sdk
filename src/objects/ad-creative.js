@@ -24,6 +24,7 @@ export default class AdCreative extends AbstractCrudObject {
     return Object.freeze({
       account_id: 'account_id',
       actor_id: 'actor_id',
+      ad_disclaimer_spec: 'ad_disclaimer_spec',
       adlabels: 'adlabels',
       applink_treatment: 'applink_treatment',
       asset_feed_spec: 'asset_feed_spec',
@@ -78,6 +79,7 @@ export default class AdCreative extends AbstractCrudObject {
       platform_customizations: 'platform_customizations',
       playable_asset_id: 'playable_asset_id',
       portrait_customizations: 'portrait_customizations',
+      product_data: 'product_data',
       product_set_id: 'product_set_id',
       recommender_settings: 'recommender_settings',
       source_instagram_media_id: 'source_instagram_media_id',

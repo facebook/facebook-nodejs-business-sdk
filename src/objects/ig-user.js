@@ -38,6 +38,7 @@ export default class IGUser extends AbstractCrudObject {
       follows_count: 'follows_count',
       id: 'id',
       ig_id: 'ig_id',
+      legacy_instagram_user_id: 'legacy_instagram_user_id',
       media_count: 'media_count',
       mentioned_comment: 'mentioned_comment',
       mentioned_media: 'mentioned_media',
@@ -276,6 +277,16 @@ export default class IGUser extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/tags'
+    );
+  }
+
+  createUpcomingEvent (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+    return this.createEdge(
+      '/upcoming_events',
+      fields,
+      params,
+      null,
+      pathOverride,
     );
   }
 

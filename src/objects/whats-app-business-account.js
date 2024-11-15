@@ -49,6 +49,20 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
     });
   }
 
+  static get BusinessVerificationStatus (): Object {
+    return Object.freeze({
+      expired: 'expired',
+      failed: 'failed',
+      ineligible: 'ineligible',
+      not_verified: 'not_verified',
+      pending: 'pending',
+      pending_need_more_info: 'pending_need_more_info',
+      pending_submission: 'pending_submission',
+      rejected: 'rejected',
+      revoked: 'revoked',
+      verified: 'verified',
+    });
+  }
   static get Tasks (): Object {
     return Object.freeze({
       develop: 'DEVELOP',
@@ -73,6 +87,12 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
   static get DisplayFormat (): Object {
     return Object.freeze({
       order_details: 'ORDER_DETAILS',
+    });
+  }
+  static get ParameterFormat (): Object {
+    return Object.freeze({
+      named: 'NAMED',
+      positional: 'POSITIONAL',
     });
   }
   static get SubCategory (): Object {

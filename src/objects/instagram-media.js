@@ -26,6 +26,7 @@ export default class InstagramMedia extends AbstractCrudObject {
       display_url: 'display_url',
       filter_name: 'filter_name',
       id: 'id',
+      ig_media_id: 'ig_media_id',
       latitude: 'latitude',
       like_count: 'like_count',
       location: 'location',

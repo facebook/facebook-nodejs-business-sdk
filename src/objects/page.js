@@ -42,6 +42,7 @@ import InstagramUser from './instagram-user';
 import LeadgenForm from './leadgen-form';
 import LiveVideo from './live-video';
 import MediaFingerprint from './media-fingerprint';
+import MessengerBusinessTemplate from './messenger-business-template';
 import MessagingFeatureReview from './messaging-feature-review';
 import MessengerCallSettings from './messenger-call-settings';
 import MessengerAdsPartialAutomatedStepList from './messenger-ads-partial-automated-step-list';
@@ -368,47 +369,6 @@ export default class Page extends AbstractCrudObject {
       view_monetization_insights: 'VIEW_MONETIZATION_INSIGHTS',
     });
   }
-  static get Alignment (): Object {
-    return Object.freeze({
-      left: 'LEFT',
-      right: 'RIGHT',
-    });
-  }
-  static get EntryPointIcon (): Object {
-    return Object.freeze({
-      chat_angular_icon: 'CHAT_ANGULAR_ICON',
-      chat_round_icon: 'CHAT_ROUND_ICON',
-      messenger_icon: 'MESSENGER_ICON',
-      none: 'NONE',
-    });
-  }
-  static get EntryPointLabel (): Object {
-    return Object.freeze({
-      ask_us: 'ASK_US',
-      chat: 'CHAT',
-      help: 'HELP',
-      none: 'NONE',
-    });
-  }
-  static get GreetingDialogDisplay (): Object {
-    return Object.freeze({
-      hide: 'HIDE',
-      show: 'SHOW',
-      welcome_message: 'WELCOME_MESSAGE',
-    });
-  }
-  static get GuestChatMode (): Object {
-    return Object.freeze({
-      disabled: 'DISABLED',
-      enabled: 'ENABLED',
-    });
-  }
-  static get MobileChatDisplay (): Object {
-    return Object.freeze({
-      app_switch: 'APP_SWITCH',
-      chat_tab: 'CHAT_TAB',
-    });
-  }
   static get BackdatedTimeGranularity (): Object {
     return Object.freeze({
       day: 'day',
@@ -461,6 +421,11 @@ export default class Page extends AbstractCrudObject {
       reviewable_branded_content: 'REVIEWABLE_BRANDED_CONTENT',
       scheduled: 'SCHEDULED',
       scheduled_recurring: 'SCHEDULED_RECURRING',
+    });
+  }
+  static get Category (): Object {
+    return Object.freeze({
+      utility: 'UTILITY',
     });
   }
   static get MessagingType (): Object {
@@ -600,7 +565,6 @@ export default class Page extends AbstractCrudObject {
       messaging_referrals: 'messaging_referrals',
       mission: 'mission',
       name: 'name',
-      otp_verification: 'otp_verification',
       page_about_story: 'page_about_story',
       page_change_proposal: 'page_change_proposal',
       page_upcoming_change: 'page_upcoming_change',
@@ -866,16 +830,6 @@ export default class Page extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/chat_plugin'
-    );
-  }
-
-  createChatPlugin (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Page> {
-    return this.createEdge(
-      '/chat_plugin',
-      fields,
-      params,
-      Page,
-      pathOverride,
     );
   }
 
@@ -1239,6 +1193,33 @@ export default class Page extends AbstractCrudObject {
       fields,
       params,
       null,
+      pathOverride,
+    );
+  }
+
+  deleteMessageTemplates (params: Object = {}): Promise<*> {
+    return super.deleteEdge(
+      '/message_templates',
+      params
+    );
+  }
+
+  getMessageTemplates (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      MessengerBusinessTemplate,
+      fields,
+      params,
+      fetchFirstPage,
+      '/message_templates'
+    );
+  }
+
+  createMessageTemplate (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Page> {
+    return this.createEdge(
+      '/message_templates',
+      fields,
+      params,
+      Page,
       pathOverride,
     );
   }

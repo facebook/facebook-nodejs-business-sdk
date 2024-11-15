@@ -32,12 +32,34 @@ export default class MessengerBusinessTemplate extends AbstractCrudObject {
     });
   }
 
+  static get Status (): Object {
+    return Object.freeze({
+      approved: 'APPROVED',
+      archived: 'ARCHIVED',
+      deleted: 'DELETED',
+      disabled: 'DISABLED',
+      in_appeal: 'IN_APPEAL',
+      limit_exceeded: 'LIMIT_EXCEEDED',
+      paused: 'PAUSED',
+      pending: 'PENDING',
+      pending_deletion: 'PENDING_DELETION',
+      rejected: 'REJECTED',
+    });
+  }
 
   
   get (fields: Array<string>, params: Object = {}): MessengerBusinessTemplate {
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
+      params
+    );
+  }
+
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): MessengerBusinessTemplate {
+    // $FlowFixMe : Support Generic Types
+    return super.update(
       params
     );
   }

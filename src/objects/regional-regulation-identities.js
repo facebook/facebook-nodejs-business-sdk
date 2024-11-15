@@ -18,6 +18,8 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class RegionalRegulationIdentities extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
+      australia_finserv_beneficiary: 'australia_finserv_beneficiary',
+      australia_finserv_payer: 'australia_finserv_payer',
       taiwan_finserv_beneficiary: 'taiwan_finserv_beneficiary',
       taiwan_finserv_payer: 'taiwan_finserv_payer',
     });

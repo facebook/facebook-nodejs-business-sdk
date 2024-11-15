@@ -23,6 +23,7 @@ export default class InstagramComment extends AbstractCrudObject {
       comment_type: 'comment_type',
       created_at: 'created_at',
       id: 'id',
+      ig_comment_id: 'ig_comment_id',
       instagram_comment_id: 'instagram_comment_id',
       instagram_user: 'instagram_user',
       mentioned_instagram_users: 'mentioned_instagram_users',

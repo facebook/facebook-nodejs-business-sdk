@@ -21,6 +21,7 @@ export default class AdsValueAdjustmentRuleCollection extends AbstractCrudObject
   static get Fields (): Object {
     return Object.freeze({
       id: 'id',
+      is_default_setting: 'is_default_setting',
       name: 'name',
     });
   }

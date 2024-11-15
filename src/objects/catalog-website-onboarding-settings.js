@@ -19,6 +19,7 @@ export default class CatalogWebsiteOnboardingSettings extends AbstractCrudObject
   static get Fields (): Object {
     return Object.freeze({
       id: 'id',
+      quality_band: 'quality_band',
       status: 'status',
     });
   }

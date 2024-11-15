@@ -18,8 +18,6 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class AnalyticsFunnelQueryResult extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      data: 'data',
-      error: 'error',
       query_id: 'query_id',
       status: 'status',
     });

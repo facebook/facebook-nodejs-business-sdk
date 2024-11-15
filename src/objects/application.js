@@ -72,6 +72,7 @@ export default class Application extends AbstractCrudObject {
       deauth_callback_url: 'deauth_callback_url',
       default_share_mode: 'default_share_mode',
       description: 'description',
+      enigma_config: 'enigma_config',
       financial_id: 'financial_id',
       gdpv4_chrome_custom_tabs_enabled: 'gdpv4_chrome_custom_tabs_enabled',
       gdpv4_enabled: 'gdpv4_enabled',

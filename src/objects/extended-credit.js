@@ -105,12 +105,12 @@ export default class ExtendedCredit extends AbstractCrudObject {
     );
   }
 
-  createWhatsAppCreditSharingAndAttach (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+  createWhatsAppCreditSharingAndAttach (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<ExtendedCreditAllocationConfig> {
     return this.createEdge(
       '/whatsapp_credit_sharing_and_attach',
       fields,
       params,
-      null,
+      ExtendedCreditAllocationConfig,
       pathOverride,
     );
   }

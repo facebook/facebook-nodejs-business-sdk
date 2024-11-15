@@ -11,17 +11,15 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * AnalyticsCohortQueryResult
+ * IGUserSubscribedAppsData
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class AnalyticsCohortQueryResult extends AbstractCrudObject {
+export default class IGUserSubscribedAppsData extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      data: 'data',
-      error: 'error',
-      query_id: 'query_id',
-      status: 'status',
+      app_id: 'app_id',
+      subscribed_fields: 'subscribed_fields',
     });
   }
 

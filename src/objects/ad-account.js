@@ -107,6 +107,7 @@ export default class AdAccount extends AbstractCrudObject {
       end_advertiser: 'end_advertiser',
       end_advertiser_name: 'end_advertiser_name',
       existing_customers: 'existing_customers',
+      expired_funding_source_details: 'expired_funding_source_details',
       extended_credit_invoice_group: 'extended_credit_invoice_group',
       failed_delivery_checks: 'failed_delivery_checks',
       fb_entity: 'fb_entity',

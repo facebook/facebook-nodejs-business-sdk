@@ -11,15 +11,15 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * MessengerCallSettings
+ * CatalogAdvertiserInsight
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class MessengerCallSettings extends AbstractCrudObject {
+export default class CatalogAdvertiserInsight extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      audio_enabled: 'audio_enabled',
-      icon_enabled: 'icon_enabled',
+      category: 'category',
+      country: 'country',
     });
   }
 

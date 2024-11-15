@@ -34,6 +34,7 @@ export default class IGMedia extends AbstractCrudObject {
       ig_id: 'ig_id',
       is_comment_enabled: 'is_comment_enabled',
       is_shared_to_feed: 'is_shared_to_feed',
+      legacy_instagram_media_id: 'legacy_instagram_media_id',
       like_count: 'like_count',
       media_product_type: 'media_product_type',
       media_type: 'media_type',

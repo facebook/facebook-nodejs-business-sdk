@@ -53,6 +53,7 @@ export default class AdCreativeFeaturesSpec extends AbstractCrudObject {
       media_liquidity_animated_image: 'media_liquidity_animated_image',
       media_order: 'media_order',
       media_type_automation: 'media_type_automation',
+      multi_photo_to_video: 'multi_photo_to_video',
       pac_relaxation: 'pac_relaxation',
       product_extensions: 'product_extensions',
       product_metadata_automation: 'product_metadata_automation',

@@ -91,6 +91,7 @@ export default class Event extends AbstractCrudObject {
   static get OnlineEventFormat (): Object {
     return Object.freeze({
       fb_live: 'fb_live',
+      horizon_world: 'horizon_world',
       messenger_room: 'messenger_room',
       none: 'none',
       other: 'other',
