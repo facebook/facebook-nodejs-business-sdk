@@ -213,8 +213,8 @@ class VideoUploadTransferRequestManager extends VideoUploadRequestManager {
   async sendRequest(context: VideoUploadRequestContext): Object {
     // Init a VideoUploadRequest
     const request = new VideoUploadRequest(this._api);
-    var start_offset = context.startOffset;
-    var end_offset = context.endOffset;
+    let start_offset = context.startOffset;
+    let end_offset = context.endOffset;
     const filePath = context.filePath;
     const fileSize = fs.statSync(filePath).size;
 
@@ -223,22 +223,25 @@ class VideoUploadTransferRequestManager extends VideoUploadRequestManager {
     let response = null;
     // While there are still more chunks to send
     const videoFileDescriptor = fs.openSync(filePath, 'r');
+    let retryDelay = 1000;
+  
     while (start_offset !== end_offset) {
       context.startOffset = start_offset;
       context.endOffset = end_offset;
-      let params = {
-        upload_phase: 'transfer',
-        start_offset: context.startOffset,
-        upload_session_id: context.sessionId,
-        video_file_chunk: context.videoFileChunk,
-      };
-      request.setParams(params, {
-        video_file_chunk: fs.createReadStream(context.filePath, {
-          start: context.startOffset,
-          end: context.endOffset - 1,
-        }),
-      });
-      // Send the request
+      request.setParams(
+        {
+          upload_phase: 'transfer',
+          start_offset: context.startOffset,
+          upload_session_id: context.sessionId,
+        },
+        {
+          video_file_chunk: fs.createReadStream(context.filePath, {
+            start: context.startOffset,
+            end: context.endOffset - 1,
+          }),
+        }
+      );
+  
       try {
         response = await request.send([context.accountId, 'advideos']);
         start_offset = parseInt(response['start_offset']);
@@ -246,19 +249,22 @@ class VideoUploadTransferRequestManager extends VideoUploadRequestManager {
       } catch (error) {
         if (numRetry > 0) {
           numRetry = Math.max(numRetry - 1, 0);
+          await sleep(retryDelay);
+          retryDelay *= 2; // Exponential backoff
           continue;
         }
-        fs.close(videoFileDescriptor, err => {});
+        fs.close(videoFileDescriptor, (err) => {});
         throw error;
       }
     }
-
+  
     this._startOffset = start_offset;
     this._endOffset = end_offset;
-    fs.close(videoFileDescriptor, err => {});
-
+    fs.close(videoFileDescriptor, (err) => {});
+  
     return response;
   }
+  
 }
 
 class VideoUploadFinishRequestManager extends VideoUploadRequestManager {
