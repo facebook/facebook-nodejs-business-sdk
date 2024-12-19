@@ -1,9 +1,10 @@
-/**
+/*
  * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
 
@@ -36,8 +37,8 @@ params = {
   'name' : 'A CPA Ad Set optimized for App Events',
   'campaign_id' : '<adCampaignAppInstallsID>',
   'daily_budget' : '300',
-  'start_time' : '2024-06-18T16:40:02-0700',
-  'end_time' : '2024-06-25T16:40:02-0700',
+  'start_time' : '2024-08-05T17:55:15-0700',
+  'end_time' : '2024-08-12T17:55:15-0700',
   'billing_event' : 'IMPRESSIONS',
   'optimization_goal' : 'OFFSITE_CONVERSIONS',
   'bid_amount' : '100',

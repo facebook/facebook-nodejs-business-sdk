@@ -21,18 +21,19 @@ export default class AdsValueAdjustmentRuleCollection extends AbstractCrudObject
   static get Fields (): Object {
     return Object.freeze({
       id: 'id',
+      is_default_setting: 'is_default_setting',
       name: 'name',
     });
   }
 
 
-  getPersonas (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+  getRules (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AbstractObject,
       fields,
       params,
       fetchFirstPage,
-      '/personas'
+      '/rules'
     );
   }
 

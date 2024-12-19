@@ -1,16 +1,17 @@
-/**
+/*
  * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
 
  'use strict';
 const bizSdk = require('facebook-nodejs-business-sdk');
 const AdAccount = bizSdk.AdAccount;
-const AdSet = bizSdk.AdSet;
+const Ad = bizSdk.Ad;
 
 const access_token = '<ACCESS_TOKEN>';
 const app_secret = '<APP_SECRET>';
@@ -33,18 +34,14 @@ let fields, params;
 fields = [
 ];
 params = {
-  'name' : 'Mobile App Installs Ad Set',
-  'daily_budget' : '1000',
-  'bid_amount' : '2',
-  'billing_event' : 'IMPRESSIONS',
-  'optimization_goal' : 'APP_INSTALLS',
-  'campaign_id' : '<adCampaignAppInstallsID>',
-  'promoted_object' : {'application_id':'<appID>','object_store_url':'<appLink>'},
-  'targeting' : {'device_platforms':['mobile'],'facebook_positions':['feed'],'geo_locations':{'countries':['US']},'publisher_platforms':['facebook','audience_network'],'user_os':['IOS']},
+  'name' : 'My AdGroup',
+  'adset_id' : '<adSetID>',
+  'creative' : {'creative_id':'<adCreativeID>'},
   'status' : 'PAUSED',
+  'authorization_category' : 'POLITICAL',
 };
-const adsets = (new AdAccount(id)).createAdSet(
+const ads = (new AdAccount(id)).createAd(
   fields,
   params
 );
-logApiCallResult('adsets api call complete.', adsets);
+logApiCallResult('ads api call complete.', ads);

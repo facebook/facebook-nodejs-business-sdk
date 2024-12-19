@@ -11,17 +11,16 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * AnalyticsCohortQueryResult
+ * AdAccountLiveVideoAdvertiser
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class AnalyticsCohortQueryResult extends AbstractCrudObject {
+export default class AdAccountLiveVideoAdvertiser extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      data: 'data',
-      error: 'error',
-      query_id: 'query_id',
-      status: 'status',
+      is_lva_toggle_on: 'is_lva_toggle_on',
+      lva_default_budget: 'lva_default_budget',
+      should_show_lva_toggle: 'should_show_lva_toggle',
     });
   }
 

@@ -21,6 +21,7 @@ export default class ALMAdAccountInfo extends AbstractCrudObject {
       ad_account_id: 'ad_account_id',
       id: 'id',
       managed_by: 'managed_by',
+      owned_by: 'owned_by',
       parent_advertiser_id: 'parent_advertiser_id',
       sub_vertical: 'sub_vertical',
       tag: 'tag',

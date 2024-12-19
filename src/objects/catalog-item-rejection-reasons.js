@@ -23,14 +23,4 @@ export default class CatalogItemRejectionReasons extends AbstractCrudObject {
     });
   }
 
-  static get Capability (): Object {
-    return Object.freeze({
-      business_inbox_in_messenger: 'business_inbox_in_messenger',
-      shops: 'shops',
-      test_capability: 'test_capability',
-      universal_checkout: 'universal_checkout',
-      us_marketplace: 'us_marketplace',
-      whatsapp_marketing_message: 'whatsapp_marketing_message',
-    });
-  }
 }

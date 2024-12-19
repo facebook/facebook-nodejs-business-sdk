@@ -72,6 +72,7 @@ export default class Application extends AbstractCrudObject {
       deauth_callback_url: 'deauth_callback_url',
       default_share_mode: 'default_share_mode',
       description: 'description',
+      enigma_config: 'enigma_config',
       financial_id: 'financial_id',
       gdpv4_chrome_custom_tabs_enabled: 'gdpv4_chrome_custom_tabs_enabled',
       gdpv4_enabled: 'gdpv4_enabled',
@@ -192,19 +193,6 @@ export default class Application extends AbstractCrudObject {
     return Object.freeze({
       codeless: 'CODELESS',
       eymt: 'EYMT',
-    });
-  }
-  static get LoggingSource (): Object {
-    return Object.freeze({
-      detection: 'DETECTION',
-      messenger_bot: 'MESSENGER_BOT',
-    });
-  }
-  static get LoggingTarget (): Object {
-    return Object.freeze({
-      app: 'APP',
-      app_and_page: 'APP_AND_PAGE',
-      page: 'PAGE',
     });
   }
   static get OwnerPermissions (): Object {
@@ -573,6 +561,16 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
+  getMessageTemplates (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/message_templates'
+    );
+  }
+
   createMmpAuditing (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
     return this.createEdge(
       '/mmp_auditing',
@@ -639,16 +637,6 @@ export default class Application extends AbstractCrudObject {
       fields,
       params,
       null,
-      pathOverride,
-    );
-  }
-
-  createPageActivity (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Application> {
-    return this.createEdge(
-      '/page_activities',
-      fields,
-      params,
-      Application,
       pathOverride,
     );
   }

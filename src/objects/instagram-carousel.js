@@ -25,6 +25,7 @@ export default class InstagramCarousel extends AbstractCrudObject {
       content_type: 'content_type',
       display_url: 'display_url',
       id: 'id',
+      ig_media_id: 'ig_media_id',
       like_count: 'like_count',
       owner_instagram_user: 'owner_instagram_user',
       permalink: 'permalink',

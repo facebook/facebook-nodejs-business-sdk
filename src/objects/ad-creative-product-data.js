@@ -11,26 +11,16 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * DogNotificationSettings
+ * AdCreativeProductData
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class DogNotificationSettings extends AbstractCrudObject {
+export default class AdCreativeProductData extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      dog_check_key: 'dog_check_key',
-      id: 'id',
-      subscription_status_per_channel: 'subscription_status_per_channel',
+      product_id: 'product_id',
+      product_source: 'product_source',
     });
   }
 
-
-  
-  get (fields: Array<string>, params: Object = {}): DogNotificationSettings {
-    // $FlowFixMe : Support Generic Types
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

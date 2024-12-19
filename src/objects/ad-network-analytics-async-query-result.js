@@ -19,7 +19,6 @@ export default class AdNetworkAnalyticsAsyncQueryResult extends AbstractCrudObje
   static get Fields (): Object {
     return Object.freeze({
       data: 'data',
-      error: 'error',
       omitted_results: 'omitted_results',
       query_id: 'query_id',
       results: 'results',

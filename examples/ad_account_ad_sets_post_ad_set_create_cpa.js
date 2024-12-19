@@ -1,9 +1,10 @@
-/**
+/*
  * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
 
@@ -36,8 +37,8 @@ params = {
   'name' : 'A CPA Ad Set',
   'campaign_id' : '<adCampaignLinkClicksID>',
   'daily_budget' : '5000',
-  'start_time' : '2024-06-18T16:39:15-0700',
-  'end_time' : '2024-06-25T16:39:15-0700',
+  'start_time' : '2024-07-27T00:47:13-0700',
+  'end_time' : '2024-08-03T00:47:13-0700',
   'billing_event' : 'IMPRESSIONS',
   'optimization_goal' : 'REACH',
   'bid_amount' : '1000',

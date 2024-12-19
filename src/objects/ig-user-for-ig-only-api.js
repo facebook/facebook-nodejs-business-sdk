@@ -212,6 +212,16 @@ export default class IGUserForIGOnlyAPI extends AbstractCrudObject {
     );
   }
 
+  createWelcomeMessageFlow (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+    return this.createEdge(
+      '/welcome_message_flows',
+      fields,
+      params,
+      null,
+      pathOverride,
+    );
+  }
+
   
   get (fields: Array<string>, params: Object = {}): IGUserForIGOnlyAPI {
     // $FlowFixMe : Support Generic Types

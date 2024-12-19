@@ -11,29 +11,21 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * PanelAPIReport
+ * LiveVideoAdCampaignConfig
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class PanelAPIReport extends AbstractCrudObject {
+export default class LiveVideoAdCampaignConfig extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      checksum: 'checksum',
-      download_url: 'download_url',
-      end_date: 'end_date',
-      export_file_type: 'export_file_type',
       id: 'id',
-      index: 'index',
-      name: 'name',
-      number_of_chunks: 'number_of_chunks',
-      start_date: 'start_date',
-      upload_date: 'upload_date',
+      live_video_ad_type: 'live_video_ad_type',
     });
   }
 
 
   
-  get (fields: Array<string>, params: Object = {}): PanelAPIReport {
+  get (fields: Array<string>, params: Object = {}): LiveVideoAdCampaignConfig {
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,

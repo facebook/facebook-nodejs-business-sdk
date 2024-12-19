@@ -49,6 +49,20 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
     });
   }
 
+  static get BusinessVerificationStatus (): Object {
+    return Object.freeze({
+      expired: 'expired',
+      failed: 'failed',
+      ineligible: 'ineligible',
+      not_verified: 'not_verified',
+      pending: 'pending',
+      pending_need_more_info: 'pending_need_more_info',
+      pending_submission: 'pending_submission',
+      rejected: 'rejected',
+      revoked: 'revoked',
+      verified: 'verified',
+    });
+  }
   static get Tasks (): Object {
     return Object.freeze({
       develop: 'DEVELOP',
@@ -75,6 +89,12 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
       order_details: 'ORDER_DETAILS',
     });
   }
+  static get ParameterFormat (): Object {
+    return Object.freeze({
+      named: 'NAMED',
+      positional: 'POSITIONAL',
+    });
+  }
   static get SubCategory (): Object {
     return Object.freeze({
       order_details: 'ORDER_DETAILS',
@@ -83,6 +103,7 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
   }
   static get ProviderName (): Object {
     return Object.freeze({
+      billdesk: 'BILLDESK',
       payu: 'PAYU',
       razorpay: 'RAZORPAY',
       upi_vpa: 'UPI_VPA',
@@ -134,6 +155,16 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/audiences'
+    );
+  }
+
+  getCallAnalytics (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/call_analytics'
     );
   }
 

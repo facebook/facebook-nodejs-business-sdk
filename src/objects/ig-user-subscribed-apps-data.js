@@ -11,19 +11,15 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * ExternalEventSourceDAStatsResult
+ * IGUserSubscribedAppsData
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class ExternalEventSourceDAStatsResult extends AbstractCrudObject {
+export default class IGUserSubscribedAppsData extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      count_content_ids: 'count_content_ids',
-      count_content_ids_match_any_catalog: 'count_content_ids_match_any_catalog',
-      count_fires: 'count_fires',
-      count_fires_match_any_catalog: 'count_fires_match_any_catalog',
-      date: 'date',
-      percentage_missed_users: 'percentage_missed_users',
+      app_id: 'app_id',
+      subscribed_fields: 'subscribed_fields',
     });
   }
 

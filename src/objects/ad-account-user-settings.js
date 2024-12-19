@@ -63,6 +63,7 @@ export default class AdAccountUserSettings extends AbstractCrudObject {
       should_default_instagram_profile_card_optimization: 'should_default_instagram_profile_card_optimization',
       should_default_text_swapping_optimization: 'should_default_text_swapping_optimization',
       should_logout_of_3p_sourcing: 'should_logout_of_3p_sourcing',
+      should_show_shops_ads_metrics_onboarding_tour: 'should_show_shops_ads_metrics_onboarding_tour',
       show_archived_data: 'show_archived_data',
       show_text_variation_nux_tooltip: 'show_text_variation_nux_tooltip',
       syd_campaign_trends_activemetric: 'syd_campaign_trends_activemetric',

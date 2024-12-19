@@ -222,16 +222,6 @@ export default class CommerceOrder extends AbstractCrudObject {
     );
   }
 
-  createUpdate (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<CommerceOrder> {
-    return this.createEdge(
-      '/updates',
-      fields,
-      params,
-      CommerceOrder,
-      pathOverride,
-    );
-  }
-
   
   get (fields: Array<string>, params: Object = {}): CommerceOrder {
     // $FlowFixMe : Support Generic Types

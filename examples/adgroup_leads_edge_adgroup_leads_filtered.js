@@ -1,9 +1,10 @@
-/**
+/*
  * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
+ *
  * @flow
  */
 
@@ -33,7 +34,7 @@ let fields, params;
 fields = [
 ];
 params = {
-  'filtering' : [{'field':'time_created','operator':'GREATER_THAN','value':1717544918}],
+  'filtering' : [{'field':'time_created','operator':'GREATER_THAN','value':1721709809}],
 };
 const leadss = (new Ad(id)).getLeads(
   fields,

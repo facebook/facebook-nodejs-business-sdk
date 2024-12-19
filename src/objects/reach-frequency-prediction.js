@@ -84,6 +84,7 @@ export default class ReachFrequencyPrediction extends AbstractCrudObject {
       optimization_goal: 'optimization_goal',
       optimization_goal_name: 'optimization_goal_name',
       pause_periods: 'pause_periods',
+      percent_reach_at_target_frequency: 'percent_reach_at_target_frequency',
       placement_breakdown: 'placement_breakdown',
       placement_breakdown_map: 'placement_breakdown_map',
       plan_name: 'plan_name',

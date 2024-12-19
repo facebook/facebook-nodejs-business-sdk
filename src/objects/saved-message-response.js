@@ -18,7 +18,6 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class SavedMessageResponse extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      category: 'category',
       id: 'id',
       image: 'image',
       is_enabled: 'is_enabled',
