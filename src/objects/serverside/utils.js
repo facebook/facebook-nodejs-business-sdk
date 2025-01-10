@@ -12,6 +12,7 @@ import DeliveryCategory from './delivery-category.js';
 const sha256 = require('js-sha256');
 const currency_codes = require('currency-codes');
 const country_codes = require('iso-3166-1');
+const validator = require('email-validator');
 
 const PHONE_NUMBER_IGNORE_CHAR_SET = /[\-@#<>'",; ]|\(|\)|\+|[a-z]/g;
 const PHONE_NUMBER_DROP_PREFIX_ZEROS = /^\+?0{0,2}/;
@@ -153,15 +154,12 @@ export default class ServerSideUtils {
   }
 
   /**
-   * Normalizes the given email to RFC 822 standard and returns acceptable email value
    * @param  {String} [email] email value to be normalized.
    * @return {String} Normalized email value.
    */
   static normalizeEmail (email: string) {
-    // RFC 2822 REGEX approximation
-    const EMAIL_RE = /^[\w!#\$%&'\*\+\/\=\?\^`\{\|\}~\-]+(:?\.[\w!#\$%&'\*\+\/\=\?\^`\{\|\}~\-]+)*@(?:[a-z0-9](?:[a-z0-9\-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9\-]*[a-z0-9])?$/i;
-
-    if (!EMAIL_RE.test(email)) {
+    // Use email-validator to validate the email format
+    if (!validator.validate(email)) {
       throw new Error("Invalid email format for the passed email:'" + email + "'.Please check the passed email format.");
     }
 
