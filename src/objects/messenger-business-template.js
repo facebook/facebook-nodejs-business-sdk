@@ -28,6 +28,8 @@ export default class MessengerBusinessTemplate extends AbstractCrudObject {
       library_template_name: 'library_template_name',
       name: 'name',
       rejected_reason: 'rejected_reason',
+      rejection_reasons: 'rejection_reasons',
+      specific_rejection_reasons: 'specific_rejection_reasons',
       status: 'status',
     });
   }

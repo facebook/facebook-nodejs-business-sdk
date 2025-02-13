@@ -13,6 +13,7 @@ import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import ContentPublishingLimitResponse from './content-publishing-limit-response';
 import UnifiedThread from './unified-thread';
+import InsightsResult from './insights-result';
 import CTXPartnerAppWelcomeMessageFlow from './ctx-partner-app-welcome-message-flow';
 
 /**
@@ -55,6 +56,16 @@ export default class IGUserForIGOnlyAPI extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/conversations'
+    );
+  }
+
+  getInsights (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      InsightsResult,
+      fields,
+      params,
+      fetchFirstPage,
+      '/insights'
     );
   }
 

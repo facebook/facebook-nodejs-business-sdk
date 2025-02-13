@@ -37,6 +37,7 @@ import ProductCatalogProductSetsBatch from './product-catalog-product-sets-batch
 import ProductItem from './product-item';
 import VehicleOffer from './vehicle-offer';
 import Vehicle from './vehicle';
+import CatalogContentVersionConfig from './catalog-content-version-config';
 
 /**
  * ProductCatalog
@@ -607,6 +608,16 @@ export default class ProductCatalog extends AbstractCrudObject {
       params,
       Vehicle,
       pathOverride,
+    );
+  }
+
+  getVersionConfigs (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      CatalogContentVersionConfig,
+      fields,
+      params,
+      fetchFirstPage,
+      '/version_configs'
     );
   }
 

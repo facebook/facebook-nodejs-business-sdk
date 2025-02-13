@@ -63,6 +63,7 @@ import ReachFrequencyPrediction from './reach-frequency-prediction';
 import AdAccountRecommendations from './ad-account-recommendations';
 import SavedAudience from './saved-audience';
 import AdAccountSubscribedApps from './ad-account-subscribed-apps';
+import AdAccountSuggestedTag from './ad-account-suggested-tag';
 import AdAccountTargetingUnified from './ad-account-targeting-unified';
 import TargetingSentenceLine from './targeting-sentence-line';
 import AdAccountTrackingData from './ad-account-tracking-data';
@@ -294,7 +295,6 @@ export default class AdAccount extends AbstractCrudObject {
       primary: 'PRIMARY',
       regulated_categories_audience: 'REGULATED_CATEGORIES_AUDIENCE',
       study_rule_audience: 'STUDY_RULE_AUDIENCE',
-      subscriber_segment: 'SUBSCRIBER_SEGMENT',
       video: 'VIDEO',
       website: 'WEBSITE',
     });
@@ -1238,6 +1238,16 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
+  getSuggestedProductTags (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AdAccountSuggestedTag,
+      fields,
+      params,
+      fetchFirstPage,
+      '/suggested_product_tags'
+    );
+  }
+
   getTargetingBrowse (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdAccountTargetingUnified,
@@ -1352,6 +1362,16 @@ export default class AdAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/video_ads'
+    );
+  }
+
+  createVideoAd (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdVideo> {
+    return this.createEdge(
+      '/video_ads',
+      fields,
+      params,
+      AdVideo,
+      pathOverride,
     );
   }
 

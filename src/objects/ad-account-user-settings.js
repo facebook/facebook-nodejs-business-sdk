@@ -20,6 +20,8 @@ export default class AdAccountUserSettings extends AbstractCrudObject {
     return Object.freeze({
       acf_should_opt_out_video_adjustments: 'acf_should_opt_out_video_adjustments',
       aco_sticky_settings: 'aco_sticky_settings',
+      actions_quick_view_created: 'actions_quick_view_created',
+      active_ads_quick_view_created: 'active_ads_quick_view_created',
       ad_account: 'ad_account',
       ad_object_export_format: 'ad_object_export_format',
       auto_review_video_caption: 'auto_review_video_caption',
@@ -34,6 +36,7 @@ export default class AdAccountUserSettings extends AbstractCrudObject {
       draft_mode_enabled: 'draft_mode_enabled',
       export_deleted_items_with_delivery: 'export_deleted_items_with_delivery',
       export_summary_row: 'export_summary_row',
+      had_delivery_quick_view_created: 'had_delivery_quick_view_created',
       has_seen_groups_column_flexing_experience: 'has_seen_groups_column_flexing_experience',
       has_seen_instagram_column_flexing_experience: 'has_seen_instagram_column_flexing_experience',
       has_seen_leads_column_flexing_experience: 'has_seen_leads_column_flexing_experience',

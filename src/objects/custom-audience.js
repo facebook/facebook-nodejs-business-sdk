@@ -40,6 +40,7 @@ export default class CustomAudience extends AbstractCrudObject {
       household_audience: 'household_audience',
       id: 'id',
       included_custom_audiences: 'included_custom_audiences',
+      is_eligible_for_sac_campaigns: 'is_eligible_for_sac_campaigns',
       is_household: 'is_household',
       is_snapshot: 'is_snapshot',
       is_value_based: 'is_value_based',
@@ -128,7 +129,6 @@ export default class CustomAudience extends AbstractCrudObject {
       primary: 'PRIMARY',
       regulated_categories_audience: 'REGULATED_CATEGORIES_AUDIENCE',
       study_rule_audience: 'STUDY_RULE_AUDIENCE',
-      subscriber_segment: 'SUBSCRIBER_SEGMENT',
       video: 'VIDEO',
       website: 'WEBSITE',
     });

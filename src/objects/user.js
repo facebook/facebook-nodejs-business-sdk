@@ -491,6 +491,16 @@ export default class User extends AbstractCrudObject {
     );
   }
 
+  createMessengerKidsAccountsUnreadBadge (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<User> {
+    return this.createEdge(
+      '/messenger_kids_accounts_unread_badge',
+      fields,
+      params,
+      User,
+      pathOverride,
+    );
+  }
+
   getMusic (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Page,

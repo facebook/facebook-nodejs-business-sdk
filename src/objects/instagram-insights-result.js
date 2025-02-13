@@ -56,6 +56,7 @@ export default class InstagramInsightsResult extends AbstractCrudObject {
       shares: 'shares',
       total_interactions: 'total_interactions',
       video_views: 'video_views',
+      views: 'views',
     });
   }
   static get Period (): Object {

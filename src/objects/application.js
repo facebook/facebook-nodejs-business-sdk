@@ -641,16 +641,6 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  createPaymentCurrency (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Application> {
-    return this.createEdge(
-      '/payment_currencies',
-      fields,
-      params,
-      Application,
-      pathOverride,
-    );
-  }
-
   getPermissions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AbstractObject,

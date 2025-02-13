@@ -11,23 +11,15 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * ProductCatalogUserPermissions
+ * FundingSourceDetailsCouponTiering
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class ProductCatalogUserPermissions extends AbstractCrudObject {
+export default class FundingSourceDetailsCouponTiering extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      business: 'business',
-      business_persona: 'business_persona',
-      created_by: 'created_by',
-      created_time: 'created_time',
-      email: 'email',
-      role: 'role',
-      status: 'status',
-      updated_by: 'updated_by',
-      updated_time: 'updated_time',
-      user: 'user',
+      coupon_tiering_new: 'coupon_tiering_new',
+      coupon_tiering_reactivation: 'coupon_tiering_reactivation',
     });
   }
 

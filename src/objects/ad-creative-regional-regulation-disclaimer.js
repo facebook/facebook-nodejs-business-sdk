@@ -18,6 +18,9 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class AdCreativeRegionalRegulationDisclaimer extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
+      australia_finserv: 'australia_finserv',
+      taiwan_finserv: 'taiwan_finserv',
+      taiwan_universal: 'taiwan_universal',
     });
   }
 
