@@ -40,6 +40,7 @@ export default class InsightsResult extends AbstractCrudObject {
     return Object.freeze({
       clips_replays_count: 'clips_replays_count',
       comments: 'comments',
+      content_views: 'content_views',
       follows: 'follows',
       ig_reels_aggregated_all_plays_count: 'ig_reels_aggregated_all_plays_count',
       ig_reels_avg_watch_time: 'ig_reels_avg_watch_time',
@@ -59,6 +60,7 @@ export default class InsightsResult extends AbstractCrudObject {
       shares: 'shares',
       thread_replies: 'thread_replies',
       thread_shares: 'thread_shares',
+      threads_views: 'threads_views',
       total_interactions: 'total_interactions',
       video_views: 'video_views',
       views: 'views',
@@ -96,6 +98,23 @@ export default class InsightsResult extends AbstractCrudObject {
       this_year: 'this_year',
       today: 'today',
       yesterday: 'yesterday',
+    });
+  }
+  static get MetricType (): Object {
+    return Object.freeze({
+      default: 'default',
+      time_series: 'time_series',
+      total_value: 'total_value',
+    });
+  }
+  static get Timeframe (): Object {
+    return Object.freeze({
+      last_14_days: 'last_14_days',
+      last_30_days: 'last_30_days',
+      last_90_days: 'last_90_days',
+      prev_month: 'prev_month',
+      this_month: 'this_month',
+      this_week: 'this_week',
     });
   }
 }

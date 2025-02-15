@@ -64,7 +64,7 @@ export default class AdSet extends AbstractCrudObject {
       frequency_control_specs: 'frequency_control_specs',
       full_funnel_exploration_mode: 'full_funnel_exploration_mode',
       id: 'id',
-      instagram_actor_id: 'instagram_actor_id',
+      instagram_user_id: 'instagram_user_id',
       is_budget_schedule_enabled: 'is_budget_schedule_enabled',
       is_dynamic_creative: 'is_dynamic_creative',
       issues_info: 'issues_info',
@@ -271,6 +271,7 @@ export default class AdSet extends AbstractCrudObject {
       value_1: '1',
       value_2: '2',
       value_3: '3',
+      value_4: '4',
     });
   }
   static get TuneForCategory (): Object {

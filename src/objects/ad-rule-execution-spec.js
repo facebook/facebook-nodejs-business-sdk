@@ -20,6 +20,7 @@ export default class AdRuleExecutionSpec extends AbstractCrudObject {
     return Object.freeze({
       execution_options: 'execution_options',
       execution_type: 'execution_type',
+      is_once_off: 'is_once_off',
       id: 'id',
     });
   }

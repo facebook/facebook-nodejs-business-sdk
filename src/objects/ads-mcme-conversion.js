@@ -11,25 +11,26 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * PrivateComputationEnvironment
+ * AdsMcmeConversion
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class PrivateComputationEnvironment extends AbstractCrudObject {
+export default class AdsMcmeConversion extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      publisher_account_id: 'publisher_account_id',
-      publisher_pce_deployment_status: 'publisher_pce_deployment_status',
-      publisher_pce_id: 'publisher_pce_id',
-      publisher_region: 'publisher_region',
-      publisher_vpc_id: 'publisher_vpc_id',
+      creation_time: 'creation_time',
+      description: 'description',
       id: 'id',
+      is_archived: 'is_archived',
+      mcme_conversion_type: 'mcme_conversion_type',
+      name: 'name',
+      omnichannel_object_id: 'omnichannel_object_id',
     });
   }
 
 
   
-  get (fields: Array<string>, params: Object = {}): PrivateComputationEnvironment {
+  get (fields: Array<string>, params: Object = {}): AdsMcmeConversion {
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,

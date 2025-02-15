@@ -52,7 +52,6 @@ import Persona from './persona';
 import Photo from './photo';
 import ProfilePictureSource from './profile-picture-source';
 import ProductCatalog from './product-catalog';
-import Recommendation from './recommendation';
 import User from './user';
 import RTBDynamicPost from './rtb-dynamic-post';
 import Application from './application';
@@ -296,6 +295,18 @@ export default class Page extends AbstractCrudObject {
       vietnamese: 'Vietnamese',
     });
   }
+  static get GenAiProvenanceType (): Object {
+    return Object.freeze({
+      c2pa: 'C2PA',
+      c2pa_metadata_edited: 'C2PA_METADATA_EDITED',
+      explicit: 'EXPLICIT',
+      explicit_imagine: 'EXPLICIT_IMAGINE',
+      explicit_imagine_me: 'EXPLICIT_IMAGINE_ME',
+      invisible_watermark: 'INVISIBLE_WATERMARK',
+      iptc: 'IPTC',
+      iptc_metadata_edited: 'IPTC_METADATA_EDITED',
+    });
+  }
   static get PickupOptions (): Object {
     return Object.freeze({
       curbside: 'CURBSIDE',
@@ -533,6 +544,7 @@ export default class Page extends AbstractCrudObject {
       live_videos: 'live_videos',
       local_delivery: 'local_delivery',
       location: 'location',
+      marketing_message_delivery_failed: 'marketing_message_delivery_failed',
       mcom_invoice_change: 'mcom_invoice_change',
       members: 'members',
       mention: 'mention',
@@ -544,6 +556,7 @@ export default class Page extends AbstractCrudObject {
       message_mention: 'message_mention',
       message_reactions: 'message_reactions',
       message_reads: 'message_reads',
+      message_template_status_update: 'message_template_status_update',
       messages: 'messages',
       messaging_account_linking: 'messaging_account_linking',
       messaging_appointments: 'messaging_appointments',
@@ -589,16 +602,6 @@ export default class Page extends AbstractCrudObject {
       video_text_question_responses: 'video_text_question_responses',
       videos: 'videos',
       website: 'website',
-    });
-  }
-  static get Action (): Object {
-    return Object.freeze({
-      spam: 'SPAM',
-    });
-  }
-  static get ActionType (): Object {
-    return Object.freeze({
-      report_thread: 'REPORT_THREAD',
     });
   }
 
@@ -1491,16 +1494,6 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  getRatings (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      Recommendation,
-      fields,
-      params,
-      fetchFirstPage,
-      '/ratings'
-    );
-  }
-
   createReleaseThreadControl (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Page> {
     return this.createEdge(
       '/release_thread_control',
@@ -1651,16 +1644,6 @@ export default class Page extends AbstractCrudObject {
   createTakeThreadControl (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Page> {
     return this.createEdge(
       '/take_thread_control',
-      fields,
-      params,
-      Page,
-      pathOverride,
-    );
-  }
-
-  createThreadAction (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Page> {
-    return this.createEdge(
-      '/thread_action',
       fields,
       params,
       Page,

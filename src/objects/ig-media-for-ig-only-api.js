@@ -22,6 +22,7 @@ import InsightsResult from './insights-result';
 export default class IGMediaForIGOnlyAPI extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
+      alt_text: 'alt_text',
       caption: 'caption',
       comments_count: 'comments_count',
       id: 'id',

@@ -11,22 +11,22 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * AdsDataPartner
+ * CatalogContentVersionConfig
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class AdsDataPartner extends AbstractCrudObject {
+export default class CatalogContentVersionConfig extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       id: 'id',
       name: 'name',
-      rev_share_policies: 'rev_share_policies',
+      version: 'version',
     });
   }
 
 
   
-  get (fields: Array<string>, params: Object = {}): AdsDataPartner {
+  get (fields: Array<string>, params: Object = {}): CatalogContentVersionConfig {
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,

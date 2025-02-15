@@ -9,8 +9,6 @@
  */
 
 import {AbstractCrudObject} from './../abstract-crud-object';
-import Cursor from './../cursor';
-import InstagramComment from './instagram-comment';
 
 /**
  * InstagramMedia
@@ -39,26 +37,6 @@ export default class InstagramMedia extends AbstractCrudObject {
     });
   }
 
-
-  getComments (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      InstagramComment,
-      fields,
-      params,
-      fetchFirstPage,
-      '/comments'
-    );
-  }
-
-  createComment (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<InstagramComment> {
-    return this.createEdge(
-      '/comments',
-      fields,
-      params,
-      InstagramComment,
-      pathOverride,
-    );
-  }
 
   
   get (fields: Array<string>, params: Object = {}): InstagramMedia {

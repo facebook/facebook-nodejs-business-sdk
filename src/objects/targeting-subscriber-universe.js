@@ -11,15 +11,15 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * ParentCatalogReport
+ * TargetingSubscriberUniverse
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class ParentCatalogReport extends AbstractCrudObject {
+export default class TargetingSubscriberUniverse extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      purchase_conversion_value: 'purchase_conversion_value',
-      purchases: 'purchases',
+      messenger_subscriber_source: 'messenger_subscriber_source',
+      whatsapp_subscriber_source: 'whatsapp_subscriber_source',
     });
   }
 

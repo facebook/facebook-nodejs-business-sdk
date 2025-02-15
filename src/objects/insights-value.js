@@ -19,6 +19,7 @@ export default class InsightsValue extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       campaign_id: 'campaign_id',
+      earning_source: 'earning_source',
       end_time: 'end_time',
       engagement_source: 'engagement_source',
       message_type: 'message_type',

@@ -21,6 +21,7 @@ export default class FundingSourceDetailsCoupon extends AbstractCrudObject {
       amount: 'amount',
       campaign_ids: 'campaign_ids',
       coupon_id: 'coupon_id',
+      coupon_tiering: 'coupon_tiering',
       currency: 'currency',
       display_amount: 'display_amount',
       expiration: 'expiration',

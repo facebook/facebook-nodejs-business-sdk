@@ -22,6 +22,8 @@ export default class RegionalRegulationIdentities extends AbstractCrudObject {
       australia_finserv_payer: 'australia_finserv_payer',
       taiwan_finserv_beneficiary: 'taiwan_finserv_beneficiary',
       taiwan_finserv_payer: 'taiwan_finserv_payer',
+      taiwan_universal_beneficiary: 'taiwan_universal_beneficiary',
+      taiwan_universal_payer: 'taiwan_universal_payer',
     });
   }
 
