@@ -29,6 +29,7 @@ export default class BusinessOwnedObjectOnBehalfOfRequest extends AbstractCrudOb
   static get Status (): Object {
     return Object.freeze({
       approve: 'APPROVE',
+      canceled: 'CANCELED',
       decline: 'DECLINE',
       expired: 'EXPIRED',
       in_progress: 'IN_PROGRESS',

@@ -19,6 +19,7 @@ export default class TargetingSubscriberUniverse extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       messenger_subscriber_source: 'messenger_subscriber_source',
+      whatsapp_subscriber_pool: 'whatsapp_subscriber_pool',
       whatsapp_subscriber_source: 'whatsapp_subscriber_source',
     });
   }

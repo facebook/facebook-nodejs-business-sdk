@@ -11,15 +11,16 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * AdsPixelCAPISetupQuality
+ * CatalogCollection
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class AdsPixelCAPISetupQuality extends AbstractCrudObject {
+export default class CatalogCollection extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      event_match_quality: 'event_match_quality',
-      event_name: 'event_name',
+      description: 'description',
+      title: 'title',
+      url: 'url',
     });
   }
 

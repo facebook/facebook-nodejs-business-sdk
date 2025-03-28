@@ -104,6 +104,7 @@ export default class AdCreativeLinkDataCallToAction extends AbstractCrudObject {
       use_mobile_app: 'USE_MOBILE_APP',
       video_annotation: 'VIDEO_ANNOTATION',
       video_call: 'VIDEO_CALL',
+      view_cart: 'VIEW_CART',
       view_channel: 'VIEW_CHANNEL',
       view_product: 'VIEW_PRODUCT',
       visit_pages_feed: 'VISIT_PAGES_FEED',

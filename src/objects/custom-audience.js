@@ -13,6 +13,7 @@ import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import AdAccount from './ad-account';
 import Ad from './ad';
+import CustomAudienceHealth from './custom-audience-health';
 import CustomAudienceSalts from './custom-audience-salts';
 import CustomAudienceSession from './custom-audience-session';
 import CustomAudiencesharedAccountInfo from './custom-audienceshared-account-info';
@@ -180,6 +181,16 @@ export default class CustomAudience extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/ads'
+    );
+  }
+
+  getHealth (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      CustomAudienceHealth,
+      fields,
+      params,
+      fetchFirstPage,
+      '/health'
     );
   }
 

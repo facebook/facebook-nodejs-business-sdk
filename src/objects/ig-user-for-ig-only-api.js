@@ -213,6 +213,13 @@ export default class IGUserForIGOnlyAPI extends AbstractCrudObject {
     );
   }
 
+  deleteWelcomeMessageFlows (params: Object = {}): Promise<*> {
+    return super.deleteEdge(
+      '/welcome_message_flows',
+      params
+    );
+  }
+
   getWelcomeMessageFlows (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       CTXPartnerAppWelcomeMessageFlow,

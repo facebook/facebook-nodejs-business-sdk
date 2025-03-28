@@ -57,6 +57,7 @@ import RTBDynamicPost from './rtb-dynamic-post';
 import Application from './application';
 import PageSettings from './page-settings';
 import CommerceMerchantSettingsSetupStatus from './commerce-merchant-settings-setup-status';
+import StoreLocation from './store-location';
 import Stories from './stories';
 import Tab from './tab';
 import PageThreadOwner from './page-thread-owner';
@@ -328,6 +329,7 @@ export default class Page extends AbstractCrudObject {
       analyze: 'ANALYZE',
       cashier_role: 'CASHIER_ROLE',
       create_content: 'CREATE_CONTENT',
+      global_structure_management: 'GLOBAL_STRUCTURE_MANAGEMENT',
       manage: 'MANAGE',
       manage_jobs: 'MANAGE_JOBS',
       manage_leads: 'MANAGE_LEADS',
@@ -357,6 +359,7 @@ export default class Page extends AbstractCrudObject {
       analyze: 'ANALYZE',
       cashier_role: 'CASHIER_ROLE',
       create_content: 'CREATE_CONTENT',
+      global_structure_management: 'GLOBAL_STRUCTURE_MANAGEMENT',
       manage: 'MANAGE',
       manage_jobs: 'MANAGE_JOBS',
       manage_leads: 'MANAGE_LEADS',
@@ -474,6 +477,15 @@ export default class Page extends AbstractCrudObject {
     return Object.freeze({
       instagram: 'INSTAGRAM',
       messenger: 'MESSENGER',
+    });
+  }
+  static get Actions (): Object {
+    return Object.freeze({
+      ban_user: 'BAN_USER',
+      block_user: 'BLOCK_USER',
+      move_to_spam: 'MOVE_TO_SPAM',
+      unban_user: 'UNBAN_USER',
+      unblock_user: 'UNBLOCK_USER',
     });
   }
   static get Model (): Object {
@@ -1314,6 +1326,16 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
+  createModerateConversation (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Page> {
+    return this.createEdge(
+      '/moderate_conversations',
+      fields,
+      params,
+      Page,
+      pathOverride,
+    );
+  }
+
   createNlpConfig (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Page> {
     return this.createEdge(
       '/nlp_configs',
@@ -1377,16 +1399,6 @@ export default class Page extends AbstractCrudObject {
   createPassThreadControl (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Page> {
     return this.createEdge(
       '/pass_thread_control',
-      fields,
-      params,
-      Page,
-      pathOverride,
-    );
-  }
-
-  createPassThreadMetadatum (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Page> {
-    return this.createEdge(
-      '/pass_thread_metadata',
       fields,
       params,
       Page,
@@ -1581,6 +1593,16 @@ export default class Page extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/shop_setup_status'
+    );
+  }
+
+  getStoreLocations (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      StoreLocation,
+      fields,
+      params,
+      fetchFirstPage,
+      '/store_locations'
     );
   }
 

@@ -24,6 +24,7 @@ export default class InsightsValue extends AbstractCrudObject {
       engagement_source: 'engagement_source',
       message_type: 'message_type',
       messaging_channel: 'messaging_channel',
+      monetization_tool: 'monetization_tool',
       recurring_notifications_entry_point: 'recurring_notifications_entry_point',
       recurring_notifications_frequency: 'recurring_notifications_frequency',
       recurring_notifications_topic: 'recurring_notifications_topic',
