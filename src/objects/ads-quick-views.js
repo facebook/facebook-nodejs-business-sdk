@@ -24,6 +24,7 @@ export default class AdsQuickViews extends AbstractCrudObject {
       description: 'description',
       id: 'id',
       name: 'name',
+      owner: 'owner',
       permission: 'permission',
       quick_view_type: 'quick_view_type',
       sort: 'sort',

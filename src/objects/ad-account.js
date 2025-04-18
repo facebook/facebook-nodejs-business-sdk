@@ -54,6 +54,7 @@ import AdReportRun from './ad-report-run';
 import AdAccountIosFourteenCampaignLimits from './ad-account-ios-fourteen-campaign-limits';
 import AdAccountMatchedSearchApplicationsEdgeData from './ad-account-matched-search-applications-edge-data';
 import AdAccountMaxBid from './ad-account-max-bid';
+import AdsMcmeConversion from './ads-mcme-conversion';
 import MinimumBudget from './minimum-budget';
 import BusinessOwnedObjectOnBehalfOfRequest from './business-owned-object-on-behalf-of-request';
 import Page from './page';
@@ -119,6 +120,7 @@ export default class AdAccount extends AbstractCrudObject {
       id: 'id',
       io_number: 'io_number',
       is_attribution_spec_system_default: 'is_attribution_spec_system_default',
+      is_ba_skip_delayed_eligible: 'is_ba_skip_delayed_eligible',
       is_direct_deals_enabled: 'is_direct_deals_enabled',
       is_in_3ds_authorization_enabled_market: 'is_in_3ds_authorization_enabled_market',
       is_notifications_enabled: 'is_notifications_enabled',
@@ -1091,6 +1093,16 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
+  getMcmeConversions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AdsMcmeConversion,
+      fields,
+      params,
+      fetchFirstPage,
+      '/mcmeconversions'
+    );
+  }
+
   getMinimumBudgets (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       MinimumBudget,
@@ -1352,6 +1364,16 @@ export default class AdAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/value_rule_set'
+    );
+  }
+
+  createValueRuleSet (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdsValueAdjustmentRuleCollection> {
+    return this.createEdge(
+      '/value_rule_set',
+      fields,
+      params,
+      AdsValueAdjustmentRuleCollection,
+      pathOverride,
     );
   }
 

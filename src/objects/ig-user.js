@@ -18,6 +18,7 @@ import IGBCAdsPermission from './igbc-ads-permission';
 import BrandedContentShadowIGMediaID from './branded-content-shadow-ig-media-id';
 import BrandedContentShadowIGUserID from './branded-content-shadow-ig-user-id';
 import ShadowIGUserCatalogProductSearch from './shadow-ig-user-catalog-product-search';
+import ThreadsUser from './threads-user';
 import ContentPublishingLimitResponse from './content-publishing-limit-response';
 import Dataset from './dataset';
 import InstagramInsightsResult from './instagram-insights-result';
@@ -165,6 +166,16 @@ export default class IGUser extends AbstractCrudObject {
     );
   }
 
+  getConnectedThreadsUser (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      ThreadsUser,
+      fields,
+      params,
+      fetchFirstPage,
+      '/connected_threads_user'
+    );
+  }
+
   getContentPublishingLimit (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       ContentPublishingLimitResponse,
@@ -202,6 +213,26 @@ export default class IGUser extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/insights'
+    );
+  }
+
+  getInstagramBackedThreadsUser (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      ThreadsUser,
+      fields,
+      params,
+      fetchFirstPage,
+      '/instagram_backed_threads_user'
+    );
+  }
+
+  createInstagramBackedThreadsUser (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<ThreadsUser> {
+    return this.createEdge(
+      '/instagram_backed_threads_user',
+      fields,
+      params,
+      ThreadsUser,
+      pathOverride,
     );
   }
 

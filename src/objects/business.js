@@ -44,7 +44,6 @@ import BusinessImage from './business-image';
 import BusinessAssetSharingAgreement from './business-asset-sharing-agreement';
 import InstagramUser from './instagram-user';
 import IGUser from './ig-user';
-import NegativeKeywordList from './negative-keyword-list';
 import OpenBridgeConfiguration from './open-bridge-configuration';
 import PartnerAccountLinking from './partner-account-linking';
 import BusinessAdAccountRequest from './business-ad-account-request';
@@ -146,6 +145,7 @@ export default class Business extends AbstractCrudObject {
       analyze: 'ANALYZE',
       cashier_role: 'CASHIER_ROLE',
       create_content: 'CREATE_CONTENT',
+      global_structure_management: 'GLOBAL_STRUCTURE_MANAGEMENT',
       manage: 'MANAGE',
       manage_jobs: 'MANAGE_JOBS',
       manage_leads: 'MANAGE_LEADS',
@@ -668,6 +668,7 @@ export default class Business extends AbstractCrudObject {
       analyze: 'ANALYZE',
       cashier_role: 'CASHIER_ROLE',
       create_content: 'CREATE_CONTENT',
+      global_structure_management: 'GLOBAL_STRUCTURE_MANAGEMENT',
       manage: 'MANAGE',
       manage_jobs: 'MANAGE_JOBS',
       manage_leads: 'MANAGE_LEADS',
@@ -1050,6 +1051,16 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
+  createAdsDataSet (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Business> {
+    return this.createEdge(
+      '/ads_dataset',
+      fields,
+      params,
+      Business,
+      pathOverride,
+    );
+  }
+
   getAdsReportingMmmReports (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdsReportBuilderMMMReport,
@@ -1404,16 +1415,6 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createDraftNegativeKeywordList (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
-    return this.createEdge(
-      '/draft_negative_keyword_lists',
-      fields,
-      params,
-      null,
-      pathOverride,
-    );
-  }
-
   getEventSourceGroups (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       EventSourceGroup,
@@ -1545,13 +1546,13 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  getNegativeKeywordLists (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      NegativeKeywordList,
+  createOnboardPartnersToMmLite (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+    return this.createEdge(
+      '/onboard_partners_to_mm_lite',
       fields,
       params,
-      fetchFirstPage,
-      '/negative_keyword_lists'
+      null,
+      pathOverride,
     );
   }
 
@@ -1746,6 +1747,16 @@ export default class Business extends AbstractCrudObject {
       params,
       null,
       pathOverride,
+    );
+  }
+
+  getPassbackAttributionMetadataConfigs (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/passback_attribution_metadata_configs'
     );
   }
 

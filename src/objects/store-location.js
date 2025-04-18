@@ -11,30 +11,27 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * InstagramCarousel
+ * StoreLocation
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class InstagramCarousel extends AbstractCrudObject {
+export default class StoreLocation extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      caption_text: 'caption_text',
-      comment_count: 'comment_count',
-      content_type: 'content_type',
-      display_url: 'display_url',
+      full_address: 'full_address',
+      hours: 'hours',
       id: 'id',
-      ig_media_id: 'ig_media_id',
-      like_count: 'like_count',
-      owner_instagram_user: 'owner_instagram_user',
-      permalink: 'permalink',
-      taken_at: 'taken_at',
-      video_url: 'video_url',
+      phone_number: 'phone_number',
+      pickup_options: 'pickup_options',
+      price_range: 'price_range',
+      store_code: 'store_code',
+      zip_code: 'zip_code',
     });
   }
 
 
   
-  get (fields: Array<string>, params: Object = {}): InstagramCarousel {
+  get (fields: Array<string>, params: Object = {}): StoreLocation {
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,

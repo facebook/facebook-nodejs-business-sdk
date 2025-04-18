@@ -30,6 +30,7 @@ export default class BusinessAssetSharingAgreement extends AbstractCrudObject {
   static get RequestStatus (): Object {
     return Object.freeze({
       approve: 'APPROVE',
+      canceled: 'CANCELED',
       decline: 'DECLINE',
       expired: 'EXPIRED',
       in_progress: 'IN_PROGRESS',

@@ -103,6 +103,7 @@ export default class Event extends AbstractCrudObject {
       community: 'community',
       friends: 'friends',
       group: 'group',
+      messenger_community: 'messenger_community',
       private: 'private',
       public: 'public',
       work_company: 'work_company',

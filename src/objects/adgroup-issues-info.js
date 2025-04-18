@@ -23,6 +23,7 @@ export default class AdgroupIssuesInfo extends AbstractCrudObject {
       error_summary: 'error_summary',
       error_type: 'error_type',
       level: 'level',
+      mid: 'mid',
     });
   }
 

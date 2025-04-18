@@ -23,9 +23,17 @@ export default class AdsValueAdjustmentRuleCollection extends AbstractCrudObject
       id: 'id',
       is_default_setting: 'is_default_setting',
       name: 'name',
+      product_type: 'product_type',
     });
   }
 
+  static get ProductType (): Object {
+    return Object.freeze({
+      audience: 'AUDIENCE',
+      leadgen_ads: 'LEADGEN_ADS',
+      omni_channel: 'OMNI_CHANNEL',
+    });
+  }
 
   getRules (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
@@ -42,6 +50,14 @@ export default class AdsValueAdjustmentRuleCollection extends AbstractCrudObject
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
+      params
+    );
+  }
+
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): AdsValueAdjustmentRuleCollection {
+    // $FlowFixMe : Support Generic Types
+    return super.update(
       params
     );
   }

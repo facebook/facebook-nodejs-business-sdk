@@ -19,6 +19,8 @@ export default class AdCreativeRegionalRegulationDisclaimer extends AbstractCrud
   static get Fields (): Object {
     return Object.freeze({
       australia_finserv: 'australia_finserv',
+      india_finserv: 'india_finserv',
+      singapore_universal: 'singapore_universal',
       taiwan_finserv: 'taiwan_finserv',
       taiwan_universal: 'taiwan_universal',
     });
