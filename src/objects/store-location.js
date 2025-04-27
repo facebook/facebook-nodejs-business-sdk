@@ -11,25 +11,27 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * PrivateComputationEnvironment
+ * StoreLocation
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class PrivateComputationEnvironment extends AbstractCrudObject {
+export default class StoreLocation extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      publisher_account_id: 'publisher_account_id',
-      publisher_pce_deployment_status: 'publisher_pce_deployment_status',
-      publisher_pce_id: 'publisher_pce_id',
-      publisher_region: 'publisher_region',
-      publisher_vpc_id: 'publisher_vpc_id',
+      full_address: 'full_address',
+      hours: 'hours',
       id: 'id',
+      phone_number: 'phone_number',
+      pickup_options: 'pickup_options',
+      price_range: 'price_range',
+      store_code: 'store_code',
+      zip_code: 'zip_code',
     });
   }
 
 
   
-  get (fields: Array<string>, params: Object = {}): PrivateComputationEnvironment {
+  get (fields: Array<string>, params: Object = {}): StoreLocation {
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,

@@ -42,6 +42,7 @@ export default class WhatsAppBusinessPartnerClientVerificationSubmission extends
   static get VerificationStatus (): Object {
     return Object.freeze({
       approved: 'APPROVED',
+      discarded: 'DISCARDED',
       failed: 'FAILED',
       pending: 'PENDING',
       revoked: 'REVOKED',

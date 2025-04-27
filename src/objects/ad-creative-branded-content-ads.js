@@ -30,6 +30,7 @@ export default class AdCreativeBrandedContentAds extends AbstractCrudObject {
       product_set_partner_selection_status: 'product_set_partner_selection_status',
       promoted_page_id: 'promoted_page_id',
       testimonial: 'testimonial',
+      testimonial_locale: 'testimonial_locale',
       ui_version: 'ui_version',
     });
   }

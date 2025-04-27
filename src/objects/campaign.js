@@ -29,6 +29,7 @@ export default class Campaign extends AbstractCrudObject {
     return Object.freeze({
       account_id: 'account_id',
       adlabels: 'adlabels',
+      advantage_state_info: 'advantage_state_info',
       bid_strategy: 'bid_strategy',
       boosted_object_id: 'boosted_object_id',
       brand_lift_studies: 'brand_lift_studies',

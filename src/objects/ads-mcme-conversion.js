@@ -11,30 +11,26 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * VideoMetricsReport
+ * AdsMcmeConversion
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class VideoMetricsReport extends AbstractCrudObject {
+export default class AdsMcmeConversion extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      checksum: 'checksum',
-      chunks: 'chunks',
-      end_date: 'end_date',
+      creation_time: 'creation_time',
+      description: 'description',
       id: 'id',
-      index: 'index',
+      is_archived: 'is_archived',
+      mcme_conversion_type: 'mcme_conversion_type',
       name: 'name',
-      platform: 'platform',
-      start_date: 'start_date',
-      type: 'type',
-      upload_date: 'upload_date',
-      url: 'url',
+      omnichannel_object_id: 'omnichannel_object_id',
     });
   }
 
 
   
-  get (fields: Array<string>, params: Object = {}): VideoMetricsReport {
+  get (fields: Array<string>, params: Object = {}): AdsMcmeConversion {
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,

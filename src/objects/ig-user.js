@@ -11,11 +11,14 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
+import Business from './business';
+import AdAccount from './ad-account';
 import UserAvailableCatalogs from './user-available-catalogs';
 import IGBCAdsPermission from './igbc-ads-permission';
 import BrandedContentShadowIGMediaID from './branded-content-shadow-ig-media-id';
 import BrandedContentShadowIGUserID from './branded-content-shadow-ig-user-id';
 import ShadowIGUserCatalogProductSearch from './shadow-ig-user-catalog-product-search';
+import ThreadsUser from './threads-user';
 import ContentPublishingLimitResponse from './content-publishing-limit-response';
 import Dataset from './dataset';
 import InstagramInsightsResult from './instagram-insights-result';
@@ -23,6 +26,7 @@ import IGMedia from './ig-media';
 import UserPageOneTimeOptInTokenSettings from './user-page-one-time-opt-in-token-settings';
 import IGShoppingProductAppeal from './ig-shopping-product-appeal';
 import ShadowIGHashtag from './shadow-ig-hashtag';
+import IGUpcomingEvent from './ig-upcoming-event';
 
 /**
  * IGUser
@@ -36,8 +40,10 @@ export default class IGUser extends AbstractCrudObject {
       business_discovery: 'business_discovery',
       followers_count: 'followers_count',
       follows_count: 'follows_count',
+      has_profile_pic: 'has_profile_pic',
       id: 'id',
       ig_id: 'ig_id',
+      is_published: 'is_published',
       legacy_instagram_user_id: 'legacy_instagram_user_id',
       media_count: 'media_count',
       mentioned_comment: 'mentioned_comment',
@@ -52,6 +58,36 @@ export default class IGUser extends AbstractCrudObject {
     });
   }
 
+
+  getAgencies (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      Business,
+      fields,
+      params,
+      fetchFirstPage,
+      '/agencies'
+    );
+  }
+
+  getAuthorizedAdAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AdAccount,
+      fields,
+      params,
+      fetchFirstPage,
+      '/authorized_adaccounts'
+    );
+  }
+
+  createAuthorizedAdAccount (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<IGUser> {
+    return this.createEdge(
+      '/authorized_adaccounts',
+      fields,
+      params,
+      IGUser,
+      pathOverride,
+    );
+  }
 
   getAvailableCatalogs (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
@@ -130,6 +166,16 @@ export default class IGUser extends AbstractCrudObject {
     );
   }
 
+  getConnectedThreadsUser (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      ThreadsUser,
+      fields,
+      params,
+      fetchFirstPage,
+      '/connected_threads_user'
+    );
+  }
+
   getContentPublishingLimit (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       ContentPublishingLimitResponse,
@@ -167,6 +213,26 @@ export default class IGUser extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/insights'
+    );
+  }
+
+  getInstagramBackedThreadsUser (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      ThreadsUser,
+      fields,
+      params,
+      fetchFirstPage,
+      '/instagram_backed_threads_user'
+    );
+  }
+
+  createInstagramBackedThreadsUser (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<ThreadsUser> {
+    return this.createEdge(
+      '/instagram_backed_threads_user',
+      fields,
+      params,
+      ThreadsUser,
+      pathOverride,
     );
   }
 
@@ -277,6 +343,16 @@ export default class IGUser extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/tags'
+    );
+  }
+
+  getUpcomingEvents (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      IGUpcomingEvent,
+      fields,
+      params,
+      fetchFirstPage,
+      '/upcoming_events'
     );
   }
 

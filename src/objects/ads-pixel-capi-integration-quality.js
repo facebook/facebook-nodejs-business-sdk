@@ -11,16 +11,15 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * InstagramVideoMetadata
+ * AdsPixelCAPIIntegrationQuality
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class InstagramVideoMetadata extends AbstractCrudObject {
+export default class AdsPixelCAPIIntegrationQuality extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      duration: 'duration',
-      height: 'height',
-      width: 'width',
+      event_match_quality: 'event_match_quality',
+      event_name: 'event_name',
     });
   }
 

@@ -11,15 +11,17 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * ParentCatalogReport
+ * AdCampaignGroupAdvantageState
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class ParentCatalogReport extends AbstractCrudObject {
+export default class AdCampaignGroupAdvantageState extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      purchase_conversion_value: 'purchase_conversion_value',
-      purchases: 'purchases',
+      advantage_audience_state: 'advantage_audience_state',
+      advantage_budget_state: 'advantage_budget_state',
+      advantage_placement_state: 'advantage_placement_state',
+      advantage_state: 'advantage_state',
     });
   }
 

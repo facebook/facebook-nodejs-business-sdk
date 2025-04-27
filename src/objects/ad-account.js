@@ -54,6 +54,7 @@ import AdReportRun from './ad-report-run';
 import AdAccountIosFourteenCampaignLimits from './ad-account-ios-fourteen-campaign-limits';
 import AdAccountMatchedSearchApplicationsEdgeData from './ad-account-matched-search-applications-edge-data';
 import AdAccountMaxBid from './ad-account-max-bid';
+import AdsMcmeConversion from './ads-mcme-conversion';
 import MinimumBudget from './minimum-budget';
 import BusinessOwnedObjectOnBehalfOfRequest from './business-owned-object-on-behalf-of-request';
 import Page from './page';
@@ -63,6 +64,7 @@ import ReachFrequencyPrediction from './reach-frequency-prediction';
 import AdAccountRecommendations from './ad-account-recommendations';
 import SavedAudience from './saved-audience';
 import AdAccountSubscribedApps from './ad-account-subscribed-apps';
+import AdAccountSuggestedTag from './ad-account-suggested-tag';
 import AdAccountTargetingUnified from './ad-account-targeting-unified';
 import TargetingSentenceLine from './targeting-sentence-line';
 import AdAccountTrackingData from './ad-account-tracking-data';
@@ -118,6 +120,7 @@ export default class AdAccount extends AbstractCrudObject {
       id: 'id',
       io_number: 'io_number',
       is_attribution_spec_system_default: 'is_attribution_spec_system_default',
+      is_ba_skip_delayed_eligible: 'is_ba_skip_delayed_eligible',
       is_direct_deals_enabled: 'is_direct_deals_enabled',
       is_in_3ds_authorization_enabled_market: 'is_in_3ds_authorization_enabled_market',
       is_notifications_enabled: 'is_notifications_enabled',
@@ -294,7 +297,6 @@ export default class AdAccount extends AbstractCrudObject {
       primary: 'PRIMARY',
       regulated_categories_audience: 'REGULATED_CATEGORIES_AUDIENCE',
       study_rule_audience: 'STUDY_RULE_AUDIENCE',
-      subscriber_segment: 'SUBSCRIBER_SEGMENT',
       video: 'VIDEO',
       website: 'WEBSITE',
     });
@@ -1091,6 +1093,16 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
+  getMcmeConversions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AdsMcmeConversion,
+      fields,
+      params,
+      fetchFirstPage,
+      '/mcmeconversions'
+    );
+  }
+
   getMinimumBudgets (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       MinimumBudget,
@@ -1238,6 +1250,16 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
+  getSuggestedProductTags (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AdAccountSuggestedTag,
+      fields,
+      params,
+      fetchFirstPage,
+      '/suggested_product_tags'
+    );
+  }
+
   getTargetingBrowse (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdAccountTargetingUnified,
@@ -1345,6 +1367,16 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
+  createValueRuleSet (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdsValueAdjustmentRuleCollection> {
+    return this.createEdge(
+      '/value_rule_set',
+      fields,
+      params,
+      AdsValueAdjustmentRuleCollection,
+      pathOverride,
+    );
+  }
+
   getVideoAds (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdVideo,
@@ -1352,6 +1384,16 @@ export default class AdAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/video_ads'
+    );
+  }
+
+  createVideoAd (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdVideo> {
+    return this.createEdge(
+      '/video_ads',
+      fields,
+      params,
+      AdVideo,
+      pathOverride,
     );
   }
 

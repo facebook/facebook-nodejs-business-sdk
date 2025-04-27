@@ -11,15 +11,16 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * AdsPixelCAPISetupQuality
+ * TargetingSubscriberUniverse
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class AdsPixelCAPISetupQuality extends AbstractCrudObject {
+export default class TargetingSubscriberUniverse extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      event_match_quality: 'event_match_quality',
-      event_name: 'event_name',
+      messenger_subscriber_source: 'messenger_subscriber_source',
+      whatsapp_subscriber_pool: 'whatsapp_subscriber_pool',
+      whatsapp_subscriber_source: 'whatsapp_subscriber_source',
     });
   }
 

@@ -36,6 +36,7 @@ export default class AdAccountAdRulesHistory extends AbstractCrudObject {
       changed_bid: 'CHANGED_BID',
       changed_budget: 'CHANGED_BUDGET',
       consolidate_asc_fragmentation: 'CONSOLIDATE_ASC_FRAGMENTATION',
+      consolidate_fragmentation: 'CONSOLIDATE_FRAGMENTATION',
       convert_asc_cp_single_instance: 'CONVERT_ASC_CP_SINGLE_INSTANCE',
       email: 'EMAIL',
       enable_advantage_campaign_budget: 'ENABLE_ADVANTAGE_CAMPAIGN_BUDGET',

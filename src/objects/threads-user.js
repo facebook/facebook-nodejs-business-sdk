@@ -11,26 +11,16 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * Domain
+ * ThreadsUser
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class Domain extends AbstractCrudObject {
+export default class ThreadsUser extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      id: 'id',
-      name: 'name',
-      url: 'url',
+      threads_user_id: 'threads_user_id',
+      threads_user_profile_pic: 'threads_user_profile_pic',
     });
   }
 
-
-  
-  get (fields: Array<string>, params: Object = {}): Domain {
-    // $FlowFixMe : Support Generic Types
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

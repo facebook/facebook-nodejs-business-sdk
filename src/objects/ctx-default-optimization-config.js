@@ -11,26 +11,16 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * AdsDataPartner
+ * CTXDefaultOptimizationConfig
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class AdsDataPartner extends AbstractCrudObject {
+export default class CTXDefaultOptimizationConfig extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      id: 'id',
-      name: 'name',
-      rev_share_policies: 'rev_share_policies',
+      objective: 'objective',
+      optimization_goal: 'optimization_goal',
     });
   }
 
-
-  
-  get (fields: Array<string>, params: Object = {}): AdsDataPartner {
-    // $FlowFixMe : Support Generic Types
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

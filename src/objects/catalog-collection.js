@@ -11,23 +11,16 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * ProductCatalogUserPermissions
+ * CatalogCollection
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class ProductCatalogUserPermissions extends AbstractCrudObject {
+export default class CatalogCollection extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      business: 'business',
-      business_persona: 'business_persona',
-      created_by: 'created_by',
-      created_time: 'created_time',
-      email: 'email',
-      role: 'role',
-      status: 'status',
-      updated_by: 'updated_by',
-      updated_time: 'updated_time',
-      user: 'user',
+      description: 'description',
+      title: 'title',
+      url: 'url',
     });
   }
 

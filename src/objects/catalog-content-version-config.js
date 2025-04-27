@@ -11,22 +11,26 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * AdCreativeObjectStorySpec
+ * CatalogContentVersionConfig
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class AdCreativeObjectStorySpec extends AbstractCrudObject {
+export default class CatalogContentVersionConfig extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      instagram_user_id: 'instagram_user_id',
-      link_data: 'link_data',
-      page_id: 'page_id',
-      photo_data: 'photo_data',
-      product_data: 'product_data',
-      template_data: 'template_data',
-      text_data: 'text_data',
-      video_data: 'video_data',
+      id: 'id',
+      name: 'name',
+      version: 'version',
     });
   }
 
+
+  
+  get (fields: Array<string>, params: Object = {}): CatalogContentVersionConfig {
+    // $FlowFixMe : Support Generic Types
+    return this.read(
+      fields,
+      params
+    );
+  }
 }

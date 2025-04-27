@@ -35,6 +35,7 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
       id: 'id',
       is_enabled_for_insights: 'is_enabled_for_insights',
       linked_commerce_account: 'linked_commerce_account',
+      marketing_messages_lite_api_status: 'marketing_messages_lite_api_status',
       message_template_namespace: 'message_template_namespace',
       name: 'name',
       on_behalf_of_business_info: 'on_behalf_of_business_info',
@@ -198,16 +199,6 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
     );
   }
 
-  getDccConfig (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/dcc_config'
-    );
-  }
-
   getFlows (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AbstractObject,
@@ -362,6 +353,16 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
     );
   }
 
+  getPricingAnalytics (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/pricing_analytics'
+    );
+  }
+
   deleteProductCatalogs (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/product_catalogs',
@@ -409,7 +410,7 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
     );
   }
 
-  createSetSolutionMigrationInTEnt (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+  createSetSolutionMigrationIntent (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
     return this.createEdge(
       '/set_solution_migration_intent',
       fields,
@@ -463,6 +464,36 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/template_analytics'
+    );
+  }
+
+  getTemplateGroupAnalytics (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/template_group_analytics'
+    );
+  }
+
+  getTemplateGroups (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/template_groups'
+    );
+  }
+
+  createTemplateGroup (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+    return this.createEdge(
+      '/template_groups',
+      fields,
+      params,
+      null,
+      pathOverride,
     );
   }
 
