@@ -18,6 +18,7 @@ import Content from './content.js';
 export default class CustomData {
 
 	_value: number;
+	_net_revenue: number;
 	_currency: string;
 	_content_name: string;
 	_content_category: string;
@@ -35,6 +36,7 @@ export default class CustomData {
 
 	/**
 	 * @param {Number} value value of the item Eg: 123.45
+	 * @param {Number} net_revenue net_revenue of the item Eg: 30.45
 	 * @param {String} currency currency involved in the transaction Eg: usd
 	 * @param {String} content_name name of the Content Eg: lettuce
 	 * @param {String} content_category category of the content Eg: grocery
@@ -50,11 +52,12 @@ export default class CustomData {
 	 * @param {String} delivery_category The type of delivery for a purchase event
 	 * @param {Object} custom_properties Custom Properties to be added to the Custom Data
 	 */
-	constructor(value: number, currency: string, content_name: string, content_category: string, content_ids: Array<string>, contents: Array<Content>,
+	constructor(value: number, net_revenue: number, currency: string, content_name: string, content_category: string, content_ids: Array<string>, contents: Array<Content>,
 		content_type: string, order_id: string, predicted_ltv: number, num_items: number, search_string: string, status: string, item_number: string,
 		delivery_category: string, custom_properties: Object)  {
 
 		this._value = value;
+		this._net_revenue = net_revenue;
 		this._currency = currency;
 		this._content_name = content_name;
 		this._content_category = content_category;
@@ -96,6 +99,34 @@ export default class CustomData {
 	 */
 	setValue(value: number) : CustomData {
 		this._value = value;
+		return this;
+	}
+
+	/**
+	 * Gets the net_revenue of the custom data.
+	 * A numeric net_revenue associated with this event. This could be a monetary net_revenue or a net_revenue in some other metric.
+	 * Example: 30.54.
+	 */
+	get net_revenue()  {
+		return  this._net_revenue;
+	}
+
+	/**
+	 * Sets the net_revenue of the custom data.
+	 * @param net_revenue A numeric net_revenue associated with this event. This could be a monetary net_revenue or a net_revenue in some other metric.
+	 * Example: 30.54.
+	 */
+	set net_revenue(net_revenue: number)  {
+		this._net_revenue = net_revenue;
+	}
+
+	/**
+	 * Sets the net_revenue of the custom data.
+	 * @param {Number} value A numeric net_revenue associated with this event. This could be a monetary net_revenue or a net_revenue in some other metric.
+	 * Example: 30.54.
+	 */
+	setNetRevenue(net_revenue: number) : CustomData {
+		this._net_revenue = net_revenue;
 		return this;
 	}
 
@@ -515,6 +546,11 @@ export default class CustomData {
 		const parsedValue = Number.parseFloat(this.value);
 		if (!Number.isNaN(parsedValue)) {
 			customData['value'] = parsedValue;
+		}
+
+		const parsedNetRevenue = Number.parseFloat(this.net_revenue);
+		if (!Number.isNaN(parsedNetRevenue)) {
+			customData['net_revenue'] = parsedNetRevenue;
 		}
 
 		if (this.currency) {
