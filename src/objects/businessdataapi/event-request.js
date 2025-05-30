@@ -20,7 +20,7 @@ export default class EventRequest {
     _access_token: string;
     _page_id: string;
     _events: Array < Event > ;
-    _partner_agent: ? string;
+    _partner_agent?:  string;
     _api: Object;
 
     /**
