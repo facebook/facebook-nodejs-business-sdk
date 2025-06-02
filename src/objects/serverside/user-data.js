@@ -46,6 +46,7 @@ export default class UserData {
 	_app_user_id: string;
 	_ctwa_clid: string;
 	_page_id: string;
+	_whatsapp_business_account_id: string;
 
 	/**
 	 * @param {String} email An email address, in lowercase.
@@ -74,11 +75,12 @@ export default class UserData {
 	 * @param {String} app_user_id
 	 * @param {String} ctwa_clid ID of a conversation that was started on WhatsApp
 	 * @param {String} page_id ID of the page that the ad is associated with
+	 * @param {String} whatsapp_business_account_id WABA ID for a conversation that was started on WhatsApp.
 	 */
 	constructor(email: string, phone: string, gender: string, first_name: string, last_name: string, date_of_birth: string,
 		city: string, state: string, zip: string, country: string, external_id: string, client_ip_address: string, client_user_agent: string,
 		fbp: string, fbc: string, subscription_id: string, fb_login_id: string, lead_id: string, dobd: string, dobm: string, doby: string,
-		madid: string, anon_id: string, app_user_id: string, ctwa_clid: string, page_id: string) {
+		madid: string, anon_id: string, app_user_id: string, ctwa_clid: string, page_id: string, whatsapp_business_account_id: string) {
 		if (email != null) {
 			this._emails = new Array(email);
 		}
@@ -127,6 +129,7 @@ export default class UserData {
 		this._app_user_id = app_user_id;
 		this._ctwa_clid = ctwa_clid;
 		this._page_id = page_id;
+		this._whatsapp_business_account_id = whatsapp_business_account_id;
 	}
 
 	static get Gender(): Object {
@@ -1198,6 +1201,28 @@ export default class UserData {
 	}
 
 	/**
+	 *
+	 */
+	get whatsapp_business_account_id () {
+		return this._whatsapp_business_account_id;
+	}
+
+	/**
+	 *
+	 */
+	set whatsapp_business_account_id (whatsapp_business_account_id: string) {
+		this._whatsapp_business_account_id = whatsapp_business_account_id;
+	}
+
+	/**
+	 *
+	 */
+	setWhatsappBusinessAccountId (whatsapp_business_account_id: string): UserData {
+		this._whatsapp_business_account_id = whatsapp_business_account_id;
+		return this;
+	}
+
+	/**
 	 * Returns the normalized payload for the user_data parameter.
 	 * @returns {Object} normalized user data payload.
 	 */
@@ -1318,6 +1343,10 @@ export default class UserData {
 
 		if (this.page_id) {
 			userData['page_id'] = this.page_id;
+		}
+
+		if (this.whatsapp_business_account_id) {
+			userData['whatsapp_business_account_id'] = this.whatsapp_business_account_id;
 		}
 
 		return userData;
