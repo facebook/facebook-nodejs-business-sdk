@@ -27,6 +27,7 @@ import Shop from './shop';
 export default class CommerceMerchantSettings extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
+      checkout_config: 'checkout_config',
       checkout_message: 'checkout_message',
       contact_email: 'contact_email',
       cta: 'cta',
@@ -34,10 +35,13 @@ export default class CommerceMerchantSettings extends AbstractCrudObject {
       facebook_channel: 'facebook_channel',
       id: 'id',
       instagram_channel: 'instagram_channel',
+      korea_ftc_listing: 'korea_ftc_listing',
       merchant_page: 'merchant_page',
       merchant_status: 'merchant_status',
       onsite_commerce_merchant: 'onsite_commerce_merchant',
       payment_provider: 'payment_provider',
+      privacy_policy_localized: 'privacy_policy_localized',
+      return_policy_localized: 'return_policy_localized',
       review_rejection_messages: 'review_rejection_messages',
       review_rejection_reasons: 'review_rejection_reasons',
       terms: 'terms',

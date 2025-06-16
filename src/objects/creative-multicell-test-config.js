@@ -18,8 +18,12 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class CreativeMulticellTestConfig extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
+      budget_percentage: 'budget_percentage',
+      configured_cell_count: 'configured_cell_count',
       daily_budget: 'daily_budget',
+      entry_source: 'entry_source',
       lifetime_budget: 'lifetime_budget',
+      use_existing_daily_budget: 'use_existing_daily_budget',
     });
   }
 

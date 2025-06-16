@@ -17,6 +17,7 @@ import AdAccount from './ad-account';
 import Application from './application';
 import AdNetworkAnalyticsSyncQueryResult from './ad-network-analytics-sync-query-result';
 import AdNetworkAnalyticsAsyncQueryResult from './ad-network-analytics-async-query-result';
+import AdsDataset from './ads-dataset';
 import AdsReportBuilderMMMReport from './ads-report-builder-mmm-report';
 import AdsReportBuilderMMMReportScheduler from './ads-report-builder-mmm-report-scheduler';
 import AdsPixel from './ads-pixel';
@@ -42,8 +43,9 @@ import ExtendedCreditApplication from './extended-credit-application';
 import ExtendedCredit from './extended-credit';
 import BusinessImage from './business-image';
 import BusinessAssetSharingAgreement from './business-asset-sharing-agreement';
-import InstagramUser from './instagram-user';
 import IGUser from './ig-user';
+import FundingSourceDetailsCoupon from './funding-source-details-coupon';
+import ManagedPartnerBusiness from './managed-partner-business';
 import OpenBridgeConfiguration from './open-bridge-configuration';
 import PartnerAccountLinking from './partner-account-linking';
 import BusinessAdAccountRequest from './business-ad-account-request';
@@ -1051,6 +1053,16 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
+  getAdsDataset (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AdsDataset,
+      fields,
+      params,
+      fetchFirstPage,
+      '/ads_dataset'
+    );
+  }
+
   createAdsDataSet (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Business> {
     return this.createEdge(
       '/ads_dataset',
@@ -1484,7 +1496,7 @@ export default class Business extends AbstractCrudObject {
 
   getInstagramAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      InstagramUser,
+      IGUser,
       fields,
       params,
       fetchFirstPage,
@@ -1519,6 +1531,16 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
+  getManagedPartnerAdsFundingSourceDetails (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      FundingSourceDetailsCoupon,
+      fields,
+      params,
+      fetchFirstPage,
+      '/managed_partner_ads_funding_source_details'
+    );
+  }
+
   createManagedPartnerBusinessSetup (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Business> {
     return this.createEdge(
       '/managed_partner_business_setup',
@@ -1536,12 +1558,12 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createManagedPartnerBusiness (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+  createManagedPartnerBusiness (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<ManagedPartnerBusiness> {
     return this.createEdge(
       '/managed_partner_businesses',
       fields,
       params,
-      null,
+      ManagedPartnerBusiness,
       pathOverride,
     );
   }
@@ -1645,7 +1667,7 @@ export default class Business extends AbstractCrudObject {
 
   getOwnedInstagramAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      InstagramUser,
+      IGUser,
       fields,
       params,
       fetchFirstPage,

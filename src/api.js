@@ -21,10 +21,10 @@ export default class FacebookAdsApi {
   locale: string;
   static _defaultApi: FacebookAdsApi;
   static get VERSION(): string {
-    return 'v22.0';
+    return 'v23.0';
   }
   static get SDK_VERSION(): string {
-    return '22.0.3';
+    return '23.0.0';
   }
   static get GRAPH(): string {
     return 'https://graph.facebook.com';

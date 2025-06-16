@@ -20,6 +20,8 @@ export default class FundingSourceDetailsCoupon extends AbstractCrudObject {
     return Object.freeze({
       amount: 'amount',
       campaign_ids: 'campaign_ids',
+      child_ad_account_id: 'child_ad_account_id',
+      child_bm_id: 'child_bm_id',
       coupon_id: 'coupon_id',
       coupon_tiering: 'coupon_tiering',
       currency: 'currency',
@@ -28,6 +30,7 @@ export default class FundingSourceDetailsCoupon extends AbstractCrudObject {
       original_amount: 'original_amount',
       original_display_amount: 'original_display_amount',
       start_date: 'start_date',
+      vendor_id: 'vendor_id',
     });
   }
 

@@ -33,6 +33,7 @@ export default class AdCreativeLinkDataImageOverlaySpec extends AbstractCrudObje
     return Object.freeze({
       free_shipping: 'free_shipping',
       popular: 'popular',
+      sale: 'sale',
     });
   }
   static get OverlayTemplate (): Object {

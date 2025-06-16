@@ -18,8 +18,10 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class ContentDeliveryReport extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
+      content_id: 'content_id',
       content_name: 'content_name',
       content_url: 'content_url',
+      creator_id: 'creator_id',
       creator_name: 'creator_name',
       creator_url: 'creator_url',
       estimated_impressions: 'estimated_impressions',

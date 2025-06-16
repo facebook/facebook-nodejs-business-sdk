@@ -11,18 +11,21 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * BespokePartnerGuidanceLaser
+ * ShadowIGUserCTXPartnerAppWelcomeMessageFlow
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class BespokePartnerGuidanceLaser extends AbstractCrudObject {
+export default class ShadowIGUserCTXPartnerAppWelcomeMessageFlow extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      business: 'business',
-      campaign_group: 'campaign_group',
-      cpa_improvement: 'cpa_improvement',
-      guidance_type: 'guidance_type',
+      compatible_platforms: 'compatible_platforms',
+      eligible_platforms: 'eligible_platforms',
       id: 'id',
+      is_ig_only_flow: 'is_ig_only_flow',
+      is_used_in_ad: 'is_used_in_ad',
+      last_update_time: 'last_update_time',
+      name: 'name',
+      welcome_message_flow: 'welcome_message_flow',
     });
   }
 

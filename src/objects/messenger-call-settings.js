@@ -19,6 +19,8 @@ export default class MessengerCallSettings extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       audio_enabled: 'audio_enabled',
+      call_hours: 'call_hours',
+      call_routing: 'call_routing',
       icon_enabled: 'icon_enabled',
     });
   }

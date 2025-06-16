@@ -51,6 +51,8 @@ export default class Event extends AbstractCrudObject {
       registration_setting: 'registration_setting',
       scheduled_publish_time: 'scheduled_publish_time',
       start_time: 'start_time',
+      sub_categories: 'sub_categories',
+      ticket_selling_status: 'ticket_selling_status',
       ticket_setting: 'ticket_setting',
       ticket_uri: 'ticket_uri',
       ticket_uri_start_sales_time: 'ticket_uri_start_sales_time',
@@ -91,6 +93,7 @@ export default class Event extends AbstractCrudObject {
   static get OnlineEventFormat (): Object {
     return Object.freeze({
       fb_live: 'fb_live',
+      horizon_event: 'horizon_event',
       horizon_world: 'horizon_world',
       messenger_room: 'messenger_room',
       none: 'none',

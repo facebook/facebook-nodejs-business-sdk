@@ -9,35 +9,24 @@
  */
 
 import {AbstractCrudObject} from './../abstract-crud-object';
-import AbstractObject from './../abstract-object';
-import Cursor from './../cursor';
 
 /**
- * AdsValueAdjustmentRule
+ * InstagramBusinessAsset
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class AdsValueAdjustmentRule extends AbstractCrudObject {
+export default class InstagramBusinessAsset extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      base_value: 'base_value',
       id: 'id',
+      ig_user_id: 'ig_user_id',
+      ig_username: 'ig_username',
     });
   }
 
 
-  getCriterias (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/criterias'
-    );
-  }
-
   
-  get (fields: Array<string>, params: Object = {}): AdsValueAdjustmentRule {
+  get (fields: Array<string>, params: Object = {}): InstagramBusinessAsset {
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,

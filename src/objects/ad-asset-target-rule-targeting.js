@@ -26,6 +26,7 @@ export default class AdAssetTargetRuleTargeting extends AbstractCrudObject {
       geo_locations: 'geo_locations',
       instagram_positions: 'instagram_positions',
       publisher_platforms: 'publisher_platforms',
+      threads_positions: 'threads_positions',
     });
   }
 

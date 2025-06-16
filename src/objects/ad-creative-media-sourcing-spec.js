@@ -11,16 +11,13 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * AdAccountSuggestedTag
+ * AdCreativeMediaSourcingSpec
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class AdAccountSuggestedTag extends AbstractCrudObject {
+export default class AdCreativeMediaSourcingSpec extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      product_id: 'product_id',
-      x: 'x',
-      y: 'y',
     });
   }
 

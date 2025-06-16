@@ -20,6 +20,7 @@ export default class AdCreativeSourcingSpec extends AbstractCrudObject {
     return Object.freeze({
       associated_product_set_id: 'associated_product_set_id',
       brand: 'brand',
+      dynamic_site_links_spec: 'dynamic_site_links_spec',
       enable_social_feedback_preservation: 'enable_social_feedback_preservation',
       promotion_metadata_spec: 'promotion_metadata_spec',
       site_links_spec: 'site_links_spec',

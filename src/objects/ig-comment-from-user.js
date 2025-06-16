@@ -19,6 +19,7 @@ export default class IGCommentFromUser extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       id: 'id',
+      self_ig_scoped_id: 'self_ig_scoped_id',
       username: 'username',
     });
   }

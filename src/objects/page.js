@@ -38,7 +38,7 @@ import FantasyGame from './fantasy-game';
 import ImageCopyright from './image-copyright';
 import AdVideo from './ad-video';
 import InsightsResult from './insights-result';
-import InstagramUser from './instagram-user';
+import IGUser from './ig-user';
 import LeadgenForm from './leadgen-form';
 import LiveVideo from './live-video';
 import MediaFingerprint from './media-fingerprint';
@@ -303,6 +303,7 @@ export default class Page extends AbstractCrudObject {
       explicit: 'EXPLICIT',
       explicit_imagine: 'EXPLICIT_IMAGINE',
       explicit_imagine_me: 'EXPLICIT_IMAGINE_ME',
+      explicit_restyle: 'EXPLICIT_RESTYLE',
       invisible_watermark: 'INVISIBLE_WATERMARK',
       iptc: 'IPTC',
       iptc_metadata_edited: 'IPTC_METADATA_EDITED',
@@ -1097,7 +1098,7 @@ export default class Page extends AbstractCrudObject {
 
   getInstagramAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      InstagramUser,
+      IGUser,
       fields,
       params,
       fetchFirstPage,
@@ -1368,7 +1369,7 @@ export default class Page extends AbstractCrudObject {
 
   getPageBackedInstagramAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      InstagramUser,
+      IGUser,
       fields,
       params,
       fetchFirstPage,
@@ -1376,12 +1377,12 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createPageBackedInstagramAccount (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<InstagramUser> {
+  createPageBackedInstagramAccount (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<IGUser> {
     return this.createEdge(
       '/page_backed_instagram_accounts',
       fields,
       params,
-      InstagramUser,
+      IGUser,
       pathOverride,
     );
   }

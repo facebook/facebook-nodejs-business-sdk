@@ -73,4 +73,10 @@ export default class AdsDataset extends AbstractCrudObject {
     });
   }
 
+  static get SortBy (): Object {
+    return Object.freeze({
+      last_fired_time: 'LAST_FIRED_TIME',
+      name: 'NAME',
+    });
+  }
 }

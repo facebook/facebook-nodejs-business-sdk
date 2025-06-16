@@ -27,6 +27,7 @@ import UserPageOneTimeOptInTokenSettings from './user-page-one-time-opt-in-token
 import IGShoppingProductAppeal from './ig-shopping-product-appeal';
 import ShadowIGHashtag from './shadow-ig-hashtag';
 import IGUpcomingEvent from './ig-upcoming-event';
+import ShadowIGUserCTXPartnerAppWelcomeMessageFlow from './shadow-ig-user-ctx-partner-app-welcome-message-flow';
 
 /**
  * IGUser
@@ -226,16 +227,6 @@ export default class IGUser extends AbstractCrudObject {
     );
   }
 
-  createInstagramBackedThreadsUser (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<ThreadsUser> {
-    return this.createEdge(
-      '/instagram_backed_threads_user',
-      fields,
-      params,
-      ThreadsUser,
-      pathOverride,
-    );
-  }
-
   getLiveMedia (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       IGMedia,
@@ -363,6 +354,16 @@ export default class IGUser extends AbstractCrudObject {
       params,
       null,
       pathOverride,
+    );
+  }
+
+  getWelcomeMessageFlows (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      ShadowIGUserCTXPartnerAppWelcomeMessageFlow,
+      fields,
+      params,
+      fetchFirstPage,
+      '/welcome_message_flows'
     );
   }
 

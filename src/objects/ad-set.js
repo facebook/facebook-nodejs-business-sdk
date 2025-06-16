@@ -52,6 +52,7 @@ export default class AdSet extends AbstractCrudObject {
       configured_status: 'configured_status',
       created_time: 'created_time',
       creative_sequence: 'creative_sequence',
+      creative_sequence_repetition_pattern: 'creative_sequence_repetition_pattern',
       daily_budget: 'daily_budget',
       daily_min_spend_target: 'daily_min_spend_target',
       daily_spend_cap: 'daily_spend_cap',
@@ -68,6 +69,7 @@ export default class AdSet extends AbstractCrudObject {
       is_ba_skip_delayed_eligible: 'is_ba_skip_delayed_eligible',
       is_budget_schedule_enabled: 'is_budget_schedule_enabled',
       is_dynamic_creative: 'is_dynamic_creative',
+      is_incremental_attribution_enabled: 'is_incremental_attribution_enabled',
       issues_info: 'issues_info',
       learning_stage_info: 'learning_stage_info',
       lifetime_budget: 'lifetime_budget',
@@ -185,6 +187,18 @@ export default class AdSet extends AbstractCrudObject {
       paused: 'PAUSED',
     });
   }
+  static get BudgetSource (): Object {
+    return Object.freeze({
+      none: 'NONE',
+      rmn: 'RMN',
+    });
+  }
+  static get CreativeSequenceRepetitionPattern (): Object {
+    return Object.freeze({
+      full_sequence: 'FULL_SEQUENCE',
+      last_ad: 'LAST_AD',
+    });
+  }
   static get DatePreset (): Object {
     return Object.freeze({
       data_maximum: 'DATA_MAXIMUM',
@@ -214,8 +228,11 @@ export default class AdSet extends AbstractCrudObject {
       app: 'APP',
       applinks_automatic: 'APPLINKS_AUTOMATIC',
       facebook: 'FACEBOOK',
+      facebook_live: 'FACEBOOK_LIVE',
       facebook_page: 'FACEBOOK_PAGE',
+      imagine: 'IMAGINE',
       instagram_direct: 'INSTAGRAM_DIRECT',
+      instagram_live: 'INSTAGRAM_LIVE',
       instagram_profile: 'INSTAGRAM_PROFILE',
       instagram_profile_and_facebook_page: 'INSTAGRAM_PROFILE_AND_FACEBOOK_PAGE',
       messaging_instagram_direct_messenger: 'MESSAGING_INSTAGRAM_DIRECT_MESSENGER',
@@ -276,6 +293,7 @@ export default class AdSet extends AbstractCrudObject {
       value_3: '3',
       value_4: '4',
       value_5: '5',
+      value_6: '6',
     });
   }
   static get TuneForCategory (): Object {

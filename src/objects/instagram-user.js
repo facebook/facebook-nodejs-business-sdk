@@ -69,16 +69,6 @@ export default class InstagramUser extends AbstractCrudObject {
     );
   }
 
-  createAuthorizedAdAccount (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<InstagramUser> {
-    return this.createEdge(
-      '/authorized_adaccounts',
-      fields,
-      params,
-      InstagramUser,
-      pathOverride,
-    );
-  }
-
   getUpcomingEvents (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       IGUpcomingEvent,
@@ -86,16 +76,6 @@ export default class InstagramUser extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/upcoming_events'
-    );
-  }
-
-  createUpcomingEvent (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<IGUpcomingEvent> {
-    return this.createEdge(
-      '/upcoming_events',
-      fields,
-      params,
-      IGUpcomingEvent,
-      pathOverride,
     );
   }
 

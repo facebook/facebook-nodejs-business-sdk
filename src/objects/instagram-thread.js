@@ -11,26 +11,23 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * SplitTestConfig
+ * InstagramThread
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class SplitTestConfig extends AbstractCrudObject {
+export default class InstagramThread extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      budget: 'budget',
-      early_winner_declaration_enabled: 'early_winner_declaration_enabled',
-      end_time: 'end_time',
-      splits: 'splits',
-      start_time: 'start_time',
-      test_variable: 'test_variable',
+      folder: 'folder',
       id: 'id',
+      participants: 'participants',
+      updated_time: 'updated_time',
     });
   }
 
 
   
-  get (fields: Array<string>, params: Object = {}): SplitTestConfig {
+  get (fields: Array<string>, params: Object = {}): InstagramThread {
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,

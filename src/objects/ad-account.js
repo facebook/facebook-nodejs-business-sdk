@@ -40,9 +40,7 @@ import AudienceFunnel from './audience-funnel';
 import BroadTargetingCategories from './broad-targeting-categories';
 import BusinessProject from './business-project';
 import IGUser from './ig-user';
-import InstagramUser from './instagram-user';
 import AdsConversionGoal from './ads-conversion-goal';
-import BespokePartnerGuidanceLaser from './bespoke-partner-guidance-laser';
 import CustomAudience from './custom-audience';
 import CustomAudiencesTOS from './custom-audiences-tos';
 import CustomConversion from './custom-conversion';
@@ -64,12 +62,10 @@ import ReachFrequencyPrediction from './reach-frequency-prediction';
 import AdAccountRecommendations from './ad-account-recommendations';
 import SavedAudience from './saved-audience';
 import AdAccountSubscribedApps from './ad-account-subscribed-apps';
-import AdAccountSuggestedTag from './ad-account-suggested-tag';
 import AdAccountTargetingUnified from './ad-account-targeting-unified';
 import TargetingSentenceLine from './targeting-sentence-line';
 import AdAccountTrackingData from './ad-account-tracking-data';
 import AdAccountUser from './ad-account-user';
-import AdsValueAdjustmentRule from './ads-value-adjustment-rule';
 import AdsValueAdjustmentRuleCollection from './ads-value-adjustment-rule-collection';
 
 /**
@@ -269,7 +265,6 @@ export default class AdAccount extends AbstractCrudObject {
       generic: 'GENERIC',
       home_listing: 'HOME_LISTING',
       hotel: 'HOTEL',
-      job: 'JOB',
       local_service_business: 'LOCAL_SERVICE_BUSINESS',
       media_title: 'MEDIA_TITLE',
       offline_product: 'OFFLINE_PRODUCT',
@@ -766,6 +761,26 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
+  getAsyncAdCreatives (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AdAsyncRequestSet,
+      fields,
+      params,
+      fetchFirstPage,
+      '/asyncadcreatives'
+    );
+  }
+
+  createAsyncAdCreative (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdAsyncRequestSet> {
+    return this.createEdge(
+      '/asyncadcreatives',
+      fields,
+      params,
+      AdAsyncRequestSet,
+      pathOverride,
+    );
+  }
+
   getAsyncAdRequestSets (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdAsyncRequestSet,
@@ -885,7 +900,7 @@ export default class AdAccount extends AbstractCrudObject {
 
   getConnectedInstagramAccountsWithIabp (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      InstagramUser,
+      IGUser,
       fields,
       params,
       fetchFirstPage,
@@ -900,16 +915,6 @@ export default class AdAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/conversion_goals'
-    );
-  }
-
-  getCpaGuidance (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      BespokePartnerGuidanceLaser,
-      fields,
-      params,
-      fetchFirstPage,
-      '/cpa_guidance'
     );
   }
 
@@ -1045,7 +1050,7 @@ export default class AdAccount extends AbstractCrudObject {
 
   getInstagramAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      InstagramUser,
+      IGUser,
       fields,
       params,
       fetchFirstPage,
@@ -1060,16 +1065,6 @@ export default class AdAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/ios_fourteen_campaign_limits'
-    );
-  }
-
-  createManagedPartnerAd (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
-    return this.createEdge(
-      '/managed_partner_ads',
-      fields,
-      params,
-      null,
-      pathOverride,
     );
   }
 
@@ -1250,16 +1245,6 @@ export default class AdAccount extends AbstractCrudObject {
     );
   }
 
-  getSuggestedProductTags (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AdAccountSuggestedTag,
-      fields,
-      params,
-      fetchFirstPage,
-      '/suggested_product_tags'
-    );
-  }
-
   getTargetingBrowse (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdAccountTargetingUnified,
@@ -1344,16 +1329,6 @@ export default class AdAccount extends AbstractCrudObject {
     return super.deleteEdge(
       '/usersofanyaudience',
       params
-    );
-  }
-
-  getValueAdjustmentRules (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AdsValueAdjustmentRule,
-      fields,
-      params,
-      fetchFirstPage,
-      '/value_adjustment_rules'
     );
   }
 

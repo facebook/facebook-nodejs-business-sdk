@@ -24,6 +24,7 @@ export default class AdsValueAdjustmentRuleCollection extends AbstractCrudObject
       is_default_setting: 'is_default_setting',
       name: 'name',
       product_type: 'product_type',
+      status: 'status',
     });
   }
 
@@ -33,6 +34,22 @@ export default class AdsValueAdjustmentRuleCollection extends AbstractCrudObject
       leadgen_ads: 'LEADGEN_ADS',
       omni_channel: 'OMNI_CHANNEL',
     });
+  }
+  static get Status (): Object {
+    return Object.freeze({
+      active: 'ACTIVE',
+      deleted: 'DELETED',
+    });
+  }
+
+  createDeleteRuleSet (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdsValueAdjustmentRuleCollection> {
+    return this.createEdge(
+      '/delete_rule_set',
+      fields,
+      params,
+      AdsValueAdjustmentRuleCollection,
+      pathOverride,
+    );
   }
 
   getRules (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {

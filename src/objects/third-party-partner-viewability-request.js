@@ -20,6 +20,7 @@ export default class ThirdPartyPartnerViewabilityRequest extends AbstractCrudObj
     return Object.freeze({
       created_time: 'created_time',
       description: 'description',
+      ds: 'ds',
       hour: 'hour',
       id: 'id',
       metric: 'metric',

@@ -20,6 +20,7 @@ export default class ALMGuidance extends AbstractCrudObject {
     return Object.freeze({
       ad_account_id: 'ad_account_id',
       guidances: 'guidances',
+      opportunity_score: 'opportunity_score',
       parent_advertiser_id: 'parent_advertiser_id',
       parent_advertiser_name: 'parent_advertiser_name',
     });
