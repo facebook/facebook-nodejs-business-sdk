@@ -7,6 +7,7 @@
  */
 
 import './../src/api'
+import './../src/exceptions'
 import './../src/objects/ad-video';
 import './../src/objects/ai-generated-product-image';
 import './../src/objects/alm-ad-account-info';
