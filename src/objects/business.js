@@ -27,6 +27,7 @@ import OmegaCustomerTrx from './omega-customer-trx';
 import BusinessUser from './business-user';
 import BusinessProject from './business-project';
 import CustomConversion from './custom-conversion';
+import InstagramBusinessAsset from './instagram-business-asset';
 import OffsiteSignalContainerBusinessObject from './offsite-signal-container-business-object';
 import Page from './page';
 import ProductCatalog from './product-catalog';
@@ -161,6 +162,7 @@ export default class Business extends AbstractCrudObject {
       profile_plus_create_content: 'PROFILE_PLUS_CREATE_CONTENT',
       profile_plus_facebook_access: 'PROFILE_PLUS_FACEBOOK_ACCESS',
       profile_plus_full_control: 'PROFILE_PLUS_FULL_CONTROL',
+      profile_plus_global_structure_management: 'PROFILE_PLUS_GLOBAL_STRUCTURE_MANAGEMENT',
       profile_plus_manage: 'PROFILE_PLUS_MANAGE',
       profile_plus_manage_leads: 'PROFILE_PLUS_MANAGE_LEADS',
       profile_plus_messaging: 'PROFILE_PLUS_MESSAGING',
@@ -684,6 +686,7 @@ export default class Business extends AbstractCrudObject {
       profile_plus_create_content: 'PROFILE_PLUS_CREATE_CONTENT',
       profile_plus_facebook_access: 'PROFILE_PLUS_FACEBOOK_ACCESS',
       profile_plus_full_control: 'PROFILE_PLUS_FULL_CONTROL',
+      profile_plus_global_structure_management: 'PROFILE_PLUS_GLOBAL_STRUCTURE_MANAGEMENT',
       profile_plus_manage: 'PROFILE_PLUS_MANAGE',
       profile_plus_manage_leads: 'PROFILE_PLUS_MANAGE_LEADS',
       profile_plus_messaging: 'PROFILE_PLUS_MESSAGING',
@@ -1250,6 +1253,16 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
+  getClientInstagramAssets (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      InstagramBusinessAsset,
+      fields,
+      params,
+      fetchFirstPage,
+      '/client_instagram_assets'
+    );
+  }
+
   getClientOffsiteSignalContainerBusinessObjects (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       OffsiteSignalContainerBusinessObject,
@@ -1672,6 +1685,16 @@ export default class Business extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/owned_instagram_accounts'
+    );
+  }
+
+  getOwnedInstagramAssets (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      InstagramBusinessAsset,
+      fields,
+      params,
+      fetchFirstPage,
+      '/owned_instagram_assets'
     );
   }
 

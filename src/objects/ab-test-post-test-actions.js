@@ -11,14 +11,14 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * ApacMonSellerStatusAPIContainer
+ * ABTestPostTestActions
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class ApacMonSellerStatusAPIContainer extends AbstractCrudObject {
+export default class ABTestPostTestActions extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      structured_messaging_commerce: 'structured_messaging_commerce',
+      auto_change_budget_to_winner: 'auto_change_budget_to_winner',
     });
   }
 

@@ -8,6 +8,7 @@
 
 import './../src/api'
 import './../src/objects/ad-video';
+import './../src/objects/ab-test-post-test-actions';
 import './../src/objects/ai-generated-product-image';
 import './../src/objects/alm-ad-account-info';
 import './../src/objects/alm-end-advertiser-info';
@@ -343,6 +344,7 @@ import './../src/objects/brand-safety-campaign-config';
 import './../src/objects/brand-safety-downloadable';
 import './../src/objects/branded-content-ad-error';
 import './../src/objects/branded-content-eligible-sponsor-i-ds';
+import './../src/objects/branded-content-fb-promode-user';
 import './../src/objects/branded-content-shadow-ig-media-id';
 import './../src/objects/branded-content-shadow-ig-user-id';
 import './../src/objects/broad-targeting-categories';
@@ -505,7 +507,6 @@ import './../src/objects/event-registration-setting';
 import './../src/objects/event-source-group';
 import './../src/objects/event-ticket-setting';
 import './../src/objects/event-ticket-tier';
-import './../src/objects/event-tour';
 import './../src/objects/experience';
 import './../src/objects/extended-credit';
 import './../src/objects/extended-credit-allocation-config';

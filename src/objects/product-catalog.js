@@ -92,6 +92,12 @@ export default class ProductCatalog extends AbstractCrudObject {
       vehicles: 'vehicles',
     });
   }
+  static get EnabledCollabTerms (): Object {
+    return Object.freeze({
+      enforce_create_new_ad_account: 'ENFORCE_CREATE_NEW_AD_ACCOUNT',
+      enforce_share_ad_performance_access: 'ENFORCE_SHARE_AD_PERFORMANCE_ACCESS',
+    });
+  }
   static get PermittedRoles (): Object {
     return Object.freeze({
       admin: 'ADMIN',

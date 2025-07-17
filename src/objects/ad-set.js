@@ -37,6 +37,7 @@ export default class AdSet extends AbstractCrudObject {
       adset_schedule: 'adset_schedule',
       asset_feed_id: 'asset_feed_id',
       attribution_spec: 'attribution_spec',
+      automatic_manual_state: 'automatic_manual_state',
       bid_adjustments: 'bid_adjustments',
       bid_amount: 'bid_amount',
       bid_constraints: 'bid_constraints',
@@ -151,6 +152,7 @@ export default class AdSet extends AbstractCrudObject {
       ad_recall_lift: 'AD_RECALL_LIFT',
       app_installs: 'APP_INSTALLS',
       app_installs_and_offsite_conversions: 'APP_INSTALLS_AND_OFFSITE_CONVERSIONS',
+      automatic_objective: 'AUTOMATIC_OBJECTIVE',
       conversations: 'CONVERSATIONS',
       derived_events: 'DERIVED_EVENTS',
       engaged_users: 'ENGAGED_USERS',
@@ -185,6 +187,13 @@ export default class AdSet extends AbstractCrudObject {
       archived: 'ARCHIVED',
       deleted: 'DELETED',
       paused: 'PAUSED',
+    });
+  }
+  static get AutomaticManualState (): Object {
+    return Object.freeze({
+      automatic: 'AUTOMATIC',
+      manual: 'MANUAL',
+      unset: 'UNSET',
     });
   }
   static get BudgetSource (): Object {
@@ -294,6 +303,7 @@ export default class AdSet extends AbstractCrudObject {
       value_4: '4',
       value_5: '5',
       value_6: '6',
+      value_7: '7',
     });
   }
   static get TuneForCategory (): Object {

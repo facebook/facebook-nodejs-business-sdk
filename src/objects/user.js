@@ -20,6 +20,7 @@ import AppRequest from './app-request';
 import Application from './application';
 import BusinessAssetGroup from './business-asset-group';
 import ProductCatalog from './product-catalog';
+import WhatsAppBusinessAccount from './whats-app-business-account';
 import Avatar from './avatar';
 import BusinessUser from './business-user';
 import Business from './business';
@@ -281,6 +282,16 @@ export default class User extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/assigned_product_catalogs'
+    );
+  }
+
+  getAssignedWhatsAppBusinessAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      WhatsAppBusinessAccount,
+      fields,
+      params,
+      fetchFirstPage,
+      '/assigned_whatsapp_business_accounts'
     );
   }
 

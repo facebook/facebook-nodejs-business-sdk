@@ -87,6 +87,7 @@ export default class AdAccountTargetingUnified extends AbstractCrudObject {
   }
   static get RegulatedCountries (): Object {
     return Object.freeze({
+      ac: 'AC',
       ad: 'AD',
       ae: 'AE',
       af: 'AF',

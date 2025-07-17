@@ -20,6 +20,7 @@ import BrandedContentShadowIGUserID from './branded-content-shadow-ig-user-id';
 import ShadowIGUserCatalogProductSearch from './shadow-ig-user-catalog-product-search';
 import ThreadsUser from './threads-user';
 import ContentPublishingLimitResponse from './content-publishing-limit-response';
+import IGUserExportForCAM from './ig-user-export-for-cam';
 import Dataset from './dataset';
 import InstagramInsightsResult from './instagram-insights-result';
 import IGMedia from './ig-media';
@@ -187,6 +188,16 @@ export default class IGUser extends AbstractCrudObject {
     );
   }
 
+  getCreatorMarketPlaceCreators (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      IGUserExportForCAM,
+      fields,
+      params,
+      fetchFirstPage,
+      '/creator_marketplace_creators'
+    );
+  }
+
   getDataset (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Dataset,
@@ -224,6 +235,16 @@ export default class IGUser extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/instagram_backed_threads_user'
+    );
+  }
+
+  createInstagramBackedThreadsUser (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<ThreadsUser> {
+    return this.createEdge(
+      '/instagram_backed_threads_user',
+      fields,
+      params,
+      ThreadsUser,
+      pathOverride,
     );
   }
 

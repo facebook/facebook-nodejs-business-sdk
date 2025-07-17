@@ -18,6 +18,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class DeliveryWindow extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
+      ac: 'ac',
       ad: 'ad',
       ae: 'ae',
       af: 'af',

@@ -25,6 +25,7 @@ export default class AdCreativeSourcingSpec extends AbstractCrudObject {
       promotion_metadata_spec: 'promotion_metadata_spec',
       site_links_spec: 'site_links_spec',
       source_url: 'source_url',
+      website_summary_spec: 'website_summary_spec',
     });
   }
 

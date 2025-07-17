@@ -11,14 +11,18 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * ApacMonSellerStatusAPIContainer
+ * BrandedContentFBPromodeUser
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class ApacMonSellerStatusAPIContainer extends AbstractCrudObject {
+export default class BrandedContentFBPromodeUser extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      structured_messaging_commerce: 'structured_messaging_commerce',
+      delegate_page_for_ads_only_id: 'delegate_page_for_ads_only_id',
+      is_iabp: 'is_iabp',
+      is_managed: 'is_managed',
+      name: 'name',
+      profile_picture_url: 'profile_picture_url',
     });
   }
 

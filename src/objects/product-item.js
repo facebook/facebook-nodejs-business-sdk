@@ -33,6 +33,7 @@ export default class ProductItem extends AbstractCrudObject {
       brand: 'brand',
       bundle_items: 'bundle_items',
       bundle_retailer_ids: 'bundle_retailer_ids',
+      capabilities_disabled_by_user: 'capabilities_disabled_by_user',
       capability_to_review_status: 'capability_to_review_status',
       category: 'category',
       category_specific_fields: 'category_specific_fields',
@@ -590,6 +591,7 @@ export default class ProductItem extends AbstractCrudObject {
   }
   static get OriginCountry (): Object {
     return Object.freeze({
+      ac: 'AC',
       ad: 'AD',
       ae: 'AE',
       af: 'AF',

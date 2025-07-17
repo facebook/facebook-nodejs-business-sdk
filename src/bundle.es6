@@ -27,6 +27,7 @@ export { default as HttpServiceInterface } from './../src/objects/serverside/htt
 export { default as BatchProcessor } from './../src/objects/serverside/batch-processor';
 export { default as ServerSideUtils } from './../src/objects/serverside/utils';
 
+export { default as ABTestPostTestActions } from './../src/objects/ab-test-post-test-actions';
 export { default as AIGeneratedProductImage } from './../src/objects/ai-generated-product-image';
 export { default as ALMAdAccountInfo } from './../src/objects/alm-ad-account-info';
 export { default as ALMEndAdvertiserInfo } from './../src/objects/alm-end-advertiser-info';
@@ -362,6 +363,7 @@ export { default as BrandSafetyCampaignConfig } from './../src/objects/brand-saf
 export { default as BrandSafetyDownloadable } from './../src/objects/brand-safety-downloadable';
 export { default as BrandedContentAdError } from './../src/objects/branded-content-ad-error';
 export { default as BrandedContentEligibleSponsorIDs } from './../src/objects/branded-content-eligible-sponsor-i-ds';
+export { default as BrandedContentFBPromodeUser } from './../src/objects/branded-content-fb-promode-user';
 export { default as BrandedContentShadowIGMediaID } from './../src/objects/branded-content-shadow-ig-media-id';
 export { default as BrandedContentShadowIGUserID } from './../src/objects/branded-content-shadow-ig-user-id';
 export { default as BroadTargetingCategories } from './../src/objects/broad-targeting-categories';
@@ -524,7 +526,6 @@ export { default as EventRegistrationSetting } from './../src/objects/event-regi
 export { default as EventSourceGroup } from './../src/objects/event-source-group';
 export { default as EventTicketSetting } from './../src/objects/event-ticket-setting';
 export { default as EventTicketTier } from './../src/objects/event-ticket-tier';
-export { default as EventTour } from './../src/objects/event-tour';
 export { default as Experience } from './../src/objects/experience';
 export { default as ExtendedCredit } from './../src/objects/extended-credit';
 export { default as ExtendedCreditAllocationConfig } from './../src/objects/extended-credit-allocation-config';

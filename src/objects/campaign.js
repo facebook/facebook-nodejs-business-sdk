@@ -180,6 +180,7 @@ export default class Campaign extends AbstractCrudObject {
   }
   static get SpecialAdCategoryCountry (): Object {
     return Object.freeze({
+      ac: 'AC',
       ad: 'AD',
       ae: 'AE',
       af: 'AF',

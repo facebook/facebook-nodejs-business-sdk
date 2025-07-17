@@ -38,6 +38,7 @@ export default class ImageCopyright extends AbstractCrudObject {
 
   static get GeoOwnership (): Object {
     return Object.freeze({
+      ac: 'AC',
       ad: 'AD',
       ae: 'AE',
       af: 'AF',

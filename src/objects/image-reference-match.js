@@ -18,6 +18,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class ImageReferenceMatch extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
+      conflict_status: 'conflict_status',
       conflicting_countries: 'conflicting_countries',
       country_resolution_history: 'country_resolution_history',
       creation_time: 'creation_time',
