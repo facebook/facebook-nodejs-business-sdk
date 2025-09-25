@@ -53,6 +53,7 @@ import AdAccountIosFourteenCampaignLimits from './ad-account-ios-fourteen-campai
 import AdAccountMatchedSearchApplicationsEdgeData from './ad-account-matched-search-applications-edge-data';
 import AdAccountMaxBid from './ad-account-max-bid';
 import AdsMcmeConversion from './ads-mcme-conversion';
+import MessageDeliveryEstimate from './message-delivery-estimate';
 import MinimumBudget from './minimum-budget';
 import BusinessOwnedObjectOnBehalfOfRequest from './business-owned-object-on-behalf-of-request';
 import Page from './page';
@@ -130,6 +131,7 @@ export default class AdAccount extends AbstractCrudObject {
       min_daily_budget: 'min_daily_budget',
       name: 'name',
       offsite_pixels_tos_accepted: 'offsite_pixels_tos_accepted',
+      opportunity_score: 'opportunity_score',
       owner: 'owner',
       owner_business: 'owner_business',
       partner: 'partner',
@@ -1095,6 +1097,36 @@ export default class AdAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/mcmeconversions'
+    );
+  }
+
+  createMessageCampaign (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+    return this.createEdge(
+      '/message_campaign',
+      fields,
+      params,
+      null,
+      pathOverride,
+    );
+  }
+
+  getMessageDeliveryEstimate (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      MessageDeliveryEstimate,
+      fields,
+      params,
+      fetchFirstPage,
+      '/message_delivery_estimate'
+    );
+  }
+
+  createMessage (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+    return this.createEdge(
+      '/messages',
+      fields,
+      params,
+      null,
+      pathOverride,
     );
   }
 

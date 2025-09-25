@@ -11,16 +11,14 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * AdCreativeAssetGroupsSpec
+ * CustomerElasticityStudyMetrics
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class AdCreativeAssetGroupsSpec extends AbstractCrudObject {
+export default class CustomerElasticityStudyMetrics extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      groups: 'groups',
-      origin: 'origin',
-      origins: 'origins',
+      customer_elasticity_study_metrics: 'customer_elasticity_study_metrics',
     });
   }
 

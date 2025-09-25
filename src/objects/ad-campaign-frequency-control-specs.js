@@ -21,6 +21,7 @@ export default class AdCampaignFrequencyControlSpecs extends AbstractCrudObject 
       event: 'event',
       interval_days: 'interval_days',
       max_frequency: 'max_frequency',
+      type: 'type',
     });
   }
 

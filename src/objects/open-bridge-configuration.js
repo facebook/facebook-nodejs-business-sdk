@@ -20,6 +20,7 @@ export default class OpenBridgeConfiguration extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       active: 'active',
+      browser_agent: 'browser_agent',
       cloud_provider: 'cloud_provider',
       cloud_region: 'cloud_region',
       destination_id: 'destination_id',

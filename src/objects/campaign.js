@@ -45,7 +45,10 @@ export default class Campaign extends AbstractCrudObject {
       effective_status: 'effective_status',
       has_secondary_skadnetwork_reporting: 'has_secondary_skadnetwork_reporting',
       id: 'id',
+      is_adset_budget_sharing_enabled: 'is_adset_budget_sharing_enabled',
       is_budget_schedule_enabled: 'is_budget_schedule_enabled',
+      is_direct_send_campaign: 'is_direct_send_campaign',
+      is_message_campaign: 'is_message_campaign',
       is_skadnetwork_attribution: 'is_skadnetwork_attribution',
       issues_info: 'issues_info',
       last_budget_toggling_time: 'last_budget_toggling_time',
@@ -506,6 +509,16 @@ export default class Campaign extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/adsets'
+    );
+  }
+
+  getBudgetSchedules (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      HighDemandPeriod,
+      fields,
+      params,
+      fetchFirstPage,
+      '/budget_schedules'
     );
   }
 

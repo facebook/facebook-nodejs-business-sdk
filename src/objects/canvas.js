@@ -32,6 +32,8 @@ export default class Canvas extends AbstractCrudObject {
       element_payload: 'element_payload',
       elements: 'elements',
       fb_body_elements: 'fb_body_elements',
+      hero_asset_facebook_post_id: 'hero_asset_facebook_post_id',
+      hero_asset_instagram_media_id: 'hero_asset_instagram_media_id',
       id: 'id',
       is_hidden: 'is_hidden',
       is_published: 'is_published',
@@ -62,7 +64,7 @@ export default class Canvas extends AbstractCrudObject {
     );
   }
 
-  getPreViews (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+  getPreviews (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       TextWithEntities,
       fields,

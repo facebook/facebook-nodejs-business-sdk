@@ -18,6 +18,12 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class AdCreativeMediaSourcingSpec extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
+      bodies: 'bodies',
+      descriptions: 'descriptions',
+      images: 'images',
+      related_media: 'related_media',
+      titles: 'titles',
+      videos: 'videos',
     });
   }
 

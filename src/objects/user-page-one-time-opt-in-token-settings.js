@@ -19,6 +19,7 @@ export default class UserPageOneTimeOptInTokenSettings extends AbstractCrudObjec
   static get Fields (): Object {
     return Object.freeze({
       creation_timestamp: 'creation_timestamp',
+      custom_audience_ids: 'custom_audience_ids',
       next_eligible_time: 'next_eligible_time',
       next_eligible_time_for_paid_messaging: 'next_eligible_time_for_paid_messaging',
       notification_messages_frequency: 'notification_messages_frequency',

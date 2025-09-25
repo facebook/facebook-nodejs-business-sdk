@@ -84,6 +84,7 @@ export default class AdSet extends AbstractCrudObject {
       optimization_goal: 'optimization_goal',
       optimization_sub_event: 'optimization_sub_event',
       pacing_type: 'pacing_type',
+      placement_soft_opt_out: 'placement_soft_opt_out',
       promoted_object: 'promoted_object',
       recommendations: 'recommendations',
       recurring_budget_semantics: 'recurring_budget_semantics',
@@ -99,8 +100,11 @@ export default class AdSet extends AbstractCrudObject {
       targeting_optimization_types: 'targeting_optimization_types',
       time_based_ad_rotation_id_blocks: 'time_based_ad_rotation_id_blocks',
       time_based_ad_rotation_intervals: 'time_based_ad_rotation_intervals',
+      trending_topics_spec: 'trending_topics_spec',
       updated_time: 'updated_time',
       use_new_app_click: 'use_new_app_click',
+      value_rule_set_id: 'value_rule_set_id',
+      value_rules_applied: 'value_rules_applied',
     });
   }
 
@@ -283,6 +287,7 @@ export default class AdSet extends AbstractCrudObject {
   static get OptimizationSubEvent (): Object {
     return Object.freeze({
       none: 'NONE',
+      post_interaction: 'POST_INTERACTION',
       travel_intent: 'TRAVEL_INTENT',
       travel_intent_bucket_01: 'TRAVEL_INTENT_BUCKET_01',
       travel_intent_bucket_02: 'TRAVEL_INTENT_BUCKET_02',
@@ -304,6 +309,10 @@ export default class AdSet extends AbstractCrudObject {
       value_5: '5',
       value_6: '6',
       value_7: '7',
+      value_8: '8',
+      value_9: '9',
+      value_10: '10',
+      value_11: '11',
     });
   }
   static get TuneForCategory (): Object {
@@ -405,6 +414,16 @@ export default class AdSet extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/asyncadrequests'
+    );
+  }
+
+  getBudgetSchedules (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      HighDemandPeriod,
+      fields,
+      params,
+      fetchFirstPage,
+      '/budget_schedules'
     );
   }
 

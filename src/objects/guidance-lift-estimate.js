@@ -11,16 +11,18 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * AdCreativeAssetGroupsSpec
+ * GuidanceLiftEstimate
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class AdCreativeAssetGroupsSpec extends AbstractCrudObject {
+export default class GuidanceLiftEstimate extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      groups: 'groups',
-      origin: 'origin',
-      origins: 'origins',
+      actual_7d_cpr: 'actual_7d_cpr',
+      adoption_date: 'adoption_date',
+      guidance_name: 'guidance_name',
+      lift_estimation: 'lift_estimation',
+      predicted_7d_cpr: 'predicted_7d_cpr',
     });
   }
 

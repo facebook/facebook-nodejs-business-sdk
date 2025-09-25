@@ -11,14 +11,16 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * FBLiteToNTTransitions
+ * CTXDFOObjectiveDefaults
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class FBLiteToNTTransitions extends AbstractCrudObject {
+export default class CTXDFOObjectiveDefaults extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      transition: 'transition',
+      objective: 'objective',
+      optimization_goal: 'optimization_goal',
+      page_id: 'page_id',
     });
   }
 

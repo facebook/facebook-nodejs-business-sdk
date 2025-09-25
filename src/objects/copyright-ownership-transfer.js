@@ -18,6 +18,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class CopyrightOwnershipTransfer extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
+      assets: 'assets',
       id: 'id',
       receiving_rights_holder: 'receiving_rights_holder',
       sending_rights_holder: 'sending_rights_holder',

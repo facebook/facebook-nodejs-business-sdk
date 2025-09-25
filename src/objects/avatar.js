@@ -9,8 +9,6 @@
  */
 
 import {AbstractCrudObject} from './../abstract-crud-object';
-import AbstractObject from './../abstract-object';
-import Cursor from './../cursor';
 
 /**
  * Avatar
@@ -24,16 +22,6 @@ export default class Avatar extends AbstractCrudObject {
     });
   }
 
-
-  getModels (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/models'
-    );
-  }
 
   
   get (fields: Array<string>, params: Object = {}): Avatar {

@@ -20,6 +20,7 @@ export default class AdAccountLiveVideoAdvertiser extends AbstractCrudObject {
     return Object.freeze({
       is_lva_toggle_on: 'is_lva_toggle_on',
       lva_default_budget: 'lva_default_budget',
+      lva_default_duration_s: 'lva_default_duration_s',
       should_default_current_live: 'should_default_current_live',
       should_default_scheduled_live: 'should_default_scheduled_live',
       should_show_lva_toggle: 'should_show_lva_toggle',

@@ -11,25 +11,16 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * AvatarProfilePicture
+ * AdAssetFeedAdditionalDataReconsiderationOffer
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class AvatarProfilePicture extends AbstractCrudObject {
+export default class AdAssetFeedAdditionalDataReconsiderationOffer extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      id: 'id',
-      url: 'url',
+      offer_id: 'offer_id',
+      offer_name: 'offer_name',
     });
   }
 
-
-  
-  get (fields: Array<string>, params: Object = {}): AvatarProfilePicture {
-    // $FlowFixMe : Support Generic Types
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

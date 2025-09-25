@@ -11,17 +11,26 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * AdCreativeAssetGroupsSpec
+ * PartnerCenterExportFile
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class AdCreativeAssetGroupsSpec extends AbstractCrudObject {
+export default class PartnerCenterExportFile extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      groups: 'groups',
-      origin: 'origin',
-      origins: 'origins',
+      id: 'id',
+      report_ds: 'report_ds',
+      url: 'url',
     });
   }
 
+
+  
+  get (fields: Array<string>, params: Object = {}): PartnerCenterExportFile {
+    // $FlowFixMe : Support Generic Types
+    return this.read(
+      fields,
+      params
+    );
+  }
 }

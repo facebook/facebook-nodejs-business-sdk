@@ -11,25 +11,18 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * FavoriteCatalog
+ * ShadowIGUserCollaborationInvites
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class FavoriteCatalog extends AbstractCrudObject {
+export default class ShadowIGUserCollaborationInvites extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      catalog: 'catalog',
-      id: 'id',
+      caption: 'caption',
+      media_id: 'media_id',
+      media_owner_username: 'media_owner_username',
+      media_url: 'media_url',
     });
   }
 
-
-  
-  get (fields: Array<string>, params: Object = {}): FavoriteCatalog {
-    // $FlowFixMe : Support Generic Types
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

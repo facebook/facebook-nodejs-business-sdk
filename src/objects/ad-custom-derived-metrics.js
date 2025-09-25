@@ -38,6 +38,13 @@ export default class AdCustomDerivedMetrics extends AbstractCrudObject {
     });
   }
 
+  static get Scope (): Object {
+    return Object.freeze({
+      account: 'ACCOUNT',
+      business: 'BUSINESS',
+      business_asset_group: 'BUSINESS_ASSET_GROUP',
+    });
+  }
 
   
   get (fields: Array<string>, params: Object = {}): AdCustomDerivedMetrics {

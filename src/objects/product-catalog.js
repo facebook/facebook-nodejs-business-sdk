@@ -17,6 +17,7 @@ import AutomotiveModel from './automotive-model';
 import StoreCatalogSettings from './store-catalog-settings';
 import ProductCatalogCategory from './product-catalog-category';
 import CheckBatchRequestStatus from './check-batch-request-status';
+import ProductCatalogCheckMarketplacePartnerDealsStatus from './product-catalog-check-marketplace-partner-deals-status';
 import ProductCatalogCheckMarketplacePartnerSellersStatus from './product-catalog-check-marketplace-partner-sellers-status';
 import CPASLsbImageBank from './cpas-lsb-image-bank';
 import CollaborativeAdsShareSettings from './collaborative-ads-share-settings';
@@ -278,6 +279,16 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
+  getCheckMarketplacePartnerDealsStatus (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      ProductCatalogCheckMarketplacePartnerDealsStatus,
+      fields,
+      params,
+      fetchFirstPage,
+      '/check_marketplace_partner_deals_status'
+    );
+  }
+
   getCheckMarketplacePartnerSellersStatus (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       ProductCatalogCheckMarketplacePartnerSellersStatus,
@@ -488,6 +499,16 @@ export default class ProductCatalog extends AbstractCrudObject {
   createLocalizedItemsBatch (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<ProductCatalog> {
     return this.createEdge(
       '/localized_items_batch',
+      fields,
+      params,
+      ProductCatalog,
+      pathOverride,
+    );
+  }
+
+  createMarketPlacePartnerDealsDetail (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<ProductCatalog> {
+    return this.createEdge(
+      '/marketplace_partner_deals_details',
       fields,
       params,
       ProductCatalog,

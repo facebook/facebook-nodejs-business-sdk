@@ -18,6 +18,7 @@ import IGBCAdsPermission from './igbc-ads-permission';
 import BrandedContentShadowIGMediaID from './branded-content-shadow-ig-media-id';
 import BrandedContentShadowIGUserID from './branded-content-shadow-ig-user-id';
 import ShadowIGUserCatalogProductSearch from './shadow-ig-user-catalog-product-search';
+import ShadowIGUserCollaborationInvites from './shadow-ig-user-collaboration-invites';
 import ThreadsUser from './threads-user';
 import ContentPublishingLimitResponse from './content-publishing-limit-response';
 import IGUserExportForCAM from './ig-user-export-for-cam';
@@ -165,6 +166,16 @@ export default class IGUser extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/catalog_product_search'
+    );
+  }
+
+  getCollaborationInvites (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      ShadowIGUserCollaborationInvites,
+      fields,
+      params,
+      fetchFirstPage,
+      '/collaboration_invites'
     );
   }
 

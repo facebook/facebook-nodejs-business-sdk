@@ -21,8 +21,10 @@ export default class VideoCopyright extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       content_category: 'content_category',
+      content_protect_protection_disabled_reason: 'content_protect_protection_disabled_reason',
       copyright_content_id: 'copyright_content_id',
       creator: 'creator',
+      disable_protection_by_content_protect_status: 'disable_protection_by_content_protect_status',
       excluded_ownership_segments: 'excluded_ownership_segments',
       id: 'id',
       in_conflict: 'in_conflict',

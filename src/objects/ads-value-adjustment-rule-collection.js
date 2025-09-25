@@ -22,6 +22,7 @@ export default class AdsValueAdjustmentRuleCollection extends AbstractCrudObject
     return Object.freeze({
       id: 'id',
       is_default_setting: 'is_default_setting',
+      last_attach_time: 'last_attach_time',
       name: 'name',
       product_type: 'product_type',
       status: 'status',
@@ -44,7 +45,7 @@ export default class AdsValueAdjustmentRuleCollection extends AbstractCrudObject
 
   createDeleteRuleSet (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdsValueAdjustmentRuleCollection> {
     return this.createEdge(
-      '/delete_rule_set',
+      '/deleteruleset',
       fields,
       params,
       AdsValueAdjustmentRuleCollection,

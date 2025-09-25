@@ -19,6 +19,7 @@ export default class LeadGenQuestionOption extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       key: 'key',
+      photo: 'photo',
       value: 'value',
     });
   }

@@ -43,8 +43,6 @@ export default class CommerceMerchantSettings extends AbstractCrudObject {
       payment_provider: 'payment_provider',
       privacy_policy_localized: 'privacy_policy_localized',
       return_policy_localized: 'return_policy_localized',
-      review_rejection_messages: 'review_rejection_messages',
-      review_rejection_reasons: 'review_rejection_reasons',
       shops_ads_setup: 'shops_ads_setup',
       terms: 'terms',
     });
@@ -98,16 +96,6 @@ export default class CommerceMerchantSettings extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/order_management_apps'
-    );
-  }
-
-  createOrderManagementApp (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<CommerceMerchantSettings> {
-    return this.createEdge(
-      '/order_management_apps',
-      fields,
-      params,
-      CommerceMerchantSettings,
-      pathOverride,
     );
   }
 

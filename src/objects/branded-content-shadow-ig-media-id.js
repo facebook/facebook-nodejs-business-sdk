@@ -27,4 +27,10 @@ export default class BrandedContentShadowIGMediaID extends AbstractCrudObject {
     });
   }
 
+  static get MediaRelationship (): Object {
+    return Object.freeze({
+      is_tagged: 'IS_TAGGED',
+      owned: 'OWNED',
+    });
+  }
 }

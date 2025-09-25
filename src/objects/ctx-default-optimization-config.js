@@ -18,6 +18,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class CTXDefaultOptimizationConfig extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
+      defaulting_source: 'defaulting_source',
       destination_type: 'destination_type',
       objective: 'objective',
       optimization_goal: 'optimization_goal',

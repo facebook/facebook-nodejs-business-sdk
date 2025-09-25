@@ -12,6 +12,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import ALMAdAccountInfo from './alm-ad-account-info';
+import AdCustomDerivedMetrics from './ad-custom-derived-metrics';
 import AdStudy from './ad-study';
 import AdAccount from './ad-account';
 import Application from './application';
@@ -79,6 +80,7 @@ export default class Business extends AbstractCrudObject {
       id: 'id',
       is_hidden: 'is_hidden',
       link: 'link',
+      marketing_messages_onboarding_status: 'marketing_messages_onboarding_status',
       name: 'name',
       payment_account_id: 'payment_account_id',
       primary_page: 'primary_page',
@@ -963,6 +965,16 @@ export default class Business extends AbstractCrudObject {
     return super.deleteEdge(
       '/ad_accounts',
       params
+    );
+  }
+
+  getAdCustomDerivedMetrics (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AdCustomDerivedMetrics,
+      fields,
+      params,
+      fetchFirstPage,
+      '/ad_custom_derived_metrics'
     );
   }
 

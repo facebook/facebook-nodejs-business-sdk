@@ -21,7 +21,6 @@ import Application from './application';
 import BusinessAssetGroup from './business-asset-group';
 import ProductCatalog from './product-catalog';
 import WhatsAppBusinessAccount from './whats-app-business-account';
-import Avatar from './avatar';
 import BusinessUser from './business-user';
 import Business from './business';
 import UnifiedThread from './unified-thread';
@@ -50,7 +49,6 @@ export default class User extends AbstractCrudObject {
     return Object.freeze({
       about: 'about',
       age_range: 'age_range',
-      avatar_2d_profile_picture: 'avatar_2d_profile_picture',
       birthday: 'birthday',
       client_business_id: 'client_business_id',
       community: 'community',
@@ -64,7 +62,6 @@ export default class User extends AbstractCrudObject {
       gender: 'gender',
       hometown: 'hometown',
       id: 'id',
-      id_for_avatars: 'id_for_avatars',
       inspirational_people: 'inspirational_people',
       install_type: 'install_type',
       installed: 'installed',
@@ -292,16 +289,6 @@ export default class User extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/assigned_whatsapp_business_accounts'
-    );
-  }
-
-  getAvatars (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      Avatar,
-      fields,
-      params,
-      fetchFirstPage,
-      '/avatars'
     );
   }
 

@@ -18,10 +18,14 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class AdCreativeLinkDataCallToActionValue extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
+      android_url: 'android_url',
       app_destination: 'app_destination',
       app_link: 'app_link',
       application: 'application',
       event_id: 'event_id',
+      ios_url: 'ios_url',
+      land_on_whatsapp_catalog: 'land_on_whatsapp_catalog',
+      land_on_whatsapp_profile: 'land_on_whatsapp_profile',
       lead_gen_form_id: 'lead_gen_form_id',
       link: 'link',
       link_caption: 'link_caption',
