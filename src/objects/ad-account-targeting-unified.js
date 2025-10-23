@@ -482,6 +482,7 @@ export default class AdAccountTargetingUnified extends AbstractCrudObject {
   }
   static get AppStore (): Object {
     return Object.freeze({
+      all_app_stores_for_android_and_ios: 'all_app_stores_for_android_and_ios',
       amazon_app_store: 'amazon_app_store',
       apk_mirror: 'apk_mirror',
       apk_monk: 'apk_monk',

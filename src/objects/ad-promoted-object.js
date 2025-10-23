@@ -18,6 +18,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class AdPromotedObject extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
+      anchor_event_config: 'anchor_event_config',
       application_id: 'application_id',
       boosted_product_set_id: 'boosted_product_set_id',
       conversion_goal_id: 'conversion_goal_id',

@@ -21,8 +21,10 @@ export default class BrandedContentShadowIGMediaID extends AbstractCrudObject {
       eligibility_errors: 'eligibility_errors',
       has_permission_for_partnership_ad: 'has_permission_for_partnership_ad',
       id: 'id',
+      linked_products: 'linked_products',
       owner_id: 'owner_id',
       permalink: 'permalink',
+      product_suggestions: 'product_suggestions',
       recommended_campaign_objectives: 'recommended_campaign_objectives',
     });
   }

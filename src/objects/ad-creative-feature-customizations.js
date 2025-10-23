@@ -18,6 +18,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class AdCreativeFeatureCustomizations extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
+      aspect_ratio_config: 'aspect_ratio_config',
       background_color: 'background_color',
       catalog_feed_tag_name: 'catalog_feed_tag_name',
       font_name: 'font_name',

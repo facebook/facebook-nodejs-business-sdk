@@ -11,15 +11,13 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * AdCreativeDestinationSpec
+ * ShadowIGUserThreadOwner
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class AdCreativeDestinationSpec extends AbstractCrudObject {
+export default class ShadowIGUserThreadOwner extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      destination_type: 'destination_type',
-      website: 'website',
     });
   }
 

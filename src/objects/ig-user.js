@@ -28,6 +28,7 @@ import IGMedia from './ig-media';
 import UserPageOneTimeOptInTokenSettings from './user-page-one-time-opt-in-token-settings';
 import IGShoppingProductAppeal from './ig-shopping-product-appeal';
 import ShadowIGHashtag from './shadow-ig-hashtag';
+import ShadowIGScheduledMedia from './shadow-ig-scheduled-media';
 import IGUpcomingEvent from './ig-upcoming-event';
 import ShadowIGUserCTXPartnerAppWelcomeMessageFlow from './shadow-ig-user-ctx-partner-app-welcome-message-flow';
 
@@ -176,6 +177,16 @@ export default class IGUser extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/collaboration_invites'
+    );
+  }
+
+  createCollaborationInvite (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<ShadowIGUserCollaborationInvites> {
+    return this.createEdge(
+      '/collaboration_invites',
+      fields,
+      params,
+      ShadowIGUserCollaborationInvites,
+      pathOverride,
     );
   }
 
@@ -346,6 +357,16 @@ export default class IGUser extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/recently_searched_hashtags'
+    );
+  }
+
+  getScheduledMedia (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      ShadowIGScheduledMedia,
+      fields,
+      params,
+      fetchFirstPage,
+      '/scheduled_media'
     );
   }
 

@@ -721,16 +721,6 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  createSubscribedDomain (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Application> {
-    return this.createEdge(
-      '/subscribed_domains',
-      fields,
-      params,
-      Application,
-      pathOverride,
-    );
-  }
-
   getSubscribedDomainsPhishing (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AbstractObject,
@@ -738,16 +728,6 @@ export default class Application extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/subscribed_domains_phishing'
-    );
-  }
-
-  createSubscribedDomainsPhishing (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Application> {
-    return this.createEdge(
-      '/subscribed_domains_phishing',
-      fields,
-      params,
-      Application,
-      pathOverride,
     );
   }
 

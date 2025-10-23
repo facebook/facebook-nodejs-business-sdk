@@ -93,6 +93,7 @@ export default class Business extends AbstractCrudObject {
       verification_status: 'verification_status',
       vertical: 'vertical',
       vertical_id: 'vertical_id',
+      whatsapp_business_manager_messaging_limit: 'whatsapp_business_manager_messaging_limit',
     });
   }
 
@@ -108,6 +109,16 @@ export default class Business extends AbstractCrudObject {
       rejected: 'rejected',
       revoked: 'revoked',
       verified: 'verified',
+    });
+  }
+  static get WhatsappBusinessManagerMessagingLimit (): Object {
+    return Object.freeze({
+      tier_100k: 'TIER_100K',
+      tier_10k: 'TIER_10K',
+      tier_250: 'TIER_250',
+      tier_2k: 'TIER_2K',
+      tier_unlimited: 'TIER_UNLIMITED',
+      untiered: 'UNTIERED',
     });
   }
   static get TwoFactorType (): Object {
@@ -1797,7 +1808,7 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createPartnerPremiumOption (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+  createPartnerPremiumOptIOn (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
     return this.createEdge(
       '/partner_premium_options',
       fields,

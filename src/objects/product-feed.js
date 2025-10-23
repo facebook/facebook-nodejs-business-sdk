@@ -150,6 +150,11 @@ export default class ProductFeed extends AbstractCrudObject {
       version: 'VERSION',
     });
   }
+  static get UseCase (): Object {
+    return Object.freeze({
+      creator_asset: 'CREATOR_ASSET',
+    });
+  }
 
   getAutomotiveModels (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(

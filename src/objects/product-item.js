@@ -585,6 +585,7 @@ export default class ProductItem extends AbstractCrudObject {
       video_fetch_failed_forbidden: 'VIDEO_FETCH_FAILED_FORBIDDEN',
       video_fetch_failed_link_broken: 'VIDEO_FETCH_FAILED_LINK_BROKEN',
       video_fetch_failed_timed_out: 'VIDEO_FETCH_FAILED_TIMED_OUT',
+      video_issue_generic: 'VIDEO_ISSUE_GENERIC',
       video_not_downloadable: 'VIDEO_NOT_DOWNLOADABLE',
       whatsapp_disabled_by_user: 'WHATSAPP_DISABLED_BY_USER',
       whatsapp_marketing_message_disabled_by_user: 'WHATSAPP_MARKETING_MESSAGE_DISABLED_BY_USER',

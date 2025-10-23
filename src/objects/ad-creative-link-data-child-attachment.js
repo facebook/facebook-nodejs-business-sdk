@@ -22,6 +22,7 @@ export default class AdCreativeLinkDataChildAttachment extends AbstractCrudObjec
       call_to_action: 'call_to_action',
       caption: 'caption',
       description: 'description',
+      ig_media_id: 'ig_media_id',
       image_crops: 'image_crops',
       image_hash: 'image_hash',
       ios_url: 'ios_url',

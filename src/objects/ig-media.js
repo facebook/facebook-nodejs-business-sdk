@@ -31,6 +31,8 @@ export default class IGMedia extends AbstractCrudObject {
       caption: 'caption',
       comments_count: 'comments_count',
       copyright_check_information: 'copyright_check_information',
+      has_poll: 'has_poll',
+      has_slider: 'has_slider',
       id: 'id',
       ig_id: 'ig_id',
       is_comment_enabled: 'is_comment_enabled',
@@ -166,6 +168,14 @@ export default class IGMedia extends AbstractCrudObject {
       params,
       ShadowIGMediaProductTags,
       pathOverride,
+    );
+  }
+
+  // $FlowFixMe : Support Generic Types
+  delete (fields: Array<string>, params: Object = {}): AbstractObject {
+    // $FlowFixMe : Support Generic Types
+    return super.delete(
+      params
     );
   }
 

@@ -45,7 +45,7 @@ export default class AdsValueAdjustmentRuleCollection extends AbstractCrudObject
 
   createDeleteRuleSet (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdsValueAdjustmentRuleCollection> {
     return this.createEdge(
-      '/deleteruleset',
+      '/delete_rule_set',
       fields,
       params,
       AdsValueAdjustmentRuleCollection,

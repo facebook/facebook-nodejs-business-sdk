@@ -31,6 +31,7 @@ export default class AdAccountMatchedSearchApplicationsEdgeData extends Abstract
 
   static get AppStore (): Object {
     return Object.freeze({
+      all_app_stores_for_android_and_ios: 'ALL_APP_STORES_FOR_ANDROID_AND_IOS',
       amazon_app_store: 'AMAZON_APP_STORE',
       apk_mirror: 'APK_MIRROR',
       apk_monk: 'APK_MONK',
@@ -61,6 +62,7 @@ export default class AdAccountMatchedSearchApplicationsEdgeData extends Abstract
   }
   static get StoresToFilter (): Object {
     return Object.freeze({
+      all_app_stores_for_android_and_ios: 'ALL_APP_STORES_FOR_ANDROID_AND_IOS',
       amazon_app_store: 'AMAZON_APP_STORE',
       apk_mirror: 'APK_MIRROR',
       apk_monk: 'APK_MONK',

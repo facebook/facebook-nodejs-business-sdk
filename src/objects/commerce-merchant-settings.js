@@ -39,7 +39,6 @@ export default class CommerceMerchantSettings extends AbstractCrudObject {
       merchant_page: 'merchant_page',
       merchant_status: 'merchant_status',
       offsite_iab_checkout_enabled_countries: 'offsite_iab_checkout_enabled_countries',
-      onsite_commerce_merchant: 'onsite_commerce_merchant',
       payment_provider: 'payment_provider',
       privacy_policy_localized: 'privacy_policy_localized',
       return_policy_localized: 'return_policy_localized',
@@ -126,16 +125,6 @@ export default class CommerceMerchantSettings extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/setup_status'
-    );
-  }
-
-  getShippingProfiles (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/shipping_profiles'
     );
   }
 

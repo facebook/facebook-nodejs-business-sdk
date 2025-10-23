@@ -11,15 +11,20 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * AdCreativeDestinationSpec
+ * PlacementSoftOptOut
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class AdCreativeDestinationSpec extends AbstractCrudObject {
+export default class PlacementSoftOptOut extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      destination_type: 'destination_type',
-      website: 'website',
+      audience_network_positions: 'audience_network_positions',
+      facebook_positions: 'facebook_positions',
+      instagram_positions: 'instagram_positions',
+      messenger_positions: 'messenger_positions',
+      oculus_positions: 'oculus_positions',
+      threads_positions: 'threads_positions',
+      whatsapp_positions: 'whatsapp_positions',
     });
   }
 

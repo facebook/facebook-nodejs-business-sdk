@@ -35,6 +35,7 @@ export default class AdSet extends AbstractCrudObject {
       account_id: 'account_id',
       adlabels: 'adlabels',
       adset_schedule: 'adset_schedule',
+      anchor_event_attribution_window_days: 'anchor_event_attribution_window_days',
       asset_feed_id: 'asset_feed_id',
       attribution_spec: 'attribution_spec',
       automatic_manual_state: 'automatic_manual_state',
@@ -313,6 +314,7 @@ export default class AdSet extends AbstractCrudObject {
       value_9: '9',
       value_10: '10',
       value_11: '11',
+      value_12: '12',
     });
   }
   static get TuneForCategory (): Object {

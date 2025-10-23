@@ -42,12 +42,6 @@ export default class OmegaCustomerTrx extends AbstractCrudObject {
     });
   }
 
-  static get ProductTypes (): Object {
-    return Object.freeze({
-      facebook: 'FACEBOOK',
-      whatsapp: 'WHATSAPP',
-    });
-  }
   static get Type (): Object {
     return Object.freeze({
       cm: 'CM',

@@ -92,7 +92,6 @@ export default class Event extends AbstractCrudObject {
     return Object.freeze({
       fb_live: 'fb_live',
       horizon_event: 'horizon_event',
-      horizon_world: 'horizon_world',
       messenger_room: 'messenger_room',
       none: 'none',
       other: 'other',

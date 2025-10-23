@@ -49,6 +49,7 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
       purchase_order_number: 'purchase_order_number',
       status: 'status',
       timezone_id: 'timezone_id',
+      whatsapp_business_manager_messaging_limit: 'whatsapp_business_manager_messaging_limit',
     });
   }
 
@@ -64,6 +65,16 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
       rejected: 'rejected',
       revoked: 'revoked',
       verified: 'verified',
+    });
+  }
+  static get WhatsappBusinessManagerMessagingLimit (): Object {
+    return Object.freeze({
+      tier_100k: 'TIER_100K',
+      tier_10k: 'TIER_10K',
+      tier_250: 'TIER_250',
+      tier_2k: 'TIER_2K',
+      tier_unlimited: 'TIER_UNLIMITED',
+      untiered: 'UNTIERED',
     });
   }
   static get Tasks (): Object {
@@ -211,6 +222,16 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
       params,
       Dataset,
       pathOverride,
+    );
+  }
+
+  getDegreesOfFreedomSpec (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/degrees_of_freedom_spec'
     );
   }
 

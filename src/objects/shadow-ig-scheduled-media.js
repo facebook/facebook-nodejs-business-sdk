@@ -11,27 +11,25 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * CopyrightOwnershipTransfer
+ * ShadowIGScheduledMedia
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class CopyrightOwnershipTransfer extends AbstractCrudObject {
+export default class ShadowIGScheduledMedia extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      assets: 'assets',
-      has_ownership_been_updated: 'has_ownership_been_updated',
+      caption: 'caption',
       id: 'id',
-      receiving_rights_holder: 'receiving_rights_holder',
-      sending_rights_holder: 'sending_rights_holder',
-      status: 'status',
-      transfer_territories: 'transfer_territories',
-      transfer_time: 'transfer_time',
+      media_type: 'media_type',
+      media_url: 'media_url',
+      publish_timestamp: 'publish_timestamp',
+      thumbnail_url: 'thumbnail_url',
     });
   }
 
 
   
-  get (fields: Array<string>, params: Object = {}): CopyrightOwnershipTransfer {
+  get (fields: Array<string>, params: Object = {}): ShadowIGScheduledMedia {
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,

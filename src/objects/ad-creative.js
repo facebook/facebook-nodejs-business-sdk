@@ -260,6 +260,11 @@ export default class AdCreative extends AbstractCrudObject {
       story_owner: 'STORY_OWNER',
     });
   }
+  static get ExecutionOptions (): Object {
+    return Object.freeze({
+      validate_only: 'validate_only',
+    });
+  }
   static get Operator (): Object {
     return Object.freeze({
       all: 'ALL',

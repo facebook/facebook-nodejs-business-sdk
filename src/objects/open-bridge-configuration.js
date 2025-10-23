@@ -20,11 +20,14 @@ export default class OpenBridgeConfiguration extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       active: 'active',
+      blocked_event_types: 'blocked_event_types',
+      blocked_websites: 'blocked_websites',
       browser_agent: 'browser_agent',
       cloud_provider: 'cloud_provider',
       cloud_region: 'cloud_region',
       destination_id: 'destination_id',
       endpoint: 'endpoint',
+      event_enrichment_state: 'event_enrichment_state',
       fallback_domain: 'fallback_domain',
       first_party_domain: 'first_party_domain',
       host_business_id: 'host_business_id',
@@ -41,6 +44,13 @@ export default class OpenBridgeConfiguration extends AbstractCrudObject {
     });
   }
 
+  static get EventEnrichmentState (): Object {
+    return Object.freeze({
+      no: 'NO',
+      not_initialized: 'NOT_INITIALIZED',
+      yes: 'YES',
+    });
+  }
 
   // $FlowFixMe : Support Generic Types
   delete (fields: Array<string>, params: Object = {}): AbstractObject {

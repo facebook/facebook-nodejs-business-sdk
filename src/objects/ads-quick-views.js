@@ -28,6 +28,7 @@ export default class AdsQuickViews extends AbstractCrudObject {
       permission: 'permission',
       quick_view_type: 'quick_view_type',
       sort: 'sort',
+      time_stamp_last_used_by_owner: 'time_stamp_last_used_by_owner',
     });
   }
 

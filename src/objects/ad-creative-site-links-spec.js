@@ -19,6 +19,7 @@ export default class AdCreativeSiteLinksSpec extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       is_site_link_sticky: 'is_site_link_sticky',
+      site_link_classification: 'site_link_classification',
       site_link_extra_metadata: 'site_link_extra_metadata',
       site_link_hash: 'site_link_hash',
       site_link_id: 'site_link_id',
@@ -28,6 +29,7 @@ export default class AdCreativeSiteLinksSpec extends AbstractCrudObject {
       site_link_recommendation_type: 'site_link_recommendation_type',
       site_link_title: 'site_link_title',
       site_link_url: 'site_link_url',
+      site_link_url_anchor: 'site_link_url_anchor',
     });
   }
 
