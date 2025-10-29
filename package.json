@@ -67,7 +67,7 @@
     "rollup-plugin-json": "~2.0.2",
     "rollup-plugin-node-resolve": "~2.0.0",
     "rollup-stream": "~1.14.0",
-    "semistandard": "^11.0.0",
+    "semistandard": "^17.0.0",
     "vinyl-buffer": "~1.0.0",
     "vinyl-source-stream": "~2.0.0"
   },
