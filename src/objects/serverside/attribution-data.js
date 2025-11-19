@@ -8,6 +8,9 @@
  */
 
 import AttributionModel from './attribution-model';
+import AttributionMethod from './attribution-method';
+import DeclineReason from './decline-reason';
+import AttributionSetting from './attribution-setting';
 
 /**
  * AttributionData used for attribution passback event to optimize the performance.
@@ -25,6 +28,11 @@ export default class AttributionData {
     _attribution_source: string;
     _touchpoint_type: string;
     _touchpoint_ts: number;
+    _attribution_method: AttributionMethod;
+    _decline_reason: DeclineReason;
+    _auditing_token: string;
+    _linkage_key: string;
+    _attribution_setting: AttributionSetting;
 
 
     /**
@@ -40,10 +48,16 @@ export default class AttributionData {
      * @param {String} attribution_source The attribution source to differentiate the source of the data, e.g. whether this is from AMM or Custom Attribution or any other sources.
      * @param {String} touchpoint_type The engagement type that caused the original credited conversion.
      * @param {Number} touchpoint_ts The time when the touchpoint event occurred with the ad that the install was credited to.
+     * @param {AttributionMethod} attribution_method The attribution method used to attribute the event, check attribution-method.js file.
+     * @param {DeclineReason} decline_reason The decline reason for the attribution, check decline-reason.js file.
+     * @param {String} auditing_token The auditing token for the attribution.
+     * @param {String} linkage_key The linkage key for the attribution.
+     * @param {AttributionSetting} attribution_setting The attribution setting configuration.
      */
     constructor(scope: string, visit_time: number, ad_id: string, adset_id: string, campaign_id: string,
         attribution_share: number, attribution_model: AttributionModel, attr_window: number, attribution_value: number,
-        attribution_source: string, touchpoint_type: string, touchpoint_ts: number) {
+        attribution_source: string, touchpoint_type: string, touchpoint_ts: number, attribution_method: AttributionMethod,
+        decline_reason: DeclineReason, auditing_token: string, linkage_key: string, attribution_setting: AttributionSetting) {
         this._scope = scope;
         this._visit_time = visit_time;
         this._ad_id = ad_id;
@@ -56,6 +70,11 @@ export default class AttributionData {
         this._attribution_source = attribution_source;
         this._touchpoint_type = touchpoint_type;
         this._touchpoint_ts = touchpoint_ts;
+        this._attribution_method = attribution_method;
+        this._decline_reason = decline_reason;
+        this._auditing_token = auditing_token;
+        this._linkage_key = linkage_key;
+        this._attribution_setting = attribution_setting;
     }
 
     /**
@@ -370,6 +389,135 @@ export default class AttributionData {
         return this;
     }
 
+    /**
+     * Returns the attribution method of the attribution data.
+     * Example: 'ard'
+     */
+    get attribution_method(): AttributionMethod {
+        return this._attribution_method;
+    }
+
+    /**
+     * Set the attribution method of the attribution data.
+     * @param {AttributionMethod} attribution_method The attribution method used to attribute the event.
+     */
+    set attribution_method(attribution_method: AttributionMethod): void {
+        this._attribution_method = attribution_method;
+    }
+
+    /**
+     * Set the attribution method of the attribution data.
+     * @param {AttributionMethod} attribution_method The attribution method used to attribute the event.
+     * @returns {AttributionData}
+     */
+    setAttributionMethod(attribution_method: AttributionMethod): AttributionData {
+        this._attribution_method = attribution_method;
+        return this;
+    }
+
+    /**
+     * Returns the decline reason of the attribution data.
+     * Example: 'attribute_to_other_source'
+     */
+    get decline_reason(): DeclineReason {
+        return this._decline_reason;
+    }
+
+    /**
+     * Set the decline reason of the attribution data.
+     * @param {DeclineReason} decline_reason The decline reason for the attribution.
+     */
+    set decline_reason(decline_reason: DeclineReason): void {
+        this._decline_reason = decline_reason;
+    }
+
+    /**
+     * Set the decline reason of the attribution data.
+     * @param {DeclineReason} decline_reason The decline reason for the attribution.
+     * @returns {AttributionData}
+     */
+    setDeclineReason(decline_reason: DeclineReason): AttributionData {
+        this._decline_reason = decline_reason;
+        return this;
+    }
+
+    /**
+     * Returns the auditing token of the attribution data.
+     * Example: 'token123'
+     */
+    get auditing_token(): string {
+        return this._auditing_token;
+    }
+
+    /**
+     * Set the auditing token of the attribution data.
+     * @param {String} auditing_token The auditing token for the attribution.
+     */
+    set auditing_token(auditing_token: string): void {
+        this._auditing_token = auditing_token;
+    }
+
+    /**
+     * Set the auditing token of the attribution data.
+     * @param {String} auditing_token The auditing token for the attribution.
+     * @returns {AttributionData}
+     */
+    setAuditingToken(auditing_token: string): AttributionData {
+        this._auditing_token = auditing_token;
+        return this;
+    }
+
+    /**
+     * Returns the linkage key of the attribution data.
+     * Example: 'key123'
+     */
+    get linkage_key(): string {
+        return this._linkage_key;
+    }
+
+    /**
+     * Set the linkage key of the attribution data.
+     * @param {String} linkage_key The linkage key for the attribution.
+     */
+    set linkage_key(linkage_key: string): void {
+        this._linkage_key = linkage_key;
+    }
+
+    /**
+     * Set the linkage key of the attribution data.
+     * @param {String} linkage_key The linkage key for the attribution.
+     * @returns {AttributionData}
+     */
+    setLinkageKey(linkage_key: string): AttributionData {
+        this._linkage_key = linkage_key;
+        return this;
+    }
+
+    /**
+     * Returns the attribution setting of the attribution data.
+     */
+    get attribution_setting(): AttributionSetting {
+        return this._attribution_setting;
+    }
+
+    /**
+     * Set the attribution setting of the attribution data.
+     * @param {AttributionSetting} attribution_setting The attribution setting configuration.
+     */
+    set attribution_setting(attribution_setting: AttributionSetting): void {
+        this._attribution_setting = attribution_setting;
+    }
+
+    /**
+     * Set the attribution setting of the attribution data.
+     * @param {AttributionSetting} attribution_setting The attribution setting configuration.
+     * @returns {AttributionData}
+     */
+    setAttributionSetting(attribution_setting: AttributionSetting): AttributionData {
+        this._attribution_setting = attribution_setting;
+        return this;
+    }
+
 
     /**
 	 * Returns the normalized payload for the attribution data.
@@ -425,6 +573,26 @@ export default class AttributionData {
 
         if (this.touchpoint_ts) {
             attributionData.touchpoint_ts = this.touchpoint_ts;
+        }
+
+        if (this.attribution_method) {
+            attributionData.attribution_method = this.attribution_method;
+        }
+
+        if (this.decline_reason) {
+            attributionData.decline_reason = this.decline_reason;
+        }
+
+        if (this.auditing_token) {
+            attributionData.auditing_token = this.auditing_token;
+        }
+
+        if (this.linkage_key) {
+            attributionData.linkage_key = this.linkage_key;
+        }
+
+        if (this.attribution_setting) {
+            attributionData.attribution_setting = this.attribution_setting.normalize();
         }
 
 		return attributionData;
