@@ -312,7 +312,7 @@ export class AbstractCrudObject extends AbstractObject {
           for (let id in response) {
             let data = response[id];
             let That: any = this;
-            let object = new That(data);
+            let object = new That(id, data); 
             result.push(object);
           }
           resolve(result);
