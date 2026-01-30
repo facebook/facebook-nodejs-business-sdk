@@ -209,6 +209,7 @@ export class AbstractCrudObject extends AbstractObject {
    * @param  {Object}  [params]
    * @param  {Boolean} [fetchFirstPage]
    * @param  {String}  [endpoint]
+   * @param  {String}  [basePath]
    * @return {Cursor}
    */
   getEdge(
@@ -217,12 +218,13 @@ export class AbstractCrudObject extends AbstractObject {
     params: Object = {},
     fetchFirstPage: boolean = true,
     endpoint: ?string,
+    basePath: ?string = null,
   ): Cursor | Promise<*> {
     if (fields && fields.length > 0) {
       params['fields'] = fields.join(',');
     }
     const sourceObject = this;
-    const cursor = new Cursor(sourceObject, targetClass, params, endpoint);
+    const cursor = new Cursor(sourceObject, targetClass, params, endpoint, basePath);
     if (fetchFirstPage) {
       return cursor.next();
     }
@@ -235,6 +237,8 @@ export class AbstractCrudObject extends AbstractObject {
    * @param   {Array}  [fields]
    * @param   {Object}  [params]
    * @param   {Function} [targetClassConstructor]
+   * @param   {String}  [pathOverride]
+   * @param   {String}  [basePath]
    * @return  {Promise}
    */
   createEdge(
@@ -243,14 +247,20 @@ export class AbstractCrudObject extends AbstractObject {
     params: Object = {},
     targetClassConstructor: Function = null,
     pathOverride?: ?string = null,
+    basePath: ?string = null,
   ): Promise<*> {
     if (fields && fields.length > 0) {
       params['fields'] = fields.join(',');
     }
     const api = this.getApi();
-    const path = pathOverride != null
-      ? pathOverride
-      : [this.getNodePath(), Utils.removePreceedingSlash(endpoint)];
+    let path;
+    if (pathOverride != null) {
+      path = pathOverride;
+    } else if (basePath != null) {
+      path = [Utils.removePreceedingSlash(basePath), this.getNodePath()];
+    } else {
+      path = [this.getNodePath(), Utils.removePreceedingSlash(endpoint)];
+    }
     params = Object.assign(params, this.exportData());
     return new Promise((resolve, reject) => {
       api
@@ -271,11 +281,17 @@ export class AbstractCrudObject extends AbstractObject {
    * Delete edge object
    * @param   {String}  [endpoint]
    * @param   {Object}  [params]
+   * @param   {String}  [basePath]
    * @return  {Promise}
    */
-  deleteEdge(endpoint: string, params: Object = {}): Promise<*> {
+  deleteEdge(endpoint: string, params: Object = {}, basePath: ?string = null): Promise<*> {
     const api = this.getApi();
-    const path = [this.getNodePath(), Utils.removePreceedingSlash(endpoint)];
+    let path;
+    if (basePath != null) {
+      path = [Utils.removePreceedingSlash(basePath), this.getNodePath()];
+    } else {
+      path = [this.getNodePath(), Utils.removePreceedingSlash(endpoint)];
+    }
     params = Object.assign(params, this.exportData());
     return new Promise((resolve, reject) => {
       api
