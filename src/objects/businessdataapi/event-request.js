@@ -149,7 +149,8 @@ export default class EventRequest {
             'access_token': this._access_token,
         };
 
-        const pagePromise = (new Page(this._page_id)).createBusinessDatum(
+        const pagePromise = (new Page(this._page_id)).createEdge(
+            '/business_data',
             [],
             params
         );
