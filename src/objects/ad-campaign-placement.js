@@ -9,19 +9,29 @@
  */
 
 import {AbstractCrudObject} from './../abstract-crud-object';
+import Cursor from './../cursor';
+import AdCampaignPlacementGet from './ad-campaign-placement-get';
 
 /**
- * ProductDaEventSamplesBatch
+ * AdCampaignPlacement
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class ProductDaEventSamplesBatch extends AbstractCrudObject {
+export default class AdCampaignPlacement extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      samples: 'samples',
-      time_start: 'time_start',
-      time_stop: 'time_stop',
+      id: 'id',
     });
   }
 
+
+  genget (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AdCampaignPlacementGet,
+      fields,
+      params,
+      fetchFirstPage,
+      '/'
+    );
+  }
 }

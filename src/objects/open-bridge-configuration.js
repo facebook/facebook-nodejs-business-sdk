@@ -27,9 +27,10 @@ export default class OpenBridgeConfiguration extends AbstractCrudObject {
       cloud_region: 'cloud_region',
       destination_id: 'destination_id',
       endpoint: 'endpoint',
+      event_enrichment_advertiser_state: 'event_enrichment_advertiser_state',
+      event_enrichment_meta_state: 'event_enrichment_meta_state',
       event_enrichment_state: 'event_enrichment_state',
       fallback_domain: 'fallback_domain',
-      first_party_domain: 'first_party_domain',
       host_business_id: 'host_business_id',
       id: 'id',
       instance_id: 'instance_id',
@@ -44,6 +45,27 @@ export default class OpenBridgeConfiguration extends AbstractCrudObject {
     });
   }
 
+  static get CapiPublishingState (): Object {
+    return Object.freeze({
+      disabled: 'DISABLED',
+      enabled: 'ENABLED',
+      not_initialized: 'NOT_INITIALIZED',
+    });
+  }
+  static get EventEnrichmentAdvertiserState (): Object {
+    return Object.freeze({
+      disabled: 'DISABLED',
+      enabled: 'ENABLED',
+      not_initialized: 'NOT_INITIALIZED',
+    });
+  }
+  static get EventEnrichmentMetaState (): Object {
+    return Object.freeze({
+      allowed: 'ALLOWED',
+      blocked: 'BLOCKED',
+      not_initialized: 'NOT_INITIALIZED',
+    });
+  }
   static get EventEnrichmentState (): Object {
     return Object.freeze({
       no: 'NO',

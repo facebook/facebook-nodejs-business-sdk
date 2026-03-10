@@ -52,6 +52,8 @@ export default class PagePostExperiment extends AbstractCrudObject {
       reels_plays: 'REELS_PLAYS',
       shares: 'SHARES',
       video_views_60s: 'VIDEO_VIEWS_60S',
+      viewers: 'VIEWERS',
+      views: 'VIEWS',
     });
   }
 

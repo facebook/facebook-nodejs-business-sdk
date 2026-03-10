@@ -11,26 +11,27 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * PageBroadcast
+ * ProductFeedRuleGet
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class PageBroadcast extends AbstractCrudObject {
+export default class ProductFeedRuleGet extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
+      attribute: 'attribute',
       id: 'id',
-      scheduled_time: 'scheduled_time',
-      status: 'status',
+      params: 'params',
+      rule_type: 'rule_type',
     });
   }
 
-
-  
-  get (fields: Array<string>, params: Object = {}): PageBroadcast {
-    // $FlowFixMe : Support Generic Types
-    return this.read(
-      fields,
-      params
-    );
+  static get RuleType (): Object {
+    return Object.freeze({
+      fallback_rule: 'FALLBACK_RULE',
+      letter_case_rule: 'LETTER_CASE_RULE',
+      mapping_rule: 'MAPPING_RULE',
+      regex_replace_rule: 'REGEX_REPLACE_RULE',
+      value_mapping_rule: 'VALUE_MAPPING_RULE',
+    });
   }
 }

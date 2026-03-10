@@ -31,7 +31,7 @@ export default class VehicleOffer extends AbstractCrudObject {
       body_style: 'body_style',
       cashback_currency: 'cashback_currency',
       cashback_price: 'cashback_price',
-      category_specific_fields: 'category_specific_fields',
+      comscore_market_codes: 'comscore_market_codes',
       currency: 'currency',
       custom_label_0: 'custom_label_0',
       custom_label_1: 'custom_label_1',

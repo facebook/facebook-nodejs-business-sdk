@@ -22,6 +22,7 @@ export default class CatalogItemOverride extends AbstractCrudObject {
       local_info: 'local_info',
       override_type: 'override_type',
       override_value: 'override_value',
+      upload_expected_method: 'upload_expected_method',
     });
   }
 

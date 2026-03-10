@@ -31,13 +31,6 @@ export default class CPASCollaborationRequest extends AbstractCrudObject {
     });
   }
 
-  static get RequesterAgencyOrBrand (): Object {
-    return Object.freeze({
-      agency: 'AGENCY',
-      brand: 'BRAND',
-      merchant: 'MERCHANT',
-    });
-  }
 
   
   get (fields: Array<string>, params: Object = {}): CPASCollaborationRequest {

@@ -36,6 +36,7 @@ export default class AdAccountDeliveryEstimate extends AbstractCrudObject {
       automatic_objective: 'AUTOMATIC_OBJECTIVE',
       conversations: 'CONVERSATIONS',
       derived_events: 'DERIVED_EVENTS',
+      engaged_page_views: 'ENGAGED_PAGE_VIEWS',
       engaged_users: 'ENGAGED_USERS',
       event_responses: 'EVENT_RESPONSES',
       impressions: 'IMPRESSIONS',

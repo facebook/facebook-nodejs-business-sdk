@@ -63,6 +63,7 @@ export default class Application extends AbstractCrudObject {
       category: 'category',
       client_config: 'client_config',
       company: 'company',
+      config_ids: 'config_ids',
       configured_ios_sso: 'configured_ios_sso',
       contact_email: 'contact_email',
       created_time: 'created_time',
@@ -711,26 +712,6 @@ export default class Application extends AbstractCrudObject {
     );
   }
 
-  getSubscribedDomains (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/subscribed_domains'
-    );
-  }
-
-  getSubscribedDomainsPhishing (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/subscribed_domains_phishing'
-    );
-  }
-
   deleteSubscriptions (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/subscriptions',
@@ -755,6 +736,26 @@ export default class Application extends AbstractCrudObject {
       params,
       null,
       pathOverride,
+    );
+  }
+
+  getThreatPrivacyGroupsMember (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/threat_privacy_groups_member'
+    );
+  }
+
+  getThreatPrivacyGroupsOwner (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/threat_privacy_groups_owner'
     );
   }
 

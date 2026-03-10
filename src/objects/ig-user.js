@@ -19,6 +19,7 @@ import BrandedContentShadowIGMediaID from './branded-content-shadow-ig-media-id'
 import BrandedContentShadowIGUserID from './branded-content-shadow-ig-user-id';
 import ShadowIGUserCatalogProductSearch from './shadow-ig-user-catalog-product-search';
 import ShadowIGUserCollaborationInvites from './shadow-ig-user-collaboration-invites';
+import ShadowIGUserCollaborativeMedia from './shadow-ig-user-collaborative-media';
 import ThreadsUser from './threads-user';
 import ContentPublishingLimitResponse from './content-publishing-limit-response';
 import IGUserExportForCAM from './ig-user-export-for-cam';
@@ -160,6 +161,16 @@ export default class IGUser extends AbstractCrudObject {
     );
   }
 
+  createBusinessMessagingFeatureStatus (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<IGUser> {
+    return this.createEdge(
+      '/business_messaging_feature_status',
+      fields,
+      params,
+      IGUser,
+      pathOverride,
+    );
+  }
+
   getCatalogProductSearch (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       ShadowIGUserCatalogProductSearch,
@@ -187,6 +198,16 @@ export default class IGUser extends AbstractCrudObject {
       params,
       ShadowIGUserCollaborationInvites,
       pathOverride,
+    );
+  }
+
+  getCollaborativeMedia (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      ShadowIGUserCollaborativeMedia,
+      fields,
+      params,
+      fetchFirstPage,
+      '/collaborative_media'
     );
   }
 
@@ -313,6 +334,16 @@ export default class IGUser extends AbstractCrudObject {
   createMention (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
     return this.createEdge(
       '/mentions',
+      fields,
+      params,
+      null,
+      pathOverride,
+    );
+  }
+
+  createModerateConversation (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+    return this.createEdge(
+      '/moderate_conversations',
       fields,
       params,
       null,

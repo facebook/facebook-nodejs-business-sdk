@@ -67,6 +67,7 @@ export default class AdsActionStats extends AbstractCrudObject {
       inline: 'inline',
       interactive_component_sticker_id: 'interactive_component_sticker_id',
       interactive_component_sticker_response: 'interactive_component_sticker_response',
+      promoted_product_set_result: 'promoted_product_set_result',
       skan_click: 'skan_click',
       skan_click_second_postback: 'skan_click_second_postback',
       skan_click_third_postback: 'skan_click_third_postback',

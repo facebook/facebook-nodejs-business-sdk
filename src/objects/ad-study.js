@@ -51,7 +51,9 @@ export default class AdStudy extends AbstractCrudObject {
       creative_spend_enforcement: 'CREATIVE_SPEND_ENFORCEMENT',
       geo_lift: 'GEO_LIFT',
       lift: 'LIFT',
+      portfolio_optimizer: 'PORTFOLIO_OPTIMIZER',
       split_test: 'SPLIT_TEST',
+      version_control: 'VERSION_CONTROL',
     });
   }
 

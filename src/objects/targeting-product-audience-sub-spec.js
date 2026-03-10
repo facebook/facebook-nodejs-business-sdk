@@ -18,6 +18,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class TargetingProductAudienceSubSpec extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
+      min_retention_seconds: 'min_retention_seconds',
       retention_seconds: 'retention_seconds',
       rule: 'rule',
     });

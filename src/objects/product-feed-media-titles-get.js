@@ -11,26 +11,16 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * ProductSetUsage
+ * ProductFeedMediaTitlesGet
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class ProductSetUsage extends AbstractCrudObject {
+export default class ProductFeedMediaTitlesGet extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      id: 'id',
-      product_set: 'product_set',
-      usage_type: 'usage_type',
+      data: 'data',
+      paging: 'paging',
     });
   }
 
-
-  
-  get (fields: Array<string>, params: Object = {}): ProductSetUsage {
-    // $FlowFixMe : Support Generic Types
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

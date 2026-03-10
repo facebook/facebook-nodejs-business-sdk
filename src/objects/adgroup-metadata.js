@@ -24,6 +24,7 @@ export default class AdgroupMetadata extends AbstractCrudObject {
       adgroup_media_source: 'adgroup_media_source',
       carousel_style: 'carousel_style',
       carousel_with_static_card_style: 'carousel_with_static_card_style',
+      is_pca_unified_format_ad: 'is_pca_unified_format_ad',
     });
   }
 

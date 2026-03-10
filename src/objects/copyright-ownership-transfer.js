@@ -21,6 +21,7 @@ export default class CopyrightOwnershipTransfer extends AbstractCrudObject {
       assets: 'assets',
       has_ownership_been_updated: 'has_ownership_been_updated',
       id: 'id',
+      num_assets: 'num_assets',
       receiving_rights_holder: 'receiving_rights_holder',
       sending_rights_holder: 'sending_rights_holder',
       status: 'status',

@@ -23,7 +23,6 @@ export default class TransactableItem extends AbstractCrudObject {
     return Object.freeze({
       action_title: 'action_title',
       applinks: 'applinks',
-      category_specific_fields: 'category_specific_fields',
       currency: 'currency',
       description: 'description',
       duration_time: 'duration_time',

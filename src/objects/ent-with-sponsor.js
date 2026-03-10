@@ -19,6 +19,7 @@ export default class EntWithSponsor extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       id: 'id',
+      is_branded_content: 'is_branded_content',
       owner_linked_instagram_user_v1_id: 'owner_linked_instagram_user_v1_id',
       owner_picture: 'owner_picture',
       post_id: 'post_id',

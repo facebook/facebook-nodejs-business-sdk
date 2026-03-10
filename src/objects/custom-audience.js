@@ -48,6 +48,7 @@ export default class CustomAudience extends AbstractCrudObject {
       is_value_based: 'is_value_based',
       lookalike_audience_ids: 'lookalike_audience_ids',
       lookalike_spec: 'lookalike_spec',
+      messenger_marketing_messages_page: 'messenger_marketing_messages_page',
       name: 'name',
       operation_status: 'operation_status',
       opt_out_link: 'opt_out_link',
@@ -132,6 +133,12 @@ export default class CustomAudience extends AbstractCrudObject {
       study_rule_audience: 'STUDY_RULE_AUDIENCE',
       video: 'VIDEO',
       website: 'WEBSITE',
+    });
+  }
+  static get UsageRestriction (): Object {
+    return Object.freeze({
+      exclusion_only: 'EXCLUSION_ONLY',
+      none: 'NONE',
     });
   }
   static get UseForProducts (): Object {

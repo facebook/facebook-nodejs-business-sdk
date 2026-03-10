@@ -11,18 +11,14 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * MerchantCompliance
+ * ProductCatalogAppsAndSoftwareItemDelete
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class MerchantCompliance extends AbstractCrudObject {
+export default class ProductCatalogAppsAndSoftwareItemDelete extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      active_campaigns: 'active_campaigns',
-      compliance_status: 'compliance_status',
-      count_down_start_time: 'count_down_start_time',
-      purchase: 'purchase',
-      purchase_conversion_value: 'purchase_conversion_value',
+      success: 'success',
     });
   }
 

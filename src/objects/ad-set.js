@@ -53,6 +53,8 @@ export default class AdSet extends AbstractCrudObject {
       campaign_id: 'campaign_id',
       configured_status: 'configured_status',
       created_time: 'created_time',
+      creative_diversity_label: 'creative_diversity_label',
+      creative_diversity_score: 'creative_diversity_score',
       creative_sequence: 'creative_sequence',
       creative_sequence_repetition_pattern: 'creative_sequence_repetition_pattern',
       daily_budget: 'daily_budget',
@@ -160,6 +162,7 @@ export default class AdSet extends AbstractCrudObject {
       automatic_objective: 'AUTOMATIC_OBJECTIVE',
       conversations: 'CONVERSATIONS',
       derived_events: 'DERIVED_EVENTS',
+      engaged_page_views: 'ENGAGED_PAGE_VIEWS',
       engaged_users: 'ENGAGED_USERS',
       event_responses: 'EVENT_RESPONSES',
       impressions: 'IMPRESSIONS',
@@ -315,6 +318,8 @@ export default class AdSet extends AbstractCrudObject {
       value_10: '10',
       value_11: '11',
       value_12: '12',
+      value_13: '13',
+      value_14: '14',
     });
   }
   static get TuneForCategory (): Object {

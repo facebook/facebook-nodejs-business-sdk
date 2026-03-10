@@ -18,6 +18,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class AdCreativeSourcingSpec extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
+      ad_extensions_relevancy_spec: 'ad_extensions_relevancy_spec',
       associated_product_set_id: 'associated_product_set_id',
       brand: 'brand',
       destination_screenshot_spec: 'destination_screenshot_spec',
@@ -25,6 +26,7 @@ export default class AdCreativeSourcingSpec extends AbstractCrudObject {
       enable_social_feedback_preservation: 'enable_social_feedback_preservation',
       intent: 'intent',
       pca_spec: 'pca_spec',
+      product_media_metadata_spec: 'product_media_metadata_spec',
       promotion_metadata_spec: 'promotion_metadata_spec',
       site_links_data_consented: 'site_links_data_consented',
       site_links_spec: 'site_links_spec',

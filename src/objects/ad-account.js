@@ -126,10 +126,12 @@ export default class AdAccount extends AbstractCrudObject {
       is_tax_id_required: 'is_tax_id_required',
       liable_address: 'liable_address',
       line_numbers: 'line_numbers',
+      marketing_messages_settings: 'marketing_messages_settings',
       media_agency: 'media_agency',
       min_campaign_group_spend_cap: 'min_campaign_group_spend_cap',
       min_daily_budget: 'min_daily_budget',
       name: 'name',
+      offsite_clo_signal_status: 'offsite_clo_signal_status',
       offsite_pixels_tos_accepted: 'offsite_pixels_tos_accepted',
       opportunity_score: 'opportunity_score',
       owner: 'owner',
@@ -240,6 +242,7 @@ export default class AdAccount extends AbstractCrudObject {
       facebook_standard: 'FACEBOOK_STANDARD',
       facebook_strict: 'FACEBOOK_STRICT',
       feed_dnm: 'FEED_DNM',
+      feed_nested_dnm: 'FEED_NESTED_DNM',
       feed_relaxed: 'FEED_RELAXED',
       feed_standard: 'FEED_STANDARD',
       feed_strict: 'FEED_STRICT',
@@ -1380,6 +1383,16 @@ export default class AdAccount extends AbstractCrudObject {
       fields,
       params,
       AdsValueAdjustmentRuleCollection,
+      pathOverride,
+    );
+  }
+
+  createValueRuleSetTranslation (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+    return this.createEdge(
+      '/value_rule_set_translation',
+      fields,
+      params,
+      null,
       pathOverride,
     );
   }

@@ -9,27 +9,24 @@
  */
 
 import {AbstractCrudObject} from './../abstract-crud-object';
+import CatalogSubscribedAppsDelete from './catalog-subscribed-apps-delete';
 
 /**
- * DynamicContentSet
+ * CatalogSubscribedApps
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class DynamicContentSet extends AbstractCrudObject {
+export default class CatalogSubscribedApps extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      business_id: 'business_id',
       id: 'id',
-      name: 'name',
     });
   }
 
 
-  
-  get (fields: Array<string>, params: Object = {}): DynamicContentSet {
-    // $FlowFixMe : Support Generic Types
-    return this.read(
-      fields,
+  gendelete (params: Object = {}): Promise<*> {
+    return super.deleteEdge(
+      '/subscribed_apps',
       params
     );
   }

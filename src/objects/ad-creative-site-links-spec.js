@@ -30,6 +30,8 @@ export default class AdCreativeSiteLinksSpec extends AbstractCrudObject {
       site_link_title: 'site_link_title',
       site_link_url: 'site_link_url',
       site_link_url_anchor: 'site_link_url_anchor',
+      site_link_url_recommender_type: 'site_link_url_recommender_type',
+      site_link_website_data_source: 'site_link_website_data_source',
     });
   }
 

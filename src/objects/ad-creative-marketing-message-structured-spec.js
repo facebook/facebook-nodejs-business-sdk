@@ -18,11 +18,15 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class AdCreativeMarketingMessageStructuredSpec extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
+      asset_customization: 'asset_customization',
+      autoreply: 'autoreply',
       buttons: 'buttons',
+      conversation_template_id: 'conversation_template_id',
       footer: 'footer',
       greeting: 'greeting',
       is_optimized_text: 'is_optimized_text',
       language: 'language',
+      offer: 'offer',
       referenced_adgroup_id: 'referenced_adgroup_id',
       whats_app_business_phone_number_id: 'whats_app_business_phone_number_id',
     });

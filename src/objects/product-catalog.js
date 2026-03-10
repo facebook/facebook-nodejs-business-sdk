@@ -156,9 +156,16 @@ export default class ProductCatalog extends AbstractCrudObject {
       watches: 'WATCHES',
     });
   }
+  static get ConversionType (): Object {
+    return Object.freeze({
+      attributed: 'ATTRIBUTED',
+      in_session: 'IN_SESSION',
+    });
+  }
   static get EventName (): Object {
     return Object.freeze({
       add_to_cart: 'ADD_TO_CART',
+      offer_submitted: 'OFFER_SUBMITTED',
       purchase: 'PURCHASE',
       test: 'TEST',
       view_item: 'VIEW_ITEM',
@@ -532,6 +539,16 @@ export default class ProductCatalog extends AbstractCrudObject {
       fields,
       params,
       ProductCatalog,
+      pathOverride,
+    );
+  }
+
+  createMediaTitle (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+    return this.createEdge(
+      '/media_titles',
+      fields,
+      params,
+      null,
       pathOverride,
     );
   }

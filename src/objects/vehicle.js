@@ -28,7 +28,6 @@ export default class Vehicle extends AbstractCrudObject {
       availability_circle_radius: 'availability_circle_radius',
       availability_circle_radius_unit: 'availability_circle_radius_unit',
       body_style: 'body_style',
-      category_specific_fields: 'category_specific_fields',
       condition: 'condition',
       currency: 'currency',
       custom_label_0: 'custom_label_0',

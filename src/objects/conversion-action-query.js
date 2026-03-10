@@ -23,6 +23,7 @@ export default class ConversionActionQuery extends AbstractCrudObject {
       conversion_id: 'conversion_id',
       creative: 'creative',
       dataset: 'dataset',
+      dataset_split: 'dataset_split',
       event: 'event',
       event_creator: 'event.creator',
       event_type: 'event_type',

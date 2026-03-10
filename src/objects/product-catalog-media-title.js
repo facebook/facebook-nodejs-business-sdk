@@ -9,25 +9,25 @@
  */
 
 import {AbstractCrudObject} from './../abstract-crud-object';
+import ProductCatalogMediaTitleDelete from './product-catalog-media-title-delete';
 
 /**
- * AnalyticsPlatformMetricsConfig
+ * ProductCatalogMediaTitle
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class AnalyticsPlatformMetricsConfig extends AbstractCrudObject {
+export default class ProductCatalogMediaTitle extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      has_a2u: 'has_a2u',
-      has_api_calls: 'has_api_calls',
-      has_app_invites: 'has_app_invites',
-      has_fb_login: 'has_fb_login',
-      has_game_requests: 'has_game_requests',
-      has_payments: 'has_payments',
-      has_referrals: 'has_referrals',
-      has_stories: 'has_stories',
-      has_structured_requests: 'has_structured_requests',
+      id: 'id',
     });
   }
 
+
+  gendelete (params: Object = {}): Promise<*> {
+    return super.deleteEdge(
+      '/',
+      params
+    );
+  }
 }

@@ -21,6 +21,7 @@ export default class LeadGenDirectCRMIntegrationConfig extends AbstractCrudObjec
       auth_id: 'auth_id',
       creation_time: 'creation_time',
       id: 'id',
+      lead_filter_settings: 'lead_filter_settings',
       lead_gen_data: 'lead_gen_data',
       matched_fields: 'matched_fields',
       matched_fields_labels: 'matched_fields_labels',

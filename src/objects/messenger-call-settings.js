@@ -22,7 +22,7 @@ export default class MessengerCallSettings extends AbstractCrudObject {
       call_hours: 'call_hours',
       call_routing: 'call_routing',
       icon_enabled: 'icon_enabled',
-      video: 'video',
+      video_enabled: 'video_enabled',
     });
   }
 

@@ -27,6 +27,7 @@ export default class AdAssetTargetRuleTargeting extends AbstractCrudObject {
       instagram_positions: 'instagram_positions',
       publisher_platforms: 'publisher_platforms',
       threads_positions: 'threads_positions',
+      whatsapp_positions: 'whatsapp_positions',
     });
   }
 

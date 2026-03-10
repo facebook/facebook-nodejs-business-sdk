@@ -19,6 +19,7 @@ export default class MessengerCallPermissions extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       actions: 'actions',
+      permission: 'permission',
     });
   }
 

@@ -9,31 +9,28 @@
  */
 
 import {AbstractCrudObject} from './../abstract-crud-object';
+import ProductCatalogMediaTitlesPost from './product-catalog-media-titles-post';
 
 /**
- * PublisherWhiteList
+ * ProductCatalogMediaTitles
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class PublisherWhiteList extends AbstractCrudObject {
+export default class ProductCatalogMediaTitles extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      business_owner_id: 'business_owner_id',
       id: 'id',
-      last_updated_time: 'last_updated_time',
-      last_updated_user: 'last_updated_user',
-      name: 'name',
-      placement_type: 'placement_type',
     });
   }
 
 
-  
-  get (fields: Array<string>, params: Object = {}): PublisherWhiteList {
-    // $FlowFixMe : Support Generic Types
-    return this.read(
+  genpost (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<ProductCatalogMediaTitlesPost> {
+    return this.createEdge(
+      '/media_titles',
       fields,
-      params
+      params,
+      ProductCatalogMediaTitlesPost,
+      pathOverride,
     );
   }
 }

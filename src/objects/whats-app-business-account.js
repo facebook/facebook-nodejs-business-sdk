@@ -48,6 +48,7 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
       primary_funding_id: 'primary_funding_id',
       purchase_order_number: 'purchase_order_number',
       status: 'status',
+      template_auto_archival_enabled: 'template_auto_archival_enabled',
       timezone_id: 'timezone_id',
       whatsapp_business_manager_messaging_limit: 'whatsapp_business_manager_messaging_limit',
     });
@@ -185,6 +186,16 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
     );
   }
 
+  createBusinessMessagingFeatureStatus (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<WhatsAppBusinessAccount> {
+    return this.createEdge(
+      '/business_messaging_feature_status',
+      fields,
+      params,
+      WhatsAppBusinessAccount,
+      pathOverride,
+    );
+  }
+
   getCallAnalytics (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AbstractObject,
@@ -272,16 +283,6 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/group_analytics'
-    );
-  }
-
-  getMarketingCampaigns (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/marketing_campaigns'
     );
   }
 

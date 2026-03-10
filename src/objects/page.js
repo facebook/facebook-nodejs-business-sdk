@@ -45,6 +45,7 @@ import LiveVideo from './live-video';
 import MediaFingerprint from './media-fingerprint';
 import MessengerBusinessTemplate from './messenger-business-template';
 import MessagingFeatureReview from './messaging-feature-review';
+import MessengerCallPermissions from './messenger-call-permissions';
 import MessengerCallSettings from './messenger-call-settings';
 import MessengerAdsPartialAutomatedStepList from './messenger-ads-partial-automated-step-list';
 import MessengerProfile from './messenger-profile';
@@ -192,6 +193,7 @@ export default class Page extends AbstractCrudObject {
       preferred_audience: 'preferred_audience',
       press_contact: 'press_contact',
       price_range: 'price_range',
+      priority_hours: 'priority_hours',
       privacy_info_url: 'privacy_info_url',
       produced_by: 'produced_by',
       products: 'products',
@@ -439,6 +441,7 @@ export default class Page extends AbstractCrudObject {
       draft: 'DRAFT',
       inline_created: 'INLINE_CREATED',
       published: 'PUBLISHED',
+      publish_pending: 'PUBLISH_PENDING',
       reviewable_branded_content: 'REVIEWABLE_BRANDED_CONTENT',
       scheduled: 'SCHEDULED',
       scheduled_recurring: 'SCHEDULED_RECURRING',
@@ -455,6 +458,17 @@ export default class Page extends AbstractCrudObject {
   static get Category (): Object {
     return Object.freeze({
       utility: 'UTILITY',
+    });
+  }
+  static get ParameterFormat (): Object {
+    return Object.freeze({
+      named: 'NAMED',
+      positional: 'POSITIONAL',
+    });
+  }
+  static get Folder (): Object {
+    return Object.freeze({
+      partnership: 'PARTNERSHIP',
     });
   }
   static get MessagingType (): Object {
@@ -572,11 +586,15 @@ export default class Page extends AbstractCrudObject {
       invoice_access_onboarding_status_active: 'invoice_access_onboarding_status_active',
       leadgen: 'leadgen',
       leadgen_fat: 'leadgen_fat',
+      leadgen_update: 'leadgen_update',
       live_videos: 'live_videos',
       local_delivery: 'local_delivery',
       location: 'location',
+      marketing_message_clicks: 'marketing_message_clicks',
+      marketing_message_deliveries: 'marketing_message_deliveries',
       marketing_message_delivery_failed: 'marketing_message_delivery_failed',
       marketing_message_echoes: 'marketing_message_echoes',
+      marketing_message_reads: 'marketing_message_reads',
       marketing_messages_subscriber_upload_status: 'marketing_messages_subscriber_upload_status',
       mcom_invoice_change: 'mcom_invoice_change',
       members: 'members',
@@ -791,16 +809,6 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createBusinessDatum (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
-    return this.createEdge(
-      '/business_data',
-      fields,
-      params,
-      null,
-      pathOverride,
-    );
-  }
-
   createBusinessMessagingFeatureStatus (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Page> {
     return this.createEdge(
       '/business_messaging_feature_status',
@@ -818,6 +826,16 @@ export default class Page extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/businessprojects'
+    );
+  }
+
+  createCallMetric (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
+    return this.createEdge(
+      '/call_metrics',
+      fields,
+      params,
+      null,
+      pathOverride,
     );
   }
 
@@ -1302,6 +1320,16 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
+  getMessengerCallPermissions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      MessengerCallPermissions,
+      fields,
+      params,
+      fetchFirstPage,
+      '/messenger_call_permissions'
+    );
+  }
+
   getMessengerCallSettings (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       MessengerCallSettings,
@@ -1646,6 +1674,26 @@ export default class Page extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/shop_setup_status'
+    );
+  }
+
+  getSpaceParticipants (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      Page,
+      fields,
+      params,
+      fetchFirstPage,
+      '/space_participants'
+    );
+  }
+
+  createSpaceParticipant (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Page> {
+    return this.createEdge(
+      '/space_participants',
+      fields,
+      params,
+      Page,
+      pathOverride,
     );
   }
 

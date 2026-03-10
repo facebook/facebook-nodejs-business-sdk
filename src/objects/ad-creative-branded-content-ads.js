@@ -20,6 +20,7 @@ export default class AdCreativeBrandedContentAds extends AbstractCrudObject {
     return Object.freeze({
       acting_business_id: 'acting_business_id',
       ad_format: 'ad_format',
+      automated_adgroup_creation: 'automated_adgroup_creation',
       content_search_input: 'content_search_input',
       creator_ad_permission_type: 'creator_ad_permission_type',
       deliver_dynamic_partner_content: 'deliver_dynamic_partner_content',

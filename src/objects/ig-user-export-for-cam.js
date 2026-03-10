@@ -33,6 +33,7 @@ export default class IGUserExportForCAM extends AbstractCrudObject {
       onboarded_status: 'onboarded_status',
       past_brand_partnership_partners: 'past_brand_partnership_partners',
       portfolio_url: 'portfolio_url',
+      profile_picture_url: 'profile_picture_url',
       username: 'username',
     });
   }
@@ -586,6 +587,16 @@ export default class IGUserExportForCAM extends AbstractCrudObject {
     );
   }
 
+  getPastPartnershipAdsMedia (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/past_partnership_ads_media'
+    );
+  }
+
   getRecentMedia (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AbstractObject,
@@ -593,15 +604,6 @@ export default class IGUserExportForCAM extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/recent_media'
-    );
-  }
-
-  
-  get (fields: Array<string>, params: Object = {}): IGUserExportForCAM {
-    // $FlowFixMe : Support Generic Types
-    return this.read(
-      fields,
-      params
     );
   }
 }

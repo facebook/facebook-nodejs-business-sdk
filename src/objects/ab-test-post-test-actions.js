@@ -19,6 +19,7 @@ export default class ABTestPostTestActions extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       auto_change_budget_to_winner: 'auto_change_budget_to_winner',
+      winner_budget: 'winner_budget',
     });
   }
 

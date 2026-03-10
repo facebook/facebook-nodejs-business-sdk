@@ -11,27 +11,14 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * InstagramThread
+ * CatalogSubscribedAppsDelete
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class InstagramThread extends AbstractCrudObject {
+export default class CatalogSubscribedAppsDelete extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      folder: 'folder',
-      id: 'id',
-      participants: 'participants',
-      updated_time: 'updated_time',
     });
   }
 
-
-  
-  get (fields: Array<string>, params: Object = {}): InstagramThread {
-    // $FlowFixMe : Support Generic Types
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

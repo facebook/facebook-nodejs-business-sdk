@@ -20,6 +20,7 @@ export default class AdAccountBusinessConstraints extends AbstractCrudObject {
     return Object.freeze({
       audience_controls: 'audience_controls',
       campaigns_with_error: 'campaigns_with_error',
+      is_age_restriction_enabled: 'is_age_restriction_enabled',
       placement_controls: 'placement_controls',
       status: 'status',
     });

@@ -26,7 +26,6 @@ export default class AutomotiveModel extends AbstractCrudObject {
       automotive_model_id: 'automotive_model_id',
       availability: 'availability',
       body_style: 'body_style',
-      category_specific_fields: 'category_specific_fields',
       currency: 'currency',
       custom_label_0: 'custom_label_0',
       custom_label_1: 'custom_label_1',

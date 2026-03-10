@@ -28,7 +28,6 @@ export default class CommerceMerchantSettings extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       checkout_config: 'checkout_config',
-      checkout_message: 'checkout_message',
       contact_email: 'contact_email',
       cta: 'cta',
       display_name: 'display_name',
@@ -41,12 +40,17 @@ export default class CommerceMerchantSettings extends AbstractCrudObject {
       offsite_iab_checkout_enabled_countries: 'offsite_iab_checkout_enabled_countries',
       payment_provider: 'payment_provider',
       privacy_policy_localized: 'privacy_policy_localized',
-      return_policy_localized: 'return_policy_localized',
       shops_ads_setup: 'shops_ads_setup',
       terms: 'terms',
     });
   }
 
+  static get MerchantStatus (): Object {
+    return Object.freeze({
+      enabled: 'ENABLED',
+      externally_disabled: 'EXTERNALLY_DISABLED',
+    });
+  }
 
   createAcknowledgeOrder (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<CommerceMerchantSettings> {
     return this.createEdge(
@@ -163,6 +167,14 @@ export default class CommerceMerchantSettings extends AbstractCrudObject {
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
+      params
+    );
+  }
+
+  // $FlowFixMe : Support Generic Types
+  update (fields: Array<string>, params: Object = {}): CommerceMerchantSettings {
+    // $FlowFixMe : Support Generic Types
+    return super.update(
       params
     );
   }

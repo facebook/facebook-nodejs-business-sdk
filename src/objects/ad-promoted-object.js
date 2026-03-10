@@ -18,7 +18,6 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class AdPromotedObject extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      anchor_event_config: 'anchor_event_config',
       application_id: 'application_id',
       boosted_product_set_id: 'boosted_product_set_id',
       conversion_goal_id: 'conversion_goal_id',
@@ -35,6 +34,7 @@ export default class AdPromotedObject extends AbstractCrudObject {
       lead_ads_form_event_source_type: 'lead_ads_form_event_source_type',
       lead_ads_offsite_conversion_type: 'lead_ads_offsite_conversion_type',
       lead_ads_selected_pixel_id: 'lead_ads_selected_pixel_id',
+      live_video_destination: 'live_video_destination',
       mcme_conversion_id: 'mcme_conversion_id',
       multi_event_product: 'multi_event_product',
       object_store_url: 'object_store_url',
@@ -57,6 +57,8 @@ export default class AdPromotedObject extends AbstractCrudObject {
       product_set_id: 'product_set_id',
       product_set_optimization: 'product_set_optimization',
       retention_days: 'retention_days',
+      smart_pse_enabled: 'smart_pse_enabled',
+      smart_pse_setting: 'smart_pse_setting',
       value_semantic_type: 'value_semantic_type',
       variation: 'variation',
       whats_app_business_phone_number_id: 'whats_app_business_phone_number_id',

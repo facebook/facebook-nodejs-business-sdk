@@ -16,7 +16,6 @@ import Destination from './destination';
 import Flight from './flight';
 import HomeListing from './home-listing';
 import Hotel from './hotel';
-import MediaTitle from './media-title';
 import ProductItem from './product-item';
 import ProductFeedRule from './product-feed-rule';
 import ProductFeedSchedule from './product-feed-schedule';
@@ -91,6 +90,9 @@ export default class ProductFeed extends AbstractCrudObject {
   }
   static get FeedType (): Object {
     return Object.freeze({
+      activity: 'ACTIVITY',
+      app_and_software: 'APP_AND_SOFTWARE',
+      article_and_publication: 'ARTICLE_AND_PUBLICATION',
       automotive_model: 'AUTOMOTIVE_MODEL',
       collection: 'COLLECTION',
       destination: 'DESTINATION',
@@ -103,6 +105,7 @@ export default class ProductFeed extends AbstractCrudObject {
       offer: 'OFFER',
       products: 'PRODUCTS',
       product_ratings_and_reviews: 'PRODUCT_RATINGS_AND_REVIEWS',
+      service: 'SERVICE',
       transactable_items: 'TRANSACTABLE_ITEMS',
       vehicles: 'VEHICLES',
       vehicle_offer: 'VEHICLE_OFFER',
@@ -203,16 +206,6 @@ export default class ProductFeed extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/hotels'
-    );
-  }
-
-  getMediaTitles (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      MediaTitle,
-      fields,
-      params,
-      fetchFirstPage,
-      '/media_titles'
     );
   }
 

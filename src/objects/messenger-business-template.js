@@ -27,6 +27,7 @@ export default class MessengerBusinessTemplate extends AbstractCrudObject {
       last_updated_time: 'last_updated_time',
       library_template_name: 'library_template_name',
       name: 'name',
+      parameter_format: 'parameter_format',
       rejected_reason: 'rejected_reason',
       rejection_reasons: 'rejection_reasons',
       specific_rejection_reasons: 'specific_rejection_reasons',
@@ -34,6 +35,12 @@ export default class MessengerBusinessTemplate extends AbstractCrudObject {
     });
   }
 
+  static get ParameterFormat (): Object {
+    return Object.freeze({
+      named: 'NAMED',
+      positional: 'POSITIONAL',
+    });
+  }
   static get Status (): Object {
     return Object.freeze({
       approved: 'APPROVED',

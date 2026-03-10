@@ -35,7 +35,6 @@ export default class HomeListing extends AbstractCrudObject {
       area_size: 'area_size',
       area_unit: 'area_unit',
       availability: 'availability',
-      category_specific_fields: 'category_specific_fields',
       co_2_emission_rating_eu: 'co_2_emission_rating_eu',
       currency: 'currency',
       custom_label_0: 'custom_label_0',

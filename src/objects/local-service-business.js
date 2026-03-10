@@ -26,7 +26,6 @@ export default class LocalServiceBusiness extends AbstractCrudObject {
       availability: 'availability',
       brand: 'brand',
       category: 'category',
-      category_specific_fields: 'category_specific_fields',
       condition: 'condition',
       cuisine_type: 'cuisine_type',
       currency: 'currency',

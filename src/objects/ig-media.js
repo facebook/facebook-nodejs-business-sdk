@@ -31,6 +31,7 @@ export default class IGMedia extends AbstractCrudObject {
       caption: 'caption',
       comments_count: 'comments_count',
       copyright_check_information: 'copyright_check_information',
+      current_live_viewer_count: 'current_live_viewer_count',
       has_poll: 'has_poll',
       has_slider: 'has_slider',
       id: 'id',

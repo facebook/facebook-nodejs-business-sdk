@@ -19,6 +19,7 @@ export default class RecommendedIGMedia extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       intent_score: 'intent_score',
+      media: 'media',
     });
   }
 

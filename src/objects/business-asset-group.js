@@ -15,7 +15,7 @@ import AssignedUser from './assigned-user';
 import AdAccount from './ad-account';
 import Application from './application';
 import CustomConversion from './custom-conversion';
-import InstagramUser from './instagram-user';
+import IGUser from './ig-user';
 import Page from './page';
 import AdsPixel from './ads-pixel';
 import ProductCatalog from './product-catalog';
@@ -210,7 +210,7 @@ export default class BusinessAssetGroup extends AbstractCrudObject {
 
   getContainedInstagramAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      InstagramUser,
+      IGUser,
       fields,
       params,
       fetchFirstPage,

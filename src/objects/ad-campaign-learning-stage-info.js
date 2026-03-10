@@ -24,6 +24,8 @@ export default class AdCampaignLearningStageInfo extends AbstractCrudObject {
       dynamic_lp_days_threshold: 'dynamic_lp_days_threshold',
       dynamic_lp_status: 'dynamic_lp_status',
       last_sig_edit_ts: 'last_sig_edit_ts',
+      recommended_budget_prediction: 'recommended_budget_prediction',
+      sigedit_removal: 'sigedit_removal',
       status: 'status',
     });
   }

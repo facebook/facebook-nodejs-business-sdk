@@ -23,7 +23,6 @@ export default class PlaceTopic extends AbstractCrudObject {
       icon_url: 'icon_url',
       id: 'id',
       name: 'name',
-      parent_ids: 'parent_ids',
       plural_name: 'plural_name',
       top_subtopic_names: 'top_subtopic_names',
     });

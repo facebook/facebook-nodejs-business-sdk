@@ -24,7 +24,6 @@ export default class OfflineProductItem extends AbstractCrudObject {
       applinks: 'applinks',
       brand: 'brand',
       category: 'category',
-      category_specific_fields: 'category_specific_fields',
       currency: 'currency',
       description: 'description',
       id: 'id',

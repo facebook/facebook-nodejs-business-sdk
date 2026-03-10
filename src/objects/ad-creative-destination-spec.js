@@ -19,6 +19,7 @@ export default class AdCreativeDestinationSpec extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       destination_type: 'destination_type',
+      native_commerce_experience: 'native_commerce_experience',
       website: 'website',
     });
   }
