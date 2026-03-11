@@ -63,10 +63,15 @@ function constructErrorResponse(response: Object) {
 
   if (isBatchResponse) {
     // Handle batch response
-    body =
-      typeof response.body === 'string'
-        ? JSON.parse(response.body)
-        : response.body;
+    if (typeof response.body === "string") {
+      try {
+        body = JSON.parse(response.body);
+      } catch (_jsonParseError) {
+        body = response.body;
+      }
+    } else {
+      body = response.body;
+    }
     status = response.code;
     message = body.error.message;
     headers = response.headers;
@@ -76,7 +81,15 @@ function constructErrorResponse(response: Object) {
       // The request was made and the server responded with a status code
       // that falls out of the range of 2xx
       body = response.response.data.error ? response.response.data.error : response.response.data;
-      body = typeof body === 'string' ? JSON.parse(body) : body;
+      if (typeof body === "string") {
+        try {
+          body = JSON.parse(body);
+        } catch (_jsonParseError) {
+          body = body;
+        }
+      } else {
+        body = body;
+      }
       message = body.message;
       status = response.response.status;
       headers = response.response.headers;
