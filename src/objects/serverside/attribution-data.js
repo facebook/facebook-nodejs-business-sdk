@@ -32,6 +32,7 @@ export default class AttributionData {
     _decline_reason: DeclineReason;
     _auditing_token: string;
     _linkage_key: string;
+    _touchpoint_id: string;
     _attribution_setting: AttributionSetting;
 
 
@@ -52,12 +53,13 @@ export default class AttributionData {
      * @param {DeclineReason} decline_reason The decline reason for the attribution, check decline-reason.js file.
      * @param {String} auditing_token The auditing token for the attribution.
      * @param {String} linkage_key The linkage key for the attribution.
+     * @param {String} touchpoint_id Unique identifier for touchpoint events shared by Meta with advertisers.
      * @param {AttributionSetting} attribution_setting The attribution setting configuration.
      */
     constructor(scope: string, visit_time: number, ad_id: string, adset_id: string, campaign_id: string,
         attribution_share: number, attribution_model: AttributionModel, attr_window: number, attribution_value: number,
         attribution_source: string, touchpoint_type: string, touchpoint_ts: number, attribution_method: AttributionMethod,
-        decline_reason: DeclineReason, auditing_token: string, linkage_key: string, attribution_setting: AttributionSetting) {
+        decline_reason: DeclineReason, auditing_token: string, linkage_key: string, touchpoint_id: string, attribution_setting: AttributionSetting) {
         this._scope = scope;
         this._visit_time = visit_time;
         this._ad_id = ad_id;
@@ -74,6 +76,7 @@ export default class AttributionData {
         this._decline_reason = decline_reason;
         this._auditing_token = auditing_token;
         this._linkage_key = linkage_key;
+        this._touchpoint_id = touchpoint_id;
         this._attribution_setting = attribution_setting;
     }
 
@@ -494,6 +497,32 @@ export default class AttributionData {
     }
 
     /**
+     * Returns the touchpoint id of the attribution data.
+     * Example: 'tp_abc123'
+     */
+    get touchpoint_id(): string {
+        return this._touchpoint_id;
+    }
+
+    /**
+     * Set the touchpoint id of the attribution data.
+     * @param {String} touchpoint_id Unique identifier for touchpoint events shared by Meta with advertisers.
+     */
+    set touchpoint_id(touchpoint_id: string): void {
+        this._touchpoint_id = touchpoint_id;
+    }
+
+    /**
+     * Set the touchpoint id of the attribution data.
+     * @param {String} touchpoint_id Unique identifier for touchpoint events shared by Meta with advertisers.
+     * @returns {AttributionData}
+     */
+    setTouchpointId(touchpoint_id: string): AttributionData {
+        this._touchpoint_id = touchpoint_id;
+        return this;
+    }
+
+    /**
      * Returns the attribution setting of the attribution data.
      */
     get attribution_setting(): AttributionSetting {
@@ -589,6 +618,10 @@ export default class AttributionData {
 
         if (this.linkage_key) {
             attributionData.linkage_key = this.linkage_key;
+        }
+
+        if (this.touchpoint_id) {
+            attributionData.touchpoint_id = this.touchpoint_id;
         }
 
         if (this.attribution_setting) {

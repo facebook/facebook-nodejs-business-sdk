@@ -30,6 +30,7 @@ describe('AttributionData', function() {
             const declineReason = DeclineReason.ATTRIBUTE_TO_OTHER_SOURCE;
             const auditingToken = 'token_123456';
             const linkageKey = 'key_123456';
+            const touchpointId = 'tp_test_touchpoint_id_123';
 
             // Act
             const attributionData = new AttributionData(
@@ -48,7 +49,8 @@ describe('AttributionData', function() {
                 attributionMethod,
                 declineReason,
                 auditingToken,
-                linkageKey
+                linkageKey,
+                touchpointId
             );
 
             // Assert
@@ -68,6 +70,7 @@ describe('AttributionData', function() {
             expect(attributionData.decline_reason).toBe(declineReason);
             expect(attributionData.auditing_token).toBe(auditingToken);
             expect(attributionData.linkage_key).toBe(linkageKey);
+            expect(attributionData.touchpoint_id).toBe(touchpointId);
         });
 
         test('Setter methods should work for new AMM fields', function() {
@@ -77,18 +80,21 @@ describe('AttributionData', function() {
             const declineReason = DeclineReason.OUT_OF_LOOKBACK_WINDOW;
             const auditingToken = 'token_abc';
             const linkageKey = 'key_xyz';
+            const touchpointId = 'tp_test_123';
 
             // Act
             attributionData.setAttributionMethod(attributionMethod);
             attributionData.setDeclineReason(declineReason);
             attributionData.setAuditingToken(auditingToken);
             attributionData.setLinkageKey(linkageKey);
+            attributionData.setTouchpointId(touchpointId);
 
             // Assert
             expect(attributionData.attribution_method).toBe(attributionMethod);
             expect(attributionData.decline_reason).toBe(declineReason);
             expect(attributionData.auditing_token).toBe(auditingToken);
             expect(attributionData.linkage_key).toBe(linkageKey);
+            expect(attributionData.touchpoint_id).toBe(touchpointId);
         });
 
         test('Setter methods should return AttributionData instance for chaining', function() {
@@ -98,13 +104,15 @@ describe('AttributionData', function() {
             const declineReason = DeclineReason.FRAUD_DETECTED;
             const auditingToken = 'chain_token';
             const linkageKey = 'chain_key';
+            const touchpointId = 'tp_chain_123';
 
             // Act
             const result = attributionData
                 .setAttributionMethod(attributionMethod)
                 .setDeclineReason(declineReason)
                 .setAuditingToken(auditingToken)
-                .setLinkageKey(linkageKey);
+                .setLinkageKey(linkageKey)
+                .setTouchpointId(touchpointId);
 
             // Assert
             expect(result).toBe(attributionData);
@@ -112,6 +120,7 @@ describe('AttributionData', function() {
             expect(result.decline_reason).toBe(declineReason);
             expect(result.auditing_token).toBe(auditingToken);
             expect(result.linkage_key).toBe(linkageKey);
+            expect(result.touchpoint_id).toBe(touchpointId);
         });
 
         test('Property setters should work for new AMM fields', function() {
@@ -121,18 +130,21 @@ describe('AttributionData', function() {
             const declineReason = DeclineReason.WITHIN_INACTIVE_WINDOW;
             const auditingToken = 'property_token';
             const linkageKey = 'property_key';
+            const touchpointId = 'tp_property_123';
 
             // Act
             attributionData.attribution_method = attributionMethod;
             attributionData.decline_reason = declineReason;
             attributionData.auditing_token = auditingToken;
             attributionData.linkage_key = linkageKey;
+            attributionData.touchpoint_id = touchpointId;
 
             // Assert
             expect(attributionData.attribution_method).toBe(attributionMethod);
             expect(attributionData.decline_reason).toBe(declineReason);
             expect(attributionData.auditing_token).toBe(auditingToken);
             expect(attributionData.linkage_key).toBe(linkageKey);
+            expect(attributionData.touchpoint_id).toBe(touchpointId);
         });
 
         test('Setter methods should work for attribution_setting field', function() {
@@ -309,6 +321,7 @@ describe('AttributionData', function() {
             attributionData.setDeclineReason(DeclineReason.VALIDATION_RULE_DETECTED);
             attributionData.setAuditingToken('full_token');
             attributionData.setLinkageKey('full_key');
+            attributionData.setTouchpointId('tp_full_id');
 
             // Act
             const normalized = attributionData.normalize();
@@ -331,6 +344,7 @@ describe('AttributionData', function() {
                 decline_reason: DeclineReason.VALIDATION_RULE_DETECTED,
                 auditing_token: 'full_token',
                 linkage_key: 'full_key',
+                touchpoint_id: 'tp_full_id',
             });
         });
 
