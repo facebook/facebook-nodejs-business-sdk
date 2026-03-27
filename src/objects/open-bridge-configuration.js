@@ -23,6 +23,7 @@ export default class OpenBridgeConfiguration extends AbstractCrudObject {
       blocked_event_types: 'blocked_event_types',
       blocked_websites: 'blocked_websites',
       browser_agent: 'browser_agent',
+      capi_publishing_state: 'capi_publishing_state',
       cloud_provider: 'cloud_provider',
       cloud_region: 'cloud_region',
       destination_id: 'destination_id',

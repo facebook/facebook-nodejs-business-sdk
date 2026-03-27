@@ -50,6 +50,7 @@ export default class AdCreative extends AbstractCrudObject {
       effective_object_story_id: 'effective_object_story_id',
       enable_direct_install: 'enable_direct_install',
       enable_launch_instant_app: 'enable_launch_instant_app',
+      existing_post_title: 'existing_post_title',
       facebook_branded_content: 'facebook_branded_content',
       format_transformation_spec: 'format_transformation_spec',
       id: 'id',

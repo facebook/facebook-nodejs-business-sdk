@@ -18,6 +18,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class AdCreativeSiteLinksSpec extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
+      is_defaulting_eligible: 'is_defaulting_eligible',
       is_site_link_sticky: 'is_site_link_sticky',
       site_link_classification: 'site_link_classification',
       site_link_extra_metadata: 'site_link_extra_metadata',

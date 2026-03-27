@@ -81,6 +81,8 @@ export default class AdsUserSettings extends AbstractCrudObject {
       onsite_destination_optimization_opt_in: 'onsite_destination_optimization_opt_in',
       open_tabs: 'open_tabs',
       pac_relaxation_opt_in_status: 'pac_relaxation_opt_in_status',
+      pcau_cat_optout_survey_impr: 'pcau_cat_optout_survey_impr',
+      pcau_cat_optout_survey_resp_ts: 'pcau_cat_optout_survey_resp_ts',
       placement_group_square_opt_in_status: 'placement_group_square_opt_in_status',
       placement_group_vertical_opt_in_status: 'placement_group_vertical_opt_in_status',
       previously_seen_recommendations: 'previously_seen_recommendations',

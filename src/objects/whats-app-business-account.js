@@ -31,6 +31,7 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
       country: 'country',
       creation_time: 'creation_time',
       currency: 'currency',
+      disable_marketing_messages_on_cloud_api: 'disable_marketing_messages_on_cloud_api',
       health_status: 'health_status',
       id: 'id',
       is_enabled_for_insights: 'is_enabled_for_insights',

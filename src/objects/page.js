@@ -678,16 +678,6 @@ export default class Page extends AbstractCrudObject {
     );
   }
 
-  createAcknowledgeOrder (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Page> {
-    return this.createEdge(
-      '/acknowledge_orders',
-      fields,
-      params,
-      Page,
-      pathOverride,
-    );
-  }
-
   getAdsEligibility (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdsEligibility,

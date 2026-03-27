@@ -56,31 +56,6 @@ export default class CommerceOrder extends AbstractCrudObject {
       in_progress: 'IN_PROGRESS',
     });
   }
-  static get ReasonCode (): Object {
-    return Object.freeze({
-      buyers_remorse: 'BUYERS_REMORSE',
-      damaged_goods: 'DAMAGED_GOODS',
-      facebook_initiated: 'FACEBOOK_INITIATED',
-      not_as_described: 'NOT_AS_DESCRIBED',
-      quality_issue: 'QUALITY_ISSUE',
-      refund_compromised: 'REFUND_COMPROMISED',
-      refund_for_return: 'REFUND_FOR_RETURN',
-      refund_reason_other: 'REFUND_REASON_OTHER',
-      refund_sfi_fake: 'REFUND_SFI_FAKE',
-      refund_sfi_real: 'REFUND_SFI_REAL',
-      wrong_item: 'WRONG_ITEM',
-    });
-  }
-
-  createAcknowledgeOrder (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<CommerceOrder> {
-    return this.createEdge(
-      '/acknowledge_order',
-      fields,
-      params,
-      CommerceOrder,
-      pathOverride,
-    );
-  }
 
   getCancellations (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
@@ -89,26 +64,6 @@ export default class CommerceOrder extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/cancellations'
-    );
-  }
-
-  createCancellation (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<CommerceOrder> {
-    return this.createEdge(
-      '/cancellations',
-      fields,
-      params,
-      CommerceOrder,
-      pathOverride,
-    );
-  }
-
-  createItemUpdate (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<CommerceOrder> {
-    return this.createEdge(
-      '/item_updates',
-      fields,
-      params,
-      CommerceOrder,
-      pathOverride,
     );
   }
 
@@ -162,16 +117,6 @@ export default class CommerceOrder extends AbstractCrudObject {
     );
   }
 
-  createRefund (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<CommerceOrder> {
-    return this.createEdge(
-      '/refunds',
-      fields,
-      params,
-      CommerceOrder,
-      pathOverride,
-    );
-  }
-
   getReturns (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AbstractObject,
@@ -179,16 +124,6 @@ export default class CommerceOrder extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/returns'
-    );
-  }
-
-  createReturn (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<CommerceOrder> {
-    return this.createEdge(
-      '/returns',
-      fields,
-      params,
-      CommerceOrder,
-      pathOverride,
     );
   }
 
@@ -205,16 +140,6 @@ export default class CommerceOrder extends AbstractCrudObject {
   createShipment (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<CommerceOrder> {
     return this.createEdge(
       '/shipments',
-      fields,
-      params,
-      CommerceOrder,
-      pathOverride,
-    );
-  }
-
-  createUpdateShipment (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<CommerceOrder> {
-    return this.createEdge(
-      '/update_shipment',
       fields,
       params,
       CommerceOrder,

@@ -41,18 +41,4 @@ export default class AdCampaignGroupGet extends AbstractCrudObject {
     });
   }
 
-  static get SpecialAdCategories (): Object {
-    return Object.freeze({
-      credit: 'CREDIT',
-      education: 'EDUCATION',
-      elections_politics: 'ELECTIONS_POLITICS',
-      employment: 'EMPLOYMENT',
-      financial_products_services: 'FINANCIAL_PRODUCTS_SERVICES',
-      housing: 'HOUSING',
-      issues_elections_politics: 'ISSUES_ELECTIONS_POLITICS',
-      none: 'NONE',
-      online_gambling_and_gaming: 'ONLINE_GAMBLING_AND_GAMING',
-      social_issues: 'SOCIAL_ISSUES',
-    });
-  }
 }

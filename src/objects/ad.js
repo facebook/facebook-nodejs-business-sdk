@@ -61,6 +61,7 @@ export default class Ad extends AbstractCrudObject {
       recommendations: 'recommendations',
       source_ad: 'source_ad',
       source_ad_id: 'source_ad_id',
+      special_ad_categories: 'special_ad_categories',
       status: 'status',
       targeting: 'targeting',
       tracking_and_conversion_with_defaults: 'tracking_and_conversion_with_defaults',

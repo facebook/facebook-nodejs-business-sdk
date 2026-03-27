@@ -40,6 +40,7 @@ export default class AdsValueAdjustmentRuleCollection extends AbstractCrudObject
     return Object.freeze({
       active: 'ACTIVE',
       deleted: 'DELETED',
+      draft: 'DRAFT',
     });
   }
 

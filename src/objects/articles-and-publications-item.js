@@ -9,26 +9,25 @@
  */
 
 import {AbstractCrudObject} from './../abstract-crud-object';
+import ArticlesAndPublicationsItemDelete from './articles-and-publications-item-delete';
 
 /**
- * ProductFeedAppsAndSoftwareGet
+ * ArticlesAndPublicationsItem
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class ProductFeedAppsAndSoftwareGet extends AbstractCrudObject {
+export default class ArticlesAndPublicationsItem extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      data: 'data',
-      paging: 'paging',
-      summary: 'summary',
+      id: 'id',
     });
   }
 
-  static get DisplayFormat (): Object {
-    return Object.freeze({
-      carousel_ad: 'CAROUSEL_AD',
-      shops_pdp: 'SHOPS_PDP',
-      single_ad: 'SINGLE_AD',
-    });
+
+  gendelete (params: Object = {}): Promise<*> {
+    return super.deleteEdge(
+      '/',
+      params
+    );
   }
 }

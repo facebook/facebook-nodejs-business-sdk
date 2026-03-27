@@ -18,7 +18,6 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class ProductCatalogUserActions extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      actions: 'actions',
     });
   }
 

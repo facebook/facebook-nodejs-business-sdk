@@ -9,26 +9,29 @@
  */
 
 import {AbstractCrudObject} from './../abstract-crud-object';
+import Cursor from './../cursor';
+import ProductFeedRulesGet from './product-feed-rules-get';
 
 /**
- * ProductFeedAppsAndSoftwareGet
+ * ProductFeedRules
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class ProductFeedAppsAndSoftwareGet extends AbstractCrudObject {
+export default class ProductFeedRules extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      data: 'data',
-      paging: 'paging',
-      summary: 'summary',
+      id: 'id',
     });
   }
 
-  static get DisplayFormat (): Object {
-    return Object.freeze({
-      carousel_ad: 'CAROUSEL_AD',
-      shops_pdp: 'SHOPS_PDP',
-      single_ad: 'SINGLE_AD',
-    });
+
+  genget (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      ProductFeedRulesGet,
+      fields,
+      params,
+      fetchFirstPage,
+      '/rules'
+    );
   }
 }

@@ -11,11 +11,11 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * ProductFeedAppsAndSoftwareGet
+ * ProductSetMediaTitlesGet
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class ProductFeedAppsAndSoftwareGet extends AbstractCrudObject {
+export default class ProductSetMediaTitlesGet extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       data: 'data',

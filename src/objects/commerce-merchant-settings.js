@@ -52,16 +52,6 @@ export default class CommerceMerchantSettings extends AbstractCrudObject {
     });
   }
 
-  createAcknowledgeOrder (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<CommerceMerchantSettings> {
-    return this.createEdge(
-      '/acknowledge_orders',
-      fields,
-      params,
-      CommerceMerchantSettings,
-      pathOverride,
-    );
-  }
-
   getCommerceOrders (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       CommerceOrder,

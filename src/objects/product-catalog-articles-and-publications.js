@@ -11,16 +11,13 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * AdjacentContentDeliveryReport
+ * ProductCatalogArticlesAndPublications
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class AdjacentContentDeliveryReport extends AbstractCrudObject {
+export default class ProductCatalogArticlesAndPublications extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      ad_id: 'ad_id',
-      content: 'content',
-      impression_id: 'impression_id',
     });
   }
 

@@ -10,9 +10,6 @@
 
 import {AbstractCrudObject} from './../abstract-crud-object';
 import Cursor from './../cursor';
-import Business from './business';
-import AREffect from './ar-effect';
-import AdAccount from './ad-account';
 import IGUpcomingEvent from './ig-upcoming-event';
 
 /**
@@ -38,36 +35,6 @@ export default class InstagramUser extends AbstractCrudObject {
     });
   }
 
-
-  getAgencies (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      Business,
-      fields,
-      params,
-      fetchFirstPage,
-      '/agencies'
-    );
-  }
-
-  getArEffects (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AREffect,
-      fields,
-      params,
-      fetchFirstPage,
-      '/ar_effects'
-    );
-  }
-
-  getAuthorizedAdAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AdAccount,
-      fields,
-      params,
-      fetchFirstPage,
-      '/authorized_adaccounts'
-    );
-  }
 
   getUpcomingEvents (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(

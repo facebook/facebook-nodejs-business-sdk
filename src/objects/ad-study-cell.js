@@ -23,6 +23,7 @@ export default class AdStudyCell extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       ad_entities_count: 'ad_entities_count',
+      ad_ids: 'ad_ids',
       control_percentage: 'control_percentage',
       id: 'id',
       name: 'name',

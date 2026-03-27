@@ -11,24 +11,16 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * ProductFeedAppsAndSoftwareGet
+ * CustomAttributionDataset
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class ProductFeedAppsAndSoftwareGet extends AbstractCrudObject {
+export default class CustomAttributionDataset extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      data: 'data',
-      paging: 'paging',
-      summary: 'summary',
+      app: 'app',
+      pixel: 'pixel',
     });
   }
 
-  static get DisplayFormat (): Object {
-    return Object.freeze({
-      carousel_ad: 'CAROUSEL_AD',
-      shops_pdp: 'SHOPS_PDP',
-      single_ad: 'SINGLE_AD',
-    });
-  }
 }

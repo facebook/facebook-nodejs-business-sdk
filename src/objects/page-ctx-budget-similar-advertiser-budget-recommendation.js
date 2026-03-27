@@ -19,7 +19,11 @@ export default class PageCTXBudgetSimilarAdvertiserBudgetRecommendation extends 
   static get Fields (): Object {
     return Object.freeze({
       budget: 'budget',
+      budget_new_model: 'budget_new_model',
+      budget_without_threshold: 'budget_without_threshold',
       reported_conversion: 'reported_conversion',
+      reported_conversions_new_model: 'reported_conversions_new_model',
+      reported_conversions_without_threshold: 'reported_conversions_without_threshold',
     });
   }
 
