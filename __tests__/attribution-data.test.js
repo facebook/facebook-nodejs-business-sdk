@@ -31,6 +31,7 @@ describe('AttributionData', function() {
             const auditingToken = 'token_123456';
             const linkageKey = 'key_123456';
             const touchpointId = 'tp_test_touchpoint_id_123';
+            const totalCredit = 0.85;
 
             // Act
             const attributionData = new AttributionData(
@@ -50,7 +51,9 @@ describe('AttributionData', function() {
                 declineReason,
                 auditingToken,
                 linkageKey,
-                touchpointId
+                touchpointId,
+                null,
+                totalCredit
             );
 
             // Assert
@@ -71,6 +74,7 @@ describe('AttributionData', function() {
             expect(attributionData.auditing_token).toBe(auditingToken);
             expect(attributionData.linkage_key).toBe(linkageKey);
             expect(attributionData.touchpoint_id).toBe(touchpointId);
+            expect(attributionData.total_credit).toBe(totalCredit);
         });
 
         test('Setter methods should work for new AMM fields', function() {
@@ -81,6 +85,7 @@ describe('AttributionData', function() {
             const auditingToken = 'token_abc';
             const linkageKey = 'key_xyz';
             const touchpointId = 'tp_test_123';
+            const totalCredit = 0.85;
 
             // Act
             attributionData.setAttributionMethod(attributionMethod);
@@ -88,6 +93,7 @@ describe('AttributionData', function() {
             attributionData.setAuditingToken(auditingToken);
             attributionData.setLinkageKey(linkageKey);
             attributionData.setTouchpointId(touchpointId);
+            attributionData.setTotalCredit(totalCredit);
 
             // Assert
             expect(attributionData.attribution_method).toBe(attributionMethod);
@@ -95,6 +101,7 @@ describe('AttributionData', function() {
             expect(attributionData.auditing_token).toBe(auditingToken);
             expect(attributionData.linkage_key).toBe(linkageKey);
             expect(attributionData.touchpoint_id).toBe(touchpointId);
+            expect(attributionData.total_credit).toBe(totalCredit);
         });
 
         test('Setter methods should return AttributionData instance for chaining', function() {
@@ -105,6 +112,7 @@ describe('AttributionData', function() {
             const auditingToken = 'chain_token';
             const linkageKey = 'chain_key';
             const touchpointId = 'tp_chain_123';
+            const totalCredit = 0.85;
 
             // Act
             const result = attributionData
@@ -112,7 +120,8 @@ describe('AttributionData', function() {
                 .setDeclineReason(declineReason)
                 .setAuditingToken(auditingToken)
                 .setLinkageKey(linkageKey)
-                .setTouchpointId(touchpointId);
+                .setTouchpointId(touchpointId)
+                .setTotalCredit(totalCredit);
 
             // Assert
             expect(result).toBe(attributionData);
@@ -121,6 +130,7 @@ describe('AttributionData', function() {
             expect(result.auditing_token).toBe(auditingToken);
             expect(result.linkage_key).toBe(linkageKey);
             expect(result.touchpoint_id).toBe(touchpointId);
+            expect(result.total_credit).toBe(totalCredit);
         });
 
         test('Property setters should work for new AMM fields', function() {
@@ -131,6 +141,7 @@ describe('AttributionData', function() {
             const auditingToken = 'property_token';
             const linkageKey = 'property_key';
             const touchpointId = 'tp_property_123';
+            const totalCredit = 0.85;
 
             // Act
             attributionData.attribution_method = attributionMethod;
@@ -138,6 +149,7 @@ describe('AttributionData', function() {
             attributionData.auditing_token = auditingToken;
             attributionData.linkage_key = linkageKey;
             attributionData.touchpoint_id = touchpointId;
+            attributionData.total_credit = totalCredit;
 
             // Assert
             expect(attributionData.attribution_method).toBe(attributionMethod);
@@ -145,6 +157,7 @@ describe('AttributionData', function() {
             expect(attributionData.auditing_token).toBe(auditingToken);
             expect(attributionData.linkage_key).toBe(linkageKey);
             expect(attributionData.touchpoint_id).toBe(touchpointId);
+            expect(attributionData.total_credit).toBe(totalCredit);
         });
 
         test('Setter methods should work for attribution_setting field', function() {
@@ -282,6 +295,7 @@ describe('AttributionData', function() {
             expect(normalized.decline_reason).toBeUndefined();
             expect(normalized.auditing_token).toBeUndefined();
             expect(normalized.linkage_key).toBeUndefined();
+            expect(normalized.total_credit).toBeUndefined();
         });
 
         test('normalize should return only the fields that were set', function() {
@@ -322,6 +336,7 @@ describe('AttributionData', function() {
             attributionData.setAuditingToken('full_token');
             attributionData.setLinkageKey('full_key');
             attributionData.setTouchpointId('tp_full_id');
+            attributionData.setTotalCredit(0.85);
 
             // Act
             const normalized = attributionData.normalize();
@@ -345,6 +360,7 @@ describe('AttributionData', function() {
                 auditing_token: 'full_token',
                 linkage_key: 'full_key',
                 touchpoint_id: 'tp_full_id',
+                total_credit: 0.85,
             });
         });
 

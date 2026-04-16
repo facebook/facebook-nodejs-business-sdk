@@ -34,6 +34,7 @@ export default class AttributionData {
     _linkage_key: string;
     _touchpoint_id: string;
     _attribution_setting: AttributionSetting;
+    _total_credit: number;
 
 
     /**
@@ -55,11 +56,12 @@ export default class AttributionData {
      * @param {String} linkage_key The linkage key for the attribution.
      * @param {String} touchpoint_id Unique identifier for touchpoint events shared by Meta with advertisers.
      * @param {AttributionSetting} attribution_setting The attribution setting configuration.
+     * @param {Number} total_credit Total credit attributed to all publishers for this conversion.
      */
     constructor(scope: string, visit_time: number, ad_id: string, adset_id: string, campaign_id: string,
         attribution_share: number, attribution_model: AttributionModel, attr_window: number, attribution_value: number,
         attribution_source: string, touchpoint_type: string, touchpoint_ts: number, attribution_method: AttributionMethod,
-        decline_reason: DeclineReason, auditing_token: string, linkage_key: string, touchpoint_id: string, attribution_setting: AttributionSetting) {
+        decline_reason: DeclineReason, auditing_token: string, linkage_key: string, touchpoint_id: string, attribution_setting: AttributionSetting, total_credit: number) {
         this._scope = scope;
         this._visit_time = visit_time;
         this._ad_id = ad_id;
@@ -78,6 +80,7 @@ export default class AttributionData {
         this._linkage_key = linkage_key;
         this._touchpoint_id = touchpoint_id;
         this._attribution_setting = attribution_setting;
+        this._total_credit = total_credit;
     }
 
     /**
@@ -547,6 +550,31 @@ export default class AttributionData {
         return this;
     }
 
+    /**
+     * Returns the total_credit of the attribution data.
+     */
+    get total_credit(): number {
+        return this._total_credit;
+    }
+
+    /**
+     * Set the total_credit of the attribution data.
+     * @param {Number} total_credit Total credit attributed to all publishers for this conversion.
+     */
+    set total_credit(total_credit: number): void {
+        this._total_credit = total_credit;
+    }
+
+    /**
+     * Set the total_credit of the attribution data.
+     * @param {Number} total_credit Total credit attributed to all publishers for this conversion.
+     * @returns {AttributionData}
+     */
+    setTotalCredit(total_credit: number): AttributionData {
+        this._total_credit = total_credit;
+        return this;
+    }
+
 
     /**
 	 * Returns the normalized payload for the attribution data.
@@ -626,6 +654,10 @@ export default class AttributionData {
 
         if (this.attribution_setting) {
             attributionData.attribution_setting = this.attribution_setting.normalize();
+        }
+
+        if (this.total_credit != null) {
+            attributionData.total_credit = this.total_credit;
         }
 
 		return attributionData;
