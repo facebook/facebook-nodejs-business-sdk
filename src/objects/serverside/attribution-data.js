@@ -35,6 +35,7 @@ export default class AttributionData {
     _touchpoint_id: string;
     _attribution_setting: AttributionSetting;
     _total_credit: number;
+    _partner_client_id: string;
 
 
     /**
@@ -57,11 +58,12 @@ export default class AttributionData {
      * @param {String} touchpoint_id Unique identifier for touchpoint events shared by Meta with advertisers.
      * @param {AttributionSetting} attribution_setting The attribution setting configuration.
      * @param {Number} total_credit Total credit attributed to all publishers for this conversion.
+     * @param {String} partner_client_id Partner workspace/dashboard identifier for dedup across shared pixels.
      */
     constructor(scope: string, visit_time: number, ad_id: string, adset_id: string, campaign_id: string,
         attribution_share: number, attribution_model: AttributionModel, attr_window: number, attribution_value: number,
         attribution_source: string, touchpoint_type: string, touchpoint_ts: number, attribution_method: AttributionMethod,
-        decline_reason: DeclineReason, auditing_token: string, linkage_key: string, touchpoint_id: string, attribution_setting: AttributionSetting, total_credit: number) {
+        decline_reason: DeclineReason, auditing_token: string, linkage_key: string, touchpoint_id: string, attribution_setting: AttributionSetting, total_credit: number, partner_client_id: string) {
         this._scope = scope;
         this._visit_time = visit_time;
         this._ad_id = ad_id;
@@ -81,6 +83,7 @@ export default class AttributionData {
         this._touchpoint_id = touchpoint_id;
         this._attribution_setting = attribution_setting;
         this._total_credit = total_credit;
+        this._partner_client_id = partner_client_id;
     }
 
     /**
@@ -575,6 +578,32 @@ export default class AttributionData {
         return this;
     }
 
+    /**
+     * Returns the partner_client_id of the attribution data.
+     * Example: 'partner_workspace_123'
+     */
+    get partner_client_id(): string {
+        return this._partner_client_id;
+    }
+
+    /**
+     * Set the partner_client_id of the attribution data.
+     * @param {String} partner_client_id Partner workspace/dashboard identifier for dedup across shared pixels.
+     */
+    set partner_client_id(partner_client_id: string): void {
+        this._partner_client_id = partner_client_id;
+    }
+
+    /**
+     * Set the partner_client_id of the attribution data.
+     * @param {String} partner_client_id Partner workspace/dashboard identifier for dedup across shared pixels.
+     * @returns {AttributionData}
+     */
+    setPartnerClientId(partner_client_id: string): AttributionData {
+        this._partner_client_id = partner_client_id;
+        return this;
+    }
+
 
     /**
 	 * Returns the normalized payload for the attribution data.
@@ -658,6 +687,10 @@ export default class AttributionData {
 
         if (this.total_credit != null) {
             attributionData.total_credit = this.total_credit;
+        }
+
+        if (this.partner_client_id != null) {
+            attributionData.partner_client_id = this.partner_client_id;
         }
 
 		return attributionData;
