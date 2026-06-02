@@ -219,6 +219,7 @@ describe('ServerEvent.setRequestContext + Preference + auto-populate via normali
                 _fbp: 'fb.1.1700000000000.YY',
             },
             xForwardedFor: '203.0.113.42',
+            referer: 'https://referrer.example.com/',
         });
         const pref = new Preference(false, false, false, false, false);
         const event = (new ServerEvent())
@@ -232,6 +233,7 @@ describe('ServerEvent.setRequestContext + Preference + auto-populate via normali
         expect(ud.fbp).toBeUndefined();
         expect(ud.client_ip_address).toBeUndefined();
         expect(payload.event_source_url).toBeUndefined();
+        expect(payload.referrer_url).toBeUndefined();
     });
 
     // ---------------------------------------------------------------------
@@ -279,6 +281,51 @@ describe('ServerEvent.setRequestContext + Preference + auto-populate via normali
         const payload = event.normalize();
         expect(payload.user_data.fbc).toBeTruthy();
         expect(payload.event_source_url).toBeUndefined();
+    });
+
+    // ---------------------------------------------------------------------
+    // referrer_url auto-population from the request Referer header.
+    // ParamBuilder appends an appendix token, so assert on the URL prefix.
+    // ---------------------------------------------------------------------
+
+    test('normalize() auto-populates referrer_url from the request context', function() {
+        const req = buildMockRequest({referer: 'https://google.com/search?q=foo'});
+        const event = (new ServerEvent())
+            .setEventName('PageView')
+            .setEventTime(1700000070)
+            .setRequestContext(req);
+
+        const payload = event.normalize();
+        expect(payload.referrer_url).toBeTruthy();
+        expect(payload.referrer_url).toEqual(
+            expect.stringContaining('https://google.com/search?q=foo'));
+    });
+
+    test('caller-supplied referrer_url takes precedence over the builder', function() {
+        const req = buildMockRequest({referer: 'https://builder.example.com/'});
+        const event = (new ServerEvent())
+            .setEventName('Lead')
+            .setEventTime(1700000071)
+            .setReferrerUrl('https://caller.example.com/')
+            .setRequestContext(req);
+
+        expect(event.normalize().referrer_url).toBe('https://caller.example.com/');
+    });
+
+    test('Preference is_referrer_url_allowed=false gates referrer_url', function() {
+        const req = buildMockRequest({
+            referer: 'https://builder.example.com/',
+            cookies: {_fbc: 'fb.1.1700000000000.WITHFBC'},
+        });
+        const pref = new Preference(/*fbc*/ true, /*fbp*/ true, /*ip*/ true, /*referrer*/ false, /*event_source_url*/ true);
+        const event = (new ServerEvent())
+            .setEventName('PageView')
+            .setEventTime(1700000072)
+            .setRequestContext(req, pref);
+
+        const payload = event.normalize();
+        expect(payload.user_data.fbc).toBeTruthy();
+        expect(payload.referrer_url).toBeUndefined();
     });
 
     // ---------------------------------------------------------------------

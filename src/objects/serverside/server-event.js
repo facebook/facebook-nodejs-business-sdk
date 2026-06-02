@@ -38,6 +38,7 @@ export default class ServerEvent {
 	_messaging_channel: string;
 	_original_event_data: OriginalEventData;
 	_attribution_data: AttributionData;
+	_referrer_url: string;
 	_context: mixed;
 	_preference: ?Preference;
 	_param_builder: ?ParamBuilder;
@@ -59,8 +60,9 @@ export default class ServerEvent {
 	 * @param {String} messaging_channel Indicates which channel was used to send the message.
 	 * @param {OriginalEventData} original_event_data Contains original event info used for attribution passback event or generalized value optimization(GVO).
 	 * @param {AttributionData} attribution_data Used for attribution passback event to optimize the performance.
+	 * @param {String} referrer_url The referrer URL of the browser request that triggered the event.
 	 */
-	constructor(event_name: string, event_time: number, event_source_url: string, user_data: UserData, custom_data: CustomData, app_data: AppData, event_id: string, opt_out: boolean, action_source: string, data_processing_options: Array<string>, data_processing_options_country: number, data_processing_options_state: number, advanced_measurement_table: string, advertiser_tracking_enabled: boolean, messaging_channel: string, original_event_data: OriginalEventData, attribution_data: AttributionData) {
+	constructor(event_name: string, event_time: number, event_source_url: string, user_data: UserData, custom_data: CustomData, app_data: AppData, event_id: string, opt_out: boolean, action_source: string, data_processing_options: Array<string>, data_processing_options_country: number, data_processing_options_state: number, advanced_measurement_table: string, advertiser_tracking_enabled: boolean, messaging_channel: string, original_event_data: OriginalEventData, attribution_data: AttributionData, referrer_url: string) {
 
 		this._event_name = event_name;
 		this._event_time = event_time;
@@ -78,6 +80,7 @@ export default class ServerEvent {
 		this._messaging_channel = messaging_channel;
 		this._original_event_data = original_event_data;
 		this._attribution_data = attribution_data;
+		this._referrer_url = referrer_url;
 	}
 
 	/**
@@ -149,6 +152,30 @@ export default class ServerEvent {
 	 */
 	setEventSourceUrl(event_source_url: string) : ServerEvent {
 		this._event_source_url = event_source_url;
+		return this;
+	}
+
+	/**
+	 * Gets the referrer URL of the browser request that triggered the event.
+	 */
+	get referrer_url() {
+		return this._referrer_url;
+	}
+
+	/**
+	 * Sets the referrer URL of the browser request that triggered the event.
+	 * @param {String} referrer_url The referrer URL of the browser request that triggered the event.
+	 */
+	set referrer_url(referrer_url: string) {
+		this._referrer_url = referrer_url;
+	}
+
+	/**
+	 * Sets the referrer URL of the browser request that triggered the event.
+	 * @param {String} referrer_url The referrer URL of the browser request that triggered the event.
+	 */
+	setReferrerUrl(referrer_url: string) : ServerEvent {
+		this._referrer_url = referrer_url;
 		return this;
 	}
 
@@ -552,6 +579,11 @@ export default class ServerEvent {
 		if (this._preference.isEventSourceUrlAllowed() && !this.event_source_url && builder_event_source_url) {
 			this.setEventSourceUrl(builder_event_source_url);
 		}
+
+		const builder_referrer_url = this._param_builder.getReferrerUrl();
+		if (this._preference.isReferrerUrlAllowed() && !this.referrer_url && builder_referrer_url) {
+			this.setReferrerUrl(builder_referrer_url);
+		}
 	}
 
 	/**
@@ -612,6 +644,10 @@ export default class ServerEvent {
 
 		if (this.event_source_url) {
 			serverEvent.event_source_url = this.event_source_url;
+		}
+
+		if (this.referrer_url) {
+			serverEvent.referrer_url = this.referrer_url;
 		}
 
 		if (this.data_processing_options) {
