@@ -11,6 +11,7 @@ import AppData from './app-data';
 import AttributionData from './attribution-data';
 import CustomData from './custom-data';
 import OriginalEventData from './original-event-data';
+import Preference from './preference';
 import UserData from './user-data';
 
 /**
@@ -36,6 +37,8 @@ export default class ServerEvent {
 	_messaging_channel: string;
 	_original_event_data: OriginalEventData;
 	_attribution_data: AttributionData;
+	_context: mixed;
+	_preference: ?Preference;
 
 	/**
 	 * @param {String} event_name A Facebook pixel Standard Event or Custom Event name.
@@ -498,6 +501,35 @@ export default class ServerEvent {
 	setAttributionData(attribution_data: AttributionData) : ServerEvent {
 		this._attribution_data = attribution_data;
 		return this;
+	}
+
+	/**
+	 * Sets the request context and optional preference for automatic data extraction.
+	 * This triggers CAPI ParamBuilder to extract parameters like fbc, fbp,
+	 * client_ip_address, and referrer_url from the context object and automatically
+	 * set them on the event. The preference object controls which data are allowed
+	 * to be set. If no preference is provided, all fields default to true.
+	 * @param {mixed} context The context object (e.g. HTTP request object)
+	 * @param {Preference} preference Optional preference object to control auto-extraction
+	 */
+	setRequestContext(context: mixed, preference: ?Preference = null) : ServerEvent {
+		this._context = context;
+		this._preference = preference != null ? preference : new Preference();
+		return this;
+	}
+
+	/**
+	 * Gets the request context object.
+	 */
+	getRequestContext() {
+		return this._context;
+	}
+
+	/**
+	 * Gets the Preference object.
+	 */
+	getPreference() {
+		return this._preference;
 	}
 
 
