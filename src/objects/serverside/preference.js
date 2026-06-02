@@ -17,23 +17,27 @@ export default class Preference {
 	_is_fbp_allowed: boolean;
 	_is_client_ip_address_allowed: boolean;
 	_is_referrer_url_allowed: boolean;
+	_is_event_source_url_allowed: boolean;
 
 	/**
 	 * @param {Boolean} is_fbc_allowed Whether fbc is allowed (default: true)
 	 * @param {Boolean} is_fbp_allowed Whether fbp is allowed (default: true)
 	 * @param {Boolean} is_client_ip_address_allowed Whether client_ip_address is allowed (default: true)
 	 * @param {Boolean} is_referrer_url_allowed Whether referrer_url is allowed (default: true)
+	 * @param {Boolean} is_event_source_url_allowed Whether event_source_url is allowed (default: true)
 	 */
 	constructor(
 		is_fbc_allowed: boolean = true,
 		is_fbp_allowed: boolean = true,
 		is_client_ip_address_allowed: boolean = true,
 		is_referrer_url_allowed: boolean = true,
+		is_event_source_url_allowed: boolean = true,
 	) {
 		this._is_fbc_allowed = is_fbc_allowed;
 		this._is_fbp_allowed = is_fbp_allowed;
 		this._is_client_ip_address_allowed = is_client_ip_address_allowed;
 		this._is_referrer_url_allowed = is_referrer_url_allowed;
+		this._is_event_source_url_allowed = is_event_source_url_allowed;
 	}
 
 	/**
@@ -62,5 +66,12 @@ export default class Preference {
 	 */
 	isReferrerUrlAllowed() {
 		return this._is_referrer_url_allowed;
+	}
+
+	/**
+	 * Gets whether event_source_url is allowed to be set from the request context.
+	 */
+	isEventSourceUrlAllowed() {
+		return this._is_event_source_url_allowed;
 	}
 }
