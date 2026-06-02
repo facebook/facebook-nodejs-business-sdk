@@ -16,6 +16,7 @@ export { default as Content } from './../src/objects/serverside/content';
 export { default as CustomData } from './../src/objects/serverside/custom-data';
 export { default as EventRequest } from './../src/objects/serverside/event-request';
 export { default as EventResponse } from './../src/objects/serverside/event-response';
+export { default as Preference } from './../src/objects/serverside/preference';
 export { default as ServerEvent } from './../src/objects/serverside/server-event';
 export { default as UserData } from './../src/objects/serverside/user-data';
 export { default as ExtendedDeviceInfo } from './../src/objects/serverside/extended-device-info';
