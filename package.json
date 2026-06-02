@@ -32,6 +32,7 @@
   },
   "dependencies": {
     "axios": "^1.4.0",
+    "capi-param-builder-nodejs": "^1.2.1",
     "currency-codes": "^1.5.1",
     "email-validator": "^2.0.4",
     "iso-3166-1": "^2.1.1",
