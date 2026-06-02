@@ -519,6 +519,22 @@ export default class ServerEvent {
 		this._preference = preference != null ? preference : new Preference();
 		this._param_builder = new ParamBuilder();
 		this._param_builder.processRequestFromContext(context);
+
+		const user_data = this._user_data || new UserData();
+		const builder_fbc = this._param_builder.getFbc();
+		if (this._preference.isFbcAllowed() && !user_data.fbc && builder_fbc) {
+			user_data.setFbc(builder_fbc);
+		}
+		const builder_fbp = this._param_builder.getFbp();
+		if (this._preference.isFbpAllowed() && !user_data.fbp && builder_fbp) {
+			user_data.setFbp(builder_fbp);
+		}
+		const builder_ip = this._param_builder.getClientIpAddress();
+		if (this._preference.isClientIpAddressAllowed() && !user_data.client_ip_address && builder_ip) {
+			user_data.setClientIpAddress(builder_ip);
+		}
+		this._user_data = user_data;
+
 		return this;
 	}
 
