@@ -9,6 +9,22 @@
 'use strict';
 const {UserData} = require('facebook-nodejs-business-sdk');
 const sha256 = require('js-sha256');
+const {ParamBuilder, PII_DATA_TYPE} = require('capi-param-builder-nodejs');
+
+const _piiBuilder = new ParamBuilder();
+function piiHash(value, dataType) {
+    return _piiBuilder.getNormalizedAndHashedPII(value, dataType);
+}
+function piiHashList(arr, dataType) {
+    const out = new Set();
+    for (const v of arr) {
+        const h = piiHash(v, dataType);
+        if (h != null) {
+            out.add(h);
+        }
+    }
+    return Array.from(out);
+}
 
 
 describe('UserData', function() {
@@ -32,7 +48,7 @@ describe('UserData', function() {
             const normalizedUserData = userData.normalize();
 
             expect(normalizedUserData).toEqual({
-                'ph': [sha256(phone)],
+                'ph': [piiHash(phone, PII_DATA_TYPE.PHONE)],
             });
         });
 
@@ -67,17 +83,17 @@ describe('UserData', function() {
             const normalizedUserData = userData.normalize();
 
             // Assert
-            validateValues('emails', emails, normalizedUserData.em);
-            validateValues('phones', phones, normalizedUserData.ph);
-            validateValues('genders', genders, normalizedUserData.ge);
-            validateValues('datesOfBirth', datesOfBirth, normalizedUserData.db);
-            validateValues('lastNames', lastNames, normalizedUserData.ln);
-            validateValues('firstNames', firstNames, normalizedUserData.fn);
-            validateValues('cities', cities, normalizedUserData.ct);
-            validateValues('states', states, normalizedUserData.st);
-            validateValues('zips', zips, normalizedUserData.zp);
-            validateValues('countries', countries, normalizedUserData.country);
-            expect(normalizedUserData.external_id).toEqual(externalIds.slice(0, 2));
+            expect(normalizedUserData.em).toEqual(piiHashList(emails, PII_DATA_TYPE.EMAIL));
+            expect(normalizedUserData.ph).toEqual(piiHashList(phones, PII_DATA_TYPE.PHONE));
+            expect(normalizedUserData.ge).toEqual(piiHashList(genders, PII_DATA_TYPE.GENDER));
+            expect(normalizedUserData.db).toEqual(piiHashList(datesOfBirth, PII_DATA_TYPE.DATE_OF_BIRTH));
+            expect(normalizedUserData.ln).toEqual(piiHashList(lastNames, PII_DATA_TYPE.LAST_NAME));
+            expect(normalizedUserData.fn).toEqual(piiHashList(firstNames, PII_DATA_TYPE.FIRST_NAME));
+            expect(normalizedUserData.ct).toEqual(piiHashList(cities, PII_DATA_TYPE.CITY));
+            expect(normalizedUserData.st).toEqual(piiHashList(states, PII_DATA_TYPE.STATE));
+            expect(normalizedUserData.zp).toEqual(piiHashList(zips, PII_DATA_TYPE.ZIP_CODE));
+            expect(normalizedUserData.country).toEqual(piiHashList(countries, PII_DATA_TYPE.COUNTRY));
+            expect(normalizedUserData.external_id).toEqual(piiHashList(externalIds, PII_DATA_TYPE.EXTERNAL_ID));
         });
 
         test('F5 Name field, for a long name, should normalize and hash only first 5 characters', function() {
@@ -301,13 +317,3 @@ describe('UserData', function() {
     });
 });
 
-/**
- * Helper function to assert on each value of multi-value fields
- */
-function validateValues(fieldName, rawValues, actualNormalizedValues) {
-    var expectedValues = new Set();
-    for (let i in rawValues) {
-        expectedValues.add(sha256(rawValues[i]));
-    }
-    expect(actualNormalizedValues).toEqual(Array.from(expectedValues));
-}

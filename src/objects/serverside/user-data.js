@@ -8,6 +8,15 @@
  */
 
 import ServerSideUtils from './utils';
+const {ParamBuilder, PII_DATA_TYPE} = require('capi-param-builder-nodejs');
+
+let _pii_param_builder = null;
+function _getPiiParamBuilder(): ParamBuilder {
+	if (_pii_param_builder == null) {
+		_pii_param_builder = new ParamBuilder();
+	}
+	return _pii_param_builder;
+}
 
 /**
  * UserData represents the User Data Parameters(user_data) of a Conversions API Event Request.
@@ -1205,47 +1214,47 @@ export default class UserData {
 		const userData = {};
 
 		if (this.emails) {
-			userData['em'] = this.normalizeAndHashMultiValues(this.emails, 'em');
+			userData['em'] = this.normalizeAndHashMultiValues(this.emails, PII_DATA_TYPE.EMAIL);
 		}
 
 		if (this.phones) {
-			userData['ph'] = this.normalizeAndHashMultiValues(this.phones, 'ph');
+			userData['ph'] = this.normalizeAndHashMultiValues(this.phones, PII_DATA_TYPE.PHONE);
 		}
 
 		if (this.genders) {
-			userData['ge'] = this.normalizeAndHashMultiValues(this.genders, 'ge');
+			userData['ge'] = this.normalizeAndHashMultiValues(this.genders, PII_DATA_TYPE.GENDER);
 		}
 
 		if (this.dates_of_birth) {
-			userData['db'] = this.normalizeAndHashMultiValues(this.dates_of_birth, 'db');
+			userData['db'] = this.normalizeAndHashMultiValues(this.dates_of_birth, PII_DATA_TYPE.DATE_OF_BIRTH);
 		}
 
 		if (this.last_names) {
-			userData['ln'] = this.normalizeAndHashMultiValues(this.last_names, 'ln');
+			userData['ln'] = this.normalizeAndHashMultiValues(this.last_names, PII_DATA_TYPE.LAST_NAME);
 		}
 
 		if (this.first_names) {
-			userData['fn'] = this.normalizeAndHashMultiValues(this.first_names, 'fn');
+			userData['fn'] = this.normalizeAndHashMultiValues(this.first_names, PII_DATA_TYPE.FIRST_NAME);
 		}
 
 		if (this.cities) {
-			userData['ct'] = this.normalizeAndHashMultiValues(this.cities, 'ct');
+			userData['ct'] = this.normalizeAndHashMultiValues(this.cities, PII_DATA_TYPE.CITY);
 		}
 
 		if (this.states) {
-			userData['st'] = this.normalizeAndHashMultiValues(this.states, 'st');
+			userData['st'] = this.normalizeAndHashMultiValues(this.states, PII_DATA_TYPE.STATE);
 		}
 
 		if (this.zips) {
-			userData['zp'] = this.normalizeAndHashMultiValues(this.zips, 'zp');
+			userData['zp'] = this.normalizeAndHashMultiValues(this.zips, PII_DATA_TYPE.ZIP_CODE);
 		}
 
 		if (this.countries) {
-			userData['country'] = this.normalizeAndHashMultiValues(this.countries, 'country');
+			userData['country'] = this.normalizeAndHashMultiValues(this.countries, PII_DATA_TYPE.COUNTRY);
 		}
 
 		if (this.external_ids) {
-			userData['external_id'] = this.dedupArray(this.external_ids);
+			userData['external_id'] = this.normalizeAndHashMultiValues(this.external_ids, PII_DATA_TYPE.EXTERNAL_ID);
 		}
 
 		if (this.client_ip_address) {
@@ -1325,11 +1334,24 @@ export default class UserData {
 
   /**
   * Returns the deduped and normalized payload for the given array of values and the field.
+  * Uses CAPI ParamBuilder's getNormalizedAndHashedPII for normalization+hashing;
+  * the second arg is now a PII_DATA_TYPE value (e.g. 'email') rather than a
+  * short field code ('em'). Skips entries that the helper rejects (null).
   * @returns {string[]} dedupped and normalized values.
   */
-  normalizeAndHashMultiValues(arr: string[], fieldName: String): string[]{
-    let normalizedArray = arr.map(value => ServerSideUtils.normalizeAndHash(value, fieldName));
-    return this.dedupArray(normalizedArray);
+  normalizeAndHashMultiValues(arr: string[], dataType: string): string[]{
+    if (!arr || arr.length === 0) {
+      return [];
+    }
+    const builder = _getPiiParamBuilder();
+    const dedup = new Set();
+    for (const val of arr) {
+      const hashed = builder.getNormalizedAndHashedPII(val, dataType);
+      if (hashed != null) {
+        dedup.add(hashed);
+      }
+    }
+    return Array.from(dedup);
   }
 
 	/**
