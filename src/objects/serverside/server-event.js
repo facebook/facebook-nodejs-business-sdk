@@ -507,10 +507,11 @@ export default class ServerEvent {
 
 	/**
 	 * Sets the request context and optional preference for automatic data extraction.
-	 * This triggers CAPI ParamBuilder to extract parameters like fbc, fbp,
-	 * client_ip_address, and referrer_url from the context object and automatically
-	 * set them on the event. The preference object controls which data are allowed
-	 * to be set. If no preference is provided, all fields default to true.
+	 * Stores the context and constructs a CAPI ParamBuilder; extraction of
+	 * parameters (fbc, fbp, client_ip_address, ...) into UserData is deferred
+	 * until normalize() runs at send time, so call order with setUserData()
+	 * does not matter. The preference object controls which data are allowed
+	 * to be auto-set. If no preference is provided, all fields default to true.
 	 * @param {mixed} context The context object (e.g. HTTP request object)
 	 * @param {Preference} preference Optional preference object to control auto-extraction
 	 */
@@ -519,7 +520,19 @@ export default class ServerEvent {
 		this._preference = preference != null ? preference : new Preference();
 		this._param_builder = new ParamBuilder();
 		this._param_builder.processRequestFromContext(context);
+		return this;
+	}
 
+	/**
+	 * Fills empty UserData fields from the ParamBuilder-extracted values, gated
+	 * by Preference. No-op when setRequestContext was never called. Idempotent:
+	 * only fills fields that are currently empty, so the user's explicit
+	 * UserData values always take precedence regardless of call order.
+	 */
+	_applyParamBuilderDefaults(): void {
+		if (this._param_builder == null || this._preference == null) {
+			return;
+		}
 		const user_data = this._user_data || new UserData();
 		const builder_fbc = this._param_builder.getFbc();
 		if (this._preference.isFbcAllowed() && !user_data.fbc && builder_fbc) {
@@ -534,8 +547,6 @@ export default class ServerEvent {
 			user_data.setClientIpAddress(builder_ip);
 		}
 		this._user_data = user_data;
-
-		return this;
 	}
 
 	/**
@@ -558,6 +569,7 @@ export default class ServerEvent {
 	 * @returns {Object} normalized event payload.
 	 */
 	normalize(): Object {
+		this._applyParamBuilderDefaults();
 
 		const serverEvent = {};
 
