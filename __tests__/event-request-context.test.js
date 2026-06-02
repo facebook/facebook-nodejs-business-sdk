@@ -82,6 +82,7 @@ describe('ServerEvent.setRequestContext + Preference + auto-populate via normali
         expect(pref.isFbpAllowed()).toBe(true);
         expect(pref.isClientIpAddressAllowed()).toBe(true);
         expect(pref.isReferrerUrlAllowed()).toBe(true);
+        expect(pref.isEventSourceUrlAllowed()).toBe(true);
     });
 
     test('setRequestContext is fluent (returns self)', function() {
@@ -219,16 +220,65 @@ describe('ServerEvent.setRequestContext + Preference + auto-populate via normali
             },
             xForwardedFor: '203.0.113.42',
         });
-        const pref = new Preference(false, false, false, false);
+        const pref = new Preference(false, false, false, false, false);
         const event = (new ServerEvent())
             .setEventName('PageView')
             .setEventTime(1700000031)
             .setRequestContext(req, pref);
 
-        const ud = event.normalize().user_data || {};
+        const payload = event.normalize();
+        const ud = payload.user_data || {};
         expect(ud.fbc).toBeUndefined();
         expect(ud.fbp).toBeUndefined();
         expect(ud.client_ip_address).toBeUndefined();
+        expect(payload.event_source_url).toBeUndefined();
+    });
+
+    // ---------------------------------------------------------------------
+    // event_source_url auto-population from the request context (scheme +
+    // host + url). ParamBuilder appends an appendix token, so assert on the
+    // URL prefix.
+    // ---------------------------------------------------------------------
+
+    test('normalize() auto-populates event_source_url from the request context', function() {
+        const req = buildMockRequest({host: 'shop.example.com', url: '/cart'});
+        const event = (new ServerEvent())
+            .setEventName('PageView')
+            .setEventTime(1700000060)
+            .setRequestContext(req);
+
+        const payload = event.normalize();
+        expect(payload.event_source_url).toBeTruthy();
+        expect(payload.event_source_url).toEqual(
+            expect.stringContaining('http://shop.example.com/cart'));
+    });
+
+    test('caller-supplied event_source_url takes precedence over the builder', function() {
+        const req = buildMockRequest({host: 'shop.example.com', url: '/from-builder'});
+        const event = (new ServerEvent())
+            .setEventName('Lead')
+            .setEventTime(1700000061)
+            .setEventSourceUrl('https://from-caller/')
+            .setRequestContext(req);
+
+        expect(event.normalize().event_source_url).toBe('https://from-caller/');
+    });
+
+    test('Preference is_event_source_url_allowed=false gates event_source_url', function() {
+        const req = buildMockRequest({
+            host: 'shop.example.com',
+            url: '/cart',
+            cookies: {_fbc: 'fb.1.1700000000000.WITHFBC'},
+        });
+        const pref = new Preference(/*fbc*/ true, /*fbp*/ true, /*ip*/ true, /*referrer*/ true, /*event_source_url*/ false);
+        const event = (new ServerEvent())
+            .setEventName('PageView')
+            .setEventTime(1700000062)
+            .setRequestContext(req, pref);
+
+        const payload = event.normalize();
+        expect(payload.user_data.fbc).toBeTruthy();
+        expect(payload.event_source_url).toBeUndefined();
     });
 
     // ---------------------------------------------------------------------

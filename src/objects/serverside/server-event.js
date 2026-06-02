@@ -524,10 +524,10 @@ export default class ServerEvent {
 	}
 
 	/**
-	 * Fills empty UserData fields from the ParamBuilder-extracted values, gated
-	 * by Preference. No-op when setRequestContext was never called. Idempotent:
-	 * only fills fields that are currently empty, so the user's explicit
-	 * UserData values always take precedence regardless of call order.
+	 * Fills empty UserData and Event fields from the ParamBuilder-extracted
+	 * values, gated by Preference. No-op when setRequestContext was never
+	 * called. Idempotent: only fills fields that are currently empty, so the
+	 * caller's explicit values always take precedence regardless of call order.
 	 */
 	_applyParamBuilderDefaults(): void {
 		if (this._param_builder == null || this._preference == null) {
@@ -547,6 +547,11 @@ export default class ServerEvent {
 			user_data.setClientIpAddress(builder_ip);
 		}
 		this._user_data = user_data;
+
+		const builder_event_source_url = this._param_builder.getEventSourceUrl();
+		if (this._preference.isEventSourceUrlAllowed() && !this.event_source_url && builder_event_source_url) {
+			this.setEventSourceUrl(builder_event_source_url);
+		}
 	}
 
 	/**
