@@ -13,6 +13,7 @@ import CustomData from './custom-data';
 import OriginalEventData from './original-event-data';
 import Preference from './preference';
 import UserData from './user-data';
+const {ParamBuilder} = require('capi-param-builder-nodejs');
 
 /**
  * ServerEvent
@@ -39,6 +40,7 @@ export default class ServerEvent {
 	_attribution_data: AttributionData;
 	_context: mixed;
 	_preference: ?Preference;
+	_param_builder: ?ParamBuilder;
 
 	/**
 	 * @param {String} event_name A Facebook pixel Standard Event or Custom Event name.
@@ -515,6 +517,8 @@ export default class ServerEvent {
 	setRequestContext(context: mixed, preference: ?Preference = null) : ServerEvent {
 		this._context = context;
 		this._preference = preference != null ? preference : new Preference();
+		this._param_builder = new ParamBuilder();
+		this._param_builder.processRequestFromContext(context);
 		return this;
 	}
 
