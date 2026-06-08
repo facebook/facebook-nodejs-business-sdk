@@ -34,6 +34,14 @@ export default class UserPageOneTimeOptInTokenSettings extends AbstractCrudObjec
     });
   }
 
+  static get OptInSource (): Object {
+    return Object.freeze({
+      comment_automation: 'COMMENT_AUTOMATION',
+      ctm: 'CTM',
+      reply_automation: 'REPLY_AUTOMATION',
+      subscriber_list: 'SUBSCRIBER_LIST',
+    });
+  }
 
   
   get (fields: Array<string>, params: Object = {}): UserPageOneTimeOptInTokenSettings {

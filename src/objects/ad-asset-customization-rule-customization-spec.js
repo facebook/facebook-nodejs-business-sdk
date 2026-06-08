@@ -34,6 +34,7 @@ export default class AdAssetCustomizationRuleCustomizationSpec extends AbstractC
 
   static get DevicePlatforms (): Object {
     return Object.freeze({
+      connected_tv: 'connected_tv',
       desktop: 'desktop',
       mobile: 'mobile',
     });

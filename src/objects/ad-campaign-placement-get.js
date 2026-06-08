@@ -33,12 +33,14 @@ export default class AdCampaignPlacementGet extends AbstractCrudObject {
   static get EffectiveAudienceNetworkPositions (): Object {
     return Object.freeze({
       classic: 'CLASSIC',
+      ctv_instream_video: 'CTV_INSTREAM_VIDEO',
       instream_video: 'INSTREAM_VIDEO',
       rewarded_video: 'REWARDED_VIDEO',
     });
   }
   static get EffectiveDevicePlatforms (): Object {
     return Object.freeze({
+      connected_tv: 'CONNECTED_TV',
       desktop: 'DESKTOP',
       mobile: 'MOBILE',
     });

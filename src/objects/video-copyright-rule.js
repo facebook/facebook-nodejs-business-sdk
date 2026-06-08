@@ -25,6 +25,7 @@ export default class VideoCopyrightRule extends AbstractCrudObject {
       id: 'id',
       is_in_migration: 'is_in_migration',
       name: 'name',
+      validity_status: 'validity_status',
     });
   }
 

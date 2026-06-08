@@ -27,6 +27,7 @@ export default class AdCreativeSiteLinksSpec extends AbstractCrudObject {
       site_link_image_hash: 'site_link_image_hash',
       site_link_image_url: 'site_link_image_url',
       site_link_language: 'site_link_language',
+      site_link_original_url: 'site_link_original_url',
       site_link_recommendation_type: 'site_link_recommendation_type',
       site_link_title: 'site_link_title',
       site_link_url: 'site_link_url',

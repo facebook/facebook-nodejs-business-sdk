@@ -160,6 +160,7 @@ export default class Application extends AbstractCrudObject {
   static get AnPlatforms (): Object {
     return Object.freeze({
       android: 'ANDROID',
+      ctv: 'CTV',
       desktop: 'DESKTOP',
       galaxy: 'GALAXY',
       instant_articles: 'INSTANT_ARTICLES',

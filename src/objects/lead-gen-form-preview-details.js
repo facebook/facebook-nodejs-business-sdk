@@ -20,7 +20,6 @@ export default class LeadGenFormPreviewDetails extends AbstractCrudObject {
     return Object.freeze({
       book_on_website_text: 'book_on_website_text',
       call_business_text: 'call_business_text',
-      call_to_action_title: 'call_to_action_title',
       chat_on_messenger_text: 'chat_on_messenger_text',
       chat_on_whatsapp_text: 'chat_on_whatsapp_text',
       contact_information_text: 'contact_information_text',

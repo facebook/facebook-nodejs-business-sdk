@@ -9,8 +9,7 @@
  */
 
 import {AbstractCrudObject} from './../abstract-crud-object';
-import Cursor from './../cursor';
-import AdCampaignGroupGet from './ad-campaign-group-get';
+import AdCampaignGroupDelete from './ad-campaign-group-delete';
 
 /**
  * AdCampaignGroup
@@ -25,13 +24,10 @@ export default class AdCampaignGroup extends AbstractCrudObject {
   }
 
 
-  genget (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AdCampaignGroupGet,
-      fields,
-      params,
-      fetchFirstPage,
-      '/'
+  gendelete (params: Object = {}): Promise<*> {
+    return super.deleteEdge(
+      '/',
+      params
     );
   }
 }

@@ -23,4 +23,11 @@ export default class ProductCatalogDataSourcesGet extends AbstractCrudObject {
     });
   }
 
+  static get IngestionSourceType (): Object {
+    return Object.freeze({
+      all: 'ALL',
+      primary: 'PRIMARY',
+      supplementary: 'SUPPLEMENTARY',
+    });
+  }
 }

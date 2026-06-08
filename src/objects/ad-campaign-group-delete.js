@@ -11,11 +11,11 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * ProductCatalogAppsAndSoftwareItemDelete
+ * AdCampaignGroupDelete
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class ProductCatalogAppsAndSoftwareItemDelete extends AbstractCrudObject {
+export default class AdCampaignGroupDelete extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       success: 'success',

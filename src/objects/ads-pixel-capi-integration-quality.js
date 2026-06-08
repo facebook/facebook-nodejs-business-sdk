@@ -21,10 +21,12 @@ export default class AdsPixelCAPIIntegrationQuality extends AbstractCrudObject {
       acr: 'acr',
       data_freshness: 'data_freshness',
       dedupe_key_feedback: 'dedupe_key_feedback',
+      event_ad_sets: 'event_ad_sets',
       event_coverage: 'event_coverage',
       event_match_quality: 'event_match_quality',
       event_name: 'event_name',
       event_potential_aly_acr_increase: 'event_potential_aly_acr_increase',
+      event_spend: 'event_spend',
     });
   }
 

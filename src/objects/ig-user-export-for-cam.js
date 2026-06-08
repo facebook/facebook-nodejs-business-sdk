@@ -21,6 +21,7 @@ export default class IGUserExportForCAM extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       age_bucket: 'age_bucket',
+      badges: 'badges',
       biography: 'biography',
       country: 'country',
       email: 'email',
@@ -28,6 +29,7 @@ export default class IGUserExportForCAM extends AbstractCrudObject {
       has_brand_partnership_experience: 'has_brand_partnership_experience',
       id: 'id',
       is_account_verified: 'is_account_verified',
+      is_creator_following_brand: 'is_creator_following_brand',
       is_paid_partnership_messages_enabled: 'is_paid_partnership_messages_enabled',
       messaging_id: 'messaging_id',
       onboarded_status: 'onboarded_status',
@@ -564,6 +566,15 @@ export default class IGUserExportForCAM extends AbstractCrudObject {
       female: 'female',
       male: 'male',
       unknown: 'unknown',
+    });
+  }
+  static get RecommendationType (): Object {
+    return Object.freeze({
+      high_ad_performance: 'high_ad_performance',
+      most_ads_experience: 'most_ads_experience',
+      most_relevant_for_me: 'most_relevant_for_me',
+      similar_audience: 'similar_audience',
+      similar_brands: 'similar_brands',
     });
   }
 

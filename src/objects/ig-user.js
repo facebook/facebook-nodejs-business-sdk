@@ -43,6 +43,7 @@ export default class IGUser extends AbstractCrudObject {
     return Object.freeze({
       biography: 'biography',
       business_discovery: 'business_discovery',
+      collaborative_media_search: 'collaborative_media_search',
       followers_count: 'followers_count',
       follows_count: 'follows_count',
       has_profile_pic: 'has_profile_pic',

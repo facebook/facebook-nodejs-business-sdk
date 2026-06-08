@@ -53,6 +53,7 @@ export default class AdCreative extends AbstractCrudObject {
       existing_post_title: 'existing_post_title',
       facebook_branded_content: 'facebook_branded_content',
       format_transformation_spec: 'format_transformation_spec',
+      generative_asset_spec: 'generative_asset_spec',
       id: 'id',
       image_crops: 'image_crops',
       image_hash: 'image_hash',
@@ -98,6 +99,7 @@ export default class AdCreative extends AbstractCrudObject {
       url_tags: 'url_tags',
       use_page_actor_override: 'use_page_actor_override',
       video_id: 'video_id',
+      wamo_whatsapp_identity_spec: 'wamo_whatsapp_identity_spec',
     });
   }
 
@@ -150,6 +152,7 @@ export default class AdCreative extends AbstractCrudObject {
       install_app: 'INSTALL_APP',
       install_mobile_app: 'INSTALL_MOBILE_APP',
       join_channel: 'JOIN_CHANNEL',
+      join_live_video: 'JOIN_LIVE_VIDEO',
       learn_more: 'LEARN_MORE',
       like_page: 'LIKE_PAGE',
       listen_music: 'LISTEN_MUSIC',

@@ -43,6 +43,7 @@ export default class Targeting extends AbstractCrudObject {
       education_schools: 'education_schools',
       education_statuses: 'education_statuses',
       effective_audience_network_positions: 'effective_audience_network_positions',
+      effective_brand_safety_content_filter_levels: 'effective_brand_safety_content_filter_levels',
       effective_device_platforms: 'effective_device_platforms',
       effective_facebook_positions: 'effective_facebook_positions',
       effective_instagram_positions: 'effective_instagram_positions',
@@ -102,6 +103,7 @@ export default class Targeting extends AbstractCrudObject {
       regions: 'regions',
       relationship_statuses: 'relationship_statuses',
       site_category: 'site_category',
+      subscriber_universe: 'subscriber_universe',
       targeting_automation: 'targeting_automation',
       targeting_optimization: 'targeting_optimization',
       targeting_relaxation_types: 'targeting_relaxation_types',
@@ -121,12 +123,14 @@ export default class Targeting extends AbstractCrudObject {
 
   static get DevicePlatforms (): Object {
     return Object.freeze({
+      connected_tv: 'connected_tv',
       desktop: 'desktop',
       mobile: 'mobile',
     });
   }
   static get EffectiveDevicePlatforms (): Object {
     return Object.freeze({
+      connected_tv: 'connected_tv',
       desktop: 'desktop',
       mobile: 'mobile',
     });

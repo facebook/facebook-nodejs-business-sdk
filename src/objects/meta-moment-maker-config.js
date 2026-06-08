@@ -11,14 +11,14 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * ArticlesAndPublicationsItemDelete
+ * MetaMomentMakerConfig
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class ArticlesAndPublicationsItemDelete extends AbstractCrudObject {
+export default class MetaMomentMakerConfig extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      success: 'success',
+      saturation_mode: 'saturation_mode',
     });
   }
 

@@ -11,13 +11,15 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * ProductCatalogArticlesAndPublications
+ * AdCreativeLiveVideoReminder
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class ProductCatalogArticlesAndPublications extends AbstractCrudObject {
+export default class AdCreativeLiveVideoReminder extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
+      enroll_status: 'enroll_status',
+      start_time: 'start_time',
     });
   }
 

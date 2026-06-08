@@ -9,25 +9,19 @@
  */
 
 import {AbstractCrudObject} from './../abstract-crud-object';
-import ProductCatalogAppsAndSoftwareItemDelete from './product-catalog-apps-and-software-item-delete';
 
 /**
- * ProductCatalogAppsAndSoftwareItem
+ * AdsPixelCustomAttributionSource
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class ProductCatalogAppsAndSoftwareItem extends AbstractCrudObject {
+export default class AdsPixelCustomAttributionSource extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       id: 'id',
+      is_eligible: 'is_eligible',
+      name: 'name',
     });
   }
 
-
-  gendelete (params: Object = {}): Promise<*> {
-    return super.deleteEdge(
-      '/',
-      params
-    );
-  }
 }

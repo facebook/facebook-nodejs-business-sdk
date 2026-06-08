@@ -46,6 +46,7 @@ export default class AdAssetFeedSpec extends AbstractCrudObject {
       translations: 'translations',
       upcoming_events: 'upcoming_events',
       videos: 'videos',
+      web_destination_spec: 'web_destination_spec',
     });
   }
 
@@ -98,6 +99,7 @@ export default class AdAssetFeedSpec extends AbstractCrudObject {
       install_app: 'INSTALL_APP',
       install_mobile_app: 'INSTALL_MOBILE_APP',
       join_channel: 'JOIN_CHANNEL',
+      join_live_video: 'JOIN_LIVE_VIDEO',
       learn_more: 'LEARN_MORE',
       like_page: 'LIKE_PAGE',
       listen_music: 'LISTEN_MUSIC',

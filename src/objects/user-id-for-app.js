@@ -20,6 +20,7 @@ export default class UserIDForApp extends AbstractCrudObject {
     return Object.freeze({
       app: 'app',
       id: 'id',
+      instant_game_player_id: 'instant_game_player_id',
     });
   }
 

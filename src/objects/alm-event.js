@@ -29,6 +29,7 @@ export default class ALMEvent extends AbstractCrudObject {
       id: 'id',
       parent_advertiser_ids: 'parent_advertiser_ids',
       reseller_business_id: 'reseller_business_id',
+      solution_id: 'solution_id',
       sub_channel: 'sub_channel',
       user_id: 'user_id',
     });

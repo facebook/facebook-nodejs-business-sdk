@@ -20,6 +20,7 @@ export default class SignalsIWLExtractor extends AbstractCrudObject {
     return Object.freeze({
       domain_uri: 'domain_uri',
       event_type: 'event_type',
+      extractor_config: 'extractor_config',
       extractor_type: 'extractor_type',
       id: 'id',
     });

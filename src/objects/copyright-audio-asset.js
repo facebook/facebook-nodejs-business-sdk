@@ -22,6 +22,7 @@ export default class CopyrightAudioAsset extends AbstractCrudObject {
       audio_library_policy: 'audio_library_policy',
       creation_time: 'creation_time',
       id: 'id',
+      reference_file_isrcs: 'reference_file_isrcs',
       reference_files: 'reference_files',
       title: 'title',
       update_time: 'update_time',

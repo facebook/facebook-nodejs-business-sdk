@@ -9,29 +9,17 @@
  */
 
 import {AbstractCrudObject} from './../abstract-crud-object';
-import Cursor from './../cursor';
-import CatalogGenericFeedsGet from './catalog-generic-feeds-get';
 
 /**
- * CatalogGenericFeeds
+ * ProductFeedDelete
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class CatalogGenericFeeds extends AbstractCrudObject {
+export default class ProductFeedDelete extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      id: 'id',
+      success: 'success',
     });
   }
 
-
-  genget (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      CatalogGenericFeedsGet,
-      fields,
-      params,
-      fetchFirstPage,
-      '/uploads'
-    );
-  }
 }

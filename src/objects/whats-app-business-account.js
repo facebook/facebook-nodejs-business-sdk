@@ -37,6 +37,7 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
       is_enabled_for_insights: 'is_enabled_for_insights',
       is_shared_with_partners: 'is_shared_with_partners',
       linked_commerce_account: 'linked_commerce_account',
+      marketing_messages_ad_account: 'marketing_messages_ad_account',
       marketing_messages_lite_api_status: 'marketing_messages_lite_api_status',
       marketing_messages_onboarding_status: 'marketing_messages_onboarding_status',
       message_template_namespace: 'message_template_namespace',
@@ -75,6 +76,7 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
       tier_10k: 'TIER_10K',
       tier_250: 'TIER_250',
       tier_2k: 'TIER_2K',
+      tier_50: 'TIER_50',
       tier_unlimited: 'TIER_UNLIMITED',
       untiered: 'UNTIERED',
     });
@@ -121,6 +123,7 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
     return Object.freeze({
       campaign: 'CAMPAIGN',
       direct: 'DIRECT',
+      trigger: 'TRIGGER',
     });
   }
   static get SubCategory (): Object {
@@ -468,16 +471,6 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
     );
   }
 
-  createSetOboMobilityIntent (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
-    return this.createEdge(
-      '/set_obo_mobility_intent',
-      fields,
-      params,
-      null,
-      pathOverride,
-    );
-  }
-
   createSetSolutionMigrationIntent (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
     return this.createEdge(
       '/set_solution_migration_intent',
@@ -562,16 +555,6 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
       params,
       null,
       pathOverride,
-    );
-  }
-
-  getTemplatePerformanceMetrics (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/template_performance_metrics'
     );
   }
 

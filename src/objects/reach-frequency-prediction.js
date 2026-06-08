@@ -77,6 +77,7 @@ export default class ReachFrequencyPrediction extends AbstractCrudObject {
       is_io: 'is_io',
       is_reserved_buying: 'is_reserved_buying',
       is_trp: 'is_trp',
+      meta_moment_maker_spec: 'meta_moment_maker_spec',
       name: 'name',
       objective: 'objective',
       objective_name: 'objective_name',

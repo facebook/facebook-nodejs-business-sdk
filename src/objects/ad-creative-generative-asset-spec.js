@@ -18,6 +18,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class AdCreativeGenerativeAssetSpec extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
+      transparency_metadata: 'transparency_metadata',
     });
   }
 

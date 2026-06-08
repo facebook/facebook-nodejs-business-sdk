@@ -81,6 +81,7 @@ export default class LiveVideo extends AbstractCrudObject {
     return Object.freeze({
       left_right: 'LEFT_RIGHT',
       mono: 'MONO',
+      multi_view: 'MULTI_VIEW',
       top_bottom: 'TOP_BOTTOM',
     });
   }

@@ -20,6 +20,7 @@ export default class ProductFeedRulesGet extends AbstractCrudObject {
     return Object.freeze({
       data: 'data',
       paging: 'paging',
+      summary: 'summary',
     });
   }
 

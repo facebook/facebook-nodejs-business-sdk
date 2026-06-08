@@ -9,15 +9,14 @@
  */
 
 import {AbstractCrudObject} from './../abstract-crud-object';
-import Cursor from './../cursor';
-import ProductFeedMediaTitlesGet from './product-feed-media-titles-get';
+import AdCampaignBudgetSchedulesPost from './ad-campaign-budget-schedules-post';
 
 /**
- * ProductFeedMediaTitles
+ * AdCampaignBudgetSchedules
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class ProductFeedMediaTitles extends AbstractCrudObject {
+export default class AdCampaignBudgetSchedules extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       id: 'id',
@@ -25,13 +24,13 @@ export default class ProductFeedMediaTitles extends AbstractCrudObject {
   }
 
 
-  genget (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      ProductFeedMediaTitlesGet,
+  genpost (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdCampaignBudgetSchedulesPost> {
+    return this.createEdge(
+      '/budget_schedules',
       fields,
       params,
-      fetchFirstPage,
-      '/media_titles'
+      AdCampaignBudgetSchedulesPost,
+      pathOverride,
     );
   }
 }

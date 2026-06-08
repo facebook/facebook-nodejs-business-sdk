@@ -9,8 +9,6 @@
  */
 
 import {AbstractCrudObject} from './../abstract-crud-object';
-import AbstractObject from './../abstract-object';
-import Cursor from './../cursor';
 
 /**
  * CommerceOrderTransactionDetail
@@ -33,28 +31,7 @@ export default class CommerceOrderTransactionDetail extends AbstractCrudObject {
       transaction_date: 'transaction_date',
       transaction_type: 'transaction_type',
       transfer_id: 'transfer_id',
-      id: 'id',
     });
   }
 
-
-  getItems (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/items'
-    );
-  }
-
-  getTaxDetails (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/tax_details'
-    );
-  }
 }

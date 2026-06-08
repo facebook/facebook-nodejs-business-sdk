@@ -11,16 +11,17 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * RichMediaElement
+ * RepeatReachState
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class RichMediaElement extends AbstractCrudObject {
+export default class RepeatReachState extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      element: 'element',
-      element_type: 'element_type',
-      name: 'name',
+      current_saturation_level: 'current_saturation_level',
+      forecasted_saturation_level: 'forecasted_saturation_level',
+      high_saturation_threshold: 'high_saturation_threshold',
+      should_display_cpr: 'should_display_cpr',
     });
   }
 

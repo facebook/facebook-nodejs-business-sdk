@@ -11,15 +11,23 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * CatalogGenericFeedsGet
+ * ProductCatalogCheckBatchRequestStatusGet
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class CatalogGenericFeedsGet extends AbstractCrudObject {
+export default class ProductCatalogCheckBatchRequestStatusGet extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       data: 'data',
+      paging: 'paging',
     });
   }
 
+  static get ErrorPriority (): Object {
+    return Object.freeze({
+      high: 'HIGH',
+      low: 'LOW',
+      medium: 'MEDIUM',
+    });
+  }
 }

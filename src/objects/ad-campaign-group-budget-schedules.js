@@ -9,14 +9,14 @@
  */
 
 import {AbstractCrudObject} from './../abstract-crud-object';
-import ProductCatalogAppsAndSoftwarePost from './product-catalog-apps-and-software-post';
+import AdCampaignGroupBudgetSchedulesPost from './ad-campaign-group-budget-schedules-post';
 
 /**
- * ProductCatalogAppsAndSoftware
+ * AdCampaignGroupBudgetSchedules
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class ProductCatalogAppsAndSoftware extends AbstractCrudObject {
+export default class AdCampaignGroupBudgetSchedules extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       id: 'id',
@@ -24,12 +24,12 @@ export default class ProductCatalogAppsAndSoftware extends AbstractCrudObject {
   }
 
 
-  genpost (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<ProductCatalogAppsAndSoftwarePost> {
+  genpost (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdCampaignGroupBudgetSchedulesPost> {
     return this.createEdge(
-      '/apps_and_software',
+      '/budget_schedules',
       fields,
       params,
-      ProductCatalogAppsAndSoftwarePost,
+      AdCampaignGroupBudgetSchedulesPost,
       pathOverride,
     );
   }

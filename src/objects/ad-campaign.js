@@ -9,18 +9,25 @@
  */
 
 import {AbstractCrudObject} from './../abstract-crud-object';
+import AdCampaignDelete from './ad-campaign-delete';
 
 /**
- * SmartPixelInsights
+ * AdCampaign
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class SmartPixelInsights extends AbstractCrudObject {
+export default class AdCampaign extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      source: 'source',
-      stats: 'stats',
+      id: 'id',
     });
   }
 
+
+  gendelete (params: Object = {}): Promise<*> {
+    return super.deleteEdge(
+      '/',
+      params
+    );
+  }
 }

@@ -60,6 +60,7 @@ export default class AdsActionStats extends AbstractCrudObject {
       action_video_asset_id: 'action_video_asset_id',
       action_video_sound: 'action_video_sound',
       action_video_type: 'action_video_type',
+      custom: 'custom',
       dda: 'dda',
       incrementality: 'incrementality',
       incrementality_all_conversions: 'incrementality_all_conversions',

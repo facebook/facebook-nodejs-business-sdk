@@ -106,6 +106,8 @@ export default class AdPreview extends AbstractCrudObject {
   static get CreativeFeature (): Object {
     return Object.freeze({
       ig_video_native_subtitle: 'ig_video_native_subtitle',
+      image_animation: 'image_animation',
+      product_browsing: 'product_browsing',
       product_metadata_automation: 'product_metadata_automation',
       profile_card: 'profile_card',
       standard_enhancements_catalog: 'standard_enhancements_catalog',

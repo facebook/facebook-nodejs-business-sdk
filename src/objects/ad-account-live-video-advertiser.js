@@ -18,6 +18,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class AdAccountLiveVideoAdvertiser extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
+      ig_lva_default_duration_s: 'ig_lva_default_duration_s',
       is_lva_toggle_on: 'is_lva_toggle_on',
       lva_default_budget: 'lva_default_budget',
       lva_default_duration_s: 'lva_default_duration_s',

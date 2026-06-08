@@ -9,25 +9,18 @@
  */
 
 import {AbstractCrudObject} from './../abstract-crud-object';
-import CatalogSubscribedAppsDelete from './catalog-subscribed-apps-delete';
 
 /**
- * CatalogSubscribedApps
+ * ProductCatalogPost
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class CatalogSubscribedApps extends AbstractCrudObject {
+export default class ProductCatalogPost extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      id: 'id',
+      __firstOneOf: '__firstOneOf',
+      __secondOneOf: '__secondOneOf',
     });
   }
 
-
-  gendelete (params: Object = {}): Promise<*> {
-    return super.deleteEdge(
-      '/subscribed_apps',
-      params
-    );
-  }
 }

@@ -13,7 +13,6 @@ import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import CommerceOrder from './commerce-order';
 import CommercePayout from './commerce-payout';
-import CommerceOrderTransactionDetail from './commerce-order-transaction-detail';
 import Application from './application';
 import ProductCatalog from './product-catalog';
 import CommerceMerchantSettingsSetupStatus from './commerce-merchant-settings-setup-status';
@@ -29,7 +28,6 @@ export default class CommerceMerchantSettings extends AbstractCrudObject {
     return Object.freeze({
       checkout_config: 'checkout_config',
       contact_email: 'contact_email',
-      cta: 'cta',
       display_name: 'display_name',
       facebook_channel: 'facebook_channel',
       id: 'id',
@@ -69,16 +67,6 @@ export default class CommerceMerchantSettings extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/commerce_payouts'
-    );
-  }
-
-  getCommerceTransactions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      CommerceOrderTransactionDetail,
-      fields,
-      params,
-      fetchFirstPage,
-      '/commerce_transactions'
     );
   }
 

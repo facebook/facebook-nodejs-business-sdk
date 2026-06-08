@@ -11,24 +11,22 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * ProductFeedAppsAndSoftwareGet
+ * HighDemandPeriodGet
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class ProductFeedAppsAndSoftwareGet extends AbstractCrudObject {
+export default class HighDemandPeriodGet extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      data: 'data',
-      paging: 'paging',
-      summary: 'summary',
+      ad_object_id: 'ad_object_id',
+      budget_value: 'budget_value',
+      budget_value_type: 'budget_value_type',
+      id: 'id',
+      recurrence_type: 'recurrence_type',
+      time_end: 'time_end',
+      time_start: 'time_start',
+      weekly_schedule: 'weekly_schedule',
     });
   }
 
-  static get DisplayFormat (): Object {
-    return Object.freeze({
-      carousel_ad: 'CAROUSEL_AD',
-      shops_pdp: 'SHOPS_PDP',
-      single_ad: 'SINGLE_AD',
-    });
-  }
 }

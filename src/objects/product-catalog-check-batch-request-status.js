@@ -10,14 +10,14 @@
 
 import {AbstractCrudObject} from './../abstract-crud-object';
 import Cursor from './../cursor';
-import CatalogGenericIngestionSessionErrorsGet from './catalog-generic-ingestion-session-errors-get';
+import ProductCatalogCheckBatchRequestStatusGet from './product-catalog-check-batch-request-status-get';
 
 /**
- * CatalogGenericIngestionSessionErrors
+ * ProductCatalogCheckBatchRequestStatus
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class CatalogGenericIngestionSessionErrors extends AbstractCrudObject {
+export default class ProductCatalogCheckBatchRequestStatus extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       id: 'id',
@@ -27,11 +27,11 @@ export default class CatalogGenericIngestionSessionErrors extends AbstractCrudOb
 
   genget (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
-      CatalogGenericIngestionSessionErrorsGet,
+      ProductCatalogCheckBatchRequestStatusGet,
       fields,
       params,
       fetchFirstPage,
-      '/errors'
+      '/check_batch_request_status'
     );
   }
 }

@@ -20,6 +20,7 @@ export default class AdCreativeBizAI extends AbstractCrudObject {
     return Object.freeze({
       capabilities: 'capabilities',
       pills: 'pills',
+      pills_mbs_version: 'pills_mbs_version',
     });
   }
 

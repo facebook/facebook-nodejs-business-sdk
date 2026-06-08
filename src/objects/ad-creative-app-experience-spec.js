@@ -11,24 +11,17 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * ProductFeedMediaTitlesGet
+ * AdCreativeAppExperienceSpec
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class ProductFeedMediaTitlesGet extends AbstractCrudObject {
+export default class AdCreativeAppExperienceSpec extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      data: 'data',
-      paging: 'paging',
-      summary: 'summary',
+      reveal_details: 'reveal_details',
+      show_spotlights: 'show_spotlights',
+      website_summary: 'website_summary',
     });
   }
 
-  static get DisplayFormat (): Object {
-    return Object.freeze({
-      carousel_ad: 'CAROUSEL_AD',
-      shops_pdp: 'SHOPS_PDP',
-      single_ad: 'SINGLE_AD',
-    });
-  }
 }

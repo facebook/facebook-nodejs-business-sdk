@@ -11,13 +11,15 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * CatalogSubscribedAppsDelete
+ * AdCreativeAutomationSpec
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class CatalogSubscribedAppsDelete extends AbstractCrudObject {
+export default class AdCreativeAutomationSpec extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
+      decision_type: 'decision_type',
+      enrollment_status: 'enrollment_status',
     });
   }
 

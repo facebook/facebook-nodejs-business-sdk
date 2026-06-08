@@ -19,6 +19,7 @@ export default class AdCreativeWAMOWhatsAppIdentitySpec extends AbstractCrudObje
   static get Fields (): Object {
     return Object.freeze({
       wamo_whatsapp_identity_id: 'wamo_whatsapp_identity_id',
+      whatsapp_phone_number: 'whatsapp_phone_number',
     });
   }
 

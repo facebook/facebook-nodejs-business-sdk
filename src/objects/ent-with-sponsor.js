@@ -18,12 +18,14 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class EntWithSponsor extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
+      has_audio_swapped_fb_copy: 'has_audio_swapped_fb_copy',
       id: 'id',
       is_branded_content: 'is_branded_content',
       owner_linked_instagram_user_v1_id: 'owner_linked_instagram_user_v1_id',
       owner_picture: 'owner_picture',
       post_id: 'post_id',
       post_info: 'post_info',
+      promotable_id: 'promotable_id',
     });
   }
 

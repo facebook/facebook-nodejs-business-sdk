@@ -45,7 +45,6 @@ export default class CatalogSubVerticalList extends AbstractCrudObject {
       large_appliances: 'large_appliances',
       local_service_business_item: 'local_service_business_item',
       local_service_business_restaurant: 'local_service_business_restaurant',
-      loyalty_offer: 'loyalty_offer',
       nursery: 'nursery',
       printers_and_scanners: 'printers_and_scanners',
       printers_scanners_and_fax_machines: 'printers_scanners_and_fax_machines',

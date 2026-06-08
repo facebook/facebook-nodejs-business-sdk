@@ -11,14 +11,20 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * CatalogGenericIngestionSessionErrorsGet
+ * ProductGroupGet
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class CatalogGenericIngestionSessionErrorsGet extends AbstractCrudObject {
+export default class ProductGroupGet extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      data: 'data',
+      id: 'id',
+      mini_shops_product_sets_count: 'mini_shops_product_sets_count',
+      product_catalog: 'product_catalog',
+      products: 'products',
+      representative_item_id: 'representative_item_id',
+      retailer_id: 'retailer_id',
+      variants: 'variants',
     });
   }
 

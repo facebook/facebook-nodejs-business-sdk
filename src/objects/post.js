@@ -52,9 +52,11 @@ export default class Post extends AbstractCrudObject {
       is_eligible_for_dark_post: 'is_eligible_for_dark_post',
       is_eligible_for_promotion: 'is_eligible_for_promotion',
       is_expired: 'is_expired',
+      is_fb_live_videos: 'is_fb_live_videos',
       is_hidden: 'is_hidden',
       is_inline_created: 'is_inline_created',
       is_instagram_eligible: 'is_instagram_eligible',
+      is_live_clip: 'is_live_clip',
       is_popular: 'is_popular',
       is_published: 'is_published',
       is_spherical: 'is_spherical',
@@ -87,6 +89,7 @@ export default class Post extends AbstractCrudObject {
       updated_time: 'updated_time',
       via: 'via',
       video_buying_eligibility: 'video_buying_eligibility',
+      was_fb_live_videos: 'was_fb_live_videos',
       width: 'width',
     });
   }

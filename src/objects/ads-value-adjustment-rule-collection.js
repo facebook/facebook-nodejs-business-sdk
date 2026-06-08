@@ -29,6 +29,15 @@ export default class AdsValueAdjustmentRuleCollection extends AbstractCrudObject
     });
   }
 
+  static get EntryPoint (): Object {
+    return Object.freeze({
+      advertising_settings: 'ADVERTISING_SETTINGS',
+      l2_conversion_location: 'L2_CONVERSION_LOCATION',
+      l2_global: 'L2_GLOBAL',
+      l2_nca_goal: 'L2_NCA_GOAL',
+      l2_placement: 'L2_PLACEMENT',
+    });
+  }
   static get ProductType (): Object {
     return Object.freeze({
       audience: 'AUDIENCE',

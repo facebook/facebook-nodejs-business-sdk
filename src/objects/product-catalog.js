@@ -65,6 +65,7 @@ export default class ProductCatalog extends AbstractCrudObject {
       name: 'name',
       owner_business: 'owner_business',
       product_count: 'product_count',
+      show_assign_permissions: 'show_assign_permissions',
       store_catalog_settings: 'store_catalog_settings',
       user_access_expire_time: 'user_access_expire_time',
       vertical: 'vertical',
@@ -92,7 +93,7 @@ export default class ProductCatalog extends AbstractCrudObject {
       media_titles: 'media_titles',
       offer_items: 'offer_items',
       offline_commerce: 'offline_commerce',
-      professional_services: 'professional_services',
+      services: 'services',
       transactable_items: 'transactable_items',
       vehicles: 'vehicles',
     });

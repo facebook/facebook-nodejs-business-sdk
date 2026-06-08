@@ -35,7 +35,6 @@ export default class AdSet extends AbstractCrudObject {
       account_id: 'account_id',
       adlabels: 'adlabels',
       adset_schedule: 'adset_schedule',
-      anchor_event_attribution_window_days: 'anchor_event_attribution_window_days',
       asset_feed_id: 'asset_feed_id',
       attribution_count_type: 'attribution_count_type',
       attribution_spec: 'attribution_spec',
@@ -53,6 +52,7 @@ export default class AdSet extends AbstractCrudObject {
       campaign_attribution: 'campaign_attribution',
       campaign_id: 'campaign_id',
       configured_status: 'configured_status',
+      cost_bidding_mode: 'cost_bidding_mode',
       created_time: 'created_time',
       creative_diversity_label: 'creative_diversity_label',
       creative_diversity_score: 'creative_diversity_score',
@@ -73,16 +73,20 @@ export default class AdSet extends AbstractCrudObject {
       instagram_user_id: 'instagram_user_id',
       is_ba_skip_delayed_eligible: 'is_ba_skip_delayed_eligible',
       is_budget_schedule_enabled: 'is_budget_schedule_enabled',
+      is_dc_follow_optimized: 'is_dc_follow_optimized',
       is_dynamic_creative: 'is_dynamic_creative',
       is_incremental_attribution_enabled: 'is_incremental_attribution_enabled',
+      is_organic_ad_joint_optimized: 'is_organic_ad_joint_optimized',
       issues_info: 'issues_info',
       learning_stage_info: 'learning_stage_info',
       lifetime_budget: 'lifetime_budget',
       lifetime_imps: 'lifetime_imps',
       lifetime_min_spend_target: 'lifetime_min_spend_target',
       lifetime_spend_cap: 'lifetime_spend_cap',
+      live_video_ad_campaign_config: 'live_video_ad_campaign_config',
       low_creative_reach: 'low_creative_reach',
       max_budget_spend_percentage: 'max_budget_spend_percentage',
+      meta_moment_maker_spec: 'meta_moment_maker_spec',
       min_budget_spend_percentage: 'min_budget_spend_percentage',
       multi_event_conversion_attribution_window_seconds: 'multi_event_conversion_attribution_window_seconds',
       multi_optimization_goal_weight: 'multi_optimization_goal_weight',
@@ -96,6 +100,7 @@ export default class AdSet extends AbstractCrudObject {
       recurring_budget_semantics: 'recurring_budget_semantics',
       regional_regulated_categories: 'regional_regulated_categories',
       regional_regulation_identities: 'regional_regulation_identities',
+      relative_value: 'relative_value',
       review_feedback: 'review_feedback',
       rf_prediction_id: 'rf_prediction_id',
       source_adset: 'source_adset',
@@ -176,6 +181,7 @@ export default class AdSet extends AbstractCrudObject {
       link_clicks: 'LINK_CLICKS',
       meaningful_call_attempt: 'MEANINGFUL_CALL_ATTEMPT',
       messaging_appointment_conversion: 'MESSAGING_APPOINTMENT_CONVERSION',
+      messaging_deep_conversation_and_follow: 'MESSAGING_DEEP_CONVERSATION_AND_FOLLOW',
       messaging_purchase_conversion: 'MESSAGING_PURCHASE_CONVERSION',
       none: 'NONE',
       offsite_conversions: 'OFFSITE_CONVERSIONS',
@@ -201,6 +207,12 @@ export default class AdSet extends AbstractCrudObject {
       paused: 'PAUSED',
     });
   }
+  static get AttributionCountType (): Object {
+    return Object.freeze({
+      all_conversions: 'ALL_CONVERSIONS',
+      first_conversion: 'FIRST_CONVERSION',
+    });
+  }
   static get AutomaticManualState (): Object {
     return Object.freeze({
       automatic: 'AUTOMATIC',
@@ -212,6 +224,13 @@ export default class AdSet extends AbstractCrudObject {
     return Object.freeze({
       none: 'NONE',
       rmn: 'RMN',
+    });
+  }
+  static get CostBiddingMode (): Object {
+    return Object.freeze({
+      balanced: 'BALANCED',
+      cost_focused: 'COST_FOCUSED',
+      volume_focused: 'VOLUME_FOCUSED',
     });
   }
   static get CreativeSequenceRepetitionPattern (): Object {
@@ -324,6 +343,11 @@ export default class AdSet extends AbstractCrudObject {
       value_12: '12',
       value_13: '13',
       value_14: '14',
+      value_15: '15',
+      value_16: '16',
+      value_17: '17',
+      value_18: '18',
+      value_19: '19',
     });
   }
   static get TuneForCategory (): Object {

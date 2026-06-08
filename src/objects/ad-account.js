@@ -134,6 +134,7 @@ export default class AdAccount extends AbstractCrudObject {
       offsite_clo_signal_status: 'offsite_clo_signal_status',
       offsite_pixels_tos_accepted: 'offsite_pixels_tos_accepted',
       opportunity_score: 'opportunity_score',
+      opportunity_score_weight: 'opportunity_score_weight',
       owner: 'owner',
       owner_business: 'owner_business',
       partner: 'partner',

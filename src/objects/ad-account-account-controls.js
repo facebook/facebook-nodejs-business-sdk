@@ -9,14 +9,14 @@
  */
 
 import {AbstractCrudObject} from './../abstract-crud-object';
-import ProductCatalogMediaTitlesPost from './product-catalog-media-titles-post';
+import AdAccountAccountControlsPost from './ad-account-account-controls-post';
 
 /**
- * ProductCatalogMediaTitles
+ * AdAccountAccountControls
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class ProductCatalogMediaTitles extends AbstractCrudObject {
+export default class AdAccountAccountControls extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       id: 'id',
@@ -24,12 +24,12 @@ export default class ProductCatalogMediaTitles extends AbstractCrudObject {
   }
 
 
-  genpost (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<ProductCatalogMediaTitlesPost> {
+  genpost (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AdAccountAccountControlsPost> {
     return this.createEdge(
-      '/media_titles',
+      '/account_controls',
       fields,
       params,
-      ProductCatalogMediaTitlesPost,
+      AdAccountAccountControlsPost,
       pathOverride,
     );
   }

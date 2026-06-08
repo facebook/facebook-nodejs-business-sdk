@@ -33,6 +33,7 @@ export default class AdAssetTargetRuleTargeting extends AbstractCrudObject {
 
   static get DevicePlatforms (): Object {
     return Object.freeze({
+      connected_tv: 'connected_tv',
       desktop: 'desktop',
       mobile: 'mobile',
     });

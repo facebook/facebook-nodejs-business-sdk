@@ -18,6 +18,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class AdCreativeFormatTransformationSpec extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
+      customizations: 'customizations',
       data_source: 'data_source',
       format: 'format',
     });

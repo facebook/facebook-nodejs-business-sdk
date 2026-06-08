@@ -41,12 +41,14 @@ export default class Placement extends AbstractCrudObject {
 
   static get DevicePlatforms (): Object {
     return Object.freeze({
+      connected_tv: 'connected_tv',
       desktop: 'desktop',
       mobile: 'mobile',
     });
   }
   static get EffectiveDevicePlatforms (): Object {
     return Object.freeze({
+      connected_tv: 'connected_tv',
       desktop: 'desktop',
       mobile: 'mobile',
     });

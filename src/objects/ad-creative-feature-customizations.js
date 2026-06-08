@@ -30,6 +30,7 @@ export default class AdCreativeFeatureCustomizations extends AbstractCrudObject 
       ig_stream_tag_name: 'ig_stream_tag_name',
       image_crop_style: 'image_crop_style',
       pe_carousel: 'pe_carousel',
+      recomposition_type: 'recomposition_type',
       showcase_card_display: 'showcase_card_display',
       text_extraction: 'text_extraction',
       text_style: 'text_style',

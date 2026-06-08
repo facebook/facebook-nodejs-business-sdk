@@ -11,14 +11,14 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * ProductCatalogMediaTitleDelete
+ * PartnershipAdContentListSpec
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class ProductCatalogMediaTitleDelete extends AbstractCrudObject {
+export default class PartnershipAdContentListSpec extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      success: 'success',
+      list_id: 'list_id',
     });
   }
 
