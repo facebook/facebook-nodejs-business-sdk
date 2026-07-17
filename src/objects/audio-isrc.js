@@ -21,6 +21,7 @@ export default class AudioIsrc extends AbstractCrudObject {
       all_kg_featured_artists: 'all_kg_featured_artists',
       all_kg_main_artists: 'all_kg_main_artists',
       artist_profile_picture_url: 'artist_profile_picture_url',
+      canonical_audio_asset: 'canonical_audio_asset',
       id: 'id',
       isrc: 'isrc',
       publishing_rights_data: 'publishing_rights_data',

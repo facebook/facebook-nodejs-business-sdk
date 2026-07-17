@@ -455,6 +455,7 @@ export default class AdAccountTargetingUnified extends AbstractCrudObject {
       product_audience_specs: 'product_audience_specs',
       prospecting_audience: 'prospecting_audience',
       publisher_platforms: 'publisher_platforms',
+      purchase_intent: 'purchase_intent',
       radius: 'radius',
       region_keys: 'region_keys',
       regions: 'regions',

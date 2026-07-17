@@ -27,6 +27,7 @@ export default class IGMedia extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       alt_text: 'alt_text',
+      audio_id: 'audio_id',
       boost_eligibility_info: 'boost_eligibility_info',
       caption: 'caption',
       comments_count: 'comments_count',
@@ -36,6 +37,7 @@ export default class IGMedia extends AbstractCrudObject {
       has_slider: 'has_slider',
       id: 'id',
       ig_id: 'ig_id',
+      is_ai_generated: 'is_ai_generated',
       is_comment_enabled: 'is_comment_enabled',
       is_shared_to_feed: 'is_shared_to_feed',
       legacy_instagram_media_id: 'legacy_instagram_media_id',

@@ -33,7 +33,10 @@ export default class IGUserExportForCAM extends AbstractCrudObject {
       is_paid_partnership_messages_enabled: 'is_paid_partnership_messages_enabled',
       messaging_id: 'messaging_id',
       onboarded_status: 'onboarded_status',
+      page_id: 'page_id',
+      page_name: 'page_name',
       past_brand_partnership_partners: 'past_brand_partnership_partners',
+      platforms: 'platforms',
       portfolio_url: 'portfolio_url',
       profile_picture_url: 'profile_picture_url',
       username: 'username',
@@ -566,6 +569,12 @@ export default class IGUserExportForCAM extends AbstractCrudObject {
       female: 'female',
       male: 'male',
       unknown: 'unknown',
+    });
+  }
+  static get Platform (): Object {
+    return Object.freeze({
+      facebook: 'facebook',
+      instagram: 'instagram',
     });
   }
   static get RecommendationType (): Object {

@@ -20,6 +20,7 @@ export default class OpenBridgeConfiguration extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       active: 'active',
+      associated_sgw_data_source_id: 'associated_sgw_data_source_id',
       blocked_event_types: 'blocked_event_types',
       blocked_websites: 'blocked_websites',
       browser_agent: 'browser_agent',
@@ -38,6 +39,7 @@ export default class OpenBridgeConfiguration extends AbstractCrudObject {
       instance_version: 'instance_version',
       is_sgw_instance: 'is_sgw_instance',
       is_sgw_pixel_from_meta_pixel: 'is_sgw_pixel_from_meta_pixel',
+      mpc_fallback_domain: 'mpc_fallback_domain',
       partner_name: 'partner_name',
       pixel_id: 'pixel_id',
       sgw_account_id: 'sgw_account_id',

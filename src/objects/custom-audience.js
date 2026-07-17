@@ -74,25 +74,21 @@ export default class CustomAudience extends AbstractCrudObject {
 
   static get AudienceLabels (): Object {
     return Object.freeze({
-      app_installers: 'APP_INSTALLERS',
       app_users: 'APP_USERS',
       at_risk: 'AT_RISK',
       cart_abandoners: 'CART_ABANDONERS',
-      customer_leads: 'CUSTOMER_LEADS',
       disengaged: 'DISENGAGED',
       disqualified_leads: 'DISQUALIFIED_LEADS',
       engaged_users: 'ENGAGED_USERS',
+      general_customers: 'GENERAL_CUSTOMERS',
       high_value_customers: 'HIGH_VALUE_CUSTOMERS',
       low_value_customers: 'LOW_VALUE_CUSTOMERS',
       other_1: 'OTHER_1',
       other_2: 'OTHER_2',
       other_3: 'OTHER_3',
-      personas: 'PERSONAS',
       qualified_leads: 'QUALIFIED_LEADS',
       recent_purchasers: 'RECENT_PURCHASERS',
-      restricted_users: 'RESTRICTED_USERS',
       trial_users: 'TRIAL_USERS',
-      unwanted_customers: 'UNWANTED_CUSTOMERS',
     });
   }
   static get ClaimObjective (): Object {

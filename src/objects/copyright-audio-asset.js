@@ -20,10 +20,12 @@ export default class CopyrightAudioAsset extends AbstractCrudObject {
     return Object.freeze({
       audio_availability_status: 'audio_availability_status',
       audio_library_policy: 'audio_library_policy',
+      canonical_reference_file: 'canonical_reference_file',
       creation_time: 'creation_time',
       id: 'id',
       reference_file_isrcs: 'reference_file_isrcs',
       reference_files: 'reference_files',
+      representative_reference_file: 'representative_reference_file',
       title: 'title',
       update_time: 'update_time',
     });

@@ -27,6 +27,7 @@ export default class AdAccountUserSettings extends AbstractCrudObject {
       ads_manager_footer_row_toast_impressions: 'ads_manager_footer_row_toast_impressions',
       auto_review_video_caption: 'auto_review_video_caption',
       budget_optimization_quick_view_created: 'budget_optimization_quick_view_created',
+      budget_pool_qv_created: 'budget_pool_qv_created',
       campaign_overview_columns: 'campaign_overview_columns',
       column_suggestion_status: 'column_suggestion_status',
       conditional_formatting_rules: 'conditional_formatting_rules',

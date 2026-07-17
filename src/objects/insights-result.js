@@ -39,7 +39,6 @@ export default class InsightsResult extends AbstractCrudObject {
   static get Metric (): Object {
     return Object.freeze({
       comments: 'comments',
-      content_views: 'content_views',
       crossposted_views: 'crossposted_views',
       facebook_views: 'facebook_views',
       follows: 'follows',

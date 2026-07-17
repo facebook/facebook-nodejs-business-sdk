@@ -64,6 +64,8 @@ export { default as AdAccountDefaultDestination } from './../src/objects/ad-acco
 export { default as AdAccountDefaultObjective } from './../src/objects/ad-account-default-objective';
 export { default as AdAccountDeliveryEstimate } from './../src/objects/ad-account-delivery-estimate';
 export { default as AdAccountDsaRecommendations } from './../src/objects/ad-account-dsa-recommendations';
+export { default as AdAccountFeaturePreferences } from './../src/objects/ad-account-feature-preferences';
+export { default as AdAccountFeaturePreferencesPost } from './../src/objects/ad-account-feature-preferences-post';
 export { default as AdAccountIosFourteenCampaignLimits } from './../src/objects/ad-account-ios-fourteen-campaign-limits';
 export { default as AdAccountLiveVideoAdvertiser } from './../src/objects/ad-account-live-video-advertiser';
 export { default as AdAccountMarketingMessagesSettings } from './../src/objects/ad-account-marketing-messages-settings';
@@ -137,6 +139,7 @@ export { default as AdCampaignDeliveryStats } from './../src/objects/ad-campaign
 export { default as AdCampaignDeliveryStatsGet } from './../src/objects/ad-campaign-delivery-stats-get';
 export { default as AdCampaignDeliveryStatsUnsupportedReasons } from './../src/objects/ad-campaign-delivery-stats-unsupported-reasons';
 export { default as AdCampaignFrequencyControlSpecs } from './../src/objects/ad-campaign-frequency-control-specs';
+export { default as AdCampaignGoal } from './../src/objects/ad-campaign-goal';
 export { default as AdCampaignGroup } from './../src/objects/ad-campaign-group';
 export { default as AdCampaignGroupAdvantageState } from './../src/objects/ad-campaign-group-advantage-state';
 export { default as AdCampaignGroupAgencyFeeConfigForApi } from './../src/objects/ad-campaign-group-agency-fee-config-for-api';
@@ -602,7 +605,6 @@ export { default as IGProductTaggingInvalidationError } from './../src/objects/i
 export { default as IGRefreshAccessTokenForIGOnlyAPI } from './../src/objects/ig-refresh-access-token-for-ig-only-api';
 export { default as IGResumableVideoUploadStatus } from './../src/objects/ig-resumable-video-upload-status';
 export { default as IGShoppingProductAppeal } from './../src/objects/ig-shopping-product-appeal';
-export { default as IGShoppingReviewStatus } from './../src/objects/ig-shopping-review-status';
 export { default as IGShoppingReviewStatusOnsiteEligibility } from './../src/objects/ig-shopping-review-status-onsite-eligibility';
 export { default as IGShoppingReviewStatusReasonWithHelpMessage } from './../src/objects/ig-shopping-review-status-reason-with-help-message';
 export { default as IGUpcomingEvent } from './../src/objects/ig-upcoming-event';

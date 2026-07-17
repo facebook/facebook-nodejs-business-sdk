@@ -11,16 +11,14 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * IGShoppingReviewStatus
+ * AdAccountFeaturePreferencesPost
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class IGShoppingReviewStatus extends AbstractCrudObject {
+export default class AdAccountFeaturePreferencesPost extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      onsite_eligibility: 'onsite_eligibility',
-      reasons: 'reasons',
-      status: 'status',
+      id: 'id',
     });
   }
 

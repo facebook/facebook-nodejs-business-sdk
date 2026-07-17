@@ -54,6 +54,7 @@ export default class IGUser extends AbstractCrudObject {
       media_count: 'media_count',
       mentioned_comment: 'mentioned_comment',
       mentioned_media: 'mentioned_media',
+      mini_shop_storefront: 'mini_shop_storefront',
       name: 'name',
       owner_business: 'owner_business',
       profile_picture_url: 'profile_picture_url',

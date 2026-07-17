@@ -33,6 +33,7 @@ export default class AdSet extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       account_id: 'account_id',
+      ad_set_goal: 'ad_set_goal',
       adlabels: 'adlabels',
       adset_schedule: 'adset_schedule',
       asset_feed_id: 'asset_feed_id',
@@ -77,6 +78,7 @@ export default class AdSet extends AbstractCrudObject {
       is_dynamic_creative: 'is_dynamic_creative',
       is_incremental_attribution_enabled: 'is_incremental_attribution_enabled',
       is_organic_ad_joint_optimized: 'is_organic_ad_joint_optimized',
+      is_sequenced_conversion_creation: 'is_sequenced_conversion_creation',
       issues_info: 'issues_info',
       learning_stage_info: 'learning_stage_info',
       lifetime_budget: 'lifetime_budget',
@@ -348,6 +350,9 @@ export default class AdSet extends AbstractCrudObject {
       value_17: '17',
       value_18: '18',
       value_19: '19',
+      value_20: '20',
+      value_21: '21',
+      value_22: '22',
     });
   }
   static get TuneForCategory (): Object {

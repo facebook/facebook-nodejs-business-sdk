@@ -27,6 +27,7 @@ export default class AdCreativeSourcingSpec extends AbstractCrudObject {
       enable_social_feedback_preservation: 'enable_social_feedback_preservation',
       featured_offering_spec: 'featured_offering_spec',
       intent: 'intent',
+      ncs_testimonial: 'ncs_testimonial',
       pca_spec: 'pca_spec',
       product_media_metadata_spec: 'product_media_metadata_spec',
       promotion_metadata_spec: 'promotion_metadata_spec',

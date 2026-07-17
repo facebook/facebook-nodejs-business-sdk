@@ -53,6 +53,7 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
       template_auto_archival_enabled: 'template_auto_archival_enabled',
       timezone_id: 'timezone_id',
       whatsapp_business_manager_messaging_limit: 'whatsapp_business_manager_messaging_limit',
+      whatsapp_manager_marketing_messages_max_price_enroll_status: 'whatsapp_manager_marketing_messages_max_price_enroll_status',
     });
   }
 
@@ -79,6 +80,12 @@ export default class WhatsAppBusinessAccount extends AbstractCrudObject {
       tier_50: 'TIER_50',
       tier_unlimited: 'TIER_UNLIMITED',
       untiered: 'UNTIERED',
+    });
+  }
+  static get WhatsappManagerMarketingMessagesMaxPriceEnrollStatus (): Object {
+    return Object.freeze({
+      opt_in: 'OPT_IN',
+      opt_out: 'OPT_OUT',
     });
   }
   static get Tasks (): Object {

@@ -29,6 +29,7 @@ export default class AdActivity extends AbstractCrudObject {
       object_id: 'object_id',
       object_name: 'object_name',
       object_type: 'object_type',
+      tool: 'tool',
       translated_event_type: 'translated_event_type',
     });
   }
@@ -99,6 +100,9 @@ export default class AdActivity extends AbstractCrudObject {
       update_ad_set_bid_strategy: 'update_ad_set_bid_strategy',
       update_ad_set_bidding: 'update_ad_set_bidding',
       update_ad_set_budget: 'update_ad_set_budget',
+      update_ad_set_budget_scaling_cost_target: 'update_ad_set_budget_scaling_cost_target',
+      update_ad_set_budget_scaling_extra_budget: 'update_ad_set_budget_scaling_extra_budget',
+      update_ad_set_budget_scaling_status: 'update_ad_set_budget_scaling_status',
       update_ad_set_cost_bidding_mode: 'update_ad_set_cost_bidding_mode',
       update_ad_set_duration: 'update_ad_set_duration',
       update_ad_set_learning_stage_status: 'update_ad_set_learning_stage_status',
@@ -125,6 +129,9 @@ export default class AdActivity extends AbstractCrudObject {
       update_campaign_delivery_type: 'update_campaign_delivery_type',
       update_campaign_group_ad_scheduling: 'update_campaign_group_ad_scheduling',
       update_campaign_group_agency_fee: 'update_campaign_group_agency_fee',
+      update_campaign_group_budget_scaling_cost_target: 'update_campaign_group_budget_scaling_cost_target',
+      update_campaign_group_budget_scaling_extra_budget: 'update_campaign_group_budget_scaling_extra_budget',
+      update_campaign_group_budget_scaling_status: 'update_campaign_group_budget_scaling_status',
       update_campaign_group_budget_scheduling_state: 'update_campaign_group_budget_scheduling_state',
       update_campaign_group_delivery_type: 'update_campaign_group_delivery_type',
       update_campaign_group_high_demand_periods: 'update_campaign_group_high_demand_periods',

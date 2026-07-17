@@ -44,6 +44,7 @@ export default class ThirdPartyPartnerViewabilityRequest extends AbstractCrudObj
       audience_network: 'AUDIENCE_NETWORK',
       facebook: 'FACEBOOK',
       instagram: 'INSTAGRAM',
+      threads: 'THREADS',
     });
   }
   static get Status (): Object {

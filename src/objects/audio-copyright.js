@@ -20,6 +20,7 @@ import MediaCopyrightUpdateRecord from './media-copyright-update-record';
 export default class AudioCopyright extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
+      audio_asset: 'audio_asset',
       creation_time: 'creation_time',
       displayed_matches_count: 'displayed_matches_count',
       id: 'id',

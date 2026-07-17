@@ -521,6 +521,7 @@ export default class ProductItem extends AbstractCrudObject {
       item_override_not_visible: 'ITEM_OVERRIDE_NOT_VISIBLE',
       item_price_not_positive: 'ITEM_PRICE_NOT_POSITIVE',
       item_stale_out_of_stock: 'ITEM_STALE_OUT_OF_STOCK',
+      item_without_video: 'ITEM_WITHOUT_VIDEO',
       marketplace_disabled_by_user: 'MARKETPLACE_DISABLED_BY_USER',
       marketplace_not_shipped_item: 'MARKETPLACE_NOT_SHIPPED_ITEM',
       marketplace_partner_auction_no_bid_close_time: 'MARKETPLACE_PARTNER_AUCTION_NO_BID_CLOSE_TIME',

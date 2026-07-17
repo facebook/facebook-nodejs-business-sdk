@@ -27,6 +27,7 @@ export default class IGMediaForIGOnlyAPI extends AbstractCrudObject {
       comments_count: 'comments_count',
       current_live_viewer_count: 'current_live_viewer_count',
       id: 'id',
+      is_ai_generated: 'is_ai_generated',
       is_comment_enabled: 'is_comment_enabled',
       is_shared_to_feed: 'is_shared_to_feed',
       like_count: 'like_count',

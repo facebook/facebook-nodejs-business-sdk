@@ -429,12 +429,12 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  createGeolocatedItemsBatch (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<ProductCatalog> {
+  createGeolocatedItemsBatch (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
     return this.createEdge(
       '/geolocated_items_batch',
       fields,
       params,
-      ProductCatalog,
+      null,
       pathOverride,
     );
   }

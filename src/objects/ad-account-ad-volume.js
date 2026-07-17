@@ -169,6 +169,7 @@ export default class AdAccountAdVolume extends AbstractCrudObject {
       capi_penetration: 'CAPI_PENETRATION',
       capi_performance_match_key: 'CAPI_PERFORMANCE_MATCH_KEY',
       capi_performance_match_key_v2: 'CAPI_PERFORMANCE_MATCH_KEY_V2',
+      capi_performance_match_key_v3: 'CAPI_PERFORMANCE_MATCH_KEY_V3',
       cash_rewards_opt_in: 'CASH_REWARDS_OPT_IN',
       catalog_dynamic_media: 'CATALOG_DYNAMIC_MEDIA',
       catalog_match_rate: 'CATALOG_MATCH_RATE',
