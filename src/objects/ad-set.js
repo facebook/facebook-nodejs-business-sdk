@@ -36,6 +36,7 @@ export default class AdSet extends AbstractCrudObject {
       ad_set_goal: 'ad_set_goal',
       adlabels: 'adlabels',
       adset_schedule: 'adset_schedule',
+      anchor_event_attribution_window_days: 'anchor_event_attribution_window_days',
       asset_feed_id: 'asset_feed_id',
       attribution_count_type: 'attribution_count_type',
       attribution_spec: 'attribution_spec',

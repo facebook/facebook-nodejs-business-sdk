@@ -11,11 +11,11 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
+import User from './user';
 import Album from './album';
 import Event from './event';
 import Post from './post';
 import LiveVideo from './live-video';
-import User from './user';
 import Photo from './photo';
 import ProfilePictureSource from './profile-picture-source';
 import AdVideo from './ad-video';
@@ -138,12 +138,12 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  createAdmin (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Group> {
+  createAdmin (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<User> {
     return this.createEdge(
       '/admins',
       fields,
       params,
-      Group,
+      User,
       pathOverride,
     );
   }
@@ -255,12 +255,12 @@ export default class Group extends AbstractCrudObject {
     );
   }
 
-  createMember (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<Group> {
+  createMember (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<User> {
     return this.createEdge(
       '/members',
       fields,
       params,
-      Group,
+      User,
       pathOverride,
     );
   }

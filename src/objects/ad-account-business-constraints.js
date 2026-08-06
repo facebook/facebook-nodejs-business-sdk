@@ -22,6 +22,7 @@ export default class AdAccountBusinessConstraints extends AbstractCrudObject {
       campaigns_with_error: 'campaigns_with_error',
       is_age_restriction_enabled: 'is_age_restriction_enabled',
       placement_controls: 'placement_controls',
+      placement_controls_per_objective: 'placement_controls_per_objective',
       status: 'status',
     });
   }

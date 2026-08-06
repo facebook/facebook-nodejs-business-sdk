@@ -64,8 +64,9 @@ export { default as AdAccountDefaultDestination } from './../src/objects/ad-acco
 export { default as AdAccountDefaultObjective } from './../src/objects/ad-account-default-objective';
 export { default as AdAccountDeliveryEstimate } from './../src/objects/ad-account-delivery-estimate';
 export { default as AdAccountDsaRecommendations } from './../src/objects/ad-account-dsa-recommendations';
-export { default as AdAccountFeaturePreferences } from './../src/objects/ad-account-feature-preferences';
-export { default as AdAccountFeaturePreferencesPost } from './../src/objects/ad-account-feature-preferences-post';
+export { default as AdAccountInsightsFeatureSettings } from './../src/objects/ad-account-insights-feature-settings';
+export { default as AdAccountInsightsFeatureSettingsListFeatures } from './../src/objects/ad-account-insights-feature-settings-list-features';
+export { default as AdAccountInsightsFeatureSettingsPost } from './../src/objects/ad-account-insights-feature-settings-post';
 export { default as AdAccountIosFourteenCampaignLimits } from './../src/objects/ad-account-ios-fourteen-campaign-limits';
 export { default as AdAccountLiveVideoAdvertiser } from './../src/objects/ad-account-live-video-advertiser';
 export { default as AdAccountMarketingMessagesSettings } from './../src/objects/ad-account-marketing-messages-settings';

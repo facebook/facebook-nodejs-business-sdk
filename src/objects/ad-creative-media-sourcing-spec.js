@@ -20,6 +20,7 @@ export default class AdCreativeMediaSourcingSpec extends AbstractCrudObject {
     return Object.freeze({
       bodies: 'bodies',
       descriptions: 'descriptions',
+      destinations: 'destinations',
       images: 'images',
       push_metadata_ids: 'push_metadata_ids',
       related_media: 'related_media',

@@ -573,6 +573,8 @@ export default class IGUserExportForCAM extends AbstractCrudObject {
   }
   static get Platform (): Object {
     return Object.freeze({
+      any: 'any',
+      both: 'both',
       facebook: 'facebook',
       instagram: 'instagram',
     });

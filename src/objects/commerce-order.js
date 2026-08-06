@@ -9,8 +9,6 @@
  */
 
 import {AbstractCrudObject} from './../abstract-crud-object';
-import AbstractObject from './../abstract-object';
-import Cursor from './../cursor';
 
 /**
  * CommerceOrder
@@ -54,56 +52,6 @@ export default class CommerceOrder extends AbstractCrudObject {
       fb_processing: 'FB_PROCESSING',
       in_progress: 'IN_PROGRESS',
     });
-  }
-
-  getCancellations (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/cancellations'
-    );
-  }
-
-  getItems (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/items'
-    );
-  }
-
-  getPayments (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/payments'
-    );
-  }
-
-  getRefunds (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/refunds'
-    );
-  }
-
-  getShipments (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/shipments'
-    );
   }
 
   createShipment (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<CommerceOrder> {

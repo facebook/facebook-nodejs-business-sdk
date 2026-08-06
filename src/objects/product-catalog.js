@@ -126,11 +126,6 @@ export default class ProductCatalog extends AbstractCrudObject {
       manage_ar: 'MANAGE_AR',
     });
   }
-  static get Standard (): Object {
-    return Object.freeze({
-      google: 'google',
-    });
-  }
   static get ItemSubType (): Object {
     return Object.freeze({
       appliances: 'APPLIANCES',
@@ -175,6 +170,11 @@ export default class ProductCatalog extends AbstractCrudObject {
       purchase_via_offer: 'PURCHASE_VIA_OFFER',
       test: 'TEST',
       view_item: 'VIEW_ITEM',
+    });
+  }
+  static get Standard (): Object {
+    return Object.freeze({
+      google: 'google',
     });
   }
 
@@ -469,12 +469,12 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  createHotelRoomsBatch (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<ProductCatalog> {
+  createHotelRoomsBatch (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<ProductCatalogHotelRoomsBatch> {
     return this.createEdge(
       '/hotel_rooms_batch',
       fields,
       params,
-      ProductCatalog,
+      ProductCatalogHotelRoomsBatch,
       pathOverride,
     );
   }

@@ -18,8 +18,6 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 export default class AdAccountDeliveryEstimate extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      daily_outcomes_curve: 'daily_outcomes_curve',
-      estimate_dau: 'estimate_dau',
       estimate_mau_lower_bound: 'estimate_mau_lower_bound',
       estimate_mau_upper_bound: 'estimate_mau_upper_bound',
       estimate_ready: 'estimate_ready',

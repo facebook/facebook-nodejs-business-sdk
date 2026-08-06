@@ -11,11 +11,11 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * AdAccountFeaturePreferencesPost
+ * AdAccountInsightsFeatureSettingsPost
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class AdAccountFeaturePreferencesPost extends AbstractCrudObject {
+export default class AdAccountInsightsFeatureSettingsPost extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       id: 'id',

@@ -245,6 +245,7 @@ export default class AdAccount extends AbstractCrudObject {
       feed_dnm: 'FEED_DNM',
       feed_nested_dnm: 'FEED_NESTED_DNM',
       feed_relaxed: 'FEED_RELAXED',
+      feed_select: 'FEED_SELECT',
       feed_standard: 'FEED_STANDARD',
       feed_strict: 'FEED_STRICT',
       uninitialized: 'UNINITIALIZED',

@@ -50,6 +50,7 @@ export default class CPASCollaborationRequest extends AbstractCrudObject {
       external: 'EXTERNAL',
       internal: 'INTERNAL',
       self_serve: 'SELF_SERVE',
+      self_serve_contact_form: 'SELF_SERVE_CONTACT_FORM',
     });
   }
 

@@ -19,6 +19,9 @@ export default class BrandSafetyCampaignConfig extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
       comment_moderation_filter: 'comment_moderation_filter',
+      fb_comment_moderation_filter: 'fb_comment_moderation_filter',
+      ig_comment_moderation_filter: 'ig_comment_moderation_filter',
+      threads_comment_moderation_filter: 'threads_comment_moderation_filter',
     });
   }
 

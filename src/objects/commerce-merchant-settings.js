@@ -90,16 +90,6 @@ export default class CommerceMerchantSettings extends AbstractCrudObject {
     );
   }
 
-  getReturns (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/returns'
-    );
-  }
-
   getSetupStatus (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       CommerceMerchantSettingsSetupStatus,
@@ -127,16 +117,6 @@ export default class CommerceMerchantSettings extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/shops'
-    );
-  }
-
-  getTaxSettings (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AbstractObject,
-      fields,
-      params,
-      fetchFirstPage,
-      '/tax_settings'
     );
   }
 
