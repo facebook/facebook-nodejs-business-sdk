@@ -278,6 +278,52 @@ export class AbstractCrudObject extends AbstractObject {
   }
 
   /**
+   * Put edge object
+   * @param   {String}  [endpoint]
+   * @param   {Array}  [fields]
+   * @param   {Object}  [params]
+   * @param   {Function} [targetClassConstructor]
+   * @param   {String}  [pathOverride]
+   * @param   {String}  [basePath]
+   * @return  {Promise}
+   */
+  putEdge(
+    endpoint: string,
+    fields: Array<string>,
+    params: Object = {},
+    targetClassConstructor: Function = null,
+    pathOverride?: ?string = null,
+    basePath: ?string = null,
+  ): Promise<*> {
+    if (fields && fields.length > 0) {
+      params['fields'] = fields.join(',');
+    }
+    const api = this.getApi();
+    let path;
+    if (pathOverride != null) {
+      path = pathOverride;
+    } else if (basePath != null) {
+      path = [Utils.removePreceedingSlash(basePath), this.getNodePath()];
+    } else {
+      path = [this.getNodePath(), Utils.removePreceedingSlash(endpoint)];
+    }
+    params = Object.assign(params, this.exportData());
+    return new Promise((resolve, reject) => {
+      api
+        .call('PUT', path, params)
+        .then(data => {
+          resolve(
+            /* eslint new-cap: "off" */
+            targetClassConstructor === null
+              ? this.setData(data)
+              : new targetClassConstructor(data.id, data),
+          );
+        })
+        .catch(reject);
+    });
+  }
+
+  /**
    * Delete edge object
    * @param   {String}  [endpoint]
    * @param   {Object}  [params]
