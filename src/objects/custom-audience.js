@@ -159,6 +159,7 @@ export default class CustomAudience extends AbstractCrudObject {
     return Object.freeze({
       exclusion_only: 'EXCLUSION_ONLY',
       none: 'NONE',
+      no_derivatives: 'NO_DERIVATIVES',
     });
   }
   static get UseForProducts (): Object {

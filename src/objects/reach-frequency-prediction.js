@@ -30,6 +30,7 @@ export default class ReachFrequencyPrediction extends AbstractCrudObject {
       campaign_id: 'campaign_id',
       campaign_time_start: 'campaign_time_start',
       campaign_time_stop: 'campaign_time_stop',
+      cpm: 'cpm',
       currency: 'currency',
       curve_budget_reach: 'curve_budget_reach',
       curve_reach: 'curve_reach',

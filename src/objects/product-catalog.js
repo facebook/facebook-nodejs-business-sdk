@@ -719,12 +719,12 @@ export default class ProductCatalog extends AbstractCrudObject {
     );
   }
 
-  createVersionItemsBatch (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<ProductCatalog> {
+  createVersionItemsBatch (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<AbstractObject> {
     return this.createEdge(
       '/version_items_batch',
       fields,
       params,
-      ProductCatalog,
+      null,
       pathOverride,
     );
   }

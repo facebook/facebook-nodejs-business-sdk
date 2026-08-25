@@ -20,6 +20,7 @@ export default class ReachFrequencyEstimatesCurve extends AbstractCrudObject {
     return Object.freeze({
       budget: 'budget',
       conversion: 'conversion',
+      cpm: 'cpm',
       impression: 'impression',
       interpolated_reach: 'interpolated_reach',
       num_points: 'num_points',

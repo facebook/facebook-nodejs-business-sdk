@@ -330,6 +330,7 @@ export default class Page extends AbstractCrudObject {
       iptc: 'IPTC',
       iptc_metadata_edited: 'IPTC_METADATA_EDITED',
       none: 'NONE',
+      paigm_classifier: 'PAIGM_CLASSIFIER',
     });
   }
   static get PickupOptions (): Object {

@@ -156,6 +156,7 @@ export default class ProductFeed extends AbstractCrudObject {
   static get UseCase (): Object {
     return Object.freeze({
       creator_asset: 'CREATOR_ASSET',
+      open_catalog_ucp: 'OPEN_CATALOG_UCP',
     });
   }
 

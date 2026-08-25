@@ -31,6 +31,7 @@ export default class AdPromotedObject extends AbstractCrudObject {
       full_funnel_objective: 'full_funnel_objective',
       fundraiser_campaign_id: 'fundraiser_campaign_id',
       instagram_actor_id: 'instagram_actor_id',
+      is_catalog_user_acknowledged: 'is_catalog_user_acknowledged',
       job_listing_id: 'job_listing_id',
       lead_ads_custom_event_str: 'lead_ads_custom_event_str',
       lead_ads_custom_event_type: 'lead_ads_custom_event_type',

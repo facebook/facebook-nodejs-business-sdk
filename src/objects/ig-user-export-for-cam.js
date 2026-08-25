@@ -23,6 +23,7 @@ export default class IGUserExportForCAM extends AbstractCrudObject {
       age_bucket: 'age_bucket',
       badges: 'badges',
       biography: 'biography',
+      category: 'category',
       country: 'country',
       email: 'email',
       gender: 'gender',
@@ -582,6 +583,7 @@ export default class IGUserExportForCAM extends AbstractCrudObject {
   static get RecommendationType (): Object {
     return Object.freeze({
       high_ad_performance: 'high_ad_performance',
+      interested_in_collaboration: 'interested_in_collaboration',
       most_ads_experience: 'most_ads_experience',
       most_relevant_for_me: 'most_relevant_for_me',
       similar_audience: 'similar_audience',

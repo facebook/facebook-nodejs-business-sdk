@@ -11,16 +11,15 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * PageAboutStoryComposedBlockInlineStyle
+ * AdsSubscriptionGet
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class PageAboutStoryComposedBlockInlineStyle extends AbstractCrudObject {
+export default class AdsSubscriptionGet extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      length: 'length',
-      offset: 'offset',
-      style: 'style',
+      data: 'data',
+      paging: 'paging',
     });
   }
 

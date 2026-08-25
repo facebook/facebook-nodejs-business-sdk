@@ -99,6 +99,7 @@ export default class AdCreativeFeaturesSpec extends AbstractCrudObject {
       video_to_image: 'video_to_image',
       video_uncrop: 'video_uncrop',
       video_uncrop_9x16_to_9x18: 'video_uncrop_9x16_to_9x18',
+      video_voiceover: 'video_voiceover',
       wa_mm_image_filtering: 'wa_mm_image_filtering',
       wa_mm_text_truncation_length: 'wa_mm_text_truncation_length',
     });

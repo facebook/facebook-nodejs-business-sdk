@@ -75,6 +75,43 @@ export default class AdAccountTargetingUnified extends AbstractCrudObject {
       work_positions: 'work_positions',
     });
   }
+  static get OptimizationGoal (): Object {
+    return Object.freeze({
+      advertiser_siloed_value: 'ADVERTISER_SILOED_VALUE',
+      ad_recall_lift: 'AD_RECALL_LIFT',
+      app_installs: 'APP_INSTALLS',
+      app_installs_and_offsite_conversions: 'APP_INSTALLS_AND_OFFSITE_CONVERSIONS',
+      automatic_objective: 'AUTOMATIC_OBJECTIVE',
+      conversations: 'CONVERSATIONS',
+      derived_events: 'DERIVED_EVENTS',
+      engaged_page_views: 'ENGAGED_PAGE_VIEWS',
+      engaged_users: 'ENGAGED_USERS',
+      event_responses: 'EVENT_RESPONSES',
+      impressions: 'IMPRESSIONS',
+      in_app_value: 'IN_APP_VALUE',
+      landing_page_views: 'LANDING_PAGE_VIEWS',
+      lead_generation: 'LEAD_GENERATION',
+      link_clicks: 'LINK_CLICKS',
+      meaningful_call_attempt: 'MEANINGFUL_CALL_ATTEMPT',
+      messaging_appointment_conversion: 'MESSAGING_APPOINTMENT_CONVERSION',
+      messaging_deep_conversation_and_follow: 'MESSAGING_DEEP_CONVERSATION_AND_FOLLOW',
+      messaging_purchase_conversion: 'MESSAGING_PURCHASE_CONVERSION',
+      none: 'NONE',
+      offsite_conversions: 'OFFSITE_CONVERSIONS',
+      page_likes: 'PAGE_LIKES',
+      post_engagement: 'POST_ENGAGEMENT',
+      profile_and_page_engagement: 'PROFILE_AND_PAGE_ENGAGEMENT',
+      profile_visit: 'PROFILE_VISIT',
+      quality_call: 'QUALITY_CALL',
+      quality_lead: 'QUALITY_LEAD',
+      reach: 'REACH',
+      reminders_set: 'REMINDERS_SET',
+      subscribers: 'SUBSCRIBERS',
+      thruplay: 'THRUPLAY',
+      value: 'VALUE',
+      visit_instagram_profile: 'VISIT_INSTAGRAM_PROFILE',
+    });
+  }
   static get RegulatedCategories (): Object {
     return Object.freeze({
       credit: 'CREDIT',

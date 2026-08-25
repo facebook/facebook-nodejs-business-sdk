@@ -9,19 +9,25 @@
  */
 
 import {AbstractCrudObject} from './../abstract-crud-object';
+import ProductCatalogMediaTitleDelete from './product-catalog-media-title-delete';
 
 /**
- * PageAboutStoryComposedBlockEntityRanges
+ * ProductCatalogMediaTitle
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class PageAboutStoryComposedBlockEntityRanges extends AbstractCrudObject {
+export default class ProductCatalogMediaTitle extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      key: 'key',
-      length: 'length',
-      offset: 'offset',
+      id: 'id',
     });
   }
 
+
+  gendelete (params: Object = {}): Promise<*> {
+    return super.deleteEdge(
+      '/',
+      params
+    );
+  }
 }

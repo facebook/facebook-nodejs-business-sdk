@@ -210,38 +210,6 @@ export default class AdSet extends AbstractCrudObject {
       paused: 'PAUSED',
     });
   }
-  static get AttributionCountType (): Object {
-    return Object.freeze({
-      all_conversions: 'ALL_CONVERSIONS',
-      first_conversion: 'FIRST_CONVERSION',
-    });
-  }
-  static get AutomaticManualState (): Object {
-    return Object.freeze({
-      automatic: 'AUTOMATIC',
-      manual: 'MANUAL',
-      unset: 'UNSET',
-    });
-  }
-  static get BudgetSource (): Object {
-    return Object.freeze({
-      none: 'NONE',
-      rmn: 'RMN',
-    });
-  }
-  static get CostBiddingMode (): Object {
-    return Object.freeze({
-      balanced: 'BALANCED',
-      cost_focused: 'COST_FOCUSED',
-      volume_focused: 'VOLUME_FOCUSED',
-    });
-  }
-  static get CreativeSequenceRepetitionPattern (): Object {
-    return Object.freeze({
-      full_sequence: 'FULL_SEQUENCE',
-      last_ad: 'LAST_AD',
-    });
-  }
   static get DatePreset (): Object {
     return Object.freeze({
       data_maximum: 'DATA_MAXIMUM',
@@ -264,6 +232,32 @@ export default class AdSet extends AbstractCrudObject {
       this_year: 'THIS_YEAR',
       today: 'TODAY',
       yesterday: 'YESTERDAY',
+    });
+  }
+  static get Operator (): Object {
+    return Object.freeze({
+      all: 'ALL',
+      any: 'ANY',
+    });
+  }
+  static get AutomaticManualState (): Object {
+    return Object.freeze({
+      automatic: 'AUTOMATIC',
+      manual: 'MANUAL',
+      unset: 'UNSET',
+    });
+  }
+  static get CostBiddingMode (): Object {
+    return Object.freeze({
+      balanced: 'BALANCED',
+      cost_focused: 'COST_FOCUSED',
+      volume_focused: 'VOLUME_FOCUSED',
+    });
+  }
+  static get CreativeSequenceRepetitionPattern (): Object {
+    return Object.freeze({
+      full_sequence: 'FULL_SEQUENCE',
+      last_ad: 'LAST_AD',
     });
   }
   static get DestinationType (): Object {
@@ -354,6 +348,7 @@ export default class AdSet extends AbstractCrudObject {
       value_20: '20',
       value_21: '21',
       value_22: '22',
+      value_24: '24',
     });
   }
   static get TuneForCategory (): Object {
@@ -365,12 +360,6 @@ export default class AdSet extends AbstractCrudObject {
       issues_elections_politics: 'ISSUES_ELECTIONS_POLITICS',
       none: 'NONE',
       online_gambling_and_gaming: 'ONLINE_GAMBLING_AND_GAMING',
-    });
-  }
-  static get Operator (): Object {
-    return Object.freeze({
-      all: 'ALL',
-      any: 'ANY',
     });
   }
   static get StatusOption (): Object {

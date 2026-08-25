@@ -20,6 +20,7 @@ export default class PartnershipAdContentSearchMedia extends AbstractCrudObject 
     return Object.freeze({
       fb_ad_code_sponsor_count: 'fb_ad_code_sponsor_count',
       fb_ad_code_sponsors: 'fb_ad_code_sponsors',
+      fb_affiliate_shortened_url: 'fb_affiliate_shortened_url',
       ig_ad_code_sponsor_count: 'ig_ad_code_sponsor_count',
       ig_ad_code_sponsors: 'ig_ad_code_sponsors',
       ig_media: 'ig_media',
