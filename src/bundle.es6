@@ -12,6 +12,7 @@ export { default as AbstractCrudObject } from './abstract-crud-object';
 export { default as APIRequest } from './../src/api-request';
 export { default as APIResponse } from './../src/api-response';
 export { default as CrashReporter } from './../src/crash-reporter';
+export { FacebookRequestError } from "./../src/exceptions";
 export { default as Content } from './../src/objects/serverside/content';
 export { default as CustomData } from './../src/objects/serverside/custom-data';
 export { default as EventRequest } from './../src/objects/serverside/event-request';
