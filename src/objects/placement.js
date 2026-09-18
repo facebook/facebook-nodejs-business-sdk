@@ -27,6 +27,7 @@ export default class Placement extends AbstractCrudObject {
       effective_messenger_positions: 'effective_messenger_positions',
       effective_oculus_positions: 'effective_oculus_positions',
       effective_publisher_platforms: 'effective_publisher_platforms',
+      effective_streaming_services_positions: 'effective_streaming_services_positions',
       effective_threads_positions: 'effective_threads_positions',
       effective_whatsapp_positions: 'effective_whatsapp_positions',
       facebook_positions: 'facebook_positions',
@@ -34,6 +35,7 @@ export default class Placement extends AbstractCrudObject {
       messenger_positions: 'messenger_positions',
       oculus_positions: 'oculus_positions',
       publisher_platforms: 'publisher_platforms',
+      streaming_services_positions: 'streaming_services_positions',
       threads_positions: 'threads_positions',
       whatsapp_positions: 'whatsapp_positions',
     });

@@ -9,8 +9,7 @@
  */
 
 import {AbstractCrudObject} from './../abstract-crud-object';
-import Cursor from './../cursor';
-import ProductCatalogProductSetsGet from './product-catalog-product-sets-get';
+import ProductCatalogProductSetsPost from './product-catalog-product-sets-post';
 
 /**
  * ProductCatalogProductSets
@@ -25,13 +24,13 @@ export default class ProductCatalogProductSets extends AbstractCrudObject {
   }
 
 
-  genget (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      ProductCatalogProductSetsGet,
+  genpost (fields: Array<string>, params: Object = {}, pathOverride?: ?string = null): Promise<ProductCatalogProductSetsPost> {
+    return this.createEdge(
+      '/product_sets',
       fields,
       params,
-      fetchFirstPage,
-      '/product_sets'
+      ProductCatalogProductSetsPost,
+      pathOverride,
     );
   }
 }

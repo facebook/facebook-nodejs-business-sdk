@@ -24,6 +24,7 @@ export default class AdLimitsEnforcementData extends AbstractCrudObject {
       ad_volume_on_scope: 'ad_volume_on_scope',
       is_admin: 'is_admin',
       page_name: 'page_name',
+      show_page_limit_removed_notice: 'show_page_limit_removed_notice',
     });
   }
 

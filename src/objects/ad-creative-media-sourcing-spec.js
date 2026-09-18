@@ -22,6 +22,7 @@ export default class AdCreativeMediaSourcingSpec extends AbstractCrudObject {
       descriptions: 'descriptions',
       destinations: 'destinations',
       images: 'images',
+      posts: 'posts',
       push_metadata_ids: 'push_metadata_ids',
       related_media: 'related_media',
       titles: 'titles',

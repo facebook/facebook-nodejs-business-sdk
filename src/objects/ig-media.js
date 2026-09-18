@@ -37,11 +37,20 @@ export default class IGMedia extends AbstractCrudObject {
       has_slider: 'has_slider',
       id: 'id',
       ig_id: 'ig_id',
+      ingest_first_video_received_time: 'ingest_first_video_received_time',
+      ingest_is_ready_to_start: 'ingest_is_ready_to_start',
+      ingest_key: 'ingest_key',
+      ingest_last_heartbeat_time: 'ingest_last_heartbeat_time',
+      ingest_state: 'ingest_state',
+      ingest_url: 'ingest_url',
+      ingest_video_height: 'ingest_video_height',
+      ingest_video_width: 'ingest_video_width',
       is_ai_generated: 'is_ai_generated',
       is_comment_enabled: 'is_comment_enabled',
       is_shared_to_feed: 'is_shared_to_feed',
       legacy_instagram_media_id: 'legacy_instagram_media_id',
       like_count: 'like_count',
+      live_status: 'live_status',
       media_audio_type: 'media_audio_type',
       media_product_type: 'media_product_type',
       media_type: 'media_type',
@@ -63,6 +72,12 @@ export default class IGMedia extends AbstractCrudObject {
     });
   }
 
+  static get Status (): Object {
+    return Object.freeze({
+      ended: 'ENDED',
+      started: 'STARTED',
+    });
+  }
 
   getBoostAdsList (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(

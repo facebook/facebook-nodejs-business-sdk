@@ -94,6 +94,7 @@ export default class ReachFrequencyPrediction extends AbstractCrudObject {
       plan_type: 'plan_type',
       prediction_mode: 'prediction_mode',
       prediction_progress: 'prediction_progress',
+      product_type: 'product_type',
       reference_id: 'reference_id',
       reservation_status: 'reservation_status',
       start_time: 'start_time',
@@ -148,6 +149,14 @@ export default class ReachFrequencyPrediction extends AbstractCrudObject {
       regular_tv_movies: 'REGULAR_TV_MOVIES',
       spanish: 'SPANISH',
       sports: 'SPORTS',
+    });
+  }
+  static get ProductType (): Object {
+    return Object.freeze({
+      ads_burst: 'ADS_BURST',
+      ads_super_burst: 'ADS_SUPER_BURST',
+      reels_trending_ads: 'REELS_TRENDING_ADS',
+      standard: 'STANDARD',
     });
   }
 

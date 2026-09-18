@@ -30,6 +30,7 @@ export default class IGUserExportForCAM extends AbstractCrudObject {
       has_brand_partnership_experience: 'has_brand_partnership_experience',
       id: 'id',
       is_account_verified: 'is_account_verified',
+      is_brand_following_creator: 'is_brand_following_creator',
       is_creator_following_brand: 'is_creator_following_brand',
       is_paid_partnership_messages_enabled: 'is_paid_partnership_messages_enabled',
       messaging_id: 'messaging_id',

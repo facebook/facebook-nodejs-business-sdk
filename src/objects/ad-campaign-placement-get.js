@@ -115,6 +115,7 @@ export default class AdCampaignPlacementGet extends AbstractCrudObject {
       instagram: 'INSTAGRAM',
       messenger: 'MESSENGER',
       oculus: 'OCULUS',
+      streaming_services: 'STREAMING_SERVICES',
       threads: 'THREADS',
       whatsapp: 'WHATSAPP',
     });

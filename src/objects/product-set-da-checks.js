@@ -9,22 +9,29 @@
  */
 
 import {AbstractCrudObject} from './../abstract-crud-object';
+import Cursor from './../cursor';
+import ProductSetDAChecksGet from './product-set-da-checks-get';
 
 /**
- * ProductSetPost
+ * ProductSetDAChecks
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class ProductSetPost extends AbstractCrudObject {
+export default class ProductSetDAChecks extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      filter: 'filter',
       id: 'id',
-      name: 'name',
-      parent_id: 'parent_id',
-      product_count: 'product_count',
-      retailer_id: 'retailer_id',
     });
   }
 
+
+  genget (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      ProductSetDAChecksGet,
+      fields,
+      params,
+      fetchFirstPage,
+      '/da_checks'
+    );
+  }
 }

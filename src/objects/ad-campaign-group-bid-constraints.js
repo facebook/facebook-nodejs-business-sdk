@@ -11,14 +11,15 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * ProductItemPost
+ * AdCampaignGroupBidConstraints
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class ProductItemPost extends AbstractCrudObject {
+export default class AdCampaignGroupBidConstraints extends AbstractCrudObject {
   static get Fields (): Object {
     return Object.freeze({
-      success: 'success',
+      cpa_average_target: 'cpa_average_target',
+      roas_average_floor: 'roas_average_floor',
     });
   }
 

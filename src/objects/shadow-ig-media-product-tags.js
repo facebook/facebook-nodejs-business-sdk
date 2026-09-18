@@ -24,6 +24,7 @@ export default class ShadowIGMediaProductTags extends AbstractCrudObject {
       name: 'name',
       price_string: 'price_string',
       product_id: 'product_id',
+      product_url: 'product_url',
       review_status: 'review_status',
       stripped_price_string: 'stripped_price_string',
       stripped_sale_price_string: 'stripped_sale_price_string',

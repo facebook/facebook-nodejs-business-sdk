@@ -54,7 +54,6 @@ export default class AdSet extends AbstractCrudObject {
       campaign_attribution: 'campaign_attribution',
       campaign_id: 'campaign_id',
       configured_status: 'configured_status',
-      cost_bidding_mode: 'cost_bidding_mode',
       created_time: 'created_time',
       creative_diversity_label: 'creative_diversity_label',
       creative_diversity_score: 'creative_diversity_score',
@@ -247,13 +246,6 @@ export default class AdSet extends AbstractCrudObject {
       unset: 'UNSET',
     });
   }
-  static get CostBiddingMode (): Object {
-    return Object.freeze({
-      balanced: 'BALANCED',
-      cost_focused: 'COST_FOCUSED',
-      volume_focused: 'VOLUME_FOCUSED',
-    });
-  }
   static get CreativeSequenceRepetitionPattern (): Object {
     return Object.freeze({
       full_sequence: 'FULL_SEQUENCE',
@@ -349,6 +341,7 @@ export default class AdSet extends AbstractCrudObject {
       value_21: '21',
       value_22: '22',
       value_24: '24',
+      value_25: '25',
     });
   }
   static get TuneForCategory (): Object {
