@@ -232,6 +232,29 @@ export class AbstractCrudObject extends AbstractObject {
   }
 
   /**
+   * Read edge response headers
+   * @param   {String}  [endpoint]
+   * @param   {Array}   [fields]
+   * @param   {Object}  [params]
+   * @param   {String}  [basePath]
+   * @return  {Promise}
+   */
+  headEdge(
+    endpoint: string,
+    fields: Array<string>,
+    params: Object = {},
+    basePath: ?string = null,
+  ): Promise<*> {
+    if (fields && fields.length > 0) {
+      params['fields'] = fields.join(',');
+    }
+    const path = basePath != null
+      ? [Utils.removePreceedingSlash(basePath), this.getNodePath()]
+      : [this.getNodePath(), Utils.removePreceedingSlash(endpoint)];
+    return this.getApi().call('HEAD', path, params);
+  }
+
+  /**
    * Create edge object
    * @param   {String}  [endpoint]
    * @param   {Array}  [fields]
